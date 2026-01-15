@@ -1,0 +1,61 @@
+political_actions = {
+
+	BEL_Congo_independent = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = BEL
+		}
+
+		cost = 120
+
+		visible = {
+			295 = { is_controlled_by = BEL }
+			date > 1954.12.1
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1960.4.1
+			}
+		}
+		complete_effect = {
+			news_event = { id = cog.104 }
+			release_on_controlled = COG
+			set_autonomy = {
+				target = COG
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.4
+			}
+			COG = { load_oob = "COG_1960" }
+		}
+	}
+
+	COG_belgium_out = {
+
+		icon = generic_research
+		fire_only_once = yes
+		allowed = {
+			always = yes
+		}
+
+		cost = 20
+
+		visible = {
+			tag = COG
+			has_idea = Belgium_puppet
+			is_subject = no
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			BEL = { country_event = { id = cog.3 } }
+		}
+	}
+}

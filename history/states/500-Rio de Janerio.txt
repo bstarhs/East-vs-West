@@ -1,0 +1,53 @@
+
+state={
+	id=500
+	name="STATE_500"
+	manpower = 6665500
+	
+	state_category = large_city
+	
+	history={
+		set_state_flag = ethnics_Brazilian
+			add_to_variable = { state_tourist = 20 }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = coffee_production
+		add_to_array = { this.state_ethnics_list = 40 }
+		owner = BRA
+		set_state_flag = banana_production
+		add_core_of = BRA
+		
+		buildings = {
+			farm_building = 2
+			hospital = 2
+			school = 2
+			power_plant = 3
+			infrastructure = 6
+			arms_factory = 3
+			steel_making = 1
+			industrial_complex = 5
+			dockyard = 2
+			rubber_factory = 1
+			air_base = 7
+			10980 = {
+				naval_base = 7
+			}
+			5112 = {
+				naval_base = 4
+			}
+		}
+		victory_points = {
+			10980 15 
+		}
+		victory_points = {
+			10432 6
+		}
+		victory_points = {
+			5112 5
+		}
+	}
+
+	provinces={
+		5112 5167 5172 7553 8190 8226 10432 10980 12334 12996 
+	}
+}

@@ -1,0 +1,312 @@
+﻿add_namespace = lle
+#立陶宛独立战争
+country_event = {
+	id = lle.1
+	title = lle.1.t
+	desc = lle.1.d
+	picture = GFX_LithuaniaIdependent
+	mean_time_to_happen = { days = 200 }
+	trigger = {	
+		tag = SOV
+		communism < 0.2
+		has_stability < 0.2
+	}
+	option = {
+		name = lle.3.a
+		LIT = {
+			transfer_state = 189
+			transfer_state = 11
+			set_politics = { ruling_party = democratic }
+		}
+		SOV = {
+			declare_war_on = { target = LIT type = annex_everything }
+		}
+	}
+}
+#拉脱维亚独立
+country_event = {
+	id = lle.2
+	title = lle.2.t
+	desc = lle.2.d
+	picture = GFX_LithuaniaIdependent
+	mean_time_to_happen = { days = 200 }
+	trigger = {	
+		tag = SOV
+		communism < 0.2
+		has_stability < 0.2
+	}
+	option = {
+		name = lle.3.a
+		LAT = {
+			transfer_state = 190
+			transfer_state = 12
+			set_politics = { ruling_party = democratic }
+		}
+		SOV = {
+			declare_war_on = { target = LAT type = annex_everything }
+		}
+	}
+}
+#爱沙尼亚独立
+country_event = {
+	id = lle.3
+	title = lle.3.t
+	desc = lle.3.d
+	picture = GFX_LithuaniaIdependent
+	mean_time_to_happen = { days = 200 }
+	immediate = {
+		play_song = LIT_3
+	}
+	trigger = {	
+		tag = SOV
+		communism < 0.2
+		has_stability < 0.2
+	}
+	option = {
+		name = lle.3.a
+		EST = {
+			transfer_state = 13
+			transfer_state = 191
+			set_politics = { ruling_party = democratic }
+		}
+		SOV = {
+			declare_war_on = { target = EST type = annex_everything }
+		}
+	}
+}
+#波罗的海之路
+news_event = {
+	id = lle.4
+	title = lle.4.t
+	desc = lle.4.d
+	picture = GFX_LithuaniaIdependent
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		date > 1989.8.8
+		date < 1991.8.8
+		SOV = { 
+			has_idea = New_idea
+		}
+		NOT = { has_global_flag = BalticWay }
+		OR = {
+			POL = { has_government = democratic }
+			HUN = { has_government = democratic }
+			CZE = { has_government = democratic }
+		}
+	}
+	immediate = {
+		play_song = LIT_1
+	}
+	option = {
+		name = lle.3.a
+		if = {
+			limit = {
+			tag = SOV
+			NOT = { has_global_flag = BalticWay }
+			}
+		set_global_flag = BalticWay
+			add_popularity = {
+			ideology = democratic
+			popularity = 0.15
+			}
+			add_stability = -0.1
+		}
+		
+	}
+}
+#波罗的海暴动
+news_event = {
+	id = lle.5
+	title = lle.5.t
+	desc = lle.5.d
+	picture = GFX_LithuaniaRiot
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = SOV
+		date > 1990.1.1
+		has_global_flag = BalticWay
+		13 = { is_controlled_by = SOV }
+		12 = { is_controlled_by = SOV }
+		11 = { is_controlled_by = SOV }
+		OR = {
+			has_stability < 0.2
+			democratic > 0.4
+		}
+	}
+	option = {
+		name = lle.5.a
+		news_event = { id = lle.7 }
+			EST = {
+				transfer_state = 13
+				transfer_state = 191
+				set_politics = { ruling_party = democratic }
+				load_oob = "EST"
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+			LAT = {
+				transfer_state = 12
+				transfer_state = 190
+				set_politics = { ruling_party = democratic }
+				load_oob = "LAT"
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+			LIT = {
+				transfer_state = 189
+				transfer_state = 11
+				set_politics = { ruling_party = democratic }
+				load_oob = "LIT"
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+	}
+	option = {
+		name = lle.5.B
+		ai_chance = {
+			factor =100
+		}
+		news_event = { id = lle.6 }
+			EST = {
+				transfer_state = 13
+				transfer_state = 191
+				set_politics = { ruling_party = democratic }
+				load_oob = "EST"
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+			LAT = {
+				transfer_state = 12
+				transfer_state = 190
+				set_politics = { ruling_party = democratic }
+				load_oob = "LAT"
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+			LIT = {
+				transfer_state = 189
+				transfer_state = 11
+				set_politics = { ruling_party = democratic }
+				load_oob = "LIT"
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			}
+		SOV = {
+			declare_war_on = { target = EST type = annex_everything }
+			declare_war_on = { target = LAT type = annex_everything }
+			declare_war_on = { target = LIT type = annex_everything }
+		}
+	}
+}
+#镇压
+news_event = {
+	id = lle.6
+	title = lle.6.t
+	desc = lle.6.d
+	picture = GFX_LithuaniaWAR
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = LIT_3
+	}
+	option = {	#昂纳克
+		name = ddr.27.a
+	}
+}
+#服软
+news_event = {
+	id = lle.7
+	title = lle.7.t
+	desc = lle.7.d
+	picture = GFX_LithIndependent
+	is_triggered_only = yes
+	immediate = {
+		play_song = LIT_2
+	}
+	major = yes
+	option = {	#昂纳克
+		name = ddr.27.a
+	}
+}
+#森林兄弟
+news_event = {
+	id = lle.8
+	title = lle.8.t
+	desc = lle.8.d
+	picture = GFX_LithuaniaIdependent
+	mean_time_to_happen = { days = 200 }
+	trigger = {
+		tag = SOV
+		has_idea = metsavennad
+	}
+	option = {
+		name = lle.3.a
+		add_stability = -0.04
+		11 = { add_resistance = 30 }
+		12 = { add_resistance = 30 }
+		13 = { add_resistance = 30 }
+		189 = { add_resistance = 30 }
+		190 = { add_resistance = 30 }
+		191 = { add_resistance = 30 }
+	}
+}
+#森林兄弟消失
+news_event = {
+	id = lle.9
+	title = lle.9.t
+	desc = lle.9.d
+	picture = GFX_LithuaniaIdependent
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		has_idea = metsavennad
+		11 = { resistance < 20 }
+		12 = { resistance < 20 }
+		13 = { resistance < 20 }
+		has_stability > 0.7
+	}
+	option = {
+		name = lle.3.a
+		add_stability = 0.04
+		remove_ideas = metsavennad
+	}
+}

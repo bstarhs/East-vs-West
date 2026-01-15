@@ -1,0 +1,705 @@
+﻿add_namespace = fin
+#苏联提出针对芬兰的新政策
+news_event = {
+	id = fin.1
+	title = finTEXT.1.t
+	desc = fin.1.d
+	picture = GFX_KekkonenKhrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = fin.2.a
+	}
+}
+#苏联表态支持芬兰共产党
+news_event = {
+	id = fin.2
+	title = fin.2.t
+	desc = fin.2.d
+	picture = GFX_FinlandCommunist
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = fin.2.a
+		if = {
+			limit = { tag = FIN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+}
+#芬兰进行国会选举
+news_event = {
+	id = fin.3
+	title = fin.3.t
+	desc = fin.3.d
+	picture = GFX_FinlandCommunist
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = FIN
+		date > 1947.1.1
+		date < 1948.12.1
+		SOV = { has_completed_focus = SOV_ControlFinland }
+		NOT = { has_country_flag = FinElection }
+	}
+	option = {
+		name = fin.2.a
+		set_country_flag = FinElection
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+	}
+	option = {
+		name = fin.2.a
+		set_country_flag = FinElection
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+	}
+}
+#芬兰共产党赢得大选
+news_event = {
+	id = fin.4
+	title = fin.4.t
+	desc = fin.4.d
+	picture = GFX_FinlandCommunist
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = FIN
+		communism > 0.4
+		has_country_flag = FinElection
+		NOT = { has_country_flag = FinElectionEnd }
+	}
+	option = {
+		name = fin.2.a
+		if = {
+			play_song = FIN_6
+			limit = { tag = FIN }
+			set_politics = { ruling_party = communism }
+			set_country_flag = FinElectionEnd
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+	}
+}
+#芬兰国会选举结束
+news_event = {
+	id = fin.5
+	title = fin.5.t
+	desc = fin.5.d
+	picture = GFX_PaasikiviKekkonen
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = FIN
+		communism < 0.4
+		has_country_flag = FinElection
+		NOT = { has_country_flag = FinElectionEnd }
+	}
+	option = {
+		name = fin.2.a
+		if = {
+			limit = { tag = FIN }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			set_country_flag = FinElectionEnd
+			add_stability = -0.12
+		}
+	}
+}
+#《苏芬友好协议》
+country_event = {
+	id = fin.6
+	title = fin.6.t
+	desc = fin.6.d
+	picture = GFX_Treaty
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = SovFinTreaty }
+		has_completed_focus = SOV_NormalizationOfSoviet-FinnishRelations
+	}
+	option = {
+		name = fin.2.a
+		set_global_flag = SovFinTreaty
+		FIN = {
+			news_event = { id = fin.7 }
+		}
+	}
+}
+#是否接受
+country_event = {
+	id = fin.7
+	title = fin.7.t
+	desc = fin.7.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {
+		name = fin.7.a
+			ai_chance = {
+				factor = 10
+			}
+		SOV = { 
+			give_guarantee = FIN
+			add_to_variable = { influences = 20 }
+		}
+		set_country_flag = sov_arms_sell
+		news_event = { id = fin.8 }
+		give_military_access = SOV
+		add_political_power = 300
+	}
+	option = {
+		name = fin.7.b
+			ai_chance = {
+				factor = 0
+			}
+		news_event = { id = fin.9 }
+	}
+}
+#接受
+news_event = {
+	id = fin.8
+	title = fin.8.t
+	desc = fin.8.d
+	picture = GFX_KekkonenKhrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = fin.2.a
+		if = {
+			limit = { tag = FIN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+			add_ideas = Finlandization
+			add_state_claim = 146
+			remove_state_core = 146
+			add_state_claim = 722
+			remove_state_core = 722
+		}
+	}
+}
+#拒绝
+news_event = {
+	id = fin.9
+	title = fin.9.t
+	desc = fin.9.d
+	picture = GFX_PaasikiviKekkonen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = fin.2.a
+	}
+}
+#准备干涉
+news_event = {
+	id = fin.10
+	title = fin.10.t
+	desc = fin.10.d
+	picture = GFX_FinlandCommunist
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+			OR = {
+				tag = USA
+				tag = ENG
+				tag = FRA
+				tag = NOR
+				tag = SWE
+				tag = DEN
+			}
+			FIN = { has_government = communism }
+			NOT = { has_country_flag = WarningFinlandCOmmunist }
+	}
+	option = {
+		name = cze.20.b2
+		news_event = { id = fin.11 }
+		set_country_flag = WarningFinlandCOmmunist
+	}
+}
+news_event = {
+	id = fin.11
+	title = fin.11.t
+	desc = fin.11.d
+	picture = GFX_FinlandCommunist
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = FIN }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = fin.12
+	title = fin.12.t
+	desc = fin.12.d
+	picture = GFX_FinlandCommunist
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = {
+				tag = FROM
+				NOT = { tag = USA }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+}
+#芬兰共产党政变
+news_event = {
+	id = fin.14
+	title = fin.14.t
+	desc = fin.14.d
+	picture = GFX_FinlandCommunist
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = FIN
+		communism > 0.4
+		SOV = { has_completed_focus = SOV_ControlFinland }
+	}
+	option = {
+		name = fin.2.a
+		if = {
+			limit = { tag = FIN }
+			set_politics = { ruling_party = communism }
+			set_country_flag = FinElectionEnd
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+	}
+	option = {
+		name = fin.2.a
+		random_list = {
+			50 = {
+				news_event = { id = fin.15 }
+			}
+			50 = {
+				news_event = { id = fin.20 }
+			}
+		}
+	}
+}
+news_event = {
+	id = fin.15
+	title = fin.15.t
+	desc = fin.15.d
+	picture = GFX_FinlandCommunist
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = {
+				OR = {
+					is_neighbor_of = FIN
+					tag = DEN
+				}
+			}
+			play_song = FIN_7
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+}
+#右派动乱
+country_event = {
+	id = fin.17
+	title = fin.17.t
+	desc = fin.17.d
+	picture = GFX_rebels1950s
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+			tag = FIN
+			has_country_flag = FIN_Togliatti
+			communism < 0.6
+			has_government = communism
+			OR = {
+				has_stability < 0.6
+				USA = { has_completed_focus = operation_gladid }
+			}
+	}
+	option = {	#昂纳克
+		name = fin.4.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+		add_stability = -0.12
+		random_owned_state = { add_resistance = 15 }
+	}
+}
+#救国军成立
+country_event = {
+	id = fin.18
+	title = fin.18.t
+	desc = fin.18.d
+	picture = GFX_ItalyRebels
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+			tag = FIN
+			communism < 0.6
+			has_government = communism
+			OR = {
+				has_stability < 0.5
+				USA = { has_completed_focus = operation_gladid }
+			}
+			NOT = { has_country_flag = FinSalvation }
+			
+	}
+	option = {	#昂纳克
+		name = fin.4.a
+		if = {
+			set_country_flag = FinSalvation
+			limit = { tag = FIN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.-12
+			}
+			add_stability = -0.2
+		}
+		145 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		149 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+}
+#意大利内战
+news_event = {
+	id = fin.19
+	title = fin.19.t
+	desc = fin.19.d
+	picture = GFX_FinlandArmy1950s
+	mean_time_to_happen = {
+		days = 40
+	}
+	major = yes
+	trigger = {
+		tag = FIN
+		communism < 0.6
+		has_war = no
+		has_government = communism
+		OR = {
+			has_stability < 0.3
+			any_owned_state = { resistance > 80 }
+		}
+	}
+	option = {	#昂纳克
+		name = fin.4.a
+		if = {
+			limit = { tag = FIN }
+			play_song = FIN_8
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			create_country_leader = {
+				name = "Johan Wilhelm Rangell"
+				picture = "gfx/leaders/FIN/Portrait_Finland_Johan_Rangell.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+			start_civil_war = {
+				ideology = neutrality
+				capital = 149
+				size = 0.4
+				states = { 149 145 967 }
+			}
+		}
+	}
+}
+#共产党内战
+news_event = {
+	id = fin.20
+	title = fin.20.t
+	desc = fin.20.d
+	picture = GFX_FinlandArmy1950s
+	major = yes
+	is_triggered_only = yes
+	option = {	#昂纳克
+		name = fin.4.a
+		if = {
+			limit = { tag = FIN }
+			play_song = FIN_7
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			start_civil_war = {
+				ideology = communism
+				capital = 72
+				size = 0.3
+				states = { 72 }
+			}
+		}
+	}
+}
+#曼纳海姆回归
+news_event = {
+	id = fin.21
+	title = fin.21.t
+	desc = fin.21.d
+	major = yes
+	picture = GFX_TriesteAirCrash
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+			tag = FIN
+			has_country_flag = FinSalvation
+			has_government = communism
+			neutrality > 0.3
+			NOT = { has_country_flag = Mannerheim }
+	}
+	option = {
+		name = fin.21.a
+		if = {
+			limit = {
+				has_war_with = FIN
+				FIN = { has_government = communism }
+				owns_state = 149
+			}
+			create_country_leader = {
+				name = "Karl Mannerheim"
+				picture = "gfx/leaders/FIN/Portrait_Finland_Mannerheim.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+			add_stability = 0.2
+			add_war_support = 0.3
+		}
+		if = {
+			limit = {
+				tag = FIN
+				has_government = communism
+				has_war = no
+			}
+			set_country_flag = Mannerheim
+			create_country_leader = {
+				name = "Karl Mannerheim"
+				picture = "gfx/leaders/FIN/Portrait_Finland_Mannerheim.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+			add_stability = -0.2
+			add_war_support = -0.3
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.-2
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.-2
+			}
+		}
+		if = {
+			limit = {
+				tag = FIN
+				has_government = communism
+				has_war = yes
+			}
+			set_country_flag = Mannerheim
+			add_popularity = {
+				ideology = communism
+				popularity = 0.-2
+			}
+			add_stability = -0.2
+			add_war_support = -0.3
+		}
+	}
+}
+#南北分治
+news_event = {
+	id = fin.24
+	title = fin.24.t
+	desc = fin.24.d
+	picture = GFX_FinlandArmy1950s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = fin.24.a
+		if = {
+			limit = {
+				has_war_with = FIN
+				owns_state = 145
+			}
+			ALN = {
+				transfer_state = 145
+				set_capital = { state = 145 }
+				change_tag_from = ROOT
+			}
+			set_capital = { state = 145 }
+			every_state = {
+				limit = { is_core_of = FIN }
+				add_core_of = ALN
+			}
+			ALN = {
+				set_cosmetic_tag = FIN
+				set_politics = { ruling_party = neutrality }
+				create_country_leader = {
+					name = "Palmiro Togliatti"
+					picture = "gfx/leaders/FIN/Portrait_Italy_Togliatti.tga"
+					expire = "1988.1.1"
+					ideology = marxism
+					traits = {
+						pro_soviet communist_revolutionary
+					}
+				}
+			}
+			play_song = FIN_2
+		}
+		if = {
+			limit = { tag = FIN }
+			transfer_state = 149
+			transfer_state = 967
+			white_peace = ALN
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+		if = {
+			limit = { tag = YUG }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		if = {
+			limit = { tag = FRA }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		if = {
+			limit = { tag = SPR }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = fin.30
+	title = fin.30.t
+	desc = fin.30.d
+	picture = GFX_MannerheimDeath
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	trigger = {
+		tag = FIN
+		NOT = { has_global_flag = MannerheimDeath }
+		date > 1951.1.20
+		date < 1951.3.20
+		
+	}
+	option = {
+		name = fin.30a
+		set_global_flag = MannerheimDeath
+		
+	}
+}
+news_event = {
+	id = fin.31
+	title = fin.31.t
+	desc = fin.31.d
+	picture = GFX_RistoRyti
+	mean_time_to_happen = { days = 6 }
+	major = yes
+	trigger = {
+		tag = FIN
+		NOT = { has_government = communism }
+		NOT = { has_global_flag = RistoRytiDeath }
+		date > 1956.10.10
+		date < 1956.11.20
+		
+	}
+	option = {
+		name = fin.31.a
+		set_global_flag = RistoRytiDeath
+		
+	}
+}
+news_event = {
+	id = fin.32
+	title = fin.32.t
+	desc = fin.32.d
+	picture = GFX_PaasikiviKekkonen
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = FIN
+		NOT = { has_government = communism }
+		NOT = { has_global_flag = PaasikiviDeath }
+		date > 1956.12.1
+		date < 1956.12.30
+		
+	}
+	option = {
+		name = fin.32.a
+		if = {
+			limit = { tag = FIN }
+			set_global_flag = PaasikiviDeath
+			promote_character = FIN_Urho_Kekkonen
+		}
+	}
+}
+news_event = {
+	id = fin.33
+	title = fin.33.t
+	desc = fin.33.d
+	picture = GFX_Sibelius
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	trigger = {
+		tag = FIN
+		NOT = { has_government = communism }
+		NOT = { has_global_flag = fin33 }
+		date > 1957.9.1
+		date < 1957.10.20
+		
+	}
+	option = {
+		name = fin.30a
+		set_global_flag = fin33
+		
+	}
+}

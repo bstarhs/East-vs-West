@@ -1,0 +1,34 @@
+
+state={
+	id=488
+	name="STATE_488"
+	manpower = 245642
+	
+	state_category = pastoral
+
+	resources={
+		oil=60
+	}
+	history={
+		owner = VEN
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Colombian
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 53 }
+		buildings = {
+			hospital = 1
+			infrastructure = 1
+
+		}
+		1961.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+		add_core_of = VEN
+	}
+
+	provinces={
+		5317 7915 8050 10736 10849 10879 
+	}
+}

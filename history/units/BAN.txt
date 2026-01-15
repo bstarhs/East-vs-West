@@ -1,0 +1,42 @@
+﻿division_template = {
+	name = "Infatry Division"
+	division_names_group = PAK_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 		# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+
+units = {
+	division = {
+		name = "1th Infantry Division"
+		location = 10416
+		division_template = "Infatry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1th Infantry Division"
+		location = 11911
+		division_template = "Infatry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1th Infantry Division"
+		location = 13208 
+		division_template = "Infatry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1th Infantry Division"
+		location = 7179
+		division_template = "Infatry Division"
+		start_experience_factor = 0.8
+	}
+	
+}

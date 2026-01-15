@@ -1,0 +1,173 @@
+﻿capital = 314
+
+oob = "ELS_1936"
+
+set_country_flag = language_spannish
+set_country_flag = latin_america
+set_country_flag = centural_america
+# Starting tech
+	add_to_array = { global.UNmember_list = FROM }
+set_technology = {
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+		medical1 = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+set_country_flag = monroe_doctrine
+
+set_convoys = 5
+add_ideas = {
+	UNmember
+	FruitCompany
+	Catholicism
+}
+	set_popularities = {
+		democratic = 16
+		communism = 2
+		neutrality = 82
+	}
+set_politics = {
+	ruling_party = neutrality 
+	last_election = "1935.1.15"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Castaneda Castro"
+	desc = "POLITICS_MAXIMILIANO_HERNANDEZ_MARTINEZ_DESC"
+	picture = "gfx/leaders/ELS/Portrait_ELS_Salvador_Castaneda_Castro.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}
+1948.1.1 = {
+	set_country_flag = israel_diplomacy
+}
+1950.1.20 = {
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Óscar Osorio"
+		
+		picture = "gfx/leaders/ELS/Portrait_ELS_Oscar_Osorio.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+		
+		}
+	}
+}
+1962.1.20 = {
+	activate_decision = female_equality
+	create_country_leader = {
+		name = "Jullo Rivera_Carballo"
+		
+		picture = "gfx/leaders/ELS/Portrait_ELS_Rivera_Carballo.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+		
+		}
+	}
+}
+1962.1.20 = {
+	add_ideas = {
+		APLA
+	}
+	create_country_leader = {
+		name = "Rivera Carballo"
+		
+		picture = "gfx/leaders/ELS/Portrait_ELS_Rivera_Carballo.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+		
+		}
+	}
+}
+1973.1.20 = {
+	remove_ideas = APLA
+}
+1977.1.1 = {
+	create_country_leader = {
+		name = "Carlos Humberto Romero"
+		
+		picture = "gfx/leaders/ELS/Portrait_ELS_Carlos_Humberto_Romero.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+		
+		}
+	}
+}
+1977.1.1 = {
+	create_country_leader = {
+		name = "Carlos Humberto Romero"
+		
+		picture = "gfx/leaders/ELS/Portrait_ELS_Carlos_Humberto_Romero.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+		
+		}
+	}
+}
+1984.3.12 = {
+	set_popularities = {
+		democratic = 75
+		communism = 15
+		neutrality = 10
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "José Napoleón Duarte Fuentes"
+		
+		picture = "gfx/leaders/ELS/Portrait_ELS_Jose_Napoleon_Duarte_Fuentes.tga"
+		expire = "1997.1.1"
+		ideology = conservatism
+		traits = { 
+		
+		}
+	}
+}

@@ -1,0 +1,360 @@
+add_namespace = leb
+#巴勒斯坦解放组织进入黎巴嫩
+
+#黎巴嫩驱逐巴解
+
+#黎巴嫩内战
+
+#叙利亚进攻黎巴嫩
+
+#巴解袭击以色列
+#巴解抵抗
+news_event = {
+	id = leb.12
+	title = leb.12.t
+	desc = leb.12.d
+	picture = GFX_EgyptianTank1956
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = ISR
+		controls_state = 800
+	}
+	option = {
+		name = leb.15.a
+		800 = { add_resistance = 10 add_compliance = -60 }
+	}
+
+}
+#巴解起义
+news_event = {
+	id = leb.13
+	title = leb.13.t
+	desc = leb.13.d
+	picture = GFX_EgyptianTank1956
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		date > 1964.1.1
+		tag = ISR
+		controls_state = 800
+		800 = { resistance > 80 }
+	}
+	option = {
+		name = leb.15.a
+		news_event = { id = leb.14 }
+		PAL = {
+			transfer_state = 800
+		}
+		ISR = {
+			declare_war_on = { target = PAL type = annex_everything }
+		}
+	}
+
+}
+news_event = {
+	id = leb.14
+	title = leb.13.t
+	desc = leb.13.d
+	picture = GFX_EgyptianTank1956
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = leb.15.a
+	}
+
+}
+news_event = {
+	id = leb.20
+	title = leb.20.t
+	desc = leb.20.d
+	picture = GFX_NasserSpeech
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = LEB
+		NOT = { has_global_flag = leb20 }
+		date > 1952.8.1
+		date < 1952.11.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb20
+		if = {
+			limit = { tag = LEB }
+			promote_character = LEB_Camille_Chamoun
+		}
+	}
+}
+news_event = {
+	id = leb.21
+	title = leb.21.t
+	desc = leb.21.d
+	picture = GFX_NasserSpeech
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = LEB
+		NOT = { has_country_flag = leb21 }
+		date > 1957.2.1
+		date < 1957.5.2
+		EGY = {
+			has_government = neutrality
+			has_completed_focus = EGY_voice_of_arabia
+			controls_state = 860
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = leb21
+		add_popularity = { ideology = neutrality popularity = 0.08 }
+		add_ideas = nasserism_idea
+	}
+}
+news_event = {
+	id = leb.22
+	title = leb.22.t
+	desc = leb.22.d
+	picture = GFX_1958LebanonCrisis
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = LEB
+		has_country_flag = leb21
+		NOT = { has_government = neutrality }
+		date > 1957.2.1
+		date < 1958.5.2
+		has_idea = nasserism_idea
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb22
+	}
+}
+news_event = {
+	id = leb.23
+	title = leb.23.t
+	desc = leb.23.d
+	picture = GFX_1958LebanonCrisis
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		NOT = { has_global_flag = leb23 }
+		tag = LEB
+		has_country_flag = leb21
+		date > 1958.6.1
+		date < 1958.10.2
+		has_idea = nasserism_idea
+		OR = {
+			SYR = { has_government = neutrality }
+			IRQ = { has_government = neutrality }
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb23
+	}
+}
+country_event = {
+	id = leb.24
+	title = leb.24.t
+	desc = leb.24.d
+	picture = GFX_DullesCIA
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = leb25 }
+		date > 1958.6.1
+		date < 1958.12.2
+		has_global_flag = leb23
+		NOT = { has_global_flag = leb24 }
+		has_completed_focus = Middle_East_policy
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb24
+		add_to_faction = LEB
+		diplomatic_relation = {
+			relation = military_access
+			country = LEB
+			active = yes
+		}
+		custom_effect_tooltip = leb24tool
+		news_event = { id = leb.26 }
+		set_global_flag = leb26
+		play_song = GLA_2
+	}
+}
+news_event = {
+	id = leb.25
+	title = leb.25.t
+	desc = leb.25.d
+	picture = GFX_1958LebanonCrisis
+	major = yes
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = LEB
+		has_global_flag = leb23
+		NOT = { has_global_flag = leb25 }
+		NOT = { has_global_flag = leb26 }
+		neutrality > 0.6
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb25
+		if = {
+			limit = { tag = LEB }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.3
+			}
+			set_politics = { ruling_party = neutrality }
+			recruit_character = LEB_Rashid_Karami
+			promote_character = LEB_Rashid_Karami
+		}
+	}
+}
+news_event = {
+	id = leb.26
+	title = leb.26.t
+	desc = leb.26.d
+	picture = GFX_USLandingLebanon
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+news_event = {
+	id = leb.27
+	title = leb.27.t
+	desc = leb.27.d
+	picture = GFX_USinLebanon
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		NOT = { has_global_flag = leb25 }
+		NOT = { has_global_flag = leb27 }
+		tag = USA
+		has_global_flag = leb26
+		OR = {
+			num_divisions_in_states = {
+				count > 0
+				states = { 553 801 800 }
+			}
+			is_ai = yes
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb27
+	}
+}
+news_event = {
+	id = leb.29
+	title = leb.29.t
+	desc = leb.29.d
+	picture = GFX_USinLebanon
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		NOT = { has_global_flag = leb25 }
+		NOT = { has_global_flag = leb29 }
+		tag = USA
+		has_global_flag = leb27
+		num_divisions_in_states = {
+			count > 0
+			states = { 553 801 800 }
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb29
+	}
+}
+news_event = {
+	id = leb.30
+	title = leb.30.t
+	desc = leb.30.d
+	picture = GFX_FouadChehab
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		NOT = { has_global_flag = leb25 }
+		NOT = { has_global_flag = leb30 }
+		tag = LEB
+		has_global_flag = leb29
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb30
+		if = {
+			limit = { tag = LEB }
+			retire_character = LEB_Camille_Chamoun
+			promote_character = LEB_Fouad_Chehab
+		}
+	}
+}
+news_event = {
+	id = leb.31
+	title = leb.31.t
+	desc = leb.31.d
+	picture = GFX_Kennedy
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		LEB = { has_government = neutrality }
+		has_global_flag = leb23
+		NOT = { has_global_flag = leb31 }
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb31
+	}
+}
+news_event = {
+	id = leb.32
+	title = leb.32.t
+	desc = leb.32.d
+	picture = GFX_USinLebanon
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		NOT = { has_global_flag = leb25 }
+		NOT = { has_global_flag = leb32 }
+		tag = LEB
+		has_global_flag = leb30
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = leb32
+		if = {
+			limit = { tag = USA }
+			remove_from_faction = LEB
+		}
+	}
+}
+
+#以色列干涉黎巴嫩
+
+#以色列撤出黎巴嫩
+
+#以色列入侵黎巴嫩
+
+#叙利亚是否保护黎巴嫩
+
+#叙利亚保护黎巴嫩
+
+#贝鲁特大屠杀
+
+#以色列撤离
+
+#联合国要求停火
+
+#以色列接受停火
+
+#以色列有条件停火
+
+#叙利亚撤军
+
+#叙利亚拒绝撤退

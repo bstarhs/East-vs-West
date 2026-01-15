@@ -1,0 +1,8663 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+
+focus_tree = {
+	id = USA_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = USA
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 55 y = 2000 }
+	focus = {
+		id = Trumanism
+		icon = GFX_goal_truman
+		cost = 6
+		x = 40
+		y = 0
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 80
+			GRE = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+				set_country_flag = usa_arms_sell
+			}
+			TUR = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+				set_country_flag = usa_arms_sell
+			}
+			add_opinion_modifier = {
+				target = TUR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = GRE
+				modifier = USA_special_relationship
+			}
+			add_intel = {
+				target = GRE
+				civilian_intel = 25
+				army_intel = 15
+			}
+			add_intel = {
+				target = TUR
+				civilian_intel = 25
+				army_intel = 15
+			}
+			news_event = { id = usa.1 }
+		}
+
+	}
+	focus = {
+		id = us_into_africa
+		icon = GFX_goal_african_map
+		cost = 10
+		x = 68
+		y = 0
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = african_state
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_anti_colonism
+		icon = GFX_goal_decolonized
+		cost = 10
+		x = 68
+		y = 1
+		prerequisite = {
+			focus = us_into_africa
+		}
+		completion_reward = {
+			every_other_country = {
+				news_event = { id = gen.81 }
+				limit = {
+					has_idea = ColonyWar
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+			custom_effect_tooltip = focus_tooltip_influence_100
+			add_to_variable = { influences = 100 }
+		}
+
+	}
+	focus = {
+		id = us_invest_afruca
+		icon = GFX_focus_generic_africa_factory
+		cost = 10
+		x = 66
+		y = 1
+		prerequisite = {
+			focus = us_into_africa
+		}
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = african_state
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = african_state
+					NOT = { has_government = communism }
+					is_subject = no
+				}
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_replace_france
+		icon = GFX_goal_france_in_chain
+		cost = 10
+		x = 68
+		y = 2
+		prerequisite = {
+			focus = us_anti_colonism
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_african_puppet
+		icon = GFX_goal_american_puppet
+		cost = 10
+		x = 66
+		y = 2
+		prerequisite = {
+			focus = us_anti_colonism
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_infected_east_africa
+		icon = GFX_goal_east_africa_relation
+		cost = 10
+		x = 66
+		y = 3
+		prerequisite = {
+			focus = us_african_puppet
+		}
+		available = {
+			KEN = { is_subject = no }
+			TAZ = { is_subject = no }
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = east_africa
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = east_africa
+					is_subject = no
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				news_event = { id = usa.200 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_infected_congo
+		icon = GFX_goal_zaire_relation
+		cost = 10
+		x = 64
+		y = 3
+		prerequisite = {
+			focus = us_african_puppet
+		}
+		available = {
+			country_exists = COG
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = equatorial_africa
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = equatorial_africa
+					is_subject = no
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				news_event = { id = usa.200 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_infected_africa_horn
+		icon = GFX_focus_ETH_compensation
+		cost = 5
+		x = 76
+		y = 1
+		prerequisite = {
+			focus = us_into_africa
+		}
+		available = {
+			ETH = {
+				NOT = { has_government = communism }
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ETH
+				modifier = USA_special_relationship
+			}
+			ETH = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_african_military_support
+		icon = GFX_goal_me_map
+		cost = 10
+		x = 68
+		y = 3
+		prerequisite = {
+			focus = us_replace_france
+		}
+		prerequisite = {
+			focus = us_african_puppet
+		}
+		available = {
+			any_country = {
+				has_country_flag = african_state
+				is_subject = no
+				has_country_flag = UsaAdvisorAllow
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					has_country_flag = african_state
+				}
+				set_country_flag = usa_arms_sell
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+			random_country = {
+				limit = {
+					has_country_flag = african_state
+					is_subject = no
+					has_country_flag = UsaAdvisorAllow
+				}
+				set_country_flag = usa_arms_sell
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+			random_country = {
+				limit = {
+					has_country_flag = african_state
+					is_subject = no
+					has_country_flag = UsaAdvisorAllow
+				}
+				set_country_flag = usa_arms_sell
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+		}	
+
+	}
+	focus = {
+		id = us_infected_WEST_africa
+		icon = GFX_goal_mali_relation
+		cost = 10
+		x = 70
+		y = 3
+		prerequisite = {
+			focus = us_france_coop
+			focus = us_replace_france
+		}
+		available = {
+			MLI = { is_subject = no }
+			IVO = { is_subject = no }
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = west_africa
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = west_africa
+					is_subject = no
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				news_event = { id = usa.200 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_colonism
+		icon = GFX_goal_colonist_africa
+		cost = 10
+		x = 72
+		y = 1
+		prerequisite = {
+			focus = us_into_africa
+		}
+		completion_reward = {
+			POR = {
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+			FRA = {
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+			BEL = {
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+			add_opinion_modifier = {
+				target = POR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = FRA
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = BEL
+				modifier = USA_special_relationship
+			}
+			news_event = { id = usa.201 }
+		}
+
+	}
+	focus = {
+		id = us_france_coop
+		icon = GFX_goal_french_afrique
+		cost = 10
+		x = 70
+		y = 2
+		prerequisite = {
+			focus = us_support_colonism
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_support_white
+		icon = GFX_goal_diplo_saf
+		cost = 10
+		x = 72
+		y = 2
+		prerequisite = {
+			focus = us_support_colonism
+		}
+		available = {
+			SAF = {
+				has_government = authoritarianism
+				is_subject = no
+			}
+			RHO = {
+				is_subject = no
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SAF
+				modifier = USA_special_relationship
+			}
+			SAF = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+			add_opinion_modifier = {
+				target = RHO
+				modifier = USA_special_relationship
+			}
+			RHO = {
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_portugal
+		icon = GFX_focus_generic_befriend_portugal
+		cost = 10
+		x = 74
+		y = 2
+		prerequisite = {
+			focus = us_support_colonism
+		}
+		available = {
+			POR = {
+				has_government = authoritarianism
+				controls_state = 790
+				controls_state = 825
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = POR
+				modifier = USA_special_relationship
+			}
+			POR = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_saf_rho
+		icon = GFX_goal_support_colonies
+		cost = 10
+		x = 73
+		y = 3
+		prerequisite = {
+			focus = us_support_portugal
+		}
+		prerequisite = {
+			focus = us_support_white
+		}
+		available = {
+			SAF = {
+				has_government = authoritarianism
+				is_subject = no
+				has_country_flag = UsaAdvisorAllow
+			}
+			RHO = {
+				is_subject = no
+			}
+		}
+		completion_reward = {
+			SAF = {
+				set_country_flag = usa_arms_sell
+				set_country_flag = UsaAdvisorAllow	
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+			RHO = {
+				set_country_flag = usa_arms_sell
+				set_country_flag = UsaAdvisorAllow	
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+				news_event = { id = usa.200 }
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}	
+
+	}
+	focus = {
+		id = Middle_East_policy
+		icon = GFX_goal_me_map
+		cost = 10
+		x = 56
+		y = 0
+		ai_will_do = {
+			factor = 30
+			modifier = {
+				factor = 50
+				date > 1957.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.32 }
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = Social_reform
+		icon = GFX_focus_ARG_the_american_push
+		cost = 10
+		x = 6
+		y = 7
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			recruit_character = USA_earl_warren
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = Keynesian
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		x = 22
+		y = 7
+		completion_reward = {
+			add_ideas = low_economic_mobilisation
+		}
+	}
+	focus = {
+		id = Libertarianism
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		x = 29
+		y = 7
+		completion_reward = {
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = Exploring_space
+		icon = GFX_focus_rocketry
+		cost = 10
+		x = 34
+		y = 7
+		available = {
+			has_tech = rocket_vehicle
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = rocketry
+			}
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+		}
+
+	}
+	focus = {
+		id = asia_policy
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 18
+		y = 1
+		ai_will_do = {
+			factor = 30
+			modifier = {
+				factor = 50
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = South_Asia
+		icon = GFX_goal_grand_india
+		cost = 10
+		prerequisite = {
+			focus = asia_policy
+		}
+		x = -1
+		y = 2
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				date > 1950.1.1
+			}
+			modifier = {
+				factor = 30
+				date > 1953.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.34 }
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = pro_India
+		icon = GFX_goal_diplo_india
+		cost = 10
+		prerequisite = {
+			focus = South_Asia
+		}
+		available = { 
+			439 = { owner = { tag = IND } }
+		}
+		x = -6
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_IND_armssell_text
+			news_event = { id = raj.110 }
+			IND = {
+				set_country_flag = usa_arms_sell
+				country_event = { id = usa.8 }
+			}
+			
+		}	
+
+	}
+	focus = {
+		id = Penetration_Tibet
+		icon = GFX_goal_tibet_dplo
+		cost = 10
+		available = { 
+			439 = { owner = { tag = IND } }
+			322 = { owner = { tag = PRC } }
+		}
+		prerequisite = {
+			focus = pro_India
+		}
+		x = -6
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			322 = { add_resistance = 20 }
+		}	
+
+	}
+	focus = {
+		id = us_indian_ocean
+		icon = GFX_goal_india_ocean
+		cost = 10
+		prerequisite = {
+			focus = pro_India
+		}
+		x = -8
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1970.1.1
+			}
+		}
+		completion_reward = {
+			every_country = {
+				limit = { has_country_flag = indian_ocean_states }
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = { tag = SRI }
+				news_event = { id = usa.200 }
+			}
+		}
+	}
+	focus = {
+		id = us_tib_revolt
+		icon = GFX_goal_tibet_rebels
+		cost = 10
+		prerequisite = {
+			focus = Penetration_Tibet
+		}
+		available = { 
+			439 = { owner = { tag = IND } }
+			322 = { owner = { tag = PRC } }
+		}
+		x = -5
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = prc.200 }
+			322 = { add_resistance = 20 }
+			set_country_flag = operation_tib_revolt
+		}	
+
+	}
+	focus = {
+		id = us_pro_tib
+		icon = GFX_goal_tibet_dplo
+		cost = 10
+		prerequisite = {
+			focus = Penetration_Tibet
+		}
+		available = { 
+			439 = { owner = { tag = IND } }
+			322 = { owner = { tag = TIB } }
+			TIB = { is_subject = no }
+		}
+		x = -7
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = TIB
+				modifier = USA_special_relationship
+			}
+			TIB = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_oppose_india
+		icon = GFX_goal_diplo_afghan
+		cost = 10
+		prerequisite = {
+			focus = South_Asia
+		}
+		x = -3
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1970.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = raj.111 }
+			IND = {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = -0.2
+				}
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = IND
+					is_core_of = PUN
+				}
+				add_resistance = 12
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = IND
+					is_core_of = KAS
+				}
+				add_resistance = 12
+			}
+		}
+	}
+	focus = {
+		id = Pro_Pakistan
+		icon = GFX_goal_diplo_pakistan
+		cost = 9
+		available = { 
+			440 = { owner = { tag = PAK } }
+		}
+		prerequisite = {
+			focus = South_Asia
+		}
+		x = -1
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_PAK_armssell_text
+			add_opinion_modifier = {
+				target = PAK
+				modifier = USA_special_relationship
+			}
+			news_event = { id = pak.110 }
+			PAK = {
+				set_country_flag = usa_arms_sell
+				}
+		}	
+
+	}
+	focus = {
+		id = us_gulf_ocean
+		icon = GFX_goal_persian_gulf
+		cost = 10
+		prerequisite = {
+			focus = Pro_Pakistan
+		}
+		available = {
+			UAE = { is_subject = no }
+			QAT = { is_subject = no }
+		}
+		x = 1
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1970.1.1
+			}
+		}
+		completion_reward = {
+			every_country = {
+				limit = { tag = UAE }
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = { tag = UAE }
+				news_event = { id = usa.200 }
+				news_event = { id = usa.8 }
+			}
+		}
+	}
+	focus = {
+		id = Penetration_Afghanistan
+		icon = GFX_goal_diplo_afghan
+		cost = 10
+		prerequisite = {
+			focus = Pro_Pakistan
+		}
+		x = -1
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1970.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = AFG
+				modifier = USA_special_relationship
+			}
+			news_event = { id = afg.110 }
+			AFG = {
+				set_country_flag = usa_arms_sell
+				}
+		}	
+	}
+	focus = {
+		id = Penetration_Central_Asia
+		icon = GFX_goal_centural_asia_revolt
+		cost = 10
+		available = { 
+			586 = { owner = { tag = SOV } }
+		}
+		prerequisite = {
+			focus = Penetration_Afghanistan
+		}
+		x = -1
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				AFG = { has_government = communism }
+			}
+		}
+		completion_reward = {
+			SOV = {
+				add_stability = -0.2
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = SOV
+					is_core_of = KAZ
+				}
+				add_resistance = 12
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = SOV
+					is_core_of = KAZ
+				}
+				add_resistance = 12
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = SOV
+					is_core_of = KAZ
+				}
+				add_resistance = 12
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = SOV
+					is_core_of = TRM
+				}
+				add_resistance = 12
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = SOV
+					is_core_of = UZB
+				}
+				add_resistance = 12
+			}
+		}
+
+	}
+	focus = {
+		id = Penetration_Sinkiang
+		icon = GFX_goal_sinjang_revolt
+		cost = 10
+		available = { 
+			617 = { owner = { tag = PRC } }
+		}
+		prerequisite = {
+			focus = Pro_Pakistan
+		}
+		x = -3
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				AFG = { has_government = communism }
+			}
+		}
+		completion_reward = {
+			619 = { add_resistance = 20 }
+			950 = { add_resistance = 20 }
+			news_event = { id = prc.201 }
+			PRC = {
+				add_stability = -0.12
+			}
+		}
+
+	}
+	focus = {
+		id = Southeast_Asia
+		icon = GFX_goal_VietCong
+		cost = 10
+		prerequisite = {
+			focus = asia_policy
+		}
+		x = 12
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1952.1.1
+			}
+			modifier = {
+				add = -40
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.34 }
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = Penetration_Indonesia
+		icon = GFX_goal_diplo_indonesia
+		cost = 10
+		prerequisite = {
+			focus = Penetration_Malay
+		}
+		available = { 
+			335 = { owner = { tag = INS } }
+		}
+		x = 4
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1960.1.1
+			}
+		}
+		completion_reward = {
+			add_intel = {
+				target = INS
+				civilian_intel = 25
+				army_intel = 15
+			}
+			INS = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_oppose_indonesia
+		icon = GFX_goal_maluccus_diplo
+		cost = 10
+		prerequisite = {
+			focus = Penetration_Indonesia
+		}
+		available = { 
+			335 = { owner = { tag = INS } }
+		}
+		x = 5
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			INS = {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = -0.2
+				}
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = INS
+					is_core_of = MLC
+				}
+				add_resistance = 12
+			}
+			random_state = {
+				limit = {
+					is_controlled_by = INS
+					is_core_of = PUA
+				}
+				add_resistance = 12
+			}
+		}
+	}
+	focus = {
+		id = us_pro_indonesia
+		icon = GFX_goal_diplo_indonesia
+		cost = 10
+		prerequisite = {
+			focus = Penetration_Indonesia
+		}
+		available = { 
+			335 = { owner = { tag = INS } }
+		}
+		x = 3
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = INS
+				modifier = USA_special_relationship
+			}
+			INS = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+	}
+	focus = {
+		id = us_free_southeast_asia
+		icon = GFX_focus_GER_south_east_asian_natural_wealth
+		cost = 10
+		prerequisite = {
+			focus = keep_philippines
+			focus = Southeast_Asia
+		}
+		available = { 
+			NOT = { MAL = { has_government = communism } }
+		}
+		x = 6
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.202 }
+			every_other_country = {
+				limit = {
+					NOT = { has_government = communism }
+					has_country_flag = southeastasia
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+				add_political_power = 100
+				add_stability = 0.12
+				add_popularity = {
+					ideology = communism
+					popularity = -0.065
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = us_seat_union
+		icon = GFX_goal_SEAT
+		cost = 10
+		prerequisite = {
+			focus = Contact_Thailand
+			focus = us_free_southeast_asia
+			focus = Penetration_Malay
+		}
+		available = {
+			PRC = { controls_state = 325 }
+			NOT = { MAL = { has_government = communism } }
+			NOT = { PHI = { has_government = communism } }
+			NOT = { SIA = { has_government = communism } }
+		}
+		x = 6
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1954.1.1
+			}
+			modifier = {
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.203 }
+			every_other_country = {
+				limit = {
+					NOT = { has_government = communism }
+					has_country_flag = southeastasia
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+				add_political_power = 100
+				add_stability = 0.12
+				add_popularity = {
+					ideology = communism
+					popularity = -0.065
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_support_dutch
+		icon = GFX_goal_holland_diplo
+		cost = 10
+		prerequisite = {
+			focus = keep_philippines
+		}
+		available = { 
+			NOT = { HOL = { has_government = communism } }
+		}
+		x = 2
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			HOL = {
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+			add_opinion_modifier = {
+				target = HOL
+				modifier = USA_special_relationship
+			}
+			news_event = { id = usa.201 }
+		}
+	}
+	focus = {
+		id = Penetration_Malay
+		icon = GFX_goal_diplo_malaysia
+		cost = 10
+		prerequisite = {
+			focus = keep_philippines
+		}
+		available = { 
+			NOT = { MAL = { has_government = communism } }
+		}
+		x = 4
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			add_intel = {
+				target = MAL
+				civilian_intel = 25
+				army_intel = 15
+			}
+			MAL = {
+				custom_effect_tooltip = Focus_MAL_armssell_text
+				set_country_flag = usa_arms_sell
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+			}
+		}
+	}
+	focus = {
+		id = keep_philippines
+		icon = GFX_goal_diplo_Philippines
+		cost = 5
+		prerequisite = {
+			focus = asia_policy
+		}
+		available = { 
+			NOT = { PHI = { has_government = communism } }
+		}
+		x = 4
+		y = 2
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 50
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_PHI_armssell_text
+			PHI = {
+				country_event = { id = usa.8 }
+				set_country_flag = usa_arms_sell
+				add_stability = 0.12
+				add_political_power = 500
+				add_popularity = {
+					ideology = communism
+					popularity = -0.04
+				}
+			}
+		}
+	}
+	focus = {
+		id = Against_punishment
+		icon = GFX_focus_SWE_refuge_from_war
+		cost = 2
+		prerequisite = {
+			focus = Social_reform
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = -4
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1947.5.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.119 }
+			add_stability = 0.12
+		}
+	}
+	focus = {
+		id = USA_abolish_segregation
+		icon = GFX_focus_generic_population_growth
+		cost = 10
+		prerequisite = {
+			focus = Against_punishment
+		}
+		available = {
+			has_country_flag = OliverBrownWin
+		}
+		x = -6
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1954.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.06
+			news_event = { id = usa.332 }
+		}
+	}
+	focus = {
+		id = USA_improve_law_fair
+		icon = GFX_focus_AUS_lawmaking_leniency
+		cost = 10
+		prerequisite = {
+			focus = Against_punishment
+		}
+		available = { 
+		}
+		x = -2
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1954.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.06
+		}
+	}
+	focus = {
+		id = Negotiating_with_black
+		icon = GFX_goal_luther_king
+		cost = 10
+		prerequisite = {
+			focus = USA_anti_racist
+		}
+		available = { 
+			has_idea = NegroMovement
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = -6
+		y = 10
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1960.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.12
+			news_event = { id = usa.23 }
+		}
+	}
+	focus = {
+		id = USA_socialist
+		icon = GFX_goal_usa_communist
+		cost = 10
+		prerequisite = {
+			focus = Social_reform
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -12
+		y = 8
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.155 }
+			add_stability = -0.12
+		}
+	}
+	focus = {
+		id = us_weeken_religion
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 10
+		prerequisite = {
+			focus = USA_socialist
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -12
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = us_secularism_educate
+		icon = GFX_focus_generic_university_1
+		cost = 10
+		prerequisite = {
+			focus = us_weeken_religion
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -12
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = us_progressive_gov
+		icon = GFX_goal_luther_king
+		cost = 10
+		prerequisite = {
+			focus = us_weeken_religion
+			focus = us_progressive_party
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -10
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	
+	focus = {
+		id = us_third_party
+		icon = GFX_goal_third_party
+		cost = 10
+		prerequisite = {
+			focus = Social_reform
+		}
+		x = -9
+		y = 8
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.154 }
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = us_progressive_party
+		icon = GFX_goal_progressive_party
+		cost = 10
+		prerequisite = {
+			focus = us_third_party
+		}
+		x = -10
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			recruit_character = USA_Henry_Wallance
+			news_event = { id = usa.151 }
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = us_abolish_Electoral
+		icon = GFX_goal_Electoral
+		cost = 10
+		prerequisite = {
+			focus = us_third_party
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -8
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.157 }
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = USA_workers
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 10
+		prerequisite = {
+			focus = USA_socialist
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -14
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = USA_union
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		cost = 10
+		prerequisite = {
+			focus = USA_workers
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -14
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = USA_anti_tolas
+		icon = GFX_goal_luther_king
+		cost = 10
+		prerequisite = {
+			focus = USA_union
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_cm_rf_tool
+				communism > 0.3
+			}
+		}
+		x = -14
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = USA_anti_racist
+		icon = GFX_goal_peace_constitution
+		cost = 7
+		prerequisite = {
+			focus = Against_punishment
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = -4
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 80
+				date > 1957.6.1
+			}
+		}
+		completion_reward = {
+			recruit_character = USA_John_Hannah
+			add_stability = 0.08
+			add_political_power = 120
+			news_event = usa.360
+		}
+
+	}
+	focus = {
+		id = Civil_rights_equality
+		icon = GFX_goal_civil_right
+		cost = 10
+		prerequisite = {
+			focus = Negotiating_with_black
+		}
+		available = {
+			has_stability > 0.8
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = -4
+		y = 11
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1968.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.2
+			remove_ideas = jimmClound_ideas
+			news_event = { id = usa.24 }
+		}
+
+	}
+	focus = {
+		id = USA_minor_ethnics
+		icon = GFX_goal_us_ethnics
+		cost = 10
+		prerequisite = {
+			focus = Civil_rights_equality
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = -4
+		y = 12
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1968.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.2
+		}
+
+	}
+	focus = {
+		id = USA_nativs
+		icon = GFX_focus_generic_industrialists
+		cost = 10
+		prerequisite = {
+			focus = USA_minor_ethnics
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = -4
+		y = 13
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1968.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = us_inflect_cambodia
+		icon = GFX_goal_diplo_kampuchea
+		cost = 10
+		prerequisite = {
+			focus = Southeast_Asia
+		}
+		available = { 
+			CAM = { NOT = { has_government = communism } }
+		}
+		x = 11
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = CAM
+				modifier = USA_special_relationship
+			}
+			CAM = {
+				news_event = { id = usa.200 }
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+
+	}
+	focus = {
+		id = Contact_Thailand
+		icon = GFX_goal_diplo_thailand
+		cost = 10
+		prerequisite = {
+			focus = Southeast_Asia
+		}
+		x = 9
+		y = 3
+		available = { 
+			SIA = { has_government = neutrality }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1953.1.1
+			}
+			modifier = {
+				add = 100
+				date > 1952.1.1
+				PRC = { controls_state = 325 }
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SIA
+				modifier = USA_special_relationship
+			}
+			SIA = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+	}
+	focus = {
+		id = US_Thai_Agreement
+		icon = GFX_goal_diplo_thailand
+		cost = 10
+		prerequisite = {
+			focus = Contact_Thailand
+		}
+		available = { 
+			SIA = { has_government = neutrality }
+		}
+		x = 8
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1961.1.1
+			}
+		}
+		completion_reward = {
+			SIA = {
+				country_event = { id = usa.4 }
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+	}
+	focus = {
+		id = USA_strike_civil_right
+		icon = GFX_goal_apartheid
+		cost = 10
+		prerequisite = {
+			focus = USA_traditional
+		}
+		x = 4
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			custom_effect_tooltip = USA_strike_civil_right_tool
+			add_ideas = KKK_ideas
+			USA = {
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = USA_expanded_soiutern_politicians
+		icon = GFX_focus_POL_complete_april_constitution
+		cost = 10
+		prerequisite = {
+			focus = USA_strike_civil_right
+		}
+		x = 4
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			retire_character = USA_earl_warren
+			recruit_character = USA_Richard_Russell_Jr
+			recruit_character = USA_James_Eastland
+			USA = {
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.08
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = White_first
+		icon = GFX_focus_generic_subjugation
+		cost = 10
+		prerequisite = {
+			focus = USA_traditional
+		}
+		x = 2
+		y = 9
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.161 }
+			USA = {
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_dixemocratic
+		icon = GFX_goal_dixie
+		cost = 10
+		prerequisite = {
+			focus = USA_traditional
+		}
+		available = {
+			date < 1958.1.1
+		}
+		x = 0
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			custom_effect_tooltip = us_dixemocratic_tool
+			recruit_character = USA_Strom_Thurmond
+			news_event = { id = usa.158 }
+			USA = {
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_wallance
+		icon = GFX_goal_george_wallance
+		cost = 10
+		prerequisite = {
+			focus = us_dixemocratic
+			focus = White_first
+		}
+		x = 0
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			custom_effect_tooltip = us_support_wallance_tool
+			news_event = { id = usa.152 }
+			USA = {
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.08
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_KKK
+		icon = GFX_goal_KKK
+		cost = 10
+		prerequisite = {
+			focus = us_support_wallance
+			focus = Anti_negro
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 0
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.153 }
+			USA = {
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.12
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = USA_CSA_history
+		icon = GFX_goal_reject_immigrate
+		cost = 10
+		prerequisite = {
+			focus = Anti_negro
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 2
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+	focus = {
+		id = Restrict_immigration
+		icon = GFX_goal_reject_immigrate
+		cost = 10
+		prerequisite = {
+			focus = Anti_negro
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 4
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+	focus = {
+		id = Anti_negro
+		icon = GFX_focus_SOV_penal_battalions
+		cost = 10
+		prerequisite = {
+			focus = White_first
+		}
+		available = { 
+			USA = { has_idea = NegroMovement }
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 2
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.163 }
+			add_stability = -0.2
+			USA = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = USA_pure_states
+		icon = GFX_goal_pure_american
+		cost = 10
+		prerequisite = {
+			focus = USA_CSA_history
+		}
+		prerequisite = {
+			focus = Restrict_immigration
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 2
+		y = 12
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.166 }
+			set_cosmetic_tag = CSA
+		}
+	}
+	focus = {
+		id = us_remove_mexican
+		icon = GFX_goal_expel_immigrate
+		cost = 10
+		prerequisite = {
+			focus = USA_pure_states
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 1
+		y = 13
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_remove_asian
+		icon = GFX_goal_expel_immigrate
+		cost = 10
+		prerequisite = {
+			focus = USA_pure_states
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 3
+		y = 13
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_neo_nazis
+		icon = GFX_goal_nazis_usa
+		cost = 10
+		prerequisite = {
+			focus = USA_pure_states
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dixies_tool
+				authoritarianism > 0.5
+			}
+		}
+		x = 2
+		y = 14
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = Infiltrate_Burman
+		icon = GFX_goal_diplo_burma
+		cost = 10
+		prerequisite = {
+			focus = Contact_Thailand
+		}
+		available = { 
+			288 = { owner = { tag = BUR } }
+		}
+		x = 10
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = BUR
+				modifier = USA_special_relationship
+			}
+			BUR = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = Interfering_Vietnam
+		icon = GFX_goal_map_indochina
+		cost = 10
+		prerequisite = {
+			focus = Southeast_Asia
+		}
+		available = { 
+			671 = { owner = { tag = VIN } }
+			286 = { owner = { tag = SVN } }
+		}
+		x = 13
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1950.1.1
+			}
+			modifier = {
+				add = 9999
+				date > 1954.1.1
+			}
+		}
+		completion_reward = {
+			add_intel = {
+				target = SVN
+				civilian_intel = 25
+				army_intel = 15
+			}
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = pro_VIN
+		icon = GFX_goal_diplo_vietnam
+		cost = 10
+		prerequisite = {
+			focus = Interfering_Vietnam
+		}
+		available = { 
+			671 = { owner = { tag = VIN } }
+		}
+		x = 14
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			VIN = { news_event = { id = usa.200 } }
+			VIN = { set_country_flag = usa_advisor }
+		}
+	}
+	focus = {
+		id = Enter_SouthChina
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 10
+		prerequisite = {
+			focus = pro_VIN
+			focus = pro_SVN
+		}
+		available = { 
+			831 = { owner = { tag = PRC } }
+		}
+		x = 14
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = pro_SVN
+		icon = GFX_goal_diplo_rov
+		cost = 4
+		prerequisite = {
+			focus = Interfering_Vietnam
+		}
+		available = { 
+			286 = { owner = { tag = SVN } }
+			NOT = { SVN = { has_government = communism } }
+		}
+		x = 12
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1955.1.1
+			}
+			modifier = {
+				factor = 9999
+				date > 1956.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SVN
+				modifier = USA_special_relationship
+			}
+			SVN = { country_event = { id = usa.4 }
+			SVN = { set_country_flag = usa_advisor }
+			custom_effect_tooltip = Focus_SVN_armssell_text
+				set_country_flag = usa_arms_sell
+				add_political_power = 100
+				add_war_support = 0.2
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1800
+					producer = ROOT
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}
+			}
+		}
+
+
+	}
+	focus = {
+		id = Counter_insurgency
+		icon = GFX_goal_us_army
+		cost = 10
+		prerequisite = {
+			focus = pro_SVN
+		}
+		available = { 
+			286 = { owner = { tag = SVN } }
+			NOT = { SVN = { has_government = communism } }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1959.1.1
+			}
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+			SVN = { recruit_character = USA_Edward_Lansdale }
+			news_event = { id = usa.110 }
+			add_ideas = Vietnam_War_idea
+		}
+
+	}
+	focus = {
+		id = Penetration_Laos
+		icon = GFX_goal_diplo_laos
+		cost = 10
+		prerequisite = {
+			focus = pro_SVN
+			focus = pro_VIN
+			focus = Contact_Thailand
+		}
+		available = { 
+			NOT = { LAO = { has_government = communism } }
+			670 = { owner = { tag = LAO } }
+		}
+		x = 9
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1957.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = LAO
+				modifier = USA_special_relationship
+			}
+			custom_effect_tooltip = Focus_LAO_armssell_text
+			add_intel = {
+				target = LAO
+				civilian_intel = 25
+				army_intel = 15
+			}
+			LAO = {
+				set_country_flag = usa_arms_sell
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+				set_country_flag = usa_advisor	
+			}
+		}
+
+	}
+	focus = {
+		id = USA_traditional
+		icon = GFX_focus_usa_recruit_the_free_corps
+		cost = 10
+		prerequisite = {
+			focus = Social_reform
+		}
+		x = 2
+		y = 8
+		ai_will_do = {
+			factor = -20
+		}
+		completion_reward = {
+			news_event = { id = usa.160 }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+	focus = {
+		id = McCarthyism_focus
+		icon = GFX_goal_mccarthyism
+		cost = 5
+		prerequisite = {
+			focus = Social_reform
+		}
+		x = 8
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 80
+				date > 1948.1.1
+			}
+			modifier = {
+				add = -50
+				date < 1948.1.1
+			}
+			modifier = {
+				add = -50
+				date > 1959.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.103 }
+			add_stability = -0.1
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = USA_hollywood_purge
+		icon = GFX_focus_AUS_disregard_the_treaties
+		cost = 10
+		prerequisite = {
+			focus = McCarthyism_focus
+		}
+		prerequisite = {
+			focus = CIA
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_tool
+				democratic > 0.8
+			}
+		}
+		x = 10
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+	focus = {
+		id = USA_anti_commie_group
+		icon = GFX_focus_FIN_mustapaidat
+		cost = 5
+		prerequisite = {
+			focus = McCarthyism_focus
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_tool
+				democratic > 0.8
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1949.1.1
+			}
+		}
+		x = 8
+		y = 9
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+	focus = {
+		id = USA_social_control
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		cost = 10
+		prerequisite = {
+			focus = McCarthyism_focus
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_tool
+				democratic > 0.8
+			}
+		}
+		x = 6
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 5
+				date > 1948.1.1
+			}
+			modifier = {
+				add = -50
+				date > 1959.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.162 }
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+	}
+	focus = {
+		id = CIA
+		icon = GFX_goal_CIA
+		cost = 10
+		prerequisite = {
+			focus = Social_reform
+		}
+		x = 11
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 60
+				date > 1947.1.1
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_ideas = CIA
+			create_intelligence_agency = yes
+			add_stability = 0.2
+		}
+
+	}
+	focus = {
+		id = USA_reform
+		icon = GFX_goal_parliament
+		cost = 10
+		prerequisite = {
+			focus = Social_reform
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = 15
+		y = 8
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_annex_alaska_hawaii
+		icon = GFX_goal_alaska_hawaii
+		cost = 7
+		prerequisite = {
+			focus = Social_reform
+		}
+		x = 17
+		y = 8
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1958.10.1
+			}
+		}
+		completion_reward = {
+			add_state_core = 463
+			add_state_core = 650
+			add_state_core = 629
+			add_state_core = 631
+			set_cosmetic_tag = USA50
+			add_political_power = 200
+			news_event = usa.372
+		}
+	}
+	focus = {
+		id = us_free_social
+		icon = GFX_goal_parliament
+		cost = 10
+		prerequisite = {
+			focus = USA_reform
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = 15
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_nature_protech
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		cost = 10
+		available = {
+			has_global_flag = silent_spring_event
+		}
+		prerequisite = {
+			focus = us_free_social
+		}
+		x = 13
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_youth_vote
+		icon = GFX_goal_vote
+		cost = 10
+		prerequisite = {
+			focus = us_free_social
+		}
+		x = 15
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.186 }
+		}
+	}
+	focus = {
+		id = us_LGBT
+		icon = GFX_goal_LGBT
+		cost = 10
+		prerequisite = {
+			focus = us_youth_vote
+		}
+		available = {
+			has_global_flag = sexual_liberal_event
+			custom_trigger_tooltip = {
+				tooltip = us_condition_dm_rf_tool
+				democratic > 0.8
+			}
+		}
+		x = 15
+		y = 12
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.187 }
+		}
+	}
+	focus = {
+		id = Taft_Hartley_Act
+		icon = GFX_goal_white_house
+		cost = 10
+		x = 13
+		y = 8
+		prerequisite = {
+			focus = Social_reform
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = USA_ban_gun
+		icon = GFX_focus_FIN_weapon_caches
+		cost = 10
+		prerequisite = {
+			focus = USA_reform
+		}
+		x = 14
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.182 }
+		}
+	}
+	focus = {
+		id = USA_ban_leaf
+		icon = GFX_goal_CIA
+		cost = 10
+		prerequisite = {
+			focus = USA_reform
+		}
+		x = 16
+		y = 9
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.184 }
+		}
+	}
+	focus = {
+		id = USA_spread_fear
+		icon = GFX_goal_news_paper
+		cost = 10
+		prerequisite = {
+			focus = USA_anti_commie_group
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_dixies_tool
+				authoritarianism > 0.3
+			}
+		}
+		x = 8
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+
+	}
+	focus = {
+		id = White_terror
+		icon = GFX_focus_SOV_the_last_purge
+		cost = 10
+		prerequisite = {
+			focus = USA_anti_commie_group
+		}
+		prerequisite = {
+			focus = USA_hollywood_purge
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_dixies_tool
+				authoritarianism > 0.3
+			}
+		}
+		x = 10
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.173 }
+			add_political_power = 80
+			add_stability = -0.2
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+
+	}
+	focus = {
+		id = USA_PRISM
+		icon = GFX_goal_camera
+		cost = 10
+		prerequisite = {
+			focus = White_terror
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_dixies_tool
+				authoritarianism > 0.3
+			}
+		}
+		x = 11
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_political_power = 80
+			add_stability = -0.4
+			add_popularity = {
+				ideology = communism
+				popularity = -0.3
+			}
+		}
+
+	}
+	focus = {
+		id = USA_Evangelical
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		cost = 10
+		prerequisite = {
+			focus = USA_social_control
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_dixies_tool
+				authoritarianism > 0.3
+			}
+		}
+		x = 6
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.177 }
+		}
+	}
+	focus = {
+		id = USA_anti_hippies
+		icon = GFX_goal_mccarthyism
+		cost = 10
+		prerequisite = {
+			focus = White_terror
+		}
+		prerequisite = {
+			focus = USA_Evangelical
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = us_condition_rp_dixies_tool
+				authoritarianism > 0.3
+			}
+		}
+		x = 10
+		y = 12
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = usa.176 }
+		}
+	}
+	focus = {
+		id = Free_World
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10
+		prerequisite = {
+			focus = CIA
+		}
+		x = 12
+		y = 9
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+
+	}
+	focus = {
+		id = VOA
+		icon = GFX_goal_VOA
+		cost = 10
+		prerequisite = {
+			focus = Free_World
+		}
+		x = 12
+		y = 10
+		completion_reward = {
+			add_political_power = 200
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+	}
+	focus = {
+		id = us_culture
+		icon = GFX_goal_us_culture
+		cost = 10
+		prerequisite = {
+			focus = VOA
+		}
+		x = 12
+		y = 12
+		completion_reward = {
+			add_political_power = 200
+			news_event = { id = usa.181 }
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+	}
+	focus = {
+		id = us_tourism
+		icon = GFX_goal_tourism_USA
+		cost = 10
+		prerequisite = {
+			focus = us_culture
+		}
+		x = 12
+		y = 13
+		completion_reward = {
+			add_political_power = 200
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+	}
+	focus = {
+		id = USA_DepartmentDefence
+		icon = GFX_focus_usa_build_the_pentagon
+		cost = 10
+		x = 40
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1947.9.1
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.2
+			add_political_power = 100
+			army_experience = 200
+		}
+
+	}
+	focus = {
+		id = USA_Airforce
+		icon = GFX_goal_us_airforce
+		cost = 10
+		prerequisite = {
+			focus = USA_DepartmentDefence
+		}
+		x = 39
+		y = 9
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				add = 100
+				date > 1948.1.1
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 100
+			air_experience = 200
+			news_event = { id = usa.118 }
+		}
+
+	}
+	focus = {
+		id = us_steritegic_bomber
+		icon = GFX_goal_B52
+		cost = 10
+		prerequisite = {
+			focus = USA_Airforce
+		}
+		x = 38
+		y = 10
+		available = { 
+			has_tech = strategic_bomber1
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1958.1.1
+				date < 1970.1.1
+			}
+		}
+		completion_reward = {
+			recruit_character = USA_Thomas_Power
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				category = cat_strategic_bomber
+				category = tactical_bomber
+			}
+		}
+
+	}
+	focus = {
+		id = us_steritegic_weapons
+		icon = GFX_goal_pershing_ii
+		cost = 10
+		prerequisite = {
+			focus = us_steritegic_bomber
+		}
+		available = { 
+			has_tech = tech_Satellite
+			has_tech = midrange_missile
+		}
+		x = 38
+		y = 11
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1980.1.1
+				date < 1995.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				category = rocketry
+			}
+		}
+
+	}
+	focus = {
+		id = us_Operation_Chrome_Dome
+		icon = GFX_goal_B52
+		cost = 10
+		prerequisite = {
+			focus = us_steritegic_bomber
+		}
+		available = { 
+			has_tech = strategic_bomber3
+		}
+		x = 36
+		y = 11
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1960.1.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = us_Operation_Chrome_Dome_tool
+		}
+
+	}
+	focus = {
+		id = us_seal_bomber
+		icon = GFX_goal_B2
+		cost = 10
+		prerequisite = {
+			focus = us_Operation_Chrome_Dome
+		}
+		available = { 
+			has_tech = stealth_aircraft
+		}
+		x = 36
+		y = 12
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1980.1.1
+				date < 1995.1.1
+			}
+		}
+		completion_reward = {
+			set_technology = {
+				stealth_bomber = 1
+			}
+		}
+
+	}
+	focus = {
+		id = us_fighter_focus
+		icon = GFX_goal_F15
+		cost = 10
+		prerequisite = {
+			focus = USA_Airforce
+		}
+		x = 40
+		y = 10
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1958.1.1
+				date < 1970.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+
+	}
+	focus = {
+		id = us_missile_focus
+		icon = GFX_focus_rocketry
+		cost = 10
+		prerequisite = {
+			focus = us_fighter_focus
+		}
+		x = 39
+		y = 12
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1958.1.1
+				date < 1970.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = rocketry
+			}
+		}
+
+	}
+	focus = {
+		id = us_cas_focus
+		icon = GFX_goal_A10
+		cost = 10
+		prerequisite = {
+			focus = us_fighter_focus
+		}
+		x = 40
+		y = 11
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1958.1.1
+				date < 1970.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = cas_bomber
+			}
+		}
+
+	}
+	focus = {
+		id = USA_navy_focus
+		icon = GFX_goal_usa_navy
+		cost = 10
+		prerequisite = {
+			focus = USA_DepartmentDefence
+		}
+		x = 47
+		y = 9
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = naval_equipment
+			}
+		}
+
+	}
+	focus = {
+		id = us_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 10
+		prerequisite = {
+			focus = USA_navy_focus
+		}
+		x = 46
+		y = 10
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+		}
+
+	}
+	focus = {
+		id = us_atalantic_fleet
+		icon = GFX_goal_us_atalantic
+		cost = 10
+		prerequisite = {
+			focus = us_submarines
+		}
+		available = {
+				has_military_access_to = CAN
+				has_military_access_to = ENG
+		}
+		x = 46
+		y = 12
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			navy_experience = 250	
+			357 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+			364 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+			362 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+			357 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			362 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_nuclear_sub
+		icon = GFX_goal_generic_navy_anti_submarine
+		cost = 10
+		prerequisite = {
+			focus = us_submarines
+		}
+		x = 47
+		y = 11
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 100
+				date > 1953.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+		}
+
+	}
+	focus = {
+		id = us_army_focus
+		icon = GFX_goal_usa_army
+		cost = 10
+		prerequisite = {
+			focus = USA_DepartmentDefence
+		}
+		x = 43
+		y = 9
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			army_experience = 300
+		}
+
+	}
+	focus = {
+		id = us_Asymmetric_warfare
+		icon = GFX_focus_generic_manpower
+		cost = 10
+		prerequisite = {
+			focus = us_army_focus
+		}
+		x = 44
+		y = 10
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			set_technology = {
+				propaganda_war = 1
+				supress_war = 1
+				search_destroy = 1
+			}
+		}
+
+	}
+	focus = {
+		id = us_weapons
+		icon = GFX_goal_m16
+		cost = 10
+		prerequisite = {
+			focus = us_army_focus
+		}
+		x = 42
+		y = 10
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			remove_ideas = us_762mm_modifier
+			news_event = { id = usa.213 }
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+
+	}
+	focus = {
+		id = us_mechanized
+		icon = GFX_goal_m113
+		cost = 10
+		prerequisite = {
+			focus = us_weapons
+		}
+		x = 42
+		y = 11
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+		}
+
+	}
+	focus = {
+		id = us_sigital_war
+		icon = GFX_goal_modern_war
+		cost = 10
+		prerequisite = {
+			focus = us_mechanized
+		}
+		x = 42
+		y = 12
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+
+	}
+	focus = {
+		id = us_anti_rebrl
+		icon = GFX_goal_rebels
+		cost = 10
+		prerequisite = {
+			focus = us_Asymmetric_warfare
+		}
+		x = 44
+		y = 11
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_air_assult
+		icon = GFX_goal_uh1
+		cost = 10
+		prerequisite = {
+			focus = us_anti_rebrl
+		}
+		x = 44
+		y = 12
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = helicopter
+			}
+		}
+
+	}
+	focus = {
+		id = USA_super_carrier
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10
+		prerequisite = {
+			focus = USA_navy_focus
+		}
+		x = 48
+		y = 10
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cv_tech
+			}
+		}
+
+	}
+	focus = {
+		id = us_pacific_fleet
+		icon = GFX_goal_us_pacific
+		cost = 10
+		prerequisite = {
+			focus = USA_super_carrier
+		}
+		available = {
+			has_guaranteed = JAP
+			has_guaranteed = PHI
+		}
+		x = 49
+		y = 11
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			navy_experience = 250	
+			386 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+			876 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+			694 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+			841 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			629 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_zeus_destroyer
+		icon = GFX_goal_us_zeus
+		cost = 10
+		prerequisite = {
+			focus = us_pacific_fleet
+		}
+		x = 49
+		y = 12
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+
+	}
+	focus = {
+		id = Contact_CCP
+		icon = GFX_goal_diplo_prc
+		cost = 10
+		prerequisite = {
+			focus = asia_policy
+		}
+		available = { 
+			622 = { owner = { tag = PRC } }
+			608 = { owner = { tag = PRC } }
+			}
+		x = 18
+		y = 2
+		completion_reward = {
+			PRC = { news_event = { id = prc.43 } }
+			JAP = { news_event = { id = jap.51 } }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				PRC = { has_idea = SovietChinaConflit }
+			}
+			modifier = {
+				add = 30
+				date > 1972.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = us_invest_china
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		prerequisite = {
+			focus = Contact_CCP
+		}
+		x = 18
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1979.1.1
+				date < 1990.1.1
+			}
+		}
+		completion_reward = {
+		}	
+	}
+	focus = {
+		id = us_selled_china
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 10
+		prerequisite = {
+			focus = us_invest_china
+		}
+		x = 16
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1979.1.1
+				date < 1990.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = USA_special_relationship
+			}
+			PRC = {
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}	
+	}
+	focus = {
+		id = PRC_Arms_Sales
+		icon = GFX_goal_PRC_PLA
+		cost = 10
+		prerequisite = {
+			focus = us_invest_china
+		}
+		x = 18
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1979.1.1
+				date < 1990.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = prc.109 }
+			PRC = {
+				add_tech_bonus = {
+					bonus = 0.12
+					uses = 1
+					category = air_equipment
+				}
+				add_political_power = 100
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = USA
+				}
+			}
+		}	
+	}
+	focus = {
+		id = PRC_USA_alliance
+		icon = GFX_goal_us_prc_flag
+		cost = 10
+		prerequisite = {
+			focus = PRC_Arms_Sales
+		}
+		x = 18
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = USA_special_relationship
+			}
+			PRC = {
+				country_event = { id = usa.4 }
+				set_country_flag = usa_advisor	
+			}
+		}	
+
+	}
+	focus = {
+		id = TW_relation_law
+		icon = GFX_goal_roc_us_flag
+		cost = 10
+		prerequisite = {
+			focus = Contact_CCP
+		}
+		x = 16
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1976.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.35 }
+			give_guarantee = CHI
+		}	
+	}
+	focus = {
+		id = one_China
+		icon = GFX_china_united
+		cost = 10
+		available = { 
+			622 = { owner = { tag = PRC } }
+			608 = { owner = { tag = PRC } }
+		}
+		prerequisite = {
+			focus = Contact_CCP
+		}
+		x = 20
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = roc.52 }
+			diplomatic_relation = {
+				country = CHI
+				relation = guarantee
+				active = no
+			}
+		}	
+
+	}
+	focus = {
+		id = us_develop_plastic
+		icon = GFX_focus_generic_rubber
+		cost = 25
+		prerequisite = {
+			focus = Keynesian
+		}
+		x = 19
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		completion_reward = {
+			357 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			360 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			964 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			882 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			375 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			876 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			964 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = us_develop_steel
+		icon = GFX_goal_steel
+		cost = 25
+		prerequisite = {
+			focus = Keynesian
+		}
+		x = 25
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		completion_reward = {
+			964 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+			395 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+			358 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+			261 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+			393 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+			396 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = us_develop_autos
+		icon = GFX_goal_us_auto
+		cost = 25
+		prerequisite = {
+			focus = us_develop_steel
+		}
+		x = 25
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		completion_reward = {
+		}	
+	}
+	focus = {
+		id = us_centural_field
+		icon = GFX_goal_agriculture
+		cost = 25
+		prerequisite = {
+			focus = Keynesian
+		}
+		x = 23
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		completion_reward = {
+			395 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			394 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			383 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			374 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			371 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			370 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			373 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			372 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			373 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			392 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			391 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = farm_building level = 3 }
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = Eliminate_unemployment
+		icon = GFX_goal_Hight_way
+		cost = 5
+		prerequisite = {
+			focus = Keynesian
+		}
+		x = 21
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1956.1.1
+			}
+			modifier = {
+				add = 999
+				date > 1956.6.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.189 }
+			every_controlled_state = {
+				add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = us_california_field
+		icon = GFX_goal_california_oil
+		cost = 30
+		prerequisite = {
+			focus = Eliminate_unemployment
+		}
+		x = 23
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			876 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = SunBelt
+		icon = GFX_goal_sunbelt
+		cost = 30
+		prerequisite = {
+			focus = Eliminate_unemployment
+		}
+		x = 19
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 363
+				target_state = 375
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 964
+				target_state = 375
+			}
+			375 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			882 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			371 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			370 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			364 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			365 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			366 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			367 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+			376 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+		}	
+	}
+	focus = {
+		id = New_frontier
+		icon = GFX_goal_new_frontiers
+		cost = 10
+		prerequisite = {
+			focus = Eliminate_unemployment
+		}
+		x = 21
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1963.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.190 }
+			add_stability = 0.2
+			add_ideas = mid_welfare
+		}
+	}
+	focus = {
+		id = us_youth_officers
+		icon = GFX_focus_POL_complete_april_constitution
+		cost = 10
+		x = 22
+		y = 10
+		prerequisite = {
+			focus = New_frontier
+		}
+		completion_reward = {
+			recruit_character = USA_McNamara
+			recruit_character = USA_Robert_Kennedy
+			add_political_power = 500
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1965.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = us_financial_refrom
+		icon = GFX_goal_FRS
+		cost = 10
+		x = 24
+		y = 10
+		prerequisite = {
+			focus = New_frontier
+		}
+		completion_reward = {
+			news_event = { id = usa.192 }
+			add_stability = 0.15
+			add_political_power = -100
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1965.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = Relief_bill
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10
+		x = 18
+		y = 10
+		prerequisite = {
+			focus = New_frontier
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = -100
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1965.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = pro_Chiang_Kai_shek
+		icon = GFX_goal_diplo_roc
+		cost = 10
+		available = { 
+			CHI = { has_government = neutrality }
+		}
+		prerequisite = {
+			focus = asia_policy
+		}
+		x = 23
+		y = 2
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				add = -50
+				date > 1970.1.1
+			}
+			modifier = {
+				add = 50
+				has_country_leader = { name = "Thomas Dewey" }
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_CHI_armssell_text
+			CHI = {
+				set_country_flag = usa_arms_sell
+				set_country_flag = usa_advisor	
+			}
+		}	
+	}
+	focus = {
+		id = Defence_Taiwan
+		icon = GFX_goal_ROC_marines
+		cost = 1
+		available = {
+			CHI = { has_government = neutrality }
+			756 = { owner = { tag = CHI } }
+			595 = { owner = { tag = PRC } }
+		}
+		prerequisite = {
+			focus = pro_Chiang_Kai_shek
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
+				add = 999
+				PRK = { has_war_with = KOR }
+			}
+		}
+		x = 22
+		y = 3
+		completion_reward = {
+			news_event = { id = roc.55 }
+			give_guarantee = CHI
+		}
+	}
+	focus = {
+		id = Taiwan_Agreement
+		icon = GFX_goal_us_taiwan
+		cost = 2
+		available = {
+			CHI = { has_government = neutrality }
+			756 = { owner = { tag = CHI } }
+			524 = { owner = { tag = CHI } }
+		}
+		prerequisite = {
+			focus = pro_Chiang_Kai_shek
+		}
+		x = 24
+		y = 3
+		ai_will_do = {
+			base = 2
+			modifier = {
+				add = -20
+				date < 1950.1.1
+			}
+			modifier = {
+				add = 50
+				has_country_leader = { name = "Thomas Dewey" }
+			}
+			modifier = {
+				add = 50
+				date > 1954.1.1
+			}
+			modifier = {
+				add = -50
+				date > 1970.1.1
+			}
+		}
+		completion_reward = {
+			CHI = { country_event = { id = usa.4 } }
+		}	
+
+	}
+	focus = {
+		id = Instigating_Taiwan_independence
+		icon = GFX_goal_taiwan_independent
+		cost = 10
+		available = { 
+			CHI = { has_government = neutrality }
+			622 = { owner = { tag = PRC } }
+			608 = { owner = { tag = PRC } }
+		}
+		prerequisite = {
+			focus = Taiwan_Agreement
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 22
+		y = 5
+		completion_reward = {
+			news_event = { id = roc.51 }
+			CHI = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.12
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_free_asia
+		icon = GFX_focus_SWE_radiotjanst
+		cost = 10
+		prerequisite = {
+			focus = Instigating_Taiwan_independence
+			focus = USA_free_CHINA
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 21
+		y = 6
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = USA_support_ROC
+		icon = GFX_goal_tw_youth
+		cost = 10
+		prerequisite = {
+			focus = Taiwan_Agreement
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200
+				PRC = { has_idea = SupportKorea }
+			}
+		}
+		x = 24
+		y = 4
+		completion_reward = {
+			add_political_power = -50
+				add_opinion_modifier = {
+					target = CHI
+					modifier = USA_special_relationship
+				}
+			CHI = {
+				add_political_power = 300
+				custom_effect_tooltip = total_from_aid_120
+				add_to_variable = { this.total_from_aid = 120 }
+				add_opinion_modifier = {
+					target = USA
+					modifier = finicial_add_opinion
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_expanded_ROC
+		icon = GFX_goal_ROC_navy
+		cost = 10
+		prerequisite = {
+			focus = USA_support_ROC
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 24
+		y = 5
+		completion_reward = {
+			CHI = {
+				add_tech_bonus = {
+					bonus = 0.12
+					uses = 1
+					category = air_equipment
+				}
+				add_political_power = 100
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = USA
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = USA_free_CHINA
+		icon = GFX_goal_prc_democracy
+		cost = 10
+		available = { 
+		}
+		prerequisite = {
+			focus = Taiwan_Agreement
+			focus = us_invest_china
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 20
+		y = 5
+		completion_reward = {
+			news_event = { id = prc.205 }
+			CHI = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.12
+				}
+			}
+			PRC = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.08
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_burma_kmt
+		icon = GFX_goal_yunnan_army
+		cost = 10
+		available = { 
+			CHI = { has_government = neutrality }
+		}
+		prerequisite = {
+			focus = Taiwan_Agreement
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1976.1.1
+			}
+		}
+		available = {
+			country_exists = YUN
+			has_military_access_to = SIA
+		}
+		x = 21
+		y = 4
+		completion_reward = {
+			country_event = roc.178
+			YUN = {
+				country_event = roc.178
+				add_political_power = 300
+				add_war_support = 0.15
+			}
+			CHI = {
+				country_event = roc.178
+				add_political_power = 300
+				add_war_support = 0.15
+			}
+			SIA = {
+				country_event = roc.178
+				add_political_power = 100
+			}
+		}
+	}
+	focus = {
+		id = Island_chain
+		icon = GFX_goal_island_chain
+		cost = 10
+		available = { 
+			CHI = { has_government = neutrality }
+		}
+		prerequisite = {
+			focus = us_expanded_ROC
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1976.1.1
+			}
+		}
+		x = 24
+		y = 6
+		completion_reward = {
+			684 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			841 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			646 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Guam_doctrine
+		icon = GFX_focus_usa_focus_on_asia
+		cost = 10
+		available = {
+			OR = {
+			525 = { owner = { tag = PRK } }
+			286 = { owner = { tag = VIN } }
+			}
+		}
+		prerequisite = {
+			focus = pro_SVN
+			focus = pro_VIN
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1972.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.113 }
+			custom_effect_tooltip = Focus_guam_text
+			remove_ideas = Total_Vietnam_War
+		}
+		x = 13
+		y = 6
+	}
+	
+	focus = {
+		id = ROK
+		icon = GFX_goal_diplo_rok
+		cost = 10
+		prerequisite = {
+			focus = asia_policy
+		}
+		x = 27
+		y = 2
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 60
+				date > 1948.1.1
+			}
+			modifier = {
+				add = -30
+				date < 1948.1.1
+			}
+		}
+		completion_reward = {
+			KOR = {
+				add_to_variable = { influences = 200 }
+				set_country_flag = usa_arms_sell
+				transfer_state = 751
+				transfer_state = 750
+				transfer_state = 525
+				transfer_state = 783
+				transfer_state = 832
+				transfer_state = 871
+				load_oob = "KOR_1948"
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 12000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = machine_gun
+					amount = 6000
+					producer = USA
+				}
+			}
+			news_event = { id = kor.2 }
+		}
+	}
+	focus = {
+		id = ROK_democracy
+		icon = GFX_goal_democracy_korea
+		cost = 5
+		prerequisite = {
+			focus = ROK
+		}
+		x = 26
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1980.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = kor.34 }
+			KOR = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_democracy
+		icon = GFX_goal_PRK_PeoplesRepublic
+		cost = 5
+		prerequisite = {
+			focus = ROK_democracy
+			focus = ROK_military
+		}
+		x = 26
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1980.1.1
+			}
+		}
+		completion_reward = {
+			PRK = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOR_nego
+		icon = GFX_goal_KOR_PRK
+		cost = 5
+		prerequisite = {
+			focus = ROK_democracy
+		}
+		x = 27
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1980.1.1
+			}
+		}
+		completion_reward = {
+			PRK = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = ROK_military
+		icon = GFX_goal_KOR_militarist
+		
+		cost = 5
+		prerequisite = {
+			focus = ROK
+		}
+		x = 28
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1961.1.1
+			}
+		}
+		completion_reward = {
+			KOR = {
+				add_stability = 0.18
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Invade_north_Korea
+		icon = GFX_goal_korean_war
+		
+		cost = 5
+		prerequisite = {
+			focus = ROK_military
+		}
+		x = 28
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1961.1.1
+			}
+		}
+		completion_reward = {
+			KOR = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PRK
+			}
+			}
+		}
+
+	}
+	focus = {
+		id = Dodge_plan
+		icon = GFX_goal_jap_usa_alliance
+		cost = 5
+		prerequisite = {
+			focus = asia_policy
+		}
+		x = 31
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1948.1.1
+			}
+			modifier = {
+				factor = 200
+				PRC = { controls_state = 613 }
+			}
+		}
+		completion_reward = {
+			news_event = { id = jap.108 }
+			add_opinion_modifier = {
+				target = JAP
+				modifier = USA_special_relationship
+			}
+			custom_effect_tooltip = Focus_JAP_armssell_text
+			JAP = {
+				set_country_flag = usa_arms_sell
+				add_political_power = 300
+				add_stability = 0.12
+			}
+		}
+
+	}
+	focus = {
+		id = us_spuress_cjp
+		icon = GFX_focus_GER_end_european_communism
+		cost = 3
+		prerequisite = {
+			focus = Dodge_plan
+		}
+		x = 30
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 50
+				date > 1950.5.1
+			}
+			modifier = {
+				factor = 50
+				PRK = { has_war_with = KOR }
+			}
+		}
+		completion_reward = {
+			news_event = { id = jap.160 }
+			JAP = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Support_Japanese_rightwing
+		icon = GFX_goal_jiminto
+		cost = 10
+		prerequisite = {
+			focus = us_spuress_cjp
+		}
+		x = 30
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = jap.104 }
+			JAP = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_kishin_nobusuke
+		icon = GFX_goal_kishi_nobusuke
+		cost = 10
+		prerequisite = {
+			focus = Support_Japanese_rightwing
+		}
+		x = 32
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = USA_JSDF
+		icon = GFX_goal_JSDF
+		cost = 10
+		prerequisite = {
+			focus = Support_Japanese_rightwing
+		}
+		x = 30
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = jap.107 }
+			JAP = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_cut_welfare
+		icon = GFX_focus_generic_tank_production
+		cost = 10
+		prerequisite = {
+			focus = Libertarianism
+		}
+		x = 28
+		y = 8
+		completion_reward = {
+			add_ideas = civilian_economy
+		}
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+	focus = {
+		id = Reaganomics
+		icon = GFX_focus_mex_privatisation
+		cost = 10
+		prerequisite = {
+			focus = Libertarianism
+		}
+		x = 30
+		y = 8
+		completion_reward = {
+			add_ideas = civilian_economy
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1982.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = Rollback
+		icon = GFX_focus_generic_license_production
+		cost = 10
+		prerequisite = {
+			focus = Reaganomics
+		}
+		x = 31
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1981.1.1
+			}
+		}
+		completion_reward = {
+			set_country_flag = evil_empire
+			upgrade_intelligence_agency = upgrade_form_department
+			add_political_power = 300
+			army_experience = 300
+		}
+
+	}
+	focus = {
+		id = us_missle_defence
+		icon = GFX_goal_missle_defence
+		cost = 10
+		prerequisite = {
+			focus = Space_station
+			focus = Rollback
+		}
+		x = 31
+		y = 11
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1982.1.1
+			}
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = SDI
+		icon = GFX_goal_SDI
+		cost = 10
+		prerequisite = {
+			focus = us_missle_defence
+		}
+		x = 31
+		y = 12
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 20
+				date > 1982.1.1
+			}
+		}
+		completion_reward = {
+			add_ideas = SDI_idea
+			add_ideas = extensive_conscription
+			add_named_threat = {
+				threat = 12
+				name = SDI_idea
+			}
+			news_event = { id = usa.114 }
+		}
+
+	}
+	focus = {
+		id = Japan_US_Security
+		icon = GFX_goal_us_jap_security
+		cost = 10
+		prerequisite = {
+			focus = USA_JSDF
+		}
+		x = 30
+		y = 6
+		completion_reward = {
+			news_event = { 
+				id = jap.21
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1958.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = us_new_emperor
+		icon = GFX_goal_democracy_japan
+		cost = 10
+		prerequisite = {
+			focus = Dodge_plan
+		}
+		x = 32
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = jap.106 }
+			JAP = { 
+				add_popularity = {
+					ideology = monarchism
+					popularity = -0.12
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Democracy_Japan
+		icon = GFX_goal_democracy_japan
+		cost = 10
+		prerequisite = {
+			focus = Dodge_plan
+		}
+		x = 34
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			JAP = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.14
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_japan_socialist
+		icon = GFX_goal_shakaito
+		cost = 10
+		prerequisite = {
+			focus = Democracy_Japan
+		}
+		available = {
+			NOT = { has_global_flag = jap252 }
+		}
+		x = 34
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = JAP_JSP_rightwing_tool
+			news_event = { id = jap.105 }
+			JAP = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_support_austria_right
+		icon = GFX_goal_austria_us
+		cost = 10
+		prerequisite = {
+			focus = Trumanism
+		}
+		x = 34
+		y = 1
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = aus.5 }
+		}
+	}
+	focus = {
+		id = us_strengh_austria
+		icon = GFX_goal_armed_austira
+		cost = 10
+		prerequisite = {
+			focus = us_support_austria_right
+		}
+		available = {
+			
+			is_in_faction_with = AUS
+		}
+		x = 34
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			152 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			add_opinion_modifier = {
+				target = AUS
+				modifier = USA_special_relationship
+			}
+			AUS = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = USA
+				}
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+	}
+	focus = {
+		id = us_Congress_for_Cultural_Freedom
+		icon = GFX_focus_SWE_radiotjanst
+		cost = 10
+		prerequisite = {
+			focus = Trumanism
+		}
+		x = 36
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 600
+				date > 1950.5.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.70 }
+			every_other_country = {
+				limit = { NOT = { has_government = democratic } }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.01
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_euro_aid
+		icon = GFX_focus_generic_american_investments
+		cost = 10
+		prerequisite = {
+			focus = Trumanism
+		}
+		x = 38
+		y = 1
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 100
+				date > 1947.5.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = ger.114 }
+			every_controlled_state = {
+				limit = { has_dynamic_modifier = { modifier = morgenthau_modifiers } }
+				remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			}
+		}
+	}
+	focus = {
+		id = Marshall_Plan
+		icon = GFX_goal_marshall_plan
+		cost = 10
+		prerequisite = {
+			focus = Trumanism
+		}
+		x = 40
+		y = 1
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 100
+				date > 1947.5.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_west_euro_armssell_text
+			every_country = {
+				limit = { 
+					capital_scope = {
+					is_on_continent = europe
+					}
+				}
+				set_country_flag = usa_arms_sell
+			}
+			ENG = { country_event = { id = usa.8 } }
+			FRA = { country_event = { id = usa.8 } }
+			POR = { country_event = { id = usa.8 } }
+			HOL = { country_event = { id = usa.8 } }
+			BEL = { country_event = { id = usa.8 } }
+			LUX = { country_event = { id = usa.8 } }
+			ITA = { country_event = { id = usa.8 } }
+			AUS = { country_event = { id = usa.8 } }
+			DEN = { country_event = { id = usa.8 } }
+			NOR = { country_event = { id = usa.8 } }
+			SWE = { country_event = { id = usa.8 } }
+			GRE = { country_event = { id = usa.8 } }
+			TUR = { country_event = { id = usa.8 } }
+			SOV = { news_event = { id = sov.81 } }
+		}
+	}
+	focus = {
+		id = Pro_Britain
+		icon = GFX_goal_diplo_uk
+		cost = 10
+		prerequisite = {
+			focus = Marshall_Plan
+		}
+		x = 38
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			ENG = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = us_Scandinavia
+		icon = GFX_focus_generic_scandinavia_flags
+		cost = 10
+		prerequisite = {
+			focus = Pro_Britain
+		}
+		x = 36
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			SWE = { set_country_flag = usa_advisor }
+			DEN = { set_country_flag = usa_advisor }
+			NOR = { set_country_flag = usa_advisor }
+			add_opinion_modifier = {
+				target = DEN
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SWE
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = NOR
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = us_inflective_finland
+		icon = GFX_focus_EST_national_pride_in_finland
+		cost = 10
+		prerequisite = {
+			focus = us_Scandinavia
+		}
+		x = 36
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = FIN
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = GIUK
+		icon = GFX_goal_GIUK
+		cost = 10
+		prerequisite = {
+			focus = Pro_Britain
+		}
+		x = 38
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1972.1.1
+			}
+		}
+		available = {
+			is_in_faction_with = ENG
+			is_in_faction_with = ICE
+			is_in_faction_with = NOR
+		}
+		completion_reward = {
+			100 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			120 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			142 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Pro_France
+		icon = GFX_goal_diplo_france
+		cost = 10
+		prerequisite = {
+			focus = Marshall_Plan
+		}
+		x = 40
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			FRA = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+			add_opinion_modifier = {
+				target = FRA
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = USA_NATO_focus
+		icon = GFX_goal_focus_NATO
+		cost = 10
+		prerequisite = {
+			focus = Pro_France
+			focus = Pro_Britain
+			focus = US_fucus_WGR
+		}
+		x = 40
+		y = 3
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -50
+				date < 1948.6.1
+			}
+			modifier = {
+				add = 50
+				date > 1949.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.10 }
+			USA = {
+				add_ideas = nato_spirit
+				create_faction = NATO
+				add_named_threat = {
+				threat = 0.5
+				name = EstablishOfNATO
+				}
+			}
+			ENG = { country_event = { id = usa.96 } }
+			CAN = { country_event = { id = usa.96 } }
+			FRA = { country_event = { id = usa.96 } }
+			HOL = { country_event = { id = usa.96 } }
+			BEL = { country_event = { id = usa.96 } }
+			LUX = { country_event = { id = usa.96 } }
+			ITA = { country_event = { id = usa.96 } }
+			DEN = { country_event = { id = usa.96 } }
+			NOR = { country_event = { id = usa.96 } }
+		}
+
+	}
+	focus = {
+		id = us_overthrow_france
+		icon = GFX_focus_attack_france
+		cost = 10
+		prerequisite = {
+			focus = USA_NATO_focus
+		}
+		prerequisite = {
+			focus = US_fucus_Bundeswehr
+		}
+		available = {
+			NOT = { is_in_faction_with = FRA }
+			is_in_faction_with = ENG
+		}
+		x = 42
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = fra.201 }
+			FRA = {
+				add_stability = -0.16
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_762mm_focus
+		icon = GFX_goal_WDR_armor
+		cost = 10
+		prerequisite = {
+			focus = US_fucus_Bundeswehr
+		}
+		x = 45
+		y = 5
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_ideas = us_762mm_modifier
+			every_other_country = {
+				limit = {
+					is_in_faction_with = USA
+					is_subject = no
+				}
+				news_event = { id = usa.210 }
+			}
+		}
+	}
+	focus = {
+		id = us_german_austria
+		icon = GFX_goal_WDR_armor
+		cost = 10
+		prerequisite = {
+			focus = US_fucus_Bundeswehr
+		}
+		x = 44
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = WDR
+				modifier = USA_special_relationship
+			}
+			59 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			55 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			54 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}
+			}
+			WDR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = USA
+				}
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+	}
+	focus = {
+		id = us_deploy_jupiter
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = USA_NATO_focus
+		}
+		available = { 
+			is_in_faction_with = WDR
+			is_in_faction_with = TUR
+			has_tech = guided_missile
+		}
+		x = 40
+		y = 4
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 158.1.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Deploying_Pershing_missiles_tip
+			if = {
+				limit = { is_in_faction_with = FRA }
+				FRA = { country_event = usa.280 }
+			}
+			if = {
+				limit = { is_in_faction_with = WDR }
+				WDR = { country_event = usa.280 }
+			}
+			if = {
+				limit = { is_in_faction_with = TUR }
+				TUR = { country_event = usa.280 }
+			}
+			if = {
+				limit = { is_in_faction_with = ITA }
+				ITA = { country_event = usa.280 }
+			}
+		}
+	}
+	focus = {
+		id = Western_European_Defense
+		icon = GFX_goal_bundeswehr
+		cost = 5
+		prerequisite = {
+			focus = us_deploy_jupiter
+		}
+		x = 40
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1978.1.1
+			}
+		}
+		available = {
+			has_tech = transport_plane2
+		}
+		completion_reward = {
+			custom_effect_tooltip = REFORGER_modifiers_tip
+			add_dynamic_modifier = {
+				modifier = REFORGER_modifiers
+			}
+		}
+	}
+	focus = {
+		id = Deploying_Pershing_missiles
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = Western_European_Defense
+		}
+		available = { 
+			is_in_faction_with = WDR
+			is_in_faction_with = TUR
+		}
+		x = 40
+		y = 6
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1981.1.1
+			}
+		}
+		completion_reward = {
+			set_country_flag = established_pershin
+			custom_effect_tooltip = Deploying_Pershing_missiles_tip
+			add_named_threat = {
+				threat = 5
+				name = EuropeMessill
+			}
+			WDR = {
+				add_tech_bonus = {
+					bonus = 0.1
+					uses = 1
+					category = rocketry
+				}
+			}
+		}
+	}
+	focus = {
+		id = Explorer_I
+		icon = GFX_goal_sputnik1
+		cost = 10
+		prerequisite = {
+			focus = Exploring_space
+		}
+		available = { 
+			has_tech = rocket_engines
+		}
+		x = 34
+		y = 8
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			add_tech_bonus = {
+				bonus = 0.1
+				uses = 1
+				category = space
+			}
+			add_tech_bonus = {
+				bonus = 0.1
+				uses = 1
+				category = rocketry
+			}
+		}
+
+	}
+	focus = {
+		id = usa_nasa
+		icon = GFX_goal_NASA
+		cost = 10
+		prerequisite = {
+			focus = Exploring_space
+		}
+		available = { 
+			has_tech = tech_spacemanned
+		}
+		x = 36
+		y = 8
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = space
+			}
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = rocketry
+			}
+		}
+
+	}
+	focus = {
+		id = Cooperation_with_Soviet
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10
+		prerequisite = {
+			focus = Explorer_I
+		}
+		available = { 
+			has_tech = tech_spacemanned
+		}
+		x = 34
+		y = 9
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+	focus = {
+		id = Apollo_plan
+		icon = GFX_goal_moon_explore
+		cost = 10
+		prerequisite = {
+			focus = Explorer_I
+		}
+		prerequisite = {
+			focus = usa_nasa
+		}
+		available = { 
+			has_tech = command_center
+			has_tech = adv_cockpit
+		}
+		x = 36
+		y = 9
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			news_event = { id = usa.29 }
+		}
+	}
+	focus = {
+		id = USA_dubl4_plan
+		icon = GFX_goal_SaturnV
+		cost = 10
+		prerequisite = {
+			focus = Apollo_plan
+		}
+		available = { 
+			has_tech = capsule_recover
+			has_tech = adv_cockpit
+		}
+		x = 36
+		y = 10
+		completion_reward = {
+			custom_effect_tooltip = USA_dubl4_plan_tool
+		}
+	}
+	focus = {
+		id = USA_manned_space
+		icon = GFX_focus_rocketry
+		cost = 10
+		prerequisite = {
+			focus = Exploring_space
+		}
+		available = {
+			has_tech = rocket_vehicle
+		}
+		x = 32
+		y = 8
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			add_tech_bonus = {
+				bonus = 0.1
+				uses = 1
+				category = space
+			}
+		}
+
+	}
+	focus = {
+		id = Space_station
+		icon = GFX_goal_skylab
+		cost = 10
+		available = { 
+			has_tech = space_research
+		}
+		prerequisite = {
+			focus = Apollo_plan
+		}
+		prerequisite = {
+			focus = Cooperation_with_Soviet
+		}
+		prerequisite = {
+			focus = manned_space
+		}
+		available = { 
+			has_tech = modularization
+			has_tech = solar_power
+		}
+		x = 34
+		y = 10
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			add_tech_bonus = {
+				bonus = 0.1
+				uses = 1
+				category = space
+			}
+		}
+
+	}
+	focus = {
+		id = US_fucus_WGR
+		icon = GFX_goal_diplo_wdr
+		cost = 10
+		prerequisite = {
+			focus = Marshall_Plan
+		}
+		x = 42
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 600
+				date > 1948.5.1
+			}
+		}
+		completion_reward = {
+			USA  = { news_event = { id = ger.1 } }
+			SOV  = { news_event = { id = ger.2 } }
+			WDR  = { transfer_state = 55 }
+		}
+	}
+	focus = {
+		id = US_fucus_Bundeswehr
+		icon = GFX_goal_bundeswehr
+		cost = 10
+		prerequisite = {
+			focus = US_fucus_WGR
+		}
+		x = 42
+		y = 3
+		available = {
+			country_exists = DDR
+			country_exists = WDR
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 60
+				date > 1952.1.1
+			}
+			modifier = {
+				add = 600
+				date > 1953.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = ger.60 }
+			set_global_flag = Bundeswehr_flag
+			WDR = { army_experience = 200 }
+		}
+	}
+	focus = {
+		id = us_deutsch_union
+		icon = GFX_goal_deutsh_union
+		cost = 10
+		prerequisite = {
+			focus = US_fucus_WGR
+		}
+		x = 44
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			country_exists = BAV
+			country_exists = HAN
+			country_exists = RHI
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = Penetrating_Eastern_Europe
+		icon = GFX_goal_democratic_revolt
+		cost = 25
+		prerequisite = {
+			focus = USA_NATO_focus
+		}
+		x = 38
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1981.1.1
+			}
+		}
+		completion_reward = {
+			add_intel = {
+				target = POL
+				civilian_intel = 25
+				army_intel = 15
+			}
+			POL = { 
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+			}
+			add_intel = {
+				target = DDR
+				civilian_intel = 25
+				army_intel = 15
+			}
+			DDR = { 
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+			}
+			add_intel = {
+				target = CZE
+				civilian_intel = 25
+				army_intel = 15
+			}
+			CZE = { 
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+			}
+			add_intel = {
+				target = HUN
+				civilian_intel = 25
+				army_intel = 15
+			}
+			HUN = { 
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_solidarity
+		icon = GFX_goal_Solidarnosc
+		cost = 15
+		prerequisite = {
+			focus = Penetrating_Eastern_Europe
+		}
+		x = 38
+		y = 5
+		available = {
+			SOV = { not = { has_government = communism } }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1980.1.1
+			}
+		}
+		completion_reward = {
+			POL = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.12
+				}
+			}
+			HUN = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+			}
+			CZE = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Color_revolution
+		icon = GFX_focus_SOV_baltic_security
+		cost = 15
+		prerequisite = {
+			focus = us_solidarity
+		}
+		x = 38
+		y = 6
+		available = {
+			SOV = {
+				has_country_leader_with_trait = liberal_reformism
+			}
+			any_country = {
+				is_in_faction_with = SOV
+				has_country_leader_with_trait = liberal_reformism
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1980.1.1
+			}
+		}
+		completion_reward = {
+			LIT = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+			}
+			EST = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+			}
+			LAT = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+			}
+			GEO = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+			}
+			KAZ = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = NATO_East_Expansion
+		icon = GFX_goal_nato_expand
+		cost = 10
+		prerequisite = {
+			focus = Color_revolution
+		}
+		prerequisite = {
+			focus = Deploying_Pershing_missiles
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1990.1.1
+			}
+		}
+		available = { 
+			NOT = {
+				CZE = { has_government = communism }
+				HUN = { has_government = communism }
+				POL = { has_government = communism }
+			}
+		}
+		x = 40
+		y = 7
+		completion_reward = {
+			POL = { country_event = { id = usa.96 } }
+			HUN = { country_event = { id = usa.96 } }
+			CZE = { country_event = { id = usa.96 } }
+		}
+
+	}
+	focus = {
+		id = operation_gladid
+		icon = GFX_goal_operation_gladid
+		cost = 5
+		prerequisite = {
+			focus = Trumanism
+		}
+		available = { 
+			is_in_faction_with = ITA
+		}
+		x = 42
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+			}
+			modifier = {
+				add = 30
+				ITA = { communism > 0.4 }
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = operation_gladid_tip
+			if = {
+				limit = {
+					ITA = {
+						has_government = communism
+					}
+				}
+				ITA = {
+					add_popularity = {
+						ideology = communism
+						popularity = -0.15
+					}
+					add_stability = -0.2
+				}
+			}	
+		}
+
+	}
+	focus = {
+		id = us_europe_rightwing
+		icon = GFX_focus_SOV_restore_cossack_units
+		cost = 10
+		prerequisite = {
+			focus = Trumanism
+		}
+		x = 44
+		y = 1
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+					OR = {
+						NOT = { is_in_faction_with = USA }
+						has_government = communism
+						communism > 0.35
+					}
+				}
+				add_stability = -0.12
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.03
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_support_bandera
+		icon = GFX_focus_POL_ukrainian_army
+		cost = 10
+		prerequisite = {
+			focus = us_europe_rightwing
+		}
+		x = 44
+		y = 2
+		available = {
+			any_state = {
+				OR = {
+					is_core_of = LIT
+					is_core_of = LAT
+					is_core_of = EST
+					is_core_of = BLR
+					is_core_of = UKR
+				}
+				has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			custom_effect_tooltip = us_support_bandera_tool
+			set_country_flag = operation_metsavennad
+			random_state = {
+				limit = {
+					OR = {
+						is_core_of = LIT
+						is_core_of = LAT
+						is_core_of = EST
+					}
+					is_controlled_by = SOV
+				}
+				add_resistance = 10
+			}
+			random_state = {
+				limit = {
+					OR = {
+						is_core_of = LIT
+						is_core_of = LAT
+						is_core_of = EST
+					}
+					is_controlled_by = SOV
+				}
+				add_resistance = 10
+			}
+			random_state = {
+				limit = {
+					is_core_of = BLR
+					is_controlled_by = SOV
+				}
+				add_resistance = 10
+			}
+			random_state = {
+				limit = {
+					is_core_of = UKR
+					is_controlled_by = SOV
+				}
+				add_resistance = 10
+			}
+			random_state = {
+				limit = {
+					is_core_of = UKR
+					is_controlled_by = SOV
+				}
+				add_resistance = 10
+			}
+			random_state = {
+				limit = {
+					is_core_of = UKR
+					is_controlled_by = SOV
+				}
+				add_resistance = 10
+			}
+		}
+	}
+	focus = {
+		id = Pro_Greece
+		icon = GFX_focus_generic_befriend_greece
+		cost = 10
+		available = {
+			GRE = {
+				NOT = {  has_government = communism }
+				has_country_flag = UsaAdvisorAllow
+				has_country_flag = usa_army_advisor
+			}
+		}
+		prerequisite = {
+			focus = Trumanism
+		}
+		x = 46
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			GRE = { 
+				country_event = { id = usa.96 } 
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+			}
+		}
+	}
+	focus = {
+		id = Infiltration_Yugoslavia
+		icon = GFX_goal_diplo_yugo
+		cost = 10
+		prerequisite = {
+			focus = Pro_Greece
+		}
+		x = 46
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_intel = {
+				target = YUG
+				civilian_intel = 25
+				army_intel = 15
+			}
+			YUG = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = New_Oriental_Policy
+		icon = GFX_soviet_relationship
+		cost = 10
+		x = 36
+		y = 2
+		prerequisite = {
+			focus = Marshall_Plan
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1957.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.33 }
+			add_opinion_modifier = {
+				target = ROM
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = POL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = DDR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = CZE
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = Pro_Isreal
+		icon = GFX_goal_diplo_israel
+		cost = 10
+		x = 52
+		y = 0
+		available = { 
+			NOT = {
+				ISR = { has_government = communism }
+			}
+			country_exists = ISR
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = USA_special_relationship
+			}
+			ISR = {
+				set_country_flag = usa_arms_sell
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_Isreal_likud
+		icon = GFX_goal_likud
+		cost = 10
+		x = 50
+		y = 1
+		prerequisite = {
+			focus = Pro_Isreal
+		}
+		available = { 
+			NOT = {
+				ISR = { has_government = communism }
+			}
+			country_exists = ISR
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_Isreal_support
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		x = 52
+		y = 1
+		prerequisite = {
+			focus = Pro_Isreal
+		}
+		available = { 
+			NOT = {
+				ISR = { has_government = communism }
+			}
+			country_exists = ISR
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = USA_special_relationship
+			}
+			ISR = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_israel_sell
+		icon = GFX_focus_generic_license_production
+		cost = 10
+		prerequisite = {
+			focus = us_Isreal_support
+		}
+		x = 50
+		y = 2
+		available = { 
+			NOT = {
+				ISR = { has_government = communism }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			ISR = {
+				set_country_flag = usa_arms_sell
+				set_country_flag = UsaAdvisorAllow	
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+		}	
+
+	}
+	focus = {
+		id = David_Camp_Agreement
+		icon = GFX_goal_camp_david
+		cost = 10
+		prerequisite = {
+			focus = us_israel_sell
+		}
+		prerequisite = {
+			focus = Pro_Egypt
+		}
+		x = 50
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1976.1.1
+			}
+		}
+		completion_reward = {
+		EGY = { country_event = { id = isr.8 } }
+		}
+
+	}
+	focus = {
+		id = Pro_Arabia
+		icon = GFX_goal_USA_pro_arabia
+		cost = 10
+		available = { 
+			NOT = {
+				EGY = { has_government = communism }
+				SAU = { has_government = communism }
+				SYR = { has_government = communism }
+			}
+		}
+		prerequisite = {
+			focus = Middle_East_policy
+		}
+		x = 56
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1980.1.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_SAU_armssell_text
+			SAU = { set_country_flag = usa_arms_sell }
+			add_opinion_modifier = {
+				target = SAU
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = EGY
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SYR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = JOR
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = Pro_Egypt
+		icon = GFX_egypt_relationship
+		cost = 10
+		prerequisite = {
+			focus = Pro_Arabia
+		}
+		x = 53
+		y = 2
+		available = { 
+			NOT = {
+				EGY = { has_government = communism }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1976.1.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_EGY_armssell_text
+			add_opinion_modifier = {
+				target = EGY
+				modifier = USA_special_relationship
+			}
+			EGY = { 
+				set_country_flag = usa_arms_sell
+				add_popularity = {
+					ideology = communism
+					popularity = -0.2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_egy_muslim
+		icon = GFX_goal_egy_mbh
+		cost = 10
+		prerequisite = {
+			focus = Pro_Egypt
+		}
+		x = 54
+		y = 3
+		available = { 
+			NOT = {
+				EGY = { has_government = communism }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_arabs_secularis
+		icon = GFX_goal_saudi_republican
+		cost = 10
+		prerequisite = {
+			focus = Pro_Egypt
+		}
+		x = 52
+		y = 3
+		available = { 
+			NOT = {
+				EGY = { has_government = communism }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = arabs_state
+					NOT = { has_government = monarchism }
+					NOT = { has_government = fascism }
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+				add_stability = 0.04
+				add_political_power = 200
+			}
+			random_country = {
+				limit = {
+					has_country_flag = arabs_state
+					NOT = { has_government = monarchism }
+					NOT = { has_government = fascism }
+				}
+				news_event = usa.200
+			}
+		}
+
+	}
+	focus = {
+		id = us_nasserism
+		icon = GFX_goal_nasserism
+		cost = 10
+		prerequisite = {
+			focus = us_arabs_secularis
+		}
+		x = 53
+		y = 4
+		available = { 
+			NOT = {
+				EGY = { has_government = communism }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			every_country = {
+				limit = { has_country_leader_with_trait = arabs_nationalism }
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = { has_country_leader_with_trait = arabs_nationalism }
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = us_bathth
+		icon = GFX_goal_bath_party
+		cost = 10
+		prerequisite = {
+			focus = us_arabs_secularis
+		}
+		x = 51
+		y = 4
+		available = { 
+			NOT = {
+				EGY = { has_government = communism }
+			}
+			any_country = {
+				has_country_flag = arabs_state
+				has_government = authoritarianism
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = arabs_state
+					has_government = authoritarianism
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = arabs_state
+					has_government = authoritarianism
+				}
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+
+	}
+	focus = {
+		id = Pro_Saudi
+		icon = GFX_goal_diplo_saudi
+		cost = 10
+		prerequisite = {
+			focus = Pro_Arabia
+		}
+		available = { 
+			NOT = {
+				SAU = { has_government = communism }
+			}
+		}
+		x = 56
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1978.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SAU
+				modifier = USA_special_relationship
+			}
+			SAU = { 
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+				add_popularity = {
+					ideology = communism
+					popularity = -0.2
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Pro_Iran
+		icon = GFX_goal_diplo_iran
+		cost = 10
+		available = { 
+			NOT = {
+				PER = { has_government = communism }
+				PER = { has_government = fascism }
+			}
+		}
+		prerequisite = {
+			focus = Middle_East_policy
+		}
+		x = 59
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1954.1.1
+			}
+			modifier = {
+				add = -100
+				PER = { has_government = fascism }
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PER
+				modifier = USA_special_relationship
+			}
+			PER = { 
+				add_popularity = {
+					ideology = communism
+					popularity = -0.08
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_infected_magreb
+		icon = GFX_goal_relation_maghreb
+		cost = 10
+		prerequisite = {
+			focus = Middle_East_policy
+		}
+		prerequisite = {
+			focus = us_into_africa
+		}
+		available = {
+			MOR = { is_subject = no }
+			TUN = { is_subject = no }
+		}
+		x = 64
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1954.1.1
+			}
+			modifier = {
+				add = -100
+				PER = { has_government = fascism }
+			}
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = maghrib_state
+					is_subject = no
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = maghrib_state
+					is_subject = no
+					NOT = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				news_event = { id = usa.200 }
+			}
+		}
+
+	}
+	focus = {
+		id = Middle_east_exist
+		icon = GFX_goal_CENTCOM
+		cost = 10
+		prerequisite = {
+			focus = Pro_Saudi
+		}
+		prerequisite = {
+			focus = us_Pahlavi
+		}
+		x = 58
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1976.1.1
+			}
+		}
+		available = {
+			any_country = {
+				has_country_flag = gulf_states
+				has_country_flag = UsaAdvisorAllow
+			}
+		}
+		completion_reward = {
+			UAE = {
+				if= {
+					limit = {
+						has_country_flag = arabs_state
+						has_country_flag = UsaAdvisorAllow
+					}
+				}
+				country_event = { id = usa.4 }
+			}
+			random_country = {
+				limit = {
+					has_country_flag = arabs_state
+					has_country_flag = UsaAdvisorAllow
+				}
+				country_event = { id = usa.4 }
+			}
+		}
+	}
+	focus = {
+		id = us_me_monarchs
+		icon = GFX_goal_arabs_monarchs
+		cost = 10
+		prerequisite = {
+			focus = Pro_Saudi
+		}
+		x = 56
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1956.1.1
+			}
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = arabs_state
+					has_government = monarchism
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = USA_special_relationship
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = arabs_state
+					has_government = monarchism
+				}
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+	}
+	focus = {
+		id = us_strike_arabs
+		icon = GFX_goal_de_islam
+		cost = 10
+		prerequisite = {
+			focus = us_me_monarchs
+		}
+		x = 55
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1959.1.1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = arabs_state
+					has_country_leader_with_trait = arabs_nationalism
+				}
+				add_popularity = {
+					ideology = ROOT
+					popularity = -0.02
+				}
+				add_stability = -0.02
+			}
+		}
+	}
+	focus = {
+		id = us_islam_revolution
+		icon = GFX_goal_islam_diplo
+		cost = 10
+		prerequisite = {
+			focus = us_me_monarchs
+		}
+		x = 57
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = per.125 }
+			every_country = {
+				limit = {
+					has_country_flag = islam_state
+					NOT = { has_government = fascism }
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.02
+				}
+			}
+			random_country = {
+				limit = {
+					has_government = fascism
+				}
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+		}
+	}
+	focus = {
+		id = us_iran_oi_companies
+		icon = GFX_goal_iran_oil
+		cost = 10
+		prerequisite = {
+			focus = us_Pahlavi
+			focus = us_free_iran
+		}
+		x = 60
+		y = 3
+
+	}
+	focus = {
+		id = us_Pahlavi
+		icon = GFX_goal_persian_gov
+		cost = 10
+		prerequisite = {
+			focus = Pro_Iran
+		}
+		available = {
+			PER = {
+				has_government = monarchism
+				has_country_flag = UsaAdvisorAllow
+			}
+		}
+		x = 58
+		y = 2
+		completion_reward = {
+			PER	= {
+				set_country_flag = usa_arms_sell
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+		}
+
+	}
+	focus = {
+		id = us_free_iran
+		icon = GFX_goal_tudeh_party
+		cost = 10
+		prerequisite = {
+			focus = Pro_Iran
+		}
+		available = {
+			PER = {
+				has_government = monarchism
+				NOT = {
+					has_country_flag = UsaAdvisorAllow
+					has_country_flag = usa_army_advisor
+				}
+			}
+		}
+		x = 60
+		y = 2
+		completion_reward = {
+			PER	= {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = monarchism
+					popularity = -0.08
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = Great_society
+		icon = GFX_goal_great_social
+		cost = 10
+		prerequisite = {
+			focus = New_frontier
+		}
+		x = 20
+		y = 10
+		completion_reward = {
+			news_event = { id = usa.191 }
+			add_stability = 0.2
+		}
+
+	}
+	focus = {
+		id = Social_Welfare
+		icon = GFX_goal_welfare
+		cost = 10
+		x = 18
+		y = 12
+		prerequisite = {
+			focus = War_on_poverty
+		}
+		completion_reward = {
+			add_ideas = hight_welfare
+			add_political_power = -100
+		}
+
+	}
+	focus = {
+		id = us_medical_reform
+		icon = GFX_goal_welfare
+		cost = 10
+		x = 17
+		y = 13
+		prerequisite = {
+			focus = us_free_social
+		}
+		prerequisite = {
+			focus = Social_Welfare
+		}
+		completion_reward = {
+			add_ideas = hight_welfare
+			add_political_power = -100
+		}
+
+	}
+	focus = {
+		id = War_on_poverty
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10
+		x = 18
+		y = 11
+		prerequisite = {
+			focus = Great_society
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = -100
+		}
+
+	}
+	focus = {
+		id = us_texas_field
+		icon = GFX_goal_texas_oil
+		cost = 10
+		x = 22
+		y = 11
+		prerequisite = {
+			focus = Great_society
+		}
+		completion_reward = {
+			375 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = Education_act
+		icon = GFX_goal_education
+		cost = 10
+		x = 20
+		y = 11
+		prerequisite = {
+			focus = Great_society
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = -100
+		}
+
+	}
+	focus = {
+		id = Reduce_ntervention
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		cost = 10
+		prerequisite = {
+			focus = Reaganomics
+		}
+		x = 28
+		y = 9
+	}
+	focus = {
+		id = us_close_factories
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		prerequisite = {
+			focus = Reduce_ntervention
+		}
+		x = 28
+		y = 10
+	}
+	focus = {
+		id = us_oil_price
+		icon = GFX_goal_oil_produc
+		cost = 10
+		prerequisite = {
+			focus = Reduce_ntervention
+		}
+		x = 30
+		y = 10
+	}
+	focus = {
+		id = Goldwater_Act
+		icon = GFX_focus_usa_build_the_pentagon
+		cost = 10
+		prerequisite = {
+			focus = Rollback
+		}
+		x = 32
+		y = 10
+		completion_reward = {
+			army_experience = 400
+			add_political_power = 300
+			add_command_power = 300
+			add_war_support = 0.3
+		}
+	}
+	focus = {
+		id = USA_Hight_tech_economic
+		icon = GFX_focus_research2
+		cost = 10
+		x = 54
+		y = 7
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_ideas = IBM
+		}
+
+	}
+	focus = {
+		id = USA_SIA_Association
+		prerequisite = {
+			focus = USA_Hight_tech_economic
+		}
+		icon = GFX_goal_semidoc
+		cost = 10
+		x = 52
+		y = 8
+		completion_reward = {
+			add_ideas = Fairchild
+		}
+
+	}
+	focus = {
+		id = Stanford
+		prerequisite = {
+			focus = USA_SIA_Association
+		}
+		icon = GFX_goal_standford
+		cost = 10
+		x = 52
+		y = 9
+		completion_reward = {
+			876 = {
+				set_state_category = metropolis
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = us_super_radar
+		prerequisite = {
+			focus = Stanford
+		}
+		icon = GFX_goal_electronic
+		cost = 10
+		x = 54
+		y = 10
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_invest_computer
+		prerequisite = {
+			focus = Stanford
+		}
+		icon = GFX_goal_electronic
+		cost = 10
+		x = 52
+		y = 10
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_internet
+		prerequisite = {
+			focus = us_invest_computer
+		}
+		icon = GFX_goal_www
+		cost = 10
+		x = 52
+		y = 11
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = USA_DARPA
+		prerequisite = {
+			focus = USA_Hight_tech_economic
+		}
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 10
+		x = 58
+		y = 8
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 100
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+	}
+	focus = {
+		id = USA_Nuclear
+		prerequisite = {
+			focus = USA_Hight_tech_economic
+		}
+		icon = GFX_goal_nuclear_plant
+		cost = 10
+		x = 56
+		y = 8
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			recruit_character = USA_Kenneth_Nichols
+			news_event = { id = usa.130 }
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+
+	}
+	focus = {
+		id = us_blavo_fortress
+		prerequisite = {
+			focus = USA_Nuclear
+		}
+		icon = GFX_focus_wonderweapons
+		cost = 5
+		x = 60
+		y = 9
+		available = {
+			OR = {
+				has_global_flag = USA_BikiniTestfield
+				has_global_flag = USA_NevadaTestfield
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1954.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.138 }
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1
+				category = nuclear
+			}
+		}
+
+	}
+	focus = {
+		id = us_nuke_canon_focus
+		prerequisite = {
+			focus = us_blavo_fortress
+		}
+		icon = GFX_goal_nuke_cannon
+		cost = 10
+		x = 58
+		y = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1
+				category = nuclear
+			}
+			set_technology = {
+				nuke_artillery = 1
+			}
+		}
+
+	}
+	focus = {
+		id = us_civil_defence_focus
+		prerequisite = {
+			focus = USA_Nuclear
+		}
+		icon = GFX_goal_civil_defence
+		cost = 3
+		x = 64
+		y = 9
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.287 }
+			add_stability = 0.1
+			add_political_power = 100
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			custom_effect_tooltip = us_civil_defence_focus_tool
+		}
+	}
+	focus = {
+		id = us_CONELRAD
+		prerequisite = {
+			focus = us_civil_defence_focus
+		}
+		icon = GFX_goal_conelrad
+		cost = 2
+		x = 64
+		y = 10
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1952.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.288 }
+			add_stability = 0.06
+			add_political_power = 100
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			custom_effect_tooltip = us_civil_defence_focus_tool
+		}
+	}
+	focus = {
+		id = us_bunker_project
+		prerequisite = {
+			focus = us_CONELRAD
+		}
+		icon = GFX_goal_fallout
+		cost = 10
+		x = 64
+		y = 12
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_atomic_vegas
+		prerequisite = {
+			focus = us_blavo_fortress
+		}
+		icon = GFX_goal_atomic_vegas
+		cost = 10
+		x = 62
+		y = 10
+		completion_reward = {
+			add_political_power = 120
+			379 = {
+				add_extra_state_shared_building_slots = 4
+				add_to_variable = { state_tourist = 10 }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = us_nuclear_submarines_focus
+		prerequisite = {
+			focus = us_blavo_fortress
+		}
+		icon = GFX_goal_nuclear_submarines
+		cost = 10
+		x = 60
+		y = 10
+		completion_reward = {
+			recruit_character = USA_Hyman_Rickover
+		}
+	}
+	focus = {
+		id = us_submarines_missiles
+		prerequisite = {
+			focus = us_nuclear_submarines_focus
+		}
+		icon = GFX_goal_pershing_ii
+		cost = 10
+		x = 60
+		y = 11
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_minor_reactor
+		prerequisite = {
+			focus = USA_Atom_Peace
+		}
+		prerequisite = {
+			focus = us_controlled_reaction
+		}
+		icon = GFX_focus_generic_nuclear_development
+		cost = 10
+		x = 57
+		y = 11
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.6
+				uses = 1
+				category = advanced_nuclear
+			}
+		}
+
+	}
+	focus = {
+		id = us_project_pluto
+		prerequisite = {
+			focus = us_minor_reactor
+		}
+		icon = GFX_goal_pershing_ii
+		cost = 10
+		x = 54
+		y = 12
+		available = {
+			has_tech = minor_reactors_tech2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1
+				category = nuclear
+			}
+			set_technology = {
+				nuclear_powered_missile = 1
+			}
+		}
+
+	}
+	focus = {
+		id = us_nuclear_plane
+		prerequisite = {
+			focus = us_minor_reactor
+		}
+		icon = GFX_goal_NB-36H
+		cost = 10
+		x = 56
+		y = 12
+		available = {
+			has_tech = minor_reactors_tech2
+		}
+		completion_reward = {
+			set_technology = {
+				nuclear_bomber = 1
+			}
+		}
+
+	}
+	focus = {
+		id = us_civilian_reactor
+		prerequisite = {
+			focus = us_minor_reactor
+		}
+		icon = GFX_focus_generic_nuclear_development
+		cost = 10
+		available = {
+			has_tech = nuclear_plant_2
+			has_built = {
+				type = nuclear_reactor
+				value > 3
+			}		
+		}
+		x = 60
+		y = 12
+		available = {
+			has_tech = minor_reactors_tech
+		}
+		completion_reward = {
+			add_ideas = civilian_nuclear_idea
+		}
+
+	}
+	focus = {
+		id = us_NuclearAuto
+		prerequisite = {
+			focus = us_civilian_reactor
+		}
+		icon = GFX_goal_NuclearAuto
+		cost = 10
+		x = 62
+		y = 13
+		available = {
+			has_tech = minor_reactors_tech2
+		}
+		completion_reward = {
+			add_dynamic_modifier ={ modifier = us_NuclearAuto_modifiers }
+		}
+
+	}
+	focus = {
+		id = us_housed_nuclear
+		prerequisite = {
+			focus = us_civilian_reactor
+		}
+		icon = GFX_goal_housed_nuclear
+		cost = 10
+		x = 60
+		y = 13
+		available = {
+			has_tech = minor_reactors_tech2
+			has_built = {
+				type = nuclear_reactor
+				value > 5
+			}		
+		}
+		completion_reward = {
+			add_ideas = civilian_nuclear2_idea
+		}
+
+	}
+	focus = {
+		id = us_radway
+		prerequisite = {
+			focus = us_housed_nuclear
+		}
+		icon = GFX_goal_RadAway
+		cost = 10
+		x = 60
+		y = 14
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_privitate_nuclear
+		prerequisite = {
+			focus = us_radway
+		}
+		icon = GFX_goal_nuclear_economic
+		cost = 10
+		x = 60
+		y = 15
+		available = {
+			has_tech = civilian_reactors_tech
+			has_built = {
+				type = nuclear_reactor
+				value > 9
+			}		
+		}
+		completion_reward = {
+			add_ideas = privitate_nuclear_idea
+		}
+
+	}
+	focus = {
+		id = us_nuke_minerals
+		prerequisite = {
+			focus = us_minor_reactor
+		}
+		icon = GFX_focus_generic_mine_warfare
+		cost = 10
+		x = 58
+		y = 12
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1
+				category = nuclear
+			}
+		}
+
+	}
+	focus = {
+		id = us_nuke_soldiers
+		prerequisite = {
+			focus = us_nuke_minerals
+		}
+		icon = GFX_goal_terrorist
+		cost = 10
+		x = 58
+		y = 13
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1
+				category = nuclear
+			}
+		}
+
+	}
+	focus = {
+		id = us_controlled_reaction
+		prerequisite = {
+			focus = USA_Nuclear
+		}
+		icon = GFX_goal_focus_Nuke
+		cost = 10
+		x = 58
+		y = 9
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1953.1.1
+			}
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = us_uranium_fever
+		prerequisite = {
+			focus = USA_Nuclear
+		}
+		icon = GFX_focus_generic_uranium_extraction
+		cost = 10
+		x = 54
+		y = 9
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = USA_Atom_Peace
+		prerequisite = {
+			focus = USA_Nuclear
+		}
+		icon = GFX_goal_focus_Nuke
+		cost = 10
+		x = 56
+		y = 9
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1953.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = usa.257 }
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1
+				category = nuclear
+			}
+			add_named_threat = {
+				threat = -6
+				name = Atom_Peace
+			}
+		}
+
+	}
+	focus = {
+		id = USA_OperationPlowshare
+		prerequisite = {
+			focus = USA_Atom_Peace
+		}
+		icon = GFX_goal_nuke
+		cost = 10
+		x = 56
+		y = 10
+
+	}
+	focus = {
+		id = USA_Environmentalism
+		prerequisite = {
+			focus = USA_Hight_tech_economic
+		}
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		cost = 10
+		x = 50
+		y = 8
+		available = {
+			has_global_flag = silent_spring_event
+		}
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_dynamic_modifier = { modifier = environmental_protection_modifiers }
+		}
+
+	}
+	focus = {
+		id = USA_Renewable_Energy
+		prerequisite = {
+			focus = USA_Environmentalism
+		}
+		icon = GFX_goal_pure_energy
+		cost = 10
+		x = 50
+		y = 9
+		completion_reward = {
+			add_political_power = 100
+			add_tech_bonus = {
+				name = marine_tech
+				ahead_reduction = 2
+				category = industry
+			}
+			custom_effect_tooltip = USA_Renewable_Energy_tool
+		}
+	}
+	focus = {
+		id = Latin_Ameria
+		icon = GFX_goal_map_latin
+		cost = 10
+		x = 66
+		y = 5
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1948.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = BUR
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = INS
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = EGY
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = IND
+				modifier = SOV_support_africa
+			}
+		}
+
+	}
+	focus = {
+		id = Pro_Company
+		icon = GFX_goal_fruit
+		cost = 2
+		x = 62
+		y = 6
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1952.5.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_Pro_Company_text
+			GUA = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+			ELS = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+			HON = {
+				news_event = { id = usa.200 }
+				country_event = { id = usa.8 }
+			}
+			NIC = {
+				set_country_flag = usa_arms_sell
+				set_country_flag = UsaAdvisorAllow	
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+		}	
+	}
+	focus = {
+		id = Pro_dictators
+		icon = GFX_goal_military_regimr
+		cost = 5
+		x = 62
+		y = 7
+		prerequisite = {
+			focus = Pro_Company
+		}
+		available = {
+			any_country = {
+				has_country_flag = latin_america
+				has_country_leader_with_trait = anti_communist
+				has_country_leader_with_trait = pro_america
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1968.5.1
+			}
+			modifier = {
+				add = 20
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = Focus_Pro_Company_text
+			every_other_country = {
+				limit = {
+					has_country_flag = latin_america
+					has_country_leader_with_trait = anti_communist
+					has_country_leader_with_trait = pro_america
+				}
+				set_country_flag = usa_arms_sell
+				set_country_flag = UsaAdvisorAllow	
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+				news_event = { id = usa.200 }
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+	}
+	focus = {
+		id = us_operation_eagle
+		icon = GFX_focus_generic_limited_social_mobilization
+		cost = 10
+		x = 62
+		y = 8
+		prerequisite = {
+			focus = Pro_dictators
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					has_country_flag = latin_america
+					has_country_leader_with_trait = anti_communist
+					has_country_leader_with_trait = pro_america
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
+				}
+			}
+		}
+	}
+	focus = {
+		id = return_cannal
+		icon = GFX_goal_Panama_canal
+		cost = 10
+		x = 60
+		y = 6
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+
+	}
+	focus = {
+		id = APLA
+		icon = GFX_goal_alliance_progress
+		cost = 10
+		x = 64
+		y = 6
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1960.1.1
+			}
+		}
+		completion_reward = {
+			MEX = { news_event = { id = usa.25 } }
+			COL = { news_event = { id = usa.25 } }
+			PRU = { news_event = { id = usa.25 } }
+			CHL = { news_event = { id = usa.25 } }
+			URG = { news_event = { id = usa.25 } }
+			HON = { news_event = { id = usa.25 } }
+			GUA = { news_event = { id = usa.25 } }
+			VEN = { news_event = { id = usa.25 } }
+			BRA = { news_event = { id = usa.25 } }
+			ECU = { news_event = { id = usa.25 } }
+			COS = { news_event = { id = usa.25 } }
+			ELS = { news_event = { id = usa.25 } }
+		}
+
+	}
+	focus = {
+		id = us_latin_democratic
+		icon = GFX_goal_support_democracy
+		cost = 10
+		x = 64
+		y = 7
+		prerequisite = {
+			focus = APLA
+		}
+
+	}
+	focus = {
+		id = us_invest_latins
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		x = 64
+		y = 8
+		prerequisite = {
+			focus = us_latin_democratic
+		}
+
+	}
+	focus = {
+		id = us_mexico
+		x = 69
+		y = 6
+		icon = GFX_goal_diplo_mexico
+		cost = 10
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = MEX
+				modifier = USA_special_relationship
+			}
+			MEX = {
+				news_event = { id = usa.200 }
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+	}
+	focus = {
+		id = us_ant_mexico
+		x = 72
+		y = 6
+		icon = GFX_focus_attack_mexico
+		cost = 10
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_puerto_rico_autonomy
+		x = 74
+		y = 6
+		icon = GFX_goal_puerto_rico_autonomy
+		cost = 3
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1949.10.1
+			}
+		}
+		completion_reward = {
+			PRI = {
+				transfer_state = 686
+			}
+			set_autonomy = {
+				target = PRI
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			add_political_power = 120
+			add_stability = 0.02
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			news_event = pri.2
+		}
+	}
+	focus = {
+		id = us_mex_rip
+		x = 70
+		y = 7
+		icon = GFX_goal_parti_revoluion_institue
+		cost = 10
+		prerequisite = {
+			focus = us_mexico
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_mexico_democratic
+		x = 72
+		y = 7
+		icon = GFX_goal_mex_democrat
+		cost = 10
+		prerequisite = {
+			focus = us_mexico
+			focus = us_ant_mexico
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_NAFTA
+		x = 68
+		y = 7
+		icon = GFX_goal_NAFTA
+		cost = 10
+		prerequisite = {
+			focus = us_mexico
+		}
+		prerequisite = {
+			focus = us_canada
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = us_canada
+		x = 66
+		y = 6
+		icon = GFX_goal_diplo_canada
+		cost = 10
+		prerequisite = {
+			focus = Latin_Ameria
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = NORAD
+		x = 66
+		y = 7
+		icon = GFX_goal_norad
+		cost = 10
+		available = {
+			is_in_faction_with = CAN
+		}
+		prerequisite = {
+			focus = us_canada
+		}
+		completion_reward = {
+			CAN = { country_event = usa.270 }
+		}
+	}
+}

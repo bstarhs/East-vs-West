@@ -1,0 +1,443 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Infantry Division"  
+	division_names_group = USA_MOT_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		aa_missile_battalion = { x = 2 y = 0 }
+		at_missile_battalion = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		motorized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Armor Division"	
+	division_names_group = USA_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# BT-7 tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }	
+		medium_armor = { x = 1 y = 0 }		# BT-7 tanks	
+		medium_armor = { x = 1 y = 1 }		
+		medium_armor = { x = 1 y = 2 }			
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "National Guard Division" 
+	division_names_group = USA_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Marine Division" 
+	division_names_group = USA_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	priority = 2
+}
+division_template = {
+	name = "Garrison Brigade"  
+	division_names_group = USA_GAR_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+		helicopter_logistics = { x = 0 y = 3 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Air borne Division"	
+	division_names_group = USA_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		field_hospital = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Marine Brigade"	
+	division_names_group = USA_MAR_02
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+	priority = 2
+}
+
+
+###### OOB ######
+units = {
+	####### 1st Army New York #######
+	division = {			
+		name = "9th Infantry Division"
+		location = 7315
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "1st Marine Division"
+		location = 12501
+		division_template = "Marine Division" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "24th Infantry Division"
+		location = 12384
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "2nd Marine Division"
+		location = 10412
+		division_template = "Marine Division" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "101th Air borne Division"	
+		location = 6696
+		division_template = "Air borne Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	# 7th Army Kirtland
+
+	division = {			
+		name = "28th Infantry Division"
+		location = 11800
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "98th Infantry Division"
+		location = 11654
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "106th Infantry Division"
+		location = 1440
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "4th Marine Division"
+		location = 1562
+		division_template = "Marine Division" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	#13th Army
+	division = {			
+		name = "5th Infantry Division"
+		location = 6855
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "108th Infantry Division"
+		location = 12384
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "36th Infantry Division"
+		location = 6732
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	#19th Army
+	division = {			
+		name = "96th Infantry Division"
+		location = 4610
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "91th Infantry Division"
+		location = 9671
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "104th Infantry Division"
+		location = 3957
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "42th Infantry Division"
+		location = 3878
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	#25th Army
+	division = {			
+		name = "2nd Infantry Division"
+		location = 10337
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "95th Infantry Division"
+		location = 1806
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}		
+	#27th Army
+	division = {			
+		name = "76th Infantry Division"
+		location = 7202
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "47th Infantry Division"
+		location = 7552
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "78th Infantry Division"
+		location = 6882
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}	
+	division = {			
+		name = "85th Infantry Division"
+		location = 9450
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	#29th Army
+	division = {			
+		name = "8th Infantry Division"
+		location = 11544
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = {			
+		name = "1st Armor Division"
+		location = 692
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = {			
+		name = "3rd Armor Division"
+		location = 7202
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = {			
+		name = "3rd Infantry Division"
+		location = 11544
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = {			
+		name = "West Berlin Brigade"
+		location = 6521
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	#Korea
+	division = {			
+		name = "2nd Infantry Division"
+		location = 4056
+		division_template = "Armor Division"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	#Japan
+	division = {			
+		name = "3rd Marine Division"
+		location = 11932
+		division_template = "Marine Division" 
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}		
+	#Europe
+	division= {			
+		name = "24th Armored Battalion"		
+		location = 6521
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}	
+	fleet = {
+		name = "United States 4th Fleet"
+		naval_base = 1572 #Jacksonville
+		task_force = {				
+			name = "United States 4th Fleet"
+			location = 1572 #Jacksonville
+			ship = { name = "USS Spruance" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Kinkaid" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Caron" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Charles F Adams-class" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+		}	
+	}
+	fleet = {
+		name = "United States 7th Fleet"
+		naval_base = 13223 #Okinawa
+		task_force = {				
+			name = "United States 7th Fleet"
+			location = 13223 #Okinawa
+			ship = { name = "USS Hewitt" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS O'Brien" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Harry W Hill" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Fife" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Merrill" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Henry B wilson" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Towers" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Robison" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Buchanan" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Berkeley" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Waddell" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Preble" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Worden" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Halsey" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Reeves" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+		}	
+	}
+	##### NAVAL UNITS #####v
+	##### MIDE #####
+}	
+air_wings = {
+	##### U.S. Army Air Force (USAAF) (CO: Emmo) #####
+	378 = {																# California
+		### 1st USAAF Wing (CO: Fickel) ###
+		fighter_equipment_3 =  { owner = "USA" amount = 72 }			# 20th Pursuit Group -- P-36As
+		strat_bomber_equipment_3 = { owner = "USA" amount = 36 }		# 7th Bombardment Group -- B-17s
+		### USN Patrol Wings ###
+	}
+	362 = { 															# Virginia
+		### 2nd USAAF Wing (CO: Krogstad) ###
+		strat_bomber_equipment_3 =  { owner = "USA" amount = 168 }		# 1st Pursuit Group -- P-35s
+				# 8th Pursuit Group -- P-35s	# 9th Bombardment Group -- B-17s
+	}
+	371 = { 															# Louisiana
+		### 3rd USAAF Wing (CO: Martin) ###
+		CAS_equipment_2 = { owner = "USA" amount = 63 }	
+		strat_bomber_equipment_3 = { owner = "USA" amount = 36 }					# 3rd Attack Group -- A-20s
+	}
+
+	629 = { 															# Hawaii
+		### 18th Composite Wing (CO: Frank) ###
+		fighter_equipment_3 =  { owner = "USA" amount = 72 }			# 18th Pursuit Group -- P-36As
+		CAS_equipment_3= { owner = "USA" amount = 21 }					# 5th/II Composite Group -- A-17s
+		### USN Patrol Wings ###
+	}
+}

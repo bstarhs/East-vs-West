@@ -1,0 +1,393 @@
+﻿division_template = {
+	name = "Infatry Division"
+	division_names_group = CHI_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 	
+		recon = { x = 0 y = 2 } 
+		maintenance_company = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }	# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+
+division_template = {
+	name = "Cavalry Division" 
+	division_names_group = CHI_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Armoured Division"
+	division_names_group = CHI_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 		# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+units = {
+	
+	division = {
+		name = "1st Division"
+		location = 4052
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "2nd Division"
+		location = 4052
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "4th Division"
+		location = 4709
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "5th Artillery Division"
+		location = 4709
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "7th Division"
+		location = 4052
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "1st Cavalry Division"
+		location = 9958
+		division_template = "Armoured Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "10th Artillery Division"
+		location = 11771
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "11th Division"
+		location = 4709
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "3th Internal Police Division"
+		location = 9843
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "13th Division"
+		location = 4709
+		division_template = "Armoured Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "4th Internal Police Division"
+		location = 12732
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "16th Anti_Air Artillery Division"
+		location = 10000
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "31st Artillery Division"
+		location = 11771
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "28th Division"
+		location = 11771
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "29th Division"
+		location = 1169
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "30th Anti_Air Artillery Division"
+		location = 11771
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "31th Division"
+		location = 10068
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "32th Division"
+		location = 10068
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "33th Division"
+		location = 11913
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "34th Division"
+		location = 11913
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "35th Division"
+		location = 11913
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "36th Division"
+		location = 4925
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "52th Division"
+		location = 5033
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "52th Division"
+		location = 5033
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "127th Division"
+		location = 1069
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "149th Division"
+		location = 5033
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "180th Division"
+		location = 4572
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "181th Division"
+		location = 9843
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "182th Division"
+		location = 10068
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "183th Division"
+		location = 6999
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	##Hokkien
+	
+	division = {
+		name = "37th Division"
+		location = 7071
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "38th Division"
+		location = 7071
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "39th Division"
+		location = 7071
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "73rd Artillery Brigade"
+		location = 7071
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	##Nanning
+	
+	division = {
+		name = "145th Division"
+		location = 7137
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "146th Division"
+		location = 7137
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "147th Division"
+		location = 7137
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "154th Division"
+		location = 4152
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	##Yunnan
+	
+	division = {
+		name = "121th Division"
+		location = 1319
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "122th Division"
+		location = 1319
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "123th Division"
+		location = 1319
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	##Huizhou
+	
+	division = {
+		name = "124th Division"
+		location = 1202
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "125th Division"
+		location = 1202
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "126th Division"
+		location = 1047
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	##leizhou
+	
+	division = {
+		name = "139th Division"
+		location = 4160
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "140th Division"
+		location = 4160
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "141h Division"
+		location = 4160
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	##guilin
+	
+	division = {
+		name = "163th Division"
+		location = 10404
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "164th Division"
+		location = 10404
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "165th Division"
+		location = 10404
+		division_template = "Infatry Division"
+		start_experience_factor = 0.5
+	}
+	
+}
+air_wings = {
+	595 = {													
+		fighter_equipment_0 =  { owner = "PRC" amount = 70 }
+		fighter_equipment_1 =  { owner = "PRC" amount = 40 }
+	}
+}

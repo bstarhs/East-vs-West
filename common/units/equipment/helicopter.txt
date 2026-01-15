@@ -1,0 +1,159 @@
+equipments = {
+
+	trans_helicopter = {
+		year = 1960
+
+		is_archetype = yes
+		is_convertable = yes
+		picture = archetype_trans_helicopter
+		is_buildable = yes
+		is_convertable = yes
+		type = armor
+		group_by = archetype
+		
+		interface_category = interface_category_armor
+		
+		upgrades = {
+			tank_reliability_upgrade
+		}
+		
+		#Misc Abilities
+		maximum_speed = 100
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 10
+		breakthrough = 20
+		armor_value = 10
+
+		#Offensive Abilities
+		soft_attack = 15
+		hard_attack = 20
+		ap_attack = 80
+		air_attack = 10
+
+		#Space taken in convoy
+		lend_lease_cost = 14
+		
+		build_cost_ic = 40
+		resources = {
+			steel = 1
+			aluminium = 1
+		}
+		
+	}
+
+	# 1934
+	trans_helicopter_0 = {
+		year = 1960
+
+		archetype = trans_helicopter		
+		priority = 90
+		visual_level = 0
+		is_convertable = yes
+	}
+	# 1934
+	trans_helicopter_1 = {
+		year = 1965
+
+		archetype = trans_helicopter
+		parent = trans_helicopter_0
+		priority = 90
+		visual_level = 1
+		is_convertable = yes
+		
+		#Misc Abilities
+		maximum_speed = 80
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 12
+		breakthrough = 35
+		armor_value = 50
+
+		#Offensive Abilities
+		soft_attack = 20
+		hard_attack = 25
+		ap_attack = 90
+		air_attack = 8
+
+		#Space taken in convoy
+		lend_lease_cost = 14
+		
+		build_cost_ic = 40
+		resources = {
+			steel = 1
+			aluminium = 1
+		}
+	}
+	# 1941
+	trans_helicopter_2 = {
+		year = 1975
+
+		archetype = trans_helicopter
+		parent = trans_helicopter_1
+		priority = 90
+		visual_level = 2
+		is_convertable = yes
+		
+		#Misc Abilities
+		maximum_speed = 100
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 14
+		breakthrough = 38
+		armor_value = 50
+
+		#Offensive Abilities
+		soft_attack = 20
+		hard_attack = 25
+		ap_attack = 90
+		air_attack = 10
+
+		#Space taken in convoy
+		lend_lease_cost = 14
+		
+		build_cost_ic = 40
+		resources = {
+			steel = 1
+			aluminium = 1
+		}
+	}
+
+	# 1943
+	trans_helicopter_3 = {
+		year = 1985
+
+		archetype = trans_helicopter
+		parent = trans_helicopter_2
+		priority = 90
+		visual_level = 3
+		is_convertable = yes
+
+		
+		#Misc Abilities
+		maximum_speed = 120
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 40
+		armor_value = 50
+
+		#Offensive Abilities
+		soft_attack = 20
+		hard_attack = 28
+		ap_attack = 100
+		air_attack = 15
+
+		#Space taken in convoy
+		lend_lease_cost = 14
+		
+		build_cost_ic = 45
+		resources = {
+			steel = 1
+			aluminium = 1
+		}
+	}
+}

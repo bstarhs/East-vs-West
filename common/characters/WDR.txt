@@ -1,0 +1,494 @@
+characters={
+	WDR_Heinz_Heinrich_Nordhoff={
+		name=WDR_Heinz_Heinrich_Nordhoff
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Heinz_Heinrich_Nordhoff.dds"
+				large="gfx/leaders/WDR/Portrait_WDR_Heinz_Heinrich_Nordhoff.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Heinz_Heinrich_Nordhoff
+			ledger = air
+			allowed = {
+				original_tag = WDR
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+		}
+	}
+	WDR_Reinhard_Gehlen={
+		name=WDR_Reinhard_Gehlen
+		portraits={
+			civilian={
+				large="gfx/leaders/WDR/Portrait_Germany_Reinhard_Gehlen.tga"
+				small="gfx/interface/ideas/idea_Reinhard_Gehlen.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			slot = political_advisor
+			idea_token = Reinhard_Gehlen
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier  = {
+				stability_factor = 0.12
+				drift_defence_factor = 0.15
+			}
+		}
+	}
+	WDR_Gustav_Walter_Heinemann={
+		name=WDR_Gustav_Walter_Heinemann
+		portraits={
+			civilian={
+				large="gfx/leaders/WDR/Portrait_Germany_Gustav_Walter_Heinemann.tga"
+				small="gfx/interface/ideas/idea_Gustav_Walter_Heinemann.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			slot = political_advisor
+			idea_token = Gustav_Walter_Heinemann
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier  = {
+			}
+		}
+	}
+	WDR_Rudolf_Hillebrecht={
+		name=WDR_Rudolf_Hillebrecht
+		portraits={
+			civilian={
+				large="gfx/leaders/WDR/Portrait_Germany_Rudolf_Hillebrecht.tga"
+				small="gfx/interface/ideas/idea_Rudolf_Hillebrecht.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			slot = political_advisor
+			idea_token = Rudolf_Hillebrecht
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier  = {
+				production_speed_buildings_factor = 0.12
+			}
+		}
+	}
+	WDR_Hans_Globke={
+		name=WDR_Hans_Globke
+		portraits={
+			civilian={
+				large="gfx/leaders/WDR/Portrait_Germany_Hans_Globke.tga"
+				small="gfx/interface/ideas/idea_Hans_Globke.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			slot = political_advisor
+			idea_token = Hans_Globke
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier  = {
+				political_power_cost = -0.15
+			}
+		}
+	}
+	WDR_Walter_Hallstein={
+		name=WDR_Walter_Hallstein
+		portraits={
+			civilian={
+				small="GFX_idea_Walter_Hallstein"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			slot = political_advisor
+			idea_token = WDR_Walter_Hallstein
+			allowed  = {
+				original_tag  = WDR
+			}
+			traits  = {
+				ideological_crusader smooth_talking_charmer
+			}
+		}
+	}
+	WDR_James_Conant={
+		name=WDR_James_Conant
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_James_Conant.dds"
+				large="gfx/leaders/WDR/Portrait_Germany_James_Conant.tga"
+			}
+		}
+		advisor={
+			visible={
+				date < 1968.1.1
+				USA = { has_completed_focus = US_fucus_Bundeswehr }
+			}
+			ai_will_do = {
+				factor = 200
+			}
+			slot = political_advisor
+			idea_token = James_Conant
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+			}
+		}
+	}
+	WDR_Theodor_Blank={
+		name=WDR_Theodor_Blank
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Theodor_Blank.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			ai_will_do = {
+				factor = 200
+			}
+			slot = political_advisor
+			idea_token = Theodor_Blank
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier = {
+				experience_gain_army_factor = 0.3
+			}
+		}
+	}
+	WDR_Kurt_Schumacher={
+		name=WDR_Kurt_Schumacher
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Kurt_Schumacher.dds"
+				large="gfx/leaders/WDR/Portrait_Germany_Kurt_Schumacher.tga"
+			}
+		}
+		advisor={
+			visible={
+				date < 1964.1.1
+			}
+			slot = political_advisor
+			idea_token = Kurt_Schumacher
+			allowed  = {
+				original_tag  = WDR
+			}
+			modifier  = {
+				drift_defence_factor = 0.2
+			}
+		}
+		country_leader={
+			desc = "wdr_chancellor"
+			ideology = socialism
+			traits={ anti_communist pro_america incompetent_leader }
+			expire="1990.1.1.1"
+			id=-1
+		}
+	}
+	WDR_ludwig_erhard={
+		name=WDR_ludwig_erhard
+		portraits={
+			civilian={
+				small="GFX_idea_ludwig_erhard"
+				large="gfx/leaders/WDR/Portrait_Germany_Ludwig_Erhard.tga"
+			}
+		}
+		advisor={
+			visible={
+				date < 1964.1.1
+			}
+			slot = political_advisor
+			idea_token = WDR_ludwig_erhard
+			allowed  = {
+				original_tag  = WDR
+			}
+			traits  = {
+				Developmentalism
+			}
+		}
+		country_leader={
+			desc = "wdr_chancellor"
+			ideology = conservatism
+			traits={ anti_communist pro_america incompetent_leader }
+			expire="1990.1.1.1"
+			id=-1
+		}
+	}
+	WDR_Konrad_Adenauer={
+		name=WDR_Konrad_Adenauer
+		portraits={
+			civilian={
+				large="gfx/leaders/WDR/Portrait_Germany_Konrad_Adenauer.tga"
+			}
+		}
+		country_leader={
+			desc = "wdr_chancellor"
+			ideology = conservatism
+			traits={ pro_america }
+			expire="1990.1.1.1"
+			id=-1
+		}
+	}
+	GER_hasso_von_manteuffel={
+		name=GER_hasso_von_manteuffel
+		portraits={
+			army={
+				large="gfx/leaders/GER/Portrait_Germany_Hasso_von_Manteuffel.dds"
+				small="gfx/interface/ideas/idea_GER_hasso_von_manteuffel.dds"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+			}
+			traits={ career_officer trait_cautious armor_officer }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+	GER_Albert_Schnez={
+		name=GER_Albert_Schnez
+		portraits={
+			army={
+				large="gfx/leaders/WDR/Portrait_Germany_Albert_Schnez.tga"
+				small="gfx/interface/ideas/idea_Albert_Schnez.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Albert_Schnez
+			ledger = army
+			allowed = {
+				original_tag = WDR
+			}
+			modifier = {
+				experience_gain_army_factor = 0.3
+			}
+		}
+		
+		corps_commander={
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	GER_Hans_Speidel={
+		name=GER_Hans_Speidel
+		portraits={
+			army={
+				large="gfx/leaders/WDR/Portrait_Germany_Hans_Speidel.tga"
+				small="gfx/interface/ideas/idea_Hans_Speidel.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			slot = theorist
+			idea_token = Hans_Speidel
+			ledger = army
+			allowed = {
+				original_tag = WDR
+			}
+			modifier = {
+				experience_gain_army_factor = 0.3
+			}
+		}
+		
+		corps_commander={
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	GER_adolf_heusinger={
+		name=GER_adolf_heusinger
+		portraits={
+			army={
+				large="gfx/leaders/WDR/Portrait_Germany_Adolf_Heusinger.tga"
+				small="gfx/interface/ideas/idea_Adolf_Heusinger.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			slot = theorist
+			idea_token = adolf_heusinger
+			ledger = army
+			allowed = {
+				original_tag = WDR
+			}
+			modifier = {
+				experience_gain_army_factor = 0.3
+			}
+		}
+		
+		corps_commander={
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	GER_Gerhard_von_Schwerin={
+		name=GER_Gerhard_von_Schwerin
+		portraits={
+			army={
+				large="gfx/leaders/WDR/Portrait_Germany_Gerhard_von_Schwerin.tga"
+				small="gfx/interface/ideas/idea_Gerhard_von_Schwerin.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1964.1.1
+			}
+			slot = theorist
+			idea_token = Gerhard_von_Schwerin
+			ledger = army
+			allowed = {
+				original_tag = WDR
+			}
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	GER_Wilhelm_Fahrmbacher={
+		name=GER_Wilhelm_Fahrmbacher
+		portraits={
+			army={
+				large="gfx/leaders/WDR/Portrait_Germany_Wilhelm_Fahrmbacher.tga"
+				small="gfx/interface/ideas/idea_Wilhelm_Fahrmbacher.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1962.1.1
+			}
+			slot = theorist
+			idea_token = Wilhelm_Fahrmbacher
+			ledger = army
+			allowed = {
+				original_tag = EGY
+			}
+			modifier = {
+				experience_gain_army_factor = 0.3
+				training_time_army_factor = 0.12
+				state_production_speed_arms_factory_factor = 0.12
+			}
+		}
+	}
+	GER_erich_von_manstein={
+		name=GER_erich_von_manstein
+		portraits={
+			army={
+				large="gfx/leaders/WDR/Portrait_Germany_ErichVonManstein.tga"
+				small="GFX_idea_manstein"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			slot = theorist
+			idea_token = manstein
+			ledger = army
+			allowed = {
+				original_tag = WDR
+			}
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+				date > 1952.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+
+	# Ideology-pushing advisors auto-generated
+
+	# Illusive Gentleman auto-generated	
+}

@@ -1,0 +1,369 @@
+﻿capital = 43
+
+oob = "HUN_1936"
+
+set_country_flag = developmented
+set_country_flag = east_europe
+set_research_slots = 2
+set_country_flag = main_country
+set_country_flag = has_monarchs
+	set_variable = { this.education = 67 }
+	recruit_character = HUN_Imre_Nagy
+	recruit_character = HUN_Kadar_Janos
+	recruit_character = HUN_Erno_Gero
+	recruit_character = HUN_Nyers_Rezso
+	recruit_character = HUN_Korondi_Bela
+	recruit_character = HUN_Losonczy_Geza
+	recruit_character = HUN_Kovacs_Bela
+	recruit_character = HUN_Dobi_Istvan
+	recruit_character = HUN_Laszlo_Rajk
+	recruit_character = HUN_Farkas_Mihaly
+	recruit_character = HUN_Jozsef_Mindszenty
+	recruit_character = HUN_Revai_Jozsef
+	
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+set_technology = {
+	gwtank = 1
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	auto_industry = 1
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+add_ideas = {
+		harmonious
+		hight_welfare
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+	Axis_problem_ideas
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "HUN_1947"
+	complete_national_focus = common_63
+}
+
+	set_popularities = {
+		democratic = 58
+		communism = 32
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.3.31"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Rakosi Matyas"
+	desc = "POLITICS_MATYAS_RAKOSKI_DESC"
+	picture = "gfx/leaders/HUN/Portrait_Hungary_Rakosi.tga"
+	expire = "1965.1.1"
+	ideology = stalinism
+	traits = {
+		pro_soviet staunch_stalinist stalins_puppet
+	}
+}
+
+create_country_leader = {
+	name = "Ferenc Nagy"
+	picture = "gfx/leaders/HUN/Portrait_Hungary_Ferenc_Nagy.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+1948.1.1 = {
+	set_country_flag = gen242
+			create_intelligence_agency = yes
+	retire_character = HUN_Jozsef_Mindszenty
+	retire_character = HUN_Laszlo_Rajk
+	retire_character = HUN_Korondi_Bela
+	retire_character = HUN_Kovacs_Bela
+	set_country_flag = israel_diplomacy
+	set_country_flag = china_diplomacy
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	complete_national_focus = common_73
+	complete_national_focus = common_support_comparty
+	complete_national_focus = common_comparty_strike
+	complete_national_focus = common_71
+	complete_national_focus = common_72
+	complete_national_focus = common_28
+	complete_national_focus = common_37
+	complete_national_focus = common_39
+	complete_national_focus = common_40
+	complete_national_focus = common_41
+	complete_national_focus = common_42
+	set_popularities = {
+		democratic = 28
+		communism = 69
+		neutrality = 3
+	}
+	add_ideas = {
+		Anti_religious
+		war_economy
+		closed_economy
+		AgriculturalCollectivization
+		grand_purge
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+}
+1955.1.1 = {
+	retire_character = HUN_Farkas_Mihaly
+	remove_ideas = Axis_problem_ideas
+	complete_national_focus = common_61
+	complete_national_focus = common_70
+	complete_national_focus = common_43
+	complete_national_focus = common_45
+	complete_national_focus = common_strike_religion
+	set_country_flag = female_finished
+	set_country_flag = gen230
+	add_ideas = {
+		warsawpact
+		UNmember
+	}
+	remove_ideas = grand_purge
+	set_technology = {
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		radio_detection = 1
+	}
+}
+
+1956.10.20 = {
+	set_popularities = {
+		democratic = 23
+		communism = 74
+		neutrality = 3
+	}
+	remove_ideas = AgriculturalCollectivization
+	set_cosmetic_tag = HUN_1956
+			promote_character = {
+				character = HUN_Kadar_Janos
+				ideology = marxism
+			} 
+}
+1957.1.1 = {
+	retire_character = HUN_Erno_Gero
+	retire_character = HUN_Revai_Jozsef
+	complete_national_focus = steel_produc
+	complete_national_focus = oil_produc
+	set_technology = {
+		improved_medium_tank = 1
+	}
+	
+	oob = "HUN_1960"
+	set_variable = { this.education = 82 }
+	set_popularities = {
+		democratic = 34
+		communism = 61
+		neutrality = 5
+	}
+}
+1964.1.1 = {
+	
+	complete_national_focus = common_30
+	complete_national_focus = common_44
+	set_technology = {
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		trans_helicopter_1 = 1
+	}
+	add_ideas = {
+		Dryzhpa_oilpipes
+	}
+}
+1970.1.20 = {
+	set_country_leader_portrait = {
+		portrait = "gfx/leaders/HUN/Portrait_Hungary_Janos.tga"
+	}
+	set_stability = 0.8
+	set_technology = {
+		improved_infantry_weapons_2 = 1
+	}
+}
+1976.1.20 = {
+	inherit_technology = DDR
+}
+1983.1.20 = {
+	inherit_technology = DDR
+}
+1988.1.20 = {
+	inherit_technology = DDR
+	add_ideas = {
+	New_idea
+	}
+	set_technology = {
+		advanced_infantry_weapons = 1
+		advanced_medium_tank = 1
+	}
+	set_popularities = {
+		democratic = 42
+		communism = 56
+		neutrality = 2
+	}
+	create_country_leader = {
+		name = "Grosz Karoj"
+		
+		picture = "gfx/leaders/HUN/Portrait_Hungary_Grosz.tga"
+		expire = "1997.1.1"
+		ideology = marxism
+		traits = {
+			socialist_reformism
+		
+		}
+	}
+	create_country_leader = {
+		name = "Szuros Matyas"
+		
+		picture = "gfx/leaders/HUN/Portrait_Hungary_Szuros_Matyas.tga"
+		expire = "1997.1.1"
+		ideology = conservatism
+			
+		traits = {
+		
+		}
+	}
+}
+1990.3.29 = {
+	add_ideas = economic_trans
+	remove_ideas = {
+		warsawpact
+		comecon
+		New_idea
+		Dryzhpa_oilpipes
+	}
+	create_country_leader = {
+		name = "József Antall"
+		picture = "gfx/leaders/HUN/Portrait_Hungary_Jozsef_Antall.tga"
+		expire = "2050.1.1"
+		ideology = conservatism
+		
+		traits = {
+		}
+	}
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}

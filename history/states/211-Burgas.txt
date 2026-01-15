@@ -1,0 +1,55 @@
+
+state={
+	id=211
+	name="STATE_211"
+	manpower = 1575499
+
+
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Bulgarian
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 42 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 167 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = BUL
+		victory_points = {
+			9783 5
+		}
+		victory_points = {
+			9769 3
+		}
+		victory_points = {
+			9612 3
+		}
+		victory_points = {
+			9614 4
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+		victory_points = { 9902 4 }
+		buildings = {
+			farm_building = 3
+			infrastructure = 4
+			industrial_complex = 2
+			9783 = {
+				naval_base = 3
+			}
+			9902 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = BUL
+	}
+
+	provinces={
+		649 6967 9612 9769 9783 9888 9902 9919 9614 11597 
+	}
+}

@@ -1,0 +1,43 @@
+
+state={
+	id=424
+	name="STATE_424" # Madras
+	manpower = 15791700
+	state_category = town
+	
+	resources={
+		chromium=6
+		coal = 8
+	}
+
+	history={
+		set_state_flag = cutton_production
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = fish_production }
+		add_core_of = ADH
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Maratha
+		add_to_array = { this.state_ethnics_list = 80 }
+		victory_points = { 10756 5 }
+		victory_points = { 1228 5 }
+		victory_points = { 1344 4 }
+		victory_points = { 10152 6 }
+		owner = ENG
+		add_core_of = IND
+		1949.10.25 = {
+		owner = IND
+		}
+		buildings = {
+			farm_building = 4
+			hospital = 1
+			infrastructure = 4
+			industrial_complex = 2
+		}
+		victory_points = { 7297  4 }
+
+	}
+
+	provinces={
+		1228 1344 1430 4321 4365 4414 7297 7310 7340 10152 10296 10756 10897 12180 12779 
+	}
+}

@@ -1,0 +1,30 @@
+
+state={
+	id=232
+	name="STATE_232"
+	manpower = 1658292
+	
+	state_category = town
+	history={
+		set_state_flag = SOV_corn_states
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Dagestan
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 59 }
+		victory_points = { 3668 8 }
+		victory_points = { 6730 4 }
+		victory_points = { 7624 4 }
+		victory_points = { 7624 3 }
+		owner = SOV
+		buildings = {
+			power_plant = 1
+			farm_building = 3
+			infrastructure = 4
+		}
+		add_core_of = SOV
+	}
+
+	provinces={
+		700 712 728 1450 3668 3682 3711 4463 6689 6701 6730 6748 7554 7624 9645 1455 
+	}
+}

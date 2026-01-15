@@ -1,0 +1,38 @@
+state={
+	id=87
+	name="STATE_87"
+	manpower = 2632000
+	
+	state_category = city
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		owner = POL
+		set_state_flag = ethnics_Polish
+		add_to_array = { this.state_ethnics_list = 136 }
+		buildings = {
+			infrastructure = 6
+			industrial_complex = 3
+			farm_building = 2
+			power_plant = 1
+			hospital = 1
+		}
+		victory_points = {
+			9508 8
+		}
+		add_core_of = POL
+
+		1959.1.1 = {
+			buildings = {
+				industrial_complex = 5
+				farm_building = 3
+				arms_factory = 4
+				power_plant = 2
+			}
+		}
+	}
+
+	provinces={
+		493 584 9439 9508 9546 11428 11515 11558 
+	}
+}

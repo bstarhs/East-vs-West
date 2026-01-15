@@ -1,0 +1,112 @@
+﻿add_namespace = nuke
+#裁减武器谈判
+news_event = {
+	id = nuke.5
+	title = nuke.5.t
+	desc = nuke.5.d
+	picture = GFX_SALT
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = nuke.5.a
+			add_political_power = 500
+			USA = { 
+				add_named_threat = { threat = -10 name = SALT } 
+				add_ideas = SALT
+			}
+			SOV = { 
+				add_named_threat = { threat = -10 name = SALT } 
+				add_ideas = SALT
+			}
+	}
+}
+
+
+#初始核威慑计算
+news_event = {
+	id = nuke.9
+	hidden = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		has_tech = nukes
+		NOT = { has_country_flag = counted_threat }
+	}
+	option = {
+		set_country_flag = counted_threat
+			if = {
+				limit = {
+					has_tech = nukes
+					check_variable = { nuke_distance < 2999 }
+				}
+				set_variable = { nuke_distance = 3000 }
+			}
+			if = {
+				limit = {
+					has_tech = nukes
+					has_tech = strategic_bomber1
+					check_variable = { nuke_distance < 4999 }
+				}
+				set_variable = { nuke_distance = 5000 }
+			}
+			if = {
+				limit = {
+					has_tech = nukes
+					has_tech = strategic_bomber2
+					check_variable = { nuke_distance < 6999 }
+				}
+				set_variable = { nuke_distance = 7000 }
+			}
+			if = {
+				limit = {
+					has_tech = nukes
+					has_tech = strategic_bomber3
+					check_variable = { nuke_distance < 8999 }
+				}
+				set_variable = { nuke_distance = 9000 }
+			}
+			if = {
+				limit = {
+					has_tech = nukes
+					has_tech = midrange_missile
+					check_variable = { nuke_distance < 11999 }
+				}
+				set_variable = { nuke_distance = 12000 }
+			}
+			if = {
+				limit = {
+					has_tech = nukes
+					has_tech = ICBM_missile
+					check_variable = { nuke_distance < 19999 }
+				}
+				set_variable = { nuke_distance = 20000 }
+			}
+	}
+}
+#核威慑计算
+news_event = {
+	id = nuke.10
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		has_tech = nukes
+		num_of_nukes > 0
+	}
+	option = {
+			set_variable = { nuke_deterrence = 0 }
+			add_to_variable = { nuke_deterrence = num_of_nukes }
+			set_variable = { nuke_base_num = 0 }
+			every_controlled_state = {
+					add_to_variable = { prev.nuke_base_num = this.building_level@rocket_site }
+			}
+			add_to_variable = { nuke_deterrence = nuke_base_num }
+			#轰炸机
+			add_to_variable = { num_deployed_strat_bomber = num_deployed_planes_with_type@strategic_bomber }
+			
+	}
+}
+

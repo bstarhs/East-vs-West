@@ -1,0 +1,46 @@
+
+state={
+	id=999
+	name="STATE_999" # Akmolinsk
+	manpower = 980533
+	state_category = town
+	resources={
+		copper=4
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 11 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Khazakhs
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = KAZ
+		set_state_flag = SOV_corn_states
+		victory_points = {
+			7874 5
+		}
+		victory_points = {
+			1418 4
+		}
+		buildings = {
+			infrastructure = 2
+			farm_building = 1
+		}
+		1960.10.12 = {
+			buildings = {
+				infrastructure = 3
+				industrial_complex = 2
+				power_plant = 1
+			}
+		}
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		7874 1694 4850 7741 12619 1309 10633 1662 1680 1418 7298 1391 1229 
+	}
+}

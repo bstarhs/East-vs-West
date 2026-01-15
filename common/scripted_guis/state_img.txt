@@ -1,0 +1,32 @@
+
+
+scripted_gui = {
+	province_image = {
+		window_name = "province_image_container"
+		context_type = selected_state_context
+		parent_window_name = "province_image"
+		triggers = {
+			province_image_states_pyongyang_visible = {
+				state = 527
+				date < 1955.1.1
+			}
+			province_image_states_japan_visible = {
+				state = 282
+				date < 1958.1.1
+			}
+			province_image_old_brazilia_visible = {
+				state = 886
+				date < 1960.1.1
+			}
+			province_image_old_peking_visible = {
+				state = 608
+				owner = { NOT = { has_country_flag = tiananmen_square_builded } }
+			}
+			province_image_ruis_visible = {
+				check_variable = { this.nuke_times > 0 }
+			}
+			
+		}
+	}
+}
+

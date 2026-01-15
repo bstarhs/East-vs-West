@@ -1,0 +1,150 @@
+﻿add_namespace = sau
+#限制石油
+news_event = {
+	id = sau.2
+	title = sau.2.t
+	desc = sau.2.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	option = { 
+		name = sau.2.a
+		add_ideas = OPEC
+			news_event = { id = sau.4 }
+	}
+}
+news_event = {
+	id = sau.3
+	title = sau.3.t
+	desc = sau.3.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sau.2.a
+	}
+}
+news_event = {
+	id = sau.4
+	title = sau.4.t
+	desc = sau.4.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sau.2.a
+	}
+}
+
+
+#限制石油
+news_event = {
+	id = sau.5
+	title = sau.5.t
+	desc = sau.5.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sau.2.a
+	}
+}
+
+
+#限制石油
+news_event = {
+	id = sau.6
+	title = sau.6.t
+	desc = sau.6.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = UAE_1
+	}
+	option = { 
+		name = sau.2.a
+	}
+}
+
+
+#限制石油
+news_event = {
+	id = sau.7
+	title = sau.7.t
+	desc = sau.7.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	option = { 
+		name = sau.2.a
+		news_event = { id = sau.8 }
+		ENG = { end_puppet = ROOT }
+		UAE = { 
+			set_autonomy = {
+				target = ROOT
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.6
+			}
+		}
+	}
+	option = { 
+		name = sau.2.a
+		news_event = { id = sau.9 }
+		ENG = { end_puppet = ROOT }
+	}
+}
+
+
+#限制石油
+news_event = {
+	id = sau.9
+	title = sau.9.t
+	desc = sau.9.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sau.2.a
+	}
+}
+
+
+#限制石油
+news_event = {
+	id = sau.8
+	title = sau.8.t
+	desc = sau.8.d
+	picture = GFX_Oilfield
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sau.2.a
+	}
+}
+
+news_event = {
+	id = sau.12
+	title = sau.12.t
+	desc = sau.12.d
+	picture = GFX_ThaiArmy1940s
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = SAU
+		date > 1953.11.1
+		date < 1953.12.1
+		has_country_leader = { name = "Abdulazis Ibn Saud" }
+	}
+	option = {
+		name = sia.3.a
+		if = {
+			limit = { tag = SAU }
+			create_country_leader = {
+				name = "Saud bin Abdul-Aziz"
+				picture = "gfx/leaders/SAU/Portrait_Saudi_Saud_bin_Abdul_Aziz.tga"
+				expire = "1979.1.1"
+				ideology = monarchism
+				traits = {  }
+			}
+		}
+	}
+}

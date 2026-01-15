@@ -1,0 +1,404 @@
+﻿capital = 291
+
+oob = "IRQ_1936"
+set_country_flag = british_colonies
+set_country_flag = main_country
+set_country_flag = islam_state
+set_country_flag = third_world
+set_country_flag = arabs_state
+set_country_flag = has_monarchs
+# Starting tech
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+	recruit_character = IRQ_Abdul_Karim_Qasim
+	recruit_character = IRQ_Abdul_Wahab_al_Shawaf
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+add_ideas = {
+
+	service_by_requirement
+	Sunni
+
+	arabs_league
+	partial_economic_mobilisation
+}
+set_convoys = 5
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	oob = "IRQ_1947"
+}
+
+create_country_leader = {
+	name = "Yusuf Salman Yusuf"
+	desc = ""
+	picture = "gfx/leaders/SAU/Portrait_Arabia_Generic_navy_3.dds"
+	expire = "1965.1.1"
+	ideology = leninism
+	traits = {
+		#
+	}
+}
+
+1939.1.1 = {
+	set_popularities = {
+		democratic = 13
+		communism = 18
+		neutrality = 5
+		monarchism = 64
+	}
+	set_politics = {
+	ruling_party = monarchism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+	create_country_leader = {
+		name = "Abd al-Ilah"
+		picture = "gfx/leaders/IRQ/Portrait_Iraq_Abd_al_Ilah.tga"
+		expire = "1965.1.1"
+		ideology = monarchism
+		traits = {
+			#
+		}
+	}
+}
+1948.1.1 = {
+	set_global_flag = AlWathbah
+	add_opinion_modifier = {
+		target = ISR
+		modifier = anti_arabs
+	}
+	add_ideas = {
+		UNmember
+	}
+}
+
+1955.1.20 = {
+	set_technology = {
+		motorize_doctrine = 1
+		tech_signal_company = 1
+		tech_logistics_company2 = 1
+		tech_field_hospital = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	set_popularities = {
+		democratic = 3
+		communism = 26
+		neutrality = 10
+		monarchism = 61
+	}
+	add_ideas = {
+		CENTO
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	promote_character = {
+		character = IRQ_Abdul_Karim_Qasim
+		ideology = despotism
+	}
+	create_country_leader = {
+		name = "Faisal II"
+		
+		picture = "gfx/leaders/IRQ/Portrait_Iraq_Faisal_1956.tga"
+		expire = "1997.1.1"
+		ideology = monarchism
+		
+		traits = {
+		}
+	}
+}
+1958.3.12 = {
+	set_country_flag = china_diplomacy
+	set_technology = {
+		basic_medium_tank = 1
+		spaa1 = 1
+		
+		machine_gun2 = 1
+		army_aviation = 1
+		infantry_training = 1
+		tech_engineers = 1
+		tech_maintenance_company = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		tech_military_police = 1
+		interwar_artillery = 1
+		basic_heavy_tank = 1
+		napalm = 1
+		air_gun = 1
+	}
+	set_popularities = {
+		democratic = 17
+		neutrality = 57
+		authoritarianism = 24
+		monarchism = 2
+	}
+add_ideas = {
+	militarist_politician
+}
+	remove_ideas = CENTO
+	complete_national_focus = common_21
+	add_ideas = closed_economy
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	retire_character = IRQ_Abdul_Wahab_al_Shawaf
+}
+1960.1.1 = {
+	complete_national_focus = common_medic
+	add_ideas = {
+		OPEC
+	}
+}
+1963.3.12 = {
+	recruit_character = IRQ_Saddam_Hssein
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_24
+	set_technology = {
+		radio_detection = 1
+		sp_artillery1 = 1
+		fighter2 = 1
+		mechanised_infantry2 = 1
+		improved_infantry_weapons = 1
+		aa_missile_1 = 1
+	}
+	set_cosmetic_tag = IRQ_1963
+	set_popularities = {
+		democratic = 10
+		communism = 12
+		neutrality = 67
+		fascism = 11
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Abd Arif"
+		
+		picture = "gfx/leaders/IRQ/Portrait_Iraq_Arif.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}
+1968.1.20 = {
+	complete_national_focus = steel_produc
+	recruit_character = IRQ_taha_yassin_ramadan
+	recruit_character = IRQ_IzzatIbrahim_al_Douri
+	recruit_character = IRQ_HassanAlMajid
+	set_technology = {
+		autoloader = 1
+		tech_engineers2 = 1
+		improved_light_tank = 1
+		tech_recon2 = 1
+	}
+	oob = "IRQ_1977"
+	create_country_leader = {
+		name = "Ahmed Hassan"
+		
+		picture = "gfx/leaders/IRQ/Portrait_Iraq_Ahmed.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+			arabs_nationalism figurehead_president
+		}
+	}
+	create_country_leader = {
+		name = "Muhammad Baqir al-Hakim"
+		
+		picture = "gfx/leaders/IRQ/Portrait_Iraq_Mohammad_al-Hakim.tga"
+		expire = "1997.1.1"
+		ideology = nazism
+		traits = {
+		}
+	}
+}
+1979.1.20 = {
+	set_war_support = 0.68
+	remove_ideas = CENTO
+	set_technology = {
+		infantry_at2 = 1
+		atomic_research = 1
+		guided_missile = 1
+		machine_gun3 = 1
+		dispersed_industry4 = 1
+		improved_infantry_weapons = 1
+		motorised_infantry = 1
+		infantry_training = 1
+		fighter1 = 1
+		tech_support = 1		
+		tech_engineers = 1
+		
+		mechanised_infantry = 1
+		mechanised_infantry2 = 1
+		interwar_artillery = 1
+		antiair1 = 1
+		gwtank = 1
+		basic_heavy_tank = 1
+		improved_heavy_tank = 1
+		basic_light_tank = 1
+		basic_medium_tank = 1
+		improved_medium_tank = 1
+		rocket_engines = 1
+		}
+	set_cosmetic_tag = IRQ_1963
+	set_popularities = {
+		democratic = 5
+		communism = 10
+		authoritarianism = 67
+		fascism = 18
+	}
+	promote_character = IRQ_Saddam_Hssein
+}
+1981.1.20 = {
+	add_named_threat = { threat = 6 name = WAR_NAME_IRQ_PER }
+	activate_decision = female_equality
+	add_ideas = {
+		KurdishRevolt
+		war_economy
+		scraping_the_barrel
+	}
+	declare_war_on = {
+			target = PER
+			type = take_state_focus
+			generator = { 656 }
+	}
+}
+1988.1.20 = {
+	diplomatic_relation = { country = PER relation = war_relation active = no }
+	set_popularities = {
+		democratic = 5
+		communism = 7
+		authoritarianism = 70
+		fascism = 18
+	}
+}

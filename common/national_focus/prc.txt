@@ -1,0 +1,6197 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+focus_tree = {
+	id = prc_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRC
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 55 y = 1500 }
+	focus = { 
+		id = prc0  #整风运动
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10
+		x = -4
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+	}	
+	#
+	focus = { 
+		id = prc23  #新中国
+		icon = GFX_goal_PRC_newchina
+		cost = 10
+		x = 18
+		y = 0
+		ai_will_do = {
+			factor = 60
+		}
+		available = { 
+			controls_state = 622
+			controls_state = 608
+			controls_state = 716
+			controls_state = 597
+			controls_state = 613
+		}
+		completion_reward = {
+			news_event = { id = prc.3 }
+			add_to_variable = { influences = 100 } 
+			set_cosmetic_tag = PRC_1949
+			set_capital = { state = 608 }
+			608 = { set_state_name = STATE_BEIJING }
+			set_province_name = { id = 9843 name = VICTORY_POINTS_BEIJING }
+		}
+	}
+	#
+	focus = { 
+		id = prc1  #土地改革
+		icon = GFX_focus_jap_cast_the_die
+		cost = 8
+		prerequisite = { 
+			focus = prc0
+			 }
+		x = -19
+		y = 1
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			every_controlled_state = {
+				limit = { resistance > 20 }
+				add_resistance = -60
+			}
+			every_controlled_state = {
+				limit = { has_resistance = yes }
+				add_compliance = 60
+			}
+			
+			add_timed_idea = {
+				idea = landreform
+				days = 600
+			}
+			news_event = { id = prc.9 }
+		}		
+	}		
+	focus = { 
+		id = prc_pla  #土地改革
+		icon = GFX_goal_pla
+		cost = 10
+		prerequisite = { 
+			focus = prc0
+			 }
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			every_country_division = { set_unit_organization = 0.8 }
+			news_event = { id = prc.125 }
+			army_experience = 300
+		}		
+	}		
+	focus = { 
+		id = prc_armed_police  #土地改革
+		icon = GFX_focus_jap_cast_the_die
+		cost = 10
+		prerequisite = { 
+			focus = prc_pla
+			 }
+		x = -1
+		y = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_stability = 0.12
+			every_owned_state = {
+				add_compliance = 10
+			}
+		}		
+	}
+	focus = { 
+		id = prc_police  #土地改革
+		icon = GFX_goal_china_police
+		cost = 10
+		prerequisite = { 
+			focus = prc_pla
+			 }
+		x = 1
+		y = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_stability = 0.12
+			every_owned_state = {
+				add_compliance = 10
+			}
+		}		
+	}		
+	#
+	focus = { 
+		id = prc_RMB #发行人民币
+		icon = GFX_goal_RMB
+		cost = 12
+		available = { 
+			controls_state = 610
+			controls_state = 608
+			controls_state = 614
+		}
+		prerequisite = { 
+			focus = prc1
+			 }
+		x = -14
+		y = 2
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = RMB_tip
+			add_political_power = 200
+			news_event = { id = prc.124 }
+		}		
+	}	
+	#
+	focus = { 
+		id = prc2  #总路线
+		icon = GFX_goal_PRC_zongluxian
+		cost = 10
+		prerequisite = { 
+			focus = prc8
+			 }
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = -21
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = prc.120 }
+			add_ideas = war_economy
+		}		
+	}		
+	focus = { 
+		id = PRC_dazhai
+		icon = GFX_goal_PRC_zongluxian
+		cost = 10
+		prerequisite = { 
+			focus = prc8
+			 }
+		x = -22
+		y = 6
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			add_ideas = Dazhai_idea
+			news_event = { id = prc.160 }
+		}		
+	}	
+	focus = { 
+		id = prc_modernized_agriculture  #总路线
+		icon = GFX_goal_agriculture
+		cost = 10
+		available = {
+			has_tech = improved_machine_tools
+		}
+		prerequisite = { 
+			focus = prc8
+			focus = prc9
+			 }
+		x = -23
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			set_technology = {
+				dispersed_industry4 = 1
+			}
+		}		
+	}
+	#hu
+	focus = { 
+		id = PRC_nuclears
+		icon = GFX_goal_focus_Nuke
+		cost = 60
+		x = -1
+		y = 5
+		prerequisite = { 
+			focus = prc16
+		}
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = excavation2
+			has_tech = polymer
+		}
+		completion_reward = {
+			recruit_character = PRC_Qian_Sanqiang
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 0.5
+				category = nuclear
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}
+	focus = { 
+		id = PRC_develop_mechanized
+		icon = GFX_goal_generic_army_motorized
+		cost = 60
+		x = 4
+		y = 5
+		prerequisite = { 
+			focus = prc16
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = cat_light_armor
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_develop_armor
+		icon = GFX_goal_generic_army_tanks
+		cost = 60
+		x = 4
+		y = 6
+		prerequisite = { 
+			focus = PRC_develop_mechanized
+		}
+		prerequisite = { 
+			focus = PRC_militarist_indus_1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cat_medium_armor
+				ahead_reduction = 2
+				uses = 1
+				category = cat_medium_armor
+			}
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_militarist_indus_1
+		icon = GFX_goal_generic_construct_military
+		cost = 60
+		x = 2
+		y = 5
+		prerequisite = { 
+			focus = prc16
+		}
+		available = {
+			has_tech = improved_machine_tools
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_militarist_indus_2
+		icon = GFX_goal_generic_construct_military
+		cost = 60
+		x = 2
+		y = 6
+		prerequisite = { 
+			focus = PRC_militarist_indus_1
+		}
+		available = {
+			has_tech = improved_machine_tools
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_militarist_indus_3
+		icon = GFX_goal_generic_construct_military
+		cost = 60
+		x = 2
+		y = 7
+		prerequisite = { 
+			focus = PRC_militarist_indus_2
+		}
+		available = {
+			has_tech = improved_machine_tools
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_missiles
+		icon = GFX_focus_rocketry
+		cost = 60
+		x = 4
+		y = 7
+		prerequisite = { 
+			focus = PRC_militarist_indus_2
+		}
+		completion_reward = {
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_nuclear_power  #596
+		icon = GFX_goal_nuclear_plant
+		cost = 60
+		x = -2
+		y = 6
+		prerequisite = { 
+			focus = PRC_nuclears
+		}
+		available = {
+			has_tech = nucelar_fusion
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.5
+				category = nuclear
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = prc3  #596
+		icon = GFX_focus_wonderweapons
+		cost = 60
+		x = 0
+		y = 6
+		prerequisite = { 
+			focus = PRC_nuclears
+		}
+		prerequisite = { 
+			focus = PRC_militarist_indus_1
+		}
+		available = {
+			has_tech = atomic_research
+		}
+		completion_reward = {
+			set_technology = { nukes = 1 }
+			news_event = { id = prc.22 }
+			add_political_power = 80
+			add_to_variable = { influences = 180 }
+			add_named_threat = { threat = 5 name = China_atomicbomb_succese }
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1958.1.1
+				date < 1965.1.1
+			}
+		}
+	}		
+	focus = { 
+		id = prc_nuke_weapons
+		icon = GFX_focus_rocketry
+		cost = 60
+		x = 2
+		y = 8
+		available = {
+			has_tech = deterrence
+		}
+		prerequisite = { 
+			focus = prc_space
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = rocketry
+			}
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1970.1.1
+				date < 1990.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_space_bureau
+		icon = GFX_focus_rocketry
+		cost = 60
+		x = 0
+		y = 8
+		prerequisite = { 
+			focus = prc_space
+		}
+		completion_reward = {
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1970.1.1
+				date < 1990.1.1
+			}
+		}
+	}		
+	focus = { 
+		id = PRC_red_base
+		icon = GFX_focus_rocketry
+		cost = 4
+		x = 0
+		y = 9
+		prerequisite = { 
+			focus = PRC_space_bureau
+		}
+		completion_reward = {
+			custom_effect_tooltip = add_space_power_100
+			custom_effect_tooltip = add_max_space_power_50
+			add_to_variable = { root.space_power = 50 }
+			add_to_variable = { space_power = 100 }
+			custom_effect_tooltip = PRC_red_base_tool
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}		
+	
+	focus = { 
+		id = prc_space
+		icon = GFX_goal_sputnik1
+		cost = 60
+		x = 0
+		y = 7
+		available = {
+			has_tech = early_computer
+		}
+		prerequisite = { 
+			focus = PRC_militarist_indus_2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = space
+			}
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1970.1.1
+				date < 1990.1.1
+			}
+		}
+	}		
+	
+	
+	focus = { 
+		id = prc5  #合作社
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		cost = 10
+		prerequisite = { 
+			focus = prc1 
+		}
+		available = {
+			has_completed_focus = prc23
+		}
+		x = -21
+		y = 2	
+		completion_reward = {
+			add_ideas = { AgriculturalCooperatives }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1958.1.1
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = prc81  #合作社
+		icon = GFX_focus_generic_agricultural_subsidies
+		cost = 10
+		prerequisite = { 
+			focus = prc5 
+		}
+		x = -23
+		y = 3
+		completion_reward = {
+			714 = {
+				add_building_construction = {
+					type = farm_building
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			717 = {
+				add_building_construction = {
+					type = farm_building
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			328 = {
+				add_building_construction = {
+					type = farm_building
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_rural_medic  #赤脚医生
+		icon = GFX_goal_rural_medic
+		cost = 10
+		prerequisite = { 
+			focus = prc5
+			 }
+		x = -19
+		y = 3	
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		completion_reward = {
+			set_country_flag = rural_medic
+			custom_effect_tooltip = PRC_rural_medic_tool
+		}
+	}	
+	focus = { 
+		id = PRC_medic_construction  #赤脚医生
+		icon = GFX_goal_medical
+		cost = 18
+		prerequisite = { 
+			focus = prc5
+			 }
+		x = -16
+		y = 3	
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 30
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 150
+			every_owned_state = {
+				limit = {
+					hospital < 1
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_rural_cooperation_medic  #赤脚医生
+		icon = GFX_goal_medical
+		cost = 10
+		prerequisite = { 
+			focus = PRC_rural_medic
+			 }
+		prerequisite = { 
+			focus = PRC_medic_construction
+			 }
+		prerequisite = { 
+			focus = prc6
+			 }
+		x = -20
+		y = 4	
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		completion_reward = {
+			set_country_flag = rural_medic
+			custom_effect_tooltip = PRC_rural_medic_tool
+		}
+	}	
+	focus = { 
+		id = prc7  #三自一包
+		icon = GFX_focus_DEN_schleswigian_farmers
+		cost = 10
+		prerequisite = { 
+			focus = prc5
+			 }
+		x = -25
+		y = 3	
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			remove_ideas = landreform
+			add_political_power = 20
+		}
+	}		
+	
+	focus = { 
+		id = prc6  #土地公有制
+		icon = GFX_focus_generic_farmland
+		cost = 10
+		prerequisite = { 
+			focus = prc5
+			 }
+		x = -21
+		y = 3
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 300
+			add_to_variable = { influences = 40 }
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = farm_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+					OR = {
+						has_state_category = town
+						has_state_category = rural
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = farm_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+					OR = {
+						has_state_category = town
+						has_state_category = rural
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = farm_building
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}		#
+	focus = {  #人民公社
+		id = prc8
+		icon = GFX_goal_PRC_people_communie
+		cost = 10
+		prerequisite = { 
+			focus = prc6
+			 }
+		x = -22
+		y = 4
+		completion_reward = {
+			remove_ideas = AgriculturalCooperatives
+			news_event = { id = prc.26 }
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200
+				date > 1958.1.1
+				date < 1963.1.1
+			}
+		}
+	}	
+	#
+	focus = {   #包产到户
+		id = prc9
+		icon = GFX_goal_PRC_baochan 
+		cost = 10
+		prerequisite = { 
+			focus = prc7
+			 }
+		x = -24
+		y = 4
+		completion_reward = {
+			custom_effect_tooltip = prc9_tip
+		 }	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1979.1.1
+			}
+		}	
+	}
+	focus = {   #包产到户
+		id = prc_farm_loan
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = { 
+			focus = prc9
+			 }
+		x = -24
+		y = 5
+		completion_reward = {
+		 }	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1979.1.1
+			}
+		}	
+	}
+	focus = {   #包产到户
+		id = prc_new_rural
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		cost = 10
+		prerequisite = { 
+			focus = prc7
+			 }
+		x = -26
+		y = 4
+		available = {
+			has_tech = can_foods
+			has_tech = medical3
+		}
+		completion_reward = {
+		 }	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1979.1.1
+			}
+		}	
+	}
+	focus = {   #包产到户
+		id = prc_abolish_rural_tax
+		icon = GFX_focus_ITA_devaluate_the_lire
+		cost = 10
+		prerequisite = { 
+			focus = prc_new_rural
+			 }
+		x = -26
+		y = 5
+		completion_reward = {
+		 }	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1979.1.1
+			}
+		}	
+	}
+	#
+	focus = {   #重建
+		id = prc4
+		icon = GFX_goal_stalin_mode
+		cost = 10
+		prerequisite = { 
+			focus = prc0
+			 }
+		prerequisite = { 
+			focus = prc23
+			 }
+		available = {	
+			has_completed_focus = prc23
+		}
+		x = -5
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+	}		
+	#
+	focus = {  #三大改造
+		id = prc10
+		icon = GFX_focus_generic_industry_2
+		cost = 12
+		prerequisite = { 
+			focus = prc4
+			 }
+		x = -7
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 100
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+		}
+	}	
+	focus = {  #人民海军
+		id = pla_navy_focus
+		icon = GFX_goal_pla_navy
+		cost = 25
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction2
+		}
+		prerequisite = { 
+			focus = prc16
+			 }
+		x = -10
+		y = 9
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = naval_equipment
+			}
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = ship_modules_tech
+			}
+			716 = {
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}	
+			613 = {
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}	
+			593 = {
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}		
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_expanded_naval
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 25
+		available = {
+			has_tech = nuclear_plant_1
+			has_tech = naval_recruit
+		}
+		prerequisite = { 
+			focus = pla_navy_focus
+			 }
+		x = -6
+		y = 10
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250		
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_marines_focus
+		icon = GFX_goal_generic_navy_submarine
+		cost = 25
+		available = {
+			has_tech = nuclear_plant_1
+			has_tech = naval_recruit
+		}
+		prerequisite = { 
+			focus = pla_navy_focus
+			 }
+		x = -14
+		y = 10
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250		
+		}
+	}		
+	focus = {  #核潜艇
+		id = PRC_shanghai_naval
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 25
+		prerequisite = { 
+			focus = PRC_expanded_naval
+			 }
+		x = -8
+		y = 11
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			596 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 9974
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 9974
+				}
+			}
+			613 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 7014
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 7014
+				}
+			}	
+		}
+	}		
+	focus = {  #核潜艇
+		id = PRC_fujian_naval
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 25
+		prerequisite = { 
+			focus = PRC_shanghai_naval
+			 }
+		x = -8
+		y = 12
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			595 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 7071
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 7071
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 4196
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 4196
+				}
+			}	
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_qingdao_naval
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 25
+		prerequisite = { 
+			focus = PRC_expanded_naval
+			 }
+		x = -6
+		y = 11
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			597 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 10000
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 10000
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 4205
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 4205
+				}
+			}	
+		}
+	}		
+	focus = {  #核潜艇
+		id = PRC_dalian_naval
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 25
+		prerequisite = { 
+			focus = PRC_qingdao_naval
+			 }
+		x = -6
+		y = 12
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			743 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 1150
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 1150
+				}
+			}	
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_dalian_dock
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		cost = 25
+		prerequisite = { 
+			focus = PRC_dalian_naval
+			 }
+		x = -6
+		y = 14
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			743 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}	
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_zhanjiang_naval
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 25
+		prerequisite = { 
+			focus = PRC_expanded_naval
+			 }
+		x = -4
+		y = 11
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			592 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 11981
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 11981
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 1047
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 1047
+				}
+			}	
+		}
+	}		
+	focus = {  #核潜艇
+		id = PRC_hainan_naval
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 25
+		prerequisite = { 
+			focus = PRC_zhanjiang_naval
+			 }
+		x = -4
+		y = 12
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			591 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 1070
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 1070
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 994
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 994
+				}
+			}		
+		}
+	}		
+	focus = { 
+		id = prc_south_china_sea  #珠三角
+		icon = GFX_goal_pla_navy
+		cost = 18
+		prerequisite = { 
+			focus = PRC_zhanjiang_naval
+			 }
+		x = -2
+		y = 12
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			591 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			831 = {
+				set_building_level = {
+					type = bunker
+					level = 1
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_jiangnan_dock
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		cost = 25
+		prerequisite = { 
+			focus = PRC_shanghai_naval
+			 }
+		x = -7
+		y = 13
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			597 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}		
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_guangzhou_dock
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		cost = 25
+		prerequisite = { 
+			focus = PRC_zhanjiang_naval
+			 }
+		x = -5
+		y = 13
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250	
+			592 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+			}		
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_buy_ships
+		icon = GFX_goal_generic_navy_battleship
+		cost = 25
+		available = {
+			has_tech = nuclear_plant_1
+			has_tech = naval_recruit
+		}
+		prerequisite = { 
+			focus = pla_navy_focus
+			 }
+		x = -10
+		y = 10
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			navy_experience = 250		
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_light_ships
+		icon = GFX_focus_generic_destroyer
+		cost = 25
+		prerequisite = { 
+			focus = PRC_buy_ships
+			 }
+		x = -10
+		y = 11
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}		
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_medium_ships
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 25
+		prerequisite = { 
+			focus = PRC_light_ships
+			 }
+		x = -10
+		y = 12
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}	
+		}
+	}
+	focus = {  #核潜艇
+		id = PRC_develop_sub
+		icon = GFX_goal_generic_navy_submarine
+		cost = 25
+		prerequisite = { 
+			focus = PRC_light_ships
+			 }
+		x = -12
+		y = 12
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}	
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_carriers
+		icon = GFX_goal_generic_navy_carrier
+		cost = 25
+		prerequisite = { 
+			focus = PRC_medium_ships
+			 }
+		x = -10
+		y = 13
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cv_tech
+			}	
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_naval_equip
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 25
+		prerequisite = { 
+			focus = PRC_medium_ships
+			 }
+		x = -9
+		y = 14
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}	
+		}
+	}	
+	focus = {  #核潜艇
+		id = PRC_nuclear_submarine
+		icon = GFX_goal_generic_navy_submarine
+		cost = 25
+		available = {
+			has_tech = nuclear_plant_1
+			has_tech = naval_recruit
+		}
+		prerequisite = { 
+			focus = PRC_develop_sub
+			 }
+		x = -12
+		y = 13
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}		
+		}
+	}	
+	
+	#
+	focus = {  #五年计划
+		id = prc11
+		icon = GFX_goal_5y_plan
+		cost = 5
+		available = {
+			has_tech = construction2
+		}
+		prerequisite = { 
+			focus = prc4
+			 }
+		x = -5
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			news_event = { id = prc.12 }
+			add_to_variable = { influences = 80 } 
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+				
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+				
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+				
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}	
+	}		
+	#
+	focus = { 
+		id = prc13  #长春一汽
+		icon = GFX_goal_PRC_changchun_auto
+		cost = 20
+		prerequisite = { 
+			focus = prc19
+		}
+		available = {
+			has_tech = improved_machine_tools
+		}
+		x = -13
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = changchun
+			328 = {
+				set_state_category = city
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+				type = arms_factory
+				level = 3 
+				instant_build = yes }
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = prc20  #包头工业区
+		icon = GFX_goal_industry
+		cost = 50
+		prerequisite = { 
+			focus = prc19
+			 }
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction3
+		}
+		x = -11
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			283 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+				type = arms_factory
+				level = 3 
+				instant_build = yes }
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = prc19  #东北工业区
+		icon = GFX_goal_dongbei_industry
+		cost = 28
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction3
+		}
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = -12
+		y = 4
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = anshan_steel
+			714 = {
+				set_state_category = city
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			716 = {
+				set_state_category = city
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+			}
+			328 = {
+				set_state_category = city
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}		
+	
+	focus = { 
+		id = prc_sanxian  #三线建设
+		icon = GFX_goal_sichuan_industry
+		cost = 50
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction3
+		}
+		prerequisite = { 
+			focus = prc15
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		x = -15
+		y = 4
+		completion_reward = {
+			620 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+				type = industrial_complex
+				level = 1
+				instant_build = yes }
+				add_building_construction = { 
+				type = arms_factory
+				level = 1
+				instant_build = yes }
+			}
+			603 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+				type = industrial_complex
+				level = 1
+				instant_build = yes }
+				add_building_construction = { 
+				type = arms_factory
+				level = 1
+				instant_build = yes }
+			}
+			605 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+				type = industrial_complex
+				level = 1
+				instant_build = yes }
+				add_building_construction = { 
+				type = arms_factory
+				level = 1
+				instant_build = yes }
+			}
+			601 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { 
+				type = industrial_complex
+				level = 1
+				instant_build = yes }
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = PRC_gorge_dam  #三线建设
+		icon = GFX_focus_generic_hydroelectric_energy
+		cost = 50
+		prerequisite = { 
+			focus = prc_sanxian
+		}
+		available = {
+			has_tech = electronic_mechanical_engineering
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		x = -15
+		y = 5
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_canton_zone  #三线建设
+		icon = GFX_goal_electronic
+		cost = 50
+		prerequisite = { 
+			focus = prc22
+		}
+		available = {
+			has_tech = electronic_mechanical_engineering
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		x = -17
+		y = 5
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = prc_electro  #三线建设
+		icon = GFX_goal_electronic
+		cost = 50
+		prerequisite = { 
+			focus = prc_sanxian
+			focus = prc22
+		}
+		available = {
+			has_tech = electronic_mechanical_engineering
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		x = -16
+		y = 6
+		completion_reward = {
+			add_ideas = PRC_Wuhan_electro
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = electronics
+			}
+			620 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { 
+		id = prc_electro_menufactrue
+		icon = GFX_goal_semidoc
+		cost = 50
+		prerequisite = { 
+			focus = prc_electro
+		}
+		available = {
+			has_tech = medium_computer
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1965.1.1
+			}
+		}
+		x = -16
+		y = 7
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.1
+				uses = 1
+				category = electronics
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { 
+		id = prc21  #长三角
+		icon = GFX_goal_shanghai_industry
+		cost = 12
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction3
+		}
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = -18
+		y = 6
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 30
+				date > 1950.6.1
+			}
+			modifier = {
+				add = 100
+				date > 1951.1.1
+			}
+		}
+		completion_reward = {
+			613 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = prc22  #珠三角
+		icon = GFX_goal_canton_industry
+		cost = 18
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction3
+		}
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = -17
+		y = 4
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			592 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			593 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}		
+	focus = { 
+		id = prc14  #大庆油田
+		icon = GFX_goal_PRC_daqing
+		cost = 10
+		prerequisite = { 
+			focus = prc11
+			 }
+		x = -4
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1958.1.1
+				date < 1961.1.1
+			}
+		}
+		available = {
+			has_tech = oil_processing
+		}
+		completion_reward = {
+			news_event = { id = prc.332 }
+			714 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}		
+	#
+	focus = {
+		id = prc_food_note_focus
+		icon = GFX_soviet_relationship
+		cost = 25
+		prerequisite = { 
+			focus = prc_RMB
+			 }
+		x = -14
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			add_ideas = food_note_ideas
+			add_political_power = -200
+			add_stability = -0.12
+		}
+	}		
+	focus = {
+		id = prc12  #苏联援助
+		icon = GFX_soviet_relationship
+		cost = 5
+		prerequisite = { 
+			focus = prc4
+			 }
+		x = -3
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			SOV = { news_event = { id = sov.46 } }
+			add_research_slot = 1
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+				
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = prc15  #工业化
+		icon = GFX_goal_industry
+		cost = 10
+		prerequisite = { 
+			focus = prc10
+		}
+		prerequisite = { 
+			focus = prc11
+		}
+		x = -6
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+			set_technology = {
+				improved_machine_tools = 1
+				concentrated_industry = 1
+				dispersed_industry2 = 1
+				synth_oil_experiments = 1
+				oil_processing = 1
+				construction2 = 1
+				excavation2 = 1
+				power_generation1 = 1
+				electronic_mechanical_engineering = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						has_state_category = enclave
+					}
+					OR = {
+						is_in_home_area = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						has_state_category = enclave
+					}
+					OR = {
+						is_in_home_area = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						has_state_category = enclave
+					}
+					OR = {
+						is_in_home_area = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}		
+	#
+	focus = { 
+		id = prc16  #国防建设
+		icon = GFX_goal_PRC_PLA
+		cost = 10
+		available = {
+			has_tech = construction2
+			has_tech = improved_machine_tools
+		}
+		prerequisite = { 
+			focus = prc_pla
+		}
+		x = 0
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			recruit_character = PRC_Qian_WeiChang
+			custom_effect_tooltip = focus_tooltip_prc16
+			news_event = { id = prc.7 }
+		}		
+	}	
+	focus = { 
+		id = PRC_plastics  #国防建设
+		icon = GFX_goal_plastic_indus
+		cost = 10
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = -7
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+				date < 1961.1.1
+			}
+		}
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = rubber_processing
+		}
+		completion_reward = {
+			add_ideas = Sinopec
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}	
+	}	
+	focus = { 
+		id = PRC_steel_indus  #国防建设
+		icon = GFX_goal_steel
+		cost = 10
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = -9
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			add_dynamic_modifier = {
+				modifier = steel_construct_modifiers
+				days = 1800
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+	}	
+	focus = { 
+		id = PRC_shandsong_oilfioeld  #国防建设
+		icon = GFX_goal_oil_produc
+		cost = 10
+		prerequisite = { 
+			focus = prc14
+			 }
+		x = -3
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+				date < 1961.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = prc.165 }
+			597 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+		}		
+	}	
+	focus = { 
+		id = PRC_sinjang_oilfioeldr  #国防建设
+		icon = GFX_goal_oil_produc
+		cost = 8
+		prerequisite = { 
+			focus = prc14
+			 }
+		x = -5
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1970.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = prc.166 }
+			618 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+		}		
+	}		
+	#
+	focus = { 
+		id = prc17  #空军
+		icon = GFX_goal_expand_the_luftwaffe
+		cost = 20
+		available = {
+			has_tech = improved_machine_tools
+		}
+		prerequisite = { 
+			focus = prc16
+			 }
+		x = -5
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1955.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+			recruit_character = PRC_Hayashi_Yaichirou
+			air_experience = 100
+		}
+	}		
+	focus = { 
+		id = PRC_buy_planes
+		icon = GFX_goal_generic_air_fighter
+		cost = 20
+		prerequisite = { 
+			focus = prc17
+		}
+		x = -4
+		y = 6
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = PRC_develop_jet
+		icon = GFX_focus_generic_jet_planes
+		cost = 20
+		prerequisite = { 
+			focus = PRC_buy_planes
+		}
+		x = -3
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_develop_transplanes
+		icon = GFX_goal_generic_air_bomber
+		cost = 20
+		prerequisite = { 
+			focus = PRC_develop_jet
+		}
+		x = -4
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_develop_bomber
+		icon = GFX_focus_SWE_marauder_bombers
+		cost = 20
+		prerequisite = { 
+			focus = PRC_develop_transplanes
+		}
+		x = -4
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_develop_fighter
+		icon = GFX_goal_air_force
+		cost = 20
+		prerequisite = { 
+			focus = PRC_develop_jet
+		}
+		x = -2
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_develop_air_equip
+		icon = GFX_focus_FIN_expand_air_force_academy
+		cost = 20
+		prerequisite = { 
+			focus = PRC_develop_fighter
+		}
+		x = -2
+		y = 9
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}		
+	focus = { 
+		id = PRC_expanded_airbase  #空军
+		icon = GFX_focus_generic_copy_plane_designs
+		cost = 20
+		prerequisite = { 
+			focus = prc17
+		}
+		x = -7
+		y = 6
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_east_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 20
+		prerequisite = { 
+			focus = PRC_expanded_airbase
+		}
+		x = -5
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_southwest_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 20
+		prerequisite = { 
+			focus = PRC_expanded_airbase
+		}
+		x = -6
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_sinjang_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 20
+		prerequisite = { 
+			focus = PRC_expanded_airbase
+		}
+		x = -8
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_south_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 20
+		prerequisite = { 
+			focus = PRC_expanded_airbase
+		}
+		x = -9
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = PRC_northeast_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 20
+		prerequisite = { 
+			focus = PRC_expanded_airbase
+		}
+		x = -7
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+		}
+	}		
+	focus = { 
+		id = prc18  #大跃进
+		icon = GFX_goal_generic_soviet_construction
+		cost = 5
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 999
+				date > 1958.1.1
+				date < 1960.1.1
+			}
+		}
+		prerequisite = { 
+			focus = prc15
+			 }
+		x = 7
+		y = 4
+		completion_reward = {
+			add_ideas = GreatLeapForward_ideas
+			add_political_power = 300
+			news_event = { id = prc.27 }
+		}
+	}	
+	focus = { 
+		id = prc_great_steel  #重工业
+		icon = GFX_focus_generic_steel
+		cost = 2
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1958.8.1
+				date < 1960.1.1
+			}
+		}
+		prerequisite = { 
+			focus = prc18
+			 }
+		x = 6
+		y = 5
+		completion_reward = {
+			add_ideas = GreatSteelIdeas
+			news_event = { id = prc.25 }
+		}
+	}	
+	focus = { 
+		id = PRC_satllite_movements  #重工业
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 2
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 150
+				date > 1958.6.1
+				date < 1960.1.1
+			}
+		}
+		prerequisite = { 
+			focus = prc18
+			 }
+		x = 8
+		y = 5
+		completion_reward = {
+			news_event = { id = prc.152 }
+			add_ideas = Products_sattlite
+			custom_effect_tooltip = prc152tool
+		}
+	}		#
+	focus = { 
+		id = PRC_culture_movements
+		icon = GFX_focus_generic_university_1
+		cost = 2
+		prerequisite = { 
+			focus = prc23
+			 }
+		x = 10
+		y = 1
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = PRC_female_movements
+		icon = GFX_focus_generic_population_growth
+		cost = 3
+		prerequisite = { 
+			focus = PRC_culture_movements
+			 }
+		x = 9
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.12
+			add_political_power = 200
+			news_event = { id = prc.144 }
+		}
+	}
+	focus = { 
+		id = PRC_health_movements
+		icon = GFX_focus_generic_field_hostpital
+		cost = 3
+		prerequisite = { 
+			focus = PRC_culture_movements
+			 }
+		x = 11
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.12
+			news_event = { id = prc.145 }
+		}
+	}
+	focus = { 
+		id = PRC_clear_fours
+		icon = GFX_goal_peace_constitution
+		cost = 4
+		prerequisite = { 
+			focus = PRC_health_movements
+			 }
+		x = 11
+		y = 3
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = prc_talk_warlords  #政协会议
+		icon = GFX_goal_yunnan_warlord
+		cost = 2
+		prerequisite = { 
+			focus = prc23
+			 }
+		x = 16
+		y = 1
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = { is_subject_of = CHI }
+				news_event = { id = chinawar.59 }
+			}
+		}
+	}		
+	focus = { 
+		id = prc_jiaofei  #政协会议
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		cost = 2
+		prerequisite = { 
+			focus = prc23
+			 }
+		x = 14
+		y = 1
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			custom_effect_tooltip = PRC_jiaofei_tool
+			add_stability = 0.12
+			add_political_power = 400
+		}
+	}	
+	focus = { 
+		id = PRC_attack_islands  #政协会议
+		icon = GFX_focus_generic_naval_invasion
+		cost = 2
+		prerequisite = { 
+			focus = prc_jiaofei
+			 }
+		available = { 
+			1001 = { is_owned_by = CHI }
+		}
+		x = 14
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			news_event = { id = roc.86 } 
+			start_border_war = {
+			change_state_after_war = yes
+				attacker = {
+				state = 596
+				num_provinces = 4
+				on_win = roc.88
+				}
+				defender = {
+				state = 1001
+				num_provinces = 4
+				on_win = roc.87
+				}
+			}
+		}
+	}	
+	focus = { 
+		id = prc_economic  #政协会议
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		cost = 3
+		prerequisite = { 
+			focus = prc23
+			 }
+		x = 20
+		y = 1
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.12
+		}
+	}	
+	focus = { 
+		id = prc24  #政协会议
+		icon = GFX_goal_PRC_zhengxie
+		cost = 3
+		prerequisite = { 
+			focus = prc23
+			 }
+		x = 18
+		y = 1
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.12
+		}
+	}	
+	focus = { 
+		id = prc_autonomies  #政协会议
+		icon = GFX_goal_generic_improve_relations
+		cost = 4
+		prerequisite = { 
+			focus = prc24
+			 }
+		x = 16
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.12
+		}
+	}	
+	focus = { 
+		id = PRC_liberate_tibet  #政协会议
+		icon = GFX_goal_tibet_rebels
+		cost = 2
+		prerequisite = { 
+			focus = prc24
+			 }
+		x = 22
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			country_exists = TIB
+			controls_state = 601
+		}
+		completion_reward = {
+			TIB = {
+				news_event = tib.4
+			}
+		}
+	}	
+	focus = { 
+		id = prc_tib_revo  #政协会议
+		icon = GFX_goal_tibet_dplo
+		cost = 16
+		prerequisite = { 
+			focus = prc24
+			 }
+		x = 20
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			TIB = {
+				add_stability = -0.2
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+			}
+		}
+	}	
+	focus = { 
+		id = prc_sinkiang  #政协会议
+		icon = GFX_focus_generic_befriend_sinkiang
+		cost = 3
+		prerequisite = { 
+			focus = prc24
+			 }
+		x = 18
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_stability = 0.12
+			news_event = { id = prc.126 }
+		}
+	}		#
+	focus = { 
+		id = prc25  #一党专政
+		icon = GFX_goal_PRC_CCP
+		cost = 10
+		prerequisite = { 
+			focus = prc24
+			 }
+		x = 17
+		y = 3
+		ai_will_do = {
+			base = 2
+			modifier = {
+				add = 80
+				date > 1957.2.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.2
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+	focus = { 
+		id = prc_taiwan  #一党专政
+		icon = GFX_goal_liberate_taiwan
+		cost = 10
+		prerequisite = { 
+			focus = prc25
+			 }
+		x = 17
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = roc.42 }
+			add_stability = 0.2
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			830 = { add_core_of = PRC }
+			756 = { add_core_of = PRC }
+			524 = { add_core_of = PRC }
+		}
+	}	
+	focus = { 
+		id = prc_ten_relations  #一党专政
+		icon = GFX_goal_PRC_zongluxian
+		cost = 2
+		prerequisite = { 
+			focus = prc25
+			 }
+		x = 19
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = prc.24 }
+			add_stability = 0.2
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}		#
+	focus = { 
+		id = prc26  #多党合作
+		icon = GFX_goal_prc_multi_party
+		cost = 10
+		prerequisite = { 
+			focus = prc24
+			 }
+		x = 19
+		y = 3
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+	}		
+		 #
+	focus = { 
+		id = prc27  #反右运动
+		icon = GFX_goal_PRC_anti_right
+		cost = 5
+		prerequisite = { 
+			focus = prc25
+		}
+		available = {
+			NOT = { has_idea = PRC_mingfang }
+		}
+		x = 12
+		y = 4
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				date > 1957.1.1
+			}
+			modifier = {
+				add = 200
+				date > 1957.6.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = prc.32 }
+				add_political_power = -100
+				add_stability = -0.12
+				add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = { 
+		id = prc_4_clear  #反右运动
+		icon = GFX_goal_PRC_anti_right
+		cost = 10
+		prerequisite = { 
+			focus = prc25
+		}
+		x = 15
+		y = 4
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				add = 20
+				date > 1957.1.1
+				date < 1960.1.1
+			}
+		}
+		completion_reward = {
+				add_political_power = -100
+				add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+	#
+	focus = {
+		id = prc29  #文革
+		icon = GFX_goal_PRC_culture_revolution
+		cost = 10
+		available = {
+			NOT = { has_idea = Openreform }
+			has_idea = four_clears
+			communism > 0.6
+		}
+		prerequisite = { 
+			focus = prc_4_clear
+		}
+		prerequisite = { 
+			focus = prc27
+		}
+		x = 13
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 20
+				date > 1965.6.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = prc.30 }
+			add_ideas = { Cultrue_Revolution }
+			add_political_power = 500
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+		}
+	}
+	focus = {
+		id = PRC_students_tu_rural  #文革
+		icon = GFX_focus_generic_railroad
+		cost = 10
+		available = {
+			NOT = { has_idea = Openreform }
+		}
+		prerequisite = { 
+			focus = prc27
+			 }
+		x = 16
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 20
+				date > 1965.6.1
+			}
+		}
+		completion_reward = {
+			add_stability = 0.2
+			news_event = { id = prc.102 }
+			every_owned_state = {
+				limit = {
+					OR = {
+					has_state_category = rural
+					has_state_category = pastoral
+					}
+				}
+				add_dynamic_modifier = { modifier = students_to_rural_modifiers_rural }
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+					has_state_category = city
+					has_state_category = large_city
+					}
+				}
+				add_dynamic_modifier = { modifier = students_to_rural_modifiers_cities }
+			}
+		}
+	}
+	focus = {
+		id = prc_hanned  #文革
+		icon = GFX_focus_generic_university_1
+		cost = 10
+		available = {
+			NOT = { has_idea = Openreform }
+		}
+		prerequisite = { 
+			focus = prc27
+			 }
+		x = 11
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 20
+				date > 1965.6.1
+			}
+		}
+		completion_reward = {
+		}
+	}
+	#
+	focus = { 
+		id = prc30  #破四旧
+		icon = GFX_goal_PRC_posijiu
+		cost = 14
+		prerequisite = { 
+			focus = prc29
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 8
+		y = 6
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+				news_event = { id = prc.119 }
+			add_stability = -0.25
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.1
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_8_art
+		icon = GFX_goal_revolutionary_films
+		cost = 1
+		prerequisite = { 
+			focus = prc29
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 11
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = PRC_left_armies  #消灭走资派
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		cost = 1
+		prerequisite = { 
+			focus = prc29
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 15
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = prc_mao_propaganda  #消灭走资派
+		icon = GFX_goal_maosimo
+		cost = 1
+		prerequisite = { 
+			focus = prc29
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 17
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		}
+	}	
+	focus = { 
+		id = prc_cr_team  #消灭走资派
+		icon = GFX_goal_prc_cr_team
+		cost = 1
+		prerequisite = { 
+			focus = prc31
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 15
+		y = 7
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			recruit_character = PRC_Yao_WenYuan
+			recruit_character = PRC_Zhang_Chun_Qiao
+			recruit_character = PRC_Jiang_Qing
+			recruit_character = PRC_Wang_Hong_Wen
+			add_political_power = 500
+		}
+	}		
+	focus = { 
+		id = prc31  #消灭走资派
+		icon = GFX_goal_prc31
+		cost = 1
+		prerequisite = { 
+			focus = prc29
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 13
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			news_event = { id = prc.40 }
+		}
+	}		#
+	focus = {
+		id = prc_angang_model  #夺权
+		icon = GFX_goal_angang_model
+		cost = 10
+		prerequisite = { 
+			focus = prc_cr_team
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 15
+		y = 8
+		completion_reward = {
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	focus = {
+		id = PRC_protarias  #夺权
+		icon = GFX_goal_angang_model
+		cost = 10
+		prerequisite = { 
+			focus = prc_angang_model
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 14
+		y = 9
+		completion_reward = {
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	focus = {
+		id = PRC_works_leader  #夺权
+		icon = GFX_goal_angang_model
+		cost = 10
+		prerequisite = { 
+			focus = prc_angang_model
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 16
+		y = 9
+		completion_reward = {
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	focus = {
+		id = prc32  #夺权
+		icon = GFX_goal_517_project
+		cost = 10
+		prerequisite = { 
+			focus = prc31
+			 }
+		available = {
+			has_character = PRC_lin_biao
+			has_idea = Cultrue_Revolution
+		}
+		x = 11
+		y = 7
+		completion_reward = {
+			custom_effect_tooltip = focus_tooltip_prc32
+			hidden_effect = {
+				news_event = { id = prc.42 }
+			}
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	focus = {
+		id = PRC_support_lin  #夺权
+		icon = GFX_goal_lin_biao
+		cost = 10
+		prerequisite = { 
+			focus = prc32
+			 }
+		available = {
+			has_character = PRC_lin_biao
+		}
+		x = 10
+		y = 8
+		completion_reward = {
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	focus = {
+		id = PRC_party_armies  #夺权
+		icon = GFX_goal_pla_controls
+		cost = 10
+		prerequisite = { 
+			focus = prc32
+			 }
+		available = {
+			has_character = PRC_lin_biao
+		}
+		x = 12
+		y = 8
+		completion_reward = {
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	focus = {
+		id = PRC_militarist_rules  #夺权
+		icon = GFX_goal_pla_rule
+		cost = 10
+		prerequisite = { 
+			focus = PRC_party_armies
+			 }
+		available = {
+			has_character = PRC_lin_biao
+		}
+		x = 12
+		y = 9
+		completion_reward = {
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	focus = {
+		id = prc_ban_islam  #上海经验
+		icon = GFX_goal_de_islam
+		cost = 52
+		prerequisite = { 
+			focus = prc_ban_budhism
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 6
+		y = 8
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+		}	
+	}
+	focus = {
+		id = prc_ban_budhism  #上海经验
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 52
+		prerequisite = { 
+			focus = prc30
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 6
+		y = 7
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+		}	
+	}	
+	focus = {
+		id = prc33  #上海经验
+		icon = GFX_goal_zaofan
+		cost = 52
+		prerequisite = { 
+			focus = prc30
+			 }
+		available = {
+			has_country_flag = WangHongWen
+			has_idea = Cultrue_Revolution
+		}
+		x = 8
+		y = 7
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = focus_tooltip_prc33
+		}	
+	}	
+	focus = {
+		id = prc_civilian_Militarist  #上海经验
+		icon = GFX_goal_redflag_war
+		cost = 52
+		prerequisite = { 
+			focus = prc33
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 8
+		y = 8
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+		}	
+	}	
+	focus = {
+		id = prc_international_maoist 
+		icon = GFX_goal_mao_world
+		cost = 10
+		prerequisite = { 
+			focus = prc34
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 9
+		y = 12
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = prc_revolution_America 
+		icon = GFX_goal_latin_guerrilla
+		cost = 10
+		prerequisite = { 
+			focus = prc_international_maoist
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 6
+		y = 13
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = prc_revolution_Europe 
+		icon = GFX_goal_red_barigade
+		cost = 10
+		prerequisite = { 
+			focus = prc_international_maoist
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 8
+		y = 13
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = prc_revolution_ME 
+		icon = GFX_goal_arab_united
+		cost = 10
+		prerequisite = { 
+			focus = prc_international_maoist
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 10
+		y = 13
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = prc_revolution_Africa 
+		icon = GFX_goal_portugal_revolt
+		cost = 10
+		prerequisite = { 
+			focus = prc_international_maoist
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 12
+		y = 13
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = prc34 
+		icon = GFX_focus_ETH_callout_to_the_world
+		cost = 10
+		prerequisite = { 
+			focus = prc29
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 9
+		y = 9
+		completion_reward = {
+			every_country = {
+				news_event = { id = prc.118 }
+				limit = {
+					OR = {
+					has_idea = gaulle
+					has_idea = jungle_war
+					has_idea = southeast_revolution
+					}
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.08
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+			}
+		}
+	}		
+	focus = { 
+		id = PRC_southeastasia  #世界革命
+		icon = GFX_goal_rebels
+		cost = 10
+		prerequisite = { 
+			focus = prc34
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 6
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			every_country = {
+				news_event = { id = prc.118 }
+				limit = {
+					has_country_flag = southeastasia
+					has_idea = southeast_revolution
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.12
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}
+			}
+		}
+	}		#
+	focus = { 
+		id = prc36  #香港
+		icon = GFX_goal_PRC_riot_hk
+		cost = 14
+		prerequisite = { 
+			focus = prc34
+		}
+		x = 8
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+			HKN = { is_puppet_of = ENG }
+		}
+		completion_reward = {
+			HKN = {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = communism
+					popularity = 0.2
+				}
+			}
+			news_event = { id = prc.56 }
+		}
+	}	
+	focus = { 
+		id = prc_taiwan_communist  #香港
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		cost = 14
+		prerequisite = { 
+			focus = prc36
+		}
+		x = 8
+		y = 11
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		completion_reward = {
+			CHI = {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = communism
+					popularity = 0.12
+				}
+			}
+		}
+	}		#
+	focus = { 
+		id = prc35  #日本革命
+		icon = GFX_goal_communist_japan
+		cost = 14
+		prerequisite = { 
+			focus = prc34
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		x = 12
+		y = 10
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			JAP = {
+				news_event = { id = prc.118 }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.2
+				}
+			}
+		}
+	}
+		#
+	focus = { 
+		id = prc37  #韩国
+		icon = GFX_goal_democracy_korea
+		cost = 10
+		prerequisite = { 
+			focus = prc34
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_idea = Cultrue_Revolution
+			KOR = { has_government = neutrality }
+		}
+		x = 10
+		y = 10
+		completion_reward = {
+			KOR = {
+				news_event = { id = prc.118 }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}
+			}
+		}
+	}
+	focus = { 
+		id = prc38  #毛
+		icon = GFX_focus_prc_maoism
+		cost = 10
+		prerequisite = { 
+			focus = prc36
+			 }
+		prerequisite = { 
+			focus = prc35
+			 }
+		prerequisite = { 
+			focus = prc37
+			 }
+		available = {
+			has_idea = Cultrue_Revolution
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 10
+		y = 11
+		completion_reward = {
+			create_faction = PRC_revolution_faction
+			every_other_country = {
+				limit = {
+					is_in_faction = no
+					capital_scope = { is_on_continent = asia }
+					has_government = communism
+				}
+				news_event = { id = prc.121 }
+			}
+		}
+	}		#
+	focus = { 
+		id = prc28  #大鸣大放
+		icon = GFX_goal_mingfang_policy
+		cost = 3
+		prerequisite = { 
+			focus = prc26
+			focus = prc25
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = socialist_reformism
+			}
+			modifier = {
+				add = 500
+				date > 1956.5.1
+				date < 1958.1.1
+			}
+		}
+		available = {
+			NOT = { has_idea = Cultrue_Revolution }
+		}
+		x = 22
+		y = 4
+		completion_reward = {
+			add_political_power = 400
+			set_country_flag = MingFang
+			add_stability = 0.15
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			news_event = { id = prc.87 }
+		}	
+	}		#
+	focus = { 
+		id = prc39  #解放思想
+		icon = GFX_goal_PRC_idea_liberate
+		cost = 10
+		prerequisite = { 
+			focus = prc28
+			 }
+		available = {
+			OR = {
+			has_country_leader_with_trait = socialist_reformism
+			NOT = { has_idea = Cultrue_Revolution }
+			}
+		}
+		x = 22
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1979.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.2
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+		}
+	}
+	focus = { 
+		id = prc40  #对外开放
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 10
+		prerequisite = { 
+			focus = prc39
+			 }
+		available = {
+			NOT = { has_idea = Cultrue_Revolution }
+		}
+		x = 20
+		y = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_named_threat = { threat = -10 name = prc40 }
+			news_event = { id = prc.55 }
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			add_political_power = 250
+		}	
+	}		#
+	focus = { 
+		id = prc41  #四个现代化
+		icon = GFX_focus_generic_license_production
+		cost = 10
+		prerequisite = { 
+			focus = prc40
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 18
+		y = 7
+		completion_reward = {
+			add_research_slot = 1
+			add_ideas = four_modernizations
+		}	
+	}		#83
+	focus = { 
+		id = prc43  #83工程
+		icon = GFX_goal_generic_oil_refinery
+		cost = 10
+		prerequisite = { 
+			focus = prc41
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		x = 17
+		y = 8
+		 }		#
+	focus = {
+		id = prc42  #市场经济
+		icon = GFX_goal_benificial_encourage
+		cost = 12
+		prerequisite = { 
+			focus = prc40
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1979.1.1
+			}
+		}
+		x = 22
+		y = 7
+		completion_reward = {
+			remove_ideas = food_note_ideas
+			add_political_power = 100
+			add_ideas = partial_economic_mobilisation
+		}
+	}#
+	focus = {
+		id = prc_media  #市场经济
+		icon = GFX_goal_culture
+		cost = 12
+		prerequisite = { 
+			focus = prc40
+			 }
+		available = {
+			has_idea = Openreform
+			has_tech = cable_television
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1975.1.1
+			}
+		}
+		x = 20
+		y = 7
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.03
+			}
+			add_political_power = 120
+		}
+	}	#
+	focus = {
+		id = prc80  #严打
+		icon = GFX_goal_handcuffs
+		cost = 12
+		prerequisite = { 
+			focus = prc42
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1983.1.1
+			}
+		}
+		x = 22
+		y = 8
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = prc_tourism  #严打
+		icon = GFX_goal_tourism
+		cost = 12
+		prerequisite = { 
+			focus = prc42
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1983.1.1
+			}
+		}
+		x = 24
+		y = 8
+		
+		available = {
+			has_idea = Openreform
+			has_tech = cable_television
+			has_stability > 0.7
+			OR = {
+				has_idea = civilian_economy
+				has_idea = partial_economic_mobilisation
+			}
+			NOT = {
+				has_idea = low_education
+				has_idea = low_diplomacy
+			}
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = { check_variable = { state_tourist > 0 } }
+				multiply_variable = { state_ethnics_list = 1.25 }
+				custom_effect_tooltip = common_tourism_tool
+			}
+			add_political_power = 200
+		}
+	}
+	focus = { 
+		id = prc_doplo_focus  #另起炉灶
+		icon = GFX_goal_diplo_prc
+		cost = 10
+		ai_will_do = {
+			factor = 40
+		}
+		prerequisite = { 
+			focus = prc23
+			 }
+		x = 30
+		y = 1
+		 }
+	focus = { 
+		id = prc_support_vietnam  #另起炉灶
+		icon = GFX_goal_diplo_vietnam
+		cost = 10
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 30
+				date > 1950.1.1
+			}
+		}
+		prerequisite = { 
+			focus = prc_doplo_focus
+		}
+		x = 32
+		y = 2
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = { owns_state = 671 }
+				}
+				671 = { add_resistance = 30 }
+				779 = { add_resistance = 30 }
+				792 = { add_resistance = 30 }
+				286 = { add_resistance = 30 }
+			}
+			if = {
+				limit = {
+					VIN = { owns_state = 671 }
+				}
+				VIN = {
+					army_experience = 100
+					add_political_power = 100
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = PRC
+					}
+					add_equipment_to_stockpile = {
+						type = machine_gun
+						amount = 800
+						producer = PRC
+					}
+				}
+			}
+		}
+	}
+	focus = { 
+		id = prc46  #另起炉灶
+		icon = GFX_focus_ger_great_red_menace
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { 
+			focus = prc_doplo_focus
+			 }
+		x = 30
+		y = 2
+	}		#
+	focus = { 
+		id = prc47  #双边外交
+		icon = GFX_focus_generic_join_comintern
+		cost = 10
+		prerequisite = { 
+			focus = prc46
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		x = 27
+		y = 3
+		completion_reward = {
+			add_political_power = 200
+			custom_effect_tooltip = focus_tooltip_influence_100
+			add_to_variable = { influences = 100} 
+		}
+	}
+	focus = { 
+		id = prc49  #第三世界
+		icon = GFX_goal_third_world
+		cost = 10
+		prerequisite = { 
+			focus = prc47
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1953.1.1
+				date < 1958.1.1
+			}
+		}
+		x = 25
+		y = 4
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PER
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = GAN
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = EGY
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = YUG
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = IND
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = BUR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = INS
+				modifier = USA_special_relationship
+			}
+			custom_effect_tooltip = focus_tooltip_influence_100
+			add_to_variable = { influences = 100 } 
+		}
+	}		#
+	focus = { 
+		id = prc50  #中印关系
+		icon = GFX_goal_diplo_india
+		cost = 10
+		prerequisite = { 
+			focus = prc49
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1953.1.1
+				date < 1958.1.1
+			}
+		}
+		x = 25
+		y = 5
+		completion_reward = {
+			IND = { news_event = { id = prc.117 } }
+			add_opinion_modifier = {
+				target = IND
+				modifier = USA_special_relationship
+			}
+		}
+	}	
+	focus = { 
+		id = PRC_china_burma_border  #中印关系
+		icon = GFX_goal_china_burma_border
+		cost = 4
+		prerequisite = { 
+			focus = prc49
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200
+				date > 1957.1.1
+				date < 1960.1.1
+			}
+		}
+		x = 27
+		y = 5
+		completion_reward = {
+			add_stability = 0.05
+			news_event = { id = bur.15 }
+		}
+	}	#
+	focus = { 
+		id = prc52  #收回藏南
+		icon = GFX_goal_war_india
+		cost = 10
+		prerequisite = { 
+			focus = prc50
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 24
+		y = 6
+		completion_reward = {
+			IND = { news_event = raj.47 }
+		}
+	}		#
+	focus = { 
+		id = prc53  #和平共处
+		icon = GFX_goal_peace_china
+		cost = 10
+		prerequisite = { 
+			focus = prc50
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1953.1.1
+				date < 1958.1.1
+			}
+		}
+		x = 26
+		y = 6
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PAK
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = IND
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = BUR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = INS
+				modifier = USA_special_relationship
+			}
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_political_power = 100
+		}
+	}		#
+	focus = { 
+		id = prc51  #中法建交
+		icon = GFX_goal_diplo_france
+		cost = 10
+		prerequisite = { 
+			focus = prc47
+			 }
+		x = 29
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1960.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = PRC_FRA_raltion
+			}
+			news_event = { id = prc.47 }
+			FRA = { news_event = { id = prc.47 } }
+		}	
+	}		#
+	focus = { 
+		id = prc48  #亲社会主义
+		icon = GFX_goal_internatinoalism
+		cost = 10
+		prerequisite = { 
+			focus = prc46
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1950.1.1
+				date < 1955.1.1
+			}
+		}
+		x = 33
+		y = 3
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ROM
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = POL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = YUG
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = CZE
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = BUL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = ALB
+				modifier = USA_special_relationship
+			}
+			SOV = { news_event = { id = prc.129 } }
+			custom_effect_tooltip = prc48_tool
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_to_variable = { influences = 50 }
+			
+		}
+	}	
+	focus = { 
+		id = prc84  #支持东南亚
+		icon = GFX_goal_VietCong
+		cost = 10
+		prerequisite = { 
+			focus = prc48
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1950.1.1
+				date < 1955.1.1
+			}
+		}
+		completion_reward = {
+			every_country = {
+				news_event = { id = prc.118 }
+				limit = {
+					has_idea = ColonyWar
+				}
+				add_war_support = 0.3
+			}
+		}
+		x = 35
+		y = 4
+	}	#
+	focus = { 
+		id = prc67  #反对苏修
+		icon = GFX_goal_china_anti_soviet
+		cost = 10
+		prerequisite = { 
+			focus = prc47
+			 }
+		mutually_exclusive = { 
+			focus = prc68
+			 }
+		x = 33
+		y = 4
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = PRC_SOV_conflict
+			}
+			add_ideas = SovietChinaConflit
+		}
+	}		#
+	focus = { 
+		id = prc55  #欧洲
+		icon = GFX_goal_focus_EURO
+		cost = 10
+		prerequisite = { 
+			focus = prc51
+			focus = prc67
+			 }
+		x = 29
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+			ENG = { news_event = { id = prc.117 } }
+			add_opinion_modifier = {
+				target = WDR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = HOL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = BEL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = ITA
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = AUS
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SPR
+				modifier = USA_special_relationship
+			}
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_to_variable = { influences = 50 } 
+		}
+	}		#
+	focus = { 
+		id = prc69  #外蒙
+		icon = GFX_goal_map_mongolia
+		cost = 10
+		prerequisite = { 
+			focus = prc72
+			 }
+		x = 34
+		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			330 = { add_claim_by = PRC }
+			785 = { add_claim_by = PRC }
+		}
+	}	
+	focus = { 
+		id = prc82  #外蒙
+		icon = GFX_goal_claime_northwest
+		cost = 10
+		prerequisite = { 
+			focus = prc69
+			 }
+		x = 34
+		y = 7
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			329 = { add_claim_by = PRC }
+			654 = { add_claim_by = PRC }
+			589 = { add_claim_by = PRC }
+			732 = { add_claim_by = PRC }
+			742 = { add_claim_by = PRC }
+		}
+	}		#
+	focus = { 
+		id = prc71  #东欧国家
+		icon = GFX_goal_generic_improve_relations
+		cost = 10
+		prerequisite = { 
+			focus = prc67
+			focus = prc68
+		}
+		x = 36
+		y = 6
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					OR = {
+						has_country_leader_with_trait = independent_red
+					}
+				}
+				news_event = { id = prc.117 }
+			}
+		}
+	}		#
+	focus = { 
+		id = prc70  #外东北
+		icon = GFX_goal_PRC_outermanchu
+		cost = 10
+		prerequisite = { 
+			focus = prc72
+			 }
+		x = 32
+		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			408 = { add_claim_by = PRC }
+			409 = { add_claim_by = PRC }
+			657 = { add_claim_by = PRC }
+			560 = { add_claim_by = PRC }
+			561 = { add_claim_by = PRC }
+		}
+	}		#
+	focus = { 
+		id = prc56  #中美建交
+		icon = GFX_goal_diplo_usa
+		cost = 10
+		prerequisite = { 
+			focus = prc55
+			 }
+		x = 29
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+			modifier = {
+				add = 20
+				date > 1979.1.1
+			}
+		}
+		completion_reward = {
+			add_named_threat = { threat = -8 name = prc56 }
+			news_event = { id = prc.43 }
+		}	
+	}		#
+	focus = { 
+		id = prc64  #中日建交
+		icon = GFX_goal_diplo_japan
+		cost = 10
+		prerequisite = { 
+			focus = prc56
+			 }
+		x = 32
+		y = 8
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+			add_named_threat = { threat = -4 name = prc64 }
+			news_event = { id = prc.48 }
+		}	
+	}		
+	focus = {
+		id = prc83  #中日建交
+		icon = GFX_goal_diplo_japan
+		cost = 10
+		prerequisite = { 
+			focus = prc64
+			 }
+		x = 32
+		y = 9
+		available = {
+			OR = {
+				has_opinion = {
+					target = JAP
+					value > 30
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+		 custom_effect_tooltip = prc83_tool
+		}	
+	}			#		#
+	focus = { 
+		id = prc_three_world
+		icon = GFX_goal_mao_world
+		cost = 20
+		prerequisite = { 
+			focus = prc67
+		}
+		prerequisite = { 
+			focus = prc49
+		}
+		x = 31
+		y = 5
+		available = {
+			has_idea = SovietChinaConflit
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_country_flag = third_world
+					has_idea = UNmember
+					NOT = {
+					OR = {
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = colonist
+						has_country_leader_with_trait = devoted_trotskyist
+						is_in_faction_with = USA
+						is_in_faction_with = SOV
+						tag = SOV
+						tag = USA
+						tag = JAP
+					}
+					}
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = USA_special_relationship
+				}
+			}
+		}
+	}		
+	focus = { 
+		id = prc72  #深挖洞
+		icon = GFX_goal_generic_construct_military
+		cost = 20
+		prerequisite = { 
+			focus = prc67
+		}
+		x = 33
+		y = 5
+		available = {
+			has_idea = SovietChinaConflit
+			threat > 0.5
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_idea = SovietChinaConflit
+			}
+		}
+		completion_reward = {
+			714 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+			}
+			717 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+			}
+			328 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+			}
+			715 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+			}
+			608 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+						
+					}
+				}
+			}
+		}	
+	}				#
+	focus = { 
+		id = prc68  #中苏同盟
+		icon = GFX_soviet_relationship
+		cost = 10
+		prerequisite = { 
+			focus = prc48
+			 }
+		mutually_exclusive = { 
+			focus = prc67
+			 }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date < 1954.1.1
+			}
+		}
+		x = 38
+		y = 5
+		completion_reward = {
+			SOV = { country_event = sov.263 }
+			set_country_flag = SOV_militar_advisor_focus
+			add_political_power = 30
+			army_experience = 300
+		}
+	}		#
+	focus = { 
+		id = prc73  #加入华约
+		icon = GFX_goal_WarsawPact
+		cost = 10
+		prerequisite = { 
+			focus = prc68
+			 }
+		x = 38
+		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_political_power = 30
+			news_event = { id = sov.12 }
+		}
+	}		
+	#	#
+	focus = { 
+		id = prc44  #高考
+		icon = GFX_goal_education
+		cost = 10
+		prerequisite = { 
+			focus = prc41
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		x = 19
+		y = 8
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = focus_tooltip_education_20
+			add_political_power = 100
+		}
+	}
+	focus = { 
+		id = prc_hope_project  #高考
+		icon = GFX_focus_SWE_hygienic_housing
+		cost = 10
+		prerequisite = { 
+			focus = prc44
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		x = 19
+		y = 9
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = focus_tooltip_education_20
+			add_political_power = 100
+		}
+	}		#
+	focus = {
+		id = prc45  #经济特区
+		icon = GFX_goal_shenzhen
+		cost = 20
+		prerequisite = { 
+			focus = prc42
+			 }
+		available = {
+			has_idea = Openreform
+		}
+		x = 21
+		y = 9
+		completion_reward = {
+			592 = {
+				add_dynamic_modifier = { modifier = students_to_rural_modifiers_rural }
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { 
+				type = industrial_complex
+				level = 2
+				instant_build = yes }
+			}
+		}
+	}		#
+	focus = { 
+		id = prc54  #不结盟
+		icon = GFX_goal_non_aligned
+		cost = 10
+		prerequisite = { 
+			focus = prc53
+			 }
+		x = 26
+		y = 7
+		 }		#
+	focus = { 
+		id = prc57  #民主化
+		icon = GFX_goal_support_democracy
+		cost = 10
+		prerequisite = { 
+			focus = prc39
+			 }
+		prerequisite = { 
+			focus = prc56
+			 }
+		x = 27
+		y = 8
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_political_power = 20
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.2
+				}
+		}
+	}		#
+	focus = {
+		id = prc58
+		icon = GFX_goal_communist
+		cost = 10
+		prerequisite = { 
+			focus = prc57
+			 }
+		mutually_exclusive = { 
+			focus = prc59
+			 }
+		completion_reward = {
+				add_popularity = {
+					ideology = democratic
+					popularity = -0.15
+				}
+			custom_effect_tooltip = prc58_tool
+		}
+		x = 25
+		y = 9
+	}
+	focus = {
+		id = prc_three_means
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		cost = 10
+		prerequisite = { 
+			focus = prc58
+			 }
+		completion_reward = {
+			
+		}
+		x = 25
+		y = 10
+	}	
+	focus = {
+		id = prc_rise
+		icon = GFX_goal_china_rise
+		cost = 10
+		prerequisite = { 
+			focus = prc_say_no
+			 }
+		completion_reward = {
+			
+		}
+		x = 25
+		y = 12
+	}	
+	focus = {
+		id = prc_say_no
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		cost = 10
+		prerequisite = { 
+			focus = prc_three_means
+			 }
+		completion_reward = {
+			
+		}
+		x = 25
+		y = 11
+	}		#
+	focus = { 
+		id = prc_ccp_leave
+		icon = GFX_goal_support_democracy
+		cost = 10
+		prerequisite = { 
+			focus = prc59
+			 }
+		x = 28
+		y = 10
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.2
+				add_popularity = {
+					ideology = communism
+					popularity = -0.2
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+		}
+	}
+	focus = { 
+		id = prc59
+		icon = GFX_goal_prc_democracy
+		cost = 10
+		prerequisite = { 
+			focus = prc57
+			 }
+		mutually_exclusive = { 
+			focus = prc58
+			 }
+		x = 28
+		y = 9
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.2
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.05
+				}
+		}
+	}
+	focus = {
+		id = prc60
+		icon = GFX_goal_diplo_uk
+		cost = 10
+		prerequisite = { 
+			focus = prc56
+			 }
+		available = {
+			OR = {
+				has_opinion = {
+					target = FRA
+					value > 50
+				}
+				has_opinion = {
+					target = JAP
+					value > 50
+				}
+				has_opinion = {
+					target = WDR
+					value > 50
+				}
+				has_opinion = {
+					target = ITA
+					value > 50
+				}
+			}
+		}
+		x = 30
+		y = 8
+		completion_reward = {
+			custom_effect_tooltip = prc60_tooltip
+			add_ideas = SAIC
+		}	
+	}
+	focus = {
+		id = prc61
+		icon = GFX_goal_HK
+		cost = 10
+		prerequisite = { 
+			focus = prc57
+			 }
+		prerequisite = { 
+			focus = prc60
+			 }
+		x = 30
+		y = 9
+		completion_reward = {
+			news_event = { id = prc.56 }
+		}	
+	}		#
+	focus = {
+		id = prc62
+		icon = GFX_goal_map_taiwan
+		cost = 10
+		prerequisite = { 
+			focus = prc61
+			 }
+		x = 30
+		y = 10
+		completion_reward = {
+			add_threat = -0.02
+		}
+	}
+	focus = { 
+		id = prc_traditional
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		cost = 10
+		prerequisite = { 
+			focus = prc_ccp_leave
+			 }
+		x = 27
+		y = 11
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+		}
+	}
+	focus = { 
+		id = prc_anti_west
+		icon = GFX_goal_anti_west
+		cost = 10
+		prerequisite = { 
+			focus = prc_confusion
+			focus = prc_rise
+			 }
+		x = 25
+		y = 13
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+		}
+	}
+	focus = { 
+		id = prc_greater_map
+		icon = GFX_goal_great_china
+		cost = 10
+		prerequisite = { 
+			focus = prc_dragon_awake
+			focus = prc_kmt_back
+			 }
+		x = 28
+		y = 14
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = prc_war_jap
+		icon = GFX_goal_anti_imperialism
+		cost = 10
+		prerequisite = { 
+			focus = prc_greater_map
+			 }
+		x = 27
+		y = 15
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = prc_war_southea
+		icon = GFX_focus_usa_focus_on_asia
+		cost = 10
+		prerequisite = { 
+			focus = prc_greater_map
+			 }
+		x = 29
+		y = 15
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = prc_dragon_awake
+		icon = GFX_goal_dragon_awake
+		cost = 10
+		prerequisite = { 
+			focus = prc_confusion
+			focus = prc_rise
+			 }
+		x = 27
+		y = 13
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+		}
+	}
+	focus = { 
+		id = prc_confusion
+		icon = GFX_goal_confucion
+		cost = 10
+		prerequisite = { 
+			focus = prc_traditional
+			 }
+		x = 27
+		y = 12
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+		}
+	}
+	focus = { 
+		id = prc63
+		icon = GFX_focus_prc_social_democracy
+		cost = 10
+		prerequisite = { 
+			focus = prc_ccp_leave
+			 }
+		prerequisite = { 
+			focus = prc62
+			 }
+		x = 29
+		y = 11
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+		}
+	}
+	focus = { 
+		id = prc_election
+		icon = GFX_goal_vote
+		cost = 10
+		prerequisite = { 
+			focus = prc_ccp_leave
+			 }
+		x = 31
+		y = 11
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+	focus = { 
+		id = prc_federation
+		icon = GFX_goal_PRC_idea_liberate
+		cost = 10
+		prerequisite = { 
+			focus = prc_free_china
+			 }
+		x = 31
+		y = 13
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+	focus = { 
+		id = prc_free_china
+		icon = GFX_goal_free_china
+		cost = 10
+		prerequisite = { 
+			focus = prc_election
+			 }
+		x = 31
+		y = 12
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+	focus = { 
+		id = prc_kmt_back
+		icon = GFX_goal_diplo_roc
+		cost = 10
+		prerequisite = { 
+			focus = prc63
+			 }
+		x = 29
+		y = 12
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+		}
+	}
+	focus = { 
+		id = prc_old_republic
+		icon = GFX_goal_kmt_united
+		cost = 10
+		prerequisite = { 
+			focus = prc_kmt_back
+			 }
+		x = 29
+		y = 13
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = prc74
+		icon = GFX_goal_latin_guerrilla
+		cost = 10
+		prerequisite = { 
+			focus = prc68
+			 }
+		x = 40
+		y = 6
+		completion_reward = {
+			every_country = {
+				news_event = { id = prc.118 }
+				limit = {
+					has_country_flag = latin_america
+					has_idea = gaulle
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.08
+				}
+			}
+		}
+	}
+	focus = {
+		id = prc75
+		icon = GFX_goal_PRC_economic_reform
+		cost = 25
+		prerequisite = { 
+			focus = prc42
+		}
+		available = {
+			has_idea = Openreform
+			NOT = {
+				OR = {
+					has_idea = war_economy
+					has_idea = low_economic_mobilisation
+				}
+			}
+		}
+		x = 23
+		y = 9
+		completion_reward = {
+			add_ideas = Lenovo
+			custom_effect_tooltip = private_focus_tool
+			set_country_flag = private_economic
+			news_event = { id = prc.123 }
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = prc_1992
+		icon = GFX_goal_deng_theory
+		cost = 25
+		prerequisite = { 
+			focus = prc75
+		}
+		available = {
+			has_idea = Openreform
+		}
+		x = 23
+		y = 10
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = prc76
+		icon = GFX_goal_diplo_pakistan
+		cost = 10
+		prerequisite = { 
+			focus = prc52
+		}
+		x = 24
+		y = 7
+		completion_reward = {
+			PAK = { news_event = { id = prc.117 } }
+			add_opinion_modifier = {
+				target = PAK
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = {
+		id = prc77
+		icon = GFX_goal_shenzhen2
+		cost = 10
+		prerequisite = { 
+			focus = prc45
+		}
+		x = 21
+		y = 10
+		completion_reward = {
+			news_event = { id = prc.122 }
+			add_political_power = 300
+		}
+	}   
+	focus = {
+		id = prc_connect_usa
+		icon = GFX_focus_attack_soviet
+		cost = 10
+		prerequisite = { 
+			focus = prc55
+		}
+		x = 30
+		y = 6
+		available = {
+			has_idea = SovietChinaConflit
+			has_opinion = {
+				target = USA
+				value > 10
+			}
+		}
+		completion_reward = {
+			add_political_power = 300
+			every_country = {
+				limit = {
+					OR = {
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = anti_communist
+					}
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = USA_special_relationship
+				}
+			}
+		}
+	}   
+	focus = {
+		id = prc78
+		icon = GFX_focus_generic_military_industry
+		cost = 10
+		available = {
+			OR = {
+				has_opinion = {
+					target = FRA
+					value > 50
+				}
+				has_opinion = {
+					target = JAP
+					value > 50
+				}
+				has_opinion = {
+					target = WDR
+					value > 50
+				}
+				has_opinion = {
+					target = ITA
+					value > 50
+				}
+			}
+		}
+		prerequisite = { 
+			focus = prc55
+		}
+		x = 28
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = agriculture
+			}
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = industry
+			}
+			add_political_power = 300
+		}
+	}   
+	focus = {
+		id = prc79
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10
+		available = {
+			NOT = { has_idea = Cultrue_Revolution }
+		}
+		prerequisite = { 
+			focus = prc39
+		}
+		x = 22
+		y = 6
+		completion_reward = {
+			add_stability = 0.2
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+	}   
+}

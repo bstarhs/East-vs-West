@@ -1,0 +1,97 @@
+﻿capital = 594
+set_country_flag = chinese_states
+set_stability = 0.6
+set_war_support = 0.4
+oob = "GXC_1947"
+add_ideas = {
+	CHI_warlords_spirits
+	CHI_civil_war_deserters
+	all_adults_serve
+	corrupt
+	closed_economy
+	partial_economic_mobilisation
+	assimilation
+	Secularism
+	low_welfare
+}
+# Starting tech
+	set_technology = {
+		medical1 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		motorize_doctrine = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+}
+
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
+}
+
+create_country_leader = {
+	name = "Li Zongren"
+	desc = "POLITICS_LI_ZONGREN_DESC"
+	picture = "gfx/leaders/GXC/Portrait_GXC_Lizongren.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}
+
+1949.1.1 = {
+	oob = "GXC_1950"
+}
+1965.1.1 = {
+	create_country_leader = {
+		name = "Wei Guo-Qing"
+		
+		picture = "gfx/leaders/GXC/Portrait_GXC_Wei_Guoqing.tga"
+		expire = "2020.1.1"
+		ideology = stalinism
+		
+		traits = {
+		}
+	}
+}

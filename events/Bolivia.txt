@@ -1,0 +1,29 @@
+﻿add_namespace = bol
+#天鹅绒革命
+news_event = {
+	id = bol.30
+	title = cze.25.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_BolElection
+	is_triggered_only = yes
+	trigger = {
+			tag = BOL
+			has_government = democratic
+			date > 1989.8.5
+	}
+	option = {
+		name = cze.20.b2
+		create_country_leader = {
+			name = "Jaime Paz Zamora"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "Portrait_Bolivia_Jaime_Zamora.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+				
+			traits = {
+			
+			}
+		}
+	}
+}

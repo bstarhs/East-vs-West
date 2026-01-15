@@ -1,0 +1,19 @@
+﻿add_namespace = dji
+#纳米比亚立
+country_event = {
+	id = dji.1
+	title = dji.1.t
+	desc = dji.1.d
+	picture = GFX_ROK_independent
+	fire_only_once = yes
+	trigger = {
+		tag = FRA
+		date > 1977.6.1
+		date < 1977.7.21
+	}
+	option = {
+		name = dji.1.a
+		DJI = { transfer_state = 268 }
+	}
+
+}

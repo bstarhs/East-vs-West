@@ -1,0 +1,3056 @@
+﻿add_namespace = gen
+#邀请会谈
+country_event = {
+	id = gen.1
+	title = gen.1.t
+	desc = gen.1.d
+	picture = GFX_Summit1960
+	is_triggered_only = yes
+	option = {
+		name = gen.1.a
+			every_country = { news_event = { id = gen.2 } }
+			add_named_threat = { threat = -6 name = Summit }
+			FROM = { add_named_threat = { threat = -6 name = Summit } }
+		}
+	option = {
+		name = gen.1.b
+			FROM = { country_event = { id = gen.3 } } 
+			add_named_threat = { threat = 3 name = RejectSummit }
+		}
+}
+#开国大典
+news_event = {
+	id = gen.2
+	title = gen.2.t
+	desc = gen.2.d
+	picture = GFX_Summit1960
+	is_triggered_only = yes
+	option = {
+		name = gen.2.a
+	}
+
+}
+#开国大典
+country_event = {
+	id = gen.3
+	title = gen.3.t
+	desc = gen.3.d
+	picture = GFX_Summit1960
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = gen.3.a
+	}
+
+}
+#丛林战争镇压成功
+country_event = {
+	id = gen.4
+	title = gen.4.t
+	desc = gen.4.d
+	picture = GFX_Rebells_small
+	is_triggered_only = yes
+	option = {
+		name = gen.4.a
+	}
+
+}
+#丛林战争镇压失败
+country_event = {
+	id = gen.5
+	title = gen.5.t
+	desc = gen.5.d
+	picture = GFX_Rebells_small
+	is_triggered_only = yes
+	option = {
+		name = gen.4.a
+	}
+
+}
+#民主内战
+country_event = {
+	id = gen.6
+	title = gen.6.t
+	desc = gen.6.d
+	picture = GFX_Rebells_small
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		democratic > 0.3	
+		has_stability < 0.15
+		date > 1950.1.1
+		NOT = { has_government = democratic }
+		NOT = {
+			OR = {
+				tag = ANG
+				tag = SVN
+				tag = KOR
+				tag = CHI
+				tag = JAP
+				tag = VIN
+				tag = CUB
+			}
+		}
+	}
+	option = {
+		name = gen.6.a
+		add_stability = -0.04
+		start_civil_war = {
+			ideology = democratic
+			size = 0.3
+		}
+	}
+
+}
+
+#共产内战
+country_event = {
+	id = gen.7
+	title = gen.7.t
+	desc = gen.7.d
+	picture = GFX_Rebells_small
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		NOT = {
+			OR = {
+				tag = ANG
+				tag = SVN
+				tag = KOR
+				tag = CHI
+				tag = JAP
+			}
+		}
+		num_of_controlled_states > 2
+		communism > 0.3
+		has_stability < 0.15
+		NOT = { has_government = communism }
+		date > 1950.1.1
+	}
+	option = {
+		name = gen.7.a
+		add_stability = -0.05
+		start_civil_war = {
+			ideology = communism
+			size = 0.3
+		}
+	}
+
+}
+#穆斯林游行
+news_event = {
+	id = gen.13
+	title = gen.13.t
+	desc = gen.13.d
+	picture = GFX_Muslim_protest
+	trigger = {
+		has_idea = muslim_protest
+		fascism > 0.05
+	}
+	mean_time_to_happen = {
+		days = 70
+	}
+	option = {
+		name = gen.13.a
+		add_stability = -0.03
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.03
+		}
+	}
+	option = {
+		name = gen.13.b
+		add_stability = -0.01
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+	}
+}
+#穆斯林抗议出现
+news_event = {
+	id = gen.14
+	title = gen.14.t
+	desc = gen.14.d
+	picture = GFX_Muslim_protest
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		NOT = { has_government = fascism }
+		NOT = { has_idea = muslim_protest }
+		has_country_flag = islam_state
+		OR = {
+			has_completed_focus = common_social_reform
+		}
+	}
+	option = {
+		name = gen.14.a
+		add_ideas = muslim_protest
+	}
+}
+#拥有原子弹
+news_event = {
+	id = gen.15
+	title = gen.15.t
+	desc = gen.15.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {
+		name = gen.13.a
+		add_ideas = hasnuke
+		add_to_variable = { influences = 180 }
+	}
+}
+#亲苏协同作战
+news_event = {
+	id = gen.16
+	title = gen.16.t
+	desc = gen.16.d
+	picture = GFX_Chieftain
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_war = no
+		AND = {
+			OR = {
+				capital_scope = { is_on_continent = north_america }
+				capital_scope = { is_on_continent = asia }
+				capital_scope = { is_on_continent = europe }
+			}
+			OR = {
+				has_country_leader_with_trait = pro_soviet
+				has_country_leader_with_trait = anti_america
+			}
+		}
+		NOT = { has_government = fascism }
+		SOV = { has_war_with = USA }
+	}
+	option = {
+		name = gen.16.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				OR = {
+				has_country_leader_with_trait = anti_america
+				has_country_leader_with_trait = pro_soviet
+				}
+			}
+		}
+		SOV = { add_to_faction = FROM }
+	}
+	option = {
+		name = gen.16.a
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+#亲MEI协同作战
+news_event = {
+	id = gen.17
+	title = gen.17.t
+	desc = gen.17.d
+	mean_time_to_happen = {
+		days = 5
+	}
+	picture = GFX_Chieftain
+	trigger = {
+		AND = {
+			OR = {
+				capital_scope = { is_on_continent = north_america }
+				capital_scope = { is_on_continent = asia }
+				capital_scope = { is_on_continent = europe }
+			}
+			OR = {
+				has_country_leader_with_trait = pro_america
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		has_war = no
+		SOV = { has_war_with = USA }
+	}
+	option = {
+		name = gen.17.a
+		USA = { add_to_faction = FROM }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				OR = {
+				has_country_leader_with_trait = pro_america
+				has_country_leader_with_trait = anti_communist
+				}
+			}
+		}
+	}
+	option = {
+		name = bri.50.a
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+#圆桌会议（新闻）
+news_event = {
+	id = gen.22
+	title = gen.22.t
+	desc = gen.22.d
+	picture = GFX_RoundTable
+	major = yes
+	is_triggered_only = yes
+	option = {	
+		name = ddr.4.a
+	}
+}
+#议会选举共产党胜利
+news_event = {
+	id = gen.23
+	title = gen.23.t
+	desc = gen.23.d
+	picture = GFX_RoundTable
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_war = no
+		has_country_flag = round_meeting
+		communism > 0.4
+		NOT = {
+			has_country_flag = com_win_elec
+			has_country_flag = com_lose_elec
+		}
+	}
+	option = {	
+		name = gen.23.a
+		set_country_flag = com_win_elec
+	}
+}
+#议会选举共产党失败
+news_event = {
+	id = gen.24
+	title = gen.24.t
+	desc = gen.24.d
+	picture = GFX_RoundTable
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_war = no
+		has_country_flag = round_meeting
+		communism < 0.4
+		NOT = {
+			has_country_flag = com_win_elec
+			has_country_flag = com_lose_elec
+		}
+	}
+	option = {	
+		name = gen.24.a
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		set_country_flag = com_lose_elec
+		set_politics = { ruling_party = democratic }
+	}
+}
+#反对派拒绝承认
+news_event = {
+	id = gen.25
+	title = gen.25.t
+	desc = gen.25.d
+	picture = GFX_RoundTable
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_country_flag = com_win_elec
+		has_war = no
+		communism < 0.6
+	}
+	option = {	
+		name = gen.25.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.2
+		}
+		set_country_flag = com_lose_elec
+		set_politics = { ruling_party = democratic }
+		every_country = { news_event = { id = gen.26 } }
+	}
+}
+#共产党下台
+news_event = {
+	id = gen.26
+	title = gen.26.t
+	desc = gen.26.d
+	picture = GFX_RoundTable
+	is_triggered_only = yes
+	option = {	
+		name = gen.26.a
+	}
+}
+#穆斯林叛乱成功
+news_event = {
+	id = gen.27
+	title = gen.27.t
+	desc = gen.27.d
+	picture = GFX_Taliban
+	mean_time_to_happen = {
+		days = 180
+	}
+	trigger = {
+		has_stability < 0.8
+		has_idea = muslin_reballion
+		OR = {
+			capital_scope = {
+				is_on_continent = middle_east
+			}
+			tag = AFG
+			tag = EGY
+			tag = LBA
+			tag = TUN
+			tag = TUR
+			tag = ALG
+			tag = MOR
+			tag = MRT
+			tag = SUD
+			tag = SML
+		}
+		NOT = { has_government = fascism }
+	}
+	option = {	
+		name = gen.27.a
+		add_stability = -0.15
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+	}
+}
+#穆斯林叛乱失败
+news_event = {
+	id = gen.28
+	title = gen.28.t
+	desc = gen.28.d
+	picture = GFX_Taliban
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_idea = muslin_reballion
+		OR = {
+			capital_scope = {
+				is_on_continent = middle_east
+			}
+			tag = AFG
+			tag = EGY
+			tag = LBA
+			tag = TUN
+			tag = TUR
+			tag = ALG
+			tag = MOR
+			tag = MRT
+			tag = SUD
+			tag = SML
+		}
+		NOT = { has_government = fascism }
+	}
+	option = {	
+		name = gen.28.a
+		add_stability = 0.15
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.03
+		}
+	}
+}
+#共产党叛乱
+news_event = {
+	id = gen.291
+	hidden = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_stability < 0.8
+		OR = {
+			has_idea = gaulle
+			has_idea = jungle_war
+			has_idea = southeast_revolution
+			has_idea = Red_Brigade
+		}
+		NOT = { has_government = communism }
+	}
+	option = {	
+		name = gen.27.a
+		random_list = {
+			40 = { 
+				modifier = {
+					add = 10
+					has_war_support > 0.6
+				}
+				modifier = {
+					add = 10
+					has_idea_with_trait = prince_of_terror
+				}
+				modifier = {
+					add = 20
+					check_variable = { num_divisions > owned_states }
+				}
+				modifier = {
+					add = 20
+					communism < 0.3
+				}
+				modifier = {
+					add = 20
+					has_government = neutrality
+					neutrality > 0.5
+				}
+				modifier = {
+					add = 20
+					has_government = democratic
+					democratic > 0.5
+				}
+				modifier = {
+					add = 10
+					has_army_experience > 100
+				}
+				news_event = {	id = gen.30 } 
+			}
+			40 = { 
+				modifier = {
+					add = 10
+					has_war_support < 0.4
+				}
+				modifier = {
+					add = 20
+					has_idea = sanctions
+				}
+				modifier = {
+					add = 20
+					communism > 0.5
+				}
+				modifier = {
+					add = 20
+					check_variable = { num_divisions < owned_states }
+				}
+				modifier = {
+					add = 10
+					has_stability < 0.4
+				}
+				news_event = {	id = gen.29 } 
+			}
+			40 = { 
+				
+			}
+		}
+	}
+}
+#成功
+news_event = {
+	id = gen.29
+	title = gen.27.t
+	desc = gen.27.d
+	picture = GFX_SouthEasrCom
+	is_triggered_only = yes
+	option = {	
+		name = gen.27.a
+		add_stability = -0.04
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+}
+#失败
+news_event = {
+	id = gen.30
+	title = gen.28.t
+	desc = gen.28.d
+	picture = GFX_SouthEasrCom
+	is_triggered_only = yes
+	option = {	
+		name = gen.30.a
+		add_stability = 0.08
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+	}
+}
+#共产党领袖讲话
+news_event = {
+	id = gen.31
+	title = gen.31.t
+	desc = gen.31.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {
+		name = gen.31.a
+		add_stability = 0.15
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = gen.31.b
+		add_stability = 0.15
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		add_war_support = 0.3
+		army_experience = 100
+	}
+}
+#共产党叛乱结束
+news_event = {
+	id = gen.32
+	title = gen.32.t
+	desc = gen.32.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_stability > 0.7
+		communism < 0.2
+		OR = {
+			has_idea = gaulle
+			has_idea = jungle_war
+			has_idea = Red_Brigade
+		}
+		NOT = { has_government = communism }
+	}
+	option = {	
+		name = gen.30.a
+		add_stability = 0.08
+			remove_ideas = gaulle
+			remove_ideas = jungle_war
+			remove_ideas = Red_Brigade
+	}
+}
+#穆斯林叛乱结束
+news_event = {
+	id = gen.33
+	title = gen.33.t
+	desc = gen.33.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_stability > 0.7
+		fascism < 0.2
+		OR = {
+			has_idea = muslin_reballion
+		}
+		NOT = { has_government = fascism }
+	}
+	option = {	
+		name = gen.33.a
+		add_stability = 0.08
+			remove_ideas = muslin_reballion
+	}
+}
+#请求美国保护
+country_event = {
+	id = gen.34
+	title = gen.34.t
+	desc = gen.34.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {	
+		name = gen.34.a
+			ai_chance = {
+				factor = 50
+			}
+		give_guarantee = FROM
+		FROM = {
+		news_event = { id = gen.196 }
+			give_military_access = USA
+				add_popularity = {
+					ideology = communism
+					popularity = -0.1
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.1
+				}
+		}
+	}
+	option = {	
+		name = gen.34.a
+			ai_chance = {
+				factor = 0
+			}
+		FROM = { news_event = { id = gen.49 } }
+	}
+}
+#脱离独立
+news_event = {
+	id = gen.35
+	title = gen.35.t
+	desc = gen.35.d
+	picture = GFX_AfricaIndependence
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.35.a
+		FROM = {
+			leave_faction = yes
+		}
+		if = {
+			limit = {
+				NOT = { tag = BKF }
+				tag = ROOT
+			}
+			set_cosmetic_tag = FROM
+		}
+		if = {
+			limit = { has_war_with = FROM }
+			white_peace = FROM
+		}
+	}
+}
+#开国大典
+news_event = {
+	id = gen.36
+	title = gen.36.t
+	desc = gen.36.d
+	picture = GFX_IntoCommunism
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		if = {
+			limit = { FROM = { tag = HUN } }
+			play_song = HUN_4
+		}
+		if = {
+			limit = { FROM = { tag = ROM } }
+			play_song = ROM_2
+		}
+		if = {
+			limit = { FROM = { tag = CZE } }
+			play_song = CZE_4
+		}
+		if = {
+			limit = { FROM = { tag = CZE } }
+			play_song = CZE_4
+		}
+		if = {
+			limit = { FROM = { tag = ITA } }
+			play_song = ITA_3
+		}
+	}
+	option = {
+		name = gen.2.a
+	}
+
+}
+#战术核弹
+news_event = {
+	id = gen.37
+	title = gen.37.t
+	desc = gen.37.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {	
+		name = gen.37.a
+		launch_nuke = {
+			state = FROM
+			use_nuke = no
+		}
+	}
+}
+#有线电视
+news_event = {
+	id = gen.38
+	title = gen.38.t
+	desc = gen.38.d
+	picture = GFX_Television
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.38.a
+	}
+}
+#加入不结盟
+news_event = {
+	id = gen.39
+	title = gen.39.t
+	desc = gen.39.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.39.a
+	}
+}
+#亲近美国
+news_event = {
+	id = gen.40
+	title = gen.40.t
+	desc = gen.40.d
+	picture = GFX_NATO
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.39.a
+	}
+}
+#亲近美国
+news_event = {
+	id = gen.41
+	title = gen.41.t
+	desc = gen.41.d
+	picture = GFX_SovietFriendship
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.39.a
+	}
+}
+#经互会
+news_event = {
+	id = gen.42
+	title = gen.42.t
+	desc = gen.42.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.39.a
+	}
+}
+#中国
+news_event = {
+	id = gen.43
+	title = gen.43.t
+	desc = gen.43.d
+	picture = GFX_MaoVisit
+	is_triggered_only = yes
+	option = {	
+		name = gen.39.a
+	}
+}
+news_event = {
+	id = gen.44
+	title = gen.44.t
+	desc = gen.44.d
+	picture = GFX_StalinWorship
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.44.a
+	}
+}
+news_event = {
+	id = gen.45
+	title = gen.45.t
+	desc = gen.45.d
+	picture = GFX_Spy
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.45.a
+	}
+}
+news_event = {
+	id = gen.46
+	title = gen.46.t
+	desc = gen.46.d
+	picture = GFX_WarsawPact
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+
+##美国是否给予支援
+country_event = {
+	id = gen.47
+	title = gen.47.t
+	desc = gen.47.d
+	picture = GFX_MarshallPlan
+	is_triggered_only = yes
+	option = {	
+		name = gen.47.a
+		FROM = {
+			news_event = { id = usa.9 }
+			add_ideas = Marshall
+			add_political_power = 200
+		}
+		add_political_power = -80
+	}
+}
+#请求加入北约
+country_event = {
+	id = gen.48
+	title = gen.48.t
+	desc = gen.48.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = { 
+		name = gen.48.a
+			ai_chance = {
+				factor = 50
+			}
+		USA = { 
+			add_to_faction = FROM
+		}
+		FROM = { 
+			news_event = { id = gen.50 }
+		}
+	}
+	option = { 
+		name = gen.48.b
+			ai_chance = {
+				factor = 0
+			}
+		FROM = { 
+			country_event = { id = gen.49 }
+		}
+	}
+}
+#拒绝加入北约
+country_event = {
+	id = gen.49
+	title = gen.49.t
+	desc = gen.49.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = { 
+		name = gen.48.b
+	}
+}
+#加入北约
+news_event = {
+	id = gen.50
+	title = gen.50.t
+	desc = gen.50.d
+	picture = GFX_NATO
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.50.b
+	}
+}
+#加入北约
+news_event = {
+	id = gen.51
+	title = gen.51.t
+	desc = gen.51.d
+	picture = GFX_Spy
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.51.a
+	}
+}
+#改革系统
+news_event = {
+	id = gen.52
+	title = gen.52.t
+	desc = gen.52.d
+	picture = GFX_education
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.52.b
+	}
+}
+#穆斯林抗议
+news_event = {
+	id = gen.53
+	title = gen.53.t
+	desc = gen.53.d
+	picture = GFX_Muslim_protest
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		has_country_flag = muslim_reform
+		has_country_flag = islam_state
+		NOT = { has_government = communism }
+		NOT = { has_government = fascism }
+		NOT = { has_idea = Anti_religious }
+		has_stability < 0.8
+		if = {
+			limit = { has_government = neutrality }
+			neutrality < 0.75
+		}
+		if = {
+			limit = { has_government = authoritarianism }
+			authoritarianism < 0.75
+		}
+		if = {
+			limit = { has_government = democratic }
+			democratic < 0.9
+		}
+	}
+	option = { 
+		name = gen.52.b
+		add_stability = -0.01
+		add_political_power = -20
+	}
+}
+#改革系统
+news_event = {
+	id = gen.54
+	title = gen.54.t
+	desc = gen.54.d
+	picture = GFX_education
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.54.b
+	}
+}
+#改革系统
+news_event = {
+	id = gen.55
+	title = gen.55.t
+	desc = gen.55.d
+	picture = GFX_AntiReligion_event
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.55.b
+	}
+}
+
+#穆斯林叛乱
+news_event = {
+	id = gen.56
+	title = gen.56.t
+	desc = gen.56.d
+	picture = GFX_Taliban
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		AND = {
+			NOT = { has_government = fascism }
+			date > 1965.1.1
+			has_stability < 0.4
+		}
+		has_country_flag = islam_state
+	}
+	option = {
+		name = gen.14.a
+		add_ideas = muslin_reballion
+	}
+}
+#改革系统
+country_event = {
+	id = gen.57
+	title = gen.57.t
+	desc = gen.57.d
+	picture = GFX_NixonBrezhnev
+	is_triggered_only = yes
+	option = {
+		name = gen.14.a
+		news_event = { id = gen.58 }
+		USA = {
+			add_to_variable = { nuke_produc_speed = -30 }
+			add_named_threat = {
+				threat = -10
+				name = SALT_negosiation
+			}
+			add_political_power = 400
+		}
+		SOV = {
+			add_to_variable = { nuke_produc_speed = -30 }
+			add_named_threat = {
+				threat = -10
+				name = SALT_negosiation
+			}
+			add_political_power = 400
+		}
+	}
+}
+#改革系统
+news_event = {
+	id = gen.58
+	title = gen.58.t
+	desc = gen.58.d
+	picture = GFX_SALT
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.55.b
+	}
+}
+#中东保皇内战
+country_event = {
+	id = gen.59
+	title = gen.59.t
+	desc = gen.59.d
+	picture = GFX_1948war
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		monarchism > 0.3	
+		has_stability < 0.3
+		date > 1950.1.1
+		NOT = { has_government = monarchism }
+		has_country_flag = arabs_state
+	}
+	option = {
+		name = gen.6.a
+		add_stability = -0.04
+		start_civil_war = {
+			ideology = monarchism
+			size = 0.3
+		}
+	}
+
+}
+#叛军拒绝谈判
+country_event = {
+	id = gen.60
+	title = gen.60.t
+	desc = gen.60.d
+	picture = GFX_RevolutionWAR
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.55.b
+	}
+}
+#叛军开出条件
+country_event = {
+	id = gen.61
+	title = gen.61.t
+	desc = gen.61.d
+	picture = GFX_RevolutionWAR
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.55.b
+	}
+}
+#叛军投降
+country_event = {
+	id = gen.62
+	title = gen.62.t
+	desc = gen.62.d
+	picture = GFX_RevolutionWAR
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.55.b
+	}
+}
+#支持君主制
+news_event = {
+	id = gen.63
+	title = gen.63.t
+	desc = gen.63.d
+	picture = GFX_monarchism
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.63.b
+	}
+}
+#宇航局成立
+news_event = {
+	id = gen.64
+	title = gen.64.t
+	desc = gen.64.d
+	picture = GFX_Satellite
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.65
+	title = gen.65.t
+	desc = gen.65.d
+	picture = GFX_agriculture_event
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = land_reform
+		}
+	}
+}
+#农民进城
+news_event = {
+	id = gen.66
+	title = gen.66.t
+	desc = gen.66.d
+	picture = GFX_Electronic_Industry
+	mean_time_to_happen = ( days = 100 }
+	trigger = {
+		has_country_flag = land_reform
+		NOT = { has_country_flag = persants_to_cities }
+	}
+	option = { 
+		name = gen.64.b
+		set_country_flag = persants_to_cities
+	every_owned_state = {
+		limit = {
+			is_in_home_area = yes
+			OR = {
+				has_state_category = rural
+				has_state_category = town
+			}
+		}
+		add_extra_state_shared_building_slots = -2
+		add_building_construction = {
+			type = farm_building
+			level = -1
+			instant_build = yes
+		}
+	}
+	every_owned_state = {
+		limit = {
+			is_in_home_area = yes
+			OR = {
+				has_state_category = large_city
+				has_state_category = city
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+	}
+	}
+}
+#种植园不满
+news_event = {
+	id = gen.67
+	title = gen.67.t
+	desc = gen.67.d
+	picture = GFX_Law
+	mean_time_to_happen = ( days = 30 }
+	trigger = {
+		focus_progress = {
+			focus = common_61
+			progress > 0.3
+		}
+		has_idea = Latin_Hacienda
+	}
+	option = { 
+		name = gen.64.b
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.04
+		}
+		add_political_power = -80
+		add_stability = -0.05
+		if = {
+			limit = { has_idea = FruitCompany }
+			USA = { news_event = { id = gen.68 } }
+		}
+	}
+}
+#种植园不满
+news_event = {
+	id = gen.68
+	title = gen.68.t
+	desc = gen.68.d
+	picture = GFX_Law
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+		FROM = { set_country_flag = usa_focus_latin }
+	}
+}
+#土地改革
+news_event = {
+	id = gen.69
+	title = gen.69.t
+	desc = gen.69.d
+	picture = GFX_LatinProtest
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.80
+	title = gen.80.t
+	desc = gen.80.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.81
+	title = gen.81.t
+	desc = gen.81.d
+	picture = GFX_RevolutionWAR
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.82
+	title = gen.82.t
+	desc = gen.82.d
+	picture = GFX_Speech
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#政党延续
+news_event = {
+	id = gen.83
+	title = gen.83.t
+	desc = gen.83.d
+	picture = GFX_Speech
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		has_country_flag = election_ready
+		OR = {
+			AND = {
+				has_government = communism
+				communism > 0.4
+			}
+			AND = {
+				has_government = authoritarianism
+				authoritarianism > 0.4
+			}
+		}
+	}
+	option = { 
+		name = gen.64.b
+		clr_country_flag = election_ready
+	}
+}
+#自由化
+news_event = {
+	id = gen.84
+	title = gen.84.t
+	desc = gen.84.d
+	picture = GFX_Speech
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		democratic > 0.5
+		has_country_flag = election_ready
+	}
+	option = { 
+		name = gen.64.b
+		clr_country_flag = election_ready
+		set_politics = { ruling_party = democratic }
+		add_stability = 0.12
+		news_event = { id = gen.85 }
+	}
+}
+#土地改革
+news_event = {
+	id = gen.85
+	title = gen.85.t
+	desc = gen.85.d
+	picture = GFX_Speech
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#共产化
+news_event = {
+	id = gen.86
+	title = gen.86.t
+	desc = gen.86.d
+	picture = GFX_Speech
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		communism > 0.5
+		has_country_flag = election_ready
+	}
+	option = { 
+		name = gen.64.b
+		clr_country_flag = election_ready
+		set_politics = { ruling_party = communism }
+		add_stability = 0.12
+		news_event = { id = gen.87 }
+	}
+}
+#土地改革
+news_event = {
+	id = gen.87
+	title = gen.87.t
+	desc = gen.87.d
+	picture = GFX_Speech
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { has_country_flag = language_spannish }
+			play_song = Internationale_Spannish
+		}
+	}
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#民族化
+news_event = {
+	id = gen.88
+	title = gen.88.t
+	desc = gen.88.d
+	picture = GFX_Speech
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		authoritarianism > 0.5
+		has_country_flag = election_ready
+	}
+	option = { 
+		name = gen.64.b
+		clr_country_flag = election_ready
+		set_politics = { ruling_party = authoritarianism }
+		add_stability = 0.12
+		news_event = { id = gen.89 }
+	}
+}
+#土地改革
+news_event = {
+	id = gen.89
+	title = gen.89.t
+	desc = gen.89.d
+	picture = GFX_Speech
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.91.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.90
+	title = gen.90.t
+	desc = gen.90.d
+	picture = GFX_USAriot
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.91.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.91
+	title = gen.91.t
+	desc = gen.91.d
+	picture = GFX_Law
+	is_triggered_only = yes
+	option = { 
+		name = gen.91.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.92
+	title = gen.92.t
+	desc = gen.92.d
+	picture = GFX_FemaleVote
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.91.b
+	}
+}
+#穆斯林游行
+news_event = {
+	id = gen.93
+	title = gen.93.t
+	desc = gen.93.d
+	picture = GFX_Muslim_protest
+	trigger = {
+		has_country_flag = females_right_event
+		has_country_flag = islam_state
+		fascism > 0.01
+		OR = {
+			fascism > 0.1
+			has_idea = Shia
+			has_idea = Sunni
+		}
+	}
+	mean_time_to_happen = {
+		days = 80
+	}
+	option = {
+		name = gen.13.a
+		set_country_flag = gen93
+		add_stability = -0.03
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.03
+		}
+	}
+	option = {
+		name = gen.13.b
+		set_country_flag = gen93
+		add_stability = -0.01
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+	}
+}
+#天主教游行
+news_event = {
+	id = gen.94
+	title = gen.94.t
+	desc = gen.94.d
+	picture = GFX_LatinProtest
+	trigger = {
+		has_country_flag = females_right_event
+		OR = {
+			has_country_flag = latin_america
+			has_idea = Catholicism
+		}
+	}
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+		name = gen.13.a
+		clr_country_flag = females_right_event
+		add_stability = -0.03
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.03
+		}
+	}
+	option = {
+		name = gen.13.b
+		add_stability = -0.01
+		clr_country_flag = females_right_event
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.03
+		}
+	}
+}
+#土地改革
+news_event = {
+	id = gen.95
+	title = gen.95.t
+	desc = gen.95.d
+	picture = GFX_CollectiveFarm
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.96
+	title = gen.96.t
+	desc = gen.96.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+#君主制
+news_event = {
+	id = gen.97
+	title = gen.97.t
+	desc = gen.97.d
+	picture = GFX_Law
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+news_event = {
+	id = gen.98
+	title = gen.98.t
+	desc = gen.98.d
+	picture = GFX_Law
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.99
+	title = gen.99.t
+	desc = gen.99.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.100
+	title = gen.100.t
+	desc = gen.100.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.101
+	title = gen.101.t
+	desc = gen.101.d
+	picture = GFX_Law
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.103
+	title = gen.103.t
+	desc = gen.103.d
+	picture = GFX_Arrest_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.107
+	title = gen.107.t
+	desc = gen.107.d
+	picture = GFX_Arrest_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#自由化
+news_event = {
+	id = gen.108
+	title = gen.108.t
+	desc = gen.108.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#自由化
+news_event = {
+	id = gen.109
+	title = gen.109.t
+	desc = gen.109.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.110
+	title = gen.110.t
+	desc = gen.110.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.114
+	title = gen.114.t
+	desc = gen.114.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.115
+	title = gen.115.t
+	desc = gen.115.d
+	picture = GFX_Law
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.116
+	title = gen.116.t
+	desc = gen.116.d
+	picture = GFX_LGBT
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.120
+	title = gen.120.t
+	desc = gen.120.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.123
+	title = gen.123.t
+	desc = gen.123.d
+	picture = GFX_Masjid
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.124
+	title = gen.124.t
+	desc = gen.124.d
+	picture = GFX_Masjid
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.130
+	title = gen.130.t
+	desc = gen.130.d
+	picture = GFX_KhomeiniBack
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.135
+	title = gen.135.t
+	desc = gen.135.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.136
+	title = gen.136.t
+	desc = gen.136.d
+	picture = GFX_Quran
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.139
+	title = gen.139.t
+	desc = gen.139.d
+	picture = GFX_Quran
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.140
+	title = gen.140.t
+	desc = gen.140.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.141
+	title = gen.141.t
+	desc = gen.141.d
+	picture = GFX_LatinProtest
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		OR = {
+			democratic > 0.4
+			communism > 0.4
+		}
+		has_stability < 0.8
+		has_government = democratic
+		has_country_flag = AntiChurchProtest
+	}
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.145
+	title = gen.145.t
+	desc = gen.145.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.146
+	title = gen.146.t
+	desc = gen.146.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.147
+	title = gen.147.t
+	desc = gen.147.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.148
+	title = gen.148.t
+	desc = gen.148.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.149
+	title = gen.149.t
+	desc = gen.149.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.150
+	title = gen.150.t
+	desc = gen.150.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.151
+	title = gen.151.t
+	desc = gen.151.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.152
+	title = gen.152.t
+	desc = gen.152.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.153
+	title = gen.153.t
+	desc = gen.153.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.155
+	title = gen.155.t
+	desc = gen.155.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.156
+	title = gen.156.t
+	desc = gen.156.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.161
+	title = gen.161.t
+	desc = gen.161.d
+	picture = GFX_Church_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.167
+	title = gen.167.t
+	desc = gen.167.d
+	picture = GFX_nationalism_parade
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.170
+	title = gen.170.t
+	desc = gen.170.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.171
+	title = gen.171.t
+	desc = gen.171.d
+	picture = GFX_nationalism_parade
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.174
+	title = gen.174.t
+	desc = gen.174.d
+	picture = GFX_nationalism_parade
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.175
+	title = gen.175.t
+	desc = gen.175.d
+	picture = GFX_nationalism_parade
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.176
+	title = gen.176.t
+	desc = gen.176.d
+	picture = GFX_nationalism_parade
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.177
+	title = gen.177.t
+	desc = gen.177.d
+	picture = GFX_nationalism_parade
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.178
+	title = gen.178.t
+	desc = gen.178.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.179
+	title = gen.179.t
+	desc = gen.179.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.180
+	title = gen.180.t
+	desc = gen.180.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.184
+	title = gen.184.t
+	desc = gen.184.d
+	picture = GFX_Arrest_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.186
+	title = gen.186.t
+	desc = gen.186.d
+	picture = GFX_NHS
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.188
+	title = gen.188.t
+	desc = gen.188.d
+	picture = GFX_Vote_news
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.189
+	title = gen.189.t
+	desc = gen.189.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.190
+	title = gen.190.t
+	desc = gen.190.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.191
+	title = gen.191.t
+	desc = gen.191.d
+	picture = GFX_NHS
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.192
+	title = gen.192.t
+	desc = gen.192.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.193
+	title = gen.193.t
+	desc = gen.193.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.194
+	title = gen.194.t
+	desc = gen.194.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.195
+	title = gen.195.t
+	desc = gen.195.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.196
+	title = gen.196.t
+	desc = gen.196.d
+	picture = GFX_USarmyInVietnam
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+news_event = {
+	id = gen.200
+	title = gen.200.t
+	desc = gen.200.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+}
+#土地改革
+news_event = {
+	id = gen.201
+	title = gen.201.t
+	desc = gen.201.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+#妇女改革
+country_event = {
+	id = gen.202
+	title = gen.202.t
+	desc = gen.202.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.203
+	title = gen.203.t
+	desc = gen.203.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.204
+	title = gen.204.t
+	desc = gen.204.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.205
+	title = gen.205.t
+	desc = gen.205.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.206
+	title = gen.206.t
+	desc = gen.206.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.207
+	title = gen.207.t
+	desc = gen.207.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.208
+	title = gen.208.t
+	desc = gen.208.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.209
+	title = gen.209.t
+	desc = gen.209.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.210
+	title = gen.210.t
+	desc = gen.210.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+country_event = {
+	id = gen.211
+	title = gen.211.t
+	desc = gen.211.d
+	picture = GFX_female_votes
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+news_event = {
+	id = gen.212
+	title = gen.212.t
+	desc = gen.212.d
+	picture = GFX_Manufacture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+news_event = {
+	id = gen.220
+	title = gen.220.t
+	desc = gen.220.d
+	picture = GFX_Muslim_protest
+	mean_time_to_happen = { days = 150 }
+	trigger = {
+		has_country_flag = gen222
+		has_country_flag = land_reform
+		check_variable = { land_reform_score < 5 }
+	}
+	option = {
+		name = gen.251.a
+		add_stability = -0.01
+		add_political_power = -50
+	}
+	option = {
+		name = gen.251.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 10
+				tag = SVN
+			}
+		}
+		add_to_variable = { land_reform_score = -1 }
+		add_political_power = -10
+	}
+}
+
+news_event = {
+	id = gen.221
+	title = gen.221.t
+	desc = gen.221.d
+	picture = GFX_Muslim_protest
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		has_country_flag = gen222
+		has_country_flag = land_reform
+		check_variable = { land_reform_score > 6 }
+		NOT = {
+			has_idea = corrupt
+			has_country_leader_with_trait = corrupt_leader
+		}
+	}
+	option = {
+		name = gen.251.a
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.01
+			}
+		add_political_power = 80
+		add_to_variable = { land_reform_score = 2 }
+	}
+}
+news_event = {
+	id = gen.222
+	title = gen.222.t
+	desc = gen.222.d
+	picture = GFX_agriculture_event
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_country_flag = land_reform
+		check_variable = { land_reform_score < 9 }
+		has_stability > 0.4
+	}
+	option = { 
+		name = 268.a
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen222
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.01
+			}
+		}
+	}
+}
+
+country_event = {
+	id = gen.223
+	title = gen.223.t
+	desc = gen.223.d
+	picture = GFX_female_votes
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		has_country_flag = land_reform
+		OR = {
+			has_idea = corrupt
+			has_country_leader_with_trait = corrupt_leader
+		}
+	}
+	option = {
+		name = gen.254.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 10
+				tag = SVN
+			}
+		}
+		add_political_power = -30
+		add_to_variable = { land_reform_score = -2 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.01
+			}
+		if = {
+			limit = { has_country_leader_with_trait = corrupt_leader }
+			add_to_variable = { land_reform_score = -1 }
+		}
+	}
+}
+news_event = {
+	id = gen.226
+	title = gen.226.t
+	desc = gen.226.d
+	picture = GFX_agriculture_event
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		has_country_flag = land_reform
+		check_variable = { land_reform_score > 5 }
+	}
+	option = {
+		name = gen.254.a
+		add_political_power = -150
+		add_to_variable = { land_reform_score = 3 }
+	}
+	option = {
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 10
+				tag = SVN
+			}
+		}
+		name = gen.254.b
+		add_to_variable = { land_reform_score = -2 }
+	}
+}
+news_event = {
+	id = gen.228
+	title = gen.228.t
+	desc = gen.228.d
+	picture = GFX_agriculture_event
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		has_country_flag = land_reform
+		check_variable = { land_reform_score > 5 }
+	}
+	option = {
+		name = gen.254.a
+		add_political_power = -120
+		ai_chance = {
+			base = 5
+		}
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.01
+		}
+		add_to_variable = { land_reform_score = 2 }
+	}
+	option = {
+		name = gen.254.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 10
+				tag = SVN
+			}
+		}
+		add_to_variable = { land_reform_score = -2 }
+	}
+}
+news_event = {
+	id = gen.230
+	title = gen.230.t
+	desc = gen.230.d
+	picture = GFX_agriculture_event
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		NOT = {
+			has_idea = common_land_reform_modifier
+			has_country_flag = gen230
+		}
+		has_country_flag = land_reform
+		check_variable = { land_reform_score > 12 }
+		has_stability > 0.4
+	}
+	option = { 
+		name = 268.a
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen230
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+			add_timed_idea = {
+				idea = common_land_reform_modifier
+				days = 180
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = gen.240
+	title = gen.240.t
+	desc = gen.240.d
+	picture = GFX_YouthPioneers
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+news_event = {
+	id = gen.241
+	title = gen.241.t
+	desc = gen.241.d
+	picture = GFX_RakosiMatyas
+	is_triggered_only = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+news_event = {
+	id = gen.242
+	title = gen.242.t
+	desc = gen.242.d
+	picture = GFX_CommunismRefugee
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_government = communism
+		has_country_flag = east_europe
+		OR = {
+			has_idea = limited_exports
+			has_idea = closed_economy
+		}
+		NOT = { has_country_flag = gen242 }
+	}
+	option = { 
+		name = gen.64.b
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen242
+			add_political_power = -80
+		}
+	}
+
+}
+news_event = {
+	id = gen.243
+	title = gen.243.t
+	desc = gen.243.d
+	picture = GFX_Manufacture
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_government = communism
+		has_country_flag = east_europe
+		has_completed_focus = common_48
+		NOT = { has_country_flag = gen243 }
+	}
+	option = { 
+		name = gen.64.b
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen243
+		}
+	}
+
+}
+news_event = {
+	id = gen.250
+	title = gen.250.t
+	desc = gen.250.d
+	picture = GFX_FemaleVote
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		NOT = {
+			has_idea = common_female_right_modifier
+			has_country_flag = gen250
+		}
+		has_country_flag = female_refrom
+		has_country_flag = female_alliance_decis
+		has_country_flag = female_given_decis
+		has_country_flag = female_capital_decis
+		has_country_flag = female_labour_decis
+		has_country_flag = females_right_event
+		has_stability > 0.4
+	}
+	option = { 
+		name = gen.64.b
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen250
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+			add_timed_idea = {
+				idea = common_female_right_modifier
+				days = 180
+			}
+		}
+	}
+
+}
+#穆斯林游行
+news_event = {
+	id = gen.251
+	title = gen.251.t
+	desc = gen.251.d
+	picture = GFX_Muslim_protest
+	mean_time_to_happen = { days = 120 }
+	trigger = {
+		has_country_flag = islam_state
+		has_country_flag = gen93
+		fascism > 0.01
+		OR = {
+			fascism > 0.1
+			has_idea = Shia
+			has_idea = Sunni
+		}
+	}
+	option = {
+		name = gen.251.a
+		add_stability = -0.02
+		add_political_power = -40
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.01
+		}
+	}
+	option = {
+		name = gen.251.b
+		add_to_variable = { female_failed = 1 }
+		add_political_power = -20
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
+		}
+	}
+}
+#穆斯林游行
+news_event = {
+	id = gen.252
+	title = gen.252.t
+	desc = gen.252.d
+	picture = GFX_Muslim_protest
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		has_country_flag = islam_state
+		has_country_flag = gen93
+		fascism > 0.01
+		OR = {
+			fascism > 0.1
+			has_idea = Shia
+			has_idea = Sunni
+		}
+	}
+	option = {
+		name = gen.252.a
+		add_stability = -0.02
+		add_political_power = -40
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.01
+		}
+	}
+	option = {
+		name = gen.252.b
+		add_to_variable = { female_failed = 1 }
+		add_political_power = -20
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
+		}
+	}
+}
+#新式女校需要资助
+news_event = {
+	id = gen.254
+	title = gen.254.t
+	desc = gen.254.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		has_country_flag = islam_state
+		has_country_flag = gen93
+		fascism > 0.01
+		OR = {
+			fascism > 0.1
+			has_idea = Shia
+			has_idea = Sunni
+		}
+	}
+	option = {
+		name = gen.254.a
+		add_political_power = -80
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.01
+		}
+	}
+	option = {
+		name = gen.254.b
+		add_to_variable = { female_failed = 1 }
+	}
+}
+#新式女校需要资助
+news_event = {
+	id = gen.255
+	title = gen.255.t
+	desc = gen.255.d
+	picture = GFX_education
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		check_variable = { female_failed > 4 }
+		has_country_flag = gen93
+		has_country_flag = female_refrom
+		has_country_flag = females_right_event
+	}
+	option = {
+		name = gen.254.b
+		if = {
+			limit = { tag = FROM }
+			clr_country_flag = gen93
+			clr_country_flag = female_refrom
+			clr_country_flag = females_right_event
+			add_political_power = -200
+			add_stability = -0.2
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.08
+			}
+		}
+	}
+}
+news_event = {
+	id = gen.260
+	title = gen.260.t
+	desc = gen.260.d
+	picture = GFX_education
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		NOT = {
+			has_idea = common_female_right_modifier
+			has_country_flag = gen260
+		}
+		has_country_flag = secular_education_decis
+		check_variable = { education_reform_score < 1 }
+	}
+	option = {
+		name = gen.254.b
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen260
+			clr_country_flag = secular_education_decis
+			add_political_power = -200
+			add_stability = -0.2
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.1
+			}
+		}
+	}
+}
+news_event = {
+	id = gen.261
+	title = gen.261.t
+	desc = gen.261.d
+	picture = GFX_education
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = gen.64.b
+	}
+
+}
+news_event = {
+	id = gen.263
+	title = gen.263.t
+	desc = gen.263.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		has_country_flag = secular_education_decis
+		has_country_flag = education_cloese_madrasa_decis
+		any_owned_state = {
+			school < 1
+			OR = {
+				has_state_category = town
+				has_state_category = large_town
+			}
+		}
+		any_owned_state = {
+			school < 3
+			OR = {
+				has_state_category = city
+				has_state_category = large_city
+			}
+		}
+	}
+	option = {
+		name = gen.254.b
+		if = {
+			limit = { tag = FROM }
+			add_political_power = -20
+			add_to_variable = { female_failed = -1 }
+		}
+	}
+}
+news_event = {
+	id = gen.264
+	title = gen.264.t
+	desc = gen.264.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 150 }
+	trigger = {
+		has_country_flag = secular_education_decis
+		has_country_flag = education_cloese_madrasa_decis
+		all_owned_state = {
+			school > 0
+			OR = {
+				has_state_category = town
+				has_state_category = rural
+			}
+		}
+		if = {
+			limit = {
+				any_owned_state = { has_state_category = city }
+			}
+			all_owned_state = {
+				school > 1
+				OR = {
+					has_state_category = city
+					has_state_category = large_town
+				}	
+			}
+		}
+	}
+	option = {
+		name = gen.254.b
+		if = {
+			limit = { tag = FROM }
+			add_political_power = 40
+			add_to_variable = { education_reform_score = 3 }
+		}
+	}
+}
+news_event = {
+	id = gen.265
+	title = gen.265.t
+	desc = gen.265.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		has_country_flag = secular_education_decis
+		all_owned_state = {
+			school > 0
+		}
+	}
+	option = {
+		name = gen.254.a
+		add_political_power = -80
+		add_to_variable = { education_reform_score = 1 }
+	}
+	option = {
+		name = gen.254.b
+		add_to_variable = { education_reform_score = -1 }
+	}
+}
+news_event = {
+	id = gen.268
+	title = gen.268.t
+	desc = gen.268.d
+	picture = GFX_education
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		NOT = {
+			has_idea = common_education_reform_modifier
+			has_country_flag = gen268
+		}
+		has_country_flag = secular_education_decis
+		check_variable = { education_reform_score > 12 }
+		has_stability > 0.4
+	}
+	option = { 
+		name = 268.a
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen268
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+			add_timed_idea = {
+				idea = common_education_reform_modifier
+				days = 180
+			}
+		}
+	}
+
+}
+news_event = {
+	id = gen.271
+	title = gen.271.t
+	desc = gen.271.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		has_country_flag = secular_education_decis
+		any_owned_state = {
+			school > 0
+		}
+		OR = {
+			has_idea = corrupt
+			has_country_leader_with_trait = corrupt_leader
+		}
+	}
+	option = {
+		name = gen.254.b
+		add_political_power = -10
+		add_to_variable = { education_reform_score = -2 }
+		if = {
+			limit = { has_country_leader_with_trait = corrupt_leader }
+			add_to_variable = { education_reform_score = -1 }
+		}
+	}
+}
+
+country_event = {
+	id = gen.280
+	title = gen.280.t
+	desc = gen.280.d
+	picture = GFX_SovietExperts
+	is_triggered_only = yes
+	option = {
+		name = gen.280.a #同意
+		add_political_power = 50
+		add_to_variable = { influences = 60 }
+		custom_effect_tooltip = focus_tooltip_influence_60
+		FROM = { country_event = { ID = gen.281 } }
+	}
+	option = {
+		name = gen.280.b #拒绝
+		FROM = { country_event = { ID = gen.282 } }
+	}
+}
+
+country_event = {
+	id = gen.281
+	title = gen.281.t
+	desc = gen.281.d
+	picture = GFX_SovietExperts
+	is_triggered_only = yes
+	option = {
+		name = gen.280.b
+			if = {
+				limit = { FROM = { tag = CZE } }
+				set_country_flag = CZE_experts_allow
+			}
+			if = {
+				limit = { FROM = { tag = POL } }
+				set_country_flag = POL_experts_allow
+			}
+			if = {
+				limit = { FROM = { tag = DDR } }
+				set_country_flag = DDR_experts_allow
+			}
+			if = {
+				limit = { FROM = { tag = ROM } }
+				set_country_flag = ROM_experts_allow
+			}
+			if = {
+				limit = { FROM = { tag = HUN } }
+				set_country_flag = HUN_experts_allow
+			}
+	}
+}
+country_event = {
+	id = gen.282
+	title = gen.282.t
+	desc = gen.282.d
+	picture = GFX_SovietExperts
+	is_triggered_only = yes
+	option = {
+		name = gen.280.b
+		add_political_power = 60
+	}
+}

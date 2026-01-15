@@ -1,0 +1,440 @@
+﻿add_namespace = arg
+#伊娃贝隆去世
+news_event = {
+	id = arg.1
+	title = arg.1.t
+	desc = arg.1.d
+	picture = GFX_EvaPeronDeath
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1952.7.1
+		date < 1952.11.1
+		has_character = ARG_eva_peron
+		tag = ARG
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = ARG }
+			remove_ideas = eva_peron
+			retire_character = ARG_eva_peron
+			add_timed_idea = {
+				idea = ARG_Death_Peron
+				days = 500
+			}
+			add_political_power = -300
+			add_war_support = -0.12
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = -0.12
+				}
+		}
+	}
+
+}
+#贝隆下台
+news_event = {
+	id = arg.2
+	title = arg.2.t
+	desc = arg.2.d
+	picture = GFX_BombingPlazaMayo
+	fire_only_once = yes
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = ARG
+		date > 1955.3.1
+		date < 1955.5.1
+		authoritarianism < 0.9
+		NOT = { has_global_flag = arg2 }
+		has_government = authoritarianism
+	}
+	option = {
+		name = arg.1.a
+		if = {
+			limit = { tag = ARG }
+			set_global_flag = arg2
+		}
+	}
+}
+news_event = {
+	id = arg.5
+	title = arg.5.t
+	desc = arg.5.d
+	picture = GFX_ArgentineCoup1955
+	major = yes
+	mean_time_to_happen = { days = 12 }
+	immediate = {
+		play_song = ARG_6
+	}
+	trigger = {
+		tag = ARG
+		date > 1955.9.1
+		date < 1956.1.1
+		authoritarianism < 0.9
+		has_government = authoritarianism
+	}
+	option = {
+		name = arg.1.a
+		if = {
+			limit = { tag = ARG }
+			news_event = { id = arg.6 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = arg.6
+	title = arg.6.t
+	desc = arg.6.d
+	picture = GFX_ArgentineCoup1955
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+		if = {
+			limit = { tag = ARG }
+			news_event = { id = arg.7 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = arg.7
+	title = arg.7.t
+	desc = arg.7.d
+	picture = GFX_PedroEugenioAramburu
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+		if = {
+			limit = { tag = ARG }
+			set_politics = { ruling_party = neutrality }
+			promote_character = ARG_Pedro_Eugenio_Aramburu
+		}
+	}
+}
+news_event = {
+	id = arg.8
+	title = arg.8.t
+	desc = arg.8.d
+	picture = GFX_CasaRosada
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+	}
+}
+news_event = {
+	id = arg.9
+	title = arg.9.t
+	desc = arg.9.d
+	picture = GFX_CasaRosada
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+	}
+}
+#阿图罗·弗朗迪西
+news_event = {
+	id = arg.10
+	title = arg.10.t
+	desc = arg.10.d
+	picture = GFX_PedroEugenioAramburu
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ARG
+		date > 1958.4.1
+		date < 1958.5.1
+		has_government = neutrality
+	}
+	option = {
+		name = arg.1.a
+		if = {
+			limit = { tag = ARG }
+			news_event = { id = arg.11 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = arg.11
+	title = arg.11.t
+	desc = arg.11.d
+	picture = GFX_PedroEugenioAramburu
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+		if = {
+			limit = { tag = ARG }
+			news_event = { id = arg.12 days = 20 }
+		}
+	}
+}
+news_event = {
+	id = arg.12
+	title = arg.12.t
+	desc = arg.12.d
+	picture = GFX_ArturoFrondizi
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+		if = {
+			limit = { tag = ARG }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.6
+				}
+			set_politics = { ruling_party = democratic }
+			recruit_character = ARG_Arturo_Frondizi
+			promote_character = ARG_Arturo_Frondizi
+		}
+	}
+}
+#阿图罗·伊利亚
+country_event = {
+	id = arg.15
+	title = arg.15.t
+	desc = arg.15.d
+	picture = GFX_CasaRosada
+	fire_only_once = yes
+	trigger = {
+		tag = ARG
+		date > 1962.1.1
+		date < 1963.1.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.1.a
+		create_country_leader = {
+			name = "Arturo Umberto Illia"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/ARG/Portrait_Argentina_Arturo_Umberto_Illia.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#贝隆回归
+country_event = {
+	id = arg.20
+	title = arg.20.t
+	desc = arg.10.d
+	picture = GFX_CasaRosada
+	fire_only_once = yes
+	trigger = {
+		tag = ARG
+		date > 1973.1.1
+		date < 1974.1.1
+		authoritarianism > 0.4
+	}
+	option = {
+		name = arg.1.a
+		set_politics = { ruling_party = authoritarianism }
+		create_country_leader = {
+			name = "Juan Peron"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/ARG/Portrait_Argentina_Juan_Peron_1973.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+	}
+}
+#伊莎贝尔
+country_event = {
+	id = arg.25
+	title = arg.25.t
+	desc = arg.10.d
+	picture = GFX_IsabellePeron
+	fire_only_once = yes
+	trigger = {
+		tag = ARG
+		date > 1974.1.1
+		date < 1975.1.1
+		has_government = authoritarianism
+	}
+	option = {
+		name = arg.1.a
+		create_country_leader = {
+			name = "Isabel Martinez Peron"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/ARG/Portrait_Argentina_Isabel Martinez_Peron.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+	}
+}
+#阿根廷政变
+country_event = {
+	id = arg.30
+	title = arg.30.t
+	desc = arg.30.d
+	picture = GFX_1976ArgentinaCoup
+	fire_only_once = yes
+	trigger = {
+		tag = ARG
+		date > 1976.1.1
+		date < 1977.1.1
+		has_government = authoritarianism
+	}
+	option = {
+		name = arg.1.a
+		set_politics = { ruling_party = neutrality }
+		create_country_leader = {
+			name = "Jorge Videla"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/ARG/Portrait_Argentina_Videla.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+#加尔铁里上台
+news_event = {
+	id = arg.40
+	title = arg.40.t
+	desc = arg.40.d
+	fire_only_once = yes
+	picture = GFX_1976ArgentinaCoup
+	
+	trigger = {
+		tag = ARG
+		has_government = neutrality
+		date > 1981.4.1
+		date < 1982.4.1
+	}
+	
+	option = {
+		name = arg.40.a
+		create_country_leader = {
+			name = "Leopoldo Galtieri"
+			desc = "POLITICIAN_PRC_MAO_ZEDONG_DESC"
+			picture = "gfx/leaders/ARG/Portrait_Argentina_Leopoldo_Galtieri.tga"
+			expire = "1976.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+#马岛战争
+news_event = {
+	id = arg.41
+	title = arg.41.t
+	desc = arg.41.d
+	picture = GFX_FalklandsWar
+	is_triggered_only = yes
+	option = {
+		name = arg.41.a
+		ENG = {
+			add_war_support = 0.4
+			add_country_leader_trait = warmonger
+			declare_war_on = {
+				target = ARG
+				type = take_state_focus
+				generator = { 299 720 }
+			}
+		}
+	}
+}
+#马岛战争结束
+news_event = {
+	id = arg.42
+	title = arg.42.t
+	desc = arg.42.d
+	picture = GFX_FalklandsWar
+	fire_only_once = yes
+	trigger = {
+		tag = ARG
+		has_war_with = ENG
+		has_war_support < 0.3
+		299 = { is_controlled_by = ENG }
+		720 = { is_controlled_by = ENG }
+	}
+	option = {
+		name = arg.42.a
+			ARG = {
+				white_peace = ENG
+				add_stability = -0.3
+				remove_country_leader_trait = warmonger
+			}
+			ENG = {
+				remove_country_leader_trait = warmonger
+				transfer_state = 299
+				transfer_state = 720
+				add_stability = 0.3
+			}
+	}
+}
+#马岛战争结束
+news_event = {
+	id = arg.43
+	title = arg.43.t
+	desc = arg.43.d
+	picture = GFX_FalklandsWar
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		has_war_with = ARG
+		has_war_support < 0.3
+		299 = { is_controlled_by = ARG }
+		720 = { is_controlled_by = ARG }
+	}
+	option = {
+		name = arg.42.a
+			ARG = {
+				white_peace = ENG
+				transfer_state = 299
+				transfer_state = 720
+				add_stability = 0.3
+				remove_country_leader_trait = warmonger
+			}
+			ENG = {
+				remove_country_leader_trait = warmonger
+				add_stability = -0.3
+				add_popularity = {
+					ideology = democratic
+					popularity = -0.2
+				}
+			}
+	}
+}
+#1989大选
+news_event = {
+	id = arg.45
+	title = arg.45.t
+	desc = arg.41.d
+	picture = GFX_CasaRosada
+	fire_only_once = yes
+	trigger = {
+		tag = ARG
+		date > 1989.7.1
+		date < 1989.12.1
+		has_government = democratic
+	}
+	
+	option = {
+		name = arg.40.a
+		create_country_leader = {
+			name = "Carlos Menem"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/ARG/Portrait_Argentina_Carlos_Menem.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}

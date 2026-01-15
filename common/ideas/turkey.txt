@@ -1,0 +1,197 @@
+ideas = {
+
+	country = {
+		TUR_kemal_legacy_ideas = {
+
+			picture = TUR_kemal_legacy_ideas
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+				OR = { 
+					has_government = communism
+					has_government = fascism
+				}
+			}
+
+			modifier = {
+				drift_defence_factor = 0.15
+				stability_factor = 0.12
+			}
+		}
+		TurArmyIdea = {
+
+			picture = TurArmyIdea
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+				OR = { 
+					has_government = communism
+					has_government = fascism
+				}
+			}
+
+			modifier = {
+				custom_modifier_tooltip = TurArmyIdea_tool
+			}
+		}
+
+		KurdishRevolt = {
+
+			picture = KurdishRevolt
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				custom_modifier_tooltip = KurdishRevolt_tool
+				political_power_gain = -0.12
+				stability_factor = -0.2
+			}
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		
+
+		beko = {
+			
+			picture = beko
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			visible = {
+				has_completed_focus = focus_electro
+			}
+			
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+			
+			equipment_bonus = {
+			}
+		}
+		Otokar = {
+			
+			picture = Otokar
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			visible = {
+				has_tech = auto_industry
+			}
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { medium_tank_manufacturer auto_manufacturer }
+			
+			equipment_bonus = {
+			}
+		}
+		thk = {
+			
+			picture = generic_air_manufacturer_2
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# trainers, and air ambulances?
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		ktf = {
+			
+			picture = generic_air_manufacturer_1
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# assembled license aircrafts from across the world 
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		golcuk_nsy = {
+			
+			picture = generic_naval_manufacturer_1
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { naval_manufacturer }
+		}
+		istanbul_military_industries = {
+			
+			picture = generic_infantry_equipment_manufacturer_3
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			equipment_bonus = {
+				# rifles and pistols
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+	}
+}

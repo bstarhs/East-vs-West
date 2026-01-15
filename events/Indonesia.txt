@@ -1,0 +1,853 @@
+﻿add_namespace = ind
+#第一次警卫战争
+news_event = {
+	id = ind.1
+	title = ind.1.t
+	desc = ind.1.d
+	picture = GFX_DutchArmyInIndonesia
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = HOL_2
+	}
+	option = {	#开战
+		name = ind.1.a
+	}
+}
+#海牙圆桌协议
+news_event = {
+	id = ind.2
+	title = ind.2.t
+	desc = ind.2.d
+	picture = GFX_HagueMeeting
+	major = yes
+	immediate = {
+		play_song = INS_1
+	}
+	is_triggered_only = yes
+	option = {	#接受
+		name = ind.2.a
+		if = {
+			limit = { tag = INS }
+			transfer_state = 334
+			transfer_state = 667
+			transfer_state = 668
+			news_event = {  id = ind.3 }
+		}
+		if = {
+			limit = { has_war_with = INS }
+			white_peace = INS
+		}
+	}
+}
+#印尼独立
+news_event = {
+	id = ind.3
+	title = ind.3.t
+	desc = ind.3.d
+	picture = GFX_HagueMeeting
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {	
+		name = ind.3.a
+		ai_chance = {
+			factor = 75	
+		}
+		create_country_leader = {
+			name = "Sukarto"
+			picture = "gfx/leaders/INS/Portrait_Indonesia_Sukarto.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			pro_soviet
+			}
+		}
+		add_stability = 0.1
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.4
+		}
+	}
+	option = {	#反对
+		name = ind.3.b
+		ai_chance = {
+			factor = 25	
+		}
+		add_stability = 0.1
+		create_country_leader = {
+			name = "Mohammad Hatta"
+			picture = "gfx/leaders/INS/Portrait_Indonesia_Mohammad_Hatta.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.4
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.4
+		}
+	}
+}
+#共产党动乱
+news_event = {
+	id = ind.7
+	title = ind.7.t
+	desc = ind.7.d
+	picture = GFX_MoluccaWar
+	mean_time_to_happen = {
+		days = 30
+	}
+		trigger = {
+			tag = INS
+			date > 1947.7.20
+			date < 1960.7.20
+			communism > 0.2
+			NOT = { has_idea = Nasakom }
+			has_government = neutrality
+		}
+	option = {	
+		name = ind.7.a
+		ai_chance = {
+			factor = 50	
+		}
+		add_political_power = 100
+			add_popularity = {
+			ideology = communism
+			popularity = -0.05
+			}
+			add_stability = -0.02
+	}
+	option = {	
+		name = ind.7.b
+		ai_chance = {
+			factor = 50	
+		}
+		add_political_power = -100
+			add_popularity = {
+			ideology = communism
+			popularity = 0.05
+				}
+	}
+}
+#马鲁古群岛叛乱
+news_event = {
+	id = ind.8
+	title = ind.8.t
+	desc = ind.8.d
+	picture = GFX_MoluccaWar
+	fire_only_once = yes
+		trigger = {
+			tag = INS
+			date > 1950.7.20
+			date < 1955.7.20
+			neutrality > 0.2
+			has_government = neutrality
+		}
+	option = {	
+		name = ind.8.a
+		ai_chance = { factor = 50 }
+		add_ideas = { IndonesiTurmoil }
+		add_political_power = 100
+		add_stability = -0.02
+		MLC = { transfer_state = 668 }
+		declare_war_on = {
+			target = MLC
+			type = annex_everything
+		}
+	}
+}
+#要求建立伊斯兰国家
+news_event = {
+	id = ind.9
+	title = ind.9.t
+	desc = ind.9.d
+	picture = GFX_BandungConference
+	fire_only_once = yes
+		trigger = {
+			tag = INS
+			date > 1950.7.20
+			date < 1955.7.20
+			neutrality > 0.5
+			has_government = neutrality
+		}
+	option = {	
+		name = ind.9.a
+		ai_chance = {
+			factor = 50	
+		}
+		add_ideas = {
+			IndonesiTurmoil
+		}
+		add_stability = -0.02
+	}
+	option = {	
+		name = ind.9.b
+		set_cosmetic_tag = INS_ISLAMIC
+		add_political_power = 100
+		add_stability = -0.1
+	}
+}
+#反共政变
+news_event = {
+	id = ind.15
+	title = ind.15.t
+	desc = ind.15.d
+	picture = GFX_930Massacre
+	fire_only_once = yes
+	trigger = {
+		tag = INS
+		date > 1964.7.20
+		date < 1965.7.20
+		communism > 0.4
+		has_government = neutrality
+	}
+	option = {	
+		name = ind.15.a
+		add_political_power = 100
+		add_stability = -0.1
+		news_event = { id = ind.16 }
+	}
+	option = {	
+		name = ind.15.b
+		ai_chance = {
+			factor = 30
+		}
+		add_stability = -0.02
+		hidden_effect = {
+			start_civil_war = {
+				ideology = communism
+				capital = 673
+				states = { 673 668 334 }
+			}
+		}
+	}
+}
+news_event = {
+	id = ind.16
+	title = ind.16.t
+	desc = ind.16.d
+	
+	picture = GFX_930Massacre
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = ind.16.a
+		add_political_power = -100
+		create_country_leader = {
+			name = "Suharto"
+			picture = "gfx/leaders/INS/Portrait_Indonesia_Suharto.tga"
+			ideology = despotism
+			traits = {
+			anti_communist corrupt_leader
+			}
+		}
+		
+	}
+}
+#西巴布亚独立
+news_event = {
+	id = ind.17
+	title = ind.17.t
+	desc = ind.17.d
+	
+	picture = GFX_PapuaWar
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#西巴布亚独立
+country_event = {
+	id = ind.18
+	title = ind.18.t
+	desc = ind.18.d
+	
+	picture = GFX_PapuaWar
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ind.16.a
+		INS = {
+			play_song = INS_8
+			news_event = { id = ind.19 }
+			declare_war_on = { target = PUA type = annex_everything }
+		}
+	}
+}
+#印尼入侵巴布亚
+news_event = {
+	id = ind.19
+	title = ind.19.t
+	desc = ind.19.d
+	
+	picture = GFX_PapuaWar
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#东帝汶独立
+news_event = {
+	id = ind.20
+	title = ind.20.t
+	desc = ind.20.d
+	
+	picture = GFX_PapuaWar
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#东帝汶独立
+country_event = {
+	id = ind.21
+	title = ind.21.t
+	desc = ind.21.d
+	
+	picture = GFX_PapuaWar
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ind.16.a
+		INS = {
+			play_song = INS_8
+			news_event = { id = ind.22 }
+			declare_war_on = { target = TIM type = annex_everything }
+		}
+	}
+}
+#印尼入侵东帝汶
+news_event = {
+	id = ind.22
+	title = ind.22.t
+	desc = ind.22.d
+	picture = GFX_PapuaWar
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ind.16.a
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = { has_idea = UNmember }
+			news_event = { id = ind.23 random_days=7 }
+		}
+	}
+	option = {
+		name = ind.16.a
+		ai_chance = {
+			factor = 1
+		}
+		if = {
+			limit = { has_idea = UNmember }
+			news_event = { id = ind.24 random_days=7 }
+		}
+	}
+}
+#谴责
+news_event = {
+	id = ind.23
+	title = ind.23.t
+	desc = ind.23.d
+	picture = GFX_PapuaWar
+	is_triggered_only = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#支持
+news_event = {
+	id = ind.24
+	title = ind.24.t
+	desc = ind.24.d
+	picture = GFX_PapuaWar
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#荷兰宣布警卫战争结束
+news_event = {
+	id = ind.30
+	title = ind.30.t
+	desc = ind.30.d
+	picture = GFX_DutchArmyInIndonesia
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#谴责
+news_event = {
+	id = ind.31
+	title = ind.31.t
+	desc = ind.31.d
+	picture = GFX_DutchArmyInIndonesia
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ind.16.a
+	}
+}
+#联合国就印尼停火问题举行投票
+news_event = {
+	id = ind.32
+	title = ind.32.t
+	desc = ind.32.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = { tag = USA }
+			news_event = { id = ind.33 }
+		}
+	}
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = ind.34 }
+		}
+	}
+
+}
+news_event = {
+	id = ind.33
+	title = ind.33.t
+	desc = ind.33.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { tag = HOL }
+			add_war_support = -0.35
+			news_event = { id = ind.35 }
+			set_country_flag = RenvilleAgreement
+		}
+	}
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { tag = HOL }
+			add_war_support = -0.15
+			news_event = { id = ind.37 }
+			set_country_flag = US_cancel_aid
+		}
+	}
+
+}
+news_event = {
+	id = ind.34
+	title = ind.34.t
+	desc = ind.34.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { tag = HOL }
+			add_war_support = 0.2
+		}
+	}
+
+}
+news_event = {
+	id = ind.35
+	title = ind.35.t
+	desc = ind.35.d
+	picture = GFX_UN
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HOL
+		has_country_flag = RenvilleAgreement
+		has_war_with = INS
+	}
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { has_war_with = INS }
+			white_peace = INS
+		}
+	}
+
+}
+news_event = {
+	id = ind.36
+	title = ind.36.t
+	desc = ind.36.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+	}
+
+}
+news_event = {
+	id = ind.37
+	title = ind.37.t
+	desc = ind.37.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+	}
+
+}
+news_event = {
+	id = ind.38
+	title = ind.38.t
+	desc = ind.38.d
+	picture = GFX_SultanHamidII
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = INS
+		PTN = { is_subject_of = INS }
+		date > 1950.1.1
+		date < 1950.5.1
+		NOT = { has_global_flag = PontinakCoup }
+	}
+	option = {
+		name = prk.4.a
+		set_global_flag = PontinakCoup
+		set_global_flag = PontinakAnnex
+		news_event = { id = ind.39 }
+	}
+
+}
+news_event = {
+	id = ind.39
+	title = ind.39.t
+	desc = ind.39.d
+	picture = GFX_SultanHamidII
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+	}
+
+}
+news_event = {
+	id = ind.42
+	title = ind.42.t
+	desc = ind.42.d
+	picture = GFX_SultanHamidII
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = INS
+		PTN = { is_subject_of = INS }
+		has_global_flag = PontinakAnnex
+		country_exists = PTN
+	}
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { tag = INS }
+			annex_country = {
+				target = PTN
+				transfer_troops = yes
+			}
+			
+		}
+	}
+
+}
+news_event = {   #攻占海南
+	id = ind.57
+	title = ind.57.t
+	desc = ind.57.d
+	picture = GFX_ChinaCivilWAR1940
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = INS
+		controls_province = 1574
+		has_war_with = MLC
+		
+	}
+	option = {
+		name = chinawar.3.a
+		if = {
+			limit = { tag = INS }
+					annex_country = {
+						target = MLC
+						transfer_troops = no
+					}
+		}
+	}
+}
+#万隆会议
+news_event = {
+	id = ind.100
+	title = ind.100.t
+	desc = ind.100.d
+	picture = GFX_BandungConference
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = INS
+		is_subject = no
+		date > 1955.4.15
+		date < 1955.12.1
+		NOT = { has_global_flag = ind100 }
+	}
+	option = {	
+		name = ind.100.a
+		set_global_flag = ind100
+		set_global_flag = BangdungConference
+	}
+}
+#参与万隆会议
+news_event = {
+	id = ind.101
+	title = ind.101.t
+	desc = ind.101.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = ind.5.a
+	}
+}
+#中国参与万隆会议
+news_event = {
+	id = ind.102
+	title = ind.102.t
+	desc = ind.102.d
+	picture = GFX_BandungConference
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {	
+		name = ind.6.a
+		ai_chance = {
+			factor = 75	
+		}
+		add_political_power = 100
+	}
+}
+#参与万隆会议
+news_event = {
+	id = ind.103
+	title = ind.103.t
+	desc = ind.103.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = ind.5.a
+	}
+}
+#参与万隆会议邀请
+news_event = {
+	id = ind.104
+	title = ind.104.t
+	desc = ind.104.d
+	picture = GFX_BandungConference
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		has_global_flag = BangdungConference
+		NOT = { has_country_flag = BangdungConferenceAsk }
+		NOT = { has_idea = isolated }
+		NOT = { tag = INS }
+		has_war = no
+		is_subject = no
+		is_puppet = no
+		OR = {
+			has_country_flag = third_world
+			tag = PRC
+		}
+	}
+	option = {	
+		name = ind.5.a
+		set_country_flag = BangdungConferenceAsk
+		set_country_flag = BangdungConferenceAttend
+		if = {
+			limit = { NOT = { tag = PRC } }
+			news_event = { id = ind.101 }
+		}
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = ind.102 }
+		}
+		add_political_power = 100
+		INS = { add_to_variable = { Bandung_joined_num = 1 } }
+	}
+}
+#万隆会议讲话
+news_event = {
+	id = ind.105
+	title = ind.105.t
+	desc = ind.105.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	option = {	
+		name = ind.5.a
+		set_global_flag = BangdungConferenceAntiCom
+			news_event = { id = ind.106 }
+		add_popularity = {
+			ideology = communism
+			popularity = -0.08
+		}
+	}
+	option = {	
+		name = ind.5.a
+			news_event = { id = ind.107 }
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+	}
+}
+#参与万隆会议
+news_event = {
+	id = ind.106
+	title = ind.106.t
+	desc = ind.106.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = ind.5.a
+	}
+}
+#参与万隆会议
+news_event = {
+	id = ind.107
+	title = ind.107.t
+	desc = ind.107.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = ind.5.a
+	}
+}
+#中国的回应
+news_event = {
+	id = ind.108
+	title = ind.108.t
+	desc = ind.108.d
+	picture = GFX_BandungConference
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		has_global_flag = BangdungConferenceAntiCom
+		tag = PRC
+	}
+	option = {	
+		name = ind.5.a
+		news_event = { id = ind.109 }
+		set_global_flag = BangdungConferenceBadAnswer
+		add_popularity = {
+			ideology = communism
+			popularity = 0.08
+		}
+	}
+	option = {	
+		name = ind.5.a
+		set_global_flag = BangdungConferenceGoodAnswer
+		news_event = { id = ind.110 }
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+	}
+}
+#参与万隆会议
+news_event = {
+	id = ind.109
+	title = ind.109.t
+	desc = ind.109.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = ind.5.a
+	}
+}
+#参与万隆会议
+news_event = {
+	id = ind.110
+	title = ind.110.t
+	desc = ind.110.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = ind.5.a
+	}
+}
+#尼赫鲁锐评
+news_event = {
+	id = ind.111
+	title = ind.111.t
+	desc = ind.111.d
+	picture = GFX_BandungConference
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		has_global_flag = BangdungConferenceGoodAnswer
+		NOT = { has_global_flag = BangdungConferenceNehruAnswer }
+		tag = IND
+	}
+	option = {	
+		name = ind.5.a
+		set_global_flag = BangdungConferenceNehruAnswer
+	}
+}
+#万隆会议闭幕
+news_event = {
+	id = ind.112
+	title = ind.112.t
+	desc = ind.112.d
+	picture = GFX_BandungConference
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		OR = {
+			has_global_flag = BangdungConferenceNehruAnswer
+			has_global_flag = BangdungConferenceGoodAnswer
+			has_global_flag = BangdungConferenceBadAnswer
+		}
+		tag = IND
+	}
+	option = {	
+		name = ind.5.a
+	}
+}

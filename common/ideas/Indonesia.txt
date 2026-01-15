@@ -1,0 +1,76 @@
+ideas = {
+	country = {
+		INS_Federated_ideas = {
+			allowed = { always = yes }
+
+			picture = INS_Federated_ideas
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.05
+			}
+		}
+		IndonesiTurmoil = {
+			allowed = { always = yes }
+
+			picture = FRA_matignon_agreements
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.05
+			}
+		}
+		Nasakom = {
+			allowed = { always = yes }
+
+			picture = idea_generic_communist_army
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.02
+				communism_drift = 0.2
+				democratic_drift = 0.1
+			}
+		}
+	}
+	political_advisor = {
+		DN_Aidit = {
+			allowed = {
+				tag = INS
+			}
+			traits = { communist_revolutionary }
+			visible = {
+				date < 1965.12.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Amir_Syarifuddin = {
+			allowed = {
+				tag = INS
+			}
+			traits = { communist_revolutionary }
+			visible = {
+				date < 1948.12.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		mohammad_hatta = {
+			allowed = {
+				tag = INS
+			}
+			visible = {
+				date < 1960.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+}

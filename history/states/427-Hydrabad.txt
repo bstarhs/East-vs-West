@@ -1,0 +1,39 @@
+state={
+	id=427
+	name="STATE_427"
+	manpower = 14013400
+	
+	state_category = town
+	
+	resources={
+		tungsten=8
+		coal = 5
+	}
+
+	history={
+		set_state_flag = ethnics_Maratha
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = HYD
+		add_to_array = { this.state_ethnics_list = 80 }
+		add_core_of = IND
+		add_core_of = HYD
+		add_core_of = ADH
+		1948.10.25 = {
+		owner = IND
+		}
+		victory_points = {
+			8087 10
+		}
+		buildings = {
+			farm_building = 4
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 3
+		}
+
+	}
+
+	provinces={
+		1275 1317 4280 4472 5104 8087 10324 10511 11950 12114 
+	}
+}

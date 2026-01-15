@@ -1,0 +1,49 @@
+﻿capital = 325
+	oob = "YUN_1947"
+
+set_country_flag = chinese_states
+add_ideas = {
+	CHI_warlords_spirits
+	harmonious
+	service_by_requirement
+}
+set_country_flag = third_world
+set_technology = {
+	infantry_weapons = 1
+}
+
+recruit_character = CHI_Li_mi
+recruit_character = CHI_Duan_XiWen
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	fascism = 0
+	neutrality = 100
+}
+
+	create_country_leader = {
+		name = "Lu Han"
+		desc = "POLITICS_LONG_YUN_DESC"
+		picture = "gfx/leaders/CHI/Portrait_CHI_Lu_Han.tga"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = {
+			#
+		}
+	}
+
+1952.1.1 = {
+	set_popularities = {
+		neutrality = 100
+	}
+	oob = "YUN_1949"
+	set_cosmetic_tag = YUNARM
+	add_ideas = YUN_resistance_army
+	retire_character = CHI_Li_mi
+	promote_character = CHI_Duan_XiWen
+	oob = "YUN_1949"
+}

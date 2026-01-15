@@ -1,0 +1,831 @@
+﻿capital = 126
+
+oob = "ENG_1947"
+set_country_flag = UNSC
+set_research_slots = 3
+	set_country_flag = developmented
+	set_country_flag = female_finished
+
+set_country_flag = has_carrier
+set_country_flag = west_euro_state
+recruit_character = ENG_Lord_Carrington
+recruit_character = ENG_winston_churchill
+recruit_character = ENG_Roy_Mason
+recruit_character = ENG_Michael_Heseltine
+recruit_character = ENG_Geoffrey_Howe
+recruit_character = ENG_Nigel_Lawson
+recruit_character = ENG_John_Major
+recruit_character = ENG_Duncan_Sandys
+recruit_character = ENG_Peter_Billiere
+recruit_character = ENG_Nigel_Bagnall
+recruit_character = ENG_Roland_Gibbs
+recruit_character = ENG_Edwin_Bramall
+recruit_character = ENG_Margaret_Thatcher
+recruit_character = ENG_Stafford_Cripps
+recruit_character = ENG_Allan_Francis_Harding
+recruit_character = ENG_William_Penney
+recruit_character = ENG_Hugh_Gaitskell
+recruit_character = ENG_Hugh_Dalton
+recruit_character = ENG_Ernest_Bevin
+recruit_character = ENG_Aneurin_Bevan
+recruit_character = ENG_Harold_Wilson
+	diplomatic_relation = {
+		relation = military_access
+		country = AUS
+		active = yes
+	}
+diplomatic_relation = {
+	relation = military_access
+	country = TRE
+	active = yes
+}
+	diplomatic_relation = {
+		relation = military_access
+		country = WDR
+		active = yes
+	}
+
+set_country_flag = developmented
+set_country_flag = language_english
+set_country_flag = main_country
+	set_variable = { this.education = 82 }
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 200000
+    producer = ENG
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 18000
+    producer = ENG
+}
+set_stability = 0.6
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+
+create_intelligence_agency = yes
+# Starting tech
+			add_tech_bonus = {
+				bonus = 3.0
+				uses = 1
+				category = nuclear
+			}
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	activate_decision = female_equality
+	activate_decision = nuclear_fuel_making
+	activate_decision = uranium_enrichment
+set_technology = {
+	nucelar_fusion = 1
+		medical1 = 1
+		auto_industry = 1
+		vaccum_tube = 1
+		motorize_doctrine = 1
+		radio_detection = 1
+		oil_processing = 1
+		army_aviation = 1
+	aluminum_tech = 1
+		basic_battery = 1
+		atomic_research = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		infantry_at = 1
+		dispersed_industry4 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	can_foods = 1
+		laundry = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	early_fighter = 1
+	
+	
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_destroyer = 1
+	
+	early_ship_hull_cruiser = 1
+	
+	fire_control_methods_1 = 1
+	early_ship_hull_carrier = 1
+	excavation1 = 1
+	excavation2 = 1
+	marines = 1
+	marines2 = 1
+	transport = 1
+	medical2 = 1
+	medical3 = 1
+	medical4 = 1
+	medical5 = 1
+		machine_gun1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	paratroopers = 1
+	spaa1 = 1
+	concentrated_industry = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	transport_1 = 1
+	transport = 1
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	fuel_silos = 1
+	rubber_processing = 1
+	street_fight = 1
+	depth_defense = 1
+	delay = 1
+	rocket_engines = 1
+	motorize_doctrine = 1
+	motorized_transport = 1
+	armor_doctrine = 1
+	vehicle_artillery = 1
+	forward_observers = 1
+	indirect_fire_support = 1
+	mine_bomb = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	decimetric_radar = 1
+	electrolytic_aluminum = 1
+	power_generation1 = 1
+	tech_recon2 = 1
+	power_generation2 = 1
+}
+add_ideas = {
+	governed_economic
+	service_by_requirement
+	Anglicanism
+	Olympic
+	low_welfare
+	ENG_the_kings
+	Allan_Francis_Harding
+	assimilated
+}
+set_convoys = 800
+	add_named_threat = { threat = 5 name = Iron_Curtain_threat }
+# DIPLOMACY
+
+
+
+
+
+if = {
+	set_autonomy = {
+		target = CAN
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = SAF
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = BRU
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = UAE
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = HKN
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = SIG
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = KEN
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = BOT
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = UGA
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = SYM
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = RHO
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = ZAM
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = MLW
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = HYD
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = NGR
+		autonomous_state = autonomy_dominion
+	}
+	set_autonomy = {
+		target = TAZ
+		autonomous_state = autonomy_dominion
+	}
+	set_autonomy = {
+		target = MAL
+		autonomous_state = autonomy_dominion
+	}
+	set_autonomy = {
+		target = GAN
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+}
+give_guarantee = TRE
+
+if = {
+	limit = { has_dlc = "Together for Victory" }
+
+	add_to_tech_sharing_group = commonwealth_research
+}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#adding ministers
+	add_ideas = {
+		#laws
+		partial_economic_mobilisation
+		limited_conscription
+		ENG_george_vi
+		MI6
+}
+	create_equipment_variant = {
+		name = "M-class destroyer"
+		type = ship_hull_light_1
+		name_group = ENG_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+create_country_leader = {
+	name = "Richard Attlee"
+	picture = "gfx/leaders/ENG/Portrait_British_ Richard_Attlee.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		silent_workhorse social_reformer
+	}
+}
+	set_stability = 0.8
+	set_technology = {
+		heavy_fighter1 = 1
+		heavy_fighter2 = 1
+		naval_bomber2 = 1
+	
+		
+		basic_heavy_tank = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		infantry_weapons2 = 1
+		
+		
+		basic_ship_hull_submarine = 1
+		improved_submarine = 1
+		
+		improved_light_cruiser = 1
+		basic_battleship = 1
+		basic_ship_hull_carrier = 1
+		improved_carrier = 1
+
+		#doctrines
+		#Air
+		
+		home_defence = 1
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		decimetric_radar = 1
+		
+	gasmask = 1
+	tech_special_forces = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		fuel_refining = 1
+		
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		dispersed_industry3 = 1
+		tech_maintenance_company = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+		tech_signal_company = 1
+	}
+
+	set_convoys = 200
+}
+
+	create_equipment_variant = {
+		name = "Blackwood class"
+		type = ship_hull_light_1
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+
+	set_popularities = {
+		democratic = 89
+		
+		communism = 11
+	}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1935.11.14"
+	election_frequency = 48
+	elections_allowed = yes ##suspended through duration of war, which is handled via event
+}
+create_country_leader = {
+	name = "Harry Politt"
+	desc = "POLITICS_PALME_DUTT_DESC"
+	picture = "gfx/leaders/ENG/Portrait_British_Harry_Politt.tga"
+	expire = "1965.1.1"
+	ideology = leninism
+	traits = {
+		
+	}
+}
+1945.1.1 = {
+	add_ideas = {
+		Stafford_Cripps
+		UNmember
+	}
+}
+1948.1.1 = {
+		add_dynamic_modifier = { modifier = railway_nationalized_modifier }
+		add_dynamic_modifier = { modifier = health_nationalized_modifier }
+	add_ideas = nato_spirit
+	add_ideas = hasnuke
+	end_puppet = HYD
+	remove_ideas = Olympic
+	remove_ideas = Stafford_Cripps
+	oob = "ENG_1950"
+	complete_national_focus = ENG_welfare_State
+	complete_national_focus = ENG_economic_policy
+	complete_national_focus = ENG_Post_war_revival
+	complete_national_focus = ENG_Keynesianism
+	complete_national_focus = ENG_accept_marshall
+	complete_national_focus = ENG_special_relation
+	complete_national_focus = ENG_labour_reform
+	complete_national_focus = ENG_NHS
+	complete_national_focus = ENG_3ring_diplo
+	complete_national_focus = ENG_europe
+	complete_national_focus = ENG_brussele
+	complete_national_focus = ENG_CENTO
+	complete_national_focus = ENG_malaya_emergency
+	set_technology = {
+		napalm = 1
+		tech_field_hospital2 = 1
+		tech_logistics_company2 = 1
+		tech_signal_company2 = 1
+		fighter1 = 1
+	}
+	
+}
+1949.1.1 = {
+	set_country_flag = israel_diplomacy
+	set_country_flag = ENG_nuketest_place
+}
+1952.1.1 = {
+	set_autonomy = {
+		target = SUD
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	promote_character = ENG_winston_churchill
+	recruit_character = ENG_Anthony_Eden
+	recruit_character = ENG_Harold_Macmillan
+	retire_character = ENG_Hugh_Dalton
+	retire_character = ENG_Ernest_Bevin
+	end_puppet = MLW
+	set_global_flag = cyp21
+	set_global_flag = cyp22
+	add_named_threat = { threat = 8 name = NuclearTest }
+	complete_national_focus = ENG_New_empire
+	add_to_array = { global.nuke_states_list = FROM }
+	set_autonomy = {
+		target = KEN
+		autonomous_state = autonomy_dominion
+	}
+	remove_decision = ENG_Windscale_reactors
+	set_country_flag = ENG_Windscale_reactors
+}
+1955.1.1 = {
+			set_global_flag = CyprusEOKA
+	diplomatic_relation = {
+		relation = military_access
+		country = AUS
+		active = no
+	}
+	set_variable = { this.nukes_limit = 80 }
+	add_nuclear_bombs = 51
+	complete_national_focus = ENG_nationalization
+	complete_national_focus = ENG_contact_ccp
+	complete_national_focus = ENG_ECSC
+	complete_national_focus = ENG_WDR_relation
+	complete_national_focus = ENG_Euro
+	complete_national_focus = ENG_malaya_autonomy
+	complete_national_focus = ENG_nuke_weapons
+	complete_national_focus = ENG_frderal_Rhodesia
+	remove_ideas = ENG_george_vi
+	add_ideas = {
+		Elizabeth_young
+		CENTO
+		Duncan_Sandys
+	}
+	set_technology = {
+		strategic_bomber1 = 1
+		basic_light_tank = 1
+		CAS2 = 1
+		basic_medium_tank = 1
+		infantry_weapons1 = 1
+		assembly_line = 1
+		antiair3 = 1
+		antiair1 = 1
+		artillery1 = 1
+		transport_plane1 = 1
+		sp_artillery2 = 1
+		supersonic_engine = 1
+		aa_missile_1 = 1
+		machine_gun2 = 1
+		nuclear_plant_1 = 1
+		frozen_food = 1
+		atomic_research = 1
+		nukes = 1
+		fishing_net = 1
+		rocket_engines = 1
+		tech_engineers2 = 1
+		at_missile_1 = 1
+		basic_helicopter = 1
+		basic_ship_hull_light = 1
+	}
+	remove_ideas = Marshall
+	promote_character = ENG_Anthony_Eden
+}
+1957.1.1 = {
+	end_puppet = SUD
+	retire_character = ENG_Hugh_Gaitskell
+	remove_ideas = CENTO
+	complete_national_focus = ENG_FVEY
+	complete_national_focus = ENG_AVRE_focus
+	retire_character = ENG_Anthony_Eden
+	set_autonomy = {
+		target = SIG
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = NGR
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	end_puppet = GAN
+	set_technology = {
+		strategic_bomber2 = 1
+		gasoline_train = 1
+		fuel_refining2 = 1
+		air_gun = 1
+		atomic_research = 1
+		tech_recon3 = 1
+		modern_oil_processing = 1
+		tech_field_hospital3 = 1
+		excavation3 = 1
+		concentrated_industry2 = 1
+		landing_craft = 1
+		thermonuclear = 1
+		spaa2 = 1
+		cable_television = 1
+		guided_missile = 1
+		improved_rubber_processing = 1
+		early_computer = 1
+	}
+	promote_character = ENG_Harold_Macmillan
+	end_puppet = MAL
+}
+
+1960.1.1 = {
+	clr_global_flag = cyp22
+	retire_character = ENG_Aneurin_Bevan
+	complete_national_focus = ENG_wind_of_change
+	set_autonomy = {
+		target = KEN
+		autonomous_state = autonomy_dominion
+	}
+	remove_ideas = Allan_Francis_Harding
+	add_nuclear_bombs = 162
+	end_puppet = SAF
+	end_puppet = TAZ
+	end_puppet = ZAM
+	end_puppet = MLW
+	add_ideas = assimilation
+	set_technology = {
+		aim_missile_1 = 1
+	}
+}
+
+1964.1.1 = {
+	retire_character = ENG_Harold_Macmillan
+	remove_ideas = Duncan_Sandys
+	complete_national_focus = ENG_majority_rule
+	complete_national_focus = ENG_Arabs_fedarals
+	complete_national_focus = ENG_puppet
+	set_country_flag = Satellite_succes
+	end_puppet = RHO
+	end_puppet = SIG
+	end_puppet = KEN
+	end_puppet = BOT
+	end_puppet = UGA
+	set_technology = {
+		fighter2 = 1
+		transistor = 1
+	aluminum_tech = 1
+	fire_control_methods_2 = 1
+	transport_2 = 1
+		trans_helicopter_1 = 1
+		strategic_bomber3 = 1
+		sp_artillery1 = 1
+		improved_oil_processing = 1
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+		medium_computer = 1
+		computer_consol = 1
+		basic_secondary_battery = 1
+	}
+	add_nuclear_bombs = 272
+	complete_national_focus = ENG_Africa_autonomy
+	end_puppet = ZIM
+	end_puppet = NGR
+	oob = "ENG_1960"
+	promote_character = ENG_Harold_Wilson
+}
+1966.1.1 = {
+	retire_character = ENG_winston_churchill
+	set_technology = {
+		basic_language = 1
+		midrange_missile = 1
+		husbandry_feed = 1
+		CAS3 = 1
+		improved_light_tank = 1
+		sp_artillery2 = 1
+		improved_destroyer = 1
+		improved_medium_tank = 1
+		power_cable = 1
+		at_missile_2 = 1
+		trans_helicopter_2 = 1
+		improved_ship_hull_light = 1
+		basic_heavy_battery = 1
+		improved_light_battery = 1
+		improved_airplane_launcher = 1
+		fuel_refining3 = 1
+		Semiconductor = 1
+		improved_decimetric_radar = 1
+	}
+}
+1967.1.1 = {
+	add_ideas =  {
+		IRA_revolt
+		ENG_immigrate_ideas
+	}
+	retire_character = ENG_Harold_Wilson
+	create_country_leader = {
+		name = "Edward Heath"
+		
+		picture = "gfx/leaders/ENG/Portrait_British_Edward_Heath.tga"
+		expire = "1956.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+	end_puppet = SYM
+}
+1974.1.1 = {
+	create_equipment_variant = {
+		name = "Sheffield class"
+		type = ship_hull_light_3
+		name_group = ENG_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	set_country_flag = china_diplomacy
+	complete_national_focus = ENG_Southeast_asia_autonomy
+	complete_national_focus = ENG_commonwealth
+	give_guarantee = SIG
+	give_guarantee = MAL
+	set_technology = {
+	wind_plant = 1
+		CAS4 = 1
+		fighter4 = 1
+		land_guidance = 1
+		artillery2 = 1
+		sp_artillery1 = 1
+		infantry_at2 = 1
+		husbandry_tech = 1
+		electric_arc_furnace_steel = 1
+		tank_landing_craft = 1
+		advanced_destroyer = 1
+		mechanised_infantry2 = 1
+		mechanised_infantry3 = 1
+		tech_engineers4 = 1
+		spaa2 = 1
+	}
+	add_nuclear_bombs = 500
+	end_puppet = UAE
+	end_puppet = QAT
+	end_puppet = BHR
+	oob = "ENG_1977"
+	create_country_leader = {
+		name = "James Callaghan"
+		
+		picture = "gfx/leaders/ENG/Portrait_British_ James_Callaghan.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1979.1.1 = {
+	set_technology = {
+		artillery3 = 1
+		fighter4 = 1
+		advanced_ship_hull_light = 1
+		improved_heavy_battery = 1
+		micro_computer = 1
+	}
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_pro_west
+	}
+	set_global_flag = Thatcher
+	add_ideas =  {
+		civilian_economy
+		mid_welfare
+	}
+	promote_character = ENG_Margaret_Thatcher
+}
+1983.1.1 = {
+	retire_character = ENG_William_Penney
+	add_ideas =  {
+		ENG_princess_diana
+	}
+	add_named_threat = {
+		threat = 2
+		name = Falklandswar
+	}
+	add_nuclear_bombs = 350
+	complete_national_focus = ENG_Market_regulation
+	complete_national_focus = ENG_promote_privatization
+	end_puppet = BRU
+	set_technology = {
+	medical6 = 1
+		personal_computer = 1
+		game = 1
+		electro_train = 1
+		integrated_circuit = 1
+		aa_missile_3 = 1
+		machine_gun4 = 1
+		concentrated_industry4 = 1
+		improved_heavy_tank = 1
+		advanced_heavy_tank = 1
+		advanced_medium_tank = 1
+		mechanised_infantry3 = 1
+		improved_secondary_battery = 1
+	fire_control_methods_3 = 1
+		mobilized_telephone = 1
+		spaa3 = 1
+	}
+}
+1985.1.1 = {
+	set_technology = {
+		improved_infantry_weapons = 1
+		advanced_infantry_weapons = 1
+	}
+	add_named_threat = {
+		threat = -6
+		name = PRC_eng_deceration
+	}
+	remove_ideas = ENG_labour_union
+}
+1991.1.1 = {
+	remove_ideas =  {
+		ENG_princess_diana
+	}
+	add_ideas =  {
+		ENG_broken_marry
+	}
+	set_technology = {
+		assembly_line_production = 1
+	}
+	promote_character = ENG_John_Major
+}

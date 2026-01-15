@@ -1,0 +1,319 @@
+﻿capital = 111
+
+set_research_slots = 2
+set_country_flag = developmented
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+	set_country_flag = female_finished
+set_country_flag = east_europe
+set_country_flag = has_monarchs
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+set_country_flag = main_country
+add_ideas = {
+	Lutheranism
+	limited_conscription
+	Olympic
+	Axis_problem_ideas
+	assimilated
+}
+set_country_flag = west_euro_state
+
+			set_variable = { this.education = 42 }
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	complete_national_focus = common_61
+	complete_national_focus = common_weman_right
+	set_country_flag = gen230
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	aluminum_tech = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+
+set_convoys = 5
+
+1939.1.1 = {
+	add_political_power = 1198
+	
+	oob = "FIN_1947"
+}
+
+	set_popularities = {
+		democratic = 83
+		communism = 17
+	}
+	complete_national_focus = common_63
+set_politics = {
+	ruling_party = democratic
+	last_election = "1933.7.1"
+	election_frequency = 36
+	elections_allowed = yes
+}
+create_country_leader = {
+	name = "Risto Heikki Ryti"
+	desc = "POLITICS_RISTO_HEIKKI_RYT_DESC"
+	picture = "Portrait_Finland_Risto_Heikki_Ryti.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Yrjo Leino"
+	desc = "POLITICS_AIMO_AALTONEN_DESC"
+	picture = "gfx/leaders/FIN/Portrait_Finland_Yrjo_Leino.tga"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		pro_soviet
+	}
+}
+
+
+create_country_leader = {
+	name = "Juho Paasikivi"
+	desc = "POLITICS_KY?STI_KALLIO_DESC"
+	picture = "gfx/leaders/FIN/Portrait_Finland_Juho_Paasikivi.tga"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		pro_soviet
+	}
+}
+recruit_character = FIN_Urho_Kekkonen
+1948.10.1 = {
+	add_ideas = Finlandization
+	set_country_flag = SovietAdvisorAllow
+}
+1950.10.1 = {
+	set_country_flag = israel_diplomacy
+	complete_national_focus = common_23
+	complete_national_focus = common_75
+	set_country_flag = china_diplomacy
+}
+1955.1.1 = {
+	complete_national_focus = common_64
+			set_variable = { this.education = 48 }
+	set_technology = {
+		basic_medium_tank = 1
+		dispersed_industry4 = 1
+		frozen_food = 1
+	}
+	remove_ideas = Olympic
+	remove_ideas = Axis_problem_ideas
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	complete_national_focus = common_medic
+	add_ideas = {
+		UNmember
+		hight_welfare
+	}
+}
+1956.1.20 = {
+	complete_national_focus = common_3
+	promote_character = FIN_Urho_Kekkonen
+}
+1960.10.1 = {
+	set_technology = {
+		basic_ship_hull_cruiser = 1
+		improved_infantry_weapons_2 = 1
+		supersonic_engine = 1
+		pattern = 1
+		spaa2 = 1
+		antiair2 = 1
+		artillery1 = 1
+		rocket_vehicle = 1
+		spaa1 = 1
+		tech_engineers2 = 1
+		fuel_silos = 1
+		dispersed_industry = 1
+		decimetric_radar = 1
+		basic_heavy_tank = 1
+		landing_craft = 1
+		laundry = 1
+		fire_control_methods_1 = 1
+		power_generation2 = 1
+		rocket_engine = 1
+		transport_plane1 = 1
+		halicopter_rocket_net = 1
+		halicopter_machinegun = 1
+		gasoline_train = 1
+		improved_oil_processing = 1
+		improved_light_battery = 1
+		tech_recon3 = 1
+		motorized_HQ = 1
+		aa_missile_1 = 1
+		spaa2 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		fighter2 = 1
+		rocket_artillery = 1
+	}
+	set_variable = { this.education = 53 }
+}
+1964.10.1 = {
+	set_technology = {
+		laser_weapon = 1
+		trans_helicopter_1 = 1
+		tech_recon2 = 1
+		transport_2 = 1
+		Semiconductor = 1
+		air_chaff = 1
+		
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		medium_computer = 1
+		computer_consol = 1
+		excavation3 = 1
+		gasmask = 1
+		antiair5 = 1
+		at_missile_1 = 1
+		machine_gun3 = 1
+		armor_group = 1
+		paratroopers2 = 1
+		improved_destroyer = 1
+		basic_ship_hull_carrier = 1
+		tech_signal_company2 = 1
+		tech_signal_company3 = 1
+		tech_field_hospital2 = 1
+		tech_logistics_company3 = 1
+		sp_artillery1 = 1
+		antiair4 = 1
+		improved_ship_hull_light = 1
+		nuclear_plant_2 = 1
+		infraed_homing = 1
+		improved_medium_tank = 1
+	}
+}
+1968.9.9 = {
+	set_technology = {
+		husbandry_feed = 1
+		CAS3 = 1
+		fighter3 = 1
+		motorised_infantry_2 = 1
+		mechanized_aa_missile_1 = 1
+		infantry_at2 = 1
+		advanced_oil_processing = 1
+		fire_control_methods_2 = 1
+	}
+	oob = "FIN_1970"
+	complete_national_focus = common_20
+	complete_national_focus = common_65
+			set_variable = { this.education = 61 }
+}
+1982.1.20 = {
+			set_variable = { this.education = 73 }
+	retire_character = FIN_Urho_Kekkonen
+	create_country_leader = {
+		name = "Mauno Koivisto"
+		
+		picture = "gfx/leaders/FIN/Portrait_Finland_Mauno_Koivisto.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+}

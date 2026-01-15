@@ -1,0 +1,43 @@
+
+state={
+	id=403
+	name="STATE_403" # Tyumen
+	manpower = 939067
+	
+	state_category = town
+
+	history={
+		
+		set_state_flag = ethnics_Russian
+		add_core_of = SIB
+		set_state_flag = SOV_corn_states
+		victory_points = {
+			4824 6
+		}
+		add_to_array = { this.state_ethnics_list = 143 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = SOV
+		buildings = {
+			power_plant = 3
+			hospital = 1
+			school = 1
+			oilfield = 1
+			synthetic_refinery = 1
+			infrastructure = 3
+		}
+		1955.1.1 = {
+			set_state_category = city
+			buildings = {
+				hospital = 2
+				arms_factory = 3
+				oilfield = 2
+				synthetic_refinery = 2
+			}
+		}
+		add_core_of = SOV
+	}
+
+	provinces={
+		1387 1880 3472 4209 4659 4754 4780 4824 6787 7681 7774 7833 7846 9512 10600 10659 10670 12390 12521 
+	}
+}

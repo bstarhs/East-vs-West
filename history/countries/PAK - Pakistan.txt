@@ -1,0 +1,339 @@
+﻿capital = 443
+set_country_flag = main_country
+
+oob = "PAK_1947"
+set_country_flag = third_world
+set_country_flag = indian_state
+set_country_flag = british_colonies
+# Starting tech
+set_country_flag = islam_state
+set_technology = {
+		excavation1 = 1
+		excavation2 = 1
+		oil_processing = 1
+		army_aviation = 1
+	basic_train = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	transport = 1
+		medical1 = 1
+		motorize_doctrine = 1
+	
+	
+	CAS1 = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	gw_artillery = 1
+	motorised_infantry = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+}
+
+
+add_ideas = {
+	localism
+	Sunni
+	UNmember
+	partial_economic_mobilisation
+}
+set_convoys = 20
+
+1939.1.1 = {#placeholder same tech as ENG
+	#generic focuses
+
+	add_political_power = 1198
+
+	add_ideas = {
+		#laws
+		volunteer_only
+		low_economic_mobilisation
+	}
+
+	
+	set_technology = {
+		
+		early_fighter = 1
+		fighter1 = 1
+		#doctrines
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		decimetric_radar = 1
+		
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		dispersed_industry3 = 1
+	}
+}
+
+	set_popularities = {
+		neutrality = 33
+		democratic = 60
+		communism = 5
+		fascism = 2
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.11.14"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+recruit_character = PAK_Feroz_Khan
+recruit_character = PAK_Huseyn_Suhrawardy
+recruit_character = PAK_Iskander_Mirza
+recruit_character = PAK_Ayub_Khan
+
+create_country_leader = {
+	name = "Liaquat Ali Khan"
+	picture = "gfx/leaders/PAK/Portrait_Pakistan_Liaquat_Ali_Khan.tga"
+	expire = "1960.1.1"
+	ideology = socialism
+	traits = {
+		pro_america pro_third_world
+	}
+}
+1947.1.1 = {
+	activate_decision = female_equality
+	activate_decision = create_radio_station
+	set_technology = {
+		gwtank = 1
+		telegraph = 1
+		gwtank = 1
+	}
+}
+1951.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+	set_technology = {
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+		radio_detection = 1
+	naval_dock = 1
+	naval_recruit = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	set_country_flag = china_diplomacy
+	complete_national_focus = commons_5
+}
+1955.1.20 = {
+	complete_national_focus = common_weman_right
+	set_technology = {
+		basic_medium_tank = 1
+		spaa1 = 1
+		mechanised_infantry = 1
+		basic_light_tank = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		CENTO
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	create_country_leader = {
+		name = "Chaudhry Muhammad Ali"
+		
+		picture = "gfx/leaders/PAK/Portrait_Pakistan_Chaudhry_Ali.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1958.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_medic
+	complete_national_focus = steel_produc
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+add_ideas = {
+	militarist_politician
+}
+	oob = "PAK_1965"
+	set_popularities = {
+		democratic = 20
+		neutrality = 65
+		communism = 5
+		fascism = 10
+	}
+	set_politics = {
+	
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	promote_character = PAK_Ayub_Khan
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1971.1.20 = {
+	set_capital = { state = 440 }
+	set_technology = {
+		fighter2 = 1
+		mechanised_infantry2 = 1
+		improved_infantry_weapons = 1
+	}
+	set_popularities = {
+		democratic = 68
+		neutrality = 22
+		communism = 5
+		fascism = 5
+	}
+	set_politics = {
+	
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	retire_character = PAK_Ayub_Khan
+	create_country_leader = {
+		name = "Zulfikar Ali Bhutto"
+		
+		picture = "gfx/leaders/PAK/Portrait_Pakistan_Zulfikar_Bhutto.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		
+		traits = {
+					smooth_talking_charmer democratic_reformer nuclear_enthusiast
+		}
+	}
+}
+1977.7.20 = {
+	set_country_flag = female_finished
+	oob = "PAK_1974"
+	set_popularities = {
+		democratic = 30
+		neutrality = 55
+		communism = 5
+		fascism = 10
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Muhammad Zia Haq"
+		
+		picture = "gfx/leaders/PAK/Portrait_Pakistan_Muhammad_Haq.tga"
+		expire = "1979.1.1"
+		ideology = despotism
+		
+		traits = {
+			smooth_talking_charmer pro_america pro_china smooth_talking_charmer nuclear_enthusiast 
+		}
+	}
+}
+1979.1.1 = {
+	complete_national_focus = common_24
+	add_ideas = {
+		NonAligned
+	}
+	remove_ideas = CENTO
+}
+1988.1.20 = {
+	set_popularities = {
+		democratic = 68
+		neutrality = 12
+		fascism = 20
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Benazir Bhutto"
+		
+		picture = "gfx/leaders/PAK/Portrait_Pakistan_Benazir_Bhutto.tga"
+		expire = "1979.1.1"
+			ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1990.3.29 = {
+	create_country_leader = {
+		name = "Mian Muhammad Nawaz Sharif"
+		picture = "gfx/leaders/PAK/Portrait_Pakistan_Sherrif.tga"
+		expire = "2050.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}

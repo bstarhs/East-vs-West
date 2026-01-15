@@ -1,0 +1,11 @@
+on_actions = {
+	##探测器运行##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = { check_variable = { moon_probe_days > 0 } }
+			}
+			add_to_variable = { moon_probe_days = -1 }
+		}
+	}
+}

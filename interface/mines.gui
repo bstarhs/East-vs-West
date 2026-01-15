@@ -1,0 +1,3318 @@
+guiTypes = {
+	containerWindowType = {
+		name = "mines_button_container"
+		position = { x=254 y=37 }
+		buttonType = {
+			name = "mines_button"
+			spriteType = "GFX_mines_button"
+				position = { x = 314 y = 0 }
+				Orientation = "UPPER_LEFT"
+				clicksound = click_close
+				oversound = ui_menu_over
+			pdx_tooltip = "mines_button"
+		}
+		iconType = {
+			name = "mines_button_tips_arrow"
+			spriteType = "GFX_tips_arrow_left"
+			position = { x = 314 y = 30 }
+		}
+		
+		buttonType ={
+			name ="alert_low_powers"
+			spriteType = "GFX_alert_low_powers"
+			Orientation = "UPPER_LEFT"
+			position = { x = 500 y = 45 }
+			clicksound = electro_map
+			pdx_tooltip = "alert_low_powers"
+			pdx_tooltip_delayed = "alert_low_powers_delay"
+		}
+		buttonType ={
+			name ="alert_foods_lacking"
+			spriteType = "GFX_alert_foods_lacking"
+			Orientation = "UPPER_LEFT"
+			position = { x = 548 y = 45 }
+			clicksound = agriculture_map
+			pdx_tooltip = "alert_foods_lacking"
+			pdx_tooltip_delayed = "alert_foods_lacking_delay"
+		}
+		instantTextboxType = {
+			name = "mines_button_tips"
+				position = { x = 354 y = 70 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "mines_button"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+			}
+	}
+	
+	containerWindowType = {
+		name = "agriculture_list_container"
+		position = {x = 120 y = 300 }
+		size = { width = 1308 height = 702 }
+		iconType = {
+			name = "fruit_back"
+			spriteType = "GFX_economic_fruit_back" 
+			position = { x = -76 y = 579 }
+		}
+		iconType = {
+			name = "coffee_back"
+			spriteType = "GFX_economic_coffee_back" 
+			position = { x = 276 y = 579 }
+		}
+		iconType = {
+			name = "woods_back"
+			spriteType = "GFX_economic_woods_back" 
+			position = { x = -76 y = 499 }
+		}
+		iconType = {
+			name = "fish_back"
+			spriteType = "GFX_economic_fish_back" 
+			position = { x = 276 y = 499 }
+		}
+		iconType = {
+			name = "cocoa_back"
+			spriteType = "GFX_economic_cocoa_back" 
+			position = { x = -76 y = 419 }
+		}
+		iconType = {
+			name = "wool_back"
+			spriteType = "GFX_economic_wool_back" 
+			position = { x = 276 y = 419 }
+		}
+		iconType = {
+			name = "cloves_back"
+			spriteType = "GFX_economic_cloves_back" 
+			position = { x = -76 y = 339 }
+		}
+		iconType = {
+			name = "tea_back"
+			spriteType = "GFX_economic_tea_back" 
+			position = { x = 276 y = 339 }
+		}
+		iconType = {
+			name = "banana_back"
+			spriteType = "GFX_economic_banana_back" 
+			position = { x = -76 y = 259 }
+		}
+		iconType = {
+			name = "wine_back"
+			spriteType = "GFX_economic_wine_back" 
+			position = { x = 276 y = 259 }
+		}
+		iconType = {
+			name = "sugar_back"
+			spriteType = "GFX_economic_sugar_back" 
+			position = { x = -76 y = 179 }
+		}
+		iconType = {
+			name = "ivory_back"
+			spriteType = "GFX_economic_ivory_back" 
+			position = { x = 276 y = 179 }
+		}
+		iconType = {
+			name = "tobacco_back"
+			spriteType = "GFX_economic_tobacco_back" 
+			position = { x = -76 y = 100 }
+		}
+		iconType = {
+			name = "cutton_back"
+			spriteType = "GFX_economic_cutton_back" 
+			position = { x = 276 y = 100 }
+		}
+		iconType = {
+			name = "salt_back"
+			spriteType = "GFX_economic_salt_back" 
+			position = { x = 276 y = 23 }
+		}
+		iconType = {
+			name = "africa_back"
+			spriteType = "GFX_economic_africa_back" 
+			position = { x = -76 y = 23 }
+		}
+		
+		iconType = {
+			name = "economic_top_agricult"
+			spriteType = "GFX_economic_top_agricult" 
+			position = { x = -79 y = -253 }
+		}
+		buttonType = {
+			name = "add_food_all_state"
+			spriteType = "GFX_zoom_in" 
+			pdx_tooltip = "add_food_all_state"
+			position = { x = -10 y = 30 }
+			scale = 1.2
+		}
+		buttonType = {
+			name = "agriculture_food"
+			spriteType = "GFX_state_wealth" 
+			position = { x = -50 y = 40 }
+			pdx_tooltip = "agricultue_food"
+			pdx_tooltip_delayed = "agricultue_food_detail"
+		}
+			buttonType = {
+				name = "food_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 230 y = 60 }
+				pdx_tooltip = "food_input_10"
+				scale = 0.6
+			}
+			instantTextboxType = {
+				name = "food_number"
+				position = {x = 30 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_food_num"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+			}
+		iconType = {
+			name = "agriculture_tobacco"
+			spriteType = "GFX_state_tobacco" 
+			position = { x = -50 y = 120 }
+			pdx_tooltip = "agricultue_tobacco"
+				pdx_tooltip_delayed = "agricultue_tobacco_tedailt"
+		}
+			instantTextboxType = {
+				name = "tobacco_number"
+				position = {x = 30 y = 120 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_tobacco_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "tobacco_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 130 }
+				pdx_tooltip = "tobacco_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_sugar"
+			spriteType = "GFX_state_sugar" 
+			position = { x = -50 y = 200 }
+			pdx_tooltip = "agricultue_sugar"
+				pdx_tooltip_delayed = "agricultue_sugar_tedailt"
+		}
+	
+			instantTextboxType = {
+				name = "sugar_number"
+				position = {x = 30 y = 200 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_sugar_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "sugar_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 210 }
+				pdx_tooltip = "sugar_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_banana"
+			spriteType = "GFX_state_banana" 
+			position = { x = -50 y = 280 }
+			pdx_tooltip = "agricultue_banana"
+				pdx_tooltip_delayed = "agricultue_banana_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_banana_num"
+				position = {x = 30 y = 280 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_banana_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "banana_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 290 }
+				pdx_tooltip = "banana_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_Cloves"
+			spriteType = "GFX_state_Cloves" 
+			position = { x = -50 y = 360 }
+			pdx_tooltip = "agricultue_cloves"
+				pdx_tooltip_delayed = "agricultue_cloves_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_cloves_num"
+				position = {x = 30 y = 360 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_cloves_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "cloves_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 370 }
+				pdx_tooltip = "cloves_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_Cocoa"
+			spriteType = "GFX_state_Cocoa" 
+			position = { x = -50 y = 440 }
+			pdx_tooltip = "agricultue_Cocoa"
+				pdx_tooltip_delayed = "agricultue_cocoa_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_cocoa_num"
+				position = {x = 30 y = 440 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_cocoa_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "cocoa_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 445 }
+				pdx_tooltip = "cocoa_input"
+				scale = 0.6
+			}
+			#
+		iconType = {
+			name = "agriculture_salt"
+			spriteType = "GFX_state_salt" 
+			position = { x = 290 y = 40 }
+			pdx_tooltip = "agricultue_salt"
+				pdx_tooltip_delayed = "agricultue_salt_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_salt_num"
+				position = {x = 350 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_salt_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "salt_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 50 }
+				pdx_tooltip = "salt_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_cutton"
+			spriteType = "GFX_state_cutton" 
+			position = { x = 290 y = 120 }
+			pdx_tooltip = "agricultue_cutton"
+				pdx_tooltip_delayed = "agricultue_cutton_tedailt"
+		}
+		
+			instantTextboxType = {
+				name = "cutton_number"
+				position = {x = 350 y = 130 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_cutton_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "cutton_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 130 }
+				pdx_tooltip = "cutton_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_ivory"
+			spriteType = "GFX_state_ivory" 
+			position = { x = 290 y = 200 }
+			pdx_tooltip = "agricultue_ivory"
+				pdx_tooltip_delayed = "agricultue_ivory_tedailt"
+		}
+			instantTextboxType = {
+				name = "ivory_number"
+				position = {x = 350 y = 200 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_ivory_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+		iconType = {
+			name = "ivory_banned"
+			spriteType = "GFX_un_banned" 
+				position = { x = 560 y = 200 }
+				pdx_tooltip = "ivory_banned"
+		}
+			buttonType = {
+				name = "ivory_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 210 }
+				pdx_tooltip = "ivory_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_wine"
+			spriteType = "GFX_state_wine" 
+			position = { x = 290 y = 280 }
+				pdx_tooltip = "agricultue_wine"
+				pdx_tooltip_delayed = "agricultue_wine_tedailt"
+		}
+			instantTextboxType = {
+				name = "wine_number"
+				position = {x = 350 y = 290 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_wine_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "wine_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 290 }
+				pdx_tooltip = "wine_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_tea"
+			spriteType = "GFX_state_tea" 
+			position = { x = 290 y = 360 }
+			pdx_tooltip = "agricultue_tea"
+				pdx_tooltip_delayed = "agricultue_tea_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_tea_num"
+				position = {x = 350 y = 360 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_tea_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "tea_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 360 }
+				pdx_tooltip = "tea_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_husbandry"
+			spriteType = "GFX_state_husbandry" 
+			position = { x = 290 y = 440 }
+			pdx_tooltip = "agricultue_husbandry"
+				pdx_tooltip_delayed = "agricultue_wool_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_wool_num"
+				position = {x = 350 y = 440 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_wool_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "wool_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 445 }
+				pdx_tooltip = "wool_input"
+				scale = 0.6
+			}
+		#
+		iconType = {
+			name ="agriculture_fish"
+			spriteType = "GFX_state_fish"
+			position = { x = 290 y = 520 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "agricultue_fish"
+				pdx_tooltip_delayed = "agricultue_fish_tedailt"
+		}
+	
+		instantTextboxType = {
+			name = "fish_number"
+			position = { x = 350 y = 520 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_fish_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+		}
+			buttonType = {
+				name = "fish_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 540 y = 525 }
+				pdx_tooltip = "fish_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_coffee"
+			spriteType = "GFX_state_coffee" 
+			position = { x = 290 y = 600 }
+			pdx_tooltip = "agricultue_coffee"
+				pdx_tooltip_delayed = "agricultue_coffee_tedailt"
+		}
+			instantTextboxType = {
+				name = "coffee_number"
+			position = { x = 350 y = 600 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_coffee_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "coffee_input"
+				spriteType = "GFX_resource_tranding" 
+			position = { x = 540 y = 610 }
+				pdx_tooltip = "coffee_input"
+				scale = 0.6
+			}
+		iconType = {
+			name = "agriculture_wood"
+			spriteType = "GFX_state_wood" 
+			position = { x = -50 y = 520 }
+			pdx_tooltip = "agricultue_wood"
+				pdx_tooltip_delayed = "agricultue_wood_tedailt"
+		}
+			instantTextboxType = {
+				name = "wood_number"
+			position = { x = 20 y = 520 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_wood_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+		buttonType = {
+				name = "wood_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 525 }
+				pdx_tooltip = "wood_input"
+				scale = 0.6
+		}
+		iconType = {
+			name = "agriculture_fruit"
+			spriteType = "GFX_state_fruit" 
+			position = { x = -50 y = 600 }
+			pdx_tooltip = "agricultue_fruit"
+				pdx_tooltip_delayed = "agricultue_fruit_tedailt"
+		}
+			instantTextboxType = {
+				name = "agricultue_fruit_num"
+				position = {x = 20 y = 600 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "agricultue_fruit_num"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "fruit_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 210 y = 605 }
+				pdx_tooltip = "fruit_input"
+				scale = 0.6
+			}
+		
+		}
+		containerWindowType = {
+			name = "mines_list_container"
+			position = {x = 120 y = 300 }
+			size = { width = 5008 height = 3000 }
+		iconType = {
+			name = "uranium_back"
+			spriteType = "GFX_economic_uranium_back" 
+			position = { x = 276 y = 420 }
+		}
+		iconType = {
+			name = "tungsten_back"
+			spriteType = "GFX_economic_tungsten_back" 
+			position = { x = -76 y = 420 }
+		}
+		iconType = {
+			name = "phosphate_back"
+			spriteType = "GFX_economic_phosphate_back" 
+			position = { x = 276 y = 340 }
+		}
+		iconType = {
+			name = "diamond_back"
+			spriteType = "GFX_economic_diamond_back" 
+			position = { x = -76 y = 340 }
+		}
+		iconType = {
+			name = "silver_back"
+			spriteType = "GFX_economic_silver_back" 
+			position = { x = 276 y = 260 }
+		}
+		iconType = {
+			name = "copper_back"
+			spriteType = "GFX_economic_copper_back" 
+			position = { x = -76 y = 260 }
+		}
+		iconType = {
+			name = "steel_back"
+			spriteType = "GFX_economic_steel_back" 
+			position = { x = 276 y = 180 }
+		}
+		iconType = {
+			name = "aluminium_back"
+			spriteType = "GFX_economic_aluminium_back" 
+			position = { x = -76 y = 180 }
+		}
+		iconType = {
+			name = "plaastic_back"
+			spriteType = "GFX_economic_plaastic_back" 
+			position = { x = 276 y = 100 }
+		}
+		iconType = {
+			name = "iron_back"
+			spriteType = "GFX_economic_iron_back" 
+			position = { x = -76 y = 100 }
+		}
+		iconType = {
+			name = "oil_back"
+			spriteType = "GFX_economic_oil_back" 
+			position = { x = 276 y = 23 }
+		}
+		
+			iconType = {
+				name = "economic_top_mineral"
+				spriteType = "GFX_economic_top_mineral" 
+				position = { x = -79 y = -253 }
+			}
+			iconType = {
+				name = "sanctions_icon"
+				spriteType = "GFX_un_banned" 
+				position = { x = 560 y = -150 }
+				scale = 0.5
+				pdx_tooltip = "sanctions_transport"
+				scale = 1
+			}
+			iconType = {
+				name = "OPEC_icon"
+				spriteType = "GFX_transport_OPEC" 
+				position = { x = 560 y = -150 }
+				scale = 0.5
+				pdx_tooltip = "OPEC_transport"
+			}
+			iconType = {
+				name = "low_influence_icon"
+				spriteType = "GFX_idea_isolated" 
+				position = { x = 520 y = -150 }
+				scale = 0.5
+				pdx_tooltip = "low_influence_transport"
+			}
+		instantTextboxType = {
+			name = "producs_testing"
+			position = { x = 0 y = -240 }
+			textureFile = ""
+			font = "hoi_36header"
+			text = "producs_testing"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		iconType = {
+			name = "coal_back"
+			spriteType = "GFX_economic_coal_back" 
+			position = { x = -76 y = 23 }
+		}
+		instantTextboxType = {
+			name = "mines_time_tips"
+			position = { x = 360 y = -240 }
+			textureFile = ""
+			font = "hoi_18mbs"
+			text = "mines_time_tips"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		#煤矿#
+			iconType = {
+				name = "mines_coal"
+				spriteType = "GFX_state_coal" 
+				position = { x = -50 y = 40 }
+				pdx_tooltip = "coal_title"
+				pdx_tooltip_delayed = "coal_title"
+				pdx_tooltip_delayed = "coal_coast_detail"
+			}
+			iconType = {
+				name = "coal_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = -30 y = 54 }
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "coal_number"
+				position = {x = 10 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "coal_number_text"
+				pdx_tooltip = "coal_title"
+				pdx_tooltip_delayed = "coal_title"
+				pdx_tooltip_delayed = "coal_coast_detail"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			instantTextboxType = {
+				name = "coal_input_num"
+				position = { x = 200 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "coal_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "coal_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 140 y = 60 }
+				pdx_tooltip = "iron_input_10"
+				scale = 0.6
+			}
+			#铁矿#
+			iconType = {
+				name = "mines_iron"
+				spriteType = "GFX_state_iron" 
+				position = { x = -50 y = 120 }
+				pdx_tooltip = "iron_title"
+				pdx_tooltip_delayed = "iron_coast_detail"
+			}
+			iconType = {
+				name = "iron_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = -10 y = 140 }
+				alwaystransparent = yes
+				scale = 1
+			}
+			instantTextboxType = {
+				name = "iron_number"
+				position = {x = 10 y = 120 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				pdx_tooltip = "iron_title"
+				text = "iron_number_text"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			instantTextboxType = {
+				name = "iron_input_num"
+				position = { x = 200 y = 120 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "iron_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "iron_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 140 y = 150 }
+				pdx_tooltip = "iron_input_10"
+				scale = 0.6
+			}
+			iconType = {
+				name = "mines_steel"
+				spriteType = "GFX_state_steel" 
+				position = { x = 310 y = 190 }
+				pdx_tooltip = "steel_title"
+				pdx_tooltip_delayed = "steel_detail"
+			}
+			instantTextboxType = {
+				name = "steel_input_num"
+				position = { x = 560 y = 210 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "steel_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			instantTextboxType = {
+				name = "steel_number"
+				position = { x = 370 y = 200 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "steel_number_text"
+				pdx_tooltip = "steel_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "steel_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 500 y = 220 }
+				pdx_tooltip = "steel_input_10"
+				scale = 0.6
+			}
+			iconType = {
+				name = "mines_Aluminum"
+				spriteType = "GFX_state_Aluminum" 
+				position = { x = -50 y = 190 }
+				pdx_tooltip = "aluminium_detail"
+			}
+			
+			instantTextboxType = {
+				name = "Aluminum_input_num"
+				position = { x = 210 y = 210 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "aluminium_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "Aluminum_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = -30 y = 210 }
+				alwaystransparent = yes
+				scale = 1
+			}
+			instantTextboxType = {
+				name = "aluminium_number"
+				position = {x = 10 y = 200 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "aluminium_number_text"
+				pdx_tooltip = "aluminium_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "aluminium_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 140 y = 220 }
+				pdx_tooltip = "aluminium_input_10"
+				scale = 0.6
+			}
+			iconType = {
+				name = "mines_diamond"
+				spriteType = "GFX_state_diamond" 
+				position = { x = -50 y = 350 }
+				pdx_tooltip = "diamond_title"
+			}
+			instantTextboxType = {
+				name = "diamond_number"
+				position = {x = 10 y = 360 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "diamond_number_text"
+				pdx_tooltip = "diamond_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_oil"
+				spriteType = "GFX_state_oil" 
+				position = { x = 310 y = 40 }
+				pdx_tooltip = "oil_title"
+				pdx_tooltip_delayed = "oil_coast_detail"
+			}
+			iconType = {
+				name = "oil_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = 325 y = 70 }
+				alwaystransparent = yes
+				scale = 1
+			}
+			buttonType = {
+				name = "oil_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 500 y = 70 }
+				pdx_tooltip = "oil_input_10"
+				scale = 0.6
+			}
+			instantTextboxType = {
+				name = "oil_number"
+				position = { x = 370 y = 50 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "oil_number_text"
+				pdx_tooltip = "oil_title"
+				pdx_tooltip_delayed = "oil_coast_detail"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			instantTextboxType = {
+				name = "oil_input_num"
+				position = { x = 560 y = 60 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "oil_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_rubber"
+				spriteType = "GFX_state_rubber" 
+				position = { x = 310 y = 120 }
+				pdx_tooltip = "rubber_title"
+				pdx_tooltip_delayed = "rubber_coast_detail"
+			}
+			instantTextboxType = {
+				name = "rubber_number"
+				position = { x = 370 y = 120 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "rubber_number_text"
+				pdx_tooltip = "rubber_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+
+			buttonType = {
+				name = "rubber_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 500 y = 140 }
+				pdx_tooltip = "rubber_input_10"
+				scale = 0.6
+			}
+			iconType = {
+				name = "rubber_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = 320 y = 140 }
+				alwaystransparent = yes
+				scale = 1
+			}
+			
+			instantTextboxType = {
+				name = "rubber_input_num"
+				position = { x = 560 y = 130 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "rubber_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_silver"
+				spriteType = "GFX_state_silver" 
+				position = { x = 310 y = 280 }
+				pdx_tooltip = "silver_title"
+			}
+			instantTextboxType = {
+				name = "silver_number"
+				position = {x = 370 y = 280 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "silver_number_text"
+				pdx_tooltip = "silver_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_phosphate"
+				spriteType = "GFX_state_phosphate" 
+				position = { x = 310 y = 360 }
+				pdx_tooltip = "phosphate_title"
+			}
+			instantTextboxType = {
+				name = "phosphate_number"
+				position = {x = 370 y = 360 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "phosphate_number_text"
+				pdx_tooltip = "phosphate_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_copper"
+				pdx_tooltip_delayed = "copper_detail"
+				spriteType = "GFX_state_copper" 
+				position = { x = -50 y = 280 }
+				pdx_tooltip = "copper_title"
+			}
+			instantTextboxType = {
+				name = "copper_input_num"
+				position = { x = 200 y = 290 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "copper_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "copper_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = -30 y = 290 }
+				alwaystransparent = yes
+				scale = 1
+			}
+			
+			instantTextboxType = {
+				name = "copper_number"
+				position = {x = 10 y = 285 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "copper_number_text"
+				pdx_tooltip = "copper_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "copper_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 140 y = 300 }
+				pdx_tooltip = "copper_input_10"
+				scale = 0.6
+			}
+			#####
+			
+			iconType = {
+				name = "mines_tungsten"
+				spriteType = "GFX_state_tungsten" 
+				position = { x = -50 y = 440 }
+				pdx_tooltip = "oil_title"
+				pdx_tooltip_delayed = "oil_coast_detail"
+			}
+			iconType = {
+				name = "tungsten_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = -50 y = 440 }
+				alwaystransparent = yes
+				scale = 1
+			}
+			buttonType = {
+				name = "tungsten_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 140 y = 465 }
+				pdx_tooltip = "tungsten_input_10"
+				scale = 0.6
+			}
+			instantTextboxType = {
+				name = "tungsten_number"
+				position = {x = 10 y = 445 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tungsten_number_text"
+				pdx_tooltip = "tungsten_title"
+				pdx_tooltip_delayed = "tungsten_coast_detail"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			instantTextboxType = {
+				name = "tungsten_input_num"
+				position = { x = 200 y = 450 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tungsten_input_num"
+				maxWidth = 100
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_tin"
+				spriteType = "GFX_state_tin" 
+				position = { x = 310 y = 520 }
+				pdx_tooltip = "tin_title"
+				pdx_tooltip_delayed = "tin_coast_detail"
+			}
+			instantTextboxType = {
+				name = "tin_number"
+				position = { x = 370 y = 530 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tin_number_text"
+				pdx_tooltip = "tin_title"
+				pdx_tooltip_delayed = "tin_coast_detail"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "mines_uranium"
+				spriteType = "GFX_state_uranium" 
+				position = { x = 310 y = 440 }
+				pdx_tooltip = "chromium_title"
+				pdx_tooltip_delayed = "chromium_coast_detail"
+			}
+			instantTextboxType = {
+				name = "chromium_number"
+				position = { x = 370 y = 450 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "chromium_number_text"
+				pdx_tooltip = "chromium_title"
+				pdx_tooltip_delayed = "chromium_coast_detail"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "chromium_output"
+				spriteType = "GFX_resource_output" 
+				position = { x = 530 y = 460 }
+				pdx_tooltip_delayed = "chromium_input_num"
+				pdx_tooltip = "chromium_input_num"
+				scale = 0.6
+			}
+		}
+		containerWindowType = {
+			name = "oil_list_container"
+			position = {x = 120 y = 300 }
+			size = { width = 1308 height = 702 }
+			iconType = {
+				name = "GFX_economic_gasoline_back"
+				spriteType = "GFX_economic_gasoline_back" 
+				position = { x = -76 y = 498 }
+			}
+			iconType = {
+				name = "GFX_economic_refinery_back"
+				spriteType = "GFX_economic_refinery_back" 
+				position = { x = -72 y = 262 }
+			}
+			iconType = {
+				name = "oilfield_back"
+				spriteType = "GFX_economic_oilfield_back" 
+				position = { x = -72 y = 23 }
+			}
+			iconType = {
+				name = "economic_top_refinery"
+				spriteType = "GFX_economic_top_refinery" 
+				position = { x = -79 y = -253 }
+			}
+			iconType = {
+				name = "mines_oil"
+				spriteType = "GFX_improved_oil_processing_medium" 
+				position = { x = 10 y = 40 }
+				pdx_tooltip = "oil_title"
+				pdx_tooltip_delayed = "oil_coast_detail"
+			
+			}
+			instantTextboxType = {
+				name = "oil_number"
+				position = { x = 70 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "oil_number_text"
+				pdx_tooltip = "oil_title"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
+			instantTextboxType = {
+				name = "oil_input_num"
+				position = { x = 470 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "oil_input_num"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "fuel_icon"
+				spriteType = "GFX_state_oil" 
+				position = { x = 10 y = 300 }
+				pdx_tooltip = "oil_title"
+			}
+			instantTextboxType = {
+				name = "fuel_details"
+				position = { x = 70 y = 300 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "fuel_details"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+			}
+			buttonType = {
+				name = "fuel_input"
+				spriteType = "GFX_resource_tranding" 
+				position = { x = 550 y = 300 }
+				pdx_tooltip = "fuel_input_10"
+				scale = 0.6
+			}
+			instantTextboxType = {
+				name = "fuel_input_num"
+				position = { x = 470 y = 300 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "fuel_input_num"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "refinery_icon"
+				spriteType = "GFX_idea_construction" 
+				position = { x = 10 y = 540 }
+				pdx_tooltip = "oil_title"
+			}
+			instantTextboxType = {
+				name = "fuel_cost_details"
+				position = { x = 80 y = 540 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "fuel_cost_details"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+			}
+			iconType = {
+				name = "oil_lack"
+				spriteType = "GFX_closebutton" 
+				position = { x = 160 y = 20 }
+				alwaystransparent = yes
+				scale = 1
+			}
+		
+		}
+	containerWindowType = {
+		name = "mines_system_container"
+		position = {x = -40 y = 70 }
+		size = { width = 1108 height = 2000 }
+		moveable = no
+		background = {
+			name = "Background"
+			position = {x= 40 y = 0 }
+			spriteType = "GFX_neo_economic_background"
+		}
+		buttonType = {
+			name = "close_button"
+			position = {x= 700 y = 10 }
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+			clicksound = click_close
+		}	
+		
+		buttonType = {
+			name = "mines_button"
+			position = {x= 550 y = 230 }
+			spriteType = "GFX_state_building_mines"
+			clicksound = click_close
+			pdx_tooltip = "mineral_title"
+		}
+		buttonType = {
+			name = "agriculture_button"
+			position = {x= 600 y = 230 }
+			spriteType = "GFX_state_wealth"
+			clicksound = click_close
+			pdx_tooltip = "agricultue_title"
+		}
+		buttonType = {
+			name = "petreum_button"
+			position = {x= 650 y = 230 }
+			spriteType = "GFX_state_oil"
+			clicksound = click_close
+			pdx_tooltip = "fuel_page_title"
+		}
+	
+		buttonType = {
+			name = "consumer_button"
+			position = {x= 700 y = 230 }
+			spriteType = "GFX_state_textile"
+			clicksound = click_close
+			pdx_tooltip = "consumer_title_desc"
+		}
+			iconType = {
+				name = "comecon_icon"
+				spriteType = "GFX_transport_comecon" 
+				position = { x = 50 y = 230 }
+				pdx_tooltip = "comecon_transport"
+				scale = 0.5
+			}
+			iconType = {
+				name = "europe_icon"
+				spriteType = "GFX_transport_europe" 
+				position = { x = 50 y = 230 }
+				scale = 0.5
+				pdx_tooltip = "europe_transport"
+			}
+	}
+	containerWindowType = {
+		name = "mines_transport_container"
+		position = {x = 624 y = 200 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		background = {
+			name = "Background"
+			spriteType = "GFX_mine_transport_setting_bg"
+		}
+		buttonType = {
+			name = "mine_transport_close"
+			spriteType = "GFX_closebutton" 
+			position = { x = 460 y = 18 }
+			scale = 0.8
+		}
+		iconType = {
+			name = "ComeconTips"
+			spriteType = "GFX_ComeconTips" 
+			position = { x = 350 y = 30 }
+			scale = 0.8
+			pdx_tooltip = "comecon_transport"
+		}
+		iconType = {
+			name = "sanctionTips"
+			spriteType = "GFX_sanctionTips" 
+			position = { x = 350 y = 30 }
+			scale = 0.8
+			pdx_tooltip = "sanction_transport"
+		}
+		iconType = {
+			name = "EUROTips"
+			spriteType = "GFX_EUROTips" 
+			position = { x = 350 y = 30 }
+			scale = 0.8
+			pdx_tooltip = "europe_transport"
+		}
+		iconType = {
+			name = "transport_economic_SUR"
+			spriteType = "GFX_economic_SUR" 
+			position = { x = -20 y = 360 }
+			scale = 0.5
+		}
+		iconType = {
+			name = "transport_economic_USD"
+			spriteType = "GFX_economic_USD" 
+			position = { x = -20 y = 360 }
+			scale = 0.5
+		}
+	}
+	containerWindowType = {
+		name = "fuel_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "fuel_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "fuel_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "fuel_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "fuel_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "fuel_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "fuel_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "fuel_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "fuel_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "fuel_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "fuel_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "fuel_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "fuel_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+			clicksound = trade_ship
+		}
+	}
+	
+	containerWindowType = {
+		name = "tungsten_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "tungsten_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "tungsten_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "tungsten_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "tungsten_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "tungsten_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tungsten_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "tungsten_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tungsten_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "tungsten_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "tungsten_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "tungsten_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "tungsten_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "coal_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "coal_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "coal_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "coal_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "coal_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "coal_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "coal_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "coal_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "coal_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "coal_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "coal_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "coal_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "coal_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+			clicksound = trade_ship
+		}
+	}
+	containerWindowType = {
+		name = "iron_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "iron_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "iron_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "iron_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "iron_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "iron_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "iron_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "iron_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "iron_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "iron_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "iron_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "iron_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "iron_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "oil_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "oil_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "oil_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "oil_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "oil_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "oil_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "oil_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "oil_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "oil_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "oil_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "oil_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "oil_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "oil_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "rubber_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "rubber_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "rubber_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "rubber_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "rubber_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "rubber_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "rubber_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "rubber_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "rubber_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "rubber_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "rubber_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "rubber_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "rubber_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	
+	containerWindowType = {
+		name = "copper_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "copper_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "copper_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "copper_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "copper_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "copper_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "copper_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "copper_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "copper_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "copper_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "copper_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "copper_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "copper_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "textile_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "textile_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "textile_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "textile_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "textile_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "textile_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "textile_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "textile_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "textile_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "textile_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "textile_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "textile_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "textile_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	
+	containerWindowType = {
+		name = "aluminium_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "aluminium_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "aluminium_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "aluminium_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "aluminium_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "aluminium_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "aluminium_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "aluminium_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "aluminium_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "aluminium_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "aluminium_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "aluminium_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "aluminium_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "auto_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "auto_input_photo"
+			spriteType = "GFX_auto_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "auto_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "auto_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "auto_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "auto_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "auto_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "auto_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "auto_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "auto_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "auto_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "auto_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "auto_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "steel_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "steel_input_photo"
+			spriteType = "GFX_mines_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "steel_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "steel_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "steel_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "steel_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "steel_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "steel_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "steel_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "steel_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "steel_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "steel_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "steel_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	
+	containerWindowType = {
+		name = "tobacco_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "tobacco_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "tobacco_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+
+		buttonType = {
+			name = "tobacco_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "tobacco_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "tobacco_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tobacco_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "tobacco_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "tobacco_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "tobacco_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "tobacco_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "tobacco_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "tobacco_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "sugar_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "sugar_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "sugar_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+
+		buttonType = {
+			name = "sugar_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "sugar_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "sugar_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "sugar_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "sugar_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "sugar_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "sugar_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "sugar_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "sugar_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "sugar_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "coffee_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "coffee_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "coffee_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+
+		buttonType = {
+			name = "coffee_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "coffee_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "coffee_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "coffee_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "coffee_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "coffee_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "coffee_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "coffee_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "coffee_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "coffee_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	
+	containerWindowType = {
+		name = "salt_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "salt_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "salt_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "salt_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "salt_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "salt_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "salt_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "salt_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "salt_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "salt_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "salt_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "salt_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "salt_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "cutton_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "cutton_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "cutton_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "cutton_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "cutton_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "cutton_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "cutton_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "cutton_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "cutton_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "cutton_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "cutton_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "cutton_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "cutton_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "wood_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "wood_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "wood_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "wood_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "wood_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "wood_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "wood_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "wood_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "wood_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "wood_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "wood_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "wood_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "wood_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "wood_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "wood_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "wood_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+
+		buttonType = {
+			name = "wood_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "wood_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "wood_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "wood_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "wood_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "wood_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "wood_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "wood_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "wood_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "wood_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+
+	containerWindowType = {
+		name = "wine_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "wine_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		buttonType = {
+			name = "wine_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+
+		buttonType = {
+			name = "wine_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "wine_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "wine_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "wine_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "wine_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "wine_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "wine_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "wine_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "wine_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "wine_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+	containerWindowType = {
+		name = "food_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "food_input_photo"
+			spriteType = "GFX_agriculture_photo" 
+			position = { x = 10 y = 10 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "food_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 220 y = 240 }
+		}
+
+		buttonType = {
+			name = "food_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+		}
+		iconType = {
+			name = "food_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 210 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "food_input_setting"
+				position = { x = 255 y = 220 }
+				textureFile = ""
+				font = "hoi4_typewriter16"
+				text = "food_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "food_output_setting"
+				position = { x = 255 y = 290 }
+				textureFile = ""
+				font = "hoi4_typewriter16"
+				text = "food_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+	
+		iconType = {
+			name = "food_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 280 }
+			scale = 0.6
+		}
+		
+		buttonType = {
+			name = "food_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 220 y = 320 }
+		}
+		buttonType = {
+			name = "food_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 320 }
+		}
+		buttonType = {
+			name = "food_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 350 }
+			clicksound = trade_ship
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+		}
+	}
+
+	#####消费品####
+	containerWindowType = {
+		name = "consumer_list_container"
+		position = {x = 120 y = 300 }
+		size = { width = 1308 height = 702 }
+		iconType = {
+			name = "medicine_back"
+			spriteType = "GFX_economic_medicine_back" 
+			position = { x = -76 y = 420 }
+		}
+		iconType = {
+			name = "computer_back"
+			spriteType = "GFX_economic_computer_back" 
+			position = { x = -76 y = 340 }
+		}
+		iconType = {
+			name = "chemistry_back"
+			spriteType = "GFX_economic_chemistry_back" 
+			position = { x = -76 y = 260 }
+		}
+		iconType = {
+			name = "cemet_back"
+			spriteType = "GFX_economic_cemet_back" 
+			position = { x = 276 y = 180 }
+		}
+		iconType = {
+			name = "electronic_back"
+			spriteType = "GFX_economic_electronic_back" 
+			position = { x = -76 y = 180 }
+		}
+		iconType = {
+			name = "beer_back"
+			spriteType = "GFX_economic_beer_back" 
+			position = { x = 276 y = 100 }
+		}
+		iconType = {
+			name = "textiles_back"
+			spriteType = "GFX_economic_textiles_back" 
+			position = { x = -76 y = 100 }
+		}
+		iconType = {
+			name = "auto_back"
+			spriteType = "GFX_economic_auto_back" 
+			position = { x = 276 y = 23 }
+		}
+		iconType = {
+			name = "foods_back"
+			spriteType = "GFX_economic_foods_back" 
+			position = { x = -76 y = 23 }
+		}
+		iconType = {
+				name = "economic_top_consumer"
+				spriteType = "GFX_economic_top_consumer" 
+				position = { x = -79 y = -253 }
+			}
+		instantTextboxType = {
+			name = "current_resource_cost"
+			position = { x = -50 y = -240 }
+			textureFile = ""
+			font = "hoi_18mbs"
+			text = "current_resource_cost"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		instantTextboxType = {
+				name = "total_civil_factoris_number"
+			position = { x = 220 y = -20 }
+				textureFile = ""
+					font = "hoi_18mbs"
+				text = "total_civil_factoris_number"
+				pdx_tooltip_delayed = "total_civil_factoris_number"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "consumer_canfoods"
+			spriteType = "GFX_state_foods" 
+			position = { x = -50 y = 40 }
+			pdx_tooltip = "consumer_foods"
+		}
+		
+		instantTextboxType = {
+				name = "foods_number_text"
+				position = {x = 20 y = 35 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "foods_number_text"
+				pdx_tooltip = "oil_title"
+				pdx_tooltip_delayed = "oil_coast_detail"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		buttonType = {
+			name = "consumer_foods_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 200 y = 75 }
+		}
+		buttonType = {
+			name = "consumer_foods_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 180 y = 75 }
+		}
+		##纺织品
+		iconType = {
+			name = "consumer_textile"
+			spriteType = "GFX_state_textile" 
+			position = { x = -50 y = 120 }
+			pdx_tooltip = "consumer_textile"
+		}
+		
+		instantTextboxType = {
+				name = "textile_number_text"
+				position = {x = 20 y = 120 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "textile_number_text"
+				pdx_tooltip = "oil_title"
+				pdx_tooltip_delayed = "oil_coast_detail"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		buttonType = {
+			name = "textile_add"
+			spriteType = "GFX_zoom_in" 
+				position = { x = 200 y = 160 }
+		}
+		buttonType = {
+			name = "textile_reduce"
+			spriteType = "GFX_zoom_out" 
+				position = { x = 180 y = 160 }
+		}
+		buttonType = {
+			name = "textile_input"
+			spriteType = "GFX_resource_tranding" 
+				position = { x = 240 y = 140 }
+			pdx_tooltip = "textile_input"
+			scale = 0.6
+		}
+		iconType = {
+			name = "consumer_beer"
+			spriteType = "GFX_state_beer" 
+			position = { x = 290 y = 120 }
+			pdx_tooltip = "consumer_beer"
+		}
+		instantTextboxType = {
+				name = "beer_number_text"
+			position = { x = 350 y = 120 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "beer_number_text"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+		##电子产品
+		iconType = {
+			name = "consumer_electronic" 
+			spriteType = "GFX_state_electronic" 
+			position = { x = -50 y = 200 }
+			pdx_tooltip = "consumer_electronic"
+		}
+		iconType = {
+			name = "electronic_lack"
+			spriteType = "GFX_closebutton" 
+			position = { x = -50 y = 200 }
+				alwaystransparent = yes
+			scale = 1
+		}
+		
+		instantTextboxType = {
+				name = "electronic_number"
+				position = {x = 20 y = 200 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "electronic_number_text"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+
+		buttonType = {
+			name = "electronic_add"
+			spriteType = "GFX_zoom_in" 
+				position = { x = 200 y = 230 }
+		}
+		buttonType = {
+			name = "electronic_reduce"
+			spriteType = "GFX_zoom_out" 
+				position = { x = 180 y = 230 }
+		}
+		buttonType = {
+			name = "electronic_input"
+			spriteType = "GFX_resource_tranding" 
+				position = { x = 240 y = 230 }
+			pdx_tooltip = "electronic_input"
+			scale = 0.6
+		}
+		iconType = {
+			name = "consumer_chemistry" 
+			spriteType = "GFX_state_chemistry" 
+			position = { x = -50 y = 280 }
+			pdx_tooltip = "consumer_vegtable"
+		}
+		instantTextboxType = {
+				name = "chemistry_number_text"
+			position = { x = 20 y = 280 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "chemistry_number_text"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "consumer_medicine" 
+			spriteType = "GFX_medical2_medium" 
+			position = { x = -50 y = 440 }
+			pdx_tooltip = "consumer_medicine"
+			scale = 0.7
+		}
+		instantTextboxType = {
+				name = "medicine_number_text"
+			position = { x = 20 y = 440 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "medicine_number_text"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "consumer_machine" 
+			spriteType = "GFX_state_machine" 
+			position = { x = 290 y = 440 }
+			pdx_tooltip = "consumer_machine"
+		}
+	
+		iconType = {
+			name = "consumer_computer" 
+			spriteType = "GFX_state_computer" 
+			position = { x = -50 y = 360 }
+			pdx_tooltip = "consumer_computer"
+		}
+		iconType = {
+			name = "computer_lack"
+			spriteType = "GFX_closebutton" 
+			position = { x = -50 y = 360 }
+				alwaystransparent = yes
+			scale = 1
+		}
+		
+		instantTextboxType = {
+				name = "computer_number"
+				position = {x = 20 y = 360 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "computer_number_text"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+		
+		buttonType = {
+			name = "computer_add"
+			spriteType = "GFX_zoom_in" 
+				position = { x = 200 y = 395 }
+		}
+		buttonType = {
+			name = "computer_reduce"
+			spriteType = "GFX_zoom_out" 
+				position = { x = 180 y = 395 }
+		}
+		buttonType = {
+			name = "computer_input"
+			spriteType = "GFX_resource_tranding" 
+				position = { x = 220 y = 380 }
+			pdx_tooltip = "computer_input"
+			scale = 0.6
+		}
+		iconType = {
+			name = "consumer_auto" 
+			spriteType = "GFX_state_nissan" 
+			position = { x = 290 y = 40 }
+			pdx_tooltip = "consumer_auto"
+		}
+			iconType = {
+				name = "auto_lack"
+				spriteType = "GFX_closebutton" 
+				pdx_tooltip = "autos_low_modifiers"
+				position = { x = 310 y = 60 }
+				alwaystransparent = yes
+				scale = 0.9
+			}
+		instantTextboxType = {
+				name = "resource_lack"
+				position = { x = 380 y = -150 }
+				textureFile = ""
+				font = "hoi_36header"
+				text = "resource_lack_tips"
+				pdx_tooltip = "resource_lack_tool"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+				name = "auto_number"
+			position = { x = 350 y = 40 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "auto_number_text"
+				maxWidth = 360
+				maxHeight = 30
+				format = left
+		}
+		buttonType = {
+			name = "auto_add"
+			spriteType = "GFX_zoom_in" 
+				position = { x = 530 y = 80 }
+		}
+		buttonType = {
+			name = "auto_reduce"
+			spriteType = "GFX_zoom_out" 
+				position = { x = 510 y = 80 }
+		}
+		buttonType = {
+			name = "auto_input"
+			spriteType = "GFX_resource_tranding" 
+				position = { x = 560 y = 60 }
+			pdx_tooltip = "iron_input_10"
+			scale = 0.6
+		}
+		buttonType = {
+			name = "auto_tips"
+			spriteType = "GFX_ethnics_tips" 
+				position = { x = 320 y = 24 }
+			pdx_tooltip = "auto_tips"
+		}
+		iconType = {
+			name = "consumer_cement" 
+			spriteType = "GFX_state_cement" 
+			position = { x = 290 y = 200 }
+			pdx_tooltip = "consumer_cement"
+		}
+		instantTextboxType = {
+				name = "cement_number"
+			position = { x = 350 y = 200 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "cement_number_text"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		buttonType = {
+			name = "comnet_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 530 y = 240 }
+		}
+		buttonType = {
+			name = "comnet_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 510 y = 240 }
+		}
+		iconType = {
+			name = "consumer_furniture" 
+			spriteType = "GFX_state_furniture" 
+			position = { x = 290 y = 280 }
+			pdx_tooltip = "consumer_furniture"
+		}
+		iconType = {
+			name = "consumer_luxury" 
+			spriteType = "GFX_state_luxury" 
+			position = { x = 290 y = 360 }
+			pdx_tooltip = "consumer_luxury"
+		}
+	}
+	containerWindowType = {
+		name = "electronic_input_container"
+		position = {x = 1 y = 1 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		iconType = {
+			name = "electronic_input_photo"
+			spriteType = "GFX_electronic_photo" 
+			position = { x = 10 y = 20 }
+			scale = 0.4
+		}
+		
+		buttonType = {
+			name = "electronic_input_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 250 }
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "electronic_input_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 250 }
+			scale = 0.9
+		}
+		iconType = {
+			name = "electronic_input_icon"
+			spriteType = "GFX_resource_input" 
+			position = { x = 220 y = 220 }
+			scale = 0.6
+		}
+		instantTextboxType = {
+			name = "electronic_input_setting"
+				position = { x = 250 y = 230 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "electronic_input_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		instantTextboxType = {
+			name = "electronic_output_setting"
+				position = { x = 250 y = 270 }
+				textureFile = ""
+				font = "hoi_18mbs"
+				text = "electronic_output_setting"
+				maxWidth = 300
+				maxHeight = 30
+				format = left
+		}
+		iconType = {
+			name = "electronic_output_icon"
+			spriteType = "GFX_resource_output" 
+			position = { x = 220 y = 260 }
+			scale = 0.6
+		}
+		buttonType = {
+			name = "electronic_output_add"
+			spriteType = "GFX_zoom_in" 
+			position = { x = 230 y = 290 }
+			scale = 0.8
+		}
+		buttonType = {
+			name = "electronic_output_reduce"
+			spriteType = "GFX_zoom_out" 
+			position = { x = 300 y = 290 }
+			scale = 0.9
+		}
+		buttonType = {
+			name = "electronic_import_confirm"
+			spriteType = "GFX_import_confirm" 
+			position = { x = 220 y = 320 }
+			buttonText = TRANSPORT_SET_CONFIRN
+			buttonFont = hoi4_typewriter22
+			clicksound = trade_ship
+		}
+	}
+}

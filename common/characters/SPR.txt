@@ -1,0 +1,25 @@
+characters={
+	SPR_Juan_Fernandez={
+		name=SPR_Juan_Fernandez
+		portraits={
+			civilian={
+				small="GFX_idea_Juan_Fernandez"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Juan_Fernandez
+			visible={
+				date < 1970.1.1
+			}
+			allowed  = {
+				original_tag  = SPR
+				has_government  = neutrality 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				experience_gain_navy_factor = 0.2
+			}
+		}
+	}
+}

@@ -1,0 +1,691 @@
+﻿add_namespace = cam
+#柬埔寨自治
+news_event = {
+	id = cam.1
+	title = cam.1.t
+	desc = cam.1.d
+	picture = GFX_Sihanouko
+	major = yes
+	is_triggered_only = yes
+	option = {
+		play_song = CAM_2
+		name = cam.1.a
+	}
+
+}
+#柬埔寨独立
+news_event = {
+	id = cam.2
+	title = cam.2.t
+	desc = cam.2.d
+	picture = GFX_Sihanouko
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = cam.2.a
+		CAM = {
+			transfer_state = 764
+			transfer_state = 767
+			transfer_state = 741
+			}
+		}
+
+}
+#红色高棉内战
+news_event = {
+	id = cam.5
+	title = cam.5.t
+	desc = cam.5.d
+	picture = GFX_CambodianCivliWar
+	fire_only_once = yes
+	trigger = { 
+		tag = CAM
+		communism > 0.4
+		has_stability < 0.5
+		has_government = neutrality
+	}
+	option = {
+		name = cam.3.a
+			start_civil_war = {
+				ideology = communism
+				size = 0.4
+			}
+	}
+
+}
+
+#柬越冲突
+news_event = {
+	id = cam.6
+	title = cam.6.t
+	desc = cam.6.d
+	picture = GFX_VietInvadeCam
+	mean_time_to_happen = { days = 50 }
+	major = yes
+	trigger = {
+		CAM = {
+			has_government = communism
+			has_idea = redkhmer
+		}
+		VIN = { owns_state = 286 }
+		NOT = {
+			CAM = { is_puppet_of = VIN }
+			has_global_flag = CAM_VIN_border
+		}
+		tag = VIN
+	}
+	option = {
+		name = cam.6.a
+		set_global_flag = CAM_VIN_border
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 741
+				num_provinces = 4
+			}
+			defender = {
+				state = 286
+				num_provinces = 4
+			}
+		}
+		VIN = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CAM
+			}
+		}
+	}
+}
+#红色高棉成立
+news_event = {
+	id = cam.7
+	title = cam.7.t
+	desc = cam.7.d
+	picture = GFX_KhmerRouge
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = CAM_1
+	}
+	option = {
+		name = cam.3.a
+	}
+}
+#越南入侵柬埔寨新闻
+news_event = {
+	id = cam.8
+	title = cam.8.t
+	desc = cam.8.d
+	picture = GFX_VietInvadeCam
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cam.3.a
+	}
+}
+
+
+#越南傀儡
+news_event = {
+	id = cam.9
+	title = cam.9.t
+	desc = cam.9.d
+	picture = GFX_VietnamInCambodia
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cam.9.b
+		if = {
+			limit = { tag = VIN }
+			puppet = CAM
+			CAM = {
+				remove_ideas = redkhmer
+				set_cosmetic_tag = VIN_CAM
+				white_peace = VIN
+				transfer_state = 764
+				transfer_state = 767
+				transfer_state = 741
+				create_country_leader = {
+					name = "Heng Samrin"
+					desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+					picture = "gfx/leaders/CAM/Portrait_Cambodia_Heng_Samrin.tga"
+					expire = "1988.1.1"
+					ideology = stalinism
+					traits = {
+					}
+				}
+			}
+		}
+	}
+}
+#柬埔寨抵抗阵线成立
+news_event = {
+	id = cam.10
+	title = cam.10.t
+	desc = cam.10.d
+	picture = GFX_KhmerRouge
+	fire_only_once = yes
+	trigger = {
+		tag = CAM
+		CAM = { 
+			is_puppet_of = VIN 
+		}
+	}
+	option = {
+		name = cam.3.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+		create_country_leader = {
+			name = "Norodom Sihanouk"
+			picture = "gfx/leaders/CAM/Portrait_Cambodia_Sihanouk_old.tga"
+			expire = "1988.1.1"
+			ideology = monarchism
+			traits = {
+			}
+		}
+	}
+}
+#1970柬埔寨政变
+news_event = {
+	id = cam.11
+	title = cam.11.t
+	desc = cam.3.d
+	picture = GFX_LonNol
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CAM
+		has_stability < 0.5
+		communism > 0.2
+		has_government = monarchism
+		date > 1970.1.1
+		date < 1972.1.1
+	}
+	option = {
+		name = cam.3.a
+		news_event = { id = cam.12 }
+		set_politics = { ruling_party = neutrality }
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.5
+		}
+		add_stability = -0.3
+	}
+
+}
+#1970柬埔寨政变新闻
+news_event = {
+	id = cam.12
+	title = cam.12.t
+	desc = cam.3.d
+	picture = GFX_LonNol
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = CAM_6
+	}
+	option = {
+		name = cam.3.a
+	}
+
+}
+#1967三洛起义
+news_event = {
+	id = cam.13
+	title = cam.13.t
+	desc = cam.3.d
+	mean_time_to_happen = {
+		days = 10
+	}
+	picture = GFX_CambodianCivliWar
+	trigger = {
+		tag = CAM
+		communism > 0.1
+		NOT = { has_government = communism }
+		date > 1967.1.1
+		date < 1969.1.1
+	}
+	option = {
+		name = cam.3.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+		add_stability = -0.08
+		764 = { add_resistance = 20 }
+	}
+
+}
+#柬埔寨与越南爆发边境冲突
+news_event = {
+	id = cam.14
+	title = cam.14.t
+	desc = cam.14.d
+	picture = GFX_CambodianCivliWar
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		OR = {
+			tag = CAM
+			tag = SVN
+		}
+		country_exists = SVN
+		SVN = { is_subject = no } 
+		CAM = { is_subject = no } 
+		NOT = { CAM = { has_government = neutrality } }
+	}
+	option = {
+		name = raj.21.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 286
+				num_provinces = 4
+				on_win = cam.15
+			}
+				
+			defender = {
+				state = 767
+				num_provinces = 4
+				on_win = cam.16
+			}
+		}
+		
+	}
+}
+#越南共和国军队击溃柬埔寨军队
+news_event = {
+	id = cam.15
+	title = cam.15.t
+	desc = cam.15.d
+	picture = GFX_CambodianCivliWar
+	is_triggered_only = yes
+	option = {
+		name = raj.21.a
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+		}
+		if = {
+			limit = { tag = CAM }
+			add_stability = -0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.08
+			}
+		}
+		
+	}
+}
+#柬埔寨军队击溃越南共和国军队
+news_event = {
+	id = cam.16
+	title = cam.16.t
+	desc = cam.16.d
+	picture = GFX_CambodianCivliWar
+	is_triggered_only = yes
+	option = {
+		name = raj.21.a
+		if = {
+			limit = { tag = CAM }
+			add_stability = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = -0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.08
+			}
+		}
+		
+	}
+}
+#警惕不断接近赤色势
+news_event = {
+	id = cam.51
+	title = cam.51.t
+	desc = cam.51.d
+	mean_time_to_happen = { days = 10 }
+	picture = GFX_Sihanouko
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		CAM = {
+			OR = {
+				has_completed_focus = common_24
+				has_completed_focus = common_22
+			}
+			NOT = { has_country_leader_with_trait = anti_communist }
+		}
+		date > 1959.2.1
+		date < 1959.6.1
+	}
+	option = {
+		name = cam.3.a
+		CAM = {
+			add_stability = -0.12
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.03
+			}
+			set_country_flag = DapXuanCoup
+		}
+	}
+
+}
+#自由高棉叛乱
+news_event = {
+	id = cam.52
+	title = cam.52.t
+	desc = cam.52.d
+	picture = GFX_KhmerSerei
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = { 
+		tag = CAM
+		SIA = { has_country_flag = cam59a }
+		date < 1959.10.1
+		NOT = { has_global_flag = cam52 }
+	}
+	option = {
+		name = cam.3.a
+		if = {
+			limit = { tag = CAM }
+			set_global_flag = cam52
+			add_stability = -0.12
+			767 = {
+				add_resistance = 25
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+
+}
+news_event = {
+	id = cam.53
+	title = cam.53.t
+	desc = cam.53.d
+	picture = GFX_KhmerSerei
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = { 
+		tag = CAM
+		SIA = { has_country_flag = cam59a }
+		date > 1960.2.1
+		NOT = { has_global_flag = cam53 }
+		767 = { resistance < 5 }
+	}
+	option = {
+		name = cam.3.a
+		if = {
+			limit = { tag = CAM }
+			set_global_flag = cam53
+			add_stability = 0.15
+			767 = {
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+
+}
+news_event = {
+	id = cam.55
+	title = cam.55.t
+	desc = cam.55.d
+	picture = GFX_SihanoukElection
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = { 
+		tag = CAM
+		date > 1955.3.1
+		date < 1955.12.1
+		NOT = { has_global_flag = cam55 }
+	}
+	option = {
+		name = cam.3.a
+		if = {
+			limit = { tag = CAM }
+			set_global_flag = cam55
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = cam.56
+	title = cam.56.t
+	desc = cam.56.d
+	picture = GFX_SihanoukElection
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = { 
+		tag = CAM
+		date > 1958.7.1
+		date < 1958.10.1
+		NOT = { has_global_flag = cam56 }
+	}
+	option = {
+		name = cam.3.a
+		if = {
+			limit = { tag = CAM }
+			set_global_flag = cam56
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = cam.57
+	title = cam.57.t
+	desc = cam.57.d
+	picture = GFX_SihanoukoWithMao
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = { 
+		tag = CAM
+		date > 1956.2.1
+		date < 1956.4.1
+		has_completed_focus = common_50
+		NOT = { has_global_flag = cam57 }
+	}
+	option = {
+		name = cam.3.a
+		if = {
+			limit = { tag = CAM }
+			set_global_flag = cam57
+			add_country_leader_trait = pro_china
+		}
+	}
+}
+#达春政变
+country_event = {
+	id = cam.59
+	title = cam.59.t
+	desc = cam.59.d
+	mean_time_to_happen = { days = 10 }
+	picture = GFX_CamArmySmall
+	trigger = {
+		OR = {
+			AND = {
+				tag = SIA
+				has_government = neutrality 
+			}
+			AND = {
+				tag = SVN
+				has_completed_focus = SVN_suport_cambodia_rightwing 
+			}
+		}
+		CAM = {
+			OR = {
+				has_completed_focus = common_24
+				has_completed_focus = common_22
+			}
+			NOT = { has_country_leader_with_trait = anti_communist }
+		}
+		date > 1959.2.1
+		date < 1959.6.1
+	}
+	option = {
+		name = cam.3.a
+		set_country_flag = cam59a
+		CAM = {
+			add_stability = -0.03
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.02
+			}
+			set_country_flag = DapXuanCoup
+		}
+	}
+
+}
+#警告政变
+country_event = {
+	id = cam.60
+	title = cam.60.t
+	desc = cam.60.d
+	picture = GFX_CamArmySmall
+	fire_only_once = yes
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		OR = {
+			tag = SOV
+			tag = FRA
+			tag = VIN
+			tag = PRC
+		}
+		CAM = { 
+			has_country_flag = DapXuanCoup
+			NOT = { has_country_flag = cam61 }
+		}
+	}
+	option = {
+		name = cam.3.a
+		ai_chance = {
+			factor = 10
+		}
+		CAM = {
+			country_event = { id = cam.61 }
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = cam.3.a
+	}
+
+}
+country_event = {
+	id = cam.61
+	title = cam.61.t
+	desc = cam.61.d
+	picture = GFX_CamArmySmall
+	is_triggered_only = yes
+	option = {
+		name = cam.3.a
+		set_country_flag = cam61
+		news_event = { id = cam.62 }
+	}
+
+}
+news_event = {
+	id = cam.62
+	title = cam.62.t
+	desc = cam.62.d
+	picture = GFX_Sihanouko
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cam.3.a
+		set_global_flag = cam62
+	}
+
+}
+#电脑触发达春政变
+news_event = {
+	id = cam.63
+	title = cam.63.t
+	desc = cam.63.d
+	picture = GFX_CambodianCivliWar
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = { 
+		tag = CAM
+		NOT = { has_country_flag = cam61 }
+		has_country_flag = DapXuanCoup
+		neutrality > 0.4
+		has_stability < 0.7
+		NOT = { has_country_leader_with_trait = anti_communist }
+	}
+	option = {
+		name = cam.3.a
+		news_event = { id = cam.64 }
+		set_politics = { ruling_party = neutrality }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.12
+		}
+	}
+
+}
+news_event = {
+	id = cam.65
+	title = cam.65.t
+	desc = cam.65.d
+	picture = GFX_Sihanouko
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = { 
+		tag = CAM
+		has_global_flag = cam62
+		SVN = { has_country_flag = cam59a }
+		date > 1959.8.1
+		date < 1959.10.1
+		NOT = { has_global_flag = cam65 }
+	}
+	option = {
+		name = cam.3.a
+		if = {
+			limit = { tag = CAM }
+			set_global_flag = cam65
+			add_stability = -0.2
+		}
+	}
+
+}
+news_event = {
+	id = cam.71
+	title = cam.71.t
+	desc = cam.71.d
+	picture = GFX_YoungPolpot
+	is_triggered_only = yes
+	option = {
+		name = cam.71.a
+		recruit_character = CAM_Saloth_Sar
+	}
+
+}

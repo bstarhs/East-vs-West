@@ -1,0 +1,60 @@
+
+political_actions = {
+	BUL_Zhivkov_exist = {
+
+		icon = generic_industry
+
+		visible = {
+			always = yes
+			tag = BUL
+			date > 1990.1.1
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 1 
+				date > 1990.8.1 
+			}
+		}
+		fire_only_once = yes
+
+
+		complete_effect = {
+			create_country_leader = {
+			name = "Peter Dladenov" 
+			picture = "Portrait_Bulgaria_Dladenov.tga" 
+			expire = "2000.1.1" 
+			ideology = leninism 
+			traits = {} 
+			}
+		}
+	
+	}
+	BUL_Round_table	= {
+
+		icon = generic_industry
+
+		visible = {
+			always = yes
+			tag = BUL
+			democratic > 0.3
+		}
+		fire_only_once = yes
+
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+			add = 100 
+			date > 1990.11.1 
+			}
+		}
+
+		complete_effect = {
+			set_politics = { ruling_party = democratic }
+		}
+	
+	}
+}

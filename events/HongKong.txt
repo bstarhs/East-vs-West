@@ -1,0 +1,314 @@
+﻿add_namespace = hkn
+#123事件
+news_event = {
+	id = hkn.1
+	title = hkn.1.t
+	desc = hkn.1.d
+	picture = GFX_Macau123
+	fire_only_once = yes
+	trigger = {
+		tag = HKN
+		date > 1966.1.1
+		date < 1967.1.1
+	}
+	option = {
+		name = hkn.1.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+	}
+}
+#67暴动开始
+news_event = {
+	id = hkn.5
+	title = hkn.5.t
+	desc = hkn.5.d
+	picture = GFX_HKroit1967
+	fire_only_once = yes
+	trigger = {
+		tag = HKN
+		PRC = { has_idea = Cultrue_Revolution }
+		date > 1967.5.1
+		date < 1970.5.1
+	}
+	option = {
+		name = hkn.5.a
+		set_global_flag = hk67roit
+		add_stability = -0.3
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+	}
+}
+#67暴动
+news_event = {
+	id = hkn.6
+	title = hkn.6.t
+	desc = hkn.6.d
+	picture = GFX_HKroit1967
+	fire_only_once = yes
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = HKN
+		has_global_flag = hk67roit
+	}
+	option = {
+		name = hkn.6.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+	}
+}
+#暴动结束
+news_event = {
+	id = hkn.7
+	title = hkn.7.t
+	desc = hkn.7.d
+	picture = GFX_HKroit1967
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = HKN
+		has_global_flag = hk67roit
+		date > 1967.8.1
+	}
+	option = {
+		name = hkn.7.a
+		clr_global_flag = hk67roit
+		add_stability = 0.2
+		add_popularity = {
+			ideology = communism
+			popularity = -0.3
+		}
+	}
+}
+#沙头角
+news_event = {
+	id = hkn.8
+	title = hkn.8.t
+	desc = hkn.8.d
+	picture = GFX_ShaTowKok
+	fire_only_once = yes
+	trigger = {
+		tag = HKN
+		has_global_flag = hk67roit
+	}
+	option = {
+		name = hkn.8.a
+		add_stability = 0.1
+	}
+}
+#peace
+news_event = {
+	id = hkn.10
+	title = hkn.10.t
+	desc = hkn.10.d
+	fire_only_once = yes
+	picture = GFX_PLA1970
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = prc.60.a
+	}
+}
+
+news_event = {
+	id = hkn.20
+	title = hkn.20.t
+	desc = hkn.20.d
+	picture = GFX_ShekKipMeiFire
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = ShekKipMei }
+		date > 1953.12.1
+		date < 1954.2.2
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = ShekKipMei
+	}
+}
+#双十暴动
+news_event = {
+	id = hkn.30
+	title = hkn.30.t
+	desc = hkn.30.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = HKN
+		NOT = { has_country_flag = HK1956roit }
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+		set_country_flag = HK1956roit
+	}
+}
+news_event = {
+	id = hkn.31
+	title = hkn.31.t
+	desc = hkn.31.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HKN
+		NOT = { has_country_flag = hkn31 }
+		has_global_flag = HK1956roit
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+		ai_chance = { base = 0 }
+		set_country_flag = hkn31
+		set_country_flag = hkn31kmt
+		news_event = { id = hkn.32 }
+	}
+	option = {
+		name = hkn.1.a
+		ai_chance = { base = 30 }
+		set_country_flag = hkn31
+		set_country_flag = hkn31com
+		news_event = { id = hkn.36 }
+	}
+}
+news_event = {
+	id = hkn.32
+	title = hkn.32.t
+	desc = hkn.32.d
+	picture = GFX_HKroit1956
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.60.a
+	}
+}
+news_event = {
+	id = hkn.36
+	title = hkn.36.t
+	desc = hkn.36.d
+	picture = GFX_HKroit1956
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.60.a
+	}
+}
+news_event = {
+	id = hkn.37
+	title = hkn.37.t
+	desc = hkn.37.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	immediate = {
+		play_song = HKN_1
+	}
+	trigger = {
+		tag = HKN
+		has_country_flag = hkn31com
+		NOT = { has_global_flag = hkn37 }
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+		set_global_flag = hkn37
+	}
+}
+news_event = {
+	id = hkn.38
+	title = hkn.38.t
+	desc = hkn.38.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = HKN
+		has_country_flag = hkn31com
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+	}
+}
+news_event = {
+	id = hkn.39
+	title = hkn.39.t
+	desc = hkn.39.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = HKN
+		has_country_flag = hkn31com
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+		set_country_flag = hkn39
+	}
+}
+news_event = {
+	id = hkn.40
+	title = hkn.40.t
+	desc = hkn.40.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = HKN
+		has_country_flag = hkn31com
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+	}
+}
+news_event = {
+	id = hkn.41
+	title = hkn.41.t
+	desc = hkn.41.d
+	picture = GFX_HKroit1956
+	mean_time_to_happen = { days = 20 }
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		HKN = {
+			has_country_flag = hkn31com
+			has_country_flag = hkn39
+		}
+		date > 1956.9.1
+		date < 1956.12.1
+	}
+	option = {
+		name = hkn.1.a
+		HKN = { clr_country_flag = hkn31com }
+		clr_global_flag = HK1956roit
+		news_event = { id = hkn.42 }
+	}
+}
+news_event = {
+	id = hkn.42
+	title = hkn.42.t
+	desc = hkn.42.d
+	picture = GFX_HKroit1956
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.60.a
+	}
+}

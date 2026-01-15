@@ -1,0 +1,48 @@
+state={
+	id=673
+	name="STATE_673"
+	manpower = 4232000
+	resources={
+		rubber=12
+		coal = 8
+	}
+
+	state_category = rural
+
+
+	history= {
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		owner = HOL
+		set_state_flag = banana_production
+		set_state_flag = ethnics_Bugis
+		add_core_of = SLA
+		add_core_of = INS
+		1949.10.14 = {
+			owner = SLA
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1951.10.14 = {
+			owner = INS
+		}
+		victory_points = { 12358 5 }
+		victory_points = { 7311 4 }
+		victory_points = { 10153 3 }
+
+		1951.6.14 = {
+			owner = INS
+		}
+		buildings = {
+			infrastructure = 3
+			air_base = 4
+			10153 = {
+				naval_base = 3
+			}
+		}
+	}
+	provinces={
+		1098 1289 1484 1505 1518 1561 4262 4307 4308 4493 7311 10153 10169 10197 12358 
+	}
+}

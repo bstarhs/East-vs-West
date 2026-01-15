@@ -1,0 +1,349 @@
+add_namespace = som
+#巴雷上台
+news_event = {
+	id = som.10
+	title = som.10.t
+	desc = som.10.d
+	picture = GFX_SiadBarre
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SML
+		date > 1969.1.1
+		date < 1971.1.1
+		SML = {
+			NOT = { has_government = neutrality }
+		}
+	}
+	option = { 
+		name = som.13.a
+		if = {
+			limit = { tag = SML }
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Mohamed Siad Barre"
+				picture = "gfx/leaders/SML/Portrait_Somaliland_Siad.tga"
+				expire = "2050.1.1"
+				ideology = despotism
+				traits = {
+					pro_soviet warmonger Developmentalism
+				}
+			}
+		}
+	}
+}
+#占领欧加登
+news_event = {
+	id = som.13
+	title = som.13.t
+	desc = som.13.d
+	picture = GFX_EthiopiaCivilWar
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = ETH
+		has_war_with = SML
+		OR = {
+		has_stability < 0.2
+		has_war_support < 0.2
+		}
+	}
+	option = { 
+		name = som.13.a
+		SML = {
+			white_peace = ETH
+			transfer_state = 791
+			add_stability = 0.4
+			add_to_variable = { influences = 80 } 
+		}
+		ETH = {
+			add_stability = -0.2
+			add_to_variable = { influences = -80 } 
+		}
+		news_event = { id = som.14 }
+	}
+}
+#占领欧加登新闻
+news_event = {
+	id = som.14
+	title = som.14.t
+	desc = som.14.d
+	picture = GFX_EthiopiaCivilWar
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = som.13.a
+	}
+}
+#欧加登失败
+news_event = {
+	id = som.15
+	title = som.15.t
+	desc = som.15.d
+	picture = GFX_EthiopiaCivilWar
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = som.15.a
+		if = {
+			limit = { tag = SOM }
+			
+		}
+	}
+}
+#索马里托管
+news_event = {
+	id = som.20
+	title = som.20.t
+	desc = som.20.d
+	picture = GFX_Mogadiscio
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		date > 1949.5.1
+		date < 1950.5.1
+		tag = ENG
+		controls_state = 1052
+		NOT = { has_global_flag = som20 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som20
+	}
+}
+news_event = {
+	id = som.24
+	title = som.24.t
+	desc = som.24.d
+	picture = GFX_UN
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		date > 1949.5.1
+		date < 1950.5.1
+		tag = ENG
+		controls_state = 1052
+		has_global_flag = som20
+		NOT = { has_global_flag = som24 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som24
+	}
+}
+news_event = {
+	id = som.25
+	title = som.25.t
+	desc = som.25.d
+	picture = GFX_UN1955
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		date > 1950.2.1
+		date < 1950.5.1
+		tag = ENG
+		ITA = { NOT = { has_government = communism } }
+		controls_state = 1052
+		has_global_flag = som24
+		NOT = { has_global_flag = som25 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som25
+	}
+}
+news_event = {
+	id = som.26
+	title = som.26.t
+	desc = som.26.d
+	picture = GFX_UN1955
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		date > 1950.2.1
+		date < 1950.5.1
+		tag = ENG
+		controls_state = 1052
+		has_global_flag = som25
+		NOT = { has_global_flag = som26 }
+	}
+	option = { 
+		name = som.15.a
+		trigger = { NOT = { tag = ITA } }
+		set_global_flag = som26
+	}
+	option = { 
+		name = som.15.a
+		trigger = { tag = ITA }
+		ai_chance = { factor = 20 }
+		set_global_flag = som26
+		news_event = { id = som.28 days = 2 }
+	}
+	option = { 
+		name = som.15.a
+		trigger = { tag = ITA }
+		set_global_flag = som26
+		ai_chance = { factor = 0 }
+		news_event = { id = som.29 days = 2 }
+	}
+}
+news_event = {
+	id = som.28
+	title = som.28.t
+	desc = som.28.d
+	picture = GFX_UN1955
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = som.13.a
+		if = {
+			limit = { tag = ITA }
+			add_political_power = 200
+			1051 = { transfer_state_to = ITA }
+			1052 = { transfer_state_to = ITA }
+			559 = { transfer_state_to = ITA }
+			853 = { transfer_state_to = ITA }
+		}
+	}
+}
+news_event = {
+	id = som.29
+	title = som.29.t
+	desc = som.29.d
+	picture = GFX_UN1955
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = som.13.a
+	}
+}
+news_event = {
+	id = som.32
+	title = som.32.t
+	desc = som.32.d
+	picture = GFX_AfricaVote2
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		date > 1956.2.1
+		date < 1956.5.1
+		tag = ITA
+		NOT = { has_government = communism }
+		controls_state = 1052
+		NOT = { has_global_flag = som32 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som32
+	}
+}
+
+news_event = {
+	id = som.33
+	title = som.33.t
+	desc = som.33.d
+	picture = GFX_AfricaVote2
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		date > 1956.2.1
+		date < 1956.5.1
+		tag = ITA
+		NOT = { has_government = communism }
+		controls_state = 1052
+		has_global_flag = som32
+		NOT = { has_global_flag = som33 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som33
+		if = {
+			limit = { tag = ITA }
+			add_political_power = 100
+			release_autonomy = {
+				target = SML
+				autonomy_state = autonomy_dominion
+				freedom_level = 0.5
+			}
+			SML = { promote_character = SML_Abdullahi_Issa_Mohamud }
+		}
+	}
+}
+news_event = {
+	id = som.34
+	title = som.34.t
+	desc = som.34.d
+	picture = GFX_SomaliIndependent
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	immediate = {
+		play_song = SML_1
+	}
+	trigger = {
+		date > 1960.6.1
+		date < 1960.7.1
+		tag = ITA
+		NOT = { has_government = communism }
+		has_subject = SML
+		has_global_flag = som33
+		NOT = { has_global_flag = som34 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som34
+		if = {
+			limit = { tag = ITA }
+			add_political_power = 200
+			end_puppet = SML
+			SML = { promote_character = SML_Aden_Abdullah_Osman_Daar }
+		}
+	}
+}
+news_event = {
+	id = som.35
+	title = som.35.t
+	desc = som.35.d
+	picture = GFX_SomaliIndependent
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		date < 1960.12.1
+		tag = ENG
+		controls_state = 269
+		country_exists = SML
+		has_global_flag = som34
+		NOT = { has_global_flag = som35 }
+	}
+	option = { 
+		name = som.15.a
+		set_global_flag = som35
+		add_political_power = 200
+		news_event = som.36
+		269 = { transfer_state_to = SML }
+	}
+}
+news_event = {
+	id = som.36
+	title = som.36.t
+	desc = som.36.d
+	picture = GFX_SomaliIndependent
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = som.13.a
+	}
+}

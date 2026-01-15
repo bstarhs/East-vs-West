@@ -1,0 +1,43 @@
+
+state={
+	id=3
+	name="STATE_3"
+	manpower = 2211689
+	resources={
+		aluminium=6
+		salt=9
+	}
+	local_supplies=0.0
+
+	state_category = city
+
+
+	history={
+		set_state_flag = ethnics_French
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 63 }
+		add_to_array = { this.state_ethnics_list = 70 }
+		owner = SWI
+		victory_points = { 9620 12 }
+		victory_points = { 6666 10 }
+		victory_points = { 9638 4 }
+		victory_points = { 11604 4 }
+		victory_points = { 14083 6 }
+		buildings = {
+			farm_building = 2
+			school = 1
+			power_plant = 1
+			dam_plant = 2
+			hospital = 1
+			infrastructure = 6
+			arms_factory = 4
+			industrial_complex = 4
+			air_base = 4
+		}
+		add_core_of = SWI
+	}
+
+	provinces={
+		636 3612 6666 6683 9587 9618 9620 9622 9638 11590 11604 13124 14083
+	}
+}

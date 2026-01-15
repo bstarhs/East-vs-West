@@ -1,0 +1,27 @@
+
+general_powerplant = {
+	enable = {
+		any_owned_state = { check_variable = { plant_power < state_power_need } }
+	}
+	abort = {
+		all_owned_state = { check_variable = { plant_power > state_power_need } }
+	}
+	ai_strategy = {
+		type = building_target
+		id = power_plant
+		value = 50
+	}
+}
+general_farm_building = {
+	enable = {
+		any_owned_state = { check_variable = { state_food_production < state_food_need } }
+	}
+	abort = {
+		all_owned_state = { check_variable = { state_food_production > state_food_need } }
+	}
+	ai_strategy = {
+		type = building_target
+		id = farm_building
+		value = 50
+	}
+}

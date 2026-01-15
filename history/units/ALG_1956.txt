@@ -1,0 +1,95 @@
+﻿division_template = {
+	name = "Infantry Division"		
+	division_names_group = EGY_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }      # Recon Group consisted of 64 ACs/scout cars
+	}
+}
+
+
+units = {
+	division = {	
+		name = "Infantry Division"
+		location = 1145
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 1145
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 1145
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 11953
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 11953
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 12018
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 4903
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+	division = {	
+		name = "Infantry Division"
+		location = 1901
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.6
+
+	}
+}
+
+
+### No BHU air forces ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "VIN"
+		}
+		requested_factories = 1
+		progress = 0.71
+		efficiency = 100
+	}
+}

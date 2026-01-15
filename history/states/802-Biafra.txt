@@ -1,0 +1,32 @@
+
+state={
+	id=802
+	name="STATE_802"
+	manpower = 19757000
+	
+	state_category = rural
+	resources={
+		coal = 8
+		rubber = 16
+	}
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = NGR
+		set_state_flag = ethnics_Igbo
+		add_to_array = { this.state_ethnics_list = 83 }
+		add_to_array = { this.state_ethnics_list = 77 }
+		add_core_of = NGR
+		add_core_of = BIF
+		
+		buildings = {
+			farm_building = 2
+			infrastructure = 3
+			industrial_complex = 1
+		}
+
+	}
+
+	provinces={
+		4952 8034 10831
+	}
+}

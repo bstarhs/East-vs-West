@@ -1,0 +1,1161 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Motostrelkovaya Diviziya"	
+	division_names_group = SOV_MOT_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }	
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }		
+		light_armor = { x = 1 y = 2 }	
+		aa_missile_battalion = { x = 2 y = 0 }
+		at_missile_battalion = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "NKVD Pogranichnaya Diviziya"
+	division_names_group = SOV_MOT_01	# NKVD Border Guard Division
+												# Note: garrison units (all have oldest equipment, low experience)
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = 	{
+		military_police = { x = 0 y = 0 }
+		military_police = { x = 0 y = 1 }
+		military_police = { x = 0 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Vozdushno-Desantnaya"	
+	division_names_group = SOV_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 }
+		mechanized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Tankovaya Korpus" 	
+	division_names_group = SOV_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# BT-7 tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }	
+		medium_armor = { x = 1 y = 0 }		# BT-7 tanks	
+		medium_armor = { x = 1 y = 1 }		
+		medium_armor = { x = 1 y = 2 }			
+		motorized = { x = 2 y = 0 }		
+		motorized = { x = 2 y = 1 }		
+		medium_sp_anti_air_brigade = { x = 3 y = 0 }		
+		medium_sp_anti_air_brigade = { x = 3 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Tankovaya Brigada" 	
+	division_names_group = SOV_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 1 }		
+		mechanized_aa_missile_battalion = { x = 1 y = 2 }		
+		motorized = { x = 2 y = 0 }	
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Vertoletnyy polk" 
+	division_names_group = SOV_ARM_01
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }		# T-35 heavy tanks
+		heavy_armor = { x = 0 y = 1 }
+	}
+	support = {
+		helicopter_recon = { x = 0 y = 0 } 
+	}
+}
+division_template = {
+	name = "Voiska PVO" 	
+	division_names_group = SOV_MEC_01
+	regiments = {	
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 0 }
+		medium_sp_anti_air_brigade = { x = 1 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Morskaya Pekhota"	
+	division_names_group = SOV_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		signal_company = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+##### OOB #####
+units = {
+	division = {
+		name = "61st Naval Infantry Brigade"
+		location = 3134
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "336th Guard Naval Infantry Brigade"
+		location = 6332
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "810th Guard Naval Infantry Brigade"
+		location = 3686
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "55th Guard Naval Infantry Brigade"
+		location = 957
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "1st Guards Motor Rifle Division"
+		location = 6332
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "2nd Guards Motor Rifle Division"
+		location = 6380
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "3rd Guards Motor Rifle Division"
+		location = 6314
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "4th Guards Motor Rifle Division"
+		location = 12239
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "5th Guards Motor Rifle Division"
+		location = 2017
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "6th Guards Motor Rifle Division"
+		location = 3207
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "6th Guards Motor Rifle Division"
+		location = 11288
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "8th Guards Motor Rifle Division"
+		location = 83
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "9th Guards Motor Rifle Division"
+		location = 12612
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "9th Motor Rifle Division"
+		location = 9742
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "10th Guards Motor Rifle Division"
+		location = 3656
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "11th Guards Motor Rifle Division"
+		location = 7725
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "12th Motor Rifle Division"
+		location = 10678
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "12th Motor Rifle Division "
+		location = 4801
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "13th Motor Rifle Division "
+		location = 7725
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "14th Guards Motor Rifle Division"
+		location = 6441
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "15th Motor Rifle Division"
+		location = 6441
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "16th Guards Motor Rifle Division"
+		location = 281
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "17th Guards Motor Rifle Division"
+		location = 3457
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "18th Guards Motor Rifle Division"
+		location = 9414
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "19th Motor Rifle Division"
+		location = 714
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "20th Guards Motor Rifle Division"
+		location = 6582
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "21st Motor Rifle Division"
+		location = 11359
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "22nd Motor Rifle Division"
+		location = 7878
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "23rd Guards Motor Rifle Division"
+		location = 11674
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "24th Motor Rifle Division"
+		location = 536
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "25th Guards Motor Rifle Division"
+		location = 582
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "26th Guards Motor Rifle Division"
+		location = 6407
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "27th Guards Motor Rifle Division"
+		location = 6501
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "28th Guards Motor Rifle Division"
+		location = 11670
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "29th Guards Motor Rifle Division"
+		location = 6296
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "29th Motor Rifle Division"
+		location = 3787
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "30th Guards Motor Rifle Division"
+		location = 6561
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "32nd Guards Motor Rifle Division"
+		location = 9691
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "33rd Guards Motor Rifle Division"
+		location = 9683
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "33rd Motor Rifle Division"
+		location = 12540
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "34th Motor Rifle Division"
+		location = 1278
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "35th Motor Rifle Division"
+		location = 3499
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "36th Guards Motor Rifle Division"
+		location = 3152
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "36th Motor Rifle Division"
+		location = 9461
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "38th Guards Motor Rifle Division"
+		location = 12622
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "39th Guards Motor Rifle Division"
+		location = 6524
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "40th Motor Rifle Division"
+		location = 9926
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "41st Motor Rifle Division"
+		location = 7752
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "42nd Guards Motor Rifle Division"
+		location = 3672
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "43rd Training Motor Rifle Division"
+		location = 11225
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "45th Guards Motor Rifle Division"
+		location = 9206
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "46th Motor Rifle Division"
+		location = 6505
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "47th Motor Rifle Division"
+		location = 9477
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "47th Guards Motor Rifle Division"
+		location = 664
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "48th Motor Rifle Division"
+		location = 583
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "50th Guards Motor Rifle Division"
+		location = 3392
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "51st Guards Motor Rifle Division "
+		location = 422
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "52nd Motor Rifle Division"
+		location = 10562
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "53rd Guards Training Motor Rifle Division"
+		location = 378
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "54th Motor Rifle Division"
+		location = 9123
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "56th Motor Rifle Division"
+		location = 10696
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "57th Guards Motor Rifle Division"
+		location = 6582
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "58th Motor Rifle Division"
+		location = 4599
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "59th Guards Motor Rifle Division"
+		location = 6743
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "60th Motor Rifle Division"
+		location = 4473
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "61st Training Motor Rifle Division"
+		location = 12333
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "62nd Motor Rifle Division"
+		location = 12606
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "63rd Guards Motor Rifle Division"
+		location = 3060
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "64th Guards Motor Rifle Division"
+		location = 9105
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "65th Motor Rifle Division"
+		location = 12157
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "66th Guards Training Motor Rifle Division"
+		location = 3743
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "67th Training Motor Rifle Division"
+		location = 10696
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "68th Motor Rifle Division"
+		location = 1591
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "69th Motor Rifle Division"
+		location = 11213
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "70th Guards Motor Rifle Division"
+		location = 11411
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "71st Motor Rifle Division"
+		location = 4661
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "72nd Guards Motor Rifle Division"
+		location = 504
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "73rd Motor Rifle Division"
+		location = 957
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "74th Motor Rifle Division"
+		location = 4818
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "75th Motor Rifle Division"
+		location = 4660
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "77th Guards Motor Rifle Division"
+		location = 3338
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "79th Motor Rifle Division"
+		location = 1755
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "80th Guards Training Motor Rifle Division"
+		location = 1591
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "81st Guards Krasnograd Motor Rifle Division"
+		location = 6684
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "82nd Motor Rifle Division"
+		location = 3529
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "83rd Guards Motor Rifle Division"
+		location = 11543
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "84th Motor Rifle Division"
+		location = 12333
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "85th Motor Rifle Division"
+		location = 7825
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "86th Guards Motor Rifle Division"
+		location = 6600
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "88th Motor Rifle Division"
+		location = 4958
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "91st Motor Rifle Division"
+		location = 12540
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "92nd Guards Training Motor Rifle Division"
+		location = 11703
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "93rd Guards Motor Rifle Division"
+		location = 684
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "94th Guards Motor Rifle Division"
+		location = 11276
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "96th Motor Rifle Division"
+		location = 6338
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "97th Guards Motor Rifle Division"
+		location = 3511
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "99th Motor Rifle Division"
+		location = 13063
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "100th Guards Training Motor Rifle Division"
+		location = 1599
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "2nd Guards Motor Rifle Division"
+		location = 6380
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	#Air born troops
+	division = {
+		name = "7th Guards Airborne Division"
+		location = 6296
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "44th Guards Airborne Division"
+		location = 6296
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "76th Guards Airborne Division"
+		location = 11202
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "98th Guards Airborne Division"
+		location = 9683
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "103th Guards Airborne Division"
+		location = 11241
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "104th Guards Airborne Division"
+		location = 7661
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "105th Guards Airborne Division"
+		location = 9388
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "106th Guards Airborne Division"
+		location = 6262
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "345th Independent Guards Airborne Regiment"
+		location = 1599
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	#Poland command
+	division = {
+		name = "20th Tank Division"
+		location = 3438
+		division_template = "Tankovaya Brigada"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "55th Independent Helicopter Regiment"
+		location = 3510
+		division_template = "Vertoletnyy polk"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "83rd Guards Air Assault Brigade"
+		location = 9306
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+
+	##### Voiska PVO #####
+	division = {
+		name = "5th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "6th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "10th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "17th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	
+	##### NAVAL UNITS #####
+	### Northern Fleet -- Murmansk
+	fleet = {
+		name = "Severnyy Flot"
+		naval_base = 3134 # Murmansk
+		task_force = {				
+			name = "Severnyy Flot"
+			location = 3134 # Murmansk
+			# 1ya Flotiliya Esmintsev
+			ship = { name = "Dzerzhinskiy" definition = destroyer equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kara Class" } } }
+			ship = { name = "Nezamozhnik" definition = destroyer equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kara Class" } } }
+			ship = { name = "Petrovskiy" definition = destroyer equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kara Class" } } }
+			ship = { name = "Shaumyan" definition = destroyer equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kara Class" } } }
+		}	
+		task_force = {	
+			name = "Severniy Podvodniy Flot"
+			location = 3134 # Murmansk
+			# 5iy Podvodniy Flot
+			ship = { name = "D-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			ship = { name = "D-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			ship = { name = "D-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			ship = { name = "D-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			ship = { name = "D-5" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			ship = { name = "D-6" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			# 13iy Podvodniy Flot
+			ship = { ordered_name = 401 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			ship = { ordered_name = 402 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			ship = { ordered_name = 403 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			ship = { ordered_name = 404 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			# 15iy Podvodniy Flot
+			ship = { ordered_name = 421 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			ship = { ordered_name = 422 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			ship = { ordered_name = 423 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+			ship = { ordered_name = 424 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }			
+		}
+	}
+	
+	### Baltic Fleet -- Leningrad
+	fleet = {
+		name = "Baltiyskiy Flot"
+		naval_base = 3151 # Leningrad
+		task_force = {	
+			name = "Baltiyskiy Flot"
+			location = 3151 # Leningrad
+			ship = { name = "Marat" pride_of_the_fleet = yes definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Sverdrov class" } } }
+			ship = { name = "Oktyabrskaya Revolutsiya" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Sverdrov class" } } }
+			ship = { name = "Kirov" definition = heavy_cruiser equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kresta class" } } }	
+			ship = { name = "Marti" definition = light_cruiser equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kresta class" } } }
+			# 3ya Flotiliya Esmintsev
+			ship = { name = "Leningrad" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Gremyashchiy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Groznyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Gnevnyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Gordyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			# 4ya Flotiliya Esmintsev
+			ship = { name = "Minsk" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Gromkiy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Smetlivyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Stremitelnyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Sokrushitelnyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+		}	
+		task_force = {	
+			name = "Baltiyskiy Podvodniy Flot"
+			location = 3151 # Leningrad
+			ship = { name = "B-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			ship = { name = "L-55" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "613 Whiskey" } } }			
+			# 1iy Podvodniy Flot
+			ship = { ordered_name = 301 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 302 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 303 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 304 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 305 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 306 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 2iy Podvodniy Flot
+			ship = { ordered_name = 307 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 308 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 309 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 310 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 311 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 6iy Podvodniy Flot
+			ship = { ordered_name = 317 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 318 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 319 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 320 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 322 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 323 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 324 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			# 7iy Podvodniy Flot
+			ship = { name = "P-1" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }			
+			ship = { name = "P-2" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }			
+			ship = { name = "P-3" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }			
+			ship = { ordered_name = 1 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { ordered_name = 2 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { ordered_name = 3 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			# 16iy  Podvodniy Flot
+			ship = { ordered_name = 1 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 2 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 3 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+		}
+	}
+
+	### Black Sea Fleet -- Sevastopol
+	fleet = {
+		name = "Chernomorskiy Flot"
+		naval_base = 3686 # Sevastopopl
+		task_force = {	
+			name = "Chernomorskiy Flot"
+			location = 3686 # Sevastopopl
+			ship = { name = "Parizhskaya Kommuna" definition = battleship equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Sverdrov class" } } }
+			ship = { name = "Krasni Kavkaz" definition = light_cruiser equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kresta class" } } }
+			ship = { name = "Krasny Krym" definition = light_cruiser equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kresta class" } } }
+			ship = { name = "Chervona Ukraina" definition = light_cruiser equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kresta class" } } }
+			ship = { name = "Komintern" definition = light_cruiser equipment = { ship_hull_heavy_2 = { amount = 1 owner = SOV version_name = "Kresta class" } } }
+			# 5ya Flotiliya Esmintsev
+			ship = { name = "Moskva" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Bodryy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Bystryy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Boykiy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			# 6ya Flotiliya Esmintsev
+			ship = { name = "Kharkov" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Artyom" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }
+			ship = { name = "Volodarskiy" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }
+			ship = { name = "Yakov Sverdlov" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }
+			ship = { name = "Frunze" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }
+		}	
+		task_force = {	
+			name = "Chernomorskiy Podvodniy Flot"
+			location = 3686 # Sevastopopl
+			# 9iy Podvodniy Flot
+			ship = { ordered_name = 201 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 202 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 203 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 204 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 205 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 206 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 207 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 12iy Podvodniy Flot
+			ship = { ordered_name = 208 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 209 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 210 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 211 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			# 14iy Podvodniy Flot
+			ship = { ordered_name = 212 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 213 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 214 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 215 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			# 15iy Podvodniy Flot
+			ship = { name = "A-1" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { name = "A-2" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { name = "A-3" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { name = "A-4" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { name = "A-5" definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }	
+		}	
+	}
+
+	### Pacific Fleet -- Vladivostok
+	fleet = {
+		name = "Tikhookeanskiy Flot"
+		naval_base = 957 # Vladivostok
+		task_force = {	
+			name = "Tikhookeanskiy Flot"
+			location = 957 # Vladivostok
+			# 8ya Flotiliya Esmintsev
+			ship = { name = "Ryanyy" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = SOV version_name = "Petya class" } } }
+			ship = { name = "Rykov" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }		
+			ship = { name = "Uritskiy" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }
+			ship = { name = "Stalin" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SOV version_name = "Orfey Class" } } }
+		}	
+		task_force = {	
+			name = "Tihookyeanskiy Podvodniy Flot"
+			location = 957 # Vladivostok
+			# 3iy Podvodniy Flot
+			ship = { ordered_name = 101 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 102 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 103 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 104 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 105 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 106 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 4iy Podvodniy Flot
+			ship = { ordered_name = 107 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 108 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 109 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 110 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 111 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 112 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 10iy Podvodniy Flot
+			ship = { ordered_name = 113 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 114 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 115 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 116 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 117 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 118 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 11iy Podvodniy Flot
+			ship = { ordered_name = 119 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 120 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 121 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 122 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 123 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			ship = { ordered_name = 124 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "611 Zulu" } } }			
+			# 16iy Podvodniy Flot
+			ship = { ordered_name = 126 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 127 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 128 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 129 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 130 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			# 17iy Podvodniy Flot
+			ship = { ordered_name = 131 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 132 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 133 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			ship = { ordered_name = 134 definition = submarine equipment = { ship_hull_submarine_1 = { amount = 1 owner = SOV version_name = "641 Foxtrot" } } }
+			# 18iy  Podvodniy Flot
+			ship = { ordered_name = 7 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 8 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 9 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 10 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 11 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			ship = { ordered_name = 12 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "Series II Leninets" } } }			
+			# 18iy  Podvodniy Flot
+			ship = { ordered_name = 13 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "690 Bravo" } } }			
+			ship = { ordered_name = 14 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "690 Bravo" } } }			
+			ship = { ordered_name = 15 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "690 Bravo" } } }			
+			ship = { ordered_name = 16 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "690 Bravo" } } }			
+			ship = { ordered_name = 17 definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "690 Bravo" } } }			
+		}	
+	}
+}					
+					
+
+### Air Wings
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	192 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	12 = {															# Brussels
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 22 }
+		strat_bomber_equipment_3 =  { owner = "SOV" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+	219 = {															# Brussels
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 22 }
+		strat_bomber_equipment_3 =  { owner = "SOV" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+	242 = {															# Brussels
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 22 }
+		strat_bomber_equipment_3 =  { owner = "SOV" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+	12 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	206 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	91 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	231 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	405 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	195 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	563 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	408 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	209 = { 														# East Anglia 	
+		transport_plane_equipment_2 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	11 = { 														# East Anglia 	
+		transport_plane_equipment_2 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	192 = { 														# East Anglia 	
+		transport_plane_equipment_2 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	231= { 														# East Anglia 	
+		transport_plane_equipment_2 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	408 = { 														# East Anglia 	
+		transport_plane_equipment_2 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+}

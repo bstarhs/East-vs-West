@@ -1,0 +1,237 @@
+﻿division_template = {
+	name = "Infatry Division"
+	division_names_group = PAK_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 		# Heavy Arty Regiment had 2x 122mm bn
+	}
+}
+
+division_template = {
+	name = "Armoured Division"
+	division_names_group = PAK_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+		maintenance_company = { x = 0 y = 2 } 
+		signal_company = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Artillery Division" 	
+	division_names_group = PAK_MOT_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+}
+
+
+units = {
+	#I Corps
+	division = {
+		name = "6th Armoured Division"
+		location = 12005
+		division_template = "Armoured Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "17th Infantry Division"
+		location = 10887
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "37th Infantry Division"
+		location = 10887
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "1th Independent Armoured Brigade"
+		location = 10887
+		division_template = "Armoured Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "Independent Air Defence Brigade"
+		location = 10887
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "Independent Artillery Brigade"
+		location = 10887
+		division_template = "Artillery Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "Independent Infantry Brigade"
+		location = 10887
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	#IV Corps
+	division = {
+		name = "10th Infantry Division"
+		location = 10843
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "11th Infantry Division"
+		location = 10843
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "3rd Independent Armoured"
+		location = 10843
+		division_template = "Armoured Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "212th Infantry Brigade"
+		location = 10843
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "Independent Artillery Brigade"
+		location = 10843
+		division_template = "Artillery Division"
+		start_experience_factor = 0.3
+	}
+	#XXX Corps 
+	division = {
+		name = "2nd Artillery Division"
+		location = 12005
+		division_template = "Artillery Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "8th Infantry Division"
+		location = 1910
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "15th Infantry Division"
+		location = 1910
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "2nd Independent Armoured Brigade"
+		location = 12005
+		division_template = "Armoured Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "54th Independent Infantry Brigade"
+		location = 12005
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "Independent Artillery Brigade"
+		location = 12005
+		division_template = "Artillery Division"
+		start_experience_factor = 0.3
+	}
+	#II Corps
+	division = {
+		name = "1st Armoured Division"
+		location = 10139
+		division_template = "Armoured Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "14th Infantry Division"
+		location = 10066
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		name = "40th Infantry Division"
+		location = 10066
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Independent Armoured Brigade"
+		location = 10139
+		division_template = "Armoured Division"
+		start_experience_factor = 0.3
+	}
+	#V Corps
+	division = {
+		name = "16th Infantry Division"
+		location = 1971
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "18th Infantry Division"
+		location = 10108
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "25th Mechanized Division"
+		location = 3456
+		division_template = "Infatry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "21st Artillery Division"
+		location = 1971
+		division_template = "Artillery Division"
+		start_experience_factor = 0.3
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "PAK"
+		}
+		requested_factories = 1
+		progress = 0.23
+		efficiency = 100
+	}
+}

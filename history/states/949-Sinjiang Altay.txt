@@ -1,0 +1,33 @@
+
+state={
+	id=949
+	name="STATE_949" # Ili
+	manpower = 17080
+
+	state_category = pastoral
+
+	history={
+		add_to_array = { this.state_ethnics_list = 8 }
+		add_to_array = { this.state_ethnics_list = 10 }
+		add_to_array = { this.state_ethnics_list = 11 }
+		set_state_flag = ethnics_Khazakhs
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = husbandry_production }
+                              
+		owner = SIK
+		add_core_of = SIK
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+		}
+		1949.10.25 = {
+		owner = PRC
+		}
+		victory_points = { 12737 5 }
+	}
+
+	provinces={
+		12737 12590 4714 7737 4849 4823 7693 
+	}
+}

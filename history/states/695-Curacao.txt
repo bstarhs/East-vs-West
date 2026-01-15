@@ -1,0 +1,28 @@
+state={
+	id=695
+	name="STATE_695"
+	manpower = 76299
+	resources={
+		salt=8
+	}
+	state_category = small_island
+
+	history={
+		set_state_flag = ethnics_Caribbean
+		owner = HOL
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 64 }
+		buildings = {
+			infrastructure = 3
+			153 = {
+				naval_base = 1
+				coastal_bunker = 2
+			}
+		}
+		add_core_of = HOL
+	}
+
+	provinces={
+		153 
+	}
+}

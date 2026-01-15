@@ -1,0 +1,80 @@
+
+military_action = {
+	
+	RHO_attack_ZAM = {
+		days_re_enable = 120
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = RHO
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+			}
+		}
+		available = {
+			has_army_experience > 120
+		}
+		visible = {
+			has_idea = jungle_war
+		}
+
+		complete_effect = {
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 770
+				num_provinces = 4
+				on_win = rho.20
+			}
+			defender = {
+				state = 545
+				num_provinces = 4
+				on_lose = rho.21
+			}
+		}
+		}
+	}
+	RHO_attack_MZB = {
+		days_re_enable = 120
+		icon = generic_research
+
+		available = {
+			has_army_experience > 120
+		}
+		allowed = {
+			always = yes
+			tag = RHO
+		}
+		cost = 30
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+			}
+		}
+		visible = {
+			has_idea = jungle_war
+		}
+
+		complete_effect = {
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 770
+				num_provinces = 4
+				on_win = rho.22
+			}
+			defender = {
+				state = 544
+				num_provinces = 4
+				on_lose = rho.21
+			}
+		}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+state={
+	id=742
+	name="STATE_742"
+
+	resources={
+		coal = 8
+		iron = 4
+	}
+	history={
+		set_state_flag = ethnics_Tajik
+		set_state_flag = cutton_production
+		add_to_array = { this.state_ethnics_list = 160 }
+		owner = SOV
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		victory_points = { 12250 4 }
+		buildings = {
+			hospital = 1
+			infrastructure = 1
+			dam_plant = 1
+
+		}
+		add_core_of = SOV
+		add_core_of = TAJ
+		1990.1.1 = {
+			owner = TAJ
+			remove_core_of = SOV
+		}
+		1969.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+		1980.1.1 = {
+			buildings = {
+				dam_plant = 3
+			}
+		}
+
+	}
+
+	provinces={
+		4542 7224 12218 12250 12430 1919 1384 13751 10187 1216 10205 
+	}
+	manpower=230000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

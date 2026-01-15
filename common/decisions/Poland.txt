@@ -1,0 +1,46 @@
+
+political_actions = {
+	POL_POPE = {
+
+		icon = generic_industry
+
+		visible = {
+			always = yes
+			tag = VAT
+			date > 1979.1.1
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			POL = { news_event = { id = vat.4 } }
+		}
+	
+	}
+	POL_Military_controll	= {
+
+		icon = generic_industry
+
+		visible = {
+			always = yes
+			tag = POL
+			has_idea = Solidarnosc
+			date < 1986.1.1
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			POL = { news_event = { id = pol.18 } }
+		}
+	
+	}
+}

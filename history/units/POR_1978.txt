@@ -1,0 +1,275 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Regimento de Infantaria"		# Infantry Division
+	division_names_group = POR_MEC_01
+	# Note: each regiment could also mobilize a 3rd battalion if called up
+	regiments = {					
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  # Full howitzer regiment
+		engineer = { x = 0 y = 1 }   
+	}
+}
+
+division_template = {
+	name = "Divisão de Blindar" 	
+	division_names_group = POR_ARM_01		
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 0 y = 3 }
+		medium_sp_anti_air_brigade = { x = 1 y = 0 }
+		medium_sp_anti_air_brigade = { x = 1 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Brigada Mecanizada" 
+	division_names_group = POR_ARM_01		
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 0 y = 3 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 2 }
+		medium_sp_anti_air_brigade = { x = 1 y = 3 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+units = {
+	###### Exército Portugues (CO: Cabral) #####
+	# Governo Militar Portugues (CO: Cunha) #
+	division = {
+		name = "Brigada Mecanizada"
+		location = 844
+		division_template = "Brigada Mecanizada"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Brigada de Forças Especiais"
+		location = 889
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Portu"
+		location = 9817
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Chaves"
+		location = 9817
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Vila Real"
+		location = 724
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Chavez"
+		location = 6921
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Divisão de Blindar"
+		location = 9817
+		division_template = "Divisão de Blindar"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Abrantes"
+		location = 844
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Castelo Branco"
+		location = 3969
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Tomar"
+		location = 924
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Aveiro"
+		location = 6924
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Beja"
+		location = 9765
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Elvas"
+		location = 3886
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Elvas"
+		location = 3886
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Faro"
+		location = 6880
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Estremoz"
+		location = 3846
+		division_template = "Divisão de Blindar"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Mafra"
+		location = 11805
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Queluz"
+		location = 11805
+		division_template = "Regimento de Infantaria"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Lisboa"
+		location = 3846
+		division_template = "Divisão de Blindar"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Madeira"
+		location = 3118
+		division_template = "Divisão de Blindar"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "Regimento de Azores"
+		location = 1751
+		division_template = "Divisão de Blindar"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "Regimento de Macao"
+		location = 4189
+		division_template = "Divisão de Blindar"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+	}
+
+
+}
+
+
+### Aeronáutica Militar ###
+air_wings = {
+	112 = {
+		CAS_equipment_1 = { owner = "POR" amount = 20 }				# Esquadrão de Alverca-- Ju 86K, Ju 52/3m bombers
+		fighter_equipment_0 = { owner = "POR" amount = 30 }					# Esquadrão de Tancos  -- Gladiator II fighters
+
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "POR"
+		}
+		requested_factories = 1
+		progress = 0.66
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "POR"
+		}
+		requested_factories = 1
+		progress = 0.64
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "POR" 
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 100
+	}
+}

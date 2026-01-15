@@ -1,0 +1,992 @@
+﻿add_namespace = africa
+#加纳示威
+news_event = {
+	id = africa.1
+	title = africa.1.t
+	desc = africa.1.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 200
+	}
+	fire_only_once = yes
+	trigger = {
+		date > 1958.1.1
+		GAN = {
+			OR = {
+				is_subject = yes
+				274 = { is_owned_and_controlled_by = ENG }
+			}
+		}
+		tag = ENG
+	}
+	option = {
+		name = gen.4.a
+		GAN = { add_ideas = african_independent }
+		every_state = {
+			limit = {
+				is_core_of = GAN
+			}
+			add_resistance = 5 
+		}
+		if = {
+			limit = {
+				any_state = {
+					is_core_of = GAN
+					resistance > 80
+				}
+			}
+			GAN = { transfer_state = 274 }
+			declare_war_on = {
+				target = GAN
+				type = annex_everything
+			}
+		}
+	}
+}
+#乌干达示威
+news_event = {
+	id = africa.2
+	title = africa.1.t
+	desc = africa.1.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		date > 1958.1.1
+		UGA = {
+			OR = {
+			exists = no
+			is_subject = yes
+			}
+		}
+		tag = ENG
+	}
+	option = {
+		name = gen.4.a
+		UGA = { add_ideas = african_independent }
+		every_state = {
+			limit = {
+				is_core_of = UGA
+			}
+			add_resistance = 5
+		}
+		if = {
+			limit = {
+				any_state = {
+					is_core_of = UGA
+					resistance > 80
+				}
+			}
+			UGA = { transfer_state = 548 }
+			declare_war_on = {
+				target = UGA
+				type = annex_everything
+			}
+		}
+	}
+}
+#坦桑尼亚
+news_event = {
+	id = africa.3
+	title = africa.1.t
+	desc = africa.1.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		date > 1958.1.1
+		TAZ = {
+			OR = {
+			exists = no
+			is_subject = yes
+			}
+		}
+		tag = ENG
+	}
+	option = {
+		name = gen.4.a
+		TAZ = { add_ideas = african_independent }
+		every_state = {
+			limit = { is_core_of = TAZ }
+			add_resistance = 5
+		}
+		if = {
+			limit = {
+				any_state = {
+					is_core_of = TAZ
+					resistance > 80
+				}
+			}
+			TAZ = { transfer_state = 546 }
+			declare_war_on = {
+				target = TAZ
+				type = annex_everything
+			}
+			every_country = { news_event = { id = africa.10 } }
+		}
+	}
+}
+#肯尼亚
+news_event = {
+	id = africa.4
+	title = africa.1.t
+	desc = africa.1.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.1.1
+		KEN = { is_subject = yes }
+	}
+	option = {
+		name = gen.4.a
+		KEN = { add_ideas = african_independent }
+		every_state = {
+			limit = { is_core_of = KEN }
+			add_resistance = 5
+		}
+		if = {
+			limit = {
+				any_state = {
+					is_core_of = KEN
+					resistance > 80
+				}
+			}
+			KEN = { transfer_state = 547 }
+			declare_war_on = {
+				target = KEN
+				type = annex_everything
+			}
+			every_country = { news_event = { id = africa.10 } }
+		}
+	}
+}
+#独立战争
+news_event = {
+	id = africa.10
+	title = africa.10.t
+	desc = africa.10.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {
+		name = africa.10.a
+	}
+}
+#变迁之风
+news_event = {
+	id = africa.11
+	title = africa.11.t
+	desc = africa.11.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {
+		name = africa.11.a
+	}
+
+}
+#反对殖民主义示威
+news_event = {
+	id = africa.12
+	title = africa.12.t
+	desc = africa.12.d
+	picture = GFX_JungleGuerrilla
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		date > 1960.1.1
+		has_government = democratic
+		OR = {
+			tag = ENG
+			tag = FRA
+			tag = BEL
+			tag = POR
+		}
+		OR = {
+			has_war_with = GAN
+			has_war_with = KEN
+			has_war_with = TAZ
+			has_war_with = UGA
+			has_war_with = NGR
+			has_war_with = SAF
+			has_war_with = RHO
+			has_war_with = ZAM
+			has_war_with = EGY
+			has_war_with = MLI
+			has_war_with = MAD
+			has_war_with = MOR
+			has_war_with = ALG
+			has_war_with = CAF
+			has_war_with = COG
+		}
+	}
+	option = {
+		name = africa.10.a
+		add_war_support = -0.2
+	}
+}
+#万隆会议
+news_event = {
+	id = africa.13
+	title = africa.13.t
+	desc = africa.13.d
+	picture = GFX_JungleGuerrilla
+	fire_only_once = yes
+	trigger = {
+		date > 1955.1.1
+		date < 1956.1.1
+		OR = {
+			tag = ENG
+			tag = FRA
+			tag = BEL
+			tag = POR
+		}
+	}
+	option = {
+		name = africa.10.a
+		add_war_support = -0.2
+		every_country = {
+			limit = {
+				is_subject_of = ROOT
+				capital_scope = {
+					is_on_continent = africa
+				}
+			}
+			add_autonomy_score = {
+				value = 200
+				localization = wind_of_change
+			}
+		}
+	}
+}
+#领导人被释放
+news_event = {
+	id = africa.14
+	title = africa.14.t
+	desc = africa.14.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+#非洲地方选举
+news_event = {
+	id = africa.15
+	title = africa.15.t
+	desc = africa.15.d
+	picture = GFX_AfricaVote1
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		is_subject = yes
+		capital_scope = {
+			is_on_continent = africa
+		}
+		has_country_flag = africa_local_election
+		NOT = { has_country_flag = arrest_leader }
+	}
+	option = {
+		name = africa.14.a
+		set_country_flag = africa_electioned
+		if = {
+			limit = { tag = KEN }
+			create_country_leader = {
+				name = "Jomo Kenyatta"
+				picture = "Portrait_Kenya_Jomo_Kenyatta.tga"
+				expire = "1965.1.1"
+				ideology = authoritarianism
+				traits = {
+					african_nationalism
+				}
+			}
+			set_politics = { ruling_party = authoritarianism }
+		}
+		if = {
+			limit = { tag = NGR }
+			create_country_leader = {
+				name = "Benjamin Nnamdi Azikiwe"
+				picture = "Portrait_Nigeria_Azikiwe.tga"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+				}
+			}
+		}
+		if = {
+			limit = { tag = GAN }
+			clr_global_flag = africa33
+			news_event = { id = africa.35 }
+			clr_country_flag = africa_local_election
+		}
+		if = {
+			limit = { tag = TAZ }
+			create_country_leader = {
+				name = "Julius Nyerere"
+				picture = "Portrait_Tanzania_Nyerere.tga"
+				expire = "1965.1.1"
+				ideology = authoritarianism
+				traits = {
+					african_nationalism
+				}
+			}
+			set_politics = { ruling_party = authoritarianism }
+		}
+	}
+}
+#duli
+news_event = {
+	id = africa.16
+	title = africa.16.t
+	desc = africa.16.d
+	picture = GFX_AfricaIndependence
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		NOT = {
+			tag = SAF
+			tag = RHO
+			tag = COG
+			has_cosmetic_tag = ENG_EAF
+		}
+		is_subject = yes
+		has_country_flag = africa_electioned
+		compare_autonomy_progress_ratio > 0.99
+	}
+	immediate = {
+		if = {
+			limit = { tag = UGA }
+			play_song = UGA_1
+		}
+		if = {
+			limit = { tag = NGR }
+			play_song = NGR_1
+		}
+		if = {
+			limit = { tag = GAN }
+			play_song = GAN_1
+		}
+		if = {
+			limit = { tag = ZAM }
+			play_song = ZAM_1
+		}
+		if = {
+			limit = { tag = MLI }
+			play_song = MLI_1
+		}
+		if = {
+			limit = { tag = KEN }
+			play_song = KEN_1
+		}
+	}
+	option = {
+		name = africa.14.a
+		ENG = {
+			set_autonomy = {
+				target = FROM
+				autonomy_state = autonomy_free
+			}
+		}
+		news_event = { id = gen.35 }
+	}
+}
+news_event = {
+	id = africa.17
+	title = africa.17.t
+	desc = africa.17.d
+	picture = GFX_AfricaVote2
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+#毛毛起义
+news_event = {
+	id = africa.20
+	title = africa.20.t
+	desc = africa.20.d
+	picture = GFX_AfricanTroopsEarly
+	mean_time_to_happen = {
+		days = 50
+	}
+	major = yes
+	trigger = {
+		tag = ENG
+		date > 1952.1.1
+		date < 1955.1.1
+		OR = {
+			controls_state = 547
+			has_subject = KEN
+		}
+		547 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+	}
+	option = {	
+		name = mad.1.a
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -80
+			547 = {
+				add_resistance = 12
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			895 = {
+				add_resistance = 12
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+}
+news_event = {
+	id = africa.21
+	title = africa.21.t
+	desc = africa.21.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 150
+	}
+	trigger = {
+		tag = ENG  
+		OR = {
+			controls_state = 547
+			has_subject = KEN
+		}
+		547 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	
+	option = {	
+		name = africa.21.a
+		547 = { add_resistance = 8 }
+	}
+}
+#越盟被击败
+news_event = {
+	id = africa.22
+	title = africa.22.t
+	desc = africa.22.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	trigger = {
+		tag = ENG
+		OR = {
+			controls_state = 547
+			has_subject = KEN
+		}
+		547 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		547 = { resistance < 10 }
+	}
+	option = {
+		name = mad.7.a
+		547 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		895 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+}
+#黄金海岸统一大会党
+news_event = {
+	id = africa.30
+	title = africa.30.t
+	desc = africa.30.d
+	picture = GFX_UGCC
+	mean_time_to_happen = {
+		days = 15
+	}
+	major = yes
+	trigger = {
+		tag = ENG
+		has_subject = GAN
+		NOT = { has_global_flag = Ghana_UGCC }
+		date > 1947.5.1
+		date < 1947.10.1
+	}
+	option = {
+		name = mad.7.a
+		set_global_flag = Ghana_UGCC
+	}
+}
+
+news_event = {
+	id = africa.31
+	title = africa.31.t
+	desc = africa.31.d
+	picture = GFX_GhanaRiots
+	mean_time_to_happen = {
+		days = 8
+	}
+	major = yes
+	trigger = {
+		tag = ENG
+		has_subject = GAN
+		NOT = { has_global_flag = africa31 }
+		date > 1948.2.1
+		date < 1948.5.1
+	}
+	option = {
+		name = mad.7.a
+		set_global_flag = africa31
+	}
+}
+news_event = {
+	id = africa.32
+	title = africa.32.t
+	desc = africa.32.d
+	picture = GFX_KwameNkrumah
+	mean_time_to_happen = {
+		days = 8
+	}
+	major = yes
+	trigger = {
+		tag = ENG
+		has_subject = GAN
+		NOT = { has_global_flag = africa32 }
+		date > 1949.5.1
+		date < 1949.8.1
+	}
+	option = {
+		name = mad.7.a
+		set_global_flag = africa32
+		if = {
+			limit = { tag = GAN }
+			set_country_flag = Nkrumah
+		}
+	}
+}
+news_event = {
+	id = africa.33
+	title = africa.33.t
+	desc = africa.33.d
+	picture = GFX_GhanaRiots
+	mean_time_to_happen = {
+		days = 30
+	}
+	major = yes
+	trigger = {
+		tag = GAN
+		ENG = { has_subject = GAN }
+		has_country_flag = Nkrumah
+		NOT = { has_global_flag = africa33 }
+		date > 1954.1.1
+		date < 1955.1.1
+	}
+	option = {
+		name = mad.7.a
+		set_global_flag = africa33
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = africa.34
+	title = africa.34.t
+	desc = africa.34.d
+	picture = GFX_GhanaRiots
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		OR = {
+			tag = GAN
+			tag = ENG
+		}
+		ENG = { has_subject = GAN }
+		GAN = { has_country_flag = Nkrumah }
+		has_global_flag = africa33
+	}
+	option = {
+		name = mad.7.a
+		add_political_power = -10
+	}
+}
+news_event = {
+	id = africa.35
+	title = africa.35.t
+	desc = africa.35.d
+	picture = GFX_KwameNkrumah
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+		if = {
+			limit = { tag = GAN }
+			add_political_power = 500
+			promote_character = GAN_Kwame_Nkrumah
+			set_politics = { ruling_party = authoritarianism }
+			add_popularity = { ideology = authoritarianism popularity = 0.3 }
+		}
+	}
+}
+news_event = {
+	id = africa.36
+	title = africa.36.t
+	desc = africa.36.d
+	picture = GFX_KwameNkrumah
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = GAN
+		date > 1957.3.1
+		date < 1957.5.1
+		NOT = { has_global_flag = africa36 }
+	}
+	option = {
+		name = africa.14.a
+		if = {
+			limit = { tag = ENG }
+			set_global_flag = africa36
+		}
+	}
+}
+news_event = {
+	id = africa.37
+	title = africa.37.t
+	desc = africa.37.d
+	picture = GFX_KwameNkrumah
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = GAN
+		date > 1957.3.1
+		date < 1957.6.1
+		has_global_flag = africa36
+		NOT = { has_global_flag = africa37 }
+	}
+	option = {
+		name = africa.14.a
+		if = {
+			limit = { tag = GAN }
+			set_global_flag = africa37
+		}
+	}
+}
+news_event = {
+	id = africa.38
+	title = africa.38.t
+	desc = africa.38.d
+	picture = GFX_KwameNkrumah
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = GAN
+		date > 1957.3.1
+		date < 1957.6.1
+		has_global_flag = africa37
+		NOT = { has_global_flag = africa38 }
+	}
+	option = {
+		name = africa.14.a
+		if = {
+			limit = { tag = GAN }
+			add_political_power = 1000
+			add_autonomy_score = {
+				value = 800
+				localization = native_office
+			}
+			set_global_flag = africa38
+		}
+	}
+}
+
+
+news_event = {
+	id = africa.50
+	title = africa.50.t
+	desc = africa.50.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+news_event = {
+	id = africa.51
+	title = africa.51.t
+	desc = africa.51.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.52
+	title = africa.52.t
+	desc = africa.52.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.53
+	title = africa.53.t
+	desc = africa.53.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.54
+	title = africa.54.t
+	desc = africa.54.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.55
+	title = africa.55.t
+	desc = africa.55.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.56
+	title = africa.56.t
+	desc = africa.56.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.57
+	title = africa.57.t
+	desc = africa.57.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.58
+	title = africa.58.t
+	desc = africa.58.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+
+news_event = {
+	id = africa.59
+	title = africa.59.t
+	desc = africa.59.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+		set_cosmetic_tag = EAF
+		play_song = SAF_5
+		set_politics = { ruling_party = democratic }
+			add_popularity = { ideology = democratic popularity = 0.12 }
+		set_capital = { state = 546 }
+				recruit_character = ZZB_Muhammad_Shamte_Hamadi
+				promote_character = {
+					character = ZZB_Muhammad_Shamte_Hamadi
+					ideology = liberalism
+				}
+	}
+	option = {
+		name = africa.14.a
+		set_cosmetic_tag = EAF
+		set_politics = { ruling_party = authoritarianism }
+		set_capital = { state = 1006 }
+			add_popularity = { ideology = authoritarianism popularity = 0.12 }
+				recruit_character = KEN_Gerard_Wallop
+				promote_character = {
+					character = KEN_Gerard_Wallop
+					ideology = authoritarianism
+				}
+	}
+	option = {
+		name = africa.14.a
+		set_cosmetic_tag = EAF
+		set_politics = { ruling_party = democratic }
+		set_capital = { state = 1006 }
+			add_popularity = { ideology = authoritarianism popularity = 0.12 }
+				recruit_character = TAZ_julius_nyerere
+				promote_character = {
+					character = TAZ_julius_nyerere
+					ideology = liberalism
+				}
+	}
+}
+
+news_event = {
+	id = africa.60
+	title = africa.60.t
+	desc = africa.60.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+news_event = {
+	id = africa.110
+	title = africa.110.t
+	desc = africa.110.d
+	picture = GFX_AfricaVote1
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = CMR
+		date > 1957.4.1
+		date < 1957.6.1
+		is_subject_of = FRA
+		NOT = { has_global_flag = africa110 }
+	}
+	option = {
+		name = africa.14.a
+		set_global_flag = africa110
+		trigger = { NOT = { tag = CMR } }
+	}
+	option = {
+		name = africa.14.a
+		trigger = { tag = CMR }
+		promote_character = CMR_AndreMarie_Mbida
+		news_event = { id = africa.113 days = 2 }
+	}
+}
+
+news_event = {
+	id = africa.113
+	title = africa.113.t
+	desc = africa.113.d
+	picture = GFX_AndreMarieMbida
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+	}
+}
+##喀麦隆政变
+news_event = {
+	id = africa.114
+	title = africa.114.t
+	desc = africa.114.d
+	picture = GFX_FrenchProxies
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = FRA
+		date > 1958.1.10
+		date < 1956.6.1
+		has_subject = CMR
+		CMR = { NOT = { has_government = authoritarianism } }
+		NOT = { has_global_flag = africa114 }
+	}
+	option = {
+		name = africa.14.a
+		set_global_flag = africa114
+		news_event = { id = africa.115 }
+	}
+}
+
+news_event = {
+	id = africa.115
+	title = africa.115.t
+	desc = africa.115.d
+	picture = GFX_FrenchProxies
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = africa.14.a
+		if = {
+			limit = { tag = CMR }
+			news_event = { id = africa.116 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = africa.116
+	title = africa.116.t
+	desc = africa.116.d
+	picture = GFX_AndreMarieMbida
+	is_triggered_only = yes
+	major = yes
+	option = {
+		set_global_flag = africa116
+		name = africa.14.a
+	}
+}
+news_event = {
+	id = africa.117
+	title = africa.117.t
+	desc = africa.117.d
+	picture = GFX_AndreMarieMbida
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = FRA
+		date > 1958.1.10
+		date < 1956.6.1
+		has_subject = CMR
+		NOT = { has_global_flag = africa117 }
+	}
+	option = {
+		name = africa.14.a
+		set_global_flag = africa117
+		news_event = { id = africa.118 }
+	}
+}
+news_event = {
+	id = africa.118
+	title = africa.118.t
+	desc = africa.118.d
+	picture = GFX_AndreMarieMbida
+	is_triggered_only = yes
+	major = yes
+	option = {
+		set_global_flag = africa116
+		name = africa.14.a
+		if = {
+			limit = { tag = CMR }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.4
+			}
+			set_politics = { ruling_party = authoritarianism }
+			promote_character = CMR_Ahmadou_Ahidjo
+		}
+	}
+}

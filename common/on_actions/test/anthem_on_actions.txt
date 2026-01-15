@@ -1,0 +1,27 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = { tag = SOV }
+				play_song = SOV_1
+			}
+			if = {
+				limit = { tag = PRC }
+				scoped_play_song = "PRC_1"
+			}
+			if = {
+				limit = { tag = CHI }
+				play_song = CHI_1
+				scoped_play_song = CHI_1
+			}
+			if = {
+				limit = { tag = USA }
+				play_song = "USA_1"
+			}
+			if = {
+				limit = { tag = ENG }
+				play_song = "ENG_1"
+			}
+		}
+	}
+}

@@ -1,0 +1,61 @@
+UNSC_afair = {
+	join_UN = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200 
+				has_country_flag = third_world
+			}
+			modifier = {
+				add = 200 
+				date > 1955.1.1
+				OR = {
+				tag = HUN
+				tag = FIN
+				tag = ROM
+				tag = BUL
+				tag = ITA
+				tag = SPR
+				}
+			}
+		}
+		visible = {
+			check_variable = { influences > 200 }
+			is_subject = no
+			has_war = no
+			NOT = { has_idea = UNmember }
+			NOT = {
+				has_idea = isolated
+				has_idea = Axis_problem_ideas
+				has_idea = low_diplomacy
+				tag = PRC
+				tag = JAP
+				tag = SAF
+				tag = ISR
+				tag = RHO
+				tag = CHI
+				tag = MON
+				tag = VIN
+				tag = SVN
+				tag = PRK
+				tag = KOR
+				tag = YUN
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				if = {
+					news_event = { id = un.1 }
+				}
+			}
+		}
+
+	
+	}
+}

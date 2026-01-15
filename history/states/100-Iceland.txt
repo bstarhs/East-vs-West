@@ -1,0 +1,30 @@
+state=
+{
+	id=100
+	name="STATE_100"
+	manpower = 115870
+	
+	state_category = town
+	local_supplies=0.0
+	history=
+	{
+		set_state_flag = ethnics_icelander
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_cold_modifier }
+		add_to_array = { this.state_ethnics_list = 114 }
+		owner = ICE
+		victory_points = { 12674 8 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			power_plant = 1
+			infrastructure = 2
+			12674 ={
+				naval_base = 4
+			}
+		}
+	}
+	provinces=
+	{
+4861 12674 13227 13846 13848	}
+}

@@ -1,0 +1,296 @@
+add_namespace = ctn
+
+news_event = {
+	id = ctn.999
+	title = ctn.999.t
+	desc = ctn.999.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+		CTN = {
+			transfer_state = 599
+			transfer_state = 594
+			transfer_state = 593
+			transfer_state = 592
+			transfer_state = 591
+			load_oob = "CTN"
+			load_oob = "GXC_1950"
+			every_owned_state = {
+				add_core_of = CTN
+			}
+		}
+			add_victory_points = {
+				province = 10080
+				value = 2
+			}
+			add_victory_points = {
+				province = 9963
+				value = 2
+			}
+			add_victory_points = {
+				province = 12095
+				value = 2
+			}
+			add_victory_points = {
+				province = 11945
+				value = 2
+			}
+			add_victory_points = {
+				province = 1087
+				value = 2
+			}
+			add_victory_points = {
+				province = 4160
+				value = 2
+			}
+			add_victory_points = {
+				province = 4050
+				value = 2
+			}
+			add_victory_points = {
+				province = 4028
+				value = 2
+			}
+			add_victory_points = {
+				province = 4134
+				value = 2
+			}
+			add_victory_points = {
+				province = 4177
+				value = 2
+			}
+			add_victory_points = {
+				province = 1162
+				value = 3
+			}
+			add_victory_points = {
+				province = 9978
+				value = 3
+			}
+			add_victory_points = {
+				province = 1018
+				value = 3
+			}
+	}
+}
+news_event = {
+	id = ctn.1
+	title = ctn.1.t
+	desc = ctn.1.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.2
+	title = ctn.2.t
+	desc = ctn.2.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.3
+	title = ctn.3.t
+	desc = ctn.3.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+			news_event = { id = ctn.6 }
+		CTN = {
+			recruit_character = CHI_Zhang_Fakui
+			promote_character = {
+				character = CHI_Zhang_Fakui
+				ideology = despotism
+			}
+		}
+	}
+}
+news_event = {
+	id = ctn.4
+	title = ctn.4.t
+	desc = ctn.4.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.5
+	title = ctn.5.t
+	desc = ctn.5.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.6
+	title = ctn.6.t
+	desc = ctn.6.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.15
+	title = ctn.15.t
+	desc = ctn.15.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+			news_event = { id = ctn.16 }
+			set_global_flag = ChinaDevided
+	}
+	option = { 
+		name = un.23.a
+			news_event = { id = ctn.17 }
+	}
+}
+news_event = {
+	id = ctn.16
+	title = ctn.16.t
+	desc = ctn.16.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.17
+	title = ctn.17.t
+	desc = ctn.17.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = ctn.18
+	title = ctn.18.t
+	picture = GFX_UN
+	desc = ctn.18.d
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		has_global_flag = ChinaDevided
+		PRC = { has_war_with = CHI }
+	}
+	option = { 
+		name = un.23.a
+		if = {
+			limit = { tag = PRC }
+			white_peace = CHI
+				annex_country = {
+					target = SHX
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = DOB
+					transfer_troops = yes
+				}
+			if = {
+				limit = {  controls_province = 1630 }
+				annex_country = {
+					target = XSM
+					transfer_troops = yes
+				}
+			}
+			if = {
+				limit = {  controls_province = 7301 }
+				transfer_state = 662
+			}
+			if = {
+				limit = {  controls_province = 9958 }
+				transfer_state = 607
+			}
+			if = {
+				limit = {  controls_province = 1069 }
+				transfer_state = 597
+			}
+			if = {
+				limit = {  controls_province = 10255 }
+				transfer_state = 598
+			}
+		}
+	}
+}
+news_event = {
+	id = ctn.25
+	title = ctn.25.t
+	desc = ctn.25.d
+	picture = GFX_UN
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		has_global_flag = CantonDevided
+		PRC = { has_war_with = CTN }
+	}
+	option = { 
+		name = un.23.a
+		if = {
+			limit = { tag = PRC }
+			white_peace = CHI
+				annex_country = {
+					target = SHX
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = DOB
+					transfer_troops = yes
+				}
+			if = {
+				limit = {  controls_province = 7097 }
+				annex_country = {
+					target = CHI
+					transfer_troops = yes
+				}
+			}
+			if = {
+				limit = {  controls_province = 1319 }
+				transfer_state = 325
+			}
+			if = {
+				limit = {  controls_province = 7301 }
+				transfer_state = 662
+			}
+			if = {
+				limit = {  controls_province = 9958 }
+				transfer_state = 607
+			}
+			if = {
+				limit = {  controls_province = 1069 }
+				transfer_state = 597
+			}
+			if = {
+				limit = {  controls_province = 10255 }
+				transfer_state = 598
+			}
+		}
+	}
+}

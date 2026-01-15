@@ -1,0 +1,382 @@
+
+nuclear_decitions = {
+	FRA_join_EAEC = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 100
+		visible = {
+			has_idea = ECSC
+			NOT = { has_country_flag = FRA_EAEC_allow }
+			NOT = { tag = FRA }
+			FRA = { has_completed_focus = FRA_EAEC }
+			
+		}
+		complete_effect = {    
+			FRA = { news_event = fra.361 }
+		}
+    
+	}
+}
+political_actions = {
+	FRA_nato_leave = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+
+		cost = 50
+
+		visible = {
+			tag = FRA
+			NOT = { is_in_faction_with = USA }
+			gives_military_access_to = USA
+			has_completed_focus = FRA_Gaullisme
+			date < 1970.1.1
+		}
+
+		complete_effect = {
+			USA = { news_event = { id = fra.21 } }
+		}
+
+	
+	}
+	FRA_1969_election = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+
+		cost = 50
+
+		visible = {
+			has_idea = Mai68
+		}
+
+		complete_effect = {
+				country_event = { id = fra.12 } 
+				remove_ideas = Mai68
+		}
+
+	
+	}
+	USA_anti_Gaulle = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		days_re_enable = 180
+		cost = 100
+
+		visible = {
+			FRA = { has_completed_focus = FRA_exit_Nato }
+			date < 1970.1.1
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				FRA = { has_completed_focus = FRA_soviet_relation }
+				FRA = { communism > 0.3 }
+			}
+		}
+		complete_effect = {
+			FRA = {
+				create_country_leader = {
+				name = "Jean-Marie Le Pen"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "Portrait_France_Le_Pon.tga"
+				expire = "1956.1.1"
+				ideology = centrism
+				traits = {
+					colonist
+					}
+				}	
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+			}
+		}
+	}
+}
+colonal_efforts = {
+	FRA_peace_ALG = {
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+
+		cost = 150
+
+		visible = {
+			has_war_with = ALG
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 40
+				OR = {
+				has_completed_focus = FRA_Gaullisme
+				}
+			}
+			modifier = {
+				add = 20
+				OR = {
+				date > 1962.1.1
+				}
+			}
+			modifier = {
+				add = 10
+				OR = {
+				has_war_support < 0.5
+				has_stability < 0.6
+				}
+			}
+			modifier = {
+				add = -50
+				OR = {
+					date < 1962.1.1
+				}
+			}
+		}
+		complete_effect = {
+			ALG = {
+				transfer_state = 459
+				transfer_state = 460
+				transfer_state = 513
+				transfer_state = 514
+			}
+			FRA = {
+				news_event = { id = alg.2 } 
+				set_country_flag = alg_peace
+				white_peace = ALG
+			}
+		}
+	}
+	FRA_releas_CAM = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+
+		cost = 80
+		visible = {
+			741 = { is_controlled_by = FRA }
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 2
+				SVN = {
+					has_war_with = VIN
+					OR = {
+					has_stability < 0.5
+					has_war_support < 0.5
+					}
+				}
+			}
+			modifier = {
+				add = 2
+				FRA = {
+					has_war_with = VIN
+					OR = {
+					has_stability < 0.5
+					has_war_support < 0.5
+					}
+				}
+			}
+			modifier = {
+				add = 20
+				date > 1948.12.1
+			}
+		}
+		complete_effect = {
+				add_stability = 0.2
+				add_war_support = 0.3
+				release_on_controlled = CAM
+				set_autonomy = {
+					target = CAM
+					autonomous_state = autonomy_dominion
+					freedom_level = 0.4
+				}
+				SVN = {
+					add_stability = 0.2
+					add_war_support = 0.3
+				}
+				CAM = {
+					add_popularity = {
+						ideology = monarchism
+						popularity = 0.5
+					}
+					set_politics = { ruling_party = monarchism }
+				}
+				news_event = { id = cam.1 }
+		}
+	}
+	FRA_Saarland_RHI = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+		cost = 150
+		visible = {
+			country_exists = SAR
+			country_exists = RHI
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		complete_effect = {
+				RHI = {
+					transfer_state = 854
+					add_stability = 0.2
+					add_political_power = 150
+				}
+				FRA = {
+					add_stability = 0.2
+					add_political_power = 150
+				}
+		}
+	}
+	FRA_Saarland_WDR = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			country_exists = SAR
+			has_completed_focus = FRA_GER
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 500
+				date > 1956.7.1
+			}
+		}
+		complete_effect = {
+				news_event = { id = ger.84 }
+				set_global_flag = SAR_vote_ready
+		}
+	}
+	FRA_releas_LAO = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+		cost = 150
+		visible = {
+			670 = { is_controlled_by = FRA }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 10
+				AND = {
+					has_war_with = VIN
+				}
+				OR = {
+					has_stability < 0.5
+					has_war_support < 0.5
+				}
+			}
+			modifier = {
+				add = -10
+				has_war_support > 0.5
+			}
+			modifier = {
+				add = -20
+				has_stability > 0.5
+			}
+			modifier = {
+				add = 50
+				date < 1947.7.1
+			}
+			modifier = {
+				add = 40
+				date > 1947.7.1
+			}
+		}
+		complete_effect = {
+				news_event = { id = lao.3 }
+				play_song = LAO_1
+				release_on_controlled = LAO
+				LAO = {
+					load_oob = "LAO_1947"
+				}
+				FRA = {
+					set_autonomy = {
+						target = LAO
+						autonomous_state = autonomy_dominion
+						freedom_level = 0.4
+					}
+					add_stability = 0.2
+					add_war_support = 0.3
+				}
+				LAO = {
+					add_popularity = {
+						ideology = monarchism
+						popularity = 0.5
+					}
+					set_politics = { ruling_party = monarchism }
+				}
+		}
+	}
+	FRA_TUN_independent = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+
+		cost = 50
+
+		visible = {
+			458 = { is_controlled_by = FRA }
+			date > 1954.12.1
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				OR = {
+					NOT = { has_war_with = ALG}
+					has_war_support < 0.4
+					has_stability < 0.6
+				}
+			}
+		}
+		complete_effect = {
+				FRA = {
+					end_puppet = TUN
+					add_stability = 0.2
+					add_war_support = 0.3
+				}
+		}
+	}
+}

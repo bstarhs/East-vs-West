@@ -1,0 +1,40 @@
+
+state={
+	id=437
+	name="STATE_437" # Indore
+	manpower = 8402500
+
+	state_category = large_town
+	resources={
+		coal=12
+	}
+
+
+	history={
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Hindustan
+		add_to_array = { this.state_ethnics_list = 80 }
+		owner = ENG
+		add_core_of = IND
+		set_state_flag = cutton_production
+		1949.10.25 = {
+		owner = IND
+		}
+		victory_points = { 12080 6 }
+		victory_points = { 11995 6 }
+		victory_points = { 4106 3 }
+		buildings = {
+			farm_building = 4
+			power_plant = 1
+			hospital = 1
+			infrastructure = 4
+			industrial_complex = 1
+		}
+
+	}
+
+	provinces={
+		1949 2105 4106 7205 8076 10816 11993 11995 12080 4950 10872 1199 
+	}
+}

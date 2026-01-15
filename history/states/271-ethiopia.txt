@@ -1,0 +1,40 @@
+state=
+{
+	id=271
+	name="STATE_271"
+	manpower = 2402500
+	resources={
+	}
+	
+	state_category = town
+
+	history= {
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Amharic
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		set_state_flag = coffee_production
+		add_to_array = { this.state_ethnics_list = 23 }
+		add_to_array = { this.state_ethnics_list = 164 }
+                               
+		owner = ETH
+		buildings = {
+			power_plant = 1
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 2
+			air_base = 1
+			farm_building = 2
+		}
+		victory_points = { 
+			5010 10
+		}
+		victory_points = { 8036 3 }
+		victory_points = { 13542 3 }
+		victory_points = { 13308 3 }
+		add_core_of = ETH
+	}
+
+	provinces=
+	{
+5010 13309 13308 13311 13537 8036 13542 13384 }
+}

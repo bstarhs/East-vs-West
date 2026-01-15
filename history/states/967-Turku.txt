@@ -1,0 +1,42 @@
+
+state={
+	id=967
+	name="STATE_967" # Uusimaa
+	manpower = 2670190
+	
+	resources={
+		iron=4
+	}
+	state_category = large_town
+	
+	history={
+		owner = FIN
+		add_to_array = { this.state_ethnics_list = 68 }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Finnish
+		add_dynamic_modifier = { modifier = more_food_production }
+		victory_points = {
+			3083 8
+		}
+		victory_points = { 169 2 }
+		buildings = {
+			school = 2
+			farm_building = 2
+			hospital = 2
+			infrastructure = 6
+			arms_factory = 2
+			industrial_complex = 3
+			dockyard = 2
+			air_base = 1
+			3083 = {
+				naval_base = 3
+				coastal_bunker = 1
+			}
+		}
+		add_core_of = FIN
+	}
+
+	provinces={
+		3083 169 3117 6066 9194 11211 11172 3025 3009 32 13101 9094 
+	}
+}

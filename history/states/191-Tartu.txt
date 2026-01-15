@@ -1,0 +1,54 @@
+state={
+	id=191
+	name="STATE_191"
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Estonian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		owner = SOV
+		add_to_array = { this.state_ethnics_list = 66 }
+		victory_points = {
+			9221 5
+		}
+		victory_points = {
+			4640 3
+		}
+		buildings = {
+			hospital = 1
+			school = 1
+			farm_building = 2
+			industrial_complex = 1
+			infrastructure = 5
+			4640 = {
+				naval_base = 1
+
+			}
+		}
+		1953.1.1 = {
+			set_state_category = large_town
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			buildings = {
+				farm_building = 3
+				power_plant = 2
+				industrial_complex = 3
+			}
+		}
+		add_core_of = EST
+		add_core_of = SOV
+		1990.1.1 = {
+			owner = EST
+			remove_core_of = SOV
+		}
+
+	}
+
+	provinces={
+		592 4640 6099 6178 6408 9221 9485 11057 11443 13127 
+	}
+	manpower=376400
+	buildings_max_level_factor=1.000
+}

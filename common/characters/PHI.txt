@@ -1,0 +1,152 @@
+characters={
+	PHI_Manuel_Manahan ={
+		name=PHI_Manuel_Manahan
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Manuel_Manahan.dds"
+				large="gfx/leaders/PHI/Portrait_Philippines_Manuel_Manahan.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Manuel_Manahan
+			allowed  = {
+				original_tag  = PHI
+			}
+			visible = {
+				date < 1957.1.1
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_factor = 0.05
+				production_speed_buildings_factor = 0.08
+			}
+			ai_will_do  = {
+				factor  = 0
+				modifier = {
+					add = 50
+					date > 1951.1.1
+				}
+			}
+		}
+	}
+	PHI_Lorenzo_Sumulong ={
+		name=PHI_Lorenzo_Sumulong
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Lorenzo_Sumulong.dds"
+				large="gfx/leaders/PHI/Portrait_Philippines_Lorenzo_Sumulong.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				anti_communist pro_america
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Lorenzo_Sumulong
+			allowed  = {
+				original_tag  = PHI
+			}
+			visible = {
+				date < 1957.1.1
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_factor = 0.12
+			}
+			ai_will_do  = {
+				factor  = 0
+				modifier = {
+					add = 50
+					date > 1951.1.1
+				}
+			}
+		}
+	}
+	PHI_Ramon_Magsaysay ={
+		name=PHI_Ramon_Magsaysay
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Ramon_Magsaysay.dds"
+				large="gfx/leaders/PHI/Portrait_Philippines_Ramon_Magsaysay.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				anti_communist pro_america popular_figurehead Developmentalism military_theorist
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Ramon_Magsaysay
+			allowed  = {
+				original_tag  = PHI
+			}
+			visible = {
+				date < 1957.1.1
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_factor = 0.12
+				resistance_decay = 0.12
+				resistance_growth = -0.12
+				experience_gain_army_factor = 0.2
+			}
+			ai_will_do  = {
+				factor  = 0
+				modifier = {
+					add = 50
+					date > 1951.1.1
+				}
+			}
+		}
+	}
+	PHI_Elpidio_Quirino ={
+		name=PHI_Elpidio_Quirino
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Ramon_Magsaysay.dds"
+				large="gfx/leaders/PHI/Portrait_Philippines_Elpidio_Quirino.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				pro_america
+				popular_figurehead
+				pro_third_world
+				Developmentalism
+				anti_communist
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Elpidio_Quirino
+			allowed  = {
+				original_tag  = PHI
+			}
+			visible = {
+				date < 1956.1.1
+				is_country_leader = no
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				stability_factor = 0.12
+			}
+			ai_will_do  = {
+				factor  = 0
+				modifier = {
+					add = 50
+					date > 1951.1.1
+				}
+			}
+		}
+	}
+}

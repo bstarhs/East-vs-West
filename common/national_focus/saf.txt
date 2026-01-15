@@ -1,0 +1,2246 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+focus_tree = {
+	id = SAF_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 5
+			tag = SAF
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 55 y = 1800 }
+	focus = {
+		id = SAF_govern_reform
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 12
+		x = 12
+		y = 0
+		completion_reward = {
+			add_political_power = 500
+		}
+	}
+	focus = {
+		id = SAF_reforming
+		icon = GFX_goal_peace_constitution
+		cost = 5
+		prerequisite = {
+			focus = SAF_govern_reform
+		}
+		x = -8
+		y = 1
+		completion_reward = {
+			add_political_power = 500
+		}
+	}
+	focus = {
+		id = SAF_reduce_apartheid
+		icon = GFX_goal_brea_chain
+		cost = 5
+		prerequisite = {
+			focus = SAF_reforming
+		}
+		x = -8
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.2
+			}
+		}
+	}
+	focus = {
+		id = SAF_prc_diplomacy
+		icon = GFX_goal_diplo_prc
+		cost = 5
+		prerequisite = {
+			focus = SAF_reforming
+		}
+		x = -6
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_relation_with_soviet
+		icon = GFX_soviet_relationship
+		cost = 5
+		prerequisite = {
+			focus = SAF_reforming
+		}
+		x = -12
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_contact_communism
+		icon = GFX_soviet_relationship
+		cost = 5
+		prerequisite = {
+			focus = SAF_relation_with_soviet
+			focus = SAF_NCAF
+		}
+		x = -12
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_communism_gov
+		icon = GFX_soviet_relationship
+		cost = 5
+		prerequisite = {
+			focus = SAF_contact_communism
+		}
+		x = -12
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_soviet_trade
+		icon = GFX_soviet_relationship
+		cost = 5
+		prerequisite = {
+			focus = SAF_contact_communism
+		}
+		x = -14
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_comecon
+		icon = GFX_goal_comecon
+		cost = 5
+		prerequisite = {
+			focus = SAF_soviet_trade
+		}
+		x = -14
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_communism_nation
+		icon = GFX_soviet_relationship
+		cost = 5
+		prerequisite = {
+			focus = SAF_communism_gov
+		}
+		x = -12
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_soviet_mode
+		icon = GFX_focus_SOV_stalins_cult_of_personality
+		cost = 5
+		prerequisite = {
+			focus = SAF_communism_nation
+		}
+		x = -12
+		y = 8
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_collective
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 5
+		prerequisite = {
+			focus = SAF_soviet_mode
+		}
+		x = -11
+		y = 9
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_nationalized
+		icon = GFX_focus_generic_communist_industry
+		cost = 5
+		prerequisite = {
+			focus = SAF_soviet_mode
+		}
+		x = -9
+		y = 9
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_plan
+		icon = GFX_goal_generic_soviet_construction
+		cost = 5
+		prerequisite = {
+			focus = SAF_nationalized
+		}
+		prerequisite = {
+			focus = SAF_collective
+		}
+		x = -5
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_pioneers
+		icon = GFX_goal_youth_poineers
+		cost = 5
+		prerequisite = {
+			focus = SAF_soviet_mode
+		}
+		x = -12
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_people_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		cost = 5
+		prerequisite = {
+			focus = SAF_soviet_mode
+		}
+		x = -16
+		y = 9
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_supress
+		icon = GFX_goal_nkvd
+		cost = 5
+		prerequisite = {
+			focus = SAF_soviet_mode
+		}
+		x = -14
+		y = 9
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_nkvd
+		icon = GFX_focus_SOV_military_purge
+		cost = 5
+		prerequisite = {
+			focus = SAF_supress
+		}
+		x = -16
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_worship
+		icon = GFX_focus_SWE_socialist_reforms
+		cost = 5
+		prerequisite = {
+			focus = SAF_nkvd
+		}
+		x = -16
+		y = 11
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_anti_muslim
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 5
+		prerequisite = {
+			focus = SAF_supress
+		}
+		x = -14
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_Mahlabatini_decration
+		icon = GFX_focus_generic_treaty
+		cost = 5
+		prerequisite = {
+			focus = SAF_reduce_apartheid
+		}
+		x = -8
+		y = 3
+		completion_reward = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.3
+			add_political_power = 300
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.2
+			}
+		}
+	}
+	focus = {
+		id = SAF_black_work
+		icon = GFX_goal_luther_king
+		cost = 5
+		prerequisite = {
+			focus = SAF_reduce_apartheid
+		}
+		x = -5
+		y = 3
+		completion_reward = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.15
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = SAF_black_educate
+		icon = GFX_goal_welfare
+		cost = 5
+		prerequisite = {
+			focus = SAF_black_work
+		}
+		x = -5
+		y = 4
+		completion_reward = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.1
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = SAF_NCAF
+		icon = GFX_goal_ANC
+		cost = 5
+		prerequisite = {
+			focus = SAF_Mahlabatini_decration
+		}
+		x = -8
+		y = 4
+		completion_reward = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.15
+			add_political_power = 300
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.2
+			}
+		}
+	}
+	focus = {
+		id = SAF_pro_afr
+		icon = GFX_goal_african_map
+		cost = 5
+		prerequisite = {
+			focus = SAF_Mahlabatini_decration
+		}
+		x = -6
+		y = 4
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = african_state
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				every_other_country = {
+					limit = {
+						has_government = communism
+						has_country_flag = african_state
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAF_black_government
+		icon = GFX_goal_SAF_ANC
+		cost = 5
+		prerequisite = {
+			focus = SAF_NCAF
+		}
+	
+		x = -8
+		y = 5
+		completion_reward = {
+			set_politics = { ruling_party = democratic }
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = -0.15
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.4
+			}
+		}
+	}
+	focus = {
+		id = SAF_new_government
+		icon = GFX_goal_saf_united
+		cost = 5
+		prerequisite = {
+			focus = SAF_NCAF
+		}
+		x = -6
+		y = 5
+		completion_reward = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.15
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+			set_politics = { ruling_party = democratic }
+		}
+	}
+	focus = {
+		id = SAF_annex_whites
+		icon = GFX_goal_saf_united
+		cost = 5
+		prerequisite = {
+			focus = SAF_black_government
+		}
+		x = -9
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_harmonious_focus
+		icon = GFX_goal_saf_united
+		cost = 5
+		prerequisite = {
+			focus = SAF_new_government
+			focus = SAF_black_government
+		}
+		x = -7
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_wipe_whites
+		icon = GFX_goal_saf_united
+		cost = 5
+		prerequisite = {
+			focus = SAF_harmonious_focus
+		}
+		x = -7
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_white_first
+		icon = GFX_focus_por_concordat
+		cost = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1950.1.1
+			}
+		}
+		prerequisite = {
+			focus = SAF_govern_reform
+		}
+		x = 2
+		y = 1
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = SAF_loyal_britain
+		icon = GFX_focus_chi_british_cooperation
+		cost = 5
+		prerequisite = {
+			focus = SAF_govern_reform
+		}
+		x = 0
+		y = 1
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_united_party
+		icon = GFX_goal_united_SAF
+		cost = 5
+		prerequisite = {
+			focus = SAF_loyal_britain
+			focus = SAF_white_first
+		}
+		x = 0
+		y = 2
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_annex_botswana
+		icon = GFX_goal_take_bechwanaland
+		cost = 5
+		prerequisite = {
+			focus = SAF_united_party
+		}
+		x = -2
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_english_culture
+		icon = GFX_goal_soviet_passport
+		cost = 5
+		prerequisite = {
+			focus = SAF_united_party
+		}
+		x = 0
+		y = 3
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_expand_wesleyans
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		cost = 5
+		prerequisite = {
+			focus = SAF_english_culture
+			focus = SAF_Mahlabatini_decration
+		}
+		x = -4
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_expand_anglican
+		icon = GFX_focus_generic_catholic_dominion
+		cost = 5
+		prerequisite = {
+			focus = SAF_english_culture
+		}
+		x = -2
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_english_immigrate
+		icon = GFX_goal_anglo_immigrate
+		cost = 5
+		prerequisite = {
+			focus = SAF_english_culture
+		}
+		x = 0
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_weaken_boers
+		icon = GFX_goal_afrikaans_control
+		cost = 5
+		prerequisite = {
+			focus = SAF_english_immigrate
+		}
+		x = -2
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_strike_boer
+		icon = GFX_goal_afrikaans_control
+		cost = 5
+		prerequisite = {
+			focus = SAF_weaken_boers
+		}
+		x = -2
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.15
+			}
+		}
+	}
+	focus = {
+		id = SAF_british
+		icon = GFX_goal_anglo_saf
+		cost = 5
+		prerequisite = {
+			focus = SAF_english_immigrate
+		}
+		prerequisite = {
+			focus = SAF_no_colored
+		}
+		x = 0
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_anglos_immigrate
+		icon = GFX_goal_language_english
+		cost = 5
+		prerequisite = {
+			focus = SAF_british
+		}
+		x = 0
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SAF_aftikaans_state
+		icon = GFX_focus_hol_oranje_boven
+		cost = 5
+		prerequisite = {
+			focus = SAF_white_first
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1950.1.1
+			}
+		}
+		x = 8
+		y = 2
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = SAF_expand_afrikaans
+		icon = GFX_goal_language_afrikaans
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_state
+		}
+		x = 5
+		y = 3
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.04
+			}
+		}
+	}
+	focus = {
+		id = SAF_german_immigrate
+		icon = GFX_goal_germanic_immigrate
+		cost = 5
+		prerequisite = {
+			focus = SAF_expand_afrikaans
+		}
+		x = 5
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.04
+			}
+		}
+	}
+	focus = {
+		id = SAF_expand_calvinsm
+		icon = GFX_goal_calvinism
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_state
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.04
+			}
+		}
+	}
+	focus = {
+		id = SAF_aftikaans_first
+		icon = GFX_goal_afrikaans_first
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_state
+		}
+		x = 8
+		y = 3
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = SAF_anti_com
+		icon = GFX_goal_mccarthyism
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_first
+		}
+		x = 8
+		y = 4
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_political_power = -50
+				add_popularity = {
+					ideology = communism
+					popularity = -0.2
+				}
+		}
+	}
+	focus = {
+		id = SAF_edit_history
+		icon = GFX_goal_SAF_history
+		cost = 5
+		prerequisite = {
+			focus = SAF_Voortrekkers
+		}
+		x = 4
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = SAF_Voortrekkers
+		icon = GFX_goal_voortrekkers
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_first
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = SAF_afrikaans_control
+		icon = GFX_focus_attack_britain
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_first
+		}
+		x = 6
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.06
+			}
+		}
+	}
+	focus = {
+		id = SAF_against_black
+		icon = GFX_goal_anti_capitalism
+		cost = 5
+		prerequisite = {
+			focus = SAF_anti_com
+		}
+		x = 8
+		y = 5
+	}
+	focus = {
+		id = SAF_overthrow_tanzania
+		icon = GFX_goal_portugal_revolt
+		cost = 5
+		prerequisite = {
+			focus = SAF_pro_portugal
+		}
+		x = 5
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_angola
+		icon = GFX_goal_portugal_revolt
+		cost = 5
+		prerequisite = {
+			focus = SAF_pro_portugal
+		}
+		x = 8
+		y = 7
+		completion_reward = {
+			UTA = {
+				add_political_power = 50
+				add_war_support = 0.2
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 800
+					producer = SOV
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}
+			}
+			ANG = {
+				add_war_support = -0.12
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.15
+				}
+			}
+			540 = { add_resistance = 30  }
+		}
+	}
+	focus = {
+		id = SAF_pro_portugal
+		icon = GFX_goal_support_colonies
+		cost = 5
+		prerequisite = {
+			focus = SAF_against_black
+		}
+		x = 8
+		y = 6
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = POR
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SAF_pro_rhodesia
+		icon = GFX_goal_support_colonies
+		cost = 5
+		prerequisite = {
+			focus = SAF_against_black
+		}
+		x = 5
+		y = 6
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = RHO
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SAF_pro_usa
+		icon = GFX_goal_diplo_usa
+		cost = 5
+		prerequisite = {
+			focus = SAF_anti_com
+		}
+		x = 6
+		y = 5
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = USA
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SAF_usa_support
+		icon = GFX_goal_us_army
+		cost = 5
+		prerequisite = {
+			focus = SAF_pro_usa
+		}
+		x = 6
+		y = 6
+	}
+	focus = {
+		id = SAF_pro_anti_com
+		icon = GFX_goal_anti_communist
+		cost = 5
+		prerequisite = {
+			focus = SAF_1983
+		}
+		x = 14
+		y = 5
+	}
+	focus = {
+		id = SAF_Robbeneiland
+		icon = GFX_goal_anti_communist
+		cost = 5
+		prerequisite = {
+			focus = SAF_anti_com
+		}
+		x = 5
+		y = 5
+	}
+	focus = {
+		id = SAF_landlaw
+		icon = GFX_goal_SAF_apartheid_law
+		cost = 5
+		prerequisite = {
+			focus = SAF_white_first
+		}
+		x = 2
+		y = 2
+		available = {
+			has_government = authoritarianism
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1953.1.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = saf.23 }
+		}
+	}
+	focus = {
+		id = SAF_vote_law
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		cost = 5
+		prerequisite = {
+			focus = SAF_landlaw
+			focus = SAF_aftikaans_state
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1953.1.1
+			}
+		}
+		x = 4
+		y = 3
+		completion_reward = {
+			news_event = { id = saf.25 }
+		}
+	}
+	focus = {
+		id = SAF_nationality_act
+		icon = GFX_focus_usa_voter_registration_act
+		cost = 5
+		prerequisite = {
+			focus = SAF_landlaw
+		}
+		prerequisite = {
+			focus = SAF_aftikaans_state
+			focus = SAF_united_party
+		}
+		x = 2
+		y = 3
+	}
+	
+	focus = {
+		id = SAF_no_colored
+		icon = GFX_focus_FIN_parmis_devils
+		cost = 5
+		prerequisite = {
+			focus = SAF_nationality_act
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1956.1.1
+			}
+		}
+		x = 2
+		y = 4
+		completion_reward = {
+			news_event = { id = saf.26 }
+		}
+	}
+	focus = {
+		id = SAF_apartheid
+		icon = GFX_goal_apartheid_more
+		cost = 5
+		prerequisite = {
+			focus = SAF_no_colored
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 500
+				date > 1959.12.1
+			}
+		}
+		x = 2
+		y = 5
+		completion_reward = {
+			news_event = { id = saf.36 }
+		}
+	}
+	focus = {
+		id = SAF_bantustan
+		icon = GFX_goal_bantustan
+		cost = 5
+		prerequisite = {
+			focus = SAF_apartheid
+		}
+		x = 2
+		y = 6
+		completion_reward = {
+			custom_effect_tooltip = SAF_bantustan_tool
+		}
+	}
+	focus = {
+		id = SAF_limit_blakcs
+		icon = GFX_goal_anti_capitalism
+		cost = 5
+		prerequisite = {
+			focus = SAF_apartheid
+		}
+		x = 4
+		y = 6
+	}
+	focus = {
+		id = SAF_slaves
+		icon = GFX_goal_anti_capitalism
+		cost = 5
+		prerequisite = {
+			focus = SAF_limit_blakcs
+		}
+		x = 4
+		y = 7
+	}
+	focus = {
+		id = SAF_break_out
+		icon = GFX_goal_monarch_broken
+		cost = 5
+		prerequisite = {
+			focus = SAF_aftikaans_state
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 12
+		y = 3
+		completion_reward = {
+			add_autonomy_score = {
+				value = 800
+				localization = wind_of_change
+			}
+		}
+	}
+	focus = {
+		id = SAF_1983
+		icon = GFX_goal_parliament
+		cost = 5
+		prerequisite = {
+			focus = SAF_break_out
+		}
+		x = 12
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.3
+			}
+		}
+	}
+	focus = {
+		id = SAF_grand
+		icon = GFX_goal_grand_saf
+		cost = 5
+		prerequisite = {
+			focus = SAF_1983
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+			542 = { add_claim_by = SAF }
+			804 = { add_claim_by = SAF }
+			805 = { add_claim_by = SAF }
+		}
+	}
+	focus = {
+		id = SAF_mozambique
+		icon = GFX_goal_take_mozambique
+		cost = 5
+		prerequisite = {
+			focus = SAF_grand
+		}
+		x = 12
+		y = 6
+		completion_reward = {
+			544 = { add_claim_by = SAF }
+			825 = { add_claim_by = SAF }
+		}
+	}
+	focus = {
+		id = SAF_zimbabwe
+		icon = GFX_goal_zimbabwe
+		cost = 5
+		prerequisite = {
+			focus = SAF_grand
+		}
+		x = 14
+		y = 6
+		completion_reward = {
+			821 = { add_claim_by = SAF }
+			770 = { add_claim_by = SAF }
+		}
+	}
+	focus = {
+		id = SAF_sopport_arms
+		icon = GFX_goal_rebels
+		cost = 5
+		prerequisite = {
+			focus = SAF_zimbabwe
+			focus = SAF_mozambique
+		}
+		x = 13
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_overthrow_zambia
+		icon = GFX_goal_rebels
+		cost = 5
+		prerequisite = {
+			focus = SAF_zimbabwe
+		}
+		x = 15
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_annex_rhodesia
+		icon = GFX_goal_rebels
+		cost = 5
+		prerequisite = {
+			focus = SAF_zimbabwe
+		}
+		x = 14
+		y = 8
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_rhodesia_railway
+		icon = GFX_goal_rebels
+		cost = 5
+		prerequisite = {
+			focus = SAF_annex_rhodesia
+		}
+		x = 14
+		y = 9
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_BOT
+		icon = GFX_goal_take_botswana
+		cost = 5
+		prerequisite = {
+			focus = SAF_zimbabwe
+			focus = SAF_mozambique
+		}
+		x = 12
+		y = 8
+	}
+	focus = {
+		id = SAF_military
+		icon = GFX_goal_militarist
+		cost = 5
+		prerequisite = {
+			focus = SAF_govern_reform
+		}
+		x = 22
+		y = 1
+		completion_reward = {
+			army_experience = 500
+		}
+	}
+	focus = {
+		id = SAF_military_1
+		icon = GFX_goal_militarist
+		cost = 5
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 22
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_develop_weapons
+		icon = GFX_goal_m16
+		cost = 5
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 20
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_military_system
+		icon = GFX_focus_generic_advanced_military_studies
+		cost = 5
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 24
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_air_force
+		icon = GFX_goal_generic_air_fighter
+		cost = 5
+		prerequisite = {
+			focus = SAF_military_1
+		}
+		x = 28
+		y = 3
+		completion_reward = {
+			set_technology = {
+				independet_airforce = 1
+			}
+			air_experience = 50
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAF_anti_air
+		icon = GFX_focus_rocketry
+		cost = 5
+		prerequisite = {
+			focus = SAF_air_force
+		}
+		x = 30
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_buy_plane
+		icon = GFX_focus_generic_cas_aircraft
+		cost = 5
+		prerequisite = {
+			focus = SAF_air_force
+		}
+		x = 28
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_transfer
+		icon = GFX_goal_generic_air_bomber
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_plane
+		}
+		x = 26
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_airbase_1
+		icon = GFX_focus_generic_air_bases
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_plane
+		}
+		x = 30
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_airbase_2
+		icon = GFX_focus_generic_air_bases
+		cost = 5
+		prerequisite = {
+			focus = SAF_airbase_1
+		}
+		x = 30
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_jet_1
+		icon = GFX_focus_generic_jet_planes
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_plane
+		}
+		x = 28
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_bomber
+		icon = GFX_focus_SWE_marauder_bombers
+		cost = 5
+		prerequisite = {
+			focus = SAF_transfer
+		}
+		x = 26
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_airborn
+		icon = GFX_goal_generic_air_fighter
+		cost = 5
+		prerequisite = {
+			focus = SAF_transfer
+		}
+		x = 24
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_jet_2
+		icon = GFX_goal_generic_air_fighter
+		cost = 5
+		prerequisite = {
+			focus = SAF_jet_1
+		}
+		x = 28
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_missile
+		icon = GFX_focus_rocketry
+		cost = 5
+		prerequisite = {
+			focus = SAF_nuke
+		}
+		x = 34
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = missile_bonus
+				ahead_reduction = 2
+				category = missile
+			}
+		}
+	}
+	focus = {
+		id = SAF_nuclear_sub
+		icon = GFX_goal_nuclear_submarines
+		cost = 5
+		prerequisite = {
+			focus = SAF_nuke
+		}
+		x = 32
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = SAF_military_2
+		icon = GFX_goal_militarist
+		cost = 5
+		prerequisite = {
+			focus = SAF_military_1
+		}
+		x = 22
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_mechanized
+		icon = GFX_goal_m113
+		cost = 5
+		prerequisite = {
+			focus = SAF_military_1
+		}
+		x = 24
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_SandockAustral
+		icon = GFX_goal_sandock
+		cost = 5
+		prerequisite = {
+			focus = SAF_military_3
+		}
+		x = 22
+		y = 5
+		completion_reward = {
+			275 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAF_military_3
+		icon = GFX_goal_militarist
+		cost = 5
+		prerequisite = {
+			focus = SAF_military_2
+		}
+		x = 22
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_armors
+		icon = GFX_focus_generic_heavy_tank
+		cost = 5
+		prerequisite = {
+			focus = SAF_military_2
+		}
+		x = 24
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_vehicles
+		icon = GFX_goal_militarist
+		cost = 5
+		prerequisite = {
+			focus = SAF_armors
+		}
+		x = 24
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_EUROPE
+		icon = GFX_goal_organized_euro
+		cost = 5
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 26
+		y = 2
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = FRA
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SAF_navy
+		icon = GFX_goal_saf_navy
+		cost = 5
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 16
+		y = 2
+		completion_reward = {
+			navy_experience = 400	
+			if = {
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+			if = {
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+	focus = {
+		id = SAF_buy_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5
+		prerequisite = {
+			focus = SAF_navy
+		}
+		x = 14
+		y = 3
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_submarines
+		}
+		x = 14
+		y = 4
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_light_ships
+		icon = GFX_focus_generic_destroyer
+		cost = 5
+		prerequisite = {
+			focus = SAF_navy
+		}
+		x = 16
+		y = 3
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_naval_base_east
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 5
+		prerequisite = {
+			focus = SAF_navy
+		}
+		x = 18
+		y = 3
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_naval_base_west
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 5
+		prerequisite = {
+			focus = SAF_navy
+		}
+		x = 20
+		y = 3
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_buy_ship
+		icon = GFX_focus_generic_destroyer
+		cost = 5
+		prerequisite = {
+			focus = SAF_navy
+		}
+		x = 19
+		y = 5
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_buy_dutch_ships
+		icon = GFX_goal_saf_navy
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_ship
+		}
+		x = 20
+		y = 6
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_dutch_sailor
+		icon = GFX_goal_saf_navy
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_dutch_ships
+		}
+		x = 20
+		y = 7
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_buy_brit_ships
+		icon = GFX_goal_saf_navy
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_ship
+		}
+		x = 18
+		y = 6
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_brit_sailor
+		icon = GFX_goal_saf_navy
+		cost = 5
+		prerequisite = {
+			focus = SAF_buy_brit_ships
+		}
+		x = 18
+		y = 7
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_medium_ships
+		icon = GFX_focus_generic_destroyer
+		cost = 5
+		prerequisite = {
+			focus = SAF_light_ships
+		}
+		x = 16
+		y = 4
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_marines_focus
+		icon = GFX_goal_saf_navy
+		cost = 5
+		prerequisite = {
+			focus = SAF_light_ships
+		}
+		x = 18
+		y = 4
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_heavy_ships
+		icon = GFX_goal_generic_navy_carrier
+		cost = 5
+		prerequisite = {
+			focus = SAF_medium_ships
+		}
+		x = 16
+		y = 5
+		completion_reward = {
+			navy_experience = 400		
+		}
+	}
+	focus = {
+		id = SAF_economic
+		icon = GFX_goal_buisness_clan
+		cost = 5
+		prerequisite = {
+			focus = SAF_govern_reform
+		}
+		x = 36
+		y = 1
+	}
+	focus = {
+		id = SAF_industry_1
+		icon = GFX_focus_generic_military_industry
+		cost = 5
+		prerequisite = {
+			focus = SAF_economic
+		}
+		x = 36
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = { is_in_home_area = yes }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = SAF_mineral
+		icon = GFX_focus_generic_mining_industry
+		cost = 5
+		prerequisite = {
+			focus = SAF_economic
+		}
+		x = 38
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = { is_in_home_area = yes }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = SAF_DeBeers_focus
+		icon = GFX_goal_electronic
+		cost = 5
+		prerequisite = {
+			focus = SAF_mineral
+		}
+		x = 38
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SAF_electronic
+		icon = GFX_goal_electronic
+		cost = 5
+		prerequisite = {
+			focus = SAF_mineral
+		}
+		prerequisite = {
+			focus = SAF_industry_2
+		}
+		x = 38
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronic_bonus
+				ahead_reduction = 2
+				category = electronics
+			}
+			custom_effect_tooltip = focus_electro_tool
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = { is_in_home_area = yes }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_infra
+		icon = GFX_focus_generic_improve_roads
+		cost = 5
+		prerequisite = {
+			focus = SAF_economic
+		}
+		x = 48
+		y = 2
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_transvaal
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_infra
+		}
+		x = 53
+		y = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_southwest
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_infra
+		}
+		x = 56
+		y = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_namibian_railway
+		icon = GFX_focus_generic_railroad
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_southwest
+		}
+		x = 56
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_namibian_mineral
+		icon = GFX_focus_generic_mining_industry
+		cost = 5
+		prerequisite = {
+			focus = SAF_namibian_railway
+		}
+		x = 55
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_Walvisbaai
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 5
+		prerequisite = {
+			focus = SAF_namibian_railway
+		}
+		x = 57
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_cape_railway
+		icon = GFX_focus_generic_railroad
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_transvaal
+		}
+		x = 54
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_oranje
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_transvaal
+		}
+		x = 52
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_natal
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_infra
+		}
+		x = 44
+		y = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_natal_railway
+		icon = GFX_focus_generic_railroad
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_natal
+		}
+		x = 44
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_durban_port
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 5
+		prerequisite = {
+			focus = SAF_natal_railway
+		}
+		x = 44
+		y = 5
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_cape
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_infra
+		}
+		x = 48
+		y = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_elizabeth_port
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_cape
+		}
+		x = 46
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_north
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_cape
+		}
+		x = 48
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_develop_cape_port
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 5
+		prerequisite = {
+			focus = SAF_develop_cape
+		}
+		x = 50
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = SAF_OIL
+		icon = GFX_goal_oil_produc
+		cost = 5
+		prerequisite = {
+			focus = SAF_economic
+		}
+		x = 40
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAF_chemistry
+		icon = GFX_goal_plastic_indus
+		cost = 5
+		prerequisite = {
+			focus = SAF_OIL
+		}
+		x = 40
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SAF_industry_2
+		icon = GFX_focus_generic_military_industry
+		cost = 5
+		prerequisite = {
+			focus = SAF_industry_1
+		}
+		x = 36
+		y = 3
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = { is_in_home_area = yes }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = SAF_industry_3
+		icon = GFX_focus_generic_military_industry
+		cost = 5
+		prerequisite = {
+			focus = SAF_industry_2
+		}
+		x = 36
+		y = 4
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = { is_in_home_area = yes }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	focus = {
+		id = SAF_israeli
+		icon = GFX_goal_diplo_israel
+		cost = 5
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 28
+		y = 2
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = ISR
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SAF_nuclear
+		icon = GFX_goal_nuclear_plant
+		cost = 5
+		prerequisite = {
+			focus = SAF_economic
+		}
+		prerequisite = {
+			focus = SAF_military
+		}
+		x = 32
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = SAF_nuke
+		icon = GFX_goal_nuke
+		cost = 5
+		prerequisite = {
+			focus = SAF_nuclear
+		}
+		x = 32
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+}

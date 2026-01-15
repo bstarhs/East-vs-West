@@ -1,0 +1,166 @@
+﻿capital = 422
+set_country_flag = indian_state
+set_research_slots = 1
+set_convoys = 500
+set_stability = 0.75
+set_country_flag = indian_ocean_states
+set_country_flag = japan_invade_victims
+set_country_flag = third_world
+set_country_flag = british_colonies
+	set_cosmetic_tag = CEYLON
+set_country_flag = has_monarchs
+add_ideas = {
+	
+	Buddhism
+}
+	activate_decision = create_radio_station
+	set_technology = {
+		army_aviation = 1
+		telegraph = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	improved_light_tank = 1
+	early_fighter = 1
+	naval_bomber1 = 1
+	
+	
+		medical1 = 1
+	early_bomber = 1
+
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	
+	
+	early_ship_hull_cruiser = 1
+	basic_heavy_cruiser = 1
+	
+	
+	early_ship_hull_carrier = 1
+	transport = 1
+	
+	
+}
+	set_popularities = {
+		democratic = 52
+		communism = 9
+		authoritarianism = 39
+	}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1933.5.17"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+
+
+create_country_leader = {
+	name = "Stephen Senanayake"
+	picture = "gfx/leaders/SRI/Portrait_Srilanka_Senanayake.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+1951.1.20 = {
+	add_to_array = { global.UNmember_list = FROM }
+	set_cosmetic_tag = SRI
+	add_ideas = {
+		service_by_requirement
+		UNmember
+		Hinayana
+	}
+}
+1955.1.20 = {
+	create_country_leader = {
+		name = "John Kotelawala"
+		
+		picture = "gfx/leaders/SRI/Portrait_Srilanka_John_Kotelawala.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1960.1.20 = {
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	create_country_leader = {
+		name = "Sirimavo Bandaranaike"
+		
+		picture = "gfx/leaders/SRI/Portrait_Srilanka_Bandaranayake.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1962.1.20 = {
+	complete_national_focus = common_24
+}
+1976.1.20 = {
+	add_ideas = {
+		NonAligned
+	}
+}
+1978.1.20 = {
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		authoritarianism = 76
+	}
+set_politics = {
+	
+	ruling_party = authoritarianism
+	last_election = "1933.5.17"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+	create_country_leader = {
+		name = "Junius Richard Jayawardene"
+		
+		picture = "gfx/leaders/SRI/Portrait_Srilanka_Jayawarden.tga"
+		expire = "1988.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	declare_war_on = {
+		target = LTE
+		type = annex_everything
+	}
+}
+1990.1.20 = {
+	create_country_leader = {
+		name = "Ranasinghe Premadasa"
+		
+		picture = "gfx/leaders/SRI/Portrait_Srilanka_Premadasa.tga"
+		expire = "1988.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}

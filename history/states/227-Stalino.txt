@@ -1,0 +1,62 @@
+
+state={
+	id=227
+	name="STATE_227"
+	manpower = 3767336
+	
+	state_category = city
+	resources={
+		iron=12
+		coal=35
+	}
+	history={
+		set_state_flag = ethnics_Russian
+		add_to_array = { this.state_ethnics_list = 143 }
+		add_to_array = { this.state_ethnics_list = 170 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SOV
+		set_state_flag = SOV_corn_states
+		buildings = {
+			power_plant = 2
+			infrastructure = 5
+			farm_building = 1
+		}
+		victory_points = {
+			6474 8
+		}
+		victory_points = {
+			6420 5
+		}
+		victory_points = {
+			3479 2
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1955.1.1 = {
+			buildings = {
+				farm_building = 3
+				power_plant = 4
+				steel_making = 5
+				arms_factory = 3
+				industrial_complex = 2
+				6420 = {
+					naval_base = 3
+				}
+			}
+		}
+		1990.1.1 = {
+			owner = UKR
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		502 3421 3449 3466 3479 3491 6420 6474 6493 6776 
+	}
+}

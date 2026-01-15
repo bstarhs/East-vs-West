@@ -1,0 +1,44 @@
+
+state={
+	id=808
+	name="STATE_808"
+	manpower = 3225000
+	
+	state_category = rural
+	resources={
+		rubber = 12
+	}
+	history={
+		owner = POR
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_claim_by = POR
+		set_state_flag = ethnics_Chokwe
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ANG
+		1964.11.10 = {
+			remove_claim_by = POR
+			add_core_of = FNA
+			add_core_of = UTA
+			add_core_of = POR
+		}
+		1970.11.10 = {
+			owner = FNA
+			POR = {
+				set_province_controller = 13237
+			} 
+		}
+		1974.11.10 = {
+		owner = ANG
+			remove_core_of = POR
+		}
+		victory_points = {
+			13243 2
+		}
+	}
+
+	provinces={
+		7548 13240 13237 13243
+	}
+}

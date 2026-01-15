@@ -1,0 +1,268 @@
+ideas = {
+
+	mobilization_laws = { 
+		law = yes
+
+		disarmed_nation = {
+			visible = {		
+				NOT = { has_idea = SDI_idea }
+				NOT = { has_idea = militarist_politician }
+			}
+			cost = 9999
+			removal_cost = -1
+			level = 7
+			
+			available = {
+				#has_manpower_for_recruit_change_to = { value = 0.005 group = mobilization_laws }
+			}
+
+			modifier = {
+				political_power_factor = 0.25
+				conscription = 0.01
+			}
+			
+			ai_will_do = {
+   				factor = 0
+   			}
+			cancel_if_invalid = no
+		}
+		
+		volunteer_only = {
+			available = {	
+				NOT = { has_idea = SDI_idea }
+				NOT = { has_idea = militarist_politician }		
+			}
+
+			ai_will_do = {
+   				factor = 1
+			}
+
+			cost = 9999
+			removal_cost = -1
+			level = 1
+			default = yes
+			modifier = {
+				experience_gain_army = 0.3
+				conscription = 0.1
+				political_power_factor = 0.1
+				army_org_factor = 0.06
+				production_speed_arms_factory_factor = -0.3
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_nuclear_reactor_factor = -0.5
+			}
+			cancel_if_invalid = no
+		}
+		
+		limited_conscription = {
+			available = {	
+				NOT = { has_idea = SDI_idea }
+				NOT = { has_idea = militarist_politician }		
+			}
+
+			ai_will_do = {
+   				factor = 1
+			}
+
+			cost = 9999
+			removal_cost = -1
+			level = 1
+
+			modifier = {
+				experience_gain_army = 0.3
+				custom_modifier_tooltip = military_coast
+				conscription = 0.1
+				army_org_factor = 0.1
+				improve_relations_maintain_cost_factor = -0.6
+				production_speed_industrial_complex_factor = 0.08
+				production_speed_nuclear_reactor_factor = -0.2
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		extensive_conscription = {
+			available = {		
+				NOT = { has_idea = militarist_politician }	
+			}
+			on_add = {
+				set_variable = { nuke_produc_max = 20 }
+			}
+
+			ai_will_do = {
+   				factor = 1
+			}
+
+			cost = 9999
+			removal_cost = -1
+			level = 1
+
+			modifier = {
+				custom_modifier_tooltip = military_coast
+				political_power_gain = -0.2
+				production_speed_arms_factory_factor = 0.1
+				conscription = 0.15
+				experience_gain_army = 0.45
+				army_org_factor = 0.12
+				improve_relations_maintain_cost_factor = -0.3
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		service_by_requirement = {
+			on_add = {
+				set_variable = { nuke_produc_max = 0 }
+			}
+			available = {
+				OR = {
+				threat > 0.2
+				}				
+			}
+
+			ai_will_do = {
+   				factor = 1
+			}
+
+			cost = 9999
+			removal_cost = -1
+			level = 1
+
+			modifier = {
+				custom_modifier_tooltip = military_coast
+				army_core_defence_factor = 0.2
+				political_power_gain = -0.4
+				conscription = 0.2
+				experience_gain_army = 0.6
+				experience_gain_air = 0.6
+				experience_gain_navy = 0.6
+				army_org_factor = 0.15
+				industrial_capacity_factory = 0.1
+				production_speed_arms_factory_factor = 0.15
+				conversion_cost_civ_to_mil_factor = -0.8
+				production_speed_industrial_complex_factor = -0.2
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		all_adults_serve = {
+			on_add = {
+				set_variable = { nuke_produc_max = 30 }
+			}
+			visible = {
+				OR = {
+				has_war = yes
+				has_government = communism
+				has_government = fascism
+				has_government = neutrality
+				has_government = monarchism
+				}				
+			}
+			available = {
+				OR = {
+				threat > 0.4
+				}				
+			}
+
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					add = 1
+					has_government = fascism
+				}
+   				modifier = {
+					add = 1
+					has_government = neutrality
+					capital_scope = {
+					is_on_continent = africa
+					}
+				}
+   				modifier = {
+					has_war = yes
+				}
+			}
+
+			cost = 9999
+			removal_cost = -1
+			level = 1
+
+			modifier = {
+				custom_modifier_tooltip = military_coast
+				army_core_defence_factor = 0.2
+				political_power_gain = -0.6
+				conscription = 0.25
+				experience_gain_army = 0.12
+				army_org_factor = 0.2
+				industrial_capacity_factory = 0.2
+				conversion_cost_civ_to_mil_factor = -0.15
+				minimum_training_level = -0.2
+				production_speed_arms_factory_factor = 0.20
+				production_speed_industrial_complex_factor = -0.12
+				improve_relations_maintain_cost_factor = 0.2
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		scraping_the_barrel = {
+			on_add = {
+				set_variable = { nuke_produc_max = 50 }
+			}
+			visible = {
+				OR = {
+				has_war = yes
+				has_government = communism
+				has_government = fascism
+				has_government = neutrality
+				has_government = monarchism
+				}				
+			}
+			available = {
+				OR = {
+				has_war = yes
+				threat > 0.5
+				}				
+			}
+
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					add = 1
+					has_government = fascism
+				}
+   				modifier = {
+					add = 1
+					has_government = neutrality
+					capital_scope = {
+					is_on_continent = africa
+					}
+				}
+   				modifier = {
+					has_war = yes
+				}
+			}
+
+			cost = 9999
+			removal_cost = -1
+
+			modifier = {
+				custom_modifier_tooltip = military_coast
+				army_core_defence_factor = 0.4
+				political_power_gain = -0.8
+				conscription = 0.3
+				training_time_factor = 0.6
+				experience_gain_army = 0.2
+				army_org_factor = 0.3
+				industrial_capacity_factory = 0.3
+				conversion_cost_civ_to_mil_factor = -0.2
+				minimum_training_level = -0.5
+				production_speed_arms_factory_factor = 0.25
+				production_speed_industrial_complex_factor = -0.3
+				improve_relations_maintain_cost_factor = 0.5
+				production_speed_nuclear_reactor_factor = 0.2
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+}

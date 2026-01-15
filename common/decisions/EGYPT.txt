@@ -1,0 +1,451 @@
+EGY_aswan_construct = {
+	EGY_aswan_construct_1 = {
+		icon = GFX_decision_generic_construction
+		fire_only_once = yes
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 80
+				date > 1959.1.1
+			}
+		}
+		cost = 300
+		days_remove = 250
+		visible = {
+			has_completed_focus = EGY_Aswan_Dam
+			NOT = { has_country_flag = EGY_Aswan_Dam_1 }
+		}
+		available = {
+			steel > 9
+			copper > 9
+			has_war = no
+			has_stability > 0.6
+		}
+		remove_effect = {
+			news_event = { id = egy.165 }
+			add_stability = 0.04
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.06
+			}
+			add_political_power = 200
+			set_country_flag = EGY_Aswan_Dam_1
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+	}
+	EGY_aswan_construct_2 = {
+		icon = GFX_decision_generic_construction
+		fire_only_once = yes
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 80
+				date > 1964.1.1
+			}
+		}
+		cost = 300
+		days_remove = 250
+		visible = {
+			has_country_flag = EGY_Aswan_Dam_1
+			NOT = { has_country_flag = EGY_Aswan_Dam_2 }
+		}
+		available = {
+			steel > 9
+			copper > 9
+			has_war = no
+			has_stability > 0.6
+			OR = {
+				has_country_flag = GiveUPAbuSibel
+				has_country_flag = SavedAbuSibel
+			}
+		}
+		remove_effect = {
+			news_event = { id = egy.166 }
+			add_stability = 0.04
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.06
+			}
+			add_political_power = 200
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+	}
+	EGY_aswan_construct_3 = {
+		icon = GFX_decision_generic_construction
+		fire_only_once = yes
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 80
+				date > 1964.1.1
+			}
+		}
+		cost = 300
+		days_remove = 250
+		visible = {
+			NOT = { has_country_flag = EGY_Aswan_Dam_3 }
+			has_country_flag = EGY_Aswan_Dam_2
+		}
+		available = {
+			steel > 9
+			copper > 9
+			has_war = no
+			has_stability > 0.6
+			OR = {
+				has_country_flag = GiveUPAbuSibel
+				has_country_flag = SavedAbuSibel
+			}
+		}
+		remove_effect = {
+			news_event = { id = egy.173 }
+			add_stability = 0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+			add_political_power = 500
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+			456 = {
+				add_extra_state_shared_building_slots = 10
+				add_building_construction = { 
+					type = dam_plant
+					level = 3
+					instant_build = yes
+				}
+				add_dynamic_modifier = { modifier = more_food_production }
+			}
+			911 = {
+				add_dynamic_modifier = { modifier = more_food_production }
+			}
+		}
+	}
+	EGY_abu_simbel = {
+		icon = GFX_decision_generic_construction
+		fire_only_once = yes
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 80
+				date > 1960.1.1
+			}
+		}
+		cost = 300
+		days_remove = 250
+		visible = {
+			NOT = { has_country_flag = EGY_Aswan_Dam_2 }
+			NOT = { has_country_flag = GiveUPAbuSibel }
+		}
+		available = {
+			has_war = no
+			has_stability > 0.6
+			has_country_flag = EGY_Aswan_Dam_1
+		}
+		remove_effect = {
+			news_event = { id = egy.169 }
+			add_stability = 0.04
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.06
+			}
+			add_political_power = 200
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+			456 = {
+				add_to_variable = { state_tourist = 80 }
+				custom_effect_tooltip = AbuSibel_tool
+			}
+		}
+	}
+}
+UAR_afair = {
+	UAR_strike_armies = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		visible = {
+			tag = EGY
+			has_government = neutrality
+			has_completed_focus = EGY_Egyptian_leadership
+		}
+		target_trigger = {
+			FROM = {
+				is_subject_of = EGY
+				NOT = { tag = EGY }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 150
+		complete_effect = {
+			random_list = {
+				20 = {
+					modifier = {
+						add = 20
+						OR = {
+							tag = SUD
+							tag = LBA
+						}
+					}
+					modifier = {
+						add = 30
+						OR = {
+							has_country_leader_with_trait = arabs_nationalism
+						}
+					}
+					FROM = {
+						news_event = { id = egy.107 }
+						set_country_flag = UAR_striked_armies
+						add_popularity = {
+							ideology = neutrality
+							popularity = 0.2
+						}
+					}
+				}
+				20 = {
+					modifier = {
+						add = 30
+						OR = {
+							has_country_leader_with_trait = fascist_demagogue
+							has_country_leader_with_trait = pro_soviet
+							has_country_leader_with_trait = pro_america
+						}
+					}
+					modifier = {
+						add = 20
+						OR = {
+							tag = SYR
+							tag = IRQ
+							tag = LEB
+							tag = SAU
+							tag = TUN
+							tag = ALG
+							tag = MOR
+							tag = OMA
+						}
+					}
+					FROM = {
+						news_event = { id = egy.108 }
+						set_country_flag = UAR_striked_reject
+						add_popularity = {
+							ideology = neutrality
+							popularity = -0.8
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	UAR_strike_independ = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		visible = {
+			tag = EGY
+			has_government = neutrality
+			has_completed_focus = EGY_Egyptian_leadership
+		}
+		target_trigger = {
+			FROM = {
+				is_subject_of = EGY
+				NOT = { tag = EGY }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 150
+		complete_effect = {
+			FROM = {
+				news_event = { id = egy.104 }
+				set_country_flag = UAR_striked_independ
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+			}
+		}
+	}
+	INvide_join_UAR = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		visible = {
+			tag = EGY
+			has_government = neutrality
+			has_completed_focus = EGY_arab_league
+		}
+		available = {
+			FROM = {
+				NOT = { has_government = monarchism }
+			}
+		}
+		target_trigger = {
+			FROM = {
+				NOT = { tag = EGY }
+				is_subject = no
+				is_neighbor_of = EGY
+				NOT = { is_subject_of = EGY }
+				has_country_flag = arabs_state
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 150
+		complete_effect = {
+			FROM = { news_event = { id = egy.13 } }
+		}
+	}
+	Arabia_Revolution = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		visible = {
+			tag = EGY
+			has_government = neutrality
+			has_completed_focus = EGY_suppoer_revolution
+		}
+		target_trigger = {
+			FROM = {
+				NOT = { tag = EGY }
+				NOT = { has_government = neutrality }
+				has_country_flag = arabs_state
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 60
+		complete_effect = {
+			FROM = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+				add_stability = -0.08
+			}
+		}
+	}
+}
+military_action = {
+	support_PLO = {
+		allowed = {
+			always = yes
+		}
+		icon = GFX_decision_revolt
+		days_re_enable = 180
+		visible = {
+			NOT = { has_idea = EGY_David_Camp } 
+			has_country_flag = arabs_state
+			ISR = {
+				has_idea = PLOrevolt
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		complete_effect = {
+			ISR = {
+				add_stability = -0.01
+			}
+			762 = { add_resistance = 6 }
+			761 = { add_resistance = 6 }
+			454 = { add_resistance = 5 }
+		}
+	
+	}
+	Arabia_monarchs = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 180
+		visible = {
+			has_government = monarchism
+			has_country_flag = arabs_state
+		}
+		target_trigger = {
+			FROM = {
+				has_idea = monarch_reballion
+				has_country_flag = arabs_state
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+		complete_effect = {
+			FROM = {
+				add_popularity = {
+					ideology = monarchism
+					popularity = 0.06
+				}
+				add_stability = -0.08
+			}
+		}
+	
+	}
+	EGY_yom_kippur = {
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		visible = {
+			tag = EGY
+			ISR = { controls_state = 453 }
+			date > 1971.1.1
+			date < 1975.1.1
+			NOT = { has_idea = EGY_David_Camp }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				date < 1973.1.1
+			}
+		}
+		cost = 100
+		complete_effect = {
+			add_named_threat = {
+				threat = 6
+				name = Yom_lippur_war
+			}
+			add_war_support = 0.8
+			declare_war_on = {
+				target = ISR
+				type = take_state_focus
+				generator = { 453 }
+			}
+			set_global_flag = yom_kippur_war
+			news_event = { id = egy.21 }
+			SYR = { news_event = { id = egy.20 } }
+			ISR = {
+				add_war_support = -0.6
+				add_dynamic_modifier = { modifier = suprise_attack_modifier }
+			}
+			play_song = GLA_5
+		}
+	
+	}
+}

@@ -1,0 +1,244 @@
+ideas = {
+	country = {
+		VAT_holysee = {
+			picture = Catholicism
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism
+					}
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				surrender_limit = 5
+				stability_factor = 0.8
+				drift_defence_factor = 0.5
+				army_morale_factor = 0.3
+			}
+		}
+		ITA_salvation = {
+			picture = generic_morale_bonus
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism
+					}
+				}
+			}
+			cancel = {
+				has_war = no
+			}
+			removal_cost = 1
+			modifier = {
+				surrender_limit = 2.8
+				local_manpower = 0.12
+				army_morale_factor = 0.12
+			}
+		}
+		ITA_Peace_treaty = {
+			allowed = {
+				always = no
+			}
+			picture = ITA_Peace_treaty
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				fascism_drift = -0.01
+			}
+		}
+		ITA_punishment = {
+			allowed = {
+				always = no
+			}
+			picture = ITA_punishment
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				join_faction_tension = 1.00
+				justify_war_goal_time = 1
+				lend_lease_tension = 0.50
+				generate_wargoal_tension = 1.00
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				ai_badass_factor = 0.01
+				minimum_training_level = 0.3 
+				industry_air_damage_factor = -0.1
+				army_morale_factor = -0.1
+			}
+		}
+	}
+	industrial_concern = {
+			
+		designer = yes
+		ITA_ENI = {
+			picture = ITA_ENI
+			allowed = {
+				tag = ITA
+			}
+			research_bonus = {
+				synth_resources = 0.12
+			}
+			
+			traits = { refinery_concern }
+		}
+		fiat = {
+			
+			picture = fiat
+			allowed = {
+				original_tag = ITA
+			}
+			
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		beretta = {
+			
+			
+			allowed = {
+				original_tag = ITA
+			}
+			
+
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+		
+		lancia = {
+			
+			
+			allowed = {
+				original_tag = ITA
+			}
+			
+			
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+		
+		breda = {
+			
+			
+			allowed = {
+				original_tag = ITA
+			}
+			
+
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			traits = { artillery_manufacturer }
+		}
+		macchi = {
+			
+			
+			allowed = {
+				original_tag = ITA
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+		}
+		
+		savoia_marchetti = {
+			
+			
+			allowed = {
+				original_tag = ITA
+			}
+
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+		}
+		
+		caproni = {
+						
+			allowed = {
+				original_tag = ITA
+			}
+						
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { naval_aircraft_manufacturer }
+		}
+		
+		piaggio = {
+						
+			allowed = {
+				original_tag = ITA
+			}
+						
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { heavy_aircraft_manufacturer }
+		}
+		danieli = {
+			
+			allowed = {
+				original_tag = ITA
+			}
+			
+			research_bonus = {
+				industry = 0.10
+				
+			}
+			
+			traits = { industrial_concern }
+		}		
+		crda = {
+						
+			allowed = {
+				original_tag = ITA
+			}
+						
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { naval_manufacturer }
+		}
+	}
+	
+}

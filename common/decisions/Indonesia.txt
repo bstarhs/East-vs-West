@@ -1,0 +1,63 @@
+political_actions = {
+	
+	BangdungMeeting = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = INS
+		}
+
+		cost = 150
+
+		available = {
+			date > 1955.1.1
+			date < 1960.1.1
+		}
+
+		complete_effect = {
+			every_other_country = {
+					limit = {
+						NOT = {
+							has_idea = isolated
+						}
+						is_subject = no
+						OR = {
+						capital_scope = { is_on_continent = asia }
+						capital_scope = { is_on_continent = africa }
+						}
+					}
+					news_event = { id = ind.4 }
+			}
+		}
+
+	
+	}
+	
+	Nasakom = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = INS
+		}
+
+		cost = 80
+
+		available = {
+			date > 1955.1.1
+			date < 1960.1.1
+			has_government = neutrality
+			has_idea = IndonesiTurmoil
+		}
+
+		complete_effect = {
+			add_ideas = {
+				Nasakom
+			}
+		remove_ideas = IndonesiTurmoil
+		}
+	}
+}

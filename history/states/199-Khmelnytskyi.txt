@@ -1,0 +1,38 @@
+
+state={
+	id=199
+	name="STATE_199"
+	manpower = 1424022
+	
+	state_category = town
+
+	history={
+		set_state_flag = ethnics_Ukraine
+		add_to_array = { this.state_ethnics_list = 170 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SOV
+		victory_points = { 3457 5 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 1
+			air_base = 3
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		1990.1.1 = {
+			owner = UKR
+			remove_core_of = SOV
+		}
+		1956.1.1 = {
+			buildings = {
+				rocket_site = 1
+			}
+		}
+	}
+
+	provinces={
+		462 3430 3457 3511 6429 6509 
+	}
+}

@@ -1,0 +1,57 @@
+
+state={
+	id=824
+	name="STATE_824" #Mozambique
+	manpower = 4125000
+	
+	state_category = rural
+	
+	history={
+		owner = POR
+		set_state_flag = ethnics_Makua
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		add_to_array = { this.state_ethnics_list = 157 }
+		add_to_array = { this.state_ethnics_list = 142 }
+		add_to_array = { this.state_ethnics_list = 147 }
+		add_to_array = { this.state_ethnics_list = 165 }
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			farm_building = 2
+			2123 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			2123 4
+		}
+		victory_points = {
+			12971 4
+		}
+		victory_points = {
+			13625 3
+		}
+		victory_points = {
+			13464 3
+		}
+		add_core_of = MZB
+		1964.6.25 = {
+			owner = MZB
+			POR = {
+				set_province_controller = 5164
+				set_province_controller = 12971
+			}
+		}
+		1974.11.10 = {
+			MZB = {
+				set_province_controller = 5164
+				set_province_controller = 12971
+			}
+		}
+	}
+
+	provinces={
+		2180 12971 2123 5164 13463 13464 13621 13620 13624 13625 
+	}
+}

@@ -1,0 +1,75 @@
+﻿capital = 523
+
+#oob = ""
+
+set_country_flag = third_world
+set_country_flag = japan_invade_victims
+set_country_flag = british_colonies
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_convoys = 5
+
+1939.1.1 = {
+	
+	set_technology = {
+
+		#doctrines
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = {
+	democratic = 75
+	fascism = 1
+	communism = 1
+	neutrality = 23
+}
+
+	complete_national_focus = Focus_Goverment_reform
+create_country_leader = {
+	name = "Thomas Somare"
+	picture = "gfx/leaders/PNG/Portrait_PNG_Thomas_Somare.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+1988.1.20 = {
+	add_to_array = { global.UNmember_list = FROM }
+	create_country_leader = {
+		name = "Rabbie Namaliu"
+		
+		picture = "gfx/leaders/PNG/Portrait_PNG_Rabbie_Namaliu.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}

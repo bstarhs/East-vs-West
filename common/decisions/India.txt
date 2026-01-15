@@ -1,0 +1,53 @@
+claim_categories = {
+	
+	claim_goa = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			TAG = IND
+			POR = {
+				controls_state = 321
+			}
+			has_completed_focus = India_grand_india
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability > 0.6
+			}
+		}
+		complete_effect = {
+			POR = { country_event = { id = raj.55 } }
+		}
+	}
+	claim_arunachal = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			has_completed_focus = India_grand_india
+			TAG = IND
+			date < 1964.1.1
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				controls_province = 1273
+				date > 1962.1.1
+			}
+		}
+		complete_effect = {
+			PRC = { country_event = { id = raj.46 } }
+		}
+	}
+}

@@ -1,0 +1,80 @@
+state=
+{
+	id=596
+	name="STATE_596"
+	manpower = 21230700
+	state_category = city
+	resources={
+		copper = 21
+	}
+	history=
+	{
+		add_to_array = { this.state_ethnics_list = 1 }
+		set_state_flag = east_china_states
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Han
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		1949.10.25 = {
+		owner = PRC
+		}
+		
+		victory_points = { 
+			4042 3
+		}
+		victory_points = { 
+			1096 4
+		}
+		victory_points = { 
+			9974 4
+		}
+		
+		victory_points = { 
+			4013 4
+		}
+		victory_points = { 
+			11920 3
+		}
+		victory_points = { 
+			7191 10
+		}
+		
+		buildings = {
+			hospital = 2
+			farm_building = 3
+			power_plant = 2
+			infrastructure = 4
+			industrial_complex = 3
+
+			7191 = {
+				naval_base = 1
+				coastal_bunker = 1
+				bunker = 1
+			}
+			9974 = {
+				naval_base = 3
+				coastal_bunker = 1
+				bunker = 1
+			}
+			1055 = {
+				naval_base = 3
+				coastal_bunker = 1
+				bunker = 1
+			}
+		}
+		victory_points = { 
+			1168 3
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+			}
+		}
+	}
+	provinces={
+		1055 1096 1168 1195 4013 4042 4099 7058 7086 7146 7174 7191 9944 9972 9974 10014 10058 10086 10101 11920 11947 11991 12059 
+	}
+}

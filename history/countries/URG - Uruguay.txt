@@ -1,0 +1,203 @@
+﻿capital = 300
+
+	add_ideas = {
+		UNmember
+	}
+# Starting tech
+set_country_flag = third_world
+set_country_flag = latin_america
+	set_country_flag = developmented
+set_country_flag = language_spannish
+	add_to_array = { global.UNmember_list = FROM }
+set_technology = {
+		army_aviation = 1
+	infantry_weapons = 1
+	gw_artillery = 1
+	early_fighter = 1
+	early_ship_hull_light = 1
+	
+}
+set_country_flag = monroe_doctrine
+	activate_decision = female_equality
+
+set_convoys = 5
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "URG_1947"
+	set_technology = {
+		oil_processing = 1
+		infantry_weapons1 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		medical1 = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+	set_popularities = {
+		democratic = 60
+		communism = 5
+		neutrality = 35
+	}
+	complete_national_focus = common_63
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1934.4.19"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Gabriel Terra"
+	desc = "POLITICS_GABRIEL_TERRA_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_5.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
+
+1939.1.1 = {
+	set_popularities = {
+		democratic = 60
+		communism = 5
+		neutrality = 35
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1938.3.28"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	create_country_leader = {
+		name = "Juan José de Amézaga"
+		desc = "POLITICS_ALFREDO_BALDOMIR_FERRARI_DESC"
+		picture = "gfx/leaders/URG/Portrait_Uruguay_Juan_Jose_Amezaga.tga"
+		expire = "1965.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1947.8.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Luis Batlle Berres"
+		desc = "POLITICS_ALFREDO_BALDOMIR_FERRARI_DESC"
+		picture = "gfx/leaders/URG/Portrait_Uruguay_Luis_Batlle_Berres.tga"
+		expire = "1965.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1948.1.1 = {
+	set_country_flag = israel_diplomacy
+}
+1960.8.1 = {
+	create_country_leader = {
+		name = "Eduardo Víctor Haedoe"
+		desc = "POLITICS_ALFREDO_BALDOMIR_FERRARI_DESC"
+		picture = "gfx/leaders/URG/Portrait_Uruguay_Eduardo.tga"
+		expire = "1965.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1961.1.1 = {
+	add_ideas = {
+		APLA
+	}
+}
+1965.2.1 = {
+	create_country_leader = {
+		name = "Washington Beltrán"
+		desc = "POLITICS_ALFREDO_BALDOMIR_FERRARI_DESC"
+		picture = "gfx/leaders/URG/Portrait_Uruguay_Washington.tga"
+		expire = "1965.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1973.9.11 = {
+	set_popularities = {
+		democratic = 20
+		communism = 15
+		neutrality = 65
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1935.9.8"
+		election_frequency = 36
+		elections_allowed = no
+	}
+		create_country_leader = {
+			name = "Military Junta"
+			desc = "POLITICS_FEDERICO_LAREDO_BRU_DESC"
+			picture = "gfx/leaders/URG/Portrait_Uruguay_Council.tga"
+			expire = "2017.1.1"
+			ideology = despotism
+			traits = { dictator }
+		}
+}
+1985.9.11 = {
+	set_popularities = {
+		democratic = 70
+		communism = 10
+		neutrality = 20
+	}
+	set_politics = {
+		
+		ruling_party = democratic
+		last_election = "1935.9.8"
+		election_frequency = 36
+		elections_allowed = no
+	}
+		create_country_leader = {
+			name = "Julio María Sanguinetti"
+			desc = "POLITICS_FEDERICO_LAREDO_BRU_DESC"
+			picture = "gfx/leaders/URG/Portrait_Uruguay_Julio_Maria_Sanguinetti.tga"
+			expire = "2017.1.1"
+			ideology = despotism
+			traits = { }
+		}
+}
+1988.9.11 = {
+	set_country_flag = china_diplomacy
+}

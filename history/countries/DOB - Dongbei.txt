@@ -1,0 +1,94 @@
+﻿capital = 716
+
+oob = "DOB_1946"
+set_stability = 0.7
+set_war_support = 0.6
+# Starting tech 
+recruit_character = CHI_Fan_HanJie
+recruit_character = CHI_Zheng_DongGuo
+set_country_flag = chinese_states
+
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 14000
+    producer = CHI
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 2200
+    producer = CHI
+}
+	set_technology = {
+		medical1 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		motorize_doctrine = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	delay = 1
+	military_instructor = 1
+	military_office = 1
+	military_college = 1
+	motorized_transport = 1
+	artilelery_doctrine = 1
+		helmet = 1
+	power_generation1 = 1
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
+}
+add_ideas = {
+	militarist_politician
+	service_by_requirement
+	corrupt
+	CHI_civil_war_deserters
+	CHI_warlords_spirits
+}
+create_country_leader = {
+	name = "Wei Li-Huang"
+	desc = "POLITICS_YAN XISHAN_DESC"
+	picture = "gfx/leaders/CHI/Portrait_Wei_LiHuang.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		stout_defender
+	}
+}

@@ -1,0 +1,57 @@
+state=
+{
+	id=333
+	name="STATE_333"
+	manpower = 889800
+	resources={
+		rubber=32
+		coal = 4
+	}
+	
+	state_category = rural
+
+	history=
+	{
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Malayan
+		add_to_array = { this.state_ethnics_list = 106 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_core_of = SRW
+		owner = ENG
+		victory_points = {
+			1208 8
+		}
+		victory_points = {
+			4396 4
+		}
+		victory_points = {
+			4216 3
+		}
+		buildings = {
+			hospital = 1
+			school = 1
+			dam_plant = 1
+			power_plant = 1
+			farm_building = 2
+			industrial_complex = 2
+			infrastructure = 3
+			1208 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = BRU
+		add_claim_by = INS
+		1963.10.14 = {
+			add_core_of = MAL
+			owner = MAL
+		}
+	}
+
+	provinces={
+		1208 2117 4216 4396 7443 8091 10269 10285 12283 12905 7371
+	}
+}

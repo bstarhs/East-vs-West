@@ -1,0 +1,28 @@
+state={
+	id=1013
+	name="STATE_1013" # Kzyl Orda
+	manpower = 667036
+	resources={
+		coal=6
+	}
+	
+	state_category = rural
+	history={
+		add_to_array = { this.state_ethnics_list = 11 }
+		set_state_flag = ethnics_Khazakhs
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = SOV
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SOV
+		add_core_of = KAZ
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+	}
+	provinces={
+		1243 1312 1382 1402 4250 4277 4389 4492 4595 7335 7392 7556 10179 10220 10268 10275 10277 10452 10508 12111 12121 12177 12194 12385 12487 
+	}
+}

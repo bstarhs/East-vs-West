@@ -1,0 +1,47 @@
+
+state={
+	id=604
+	name="STATE_604" # Qinghai
+	manpower = 1196100
+	resources={
+		salt=13
+	}
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = ethnics_Hui
+		add_to_array = { this.state_ethnics_list = 9 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 6 }
+		add_dynamic_modifier = { modifier = husbandry_production }
+		add_core_of = XSM
+		owner = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+		add_core_of = TIB
+		
+		victory_points = { 7940 2 }
+		victory_points = { 4536 2 }
+		victory_points = { 4964 2 }
+		victory_points = { 12732 6 }
+		buildings = {
+			infrastructure = 1
+			farm_building = 1
+		}
+		1949.10.25 = {
+		owner = PRC
+		}
+		1969.1.1 = {
+			buildings = {
+				nuclear_reactor = 2
+
+			}
+		}
+
+	}
+
+	provinces={
+		1882 2053 2099 4536 4888 4914 4964 7270 7940 7997 8018 8037 10490 10750 10796 10817 10834 10865 11448 12732 12815 12846 12890 12899 13146 13631 
+	}
+}

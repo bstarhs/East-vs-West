@@ -1,0 +1,570 @@
+﻿
+division_template = {
+	name = "Motorised Division" 
+	division_names_group = ENG_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+	    motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+	    motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+        recon = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Tank Brigade"				# 1st Armoured Division, 7th Armoured 'Desert 
+	division_names_group = ENG_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# Cruiser Tanks Mks I, II
+	    medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }		# Cruiser Tanks Mks I, II
+	    medium_armor = { x = 1 y = 1 }
+	}
+	support = {
+	 	recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Colonial Garrison"			# Represents local militias, garrisons
+	division_names_group = ENG_COL_01
+										# Low experience, oldest equipment, mostly militias
+	regiments = { 
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	priority = 0
+}
+####### OOB #######
+units = {
+	####### HOME THEATRE #######
+	### Northern Command (CO: Bartholomew) ###
+	division= {	# "5th Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 351
+		division_template = "Motorised Division" 	# one-third strength, still mobilizing
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+	# Northumbrian Area (CO: Shears) #
+	division= {	# "23rd 'Northumbrian' Motorised Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 23
+		}
+		location = 9397
+		division_template = "Motorised Division"		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "50th 'Northumbrian' Motorised Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 50
+		}
+		location = 9397
+		division_template = "Motorised Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	
+		name = "25th Army Tank Brigade"
+		location = 9397
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.2
+	}
+	# West Riding Area (CO: Wooten) #
+	division= {	# "46th 'North Midlands' Infantry Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 46
+		}
+		location = 11218
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "49th 'West Riding' Infantry Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 49
+		}
+		location = 11218
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	
+		name = "5th Cavalry Brigade"
+		location = 11297
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	### Eastern Command (CO: Williams) ###
+	division= {	# "4th Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 271
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.3
+	}
+	# East Anglia Area (CO: Buckley) #
+	division= {	# "12th 'Eastern' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 11374
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "44th 'Home Counties' Infantry Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		}
+		location = 11374
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	
+		name = "21st Army Tank Brigade"
+		location = 11374
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.2
+	}
+	# Home Counties Area (CO: MacDougall) #
+	division= {	# "18th Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 7329
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "54th 'East Anglia' Infantry Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 54
+		}
+		location = 7329
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	
+	### Western Command (CO: Haining) ###
+	# Welsh Area (CO: Garnier) #
+	division= {	# "38th 'Welsh' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 38
+		}
+		location = 10297
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "53rd 'Welsh' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 53
+		}
+		location = 10297
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	# West Lancashire Area (CO: Ramsden) #
+	division= {	# "55th 'West Lancashire' Motorised Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 55
+		}
+		location = 6384
+		division_template = "Motorised Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	# "59th 'Staffordshire' Motorised Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 59
+		}
+		location = 6384
+		division_template = "Motorised Division"		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "23rd Army Tank Brigade"
+		location = 6384
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.2
+	}
+	division= {	
+		name = "6th Cavalry Brigade"
+		location = 407
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	# East Lancashire Area (CO: Drew) #
+	division= {	# "42nd 'East Lancashire' Infantry Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 42
+		}
+		location = 6318
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	# "66th Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 66
+		}
+		location = 6318
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "24th Army Tank Brigade"
+		location = 6318
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.2
+	}
+	
+	### Southern Command (CO: Fisher) ###
+	division= {	# "3rd Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 13070
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.3
+	}
+	division= {	# "1st 'Royal Hussars' Armoured Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 13070
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.3
+	}
+	# South-Western Area (CO: Green) #
+	division= {	# "43rd 'Wessex' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 43
+		}
+		location = 3369
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	# "45th 'Wessex' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 45
+		}
+		location = 3369
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	# South Midland Area (CO: MacMullen) #
+	division= {	# "48th 'South Midland' Infantry Div."
+		division_name = {
+			is_name_ordered = yes
+			name_order = 48
+		}
+		location = 7387
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	# "61st Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 61
+		}
+		location = 7387
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "20th Light Army Tank Brigade"
+		location = 9239
+		division_template = "Tank Brigade"				# Vickers Mk II
+		start_experience_factor = 0.2
+	}
+
+	### Aldershot Command (CO: Dill) ###
+	division= {	# "1st Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 9458
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.3
+	}
+	division= {	# "2nd Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 9458
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.3
+	}
+	division= {	
+		name = "1st Army Tank Brigade"
+		location = 9458
+		division_template = "Tank Brigade"
+		start_experience_factor = 0.3
+	}
+
+	### Scottish Command (CO: Grant) ###
+	# Highland Area (CO: ) #
+	division= {	# "9th 'Highland' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 3273
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "51st 'Highland' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 51
+		}
+		location = 3273
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	# Lowland Area (CO: ) #
+	division= {	# "15th 'Scottish' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 9392
+		division_template = "Motorised Division" 		# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	# "52nd 'Lowland' Infantry Division"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 52
+		}
+		location = 9392
+		division_template = "Motorised Division" 
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+
+	### London District (CO: ) ###
+	division= {	
+		name = "1st London Motorised Division"
+		location = 6103
+		division_template = "Motorised Division"			# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "2nd London Motorised Division"
+		location = 6103
+		division_template = "Motorised Division"			# Reserve division (older equipment, low experience)
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+
+	
+	### Northern Ireland Command (CO: ) ###
+	division= {	
+		name = "Northern Ireland Command"
+		location = 3379
+		division_template = "Motorised Division" 				# Garrison force (older equipment, low experience)
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	
+	
+	####### MIDDLE EAST & AFRICA THEATRE #######
+	##### Middle East Command (CO: Wavell) #####
+	# Gibraltar Command (CO: Liddell) #
+	division= {	
+		name = "Gibraltar Command"
+		location = 4135
+		division_template = "Motorised Division" 			# Garrison force (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	
+	# Malta Command (CO: Bonham-Carter) #
+	division= {	
+		name = "Malta Command"
+		location = 12003
+		division_template = "Motorised Division" 			# Garrison force (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	# China Station (CO: Grassett) #
+	division= {	
+		name = "Hong Kong VDF"
+		location = 10062
+		division_template = "Motorised Division" 				# Garrison force (older equipment, low experience)
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "Akrotiri Garrison"
+		location = 13224
+		division_template = "Colonial Garrison"		
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		name = "Aden Area"
+		location = 5074
+		division_template = "Colonial Garrison"	
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	
+	############  navy  #########
+	fleet = {
+		name = "Third Fleet"
+		naval_base = 3379
+		task_force = {				
+			name = "Third Fleet"
+			location = 3379
+			ship = { name = "HMS Hardy" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Murray" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Pellew" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Duncan" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Exmouth" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Malcolm" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Blackwood" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+		}	
+	}
+	fleet = {
+		name = "Second Fleet"
+		naval_base = 540
+		task_force = {				
+			name = "Second Fleet"
+			location = 540
+			ship = { name = "HMS Dundas" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Keppel" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Russell" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Grafton" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "HMS Palliser" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+		}	
+	}
+}
+
+	####### Royal Air Force #######
+	##### RAF Bomber Command (CO: Ludlow-Hewitt) #####
+	##### RAF Fighter Command (CO: Dowding) #####
+	##### RAF Coastal Command (CO: Longmore) #####
+air_wings = {
+	129 = { 										
+		fighter_equipment_1 = { owner = "ENG" amount = 144 }
+		tac_bomber_equipment_0 = { owner = "ENG" amount = 60 }	
+	}
+	338 = { 										
+		fighter_equipment_1 = { owner = "ENG" amount = 20 }
+		strat_bomber_equipment_1 = { owner = "ENG" amount = 14 }	
+	}
+	130 = { 														# York, Essex
+		### No. 11 Fighter Command ###
+		fighter_equipment_1 = { owner = "ENG" amount = 72 }			# III/No. 11 Fighter Group -- Hurricane I's
+		CAS_equipment_1 = { owner = "ENG" amount = 72 }	
+	}	
+	127 = { 														# Nottingham, Sussex
+		### No. 12 Fighter Command (CO: ) ###
+		fighter_equipment_1 = { owner = "ENG" amount = 72 }			# I/No. 12 Fighter Group -- Hurricane I's
+		CAS_equipment_1 = { owner = "ENG" amount = 96 }		
+	}	
+	131 = { 														# Newcastle
+		### No. 13 Fighter Command (CO: ) ###
+		fighter_equipment_1 = { owner = "ENG" amount = 96 }				# II/No. 13 Fighter Group -- Blenheim IF's
+	}
+	326 = { 														# Newcastle
+		### No. 13 Fighter Command (CO: ) ###
+		fighter_equipment_1 = { owner = "ENG" amount = 25 }				# II/No. 13 Fighter Group -- Blenheim IF's
+	}
+	336 = { 														# Newcastle
+		### No. 13 Fighter Command (CO: ) ###
+		fighter_equipment_1 = { owner = "ENG" amount = 50 }		
+		CAS_equipment_1 = { owner = "ENG" amount = 12 }
+	}
+	125 = { 														# East Anglia 
+		### Advanced Air Striking Force (CO: Barratt) -- en route to FRA ###		
+		CAS_equipment_1 = { owner = "ENG" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_1 = { owner = "ENG" amount = 96 }							# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+}

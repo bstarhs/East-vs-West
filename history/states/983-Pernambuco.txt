@@ -1,0 +1,37 @@
+
+state={
+	id=983
+	name="STATE_983"
+	manpower = 1746000
+
+	state_category = town
+
+	history={
+		
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Brazilian
+		set_state_flag = coffee_production
+		add_to_array = { this.state_ethnics_list = 40 }
+		set_state_flag = sugar_production
+		owner = BRA
+		buildings = {
+			farm_building = 2
+			school = 1
+			hospital = 1
+			infrastructure = 4
+			industrial_complex = 2
+			10998 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = BRA
+		victory_points = { 10998 6 }
+		victory_points = { 8227 3 }
+
+	}
+
+	provinces={
+		8227 10345 1524 10998 10939 10967 5182
+	}
+	
+}

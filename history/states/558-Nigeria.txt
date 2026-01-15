@@ -1,0 +1,37 @@
+
+state={
+	id=558
+	name="STATE_558"
+	manpower = 19757000
+	
+	state_category = town
+	resources={
+		iron = 3
+		rubber = 16
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Yoruba
+		add_to_array = { this.state_ethnics_list = 77 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		
+		owner = NGR
+		add_core_of = NGR
+		buildings = {
+			infrastructure = 3
+			farm_building = 2
+			industrial_complex = 1
+			2050 = {
+				naval_base = 3
+			}
+		}
+		victory_points = {
+			2050 8
+		}
+
+	}
+
+	provinces={
+		12900 12731 12817 2050 
+	}
+}

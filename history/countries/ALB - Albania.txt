@@ -1,0 +1,152 @@
+﻿capital = 44
+
+OOB = "ALB"
+
+set_country_flag = has_monarchs
+set_country_flag = islam_state
+set_country_flag = third_world
+set_country_flag = orthodox_state
+set_country_flag = east_europe
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = create_radio_station
+	set_technology = {
+		excavation1 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	basic_battery = 1
+	
+		medical1 = 1
+	power_generation1 = 1
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+}
+	add_ideas = {
+		harmonious
+		hight_welfare
+		service_by_requirement
+		Anti_religious
+		closed_economy
+	}
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	set_popularities = {
+		democratic = 6
+		communism = 92
+		neutrality = 2
+	}
+set_politics = {
+	ruling_party = communism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_convoys = 5
+
+#Victor Emmanuel III of Italy after 39
+create_country_leader = {
+	name = "King Zog"
+	desc = "POLITICS_KING_ZOG_DESC"
+	picture = "gfx/leaders/ALB/Portrait_Albania_King_Zog.dds"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Enver Hoxha"
+	desc = "POLITICS_KING_ZOG_DESC"
+	picture = "gfx/leaders/ALB/Portrait_Albania_Hoxha.tga"
+	expire = "1965.1.1"
+	ideology = leninism
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	traits = {
+		independent_red staunch_stalinist anti_religion_trait
+	}
+}
+1949.1.1 = {
+	set_country_flag = gen242
+	complete_national_focus = common_61
+	complete_national_focus = common_73
+	complete_national_focus = common_weman_right
+	set_country_flag = china_diplomacy
+}
+1955.1.1 = {
+	set_country_flag = female_finished
+	complete_national_focus = common_63
+	complete_national_focus = common_28
+	add_ideas = {
+		UNmember
+		warsawpact
+	}
+}
+1968.1.1 = {
+	complete_national_focus = common_medic
+	complete_national_focus = steel_produc
+	remove_ideas = {
+		warsawpact
+		comecon
+	}
+	add_ideas = {
+		SovietChinaConflit
+	}
+}
+1970.1.1 = {
+	set_country_leader_portrait = {
+		portrait = "gfx/leaders/ALB/Portrait_Albania_Hoxha_Old.tga"
+	}
+}
+1985.1.1 = {
+	set_popularities = {
+		democratic = 10
+		communism = 86
+		neutrality = 4
+	}
+	create_country_leader = {
+		name = "Ramiz Alia"
+		desc = "POLITICS_GEORGI_DIMITROV_DESC"
+		picture = "gfx/leaders/ALB/Portrait_Albania_Ramiz.tga"
+		expire = "1949.1.1"
+		ideology = leninism
+		traits = {
+			#
+		}
+	}
+}

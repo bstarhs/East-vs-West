@@ -1,0 +1,35 @@
+state={
+	id=619
+	name="STATE_619" #Kashgar
+	manpower = 1430700
+	state_category = town
+	resources={
+		aluminium=2
+		tungsten=3
+	}
+	history={
+		
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 10 }
+		add_to_array = { this.state_ethnics_list = 11 }
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Ughurs
+                              
+		owner = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+		}
+		1951.10.12 = {
+		owner = PRC
+		add_core_of = SIK
+		}
+		victory_points = { 2015 8 }
+	}
+
+	provinces={
+		1766 1970 2015 5087 7790 8112 12119 
+	}
+}

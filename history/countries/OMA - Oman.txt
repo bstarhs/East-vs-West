@@ -1,0 +1,109 @@
+﻿capital = 294
+
+oob = "OMA_1936"
+set_country_flag = gulf_states
+set_country_flag = british_colonies
+	set_cosmetic_tag = MSQ
+set_country_flag = third_world
+set_country_flag = arabs_state
+# Starting tech
+set_country_flag = has_monarchs
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_country_flag = islam_state
+
+add_ideas = {
+
+	Sunni
+
+
+}
+set_convoys = 10
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	
+	oob = "OMA_1947"
+	set_technology = {
+		#doctrines
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+	set_popularities = {
+		monarchism = 100
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Said Bin Taimur"
+	desc = "POLITICS_SAID_BIN_TAIMUR_DESC"
+	picture = "gfx/leaders/OMA/Portrait_Oman_Taimur.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		 tratidional_trait
+	}
+}
+1950.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+}
+1970.1.20 = {
+	complete_national_focus = common_24
+	set_popularities = {
+		monarchism = 90
+		neutrality = 10
+	}
+	set_cosmetic_tag = OMA
+	create_country_leader = {
+		name = "Qaboos Bin Said"
+		
+		picture = "gfx/leaders/OMA/Portrait_Oman_Qaboos.tga"
+		expire = "1979.1.1"
+		ideology = monarchism
+		
+		traits = {
+			ideological_crusader staunch_monarchist Developmentalism
+		}
+	}
+	add_ideas = {
+		arabs_league
+		UNmember
+		IslamOrg
+	}
+}
+1981.1.1 = {
+	set_country_flag = china_diplomacy
+	add_ideas = GulfCC
+}

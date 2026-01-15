@@ -1,0 +1,73 @@
+political_actions = {
+	
+	ARG_Desaparece = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			OR = { tag = ARG }
+			OR = { tag = CHL }
+			OR = { tag = PAR }
+			OR = { tag = NIC }
+			OR = { tag = COS }
+			OR = { tag = GUA }
+			OR = { tag = HON }
+		}
+
+		cost = 20
+
+		visible = {
+			has_government = neutrality
+		}
+
+		complete_effect = {
+			add_stability = -0.1
+			add_popularity = {
+			ideology = communism
+			popularity = -0.2
+			}
+		}
+
+	
+	}
+	
+	ARG_Frank = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 20
+		
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+			add = 100 
+			date > 1982.4.1
+			has_government = neutrality
+			}
+		}
+
+		visible = {
+			tag = ARG
+			299 = { is_controlled_by = ENG }
+		}
+
+		complete_effect = {
+			ARG = {
+				remove_country_leader_trait = warmonger
+				load_oob = "LandingFalkland"
+				add_war_support = 0.1
+				transfer_state = 720
+				}
+			ENG = {
+				news_event = { id = arg.41 }
+			}
+		}
+
+	
+	}
+}

@@ -1,0 +1,236 @@
+ideas = {
+	country = {
+		VIN_cultural_movement = {
+			allowed = { always = no }
+			picture = VIN_cultural_movement
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.02
+				drift_defence_factor = 0.15
+				stability_factor = 0.12
+			}
+		}
+		VIN_nhandan_newspaper = {
+			allowed = { always = no }
+			picture = VIN_nhandan_newspaper
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.02
+				drift_defence_factor = -0.25
+			}
+		}
+		VIN_land_reforming = {
+			allowed = { always = no }
+			picture = VIN_land_reforming
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.05
+				drift_defence_factor = -0.12
+				stability_factor = -0.12
+			}
+		}
+		VIN_anti_france = {
+			allowed = { always = no }
+			picture = VIN_anti_france
+			removal_cost = -1
+			modifier = {
+				political_power_cost = -0.12
+				drift_defence_factor = 0.35
+				army_core_defence_factor = 0.45
+				war_support_factor = 0.5
+				equipment_capture_factor = 0.25 
+				command_power_gain = 0.15
+				training_time_factor = -0.12
+				surrender_limit = 5
+				local_manpower = 0.12
+				experience_loss_factor = -0.12
+				army_morale_factor = 0.15
+			}
+		}
+		SVN_Immigration = {
+			allowed = { always = no }
+			picture = SVN_Immigration
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.08
+				drift_defence_factor = 0.15
+			}
+		}
+		DoiMoi = {
+		
+			allowed = { always = no }
+
+			picture = VietnamReform
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = -0.2
+				political_power_factor = 0.1 
+				democratic_drift = 0.1 
+				industrial_capacity_factory = 0.3
+				production_speed_buildings_factor = 0.2
+			}
+		}
+		HoChiMinhTrail = {
+			picture = HoChiMinhTrail
+			allowed = { always = yes }
+			removal_cost = -1
+			visible = {
+				country_exists = SVN
+			}
+			modifier = {
+				resistance_damage_to_garrison_on_our_occupied_states = 0.3
+				training_time_factor = -0.5
+				army_org_factor = 0.25
+				war_support_weekly = 0.05
+				army_core_defence_factor = 0.4
+				surrender_limit = 0.02
+				operative_slot = 2
+			}
+		}
+		SVN_MAAG = {
+			picture = SVN_MAAG
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			allowed = { always = yes }
+			modifier = {
+				stability_factor = 0.12
+				resistance_target = -0.25
+			}
+		}
+		SVN_CIDG_idea = {
+			picture = SVN_CIDG_idea
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			allowed = { always = yes }
+			modifier = {
+			}
+		}
+		SVN_BinhXuyenRevolt = {
+			picture = SVN_BinhXuyenRevolt
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			allowed = { always = yes }
+			modifier = {
+				political_power_cost = 0.25
+			}
+		}
+		SVN_BuddhismCrisis = {
+			picture = SVN_BuddhismCrisis
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			allowed = { always = yes }
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.25
+				resistance_target = 0.15
+			}
+		}
+		VietCongRevolt = {
+			picture = VietCongRevolt
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			allowed = { always = yes }
+			modifier = {
+				resistance_damage_to_garrison = 0.3
+				join_faction_tension = 100
+				stability_factor = -0.25
+				war_support_factor = -0.2
+				resistance_target = 0.7
+			}
+			rule = {
+				can_join_opposite_factions = no
+			}
+		}
+		DietCong = {
+			picture = white_terror
+			removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+			allowed = { always = yes }
+			modifier = {
+				join_faction_tension = 100
+				resistance_target = -0.15
+				drift_defence_factor = 0.25
+				political_power_cost = 0.25
+			}
+			rule = {
+				can_join_opposite_factions = no
+			}
+		}
+	}
+	political_advisor = {
+		LeDucTho = {
+			allowed = {
+				original_tag = VIN
+			}
+			visible = {
+				date > 1960.1.1
+				date < 1986.1.1
+			}
+			traits = {
+				ideological_crusader
+				smooth_talking_charmer
+			}
+		}
+		PhamVanDong = {
+			allowed = {
+				original_tag = VIN
+			}
+			visible = {
+				date > 1960.1.1
+				date < 1986.1.1
+			}
+			traits = {
+				silent_workhorse
+			}
+		}
+	}
+	high_command = {
+		VoNguyenGiap = {
+			allowed = {
+				original_tag = VIN
+			}
+			visible = {
+				date < 1979.1.1
+			}
+			traits = {
+				army_entrenchment_2
+				army_chief_maneuver_2
+				army_chief_organizational_2
+				army_logistics_2
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		VanTienDung = {
+			allowed = {
+				original_tag = VIN
+			}
+			visible = {
+				date < 1986.1.1
+			}
+			traits = {
+				army_chief_organizational_2
+				army_chief_offensive_2
+				army_logistics_2
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

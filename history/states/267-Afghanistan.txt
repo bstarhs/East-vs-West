@@ -1,0 +1,39 @@
+
+state={
+	id=267
+	name="STATE_267" # Kabul
+	manpower = 4637140
+	
+	state_category = town
+	
+	resources={
+		tungsten=3
+	}
+	history={
+		add_to_array = { this.state_ethnics_list = 133 }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Pashto
+                              
+		owner = AFG
+		buildings = {
+			hospital = 1
+			infrastructure = 2
+			industrial_complex = 1  
+			farm_building = 1
+		}
+		victory_points = {
+			10737 8
+		}
+		victory_points = {
+			13331 2
+		}
+		victory_points = { 12831 3 }
+		victory_points = { 7519 2 }
+		add_core_of = AFG
+	}
+
+	provinces={
+		5082 7519 7916 10737 10781 10826 12653 12769 12831 13330 13331 13606 13609 14259 14255 14254 14258
+	}
+}

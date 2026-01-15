@@ -1,0 +1,126 @@
+
+scripted_gui = {
+	diplomatic_details_box = {
+		window_name = "diplomatic_details_box"
+		context_type = selected_country_context
+		parent_window_token = selected_country_view
+        visible = {
+			#######################
+			NOT = {
+				tag = ROOT
+			}
+			#以上是确定自己可以看到自己的外交界面
+			NOT = {
+				ROOT = {
+					is_in_faction_with = PREV
+				}
+				if = {
+					limit = { PREV = { tag = USA } }
+					NOT = { has_idea = Marshall }
+				}
+			}
+			NOT = {
+				ROOT = {
+					is_subject_of = PREV
+				}	
+			}
+			AND = {
+				OR = {
+					ROOT = {
+						intel_level_over = { 
+						target = PREV
+						civilian_intel < 0.4
+						}
+					}
+					ROOT = {
+						network_strength = {
+							target = PREV
+							value < 0.4
+						}
+					}	
+					ROOT = {
+						NOT = { is_puppet_of = PREV }
+					}	
+				}
+			}
+			######################
+			#MMG_chuansongmen > 0
+		}
+	}
+}
+scripted_gui = {
+	diplo_more_button = {
+		window_name = "diplo_more_button"
+		context_type = selected_country_context
+		parent_window_token = selected_country_view
+        visible = {
+			#######################
+			NOT = {
+				tag = ROOT
+			}
+			OR = {
+				AND = {
+					tag = USA
+					PREV = {
+						OR = {
+						has_country_flag = UsaAdvisorAllow
+						has_country_flag = usa_arms_sell
+						}
+					}
+				}
+					
+				AND = {
+					tag = SOV
+					PREV = {
+						OR = {
+						has_country_flag = sov_arms_sell
+						has_government = communism
+						}
+					}
+				}
+				PREV = {
+					OR = {
+						is_in_faction_with = ROOT
+						is_subject_of = ROOT
+						is_puppet_of = ROOT
+						is_guaranteed_by = ROOT
+					}
+				}
+			}
+		}
+		effects = {		
+			diplo_more_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_diplo_more }
+                set_variable = { show_diplo_more = show }
+            }
+        }
+	}
+}
+scripted_gui = {
+	diplomatic_assistance = {
+		window_name = "diplomatic_assistance"
+		context_type = selected_country_context
+		parent_window_token = selected_country_view
+		visible = {
+			check_variable = { show_diplo_more > 0.0 }
+			NOT = {
+				tag = ROOT
+			}
+		}
+		
+		effects = {		
+			diplo_give_money_token_click = {
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 8000
+					target = PREV
+				}
+				PREV = {
+					add_war_support = 0.08
+					army_experience = 80
+				}
+            }
+        }
+	}
+}

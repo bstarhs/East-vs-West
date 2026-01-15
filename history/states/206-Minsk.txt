@@ -1,0 +1,63 @@
+
+state={
+	id=206
+	name="STATE_206"
+	manpower =  1163163
+	
+	state_category = large_city
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Belarus
+		add_to_array = { this.state_ethnics_list = 37 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		owner = SOV
+		victory_points = {
+			11370 15
+		}
+		victory_points = {
+			9289 6
+		}
+		victory_points = {
+			294 4
+		}
+		buildings = {
+			power_plant = 1
+			hospital = 1
+			school = 1
+			infrastructure = 2
+			air_base = 4
+		}
+		1955.1.1 = {
+			buildings = {
+				farm_building = 3
+				power_plant = 3
+				arms_factory = 6
+				industrial_complex = 5
+			}
+		}
+		1960.1.1 = {
+			buildings = {
+				farm_building = 3
+				power_plant = 3
+				arms_factory = 6
+				industrial_complex = 6
+			}
+		}
+		add_core_of = SOV
+		add_core_of = BLR
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 3
+			}
+		}
+		1990.1.1 = {
+			owner = BLR
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		216 294 342 3267 3378 6292 9289 11216 11322 11370 
+	}
+}

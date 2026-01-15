@@ -1,0 +1,1038 @@
+﻿add_namespace = irq
+#二二八
+news_event = {
+	id = irq.1
+	title = irq.1.t
+	desc = irq.1.d
+	picture = GFX_AlWathbah
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = IRQ
+		date > 1948.2.1
+		date < 1951.1.1
+		has_idea = CENTO
+		NOT = { has_global_flag = AlWathbah }
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = AlWathbah
+		news_event = { id = irq.2 }
+		add_stability = 0.02
+		remove_ideas = CENTO
+		add_political_power = -400
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+		
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = AlWathbah
+		news_event = { id = irq.3 }
+		add_stability = -0.12
+		add_political_power = -160
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+	}
+}
+news_event = {
+	id = irq.2
+	title = irq.2.t
+	desc = irq.2.d
+	picture = GFX_AlWathbah
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = irq.3
+	title = irq.3.t
+	desc = irq.3.d
+	picture = GFX_AlWathbah
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+#阿明政变
+news_event = {
+	id = irq.9
+	title = irq.9.t
+	desc = irq.9.d
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		tag = IRQ
+		date > 1953.1.1
+		date < 1953.12.1
+	}
+	option = {	#支持政变
+		name = afg.10.b
+			create_country_leader = {
+				name = "Faisal II"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "gfx/leaders/IRQ/Portrait_Iraq_Faisal_1956.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+	}
+}
+#1958政变
+#1963政变
+country_event = {
+	id = irq.15
+	title = irq.15.t
+	desc = irq.15.d
+	picture = GFX_iraq1958
+	fire_only_once = yes
+	trigger = {
+		tag = IRQ
+		date > 1963.7.1
+		date < 1963.12.1
+		has_government = neutrality
+		
+	}
+	
+	option = {	#支持政变
+		name = irq.10.b
+			set_politics = { ruling_party = authoritarianism }
+		set_cosmetic_tag = IRQ_1963
+		create_country_leader = {
+			name = "Abdul Salam Arif"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/IRQ/Portrait_Iraq_Arif.tga"
+			expire = "1997.1.1"
+			ideology = authoritarianism
+		
+			traits = {
+		
+			}
+		}
+	}
+}
+#1978政变
+country_event = {
+	id = irq.18
+	title = irq.18.t
+	desc = irq.18.d
+	picture = GFX_Saddam
+	fire_only_once = yes
+	trigger = {
+		tag = IRQ
+		date > 1968.7.1
+		date < 1968.12.1
+	}
+	
+	option = {	#支持政变
+		name = irq.10.b
+		create_country_leader = {
+			name = "Ahmed Hassan al-Bakr"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/IRQ/Portrait_Iraq_Ahmed.tga"
+			expire = "1997.1.1"
+			ideology = authoritarianism
+		
+			traits = {
+		
+			}
+		}
+	}
+}
+#拜仁
+news_event = {
+	id = irq.19
+	title = usatext.92.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = IRQ
+		has_stability < 0.2
+		676 = { is_controlled_by = IRQ }
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		KUR = {
+			transfer_state = 676
+		}
+		IRQ = {
+			declare_war_on = { target = KUR type = annex_everything }
+		}
+		
+	}
+}
+#1978政变
+country_event = {
+	id = irq.20
+	title = irq.20.t
+	desc = irq.20.d
+	picture = GFX_Saddam
+	fire_only_once = yes
+	trigger = {
+		tag = IRQ
+		date > 1979.1.1
+		date < 1979.12.1
+	}
+	
+	option = {	#支持政变
+		name = irq.10.b
+		create_country_leader = {
+			name = "Saddam Hussein"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/IRQ/Portrait_Iraq_Saddam.tga"
+			expire = "1997.1.1"
+			ideology = authoritarianism
+		
+			traits = {
+				arabs_nationalism jefe dictator warmonger
+			}
+		}
+	}
+}
+#1978政变
+country_event = {
+	id = irq.22
+	title = irq.22.t
+	desc = irq.22.d
+	picture = GFX_Saddam
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {	#支持政变
+		name = irq.10.b
+	}
+}
+#袭击油轮
+country_event = {
+	id = irq.23
+	title = irq.23.t
+	desc = irq.23.d
+	picture = GFX_tankersink
+	is_triggered_only = yes
+	
+	option = {	#支持政变
+		name = irq.10.b
+		add_war_support = -0.04
+		add_political_power = -100
+	}
+}
+#哈马丹
+news_event = {
+	id = irq.24
+	title = irq.24.t
+	desc = irq.24.d
+	picture = GFX_IranArmy1980
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+#请求停战
+country_event = {
+	id = irq.25
+	title = irq.25.t
+	desc = irq.25.d
+	picture = GFX_IranArmy1980
+	is_triggered_only = yes
+	
+	option = {	#拒绝
+		name = irq.10.b
+		ai_chance = {
+			factor = 1	
+			modifier = {
+				add = 100 
+				has_war_support < 0.4
+			}
+		}
+		white_peace = PER
+		white_peace = IRQ
+		news_event = { id = irq.26 }
+	}
+	option = {	#支持政变
+		name = irq.10.b
+		ai_chance = {
+			factor = 1	
+			modifier = {
+				add = 100 
+				has_war_support > 0.4
+			}
+		}
+	}
+}
+#停战
+news_event = {
+	id = irq.26
+	title = irq.26.t
+	desc = irq.26.d
+	picture = GFX_SaddamNews
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+#入侵科威特新闻
+news_event = {
+	id = irq.27
+	title = irq.27.t
+	desc = irq.27.d
+	picture = GFX_SaddamNews
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = GLA_1
+	}
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+#支援科威特
+country_event = {
+	id = irq.28
+	title = irq.28.t
+	desc = irq.28.d
+	picture = GFX_SyrianInLebanon
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = irq.10.b
+		add_to_war = { 
+			targeted_alliance = KWT
+			enemy = IRQ
+			hostility_reason = asked_to_join
+		}
+	}
+}
+#海湾停战
+news_event = {
+	id = irq.29
+	title = irq.29.t
+	desc = irq.29.d
+	major = yes
+	picture = GFX_SyrianInLebanon
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		SAU = { has_war_with = IRQ }
+		NOT = { country_exists = KWT }
+		OR = {
+			656 = { is_controlled_by = SAU }
+		}
+	}
+	option = {	#支持政变
+		name = irq.10.b
+		if = {
+			limit = { has_war_with = IRQ }
+			white_peace = IRQ
+			KWT = { transfer_state = 656 }
+		}
+	}
+}
+#美国是否支援
+country_event = {
+	id = irq.30
+	title = irq.30.t
+	desc = irq.30.d
+	picture = GFX_SyrianInLebanon
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = irq.10.b
+		add_dynamic_modifier = { modifier = volunteer_fix_modifier }
+	}
+}
+
+#1958政变
+news_event = {
+	id = irq.40
+	title = irq.40.t
+	desc = irq.40.d
+	picture = GFX_IraqCoup1958
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = IRQ
+		date > 1958.7.1
+		date < 1958.12.1
+		has_government = monarchism
+		NOT = { has_global_flag = irq40 }
+		EGY = { has_government = neutrality }
+		OR = {
+			has_idea = CENTO
+			SYR = { has_government = neutrality }
+		}
+	}
+	option = {	#支持政变
+		name = irq.10.b
+		set_global_flag = irq40
+		if = {
+			limit = { tag = IRQ }
+			random_list = {
+				100 = {
+					news_event = { id = irq.41 hours = 2 }
+				}
+				10 = {
+					news_event = { id = irq.43 days = 2 }
+				}
+				10 = {
+					news_event = { id = irq.44 days = 2 }
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = irq.41
+	title = irq.41.t
+	desc = irq.41.d
+	picture = GFX_AbdulKarimQasim
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = IRQ_7
+	}
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = { tag = IRQ }
+			news_event = { id = irq.42 days = 5 }
+			promote_character = {
+				character = IRQ_Abdul_Karim_Qasim
+				ideology = despotism
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.3
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = USA 
+					tag = ENG
+					tag = JOR
+					tag = TUR
+					tag = SAU
+				}
+			}
+			news_event = { id = irq.47 days = 12 }
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = SOV 
+					tag = EGY
+					tag = PRC 
+				}
+			}
+			news_event = { id = irq.48 days = 15 }
+		}
+	}
+}
+news_event = {
+	id = irq.42
+	title = irq.42.t
+	desc = irq.42.d
+	picture = GFX_IraqCoupKilling
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = { tag = IRQ }
+			news_event = { id = irq.46 days = 5 }
+		}
+	}
+}
+news_event = {
+	id = irq.43
+	title = irq.43.t
+	desc = irq.43.d
+	picture = GFX_IraqCoup1958
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = { tag = IRQ }
+		}
+	}
+}
+news_event = {
+	id = irq.44
+	title = irq.44.t
+	desc = irq.44.d
+	picture = GFX_IraqCoup1958
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = { tag = IRQ }
+		}
+	}
+}
+news_event = {
+	id = irq.46
+	title = irq.46.t
+	desc = irq.46.d
+	picture = GFX_IraqRepublic
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = {
+				tag = USA
+				has_completed_focus = Middle_East_policy
+			}
+			country_event = { id = irq.50 }
+		}
+	}
+}
+news_event = {
+	id = irq.47
+	title = irq.47.t
+	desc = irq.47.d
+	picture = GFX_AbdulKarimQasim
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+news_event = {
+	id = irq.48
+	title = irq.48.t
+	desc = irq.48.d
+	picture = GFX_AbdulKarimQasim
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+##武装干涉
+country_event = {
+	id = irq.50
+	title = irq.50.t
+	desc = irq.50.d
+	picture = GFX_Iraq1958Small
+	is_triggered_only = yes
+	option = {	#约旦
+		name = irq.50.a
+		trigger = {
+			JOR = {
+				has_government = monarchism
+				has_idea = CENTO
+				NOT = { has_country_flag = irq51 }
+			}
+		}
+		JOR = {
+			set_country_flag = irq51
+			country_event = { id = irq.51 }
+		}
+	}
+	option = {	#英国
+		name = irq.50.b
+		trigger = {
+			ENG = {
+				is_in_faction_with = USA
+				NOT = { has_country_flag = irq51 }
+			}
+		}
+		ENG = {
+			set_country_flag = irq51
+			country_event = { id = irq.51 }
+		}
+	}
+	option = {	#土耳其
+		name = irq.50.c
+		trigger = {
+			TUR = {
+				is_in_faction_with = USA
+				NOT = { has_country_flag = irq51 }
+			}
+		}
+		TUR = {
+			set_country_flag = irq51
+			country_event = { id = irq.51 }
+		}
+	}
+	option = {	#伊朗
+		name = irq.50.g
+		trigger = {
+			has_completed_focus = Pro_Iran
+			PER = {
+				NOT = { has_country_flag = irq51 }
+				has_government = monarchism
+			}
+		}
+		PER = {
+			set_country_flag = irq51
+			country_event = { id = irq.51 }
+		}
+	}
+	option = {	#伊朗
+		name = irq.50.e
+	}
+	option = {	#伊朗
+		name = irq.50.f
+		random_list = {
+			120 = { news_event = irq.62 }
+			80 = {
+				modifier = {
+					add = 10
+					JOR = { has_country_flag = irq52 }
+				}
+				modifier = {
+					add = 10
+					ENG = { has_country_flag = irq52 }
+				}
+				modifier = {
+					add = 20
+					TUR = { has_country_flag = irq52 }
+				}
+				modifier = {
+					add = 25
+					PER = { has_country_flag = irq52 }
+				}
+				modifier = {
+					add = 15
+					IRQ = { neutrality < 0.6 }
+				}
+				modifier = {
+					add = 15
+					IRQ = { neutrality < 0.4 }
+				}
+				news_event = irq.54
+			}
+		}
+	}
+}
+country_event = {
+	id = irq.51
+	title = irq.51.t
+	desc = irq.51.d
+	picture = GFX_Iraq1958Small
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = irq.24.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				OR = {
+					has_country_leader_with_trait = pro_america
+					has_country_leader_with_trait = anti_communist
+				}
+			}
+		}
+		add_political_power = -100
+		set_country_flag = irq52
+		USA = { country_event = { id = irq.52 } }
+	}
+	option = {	#拒绝政变
+		name = irq.24.b
+		ai_chance = {
+			factor = 20
+		}
+		add_stability = -0.02
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.06
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.04
+		}
+		USA = { country_event = { id = irq.53 } }
+	}
+}
+country_event = {
+	id = irq.52
+	title = irq.52.t
+	desc = irq.52.d
+	picture = GFX_Iraq1958Small
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = irq.52.a
+		country_event = { id = irq.50 }
+	}
+}
+country_event = {
+	id = irq.53
+	title = irq.53.t
+	desc = irq.53.d
+	picture = GFX_Iraq1958Small
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = irq.52.a
+		country_event = { id = irq.50 }
+	}
+}
+
+news_event = {
+	id = irq.54
+	title = irq.54.t
+	desc = irq.54.d
+	picture = GFX_YemeniCivilWar
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+country_event = {
+	id = irq.55
+	title = irq.55.t
+	desc = irq.5.d
+	picture = GFX_Iraq1958Small
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		OR = {
+			tag = EGY
+			tag = SYR
+			tag = SOV
+		}
+		OR = {
+			has_government = neutrality
+			tag = SOV
+		}
+		IRQ = {
+			has_government = neutrality
+			any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+		date < 1960.1.1
+		NOT = { has_country_flag = irq55 }
+	}
+	option = {	#支持政变
+		name = irq.52.a
+		set_country_flag = irq55
+		add_political_power = -100
+		news_event = irq.63
+	}
+	option = {	#支持政变
+		name = irq.52.a
+		set_country_flag = irq55
+	}
+}
+#伊拉克内战
+news_event = {
+	id = irq.56
+	title = irq.56.t
+	desc = irq.56.d
+	picture = GFX_YemeniCivilWar
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		play_song = GLA_4
+	}
+	trigger = {
+		tag = IRQ
+		has_government = neutrality
+		neutrality < 0.5
+		has_stability < 0.4
+		date < 1962.1.1
+		any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	option = {
+		name = gen.6.a
+		if = {
+			limit = { tag = IRQ }
+			promote_character = IRQ_Ali_Jawdat_Al_Ayyubi
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			add_stability = -0.04
+			start_civil_war = {
+				ideology = democratic
+				size = 0.3
+			}
+		}
+	}
+
+}
+news_event = {
+	id = irq.61
+	title = irq.61.t
+	desc = irq.61.d
+	picture = GFX_YemeniCivilWar
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = IRQ_2
+	}
+	option = {	#支持政变
+		name = irq.24.b
+	}
+}
+
+news_event = {
+	id = irq.62
+	title = irq.62.t
+	desc = irq.62.d
+	picture = GFX_AbdulKarimQasim
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = { tag = IRQ }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.03
+			}
+			add_ideas = monarch_reballion
+			675 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 30
+			}
+			811 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 30
+			}
+		}
+		if = {
+			limit = {
+				tag = PER
+				has_country_flag = irq52
+			}
+			993 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 30
+			}
+		}
+		if = {
+			limit = {
+				tag = TUR
+				has_country_flag = irq52
+			}
+			676 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 30
+			}
+		}
+	}
+}
+news_event = {
+	id = irq.63
+	title = irq.63.t
+	desc = irq.63.d
+	picture = GFX_AbdulKarimQasim
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.24.b
+		if = {
+			limit = { tag = IRQ }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			add_stability = 0.03
+		}
+	}
+}
+news_event = {
+	id = irq.65
+	title = irq.65.t
+	desc = irq.65.d
+	picture = GFX_SaddamAflak
+	fire_only_once = yes
+	trigger = {
+		tag = IRQ
+		date > 1958.7.1
+		date < 1959.3.1
+		has_government = neutrality
+	}
+	option = {	#支持政变
+		name = irq.66.a
+		news_event = irq.66
+		add_political_power = 100
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.02
+		}
+		recruit_character = IRQ_Saddam_Hssein
+	}
+}
+
+news_event = {
+	id = irq.66
+	title = irq.66.t
+	desc = irq.66.d
+	picture = GFX_SaddamAflak
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.66.a
+	}
+}
+news_event = {
+	id = irq.67
+	title = irq.67.t
+	desc = irq.67.d
+	picture = GFX_ArabsCommunist
+	fire_only_once = yes
+	trigger = {
+		tag = IRQ
+		date > 1958.9.1
+		date < 1959.3.1
+		has_government = neutrality
+	}
+	option = {	#支持政变
+		name = irq.66.a
+		news_event = irq.68
+	}
+	option = {	#支持政变
+		name = irq.66.a
+		news_event = irq.69
+		add_political_power = 100
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		recruit_character = IRQ_Husain_al_Radi
+	}
+}
+
+news_event = {
+	id = irq.68
+	title = irq.68.t
+	desc = irq.68.d
+	picture = GFX_ArabsCommunist
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.66.a
+	}
+}
+
+news_event = {
+	id = irq.69
+	title = irq.69.t
+	desc = irq.69.d
+	picture = GFX_ArabsCommunist
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = irq.66.a
+	}
+}
+
+#摩苏尔暴乱
+news_event = {
+	id = irq.70
+	title = irq.70.t
+	desc = irq.70.d
+	picture = GFX_AbdulKarimQasim
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = IRQ
+		has_government = neutrality
+		has_character = IRQ_Abdul_Wahab_al_Shawaf
+		has_character = IRQ_Saddam_Hssein
+		has_character = IRQ_Husain_al_Radi
+		date > 1959.4.1
+		date < 1959.10.1
+	}
+	option = {
+		name = gen.6.a
+		set_country_flag = irq70a
+	}
+}
+news_event = {
+	id = irq.71
+	title = irq.71.t
+	desc = irq.71.d
+	picture = GFX_SudanIndependentRevolt
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = IRQ
+		has_government = neutrality
+		has_country_flag = irq70a
+		NOT = { has_global_flag = leb71 }
+	}
+	option = {
+		name = gen.6.a
+		set_global_flag = leb71
+		if = {
+			limit = { tag = IRQ }
+			promote_character = IRQ_Abdul_Wahab_al_Shawaf
+			add_stability = -0.08
+			start_civil_war = {
+				ideology = democratic
+				size = 0.3
+				states = { 676 }
+			}
+		}
+	}
+
+}
+#萨达姆刺杀卡西姆
+news_event = {
+	id = irq.77
+	title = irq.77.t
+	desc = irq.77.d
+	picture = GFX_QasimAssassin
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = IRQ
+		has_government = neutrality
+		has_country_flag = irq70a
+		NOT = { has_country_flag = irq77 }
+		date > 1959.10.1
+		date < 1959.12.1
+	}
+	option = {
+		name = gen.6.a
+		if = {
+			limit = { tag = IRQ }
+			set_country_flag = irq77
+			add_stability = -0.02
+		}
+	}
+
+}

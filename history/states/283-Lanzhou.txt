@@ -1,0 +1,63 @@
+
+state={
+	id=283
+	name="STATE_283" # Gansu
+	manpower = 6705400
+	state_category = town
+	resources={
+		tungsten=1
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 9 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = gold_production
+		add_core_of = XSM
+		set_state_flag = ethnics_Hui
+                              
+		owner = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+		victory_points = {
+			5025 3
+		}
+		victory_points = {
+			556 4
+		}
+		victory_points = { 1630 12 }
+
+		buildings = {
+			air_base = 1
+			infrastructure = 3
+			farm_building = 1
+		}
+		1938.10.25 = {		
+			PRC = {
+				set_province_controller = 5025
+				set_province_controller = 556
+				set_province_controller = 1933
+				set_province_controller = 1647
+				set_province_controller = 3745
+				set_province_controller = 1985
+				
+			} 			
+		}
+		1949.8.25 = {
+		owner = PRC
+		}
+		1959.8.25 = {
+			buildings = {
+				power_plant = 2
+				hospital = 1
+				industrial_complex = 3
+				air_base = 2
+			}
+		}
+
+	}
+
+	provinces={
+		531 556 1630 1647 1933 1985 2022 3745 4313 5025 5193 6638 7397 7911 10787 12797 12882 
+	}
+}

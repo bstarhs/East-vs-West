@@ -1,0 +1,44 @@
+################
+##### USA ######
+################ 
+
+ICE_Cod_war_decis = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_ICE_Cod_war_decis_category
+	priority = {
+		base = 30
+	}
+	visible = {
+			OR = {
+				tag = ENG
+				tag = ICE
+			}
+	}
+}
+MAL_emergency_decis = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_MAL_emergency_category
+	priority = {
+		base = 30
+	}
+	visible = {
+		MAL = { has_idea = southeast_revolution }
+		has_global_flag = MAL_emergency
+	}
+	allowed = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+	}
+}
+ENG_dollar = { 
+	icon = generic_economy
+	picture = GFX_USA_FRS 
+	allowed = {
+		original_tag = ENG
+	}
+	visible = { tag = ENG}
+	available = {}
+	priority = 100
+}

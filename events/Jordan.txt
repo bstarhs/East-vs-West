@@ -1,0 +1,122 @@
+add_namespace = jor
+#第一次停战
+news_event = {
+	id = jor.1
+	title = jor.1.t
+	desc = jor.1.d
+	picture = GFX_ThaiArmy1940s
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = SAU
+		date > 1951.7.1
+		date < 1951.12.1
+		has_country_leader = { name = "Abdullah I Ibn Hussein" }
+	}
+	option = {
+		name = sia.3.a
+		if = {
+			limit = { tag = SAU }
+			create_country_leader = {
+				name = "Hussein Ibn Talal"
+				picture = "gfx/leaders/JOR/Portrait_Jordan_Hussein.tga"
+				expire = "1979.1.1"
+				ideology = monarchism
+				traits = {  }
+			}
+		}
+	}
+}
+##1958约旦危机
+news_event = {
+	id = jor.10
+	title = jor.10.t
+	desc = jor.10.d
+	picture = GFX_NasserSpeech
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = JOR
+		NOT = { has_country_flag = jor10 }
+		date > 1958.2.1
+		date < 1958.5.2
+		EGY = {
+			has_government = neutrality
+			has_completed_focus = EGY_voice_of_arabia
+			controls_state = 860
+		}
+		OR = {
+			IRQ = { has_government = neutrality }
+			SYR = { has_government = neutrality }
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = jor10
+		add_popularity = { ideology = neutrality popularity = 0.08 }
+		add_ideas = nasserism_idea
+	}
+}
+news_event = {
+	id = jor.11
+	title = jor.11.t
+	desc = jor.11.d
+	picture = GFX_NasserSpeech
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JOR
+		NOT = { has_global_flag = jor11 }
+		date > 1958.5.1
+		date < 1959.1.2
+		EGY = {
+			has_government = neutrality
+			has_completed_focus = EGY_voice_of_arabia
+			controls_state = 860
+		}
+		IRQ = { has_government = neutrality }
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = jor11
+	}
+}
+country_event = {
+	id = jor.12
+	title = jor.12.t
+	desc = jor.12.d
+	picture = GFX_DullesCIA
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		OR = {
+			has_completed_focus = Middle_East_policy
+			tag = ENG
+		}
+		IRQ = { has_government = neutrality }
+		NOT = { has_country_flag = jor12 }
+		has_global_flag = jor11
+		date < 1958.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = jor12
+		diplomatic_relation = {
+			relation = military_access
+			country = JOR
+			active = yes
+		}
+		custom_effect_tooltip = 12tool
+		news_event = { id = jor.13 }
+		set_global_flag = jor13
+	}
+}
+news_event = {
+	id = jor.13
+	title = jor.13.t
+	desc = jor.13.d
+	picture = GFX_USLandingLebanon
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}

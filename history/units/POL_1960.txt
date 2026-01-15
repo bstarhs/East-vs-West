@@ -1,0 +1,269 @@
+﻿division_template = {
+	name = "Dywizja Zmechanizowana"		
+	division_names_group = POL_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Dywizja Pancerna"
+	division_names_group = POL_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		medium_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		light_armor = { x = 1 y = 0 }		
+		mechanized = { x = 2 y = 0 }	
+		mechanized = { x = 2 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Powietrznodesantowa"
+	division_names_group = POL_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Brygada Artylerii"
+	division_names_group = POL_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Air Defense Force" 	
+	division_names_group = POL_MEC_01
+	regiments = {	
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 0 }
+		medium_sp_anti_air_brigade = { x = 1 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Naval Assault Division"
+	division_names_group = POL_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Helicopter" 	
+	division_names_group = POL_MEC_01	
+	# Usual tanks: FT-17, R-35, H-35, H-39
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }
+		heavy_armor = { x = 0 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 } 		
+		artillery = { x = 0 y = 0 } 		
+	}
+}
+
+units = {
+	### Armia Pomorze ###	
+	division = {	
+		name = "6 Brygada Powietrznodesantowa"
+		location = 9427
+		division_template = "Powietrznodesantowa"
+		start_experience_factor = 0.8
+
+	}
+	division = {	
+		name = "7th Luzycka Naval Assault Division"
+		location = 362
+		division_template = "Naval Assault Division"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "8th Dresden Mechanized Division"
+		location = 9361
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "12th Szczecin Mechanized Division"
+		location = 6282
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "15th People's Guards Mechanized Division"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "16th Kaszubska Armored Division"
+		location = 11245
+		division_template = "Dywizja Pancerna"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "20th Warsaw Armored Division"
+		location = 11260
+		division_template = "Dywizja Pancerna"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "2nd Pomerania Artillery Brigade"
+		location = 9252
+		division_template = "Brygada Artylerii"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "6th Warsaw Cannon Artillery Brigade"
+		location = 3324
+		division_template = "Brygada Artylerii"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "7th Howitzer Artillery Brigade"
+		location = 3324
+		division_template = "Brygada Artylerii"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "14th Anti-Tank Artillery Regiment"
+		location = 3324
+		division_template = "Brygada Artylerii"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "2nd Warsaw Mechanized Division"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "4th Pomerania Mechanized Division"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "5th Saska Armoured Division"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "10th Sudeten Armoured Division"
+		location = 11260
+		division_template = "Dywizja Pancerna"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "11th Dresden Armored Division"
+		location = 11260
+		division_template = "Dywizja Pancerna"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "1st Warsaw Mechanized Division"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "3rd Pomerania Mechanized Division,"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "9th Mechanized Division"
+		location = 11245
+		division_template = "Dywizja Zmechanizowana"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "49th Helicopter Regt"
+		location = 11245
+		division_template = "Helicopter"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "56th Helicopter Regt"
+		location = 11245
+		division_template = "Helicopter"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "1st Air Defense Corps"
+		location = 3544
+		division_template = "Air Defense Force"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "2nd Air Defense Corps"
+		location = 3381
+		division_template = "Air Defense Force"
+		start_experience_factor = 0.8
+	}
+	division = {	
+		name = "3rd Air Defense Corps"
+		location = 9570
+		division_template = "Air Defense Force"
+		start_experience_factor = 0.8
+	}
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Polish Naval Aviation"
+		naval_base = 362 
+		task_force = {			
+			name = "2nd Fleet"
+			location = 362 
+			ship = { name = "ORP Orzeł" definition = light_cruiser equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Rostock" definition = light_cruiser equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Halle" definition = light_cruiser equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+		}	
+		task_force = {			
+			name = "2nd Fleet"
+			location = 362 
+			# 9iy Podvodniy Flot
+			ship = { name = "Shch-201" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { name = "Shch-202" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { name = "Shch-203" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { name = "Shch-204" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { name = "Shch-205" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { name = "Shch-206" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+			ship = { name = "Shch-207" definition = submarine equipment = { ship_hull_submarine_2 = { amount = 1 owner = SOV version_name = "641B Tango" } } }
+		}	
+	}
+}

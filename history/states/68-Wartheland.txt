@@ -1,0 +1,38 @@
+
+state={
+	id=68
+	name="STATE_68"
+	manpower = 1250840
+	state_category = rural
+
+	local_supplies=0.0
+	history={
+		set_state_flag = ethnics_Norwegian
+		add_dynamic_modifier = { modifier = state_cold_modifier }
+		owner = NOR
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 127 }
+		add_core_of = NOR
+		buildings = {
+			school = 1
+			hospital = 1
+			dam_plant = 1
+			192 = {
+				naval_base = 3
+			}
+			11050 = {
+				naval_base = 2
+			}
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = {
+			11050 2
+		}
+	}
+
+	provinces={
+		 6187 9208 6111 3126 173 3048 6071 6214 9126 38 3132 3034 192 3145 11157 91 11090 11050 6130 44 3088 
+	}
+}

@@ -1,0 +1,281 @@
+# Logic for Communist AI on how to deal in peace conferences
+# Should favor annexing other nations and taking their states
+# Written by Henrik "Groogy" Hansson
+
+#Adjustments
+#The generic communist AI will very strongly prefer establishing puppet states and liberation, annexing only if they have a valid war goal.
+#Communists will not expand overseas/into islands unless they have a core, preferring satellites instead.
+#Soviet Union should/will have its own AI.
+
+communist_peace = {
+	enable = {
+		has_government = communism
+	}
+	annex_randomness = 0 #200
+	liberate_randomness = 20 #100
+	puppet_randomness = 300 #400
+	take_states_randomness = 2 #200
+	force_government_randomness = 300 #100
+	annex = {
+		factor = 10
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = {
+					has_annex_war_goal = FROM
+				}
+				NOT = {
+					is_owner_neighbor_of = FROM
+				}
+			}
+			FROM = {
+				any_owned_state = { 
+					NOT = {
+						OR = {
+							is_claimed_by = ROOT
+							is_core_of = ROOT
+							has_claimed_state_in_peace_conference = ROOT
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			is_puppet = yes
+		}
+		modifier = {
+			factor = 0
+			tag = SOV
+			FROM = { is_in_faction_with = USA }
+		}
+		modifier = {
+			factor = 500
+			tag = PRK
+			FROM = { tag = KOR }
+		}
+		modifier = {
+			factor = 500
+			tag = KOR
+			FROM = { tag = PRK }
+		}
+		modifier = {
+			factor = 500
+			tag = PRC
+			OR = {
+				FROM = { tag = TIB }
+				FROM = { tag = SIK }
+				FROM = { tag = XSM }
+				FROM = { tag = CSX }
+				FROM = { tag = CHI }
+				FROM = { tag = HKN }
+			}
+		}
+	}
+
+	# ROOT = Taker, FROM = Liberated
+	liberate = { #Liberate might be buggy and might require country-specific workarounds...
+		factor = 200 
+
+		modifier = {
+			factor = 0
+
+			NOT = {
+				ai_liberate_desire = {
+					target = FROM
+					value > 0
+				}
+			}		
+			NOT = {
+				FROM = {
+					has_government = communism
+				}			
+			}
+		}
+		modifier = {
+			factor = 0
+			is_puppet = yes
+		}
+		modifier = {
+			factor = 50
+			FROM = { capital_scope = { is_on_continent = africa } }
+		}
+		modifier = {
+			factor = 0
+			tag = PRK
+			FROM = { tag = KOR }
+		}
+		modifier = {
+			factor = 0
+			tag = PRC
+			OR = {
+				FROM = { tag = SIK }
+				FROM = { tag = CHI }
+				FROM = { tag = XSM }
+			}
+		}
+		modifier = {
+			factor = 100
+			FROM = { tag = SCO }
+		}
+		modifier = { 
+			factor = 50
+			OR = {
+				tag = SOV
+				tag = PRC
+			}
+			OR = {
+				capital_scope = {
+					is_on_continent = north_america
+				}
+			}
+		}
+	}
+
+	# ROOT = Taker, FROM = Giver
+	puppet = {
+		factor = 10
+		modifier = {
+			factor = 0
+			is_puppet = yes
+		}
+		modifier = {
+			factor = 0
+			capital_scope = {
+				is_on_continent = africa
+			}
+		}
+		modifier = {
+			factor = 0
+			is_in_faction_with = SOV
+		}
+		modifier = {
+			factor = 500
+			tag = SOV
+			ROOT = {
+				capital_scope = { is_on_continent = europe }
+			}
+			FROM = {
+				capital_scope = { is_on_continent = europe }
+			}
+		}
+		modifier = { #Don't puppet nations in civil war... this is too buggy.
+			factor = 0
+			FROM = { has_civil_war = yes }
+		}
+		modifier = {
+			factor = 50
+			FROM = { has_government = fascist }
+		}
+		modifier = {
+			factor = 50
+			FROM = { tag = SCO }
+		}
+		modifier = {
+			factor = 0
+			tag = PRC
+			OR = {
+				FROM = { tag = SIK }
+				FROM = { tag = CHI }
+				FROM = { tag = XSM }
+			}
+		}
+	}
+
+	# ROOT = Taker, FROM = Giver
+	puppet_all = {
+		base = 20 
+		modifier = {
+			factor = 500
+			OR = {
+				tag = SOV
+			}
+			ROOT = {
+				has_government = communism
+			}
+		}
+	}
+	
+	# ROOT = STATE, FROM = Taker, FROM.FROM = Giver
+	puppet_state = {
+		base = 0 
+		modifier = {
+			factor = 500
+			OR = {
+				tag = SOV
+				tag = PRC
+			}
+			ROOT = {
+				NOT = { is_core_of = SOV } 
+				NOT = { is_core_of = PRC } 
+				NOT = { is_core_of = PRK } 
+			}
+		}
+	}
+	
+	# ROOT = Taker, FROM = State
+	take_states = {
+		factor = 10
+		modifier = {
+			factor = 20
+			FROM = {
+				OR = {
+					is_claimed_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+				NOT = {
+					OR = { 
+						is_claimed_by = ROOT
+						is_core_of = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 800
+			tag = PRC
+			FROM = {
+				OR = { 
+					is_claimed_by = PRC
+					is_core_of = PRC
+				}
+			}
+		}
+	}
+
+	# ROOT = Taker, FROM = Giver
+	force_government = {
+		factor = 300
+		modifier = {
+			factor = 400
+			tag = SOV
+			FROM = {
+				NOT = { has_government = communism }
+				OR = {
+					capital_scope = {
+					is_on_continent = europe
+					}
+					capital_scope = {
+					is_on_continent = asia
+					}
+				}
+			}
+		}
+		modifier = {
+			modifier = 500
+			OR = {
+				tag = SOV
+			}
+			FROM = {
+				NOT = {
+					all_owned_state = { is_controlled_by = SOV }
+				}
+			}
+		}
+	}
+}

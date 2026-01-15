@@ -1,0 +1,62 @@
+ideas = {
+	country = {
+		Latin_Hacienda = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = { always = no }
+			
+			picture = Latin_Hacienda
+			removal_cost = -1
+			
+			modifier = {
+				conscription = -0.01
+				conscription_factor = -0.10
+				stability_factor = -0.1
+				political_power_cost = 0.5
+				global_building_slots_factor = -0.15
+				production_speed_plantation_factor = 0.8 
+				production_speed_buildings_factor = -0.4 
+			}
+		}
+		LaVolencia = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				has_stability > 0.5
+				OR = {
+				NOT = { has_government = authoritarianism }
+				has_stability > 0.8
+				authoritarianism > 0.6
+				}
+			}
+			picture = LatinGuerrilla
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				authoritarianism_drift = -0.02
+				stability_factor = -0.3
+				political_power_gain = -0.14
+				resistance_target = 0.3
+			}
+		}
+	}
+
+	theorist = {
+	}
+
+	high_command = {
+	}
+	# MILITARY
+	army_chief = {
+	}
+
+	air_chief = {
+	}
+
+	navy_chief = {
+	}
+}

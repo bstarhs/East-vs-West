@@ -1,0 +1,69 @@
+
+state={
+	id=20
+	name="STATE_20" # Rhone
+	manpower = 2973200
+	resources={
+		iron=58
+		aluminium=12
+		coal=11
+	}
+	local_supplies=0.0
+
+	state_category = city
+
+	history={
+		owner = FRA
+		set_state_flag = ethnics_Octavian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 70 }
+		add_to_array = { this.state_ethnics_list = 128 }
+		add_core_of = OCC
+		add_core_of = BGD
+		set_state_flag = wine_production
+		victory_points = {
+			6613 10
+		}
+		victory_points = {
+			6786 3
+		}
+		victory_points = {
+			3650 5
+		}
+		victory_points = {
+			11794 4
+		}
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			power_plant = 1
+			infrastructure = 3
+			steel_making = 1
+			industrial_complex = 3
+			air_base = 4
+		}
+		add_core_of = FRA
+		1954.8.17 = {
+			set_state_category = city
+			buildings = {
+				farm_building = 4
+				power_plant = 4
+				steel_making = 3
+				anti_air_building = 2
+				arms_factory = 4
+				radar_station = 2
+				industrial_complex = 8
+			}
+		}
+		1962.1.1 = {
+			buildings = {
+				synthetic_refinery = 1
+			}
+		}
+	}
+
+	provinces={
+		641 3650 3770 6613 6639 6668 6786 9590 9728 9732 11593 11716 11794 
+	}
+}

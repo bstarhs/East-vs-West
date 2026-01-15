@@ -1,0 +1,45 @@
+
+political_actions = {
+	DDR_Open_wall	= {
+
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			always = yes
+			tag = DDR
+			has_country_flag = Krenz
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			DDR = { news_event = { id = ddr.22 } }
+		}
+	
+	}
+	DDR_out_WP	= {
+
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			always = yes
+			tag = DDR
+			DDR = { has_government = democratic }
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			SOV = { remove_from_faction = DDR }
+		}
+	
+	}
+}

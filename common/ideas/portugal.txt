@@ -1,0 +1,120 @@
+ideas = {
+	country = {
+		POR_Estado_Novo = {
+			picture = por_unstable_republic
+			allowed = {
+				original_tag = POR
+			}
+
+			allowed_civil_war = {
+				tag = POR
+			}
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.2
+				drift_defence_factor = 0.3
+			}
+		}
+		salazardeath = {
+
+			picture = salazardeath
+
+			allowed = {
+				original_tag = POR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				neutrality_drift = -0.02
+				stability_factor = -0.12
+			}
+		}
+		portugal_colony = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			picture = portugal_colony
+	
+			modifier = {
+			}
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		
+		ogma = {
+			
+			picture = generic_air_manufacturer_1
+
+			
+			allowed = {
+				original_tag = POR
+			}
+			
+			research_bonus = {
+				light_air = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# military production didn't really start until 1950
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		arsenal_alfeite = {
+			
+			picture = generic_naval_manufacturer_1
+
+			
+			allowed = {
+				original_tag = POR
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			equipment_bonus = {
+				# need to find information on ships made
+			}
+			
+			traits = { naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		fabrica_material_guerra = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+
+			
+			allowed = {
+				original_tag = POR
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			equipment_bonus = {
+				# rifles (mauser 98k) and light artillery
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+}

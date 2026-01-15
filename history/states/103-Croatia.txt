@@ -1,0 +1,67 @@
+
+state={
+	id=103
+	name="STATE_103" # Dalmatia
+	manpower = 1431700
+
+	state_category = large_town
+
+
+	resources={
+		salt=6
+		aluminium=11
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 57 }
+		set_state_flag = ethnics_Croatia
+		owner = YUG
+		victory_points = {
+			3924 6
+		}
+		victory_points = {
+			3943 4
+		}
+		victory_points = {
+			11901 5
+		}
+		victory_points = { 6889 8 }
+		buildings = {
+			hospital = 1
+			infrastructure = 5
+			dockyard = 1
+			industrial_complex = 2
+			farm_building = 1
+			3924 = {
+				naval_base = 3
+			}
+			6889 = {
+				naval_base = 1
+			}
+			3943 = {
+				naval_base = 1
+			}
+		}
+		1962.8.23 = {
+			set_state_category = city
+			buildings = {
+				farm_building = 2
+				power_plant = 2
+				synthetic_refinery = 1
+				rubber_factory = 2
+			}
+		}
+		add_core_of = YUG
+		add_core_of = CRO
+		1990.8.23 = {
+			owner = CRO
+		}
+	}
+
+	provinces={
+		591 984 3601 3868 3924 3974 6611 6889 11816 11901 3943 13547
+	}
+}

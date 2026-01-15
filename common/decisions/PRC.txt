@@ -1,0 +1,2062 @@
+
+PRC_korea_war_decis = {
+	PRC_support_korea = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		days_re_enable = 10
+		visible  = {
+			PRK = { has_war_with = KOR }
+			NOT = { has_idea = SupportKorea }
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				PRK = { has_country_flag = korea_war_38line }
+			}
+			modifier = {
+				add = 200 
+				KOR = {
+					OR = {
+						controls_province = 9790
+						controls_province = 11770
+					}
+				}
+			}
+		}
+		complete_effect = {
+			PRK = { news_event = { id = prk.130 } }
+		}
+	}
+	
+	PRC_korea_war_mobilized_decis = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		fire_only_once = yes
+		visible  = {
+			PRK = { has_war_with = KOR }
+			NOT = { has_idea = SupportKorea }
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				KOR = {
+					has_war_with = PRK
+					has_volunteers_amount_from = {
+						tag = USA
+						count > 0
+					}			
+				}	
+			}
+		}
+
+		complete_effect = {
+			add_political_power = 200
+			add_stability = 0.25
+			set_country_flag = PRC_korea_war_mobilized_decis
+			news_event = { id = prk.135 }
+		}
+	}
+	PRC_korea_war_border_guard_decis = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		fire_only_once = yes
+		visible  = {
+			PRK = { has_war_with = KOR }
+			NOT = { has_idea = SupportKorea }
+			has_country_flag = PRC_korea_war_mobilized_decis
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				KOR = {
+					has_war_with = PRK
+					has_volunteers_amount_from = {
+						tag = USA
+						count > 0
+					}			
+				}	
+			}
+		}
+
+		complete_effect = {
+			add_political_power = 200
+			add_stability = 0.15
+			set_global_flag = PRC_korea_war_border_guard_decis
+		}
+	}
+	PRC_korea_war_add_in_decis = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		fire_only_once = yes
+		visible  = {
+			has_idea = SupportKorea
+			PRK = {
+				has_war_with = KOR
+				has_volunteers_amount_from = {
+					tag = PRC
+					count < 10
+				}			
+			}				
+		}
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+			}
+		}
+
+		complete_effect = {
+			recall_volunteers_from = PRK
+			add_to_variable = { state_power_need = 1 }
+		}
+	}
+}
+Diplomatic_actions = {
+	PRC_burma_border_UN = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 60
+		days_re_enable = 120
+		visible = {
+			tag = PRC
+			has_completed_focus = PRC_china_burma_border
+		}
+		complete_effect = {
+			news_event = { id = bur.30 }
+			
+		}
+	}
+	PRC_burma_border_treaty = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 60
+		days_re_enable = 120
+		visible = {
+			tag = PRC
+			has_completed_focus = PRC_china_burma_border
+		}
+		available = {
+			has_global_flag = PRC_burma_border_banlao
+			has_global_flag = PRC_burma_border_mengmao
+		}
+		complete_effect = {
+			news_event = { id = bur.26 }
+			add_stability = 0.15
+			add_political_power = 300
+			
+		}
+	}
+	PRC_burma_border_banlao = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 40
+		days_re_enable = 120
+		visible = {
+			tag = PRC
+			has_completed_focus = PRC_china_burma_border
+			NOT = { has_global_flag = PRC_burma_border_banlao }
+		}
+		complete_effect = {
+			country_event = { id = bur.21 }
+			BUR = { country_event = { id = bur.21 } }
+		}
+	}
+	PRC_burma_border_mengmao = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 40
+		days_re_enable = 120
+		visible = {
+			tag = PRC
+			has_completed_focus = PRC_china_burma_border
+			NOT = { has_global_flag = PRC_burma_border_mengmao }
+		}
+		complete_effect = {
+			country_event = { id = bur.16 }
+			BUR = { country_event = { id = bur.16 } }
+		}
+	}
+	PRC_burma_border_fair = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		visible = {
+			tag = PRC
+			has_completed_focus = prc_doplo_focus
+			NOT = { has_global_flag = PRC_burma_border_fair }
+		}
+		complete_effect = {
+			set_global_flag = PRC_burma_border_fair
+			news_event = { id = bur.14 }
+		}
+	}
+}
+PRC_peking_construct = {
+	PRC_build_tiananmen_square2 = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		available = {
+			has_stability > 0.7
+			has_country_flag = PRC_build_people_monuments
+			has_country_flag = PRC_build_people_congress
+			has_country_flag = PRC_build_national_museum
+		}
+		days_remove = 80
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 2
+		}
+		remove_effect = {  
+			608 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	PRC_build_tiananmen_square1 = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		available = {
+			has_stability > 0.7
+			has_tech = construction2
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 2
+		}
+		days_remove = 50
+		remove_effect = {  
+			set_country_flag = PRC_build_tiananmen_square1
+			608 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+	PRC_build_people_monuments = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		available = {
+			has_stability > 0.7
+			has_country_flag = PRC_build_tiananmen_square1
+		}
+		days_remove = 50
+		modifier = {
+			political_power_cost = 0.02
+		}
+		remove_effect = { 
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+			add_stability = 0.02
+			add_political_power = 100
+		}
+	}
+	PRC_build_people_congress = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		available = {
+			has_stability > 0.7
+			has_country_flag = PRC_build_tiananmen_square1
+		}
+		modifier = {
+			political_power_cost = 0.03
+			country_resource_cost_steel = 2
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+			add_stability = 0.06
+			add_political_power = 300
+		}
+	}
+	PRC_build_national_museum = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		available = {
+			has_stability > 0.7
+			has_country_flag = PRC_build_tiananmen_square1
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 1
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_stability = 0.02
+			add_political_power = 300
+		}
+	}
+	PRC_build_military_museum = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel =1
+		}
+		available = {
+			has_stability > 0.7
+		}
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_build_military_museum
+					days = -30
+				}
+			}
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 300
+			army_experience = 100
+			navy_experience = 40
+			air_experience = 80
+		}
+	}
+	PRC_build_national_stadium = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		available = {
+			has_stability > 0.7
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 1
+		}
+		days_remove = 220
+		remove_effect = {
+			add_stability = 0.12
+		}
+	}
+	PRC_build_peking_railway_station = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = PRC
+			date > 1950.1.1
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 2
+		}
+		days_remove = 120
+		remove_effect = { 
+			219 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+				}
+			}
+			609 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			614 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			611 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+}
+PRC_great_leap_forwards_decis = {
+	PRC_check_great_farmines = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				FROM = {
+					has_state_flag = great_farmines
+				}
+			}
+		}
+		
+		visible = {
+			tag = PRC
+			has_global_flag = prc289
+			NOT = { has_global_flag = prc291 }
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				NOT = {
+					has_state_category = tiny_island
+					has_state_category = enclave
+					has_state_flag = PRC_check_great_farmines
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = PRC_check_great_farmines
+				state_event = {
+					id = prc.290
+					trigger_for = controller
+				}
+				set_variable = { farmin_cheking = THIS }
+			}
+		}
+	}
+	PRC_colect_foods = {
+		icon = GFX_decision_POL_organize_strike_two
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 300
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			tag = PRC
+			has_idea = GreatLeapForward_ideas
+			has_idea = Products_sattlite
+		}
+		cost = 80
+		complete_effect = {
+			add_political_power = 300
+			random_owned_state = {
+				set_state_flag = great_farmines
+			}
+			random_owned_state = {
+				set_state_flag = great_farmines
+			}
+		}
+	}
+	PRC_states_great_steel = {
+		icon = GFX_decision_POL_organize_strike_two
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		days_remove = 120
+		ai_will_do = {
+			factor = 0
+		}
+		
+		visible = {
+			tag = PRC
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				NOT = {
+					has_state_flag = ethnics_Tibetan
+					has_state_flag = ethnics_Ughurs
+					has_state_flag = ethnics_Khazakhs
+					has_state_category = tiny_island
+					has_dynamic_modifier = { modifier = state_great_steel_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_compliance = 20
+				add_dynamic_modifier = { modifier = state_great_steel_modifiers }
+			}
+		}
+	}
+
+}
+PRC_output_revolution = {
+	PRC_Revolutionary_southeast_asia = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = PRC
+			has_completed_focus = prc34
+			has_idea = Cultrue_Revolution
+			NOT = {
+				has_country_flag = stop_output
+			}
+		}
+		cost = 200
+		days_re_enable = 180
+		target_trigger = {
+			FROM = {
+				is_in_faction = no
+				has_country_flag = southeastasia
+				NOT = {
+					has_government = communism
+				}
+				NOT = {
+					tag = SVN
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+
+		complete_effect = {
+			FROM = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+			}
+		}
+	}
+
+}
+military_action = {
+	decis_attack_zhoushan = {
+		icon = generic_industry
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		visible = {
+			owns_state = 596
+			CHI = { owns_state = 1001 }
+			has_war = no
+		}
+		available = {
+			num_divisions_in_states = {
+				count > 0
+				states = { 596 }
+			}
+		}
+		complete_effect = {
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 596
+					num_provinces = 4
+					on_win = roc.164
+				}
+				defender = {
+					state = 1001
+					num_provinces = 4
+					on_win = roc.163
+				}
+			}
+			news_event = { id = roc.162 }
+		}
+	}
+	decis_bomb_kinmen_end = {
+		icon = generic_industry
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		visible = {
+			owns_state = 595
+			CHI = { owns_state = 830 }
+			has_global_flag = Kinmen_bombs_start
+		}
+		complete_effect = {
+			add_stability = 0.2
+			add_war_support = -0.3
+			news_event = { id = roc.70 }
+			add_political_power = 400
+			clr_global_flag = Kinmen_bombs_start
+			clr_global_flag = Kinmen_bombs_allow
+		}
+	}
+	decis_bomb_kinmen = {
+		icon = generic_industry
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		visible = {
+			owns_state = 595
+			CHI = { owns_state = 830 }
+			has_global_flag = Kinmen_bombs_allow
+		}
+		available = {
+			num_divisions_in_states = {
+				count > 1
+				states = { 595 }
+			}
+		}
+		complete_effect = {
+			set_global_flag = Kinmen_bombs_start
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 595
+					num_provinces = 4
+					on_win = roc.66
+				}
+				defender = {
+					state = 830
+					num_provinces = 4
+					on_win = roc.67
+				}
+			}
+			add_stability = 0.13
+			add_war_support = 0.3
+			news_event = { id = roc.65 }
+		}
+	}
+}
+economy_decisions = {
+	PRC_siemens_deci = {
+		icon = generic_industry
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		visible = {
+			has_completed_focus = prc60
+		}
+		available = {
+			has_opinion = {
+				target = WDR
+				value > 30
+			}
+		}
+		complete_effect = {
+			FROM = {
+				custom_effect_tooltip = PRC_siemens_tool
+			}
+		}
+	}
+
+}
+PRC_Culture_Revolution = {
+	PRC_Revolutionary_community = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		visible = {
+			has_idea = Cultrue_Revolution
+			has_completed_focus = prc33
+		}
+		fire_only_once = yes
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				owner = {
+					tag = PRC
+				}
+				NOT = {
+					has_state_flag = PRC_Revolutionary_community
+					OR = {
+						has_state_category = pastoral
+						has_state_category = enclave
+						has_state_category = wasteland
+						has_state_category = tiny_island
+					}
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = PRC_Revolutionary_community
+				custom_effect_tooltip = PRC_Revolutionary_community_tip
+			}
+		}
+	}
+}
+
+PRC_construction = {
+	Sanmen_dam = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 120
+		fire_only_once = yes
+		days_remove = 400
+		visible = {
+			has_completed_focus = prc11
+			NOT = { has_country_flag = Sanmen_builded }
+		}
+		available = {
+			has_tech = construction2
+		}
+		modifier = {
+			political_power_cost = 0.06
+			country_resource_cost_steel = 2
+		}
+		remove_effect = {
+			set_country_flag = Sanmen_builded
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			607 = {
+				remove_dynamic_modifier = { modifier = yellow_river_modifier }
+				add_extra_state_shared_building_slots = 5
+			}
+			597 = {
+				remove_dynamic_modifier = { modifier = yellow_river_modifier }
+			}
+				add_stability = 0.15
+			}
+	}
+	PRC_peking_square = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_completed_focus = prc11
+			NOT = { has_country_flag = tiananmen_square_builded }
+		}
+		available = {
+			has_tech = construction2
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 1
+		}
+		fire_only_once = yes
+		days_remove = 80
+		remove_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+			add_stability = 0.15
+			608 = {
+				set_state_category = large_city
+				add_extra_state_shared_building_slots = 3
+			}
+			news_event = { id = prc.107 }
+			set_country_flag = tiananmen_square_builded
+		}
+	}
+	PRC_sichuan_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_tech = gasoline_train
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 2
+		}
+		cost = 80
+		visible = {
+			has_completed_focus = prc11
+		}
+		fire_only_once = yes
+		days_remove = 120
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 605
+				target_state = 620
+			}
+		}
+	}
+	PRC_tibet_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		modifier = {
+			political_power_cost = 0.06
+			country_resource_cost_steel = 2
+		}
+		cost = 80
+		visible = {
+			has_completed_focus = prc11
+		}
+		available = {
+			has_tech = electro_train
+		}
+		fire_only_once = yes
+		days_remove = 600
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 283
+				target_state = 604
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 604
+				target_state = 322
+			}
+		}
+	}
+	PRC_yuehan_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_completed_focus = prc11
+		}
+		available = {
+			has_tech = basic_train
+		}
+		modifier = {
+			political_power_cost = 0.03
+			country_resource_cost_steel = 2
+		}
+		fire_only_once = yes
+		days_remove = 250
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 620
+				target_state = 602
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 602
+				target_state = 593
+			}
+		}
+	}
+	PRC_guangxi_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_completed_focus = prc11
+		}
+		available = {
+			has_tech = basic_train
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 2
+		}
+		fire_only_once = yes
+		days_remove = 200
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 599
+				target_state = 594
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 594
+				target_state = 592
+			}
+		}
+	}
+	PRC_baoji_chengdu_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 160
+		visible = {
+			has_completed_focus = prc11
+		}
+		available = {
+			has_tech = basic_train
+		}
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 2
+		}
+		fire_only_once = yes
+		days_remove = 200
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 622
+				target_state = 605
+			}
+		}
+	}
+	PRC_longhai_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		visible = {
+			has_completed_focus = prc11
+		}
+		available = {
+			has_tech = basic_train
+		}
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.03
+			country_resource_cost_steel = 2
+		}
+		fire_only_once = yes
+		days_remove = 300
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 622
+				target_state = 598
+			}
+		}
+	}
+	PRC_build_shanghai_expo = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = PRC
+			NOT = { has_global_flag = PRC_build_shanghai_expo }
+		}
+		cost = 300
+		days_re_enable = 150
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+			has_tech = basic_train
+		}
+		days_remove = 120
+		modifier = {
+			political_power_cost = 0.02
+			country_resource_cost_steel = 2
+		}
+		remove_effect = {
+			set_global_flag = PRC_build_shanghai_expo
+			613 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_build_leap_ship = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1958.1.1
+			}
+		}
+		visible = {
+			tag = PRC
+			NOT = { has_global_flag = PRC_build_leap_ship }
+		}
+		cost = 300
+		days_re_enable = 120
+		modifier = {
+			political_power_cost = 0.01
+			country_resource_cost_steel = 2
+		}
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = PRC_build_leap_ship
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 200
+				producer = PRC
+			}
+		}
+	}
+	PRC_build_canton_expo = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = PRC
+			NOT = { has_global_flag = PRC_build_canton_expo }
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			steel > 8
+			rubber > 3
+			has_tech = construction2
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = PRC_build_canton_expo
+			613 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_wuhan_briadge_decis = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = PRC
+		}
+		cost = 300
+		days_re_enable = 200
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+			has_tech = basic_train
+			has_tech = construction2
+		}
+		days_remove = 120
+		remove_effect = {
+			news_event = { id = prc.242 }
+			620 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_xinjiang_railway = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_completed_focus = prc11
+		}
+		available = {
+			has_tech = basic_train
+		}
+		fire_only_once = yes
+		complete_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				start_state = 622
+				target_state = 617
+			}
+		}
+	}
+	PRC_datong_coal = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 120
+		visible = {
+			has_completed_focus = prc11
+		}
+		fire_only_once = yes
+		available = {
+			615 = {
+				infrastructure > 3
+			}
+			has_tech = excavation2
+		}
+		days_remove = 150
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_datong_coal
+					days = -30
+				}
+			}
+		}
+		remove_effect = {
+			615= {
+				add_resource = {
+					type = coal
+					amount = 10
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_power_plants_project = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 120
+		days_re_enable = 50
+		available = {
+			has_tech = power_generation1
+		}
+		visible = {
+			has_completed_focus = prc11
+			any_owned_state = {
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = city
+						has_state_category = large_city
+					}
+				power_plant < 2
+			}
+		}
+		days_remove = 150
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_power_plants_project
+					days = -30
+				}
+			}
+		}
+		remove_effect = {
+			random_owned_state = {
+				limit = {
+					power_plant < 2
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = city
+						has_state_category = large_city
+					}
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					power_plant < 2
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = city
+						has_state_category = large_city
+					}
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					power_plant < 2
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = city
+						has_state_category = large_city
+					}
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	PRC_lanzhou_oil_refinery = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 120
+		visible = {
+			has_completed_focus = prc11
+		}
+		fire_only_once = yes
+		available = {
+			283 = {
+				free_building_slots = {
+					building = synthetic_refinery
+					size > 1
+					include_locked = yes
+				}
+			}
+			has_tech = synth_oil_experiments
+		}
+		days_remove = 150
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 2
+			country_resource_cost_oil = 2
+		}
+		remove_effect = {
+			283 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_lanzhou_oil_refinery
+					days = -30
+				}
+			}
+		}
+	}
+	PRC_luoyang_manufactures = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 120
+		visible = {
+			has_completed_focus = prc11
+		}
+		fire_only_once = yes
+		available = {
+			607 = {
+				infrastructure > 2
+			}
+			has_tech = basic_machine_tools
+		}
+		days_remove = 150
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_luoyang_manufactures
+					days = -30
+				}
+			}
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 2
+			country_resource_cost_copper = 2
+		}
+		remove_effect = {
+			607 = {
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_henan_refinery = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 120
+		visible = {
+			has_completed_focus = prc11
+		}
+		fire_only_once = yes
+		available = {
+			607 = {
+			607 = {
+				infrastructure > 2
+			}
+			}
+			has_tech = concentrated_industry
+		}
+		days_remove = 150
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_henan_refinery
+					days = -30
+				}
+			}
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 2
+			country_resource_cost_oil = 2
+		}
+		remove_effect = {
+			607 = {
+				add_resource = {
+					type = tungsten
+					amount = 10
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_zhuzhou_refinery = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 120
+		visible = {
+			has_completed_focus = prc11
+		}
+		fire_only_once = yes
+		available = {
+			607 = {
+				infrastructure > 3
+			}
+			has_tech = concentrated_industry
+		}
+		days_remove = 150
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_zhuzhou_refinery
+					days = -30
+				}
+			}
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 2
+			country_resource_cost_copper = 2
+		}
+		remove_effect = {
+			602 = {
+				add_resource = {
+					type = tungsten
+					amount = 10
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_magang = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_idea = ChinaFvieYearsPlant
+		}
+		fire_only_once = yes
+		available = {
+			606 = {
+				infrastructure > 3
+			}
+			has_tech = steel_making_tech
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_iron = 5
+		}
+		days_remove = 200
+		remove_effect = {
+			606 = {
+				add_building_construction = {
+					type = steel_making
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_beigang = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_idea = ChinaFvieYearsPlant
+		}
+		fire_only_once = yes
+		available = {
+			714 = {
+				infrastructure > 3
+			}
+			has_tech = steel_making_tech
+		}
+		days_remove = 200
+		complete_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_beigang
+					days = -30
+				}
+			}
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_iron = 5
+		}
+		remove_effect = {
+			714 = {
+				add_building_construction = {
+					type = steel_making
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_baotou = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_idea = ChinaFvieYearsPlant
+		}
+		fire_only_once = yes
+		available = {
+			621 = {
+				infrastructure > 3
+			}
+			has_tech = steel_making_tech
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 4
+		}
+		days_remove = 200
+		remove_effect = {
+			if = {
+				limit = { has_idea = soviet_industry_advisitor_idea }
+				custom_effect_tooltip = PRC_construction_advisor_tool
+				add_days_remove  = {
+					decision = PRC_baotou
+					days = -30
+				}
+			}
+			621 = {
+				add_building_construction = {
+					type = steel_making
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	PRC_angang = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 80
+		visible = {
+			has_idea = ChinaFvieYearsPlant
+		}
+		fire_only_once = yes
+		available = {
+			716 = {
+				infrastructure > 3
+			}
+			has_tech = steel_making_tech
+		}
+		modifier = {
+			political_power_cost = 0.04
+			country_resource_cost_steel = 4
+		}
+		days_remove = 200
+		remove_effect = {
+			716 = {
+				add_building_construction = {
+					type = steel_making
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+political_actions = {
+	PRC_sinkiang_names = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = PRC
+			has_completed_focus = prc24
+			controls_state = 617
+			controls_state = 619
+		}
+		cost = 30
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 20
+		}
+
+		complete_effect = {
+			set_province_name = { id = 4709 name = VICTORY_POINTS_4709_prc }
+			617 = {
+				if = {
+					limit = { has_resistance = yes }
+					add_resistance = -15
+					add_compliance = 30
+				}
+			}
+			948= {
+				if = {
+					limit = { has_resistance = yes }
+					add_resistance = -15
+					add_compliance = 30
+				}
+			}
+			618 = {
+				if = {
+					limit = { has_resistance = yes }
+					add_resistance = -15
+					add_compliance = 30
+				}
+			}
+			619 = {
+				if = {
+					limit = { has_resistance = yes }
+					add_resistance = -15
+					add_compliance = 30
+				}
+			}
+			950 = {
+				if = {
+					limit = { has_resistance = yes }
+					add_resistance = -15
+					add_compliance = 30
+				}
+			}
+			add_stability = 0.05
+		}
+	}
+	PRC_mongol_names = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = PRC
+			has_completed_focus = prc24
+			controls_state = 715
+			controls_state = 621
+			
+		}
+		cost = 30
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 20
+		}
+
+		complete_effect = {
+			set_province_name = { id = 10424 name = VICTORY_POINTS_10424_mon }
+			set_province_name = { id = 12448 name = VICTORY_POINTS_12448_mon }
+			set_province_name = { id = 7648 name = VICTORY_POINTS_7648_mon }
+			set_province_name = { id = 7545 name = VICTORY_POINTS_7545_mon }
+			set_province_name = { id = 1627 name = VICTORY_POINTS_1627_mon }
+			616 = {
+				add_resistance = -15
+				add_compliance = 30
+			}
+			621= {
+				add_resistance = -15
+				add_compliance = 30
+			}
+			616 = {
+				add_resistance = -15
+				add_compliance = 30
+			}
+			611 = {
+				add_resistance = -15
+				add_compliance = 30
+			}
+			612 = {
+				add_resistance = -15
+				add_compliance = 30
+			}
+			715 = {
+				add_resistance = -15
+				add_compliance = 30
+			}
+			add_stability = 0.05
+		}
+	}
+	PRC_stop_output = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = PRC
+			has_completed_focus = prc40
+		}
+		cost = 100
+		days_re_enable = 180
+		ai_will_do = {
+			factor = 20
+		}
+
+		complete_effect = {
+			every_country = {
+				limit = { 
+					has_country_flag = southeastasia
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = USA_special_relationship
+				}
+			}
+			set_country_flag = stop_output
+			add_political_power = 300
+			add_stability = 0.15
+			add_to_variable = { influences = 100 } 
+		}
+	}
+	PRC_disband = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 20
+		fire_only_once = yes
+		visible = {
+			controls_state = 325
+			controls_state = 591
+			date < 1955.1.1
+		}
+
+		complete_effect = {
+			delete_unit = {
+				state = 592     
+				state = 599   
+				state = 594
+				state = 325 
+				state = 714
+				state = 717
+				state = 597         
+				disband = yes
+			}
+		}
+	}
+	PRC_UN = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				date < 1970.1.1
+			}
+		}
+		available = {
+			check_variable = { influences > 300 }
+			OR = {
+				has_opinion = {
+					target = ENG
+					value > 80
+				}
+				has_opinion = {
+					target = FRA
+					value > 80
+				}
+				has_opinion = {
+					target = USA
+					value > 80
+				}
+			}
+		}
+		cost = 20
+
+		visible = {
+			NOT = { has_idea = UNmember }
+		}
+
+		complete_effect = {
+			every_country = {
+				limit = {
+					has_country_flag = UNSC
+				}
+				news_event = { id = prc.104 }
+			}
+		}
+	}
+	PRC_3_anti = {
+		icon = GFX_deci_revilution
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		cost = 20
+
+		visible = {
+			has_completed_focus = prc0
+				not = { has_completed_focus = prc39 }
+				not = { has_completed_focus = prc29 }
+		}
+
+		complete_effect = {
+			add_popularity = { ideology = communism popularity = 0.15 }
+			add_stability = 0.1
+		}
+
+	
+	}
+	PRC_USA_allian_1980 = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 20
+
+		visible = {
+			has_idea = SovietChinaConflit
+			SOV = { has_war_with = USA }
+		}
+
+		complete_effect = {
+			give_guarantee = USA
+			USA = { give_guarantee = PRC }
+		}
+
+	
+	}
+	PRC_annex_taiwan = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						has_war_with = USA
+					}
+				}
+			}
+		}
+
+		cost = 20
+
+		visible = {
+			has_completed_focus = prc_taiwan
+			524 = { is_controlled_by = CHI }
+			593 = { is_controlled_by = PRC }
+		}
+
+		complete_effect = {
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+		}
+
+	
+	}
+}

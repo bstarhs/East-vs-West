@@ -1,0 +1,155 @@
+ideas = {
+
+	country = {
+		MEX_Masacre_de_Tlatelolco = {
+			picture = MEX_Masacre_de_Tlatelolco
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.25
+				stability_factor = -0.15
+				drift_defence_factor = -0.12
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		MEX_Masacre_de_Tlatelolco = {
+		
+			allowed = { always = yes }
+
+			picture = MEX_Masacre_de_Tlatelolco
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.12
+				stability_factor = 0.25
+				political_power_factor = 0.2
+			}
+		}
+		MEX_revolucion_legacy = {
+		
+			allowed = { always = yes }
+
+			picture = MEX_revolucion_legacy
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.12
+				stability_factor = 0.25
+				political_power_factor = 0.2
+			}
+		}
+		synarchist_support_surge = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = generic_fascism_drift_bonus
+			
+			modifier = {
+				stability_factor = -0.05
+				fascism_drift = 0.10
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		Latin_america_no_nuce = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = no_nuke
+			
+			research_bonus = {
+				nuclear = -0.10
+				mot_rockets = -0.10
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	industrial_concern = {
+		designer = yes
+		
+		tga = {
+			
+			picture = generic_air_manufacturer_1
+
+			
+			allowed = {
+				original_tag = MEX
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# made avro 504 and O2U Corsair under license
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		fabrica_nacional_armas = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+
+			
+			allowed = {
+				original_tag = MEX
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			equipment_bonus = {
+				# rifles (mauser 98k) and light artillery
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+	
+		comesa = {
+			
+			picture = generic_artillery_manufacturer_3
+
+			
+			allowed = {
+				original_tag = MEX
+			}
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			equipment_bonus = {
+				# artillery equipment, very little info
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+}

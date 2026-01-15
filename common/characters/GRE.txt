@@ -1,0 +1,231 @@
+characters={
+	GRE_Alexander_Papagos={
+		name=GRE_Alexander_Papagos
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Papagos.tga"
+				small="gfx/interface/ideas/idea_Konstantinos.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Alexander_Papagos
+			allowed  = {
+				original_tag  = GRE
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				anti_communist popular_figurehead Developmentalism military_theorist
+			}
+			id=-1
+		}
+	}
+	GRE_Andreas_Papandreou={
+		name=GRE_Andreas_Papandreou
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Andreas_Papandreou.tga"
+				small="gfx/interface/ideas/idea_Andreas_Papandreou.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Andreas_Papandreou
+			visible={
+				date > 1980.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits={ democratic_reformer silent_workhorse social_reformer }
+			id=-1
+		}
+	}
+	GRE_Georgios_Papandreou={
+		name=GRE_Georgios_Papandreou
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Georgios_Papandreou.tga"
+				small="gfx/interface/ideas/idea_Georgios_Papandreou.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Georgios_Papandreou
+			visible={
+				date > 1950.1.1
+				date < 1968.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits={ democratic_reformer silent_workhorse social_reformer }
+			id=-1
+		}
+	}
+	GRE_Tzanis_Tzannetakis={
+		name=GRE_Tzanis_Tzannetakis
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Chanis_Caztakis.tga"
+				small="gfx/interface/ideas/idea_Tzanis_Tzannetakis.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Konstantinos_Mitsotakis
+			visible={
+				date > 1970.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			traits  = {
+				communist_revolutionary 
+			}
+			modifier = {
+				political_power_cost = -0.2
+				stability_factor = 0.05
+				
+			}
+		}
+	}
+	GRE_Theodoros_Pangalos={
+		name=GRE_Theodoros_Pangalos
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Theodoros_Pangalos.tga"
+				small="gfx/interface/ideas/idea_Theodoros_Pangalos.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Konstantinos_Mitsotakis
+			visible={
+				date > 1980.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			traits={ propaganda_bungler }
+			modifier = {
+				political_power_cost = -0.15
+			}
+		}
+	}
+	GRE_Konstantinos_Mitsotakis={
+		name=GRE_Konstantinos_Mitsotakis
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Konstantinos_Mitsotakis.tga"
+				small="gfx/interface/ideas/idea_Konstantinos_Mitsotakis.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Konstantinos_Mitsotakis
+			visible={
+				date > 1960.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			traits={ democratic_reformer neoliberal }
+			modifier = {
+				political_power_cost = -0.2
+			}
+		}
+	}
+	GRE_Giorgos_Rallis={
+		name=GRE_Giorgos_Rallis
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Giorgos_Rallis.tga"
+				small="gfx/interface/ideas/idea_Giorgos_Rallis.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Giorgos_Rallis
+			visible={
+				date > 1955.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			modifier = {
+				political_power_cost = -0.2
+			}
+		}
+	}
+	GRE_Antonis_Tritsi={
+		name=GRE_Antonis_Tritsi
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Antonis_Tritsi.tga"
+				small="gfx/interface/ideas/idea_Antonis_Tritsi.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Antonis_Tritsi
+			visible={
+				date > 1980.1.1
+				date < 1992.4.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.2
+			}
+		}
+	}
+	GRE_Konstantinos={
+		name=GRE_Konstantinos
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Konstantinos.tga"
+				small="gfx/interface/ideas/idea_Konstantinos.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Konstantinos
+			visible={
+				date > 1960.1.1
+				date < 1978.1.1
+			}
+			allowed  = {
+				original_tag  = GRE
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits = {
+				pro_third_world ideological_crusader Developmentalism social_reformer
+			}
+			id=-1
+		}
+	}
+}

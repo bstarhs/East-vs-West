@@ -1,0 +1,55 @@
+
+state={
+	id=228
+	name="STATE_228" # Voroshilovgrad
+	manpower = 2167411
+	
+	state_category = city
+	resources={
+		iron=8
+		coal=23
+	}
+
+	history={
+		set_state_flag = ethnics_Russian
+		set_state_flag = SOV_corn_states
+		add_to_array = { this.state_ethnics_list = 143 }
+		add_to_array = { this.state_ethnics_list = 170 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SOV
+		victory_points = {
+			9461 6
+		}
+		victory_points = {
+			6519 4
+		}
+		buildings = {
+			power_plant = 1
+			infrastructure = 5
+			farm_building = 2
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		1955.1.1 = {
+			buildings = {
+				farm_building = 3
+				power_plant = 3
+				steel_making = 2
+				arms_factory = 3
+				industrial_complex = 5
+			}
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1990.1.1 = {
+			owner = UKR
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		523 547 570 6505 6519 9446 9461 9476 11487 11513 
+	}
+}

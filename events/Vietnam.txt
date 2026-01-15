@@ -1,0 +1,1991 @@
+﻿add_namespace = vin
+
+#越盟增兵
+news_event = {
+	id = vin.1
+	title = vin.1.t
+	desc = vin.1.d
+	picture = GFX_VietCong
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		date < 1956.1.1
+		tag = FRA
+		OR = {
+			VIN = { is_puppet = yes }
+			FRA = { owns_state = 1020 }
+		}
+		1020 = { resistance < 70 }
+	}
+	option = {
+		name = vin.1.a
+		SVN = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+		1020 = { add_resistance = 30 }
+		1019 = { add_resistance = 30 }
+		if = {
+			limit = {
+				1020 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			1020 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			1019 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			671 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#越盟起义
+news_event = {
+	id = vin.2
+	title = vin.2.t
+	desc = vin.2.d
+	picture = GFX_DienBienphu
+	mean_time_to_happen = {
+		days = 10
+	}
+	major = yes
+	trigger = {
+		tag = FRA
+		NOT = { country_exists = VIN }
+		1020 = { resistance > 60 }
+		OR = {
+			FRA = { owns_state = 1020 }
+			SVN = { owns_state = 1020 }
+		}
+		OR = {
+			SVN = { communism > 0.15 }
+			1020 = { resistance > 80 }
+		}
+		date < 1956.1.1
+	}
+	option = {
+		name = vin.1.a
+			if = {
+			limit = { tag = FRA }
+			671 = {
+				add_resistance = -90
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			1020 = {
+				add_resistance = -90
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			1019 = {
+				add_resistance = -90
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			SVN = {
+				end_puppet = VIN
+				add_popularity = {
+					ideology = communism
+					popularity = -0.25
+				}
+			}
+			VIN = {
+				transfer_state = 1020
+				transfer_state = 1019
+				load_oob = "VIN_1947"
+				set_politics = { ruling_party = communism }
+				add_stability = 0.8
+				add_popularity = {
+					ideology = communism
+					popularity = 0.8
+				}
+			}
+			FRA = {
+				end_puppet = VIN
+				declare_war_on = {
+					target = VIN
+					type = annex_everything
+				}
+			}
+		}
+	}
+}
+#越盟占领西贡
+news_event = {
+	id = vin.3
+	title = vin.3.t
+	desc = vin.3.d
+	picture = GFX_DienBienphu
+	fire_only_once = yes
+	trigger = {
+		AND = {
+			FRA = { has_war_with = VIN }
+			752 = {is_controlled_by = VIN }
+			}
+		}
+	option = {
+		name = vin.1.a
+			VIN = {
+			add_stability = 0.40
+			}
+			FRA = {
+			add_to_variable = { influences = -50 }
+			add_stability = -0.40
+		}
+	}
+}
+#越盟被击败
+news_event = {
+	id = vin.5
+	title = vin.5.t
+	desc = vin.5.d
+	picture = GFX_FrenchInVietnam
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.5.a
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.6
+			add_war_support = 0.6
+			671 = { add_resistance = -20 }
+			1019 = { add_resistance = -20 }
+			1020 = { add_resistance = -20 }
+			779 = { add_resistance = -20 }
+			792 = { add_resistance = -20 }
+			762 = { add_resistance = -20 }
+			286 = { add_resistance = -20 }
+		}
+		if = {
+			limit = {
+				tag = FRA
+				1020 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			1020 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			1019 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			671 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+
+#日内瓦会议
+news_event = {
+	id = vin.13
+	title = vin.13.t
+	desc = vin.13.d
+	picture = GFX_GenevaConference
+	mean_time_to_happen = {
+		days = 12
+	}
+	immediate = {
+		play_song = VET_32
+	}
+	trigger = {
+		tag = FRA
+		has_global_flag = VinGenevaNegoSucces
+		OR = {
+			NOT = { country_exists = VIN }
+			has_war_with = VIN
+		}
+	}
+	major = yes
+	option = {
+		name = vin.13.a
+		VIN = { transfer_state = 671 }
+		if = {
+			limit = { tag = VIN }
+			clr_global_flag = VinGenevaNegoSucces
+			add_to_variable = { influences = 80 }
+			transfer_state = 671
+			transfer_state = 1020
+			transfer_state = 1019
+			transfer_state = 779
+			remove_ideas = VIN_anti_france
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			set_capital = {state = 671}
+		}
+		if = {
+			limit = { tag = CAM }
+			leave_faction = yes
+			add_to_variable = { influences = 80 }
+		}
+		if = {
+			limit = { tag = LAO }
+			leave_faction = yes
+			add_to_variable = { influences = 80 }
+		}
+		if = {
+			limit = { is_subject_of = FRA }
+			add_autonomy_score = {
+				value = 100
+				localization = wind_of_change
+			}
+		}
+		if = {
+			limit = {
+				tag = FRA
+			}
+			end_puppet = SVN
+			end_puppet = CAM
+			end_puppet = LAO
+			add_to_variable = { influences = 80 }
+			460 = { add_resistance = 30 }
+			514 = { add_resistance = 30 }
+			513 = { add_resistance = 30 }
+		}
+		every_country = {
+			limit = { has_war_with = VIN }
+			white_peace = VIN
+		}
+		if = {
+			limit = { tag = SVN }
+			set_cosmetic_tag = SVN
+			leave_faction = yes
+			add_to_variable = { influences = 80 }
+			transfer_state = 752
+			transfer_state = 753
+			transfer_state = 1034
+			transfer_state = 1035
+			transfer_state = 753
+			transfer_state = 286
+			transfer_state = 1021
+			set_cosmetic_tag = SVN
+		}
+	}
+}
+#保大登基
+news_event = {
+	id = vin.18
+	title = vin.18.t
+	desc = vin.18.d
+	picture = GFX_BaoDai
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = vin.18.a
+		if = {
+			limit = { tag = FRA }
+			SVN = {
+				create_country_leader = {
+					name = "Nguyen Phuc Thien"
+					picture = "gfx/leaders/SVN/Portrait_Vietnam_Bao_Dai.tga"
+					expire = "2050.1.1"
+					ideology = socialism
+					traits = {
+					}
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.5
+				}
+				load_oob = "IndoChina"
+				add_war_support = 0.4
+			}
+		}
+	}
+}
+#越南帝国复辟
+news_event = {
+	id = vin.21
+	title = vin.21.t
+	desc = vin.21.d
+	picture = GFX_VietnamEmpire
+	is_triggered_only = yes
+	option = {
+		name = vin.21.a
+			SVN = {
+				set_politics = {
+					ruling_party = monarchism
+				}
+				create_country_leader = {
+				name = "Bao Dai"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/SVN/Portrait_Vietnam_Bao_Dai_Emporor.tga"
+				expire = "2050.1.1"
+				ideology = monarchism
+				traits = {
+					}
+				}
+			}
+	}
+}
+#15号决议
+news_event = {
+	id = vin.22
+	title = vin.22.t
+	desc = vin.22.d
+	picture = GFX_LeDuanVisit
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = VIN
+		date > 1958.10.1
+		date < 1958.11.14
+		NOT = { has_completed_focus = VIN_liberate_south }
+		SVN = { has_completed_focus = SVN_supress_commie }
+	}
+	option = {
+		name = vin.24.a
+		set_global_flag = vin24
+	}
+}
+news_event = {
+	id = vin.23
+	title = vin.23.t
+	desc = vin.23.d
+	picture = GFX_LeDuanSpeech
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = VIN
+		date > 1959.1.1
+		date < 1959.2.14
+		SVN = { has_completed_focus = SVN_supress_commie }
+		has_global_flag = vin24
+	}
+	option = {
+		name = vin.24.a
+		set_global_flag = vin24
+		add_political_power = -120
+		complete_national_focus = VIN_liberate_south
+	}
+}
+news_event = {
+	id = vin.24
+	title = vin.24.t
+	desc = vin.24.d
+	picture = GFX_LeDuanSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = SVN }
+			add_stability = -0.15
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+}
+
+
+#处置吴廷琰
+news_event = {
+	id = vin.26
+	title = vin.26.t
+	desc = vin.26.d
+	picture = GFX_ThichQuangDuc
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1963.5.1
+		date < 1963.12.14
+		SVN = { has_government = authoritarianism }
+	}
+	option = {
+		name = vin.26.a
+		random_list = {
+			70 = { news_event = { id = vin.31 } } 
+			30 = { news_event = { id = vin.32 } }
+		}
+	}
+}
+#佛教徒示威
+news_event = {
+	id = vin.27
+	title = vin.27.t
+	desc = vin.27.d
+	picture = GFX_BudhistProtest
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = SVN
+		has_government = authoritarianism
+	}
+	option = {
+		name = vin.27.a
+		add_stability = -0.04
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = -0.2
+		}
+	}
+	option = {
+		name = vin.27.b
+		add_stability = 0.04
+		add_political_power = -50
+	}
+}
+#南越起义
+news_event = {
+	id = vin.28
+	title = vin.28.t
+	desc = vin.28.d
+	picture = GFX_VietCong
+	trigger = {
+		tag = SVN
+			NOT = { has_government = communism }
+			communism > 0.4
+			OR = {
+			has_stability < 0.3
+			752 = { resistance > 60 }
+			286 = { resistance > 60 }
+		}
+	}
+	mean_time_to_happen = {
+		days = 120
+	}
+	option = {
+		name = vin.28.a
+		VIN = { load_oob = "Viet_Cung" }
+	}
+}
+#南越内战
+news_event = {
+	id = vin.29
+	title = vin.29.t
+	desc = vin.29.d
+	picture = GFX_VietCong
+	mean_time_to_happen = { days = 200 }
+	trigger = {
+			tag = SVN
+			NOT = { has_government = communism }
+			communism > 0.7
+			is_puppet = no
+			is_subject = no
+			has_stability < 0.2
+			OR = {
+				752 = { resistance > 80 }
+				753 = { resistance > 80 }
+				1034 = { resistance > 80 }
+				1035 = { resistance > 80 }
+				286 = { resistance > 80 }
+			}
+	}
+	option = {
+		name = vin.29.a
+		SVN = {
+			add_ideas = DietCong
+			create_country_leader = {
+				name = "Nguyen Huu-Tho"
+				picture = "gfx/leaders/SVN/Portrait_Vietnam_Nguyen_HuuTho.tga"
+				expire = "1988.1.1"
+				ideology = marxism
+				traits = {
+				}
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.5
+			}
+			start_civil_war = {
+				ideology = communism
+				size = 0.2
+			}
+		}
+	}
+}
+#失去胡志明小径
+news_event = {
+	id = vin.30
+	title = vin.30.t
+	desc = vin.30.d
+	picture = GFX_HoChiMinhTrail
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = VIN
+		has_idea = HoChiMinhTrail
+		OR = {
+			782 = { NOT = { has_dynamic_modifier = { modifier = HCMTrail_modifier } } }
+			767 = { NOT = { has_dynamic_modifier = { modifier = HCMTrail_modifier } } }
+			998 = { NOT = { has_dynamic_modifier = { modifier = HCMTrail_modifier } } }
+		}
+	}
+	option = {
+		name = vin.21.a
+		remove_ideas = HoChiMinhTrail
+	}
+}
+#1963政变
+news_event = {
+	id = vin.31
+	title = vin.31.t
+	desc = vin.31.d
+	picture = GFX_NgoDinhdiemDead
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.31.a
+		if = {
+			limit = { tag = SVN }
+			add_to_variable = { influences = -80 }
+			set_politics = { ruling_party = neutrality }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.4
+			}
+			add_stability = 0.2
+			create_country_leader = {
+				name = "Dương Văn-Minh"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/SVN/Portrait_Vietnam_Duong_Van_Minh.tga"
+				expire = "2050.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+		}
+	}
+}
+#1963政变失败
+news_event = {
+	id = vin.32
+	title = vin.32.t
+	desc = vin.32.d
+	picture = GFX_SaigonCoup
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.32.a
+		if = {
+			limit = { tag = SVN }
+			add_to_variable = { influences = -80 }
+			add_stability = -0.2
+		}
+	}
+}
+#1965政变
+news_event = {
+	id = vin.33
+	title = vin.33.t
+	desc = vin.33.d
+	picture = GFX_SaigonCoup
+	fire_only_once = yes
+	trigger = {
+			tag = SVN
+			NOT = { has_government = communism }
+			date > 1965.1.1
+			date < 1966.1.1
+			has_stability < 0.5
+			
+	}
+	option = {
+		name = vin.33.a
+			SVN = {
+				add_to_variable = { influences = -80 }
+				create_country_leader = {
+				name = "Nguyen Van-Thieu"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/SVN/Portrait_Vietnam_Nguyen_VanThieu.tga"
+				expire = "2050.1.1"
+				ideology = despotism
+				traits = {
+					pro_america stout_defender
+				}
+			}
+			add_stability = 0.1
+		}
+	}
+	option = {
+		name = vin.3.v
+			SVN = {
+				add_to_variable = { influences = -80 }
+				create_country_leader = {
+				name = "Tran Thien-Khiem"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/SVN/Portrait_Vietnam_Tran_ThienKiem.tga"
+				expire = "2050.1.1"
+				ideology = despotism
+				traits = {
+					stout_defender
+				}
+			}
+			add_stability = 0.1
+		}
+	}
+}
+#胡志明小径恢复
+news_event = {
+	id = vin.34
+	title = vin.34.t
+	desc = vin.34.d
+	picture = GFX_HoChiMinhTrail
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = VIN
+		OR = {
+			782 = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+			767 = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+			998 = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+		}
+		country_exists = SVN
+		NOT = { has_idea = HoChiMinhTrail }
+	}
+	option = {
+		name = vin.34.a
+		add_ideas = HoChiMinhTrail
+	}
+}
+#东京湾事件
+news_event = {
+	id = vin.37
+	title = vin.37.t
+	desc = vin.37.d
+	picture = GFX_TonkinBay
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1964.5.1
+		date < 1966.12.14
+		country_exists = VIN
+		country_exists = SVN
+	}
+	option = {
+		name = vin.21.a
+		SVN = {
+			add_named_threat = { threat = 5 name = Tonkin-Bay }
+		}
+		USA = {
+			add_named_threat = { threat = 5 name = Tonkin-Bay }
+			add_ideas = Total_Vietnam_War
+		}
+		news_event = { id = vin.38 }
+	}
+}
+#全面越战
+news_event = {
+	id = vin.38
+	title = vin.38.t
+	desc = vin.38.d
+	picture = GFX_ARVN
+	immediate = {
+		play_song = USA_11
+	}
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.38.a
+	}
+}
+#胡志明去世
+news_event = {
+	id = vin.40
+	title = vin.40.t
+	desc = vin.40.d
+	picture = GFX_HochiminhDead
+	fire_only_once = yes
+	trigger = {
+			tag = VIN
+			has_government = communism
+			date > 1969.1.1
+			date < 1970.1.1
+			}
+	option = {
+		name = vin.21.a
+		news_event = { id = vin.41 }
+			VIN = {
+				add_to_variable = { influences = -20 }
+				create_country_leader = {
+				name = "Le Duan"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/VIN/Portrait_Vietnam_Le_Duan.tga"
+				expire = "1988.1.1"
+				ideology = marxism
+				traits = {
+				independent pro_soviet
+				}
+			}
+			add_stability = 0.1
+		}
+	}
+	option = {
+		name = vin.21.a
+		news_event = { id = vin.41 }
+			VIN = {
+				add_to_variable = { influences = -20 }
+				create_country_leader = {
+				name = "Truong Chinh"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/VIN/Portrait_Vietnam_Truong_Chinh.tga"
+				expire = "1988.1.1"
+				ideology = marxism
+				traits = {
+				independent
+				}
+			}
+		}
+	}
+}
+#胡志明去世新闻
+news_event = {
+	id = vin.41
+	title = vin.41.t
+	desc = vin.41.d
+	picture = GFX_HochiminhDead
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = vin.41.a
+	}
+}
+
+#提出和平协议
+news_event = {
+	id = vin.42
+	title = vin.42.t
+	desc = vin.42.d
+	picture = GFX_KissingerVietnam
+	is_triggered_only = yes
+	option = {
+		name = vin.42.a
+		if = {
+			limit = { tag = VIN }
+			add_war_support = -0.15
+			news_event = { id = vin.44 }
+			USA = {
+				recall_volunteers_from = SVN
+				remove_ideas = Total_Vietnam_War
+				remove_ideas = anti_vietnam_war
+				add_war_support = -0.2
+			}
+		}
+	}
+	option = {
+		name = vin.44.b
+		if = {
+			USA = {
+				news_event = { id = vin.43 }
+			}
+		}
+	}
+}
+#提出和平协议
+news_event = {
+	id = vin.43
+	title = vin.43.t
+	desc = vin.43.d
+	picture = GFX_KissingerVietnam
+	is_triggered_only = yes
+	option = {
+		name = vin.43.a
+	}
+}
+#和平协议
+news_event = {
+	id = vin.44
+	title = vin.44.t
+	desc = vin.44.d
+	major = yes
+	picture = GFX_VietWarEnd
+	is_triggered_only = yes
+	option = {
+		name = vin.43.a
+		if = {
+			limit = { tag = AST }
+			recall_volunteers_from = SVN
+		}
+		if = {
+			limit = { tag = KOR }
+			recall_volunteers_from = SVN
+		}
+		if = {
+			limit = { tag = CHI }
+			recall_volunteers_from = SVN
+		}
+		if = {
+			limit = { tag = USA }
+			recall_volunteers_from = SVN
+		}
+		if = {
+			limit = { tag = SVN }
+			add_war_support = -0.5
+			add_stability = -0.4
+		}
+	}
+}
+#南越战败
+news_event = {
+	id = vin.47
+	title = vin.47.t
+	desc = vin.47.d
+	picture = GFX_TankInSaigong
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	trigger = {
+		tag = VIN
+		OR = {
+			SVN = { has_government = communism }
+			VIN = { controls_state = 286 }
+		}
+	}
+	option = {
+		name = vin.47.a
+		if = {
+			limit = { tag = VIN }
+			add_to_variable = { influences = 100 }
+			annex_country = {
+			target = SVN
+			transfer_troops = yes
+			}
+			remove_ideas = HoChiMinhTrail
+		}
+	}
+}
+#越南统一
+news_event = {
+	id = vin.48
+	title = vin.48.t
+	desc = vin.48.d
+	picture = GFX_TankInSaigong
+	major = yes
+	is_triggered_only = yes
+		immediate = {
+			play_song = VET_4
+		}
+	option = {
+		name = vin.21.a
+		if = {
+			limit = { tag = CAM }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+			add_stability = -0.3
+		}
+		if = {
+			limit = { tag = LAO }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+			add_stability = -0.3
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+	}
+}
+#红色高棉挑衅
+news_event = {
+	id = vin.55
+	title = vin.55.t
+	desc = vin.55.d
+	picture = GFX_KhmerRouge
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = vin.21.a
+		VIN = {
+			declare_war_on = { target = CAM type = annex_everything  }
+		}
+		PRC = { news_event = prc.66 }
+	}
+}
+#越南占领柬埔寨
+news_event = {
+	id = vin.56
+	title = vin.56.t
+	desc = vin.56.d
+	picture = GFX_VietnamInCambodia
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		741 = {
+		is_controlled_by = CAM
+		is_controlled_by = VIN
+		}
+		764 = {
+		is_controlled_by = CAM
+		is_controlled_by = VIN
+		}
+		AND = {
+			CAM = { has_war_with = VIN }
+			tag = VIN
+		}
+	}
+	option = {
+		name = vin.21.a
+		VIN = {
+			add_to_variable = { influences = -60 }
+			white_peace = CAM
+			set_autonomy = {
+			target = CAM
+			autonomous_state = autonomy_puppet
+			}
+		}
+	}
+}
+#中越轮战
+news_event = {
+	id = vin.57
+	title = vin.57.t
+	desc = vin.57.d
+	picture = GFX_VietChinaWar
+	trigger = {
+		OR = {
+			tag = VIN
+			tag = PRC
+		}
+		CAM = { is_puppet_of = VIN }
+		PRC = { has_idea = SovietChinaConflit }
+	}
+	mean_time_to_happen = {
+		days = 100
+	}
+	option = {
+		name = vin.21.a
+		random_list = {
+			50 = {
+				start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 325
+					num_provinces = 4
+				}
+				defender = {
+					state = 1020
+					num_provinces = 4
+				}
+				}
+			}
+			50 = {
+				start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 599
+					num_provinces = 4
+				}
+				defender = {
+					state = 1020
+					num_provinces = 4
+				}
+				}
+			}
+		}
+	}
+}
+#中国继续进攻
+news_event = {
+	id = vin.58
+	title = vin.58.t
+	desc = vin.58.d
+	picture = GFX_VietChinaWar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+
+#越共镇压成功
+country_event = {
+	id = vin.68
+	title = vin.68.t
+	desc = vin.68.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {
+		name = gen.4.a
+		SVN = {
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+		}
+	}
+
+}
+#越共镇压失败
+country_event = {
+	id = vin.69
+	title =vin.69.t
+	desc = vin.69.d
+	picture = GFX_JungleGuerrilla
+	is_triggered_only = yes
+	option = {
+		name = gen.4.a
+		SVN = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+	}
+
+}
+#中共宣布支持越南革命
+news_event = {
+	id = vin.70
+	title = vin.70.t
+	desc = vin.70.d
+	picture = GFX_VietMinh
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+#关于派遣驻越军事顾问团的建议
+news_event = {
+	id = vin.71
+	title = vin.71.t
+	desc = vin.71.d
+	picture = GFX_VietMinh
+	trigger = {
+		tag = PRC
+		has_completed_focus = prc_support_vietnam
+		1020 = { resistance > 5 }
+		OR = {
+			FRA = { owns_state = 1020 }
+			FRA = { has_war_with = VIN }
+		}
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	option = {
+		name = prc.71.a
+		retire_character = PRC_chen_geng
+		retire_character = PRC_Wei_GuoQing
+		VIN = { news_event = { id = vin.72 } }
+	}
+}
+#中国军事顾问团抵达
+news_event = {
+	id = vin.72
+	title = vin.72.t
+	desc = vin.72.d
+	picture = GFX_VietMinh
+	is_triggered_only = yes
+	option = {
+		name = prc.71.a
+		recruit_character = PRC_chen_geng
+		recruit_character = PRC_Wei_GuoQing
+		army_experience = 300
+	}
+}
+#关于打通中越补给线路的作战建议
+news_event = {
+	id = vin.73
+	title = vin.73.t
+	desc = vin.73.d
+	picture = GFX_VietMinh
+	trigger = {
+		tag = PRC
+		has_completed_focus = prc_support_vietnam
+		1020 = { resistance > 5 }
+		1020 = { resistance < 70 }
+		FRA = { owns_state = 1020 }
+	}
+	mean_time_to_happen = {
+		days = 50
+	}
+	option = {
+		name = prc.71.a
+		news_event = { id = vin.74 }
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 599
+				num_provinces = 4
+				on_win = vin.75
+			}
+			defender = {
+				state = 1020
+				num_provinces = 4
+				on_win = vin.76
+			}
+		}
+	}
+}
+#越军发动边境作战
+news_event = {
+	id = vin.74
+	title = vin.74.t
+	desc = vin.74.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+#边境作战结束
+news_event = {
+	id = vin.75
+	title = vin.75.t
+	desc = vin.75.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = FRA }
+			1020 = { add_resistance = 30 }
+			if = {
+				limit = { 1020 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } } }
+				1020 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			}
+		}
+	}
+}
+#越军撤回中国
+news_event = {
+	id = vin.76
+	title = vin.76.t
+	desc = vin.76.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = FRA }
+			1020 = { add_resistance = -15 }
+		}
+	}
+}
+#英苏等国提议和平解决印度支那问题
+news_event = {
+	id = vin.77
+	title = vin.77.t
+	desc = vin.77.d
+	picture = GFX_GenevaConference
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = FRA
+		date > 1953.1.1
+		OR = {
+			owns_state = 1020
+			SVN = { is_subject_of = FRA }
+		}
+		OR = {
+			1020 = { resistance > 20 }
+			has_war_with = VIN
+		}
+		OR = {
+			date > 1954.1.1
+			has_war_support < 0.4
+		}
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	option = {
+		name = prc.71.a
+		news_event = { id = vin.78 }
+		set_global_flag = VinGenevaNego
+	}
+	option = {
+		name = prc.71.a
+		set_global_flag = VinGenevaNegoFailed
+		news_event = { id = vin.83 }
+	}
+}
+#决定和平解决印度支那问题
+news_event = {
+	id = vin.78
+	title = vin.78.t
+	desc = vin.78.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+#中国参与
+news_event = {
+	id = vin.79
+	title = vin.79.t
+	desc = vin.79.d
+	picture = GFX_VietWar1950
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = FRA
+		country_exists = PRC
+		has_global_flag = VinGenevaNego
+		NOT = { has_global_flag = PrcAttendGenevaNego }
+	}
+	option = {
+		name = prc.71.a
+		set_global_flag = PrcAttendGenevaNego
+	}
+}
+#越盟抵抗基本瓦解
+news_event = {
+	id = vin.81
+	title = vin.81.t
+	desc = vin.81.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+#决定和平解决印度支那问题
+news_event = {
+	id = vin.82
+	title = vin.82.t
+	desc = vin.82.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+#法国拒绝和平解决
+news_event = {
+	id = vin.83
+	title = vin.83.t
+	desc = vin.83.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = FRA }
+			1020 = { add_resistance = 50 }
+			1019 = { add_resistance = 50 }
+		}
+	}
+}
+#越盟发动全面进攻
+news_event = {
+	id = vin.84
+	title = vin.84.t
+	desc = vin.84.d
+	picture = GFX_DienBienphu
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = FRA
+		has_global_flag = VinGenevaNegoFailed
+		NOT = { country_exists = VIN }
+		OR = {
+			FRA = { owns_state = 1020 }
+			SVN = { owns_state = 1020 }
+		}
+		OR = {
+			PRC = { has_completed_focus = prc_support_vietnam }
+			1020 = { resistance > 0 }
+		}
+		date < 1956.1.1
+	}
+	option = {
+		name = vin.1.a
+			671 = { add_resistance = -50 }
+			1020 = { add_resistance = -50 }
+			1034 = { add_resistance = -50 }
+			1035 = { add_resistance = -50 }
+			779 = { add_resistance = -50 }
+			792 = { add_resistance = -50 }
+			286 = { add_resistance = -50 }
+			753 = { add_resistance = -50 }
+			SVN = {
+				end_puppet = VIN
+			}
+			VIN = {
+				transfer_state = 1020
+				transfer_state = 779
+				load_oob = "VIN_1947"
+				load_oob = "VIN_1947"
+				load_oob = "VIN_1947"
+				set_politics = { ruling_party = communism }
+				add_stability = 0.8
+				add_popularity = {
+					ideology = communism
+					popularity = 0.5
+				}
+			}
+			FRA = {
+				end_puppet = VIN
+			declare_war_on = {
+				target = VIN
+				type = annex_everything
+			}
+		}
+	}
+}
+#决定和平解决印度支那问题
+news_event = {
+	id = vin.100
+	title = vin.100.t
+	desc = vin.100.d
+	picture = GFX_VietWar1950
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = VIN
+		has_war_with = FRA
+		has_global_flag = VinGenevaNego
+	}
+	option = {
+		name = prc.71.a
+		FRA = {
+			news_event = { id = vin.101 }
+		}
+	}
+}
+news_event = {
+	id = vin.101
+	title = vin.101.t
+	desc = vin.101.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			factor = 25	
+		}
+		name = prc.71.a
+		set_global_flag = VinGenevaNegoSucces
+		news_event = { id = vin.103 }
+	}
+	option = {
+		name = prc.71.a
+		set_global_flag = VinGenevaNegoFailed
+		news_event = { id = vin.104 }
+	}
+}
+news_event = {
+	id = vin.102
+	title = vin.102.t
+	desc = vin.102.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	option = {
+		name = prc.71.a
+	}
+}
+news_event = {
+	id = vin.103
+	title = vin.103.t
+	desc = vin.103.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+news_event = {
+	id = vin.104
+	title = vin.104.t
+	desc = vin.104.d
+	picture = GFX_VietWar1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+news_event = {
+	id = vin.105
+	title = vin.105.t
+	desc = vin.105.d
+	picture = GFX_VietWar1950
+	mean_time_to_happen = { days = 50 }
+	major = yes
+	trigger = {
+		tag = FRA
+		has_global_flag = VinGenevaNegoFailed
+		NOT = { has_global_flag = VinGenevaNegoFailedNews }
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = VinGenevaNegoFailedNews
+			671 = { add_resistance = 50 }
+			1020 = { add_resistance = 50 }
+			1019 = { add_resistance = 50 }
+			779 = { add_resistance = 50 }
+			792 = { add_resistance = 50 }
+			286 = { add_resistance = 50 }
+			753 = { add_resistance = 50 }
+			1034 = { add_resistance = 50 }
+			1035 = { add_resistance = 50 }
+		}
+	}
+}
+#北越土地改革
+news_event = {
+	id = vin.120
+	title = vin.120.t
+	desc = vin.120.d
+	picture = GFX_VietnamLandreform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+country_event = {
+	id = vin.121
+	title = vin.121.t
+	desc = vin.121.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		check_variable = { land_reform_score < 4 }
+	}
+	option = {
+		name = prc.71.a
+		ai_chance = {
+			base = 10
+		}
+		add_to_variable = { land_reform_score = 1 }
+		add_political_power = -40
+		add_stability = -0.01
+		set_country_flag = vin121a
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -1 }
+		set_country_flag = vin121b
+	}
+}
+country_event = {
+	id = vin.122
+	title = vin.122.t
+	desc = vin.122.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		has_country_flag = vin121a
+		NOT = { has_country_flag = vin122 }
+		check_variable = { land_reform_score > 2 }
+	}
+	option = {
+		name = prc.71.a
+		ai_chance = {
+			base = 10
+		}
+		add_to_variable = { land_reform_score = 1 }
+		add_political_power = -50
+		add_stability = -0.01
+		set_country_flag = vin122
+		set_country_flag = vin122a
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -2 }
+		set_country_flag = vin122
+		set_country_flag = vin122b
+	}
+}
+country_event = {
+	id = vin.123
+	title = vin.123.t
+	desc = vin.123.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		has_country_flag = vin122a
+		check_variable = { land_reform_score > 3 }
+	}
+	option = {
+		name = prc.71.a
+		ai_chance = {
+			base = 10
+		}
+		add_to_variable = { land_reform_score = 1 }
+		add_political_power = -50
+		add_stability = -0.01
+		set_country_flag = vin123a
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -2 }
+		set_country_flag = vin123b
+	}
+}
+country_event = {
+	id = vin.124
+	title = vin.124.t
+	desc = vin.124.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		has_country_flag = vin123a
+		check_variable = { land_reform_score > 4 }
+	}
+	option = {
+		name = prc.71.a
+		ai_chance = {
+			base = 10
+		}
+		add_to_variable = { land_reform_score = 1 }
+		add_political_power = -50
+		add_stability = -0.01
+		set_country_flag = vin124a
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -2 }
+		set_country_flag = vin124b
+	}
+}
+news_event = {
+	id = vin.125
+	title = vin.125.t
+	desc = vin.125.d
+	picture = GFX_VietnamTrial
+	major = yes
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		has_country_flag = vin123a
+		NOT = { has_country_flag = vin125 }
+		check_variable = { land_reform_score > 4 }
+	}
+	option = {
+		name = prc.71.a
+		set_country_flag = vin125
+		if = {
+			limit = { tag = VIN }
+			add_stability = -0.02
+			add_political_power = -20
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = vin.126
+	title = vin.126.t
+	desc = vin.126.d
+	picture = GFX_HoChiMinhSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+#农民的不满
+country_event = {
+	id = vin.127
+	title = vin.127.t
+	desc = vin.127.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		OR = {
+			has_country_flag = vin121b
+			has_country_flag = vin122b
+			has_country_flag = vin123b
+		}
+		check_variable = { land_reform_score < 2 }
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -1 }
+	}
+}
+#宗教抵制
+country_event = {
+	id = vin.128
+	title = vin.128.t
+	desc = vin.128.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		NOT = { has_global_flag = vin129 }
+		OR = {
+			has_country_flag = vin121b
+			has_country_flag = vin122b
+		}
+		check_variable = { land_reform_score > 3 }
+	}
+	option = {
+		name = prc.71.a
+		ai_chance = {
+			base = 10
+		}
+		add_to_variable = { land_reform_score = 1 }
+		add_to_variable = { viet_reform_buddhism = 1 }
+		add_political_power = -20
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -2 }
+	}
+}
+news_event = {
+	id = vin.129
+	title = vin.129.t
+	desc = vin.129.d
+	picture = GFX_OperationPassageFreedom
+	major = yes
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		NOT = { has_global_flag = vin129 }
+		check_variable = { viet_reform_buddhism > 2 }
+	}
+	option = {
+		name = prc.71.a
+		set_global_flag = vin129
+		if = {
+			limit = { tag = VIN }
+			add_stability = -0.02
+			add_political_power = -20
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+}
+country_event = {
+	id = vin.130
+	title = vin.130.t
+	desc = vin.130.d
+	picture = GFX_VietnamLandreformSmall
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		NOT = { has_global_flag = vin131 }
+		OR = {
+			has_country_flag = vin121b
+			has_country_flag = vin122b
+		}
+		check_variable = { land_reform_score > 3 }
+	}
+	option = {
+		name = prc.71.a
+		ai_chance = {
+			base = 10
+		}
+		add_to_variable = { land_reform_score = 1 }
+		add_to_variable = { viet_reform_catholic = 1 }
+		add_political_power = -20
+	}
+	option = {
+		name = prc.71.a
+		add_to_variable = { land_reform_score = -2 }
+	}
+}
+news_event = {
+	id = vin.131
+	title = vin.131.t
+	desc = vin.131.d
+	picture = GFX_OperationPassageFreedom
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		NOT = { has_global_flag = vin131 }
+		check_variable = { viet_reform_catholic > 2 }
+	}
+	option = {
+		name = prc.71.a
+		set_global_flag = vin131
+		if = {
+			limit = { tag = VIN }
+			add_stability = -0.02
+			add_political_power = -20
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = vin.132
+	title = vin.132.t
+	desc = vin.132.d
+	picture = GFX_OperationPassageFreedom
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		NOT = { has_global_flag = vin132 }
+		has_country_flag = vin124b
+	}
+	option = {
+		name = prc.71.a
+		set_global_flag = vin132
+		if = {
+			limit = { tag = VIN }
+			add_stability = -0.02
+			add_political_power = -20
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+}
+#土改结果
+news_event = {
+	id = vin.133
+	title = vin.133.t
+	desc = vin.133.d
+	picture = GFX_VietnamLandreform
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		check_variable = { land_reform_score < -2 }
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = VIN }
+			clr_country_flag = land_reform
+			add_stability = -0.25
+			add_political_power = -150
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.1
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = vin.134
+	title = vin.134.t
+	desc = vin.134.d
+	picture = GFX_VietnamLandreform
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		check_variable = { land_reform_score > 6 }
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = VIN }
+			clr_country_flag = land_reform
+			add_stability = 0.25
+			add_political_power = 600
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = vin.135
+	title = vin.135.t
+	desc = vin.135.d
+	picture = GFX_VietnamTrial
+	major = yes
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = VIN
+		has_completed_focus = VIN_early_landreform
+		has_country_flag = land_reform
+		has_country_flag = vin123a
+		NOT = { has_country_flag = vin135 }
+		date > 1956.11.1
+		date < 1956.12.20
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			set_country_flag = vin135
+			limit = { tag = VIN }
+			add_stability = -0.05
+			add_political_power = -80
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+		if = {
+			limit = { tag = SVN }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+#人文报事件
+news_event = {
+	id = vin.136
+	title = vin.136.t
+	desc = vin.136.d
+	picture = GFX_PaperNhanVan
+	major = yes
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = VIN
+		NOT = { has_global_flag = vin136 }
+		date > 1955.4.1
+		date < 1955.6.20
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			set_global_flag = vin136
+			limit = { tag = VIN }
+			add_ideas = VIN_nhandan_newspaper
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+	}
+}
+news_event = {
+	id = vin.137
+	title = vin.137.t
+	desc = vin.137.d
+	picture = GFX_PaperNhanVan
+	major = yes
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = VIN
+		NOT = { has_global_flag = vin137 }
+		PRC = { has_completed_focus = prc28 }
+		date > 1956.10.1
+		date < 1956.12.20
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { tag = VIN }
+			set_global_flag = vin137
+			remove_ideas = VIN_nhandan_newspaper
+			news_event = { id = vin.138 days = 5 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+	}
+}
+news_event = {
+	id = vin.138
+	title = vin.138.t
+	desc = vin.138.d
+	picture = GFX_PaperNhanVan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+news_event = {
+	id = vin.139
+	title = vin.139.t
+	desc = vin.139.d
+	picture = GFX_TruongChinh
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}
+news_event = {
+	id = vin.140
+	title = vin.140.t
+	desc = vin.140.d
+	picture = GFX_VietCongTroops
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.71.a
+	}
+}

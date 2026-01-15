@@ -1,0 +1,79 @@
+state=
+{
+	id=102
+	name="STATE_102"
+	manpower = 1144300
+	
+	state_category = large_town
+	
+	resources={
+		aluminium=26
+		coal = 8
+		salt=6
+	}
+	history =
+	{
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		add_to_array = { this.state_ethnics_list = 154 }
+		owner = YUG
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			school = 1
+			infrastructure = 5
+			industrial_complex = 1
+			power_plant = 1
+		}
+		victory_points = {
+			9627 10
+		}
+		victory_points = {
+			596 4
+		}
+		victory_points = {
+			11595 3
+		}
+		victory_points = {
+			3654 3
+		}
+		add_core_of = YUG
+		set_state_flag = ethnics_Slovenian
+		add_core_of = SLV
+		1949.8.23 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1955.1.1 = {
+			buildings = {
+				industrial_complex = 3
+			}
+		}
+		1962.8.23 = {
+			set_state_category = city
+			buildings = {
+				industrial_complex = 4
+				farm_building = 2
+				power_plant = 2
+				dam_plant = 1
+				synthetic_refinery = 1
+				rubber_factory = 1
+			}
+		}
+		1972.1.1 = {
+			buildings = {
+				farm_building = 3
+				dam_plant = 2
+				industrial_complex = 5
+				power_plant = 3
+			}
+		}
+		1990.8.23 = {
+			owner = SLV
+		}
+	}
+	provinces={
+		596 665 3631 3654 6650 6672 9596 9627 11612 599 11595 	}
+	}

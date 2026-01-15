@@ -1,0 +1,35 @@
+state={
+	id=656
+	name="STATE_656"
+	manpower = 80000
+	state_category = rural
+	resources={
+		oil=44
+	}
+	
+	history={
+		
+		set_state_flag = ethnics_Arabs
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = ENG
+		add_core_of = KWT
+		1961.11.10 = {
+		owner = KWT
+		}
+		victory_points = {
+			8085 5
+		}
+		buildings = {
+			infrastructure = 4
+			8085 = {
+				naval_base = 4
+			}
+		}
+
+	}
+	provinces={
+		8085
+	}
+}

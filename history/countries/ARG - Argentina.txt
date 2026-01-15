@@ -1,0 +1,363 @@
+﻿capital = 278
+
+recruit_character = ARG_eva_peron
+add_ideas = {
+	service_by_requirement
+	Catholicism
+	UNmember
+	governed_economic
+	militarist_politician
+	mid_welfare
+	eva_peron
+}
+oob = "ARG_1936"
+set_country_flag = main_country
+set_country_flag = language_spannish
+set_country_flag = latin_america
+set_country_flag = developmented
+# Starting tech
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	power_generation1 = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+set_country_flag = monroe_doctrine
+
+recruit_character = ARG_Pedro_Eugenio_Aramburu
+1939.1.1 = {
+
+	add_political_power = 1198
+	complete_national_focus = steel_produc
+	
+	#generic focuses
+	
+	oob = "ARG_1947"
+}
+
+set_convoys = 120
+	set_popularities = {
+		democratic = 30
+		communism = 4
+		authoritarianism = 56
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1931.11.8"
+	election_frequency = 72
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Juan Peron"
+	picture = "gfx/leaders/ARG/Portrait_Argentina_Juan_Peron.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		#
+	}
+}
+	complete_national_focus = common_63
+	complete_national_focus = commons_5
+1949.1.1 = {
+	activate_decision = female_equality
+	set_country_flag = israel_diplomacy
+}
+1955.3.29 = {
+	set_country_flag = female_finished
+	complete_national_focus = common_61
+	complete_national_focus = common_medic
+	set_technology = {
+		mechanised_infantry = 1
+		concentrated_industry = 1
+		dispersed_industry2 = 1
+		fighter1 = 1
+		aluminum_tech = 1
+	}
+	remove_ideas = eva_peron
+	retire_character = ARG_eva_peron
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	complete_national_focus = common_1
+	set_popularities = {
+		democratic = 60
+		communism = 4
+		neutrality = 46
+	}
+	set_politics = { ruling_party = neutrality }
+	promote_character = ARG_Pedro_Eugenio_Aramburu
+}
+1958.3.29 = {
+	set_popularities = {
+		democratic = 60
+		communism = 14
+		neutrality = 10
+		authoritarianism = 16
+	}
+	set_politics = { ruling_party = democratic }
+	recruit_character = ARG_Arturo_Frondizi
+	promote_character = ARG_Arturo_Frondizi
+}
+1962.3.29 = {
+	add_ideas = {
+		APLA
+	}
+	remove_ideas = APLA
+	set_technology = {
+		auto_industry = 1
+		trans_helicopter_1 = 1
+		basic_destroyer = 1
+		improved_destroyer = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+	}
+	create_country_leader = {
+		name = "Arturo Umberto Illia"
+		
+		picture = "gfx/leaders/ARG/Portrait_Argentina_Arturo_Umberto_Illia.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = { 
+		
+		}
+	}
+}
+1967.1.1 = {
+	set_technology = {
+		fighter2 = 1
+		improved_destroyer = 1
+		early_ship_hull_carrier = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+	}
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+	set_popularities = {
+		democratic = 20
+		communism = 14
+		neutrality = 66
+	}
+}
+1966.3.12 = {
+	remove_ideas = APLA
+	create_country_leader = {
+		name = "Military Junta"
+		
+		picture = "gfx/leaders/ARG/Portrait_Argentina_Army.tga"
+		expire = "2050.1.1"
+		ideology = centrism
+		traits = { dictator
+		
+		}
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1975.3.12 = {
+	set_country_flag = china_diplomacy
+	set_technology = {
+		sp_artillery2 = 1
+		sp_artillery3 = 1
+		fighter3 = 1
+		CAS3 = 1
+	}
+	remove_ideas = APLA
+}
+1976.3.29 = {
+	add_ideas = {
+		closed_economy
+	}
+	oob = "ARG_1977"
+	complete_national_focus = common_4
+	create_country_leader = {
+		name = "Horge Videla"
+		
+		picture = "gfx/leaders/ARG/Portrait_Argentina_Videla.tga"
+		expire = "2050.1.1"
+		ideology = centrism
+		
+		traits = { dictator
+		
+		}
+	}
+}
+1981.3.12 = {
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1982.1.1 = {	
+	add_ideas = {
+		debt_crisis
+	}
+}
+1983.3.29 = {
+	add_named_threat = {
+		threat = 4
+		name = Falklandswar
+	}
+	create_country_leader = {
+		name = "Ricardo Alfonsín"
+		
+		picture = "gfx/leaders/ARG/Portrait_Argentina_Ricardo_Alfonsin.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1989.7.29 = {
+	create_country_leader = {
+		name = "Carlos Saúl Menem"
+		
+		picture = "gfx/leaders/ARG/Portrait_Argentina_Carlos_Menem.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}

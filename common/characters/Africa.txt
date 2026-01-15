@@ -1,0 +1,114 @@
+characters={
+	CMR_Paul_Biya={
+		name=CMR_Paul_Biya
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Paul_Biya.dds"
+				large="gfx/leaders/CMR/Portrait_Cameroon_Paul_Biya.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				anti_communis dictator personal_worship corrupt_leader
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Paul_Biya
+			allowed  = {
+				original_tag  = CMR
+			}
+			modifier = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	CMR_Ahmadou_Ahidjo={
+		name=CMR_Ahmadou_Ahidjo
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Ahmadou_Ahidjo.dds"
+				large="gfx/leaders/CMR/Portrait_Cameroon_Ahmadou_Ahidjo.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				anti_communis dictator personal_worship corrupt_leader
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Ahmadou_Ahidjo
+			allowed  = {
+				original_tag  = CMR
+			}
+			modifier = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	CMR_AndreMarie_Mbida={
+		name=CMR_AndreMarie_Mbida
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_AndreMarie_Mbida.dds"
+				large="gfx/leaders/CMR/Portrait_Cameroon_AndreMarie_Mbida.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				anti_communis
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = AndreMarie_Mbida
+			allowed  = {
+				original_tag  = CMR
+			}
+			modifier = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	BKF_thomas_sankara={
+		name=BKF_thomas_sankara
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_thomas_sankara.dds"
+				large="gfx/leaders/BKF/Portrait_BKF_Sankara.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = thomas_sankara
+			allowed  = {
+				original_tag  = BKF
+			}
+			visible = {
+				date > 1975.1.1
+				date < 1983.1.1
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				communism_drift = 0.02
+				political_power_factor = 0.15
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+}

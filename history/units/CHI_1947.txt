@@ -1,0 +1,464 @@
+﻿division_template = {
+	name = "Temporary Division"
+	division_names_group = CHI_INF_01	# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+
+}
+division_template = {
+	name = "Armor Division" 
+	division_names_group = CHI_ARM_01
+
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Infantry Division"
+	division_names_group = CHI_MOT_01
+
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 } 	# Heavy Arty Regiment had 2x 155mm battalions
+	}
+}
+division_template = {
+	name = "Cavalry Division"	
+	division_names_group = CHI_CAV_01		
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+####### OOB #######
+units = {
+	###huazhong
+	#新一军
+	division = {
+		name = "30th division"
+		location = 4572
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "28th division"
+		location = 4572
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "50th division"
+		location = 4572
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#新6军
+	division = {
+		name = "14th division"
+		location = 916
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "22th division"
+		location = 916
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "207th division"
+		location = 9885
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#93军
+	division = {
+		name = "18th division"
+		location = 3839
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "20th division"
+		location = 3839
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "22th division"
+		location = 3839
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#49军
+	division = {
+		name = "79th division"
+		location = 6837
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "105th division"
+		location = 6837
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#49军
+	division = {
+		name = "79th division"
+		location = 6837
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "105th division"
+		location = 6837
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "46th division"
+		location = 7656
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "97th division"
+		location = 7656
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "9th division"
+		location = 11916
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "15th division"
+		location = 11916
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "52th division"
+		location = 11916
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "7th division"
+		location = 934
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+		
+	}
+	division = {
+		name = "48th division"
+		location = 934
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "58th division"
+		location = 934
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "3rd division"
+		location = 934
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "10th division"
+		location = 7571
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "11th division"
+		location = 1575
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+		
+	}
+	division = {
+		name = "85th division"
+		location = 7208
+		division_template = "Armor Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "20th division"
+		location = 7208
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "28th division"
+		location = 1575
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	###xuzhou
+	division = {
+		name = "5th division"
+		location = 12055
+		division_template = "Armor Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "70th division"
+		location = 12055
+		division_template = "Armor Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "74th division"
+		location = 12055
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "83th division"
+		location = 12055
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "25th division"
+		location = 12069
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+		
+	}
+	division = {
+		name = "45th division"
+		location = 12069
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "63th division"
+		location = 12069
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+		
+	}
+	division = {
+		name = "64th division"
+		location = 12069
+		division_template = "Armor Division"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		
+	}
+	division = {
+		name = "72th division"
+		location = 12069
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "8th division"
+		location = 4181
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+		
+	}
+	division = {
+		name = "9th division"
+		location = 4181
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "41th division"
+		location = 7074
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "47th division"
+		location = 1169
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "69th division"
+		location = 4114
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	#xibei
+	division = {
+		name = "1st division"
+		location = 12156
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "90th division"
+		location = 10733
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	division = {
+		name = "203th division"
+		location = 5007
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		
+	}
+	fleet = {
+		name = "ROC Navy"
+		naval_base = 9974 #Jacksonville
+		task_force = {				
+			name = "ROC Navy"
+			location = 9974 #Jacksonville
+			ship = { name = "Yat Sen" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "Tan Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Fen Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Huei Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Kang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Ping" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+		}	
+	}
+}
+
+### Air Forces ###
+air_wings = {
+	605 = { 
+		fighter_equipment_0 = { owner = "CHI" amount = 75 }
+		CAS_equipment_1 = { owner = "CHI" amount = 63 }			
+	}
+	613 = { 
+		fighter_equipment_0 = { owner = "CHI" amount = 75 }	
+		CAS_equipment_1 = { owner = "CHI" amount = 63 }				
+	}
+	608 = { 
+		fighter_equipment_0 = { owner = "CHI" amount = 75 }	
+		CAS_equipment_1 = { owner = "CHI" amount = 63 }					# Combined PG - mix of Fiat CR.32, Pop I-15, Curtis P-26
+	}
+	592 = { 
+		fighter_equipment_0 = { owner = "CHI" amount = 75 }
+		CAS_equipment_1 = { owner = "CHI" amount = 63 }				# Combined PG - mix of Fiat CR.32, Pop I-15, Curtis P-26
+	}
+	716 = { 
+		fighter_equipment_0 = { owner = "CHI" amount = 75 }
+		CAS_equipment_1 = { owner = "CHI" amount = 63 }				# Combined PG - mix of Fiat CR.32, Pop I-15, Curtis P-26
+	}
+	620 = { 
+		fighter_equipment_0 = { owner = "CHI" amount = 75 }
+		CAS_equipment_1 = { owner = "CHI" amount = 63 }				# Combined PG - mix of Fiat CR.32, Pop I-15, Curtis P-26
+	}
+}
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "CHI"
+		}
+		requested_factories = 6
+		progress = 0.1
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "CHI" 
+		}
+		requested_factories = 1
+		progress = 0.15
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "CHI" 
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 100
+	}
+}
+#################################

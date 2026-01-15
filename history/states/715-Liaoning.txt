@@ -1,0 +1,50 @@
+state={
+	id=715
+	name="STATE_715"
+	manpower = 3643373
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Mongols
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 7 }
+		add_to_array = { this.state_ethnics_list = 8 }
+                              
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = PRC
+		add_core_of = MAN
+		victory_points = { 1499 3 }
+		victory_points = { 9831 4 }
+		victory_points = { 1627 3 }
+		victory_points = { 1638 3 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 1
+		}
+		1938.10.25 = {		
+			DOB = {
+				set_province_controller = 3877
+				set_province_controller = 4642
+				set_province_controller = 916
+				set_province_controller = 9831
+				set_province_controller = 11836
+				set_province_controller = 6893
+				set_province_controller = 1638
+			} 			
+		}
+		1949.10.14 = {
+			owner = PRC
+			add_core_of = CHI
+			add_core_of = MEN
+		}
+	}
+
+	provinces={
+		916 930 1499 1508 1558 1627 1638 3877 3978 4561 4633 4642 6893 7812 9831 10429 11836 11903 12337 12469 12478 
+	}
+}

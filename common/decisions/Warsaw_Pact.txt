@@ -1,0 +1,34 @@
+Warsaw_Pact = {
+	SOV_Euro_WP  = {
+		icon = GFX_decision_WP
+		allowed = {
+			always = yes
+			tag = SOV
+		}
+		visible = {
+			tag = SOV
+		}
+		days_re_enable = 180
+		target_trigger = {
+			FROM = {
+				is_in_faction = no
+				OR = {
+					is_guaranteed_by = SOV
+					has_government = communism
+				}
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+
+		complete_effect = {
+			FROM = { country_event = { id = sov.52 } }
+		}
+	
+	}
+}

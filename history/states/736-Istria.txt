@@ -1,0 +1,38 @@
+state={
+	id=736
+	name="STATE_736"
+	state_category = town
+
+	history={
+                               
+		owner = TRE
+		add_core_of = ITA
+		add_core_of = YUG
+		add_to_array = { this.state_ethnics_list = 87 }
+		add_dynamic_modifier = { modifier = fish_production }
+		buildings = {
+			infrastructure = 4
+			hospital = 1
+			school = 1
+			industrial_complex = 2
+			dockyard = 1
+			6626 = {
+				naval_base = 2
+			}	
+		}
+		1954.7.3 = {
+			owner = ITA
+		}
+		1974.7.3 = {
+		remove_core_of = YUG
+		}
+		victory_points = { 6626 10 }
+
+	}
+
+	provinces={
+		6626 
+	}
+	manpower=1063159
+	buildings_max_level_factor=1.000
+}

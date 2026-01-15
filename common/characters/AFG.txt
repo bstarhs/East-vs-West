@@ -1,0 +1,140 @@
+characters={
+	AFG_Daoud_Khan={
+		name=AFG_Daoud_Khan
+		portraits={
+			civilian={
+				large="gfx/leaders/AFG/Portrait_Afghanistan_Daoud_Khan.tga"
+			}
+			civilian={
+				small="GFX_idea_daoud_khan"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = political_advisor
+			idea_token = AFG_Daoud_Khan
+			visible={
+				date < 1974.1.1
+			}
+			ledger = army
+				allowed = {
+					original_tag = AFG
+				}
+				
+				traits = {
+					mobile_warfare_expert
+				}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits={ industry_reformer }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+	AFG_Nur_Taraki={
+		name=AFG_Nur_Taraki
+		portraits={
+			civilian={
+				large="gfx/leaders/AFG/Portrait_Afghanistan_Nur_Muhammad_Taraki.tga"
+			}
+			civilian={
+				small="GFX_idea_daoud_khan"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = political_advisor
+			idea_token = AFG_Nur_Taraki
+			visible={
+				date < 1974.1.1
+			}
+			ledger = army
+			traits  = {
+				communist_revolutionary 
+			}
+			allowed = {
+				NOT  = {
+					has_government  = communism 
+				}
+				original_tag = AFG
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits={  }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+	AFG_Hafizullah_Amin={
+		name=AFG_Hafizullah_Amin
+		portraits={
+			civilian={
+				large="gfx/leaders/AFG/Portrait_Afghanistan_Hafizullah_Amin.tga"
+			}
+			civilian={
+				small="GFX_idea_daoud_khan"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = political_advisor
+			idea_token = AFG_Hafizullah_Amin
+			visible={
+				date < 1979.1.1
+			}
+			ledger = army
+			traits  = {
+				communist_revolutionary 
+			}
+			allowed = {
+				NOT  = {
+					has_government  = communism 
+				}
+				original_tag = AFG
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits={  }
+			expire="1980.1.1.1"
+			id=-1
+		}
+	}
+	AFG_Babrak_Karmal={
+		name=AFG_Babrak_Karmal
+		portraits={
+			civilian={
+				large="gfx/leaders/AFG/Portrait_Afghanistan_Babrak_Karmal.tga"
+			}
+			civilian={
+				small="GFX_idea_daoud_khan"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = political_advisor
+			idea_token = AFG_Babrak_Karmal
+			visible={
+				date < 1990.1.1
+			}
+			ledger = army
+			traits  = {
+				communist_revolutionary 
+			}
+			allowed = {
+				NOT  = {
+					has_government  = communism 
+				}
+				original_tag = AFG
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits={  }
+			expire="1990.1.1.1"
+			id=-1
+		}
+	}
+}

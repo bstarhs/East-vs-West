@@ -1,0 +1,117 @@
+Latin_pro_USA = {
+	enable = {
+		OR = {
+			capital_scope = {
+				is_on_continent = north_america
+			}
+			capital_scope = {
+				is_on_continent = south_america
+			}
+		}
+		NOT = { has_government = communism }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = "USA"			
+		value = 200
+	}
+}
+pro_costa_rica_1948 = {
+	enable = {
+		OR = {
+			tag = USA
+			tag = GUA
+		}
+		COS = {
+			has_government = democratic
+			has_civil_war = yes
+		}
+		date < 1950.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = "COS"	
+		value = 500
+	}
+}
+pro_paraguay_1947 = {
+	enable = {
+		OR = {
+			tag = USA
+			tag = ARG
+		}
+		PAR = {
+			has_government = neutrality
+			has_civil_war = yes
+		}
+		date < 1949.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "PAR"	
+		value = 500
+	}
+	ai_strategy = {
+		type = support
+		id = "PAR"
+		value = 80
+	}
+}
+USA_latin_coup = {
+	allowed = {
+		original_tag = USA
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		CHL = { NOT = { has_government = communism } }
+	}
+	enable = {
+		num_of_operatives > 2
+		CHL = {
+			OR = {
+				has_government = communism
+				capital_scope = {
+				is_on_continent = north_america
+				}
+				capital_scope = {
+				is_on_continent = south_america
+				}
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = CHL
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = propaganda
+		value = 600
+		mission_target = CHL
+		state = 10
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = CHL
+		num_operatives = 1
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_coup_government
+		value = 2500
+		operation_target = CHL
+	}
+}

@@ -1,0 +1,214 @@
+﻿capital = 307
+
+oob = "VEN_1936"
+
+# Starting tech
+	set_country_flag = developmented
+set_country_flag = latin_america
+set_country_flag = language_spannish
+	complete_national_focus = commons_5
+	recruit_character = VEN_Romulo_Betancourt
+	recruit_character = VEN_Wolfgang_Larrazabal
+	
+set_country_flag = third_world
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+set_technology = {
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		medical1 = 1
+		improved_depth_charges = 1
+		oil_processing = 1
+		army_aviation = 1
+		radio_detection = 1
+		helmet = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+}
+add_ideas = {
+	Latin_Hacienda
+	Catholicism
+	partial_economic_mobilisation
+		UNmember
+}
+set_country_flag = monroe_doctrine
+	
+
+	set_popularities = {
+		democratic = 60
+		communism = 15
+		neutrality = 25
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+create_country_leader = {
+	name = "Rómulo Ernesto Betancourt Bello"
+	desc = "POLITICS_ELEAZAR_LOPEZ_CONTRERAS_DESC"
+	picture = "gfx/leaders/VEN/Portrait_Venezuela_Betancourt_Bello.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Juan Bautista Fuenmayor"
+	desc = "POLITICS_JUAN_BAUTISTA_FUENMAYOR_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_1.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+1952.1.1 = {
+	set_country_flag = israel_diplomacy
+	set_popularities = {
+		democratic = 10
+		communism = 35
+		authoritarianism = 20
+		neutrality = 35
+	}
+	set_politics = {
+		ruling_party = neutrality
+	}
+	create_country_leader = {
+		name = "Marcos Pérez Jiménez"
+		
+		picture = "gfx/leaders/VEN/Portrait_Venezuela_Jimenez.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		traits = {
+		}
+	}
+	complete_national_focus = Focus_Goverment_reform
+}
+1959.1.1 = {
+	set_popularities = {
+		democratic = 80
+		communism = 15
+		authoritarianism = 5
+	}
+	complete_national_focus = common_medic
+	complete_national_focus = steel_produc
+	set_politics = {
+		ruling_party = democratic
+	}
+	promote_character = {
+		character = VEN_Romulo_Betancourt
+		ideology = liberalism
+	}
+}
+1960.1.1 = {
+	add_ideas = {
+		APLA
+		OPEC
+		VEN_Puntofijo_doctrine
+	}
+}
+	
+1964.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	create_country_leader = {
+		name = "Leoni Otero"
+		
+		picture = "gfx/leaders/VEN/Portrait_Venezuela_Leoni_Otero.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1967.1.1 = {
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+}
+	
+1974.1.20 = {
+	remove_ideas = APLA
+	create_country_leader = {
+		name = "Carlos Andres Rodríguez"
+		
+		picture = "gfx/leaders/VEN/Portrait_Venezuela_Carlos_Andres.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1982.1.1 = {	
+	add_ideas = {
+		debt_crisis
+	}
+}
+1984.1.20 = {
+	create_country_leader = {
+		name = "Jaime Lusinchi"
+		
+		picture = "gfx/leaders/VEN/Portrait_Venezuela_Jaime_Lusinchi.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}

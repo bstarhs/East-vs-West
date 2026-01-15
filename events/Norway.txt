@@ -1,0 +1,527 @@
+﻿add_namespace = nor
+#1948
+news_event = {
+	id = nor.20
+	title = nor.20.t
+	desc = nor.20.d
+	picture = GFX_WGRindependent
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = nor.1949.a
+			ai_chance = {
+				factor = 0
+			}
+			news_event = { id = nor.21 }
+			add_ideas = neutrality_idea
+			SOV = { give_guarantee = NOR }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+			set_country_flag = sov_arms_sell
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = USA
+				modifier = PRC_SOV_conflict
+			}
+		}
+	option = {	#本·奇夫利
+		name = nor.1949.b
+			ai_chance = {
+				factor = 10
+			}
+			add_opinion_modifier = {
+				target = USA
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = PRC_SOV_conflict
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+			news_event = { id = nor.22 }
+			set_country_flag = rejected_sov_treaty
+		}
+}
+#马科斯上台
+news_event = {
+	id = nor.21
+	title = nor.21.t
+	desc = nor.21.d
+	major = yes
+	picture = GFX_WGRindependent
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+#马科斯上台
+news_event = {
+	id = nor.22
+	title = nor.22.t
+	desc = nor.22.d
+	major = yes
+	picture = GFX_WGRindependent
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+news_event = {
+	id = nor.6
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1949.1.1
+		date < 1950.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Einar Henry Gerhardsen "
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Einar_Gerhardsen.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Arthur Henry Eugen Nordlie"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Arthur_Nordlie.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.7
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1952.1.1
+		date < 1954.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Einar Henry Gerhardsen "
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Einar_Gerhardsen.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Oscar Fredrik Torp"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Oscar_Torp.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.8
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1952.1.1
+		date < 1954.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Einar Henry Gerhardsen "
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Einar_Gerhardsen.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Oscar Fredrik Torp"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Oscar_Torp.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.9
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1961.1.1
+		date < 1962.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Einar Henry Gerhardsen "
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Einar_Gerhardsen_old.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Oscar Fredrik Torp"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Oscar_Torp.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1948
+news_event = {
+	id = nor.10
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1965.1.1
+		date < 1966.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Einar Henry Gerhardsen "
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Einar_Gerhardsen_old.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Per Borten"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Per_Borten.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.11
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1969.1.1
+		date < 1970.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Trygve Martin Bratteli"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Trygve_Bratteli.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Per Borten"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Per_Borten.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.12
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1971.1.1
+		date < 1972.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Trygve Martin Bratteli"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Trygve_Bratteli.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Per Borten"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Per_Borten.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.13
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1976.1.1
+		date < 1977.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Odvar Nordli"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Odvar_Nordli.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Per Borten"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Per_Borten.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = nor.14
+	title = nor.1949.t
+	desc = nor.1949.d
+	picture = GFX_swes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = NOR
+		date > 1981.1.1
+		date < 1981.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = nor.1949.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "Gro Harlem Brundtland"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Brundtland.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#本·奇夫利
+		name = nor.1949.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Per Borten"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/NOR/Portrait_Norway_Per_Borten.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = nor.30
+	title = nor.30.t
+	desc = nor.30.d
+	picture = GFX_HaakonVII
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = NOR
+		date > 1957.8.10
+		date < 1957.10.20
+		NOT = { has_global_flag = nor30 }
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = nor30
+	}
+}

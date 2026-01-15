@@ -1,0 +1,61 @@
+
+state={
+	id=27
+	name="STATE_27" # Bourgogne
+	manpower = 1370800
+	
+	state_category = city
+	local_supplies=0.0
+	resources={
+		aluminium=7
+		iron=18
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_French
+		set_state_flag = wine_production
+		add_core_of = BGD
+                              
+		owner = FRA
+		add_to_array = { this.state_ethnics_list = 70 }
+		victory_points = {
+			3652 8 
+		}
+		victory_points = {
+			9625 3
+		}
+		victory_points = {
+			648 4
+		}
+		buildings = {
+			school = 1
+			farm_building = 3
+			hospital = 1
+			power_plant = 1
+			infrastructure = 7
+			steel_making = 1
+			industrial_complex = 2
+			air_base = 2
+		}
+		add_core_of = FRA
+		1952.1.1 = {
+			buildings = {
+				power_plant = 3
+				steel_making = 3
+				industrial_complex = 4
+			}
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces={
+		648 667 680 817 3506 3652 3669 3681 9609 9625 9644 11628 
+	}
+}

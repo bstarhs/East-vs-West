@@ -1,0 +1,93 @@
+
+state={
+	id=142
+	name="STATE_142"
+	manpower = 880945
+	
+	state_category = town
+	
+	resources={
+		tungsten=2
+		aluminium=22
+		copper=7
+		iron = 6
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 127 }
+		set_state_flag = ethnics_Norwegian
+		owner = NOR
+		add_dynamic_modifier = { modifier = fish_production }
+		buildings = {
+			hospital = 1
+			infrastructure = 5
+			power_plant = 1
+			industrial_complex = 2
+			air_base = 1
+			9296 = {
+				naval_base = 3
+				coastal_bunker = 1
+			}
+			6176 = {
+				naval_base = 1
+				coastal_bunker = 1
+			}
+			122 = {
+				naval_base = 3
+				coastal_bunker = 2
+			}
+		}
+		1950.1.1 = {
+			buildings = {
+				radar_station = 1
+			}
+		}
+		1971.1.1 = {
+		
+			buildings = {
+				infrastructure = 5
+				industrial_complex = 5
+				air_base = 1
+				oilfield = 3
+				synthetic_refinery = 3
+				9296 = {
+					naval_base = 3
+					coastal_bunker = 1
+				}
+				6176 = {
+					naval_base = 1
+					coastal_bunker = 1
+				}
+				122 = {
+					naval_base = 3
+					coastal_bunker = 2
+				}
+			}
+		}
+		victory_points = {
+			122 8
+		}
+		victory_points = {
+			11176 2
+		}
+		victory_points = {
+			53 8
+		}
+		victory_points = {
+			9296 5
+		}
+		victory_points = {
+			3192 2
+		}
+		victory_points = {
+			199 2
+		}
+		add_core_of = NOR
+	}
+	provinces={
+		53 65 102 122 137 188 199 3049 3090 3093 3096 3114 3129 3180 3188 3192 6145 6176 6204 6216 9047 9096 9127 9170 9196 9216 9296 11100 11101 11176 11198 11367 
+	}
+}

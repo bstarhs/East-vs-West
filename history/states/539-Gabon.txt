@@ -1,0 +1,40 @@
+state={
+	id=539
+	name="STATE_539"
+	manpower = 2564000
+	
+	state_category = rural
+	resources={
+		iron = 3
+		rubber = 26
+	}
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		owner = CAF
+		set_state_flag = ethnics_Fang
+		add_to_array = { this.state_ethnics_list = 177 }
+		victory_points = { 5139 8 }
+		victory_points = { 13859 4 }
+		victory_points = { 13210 2 }
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 1
+			5139 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = GAB
+		1960.8.24 = {
+			owner = GAB
+		}
+
+	}
+
+	provinces={
+		5139 8207 10948 13210 13858 13859
+	}
+}

@@ -1,0 +1,41 @@
+
+state={
+	id=77
+	name="STATE_77"
+	manpower = 378000
+	
+	state_category = large_town
+
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		victory_points = { 657 3 }
+		owner = ROM
+		set_state_flag = ethnics_Romanian
+		add_to_array = { this.state_ethnics_list = 141 }
+		victory_points = { 687 8 }
+		victory_points = { 6677 4 }
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			school = 1
+			power_plant = 2
+			infrastructure = 5
+			industrial_complex = 3
+			arms_factory = 2
+			dockyard = 2
+			657 = {
+				naval_base = 8
+			}
+			687 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = ROM
+	}
+
+	provinces={
+		657 9635 687 3076 11636 6677 
+	}
+}

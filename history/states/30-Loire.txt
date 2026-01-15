@@ -1,0 +1,56 @@
+
+state={
+	id=30
+	name="STATE_30"
+	manpower = 1388400
+
+	state_category = city
+	local_supplies=0.0
+	resources={
+		coal=25
+		salt=9
+	}
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_French
+		add_to_array = { this.state_ethnics_list = 70 }
+		owner = FRA
+		victory_points = {
+			11465 5
+		}
+		victory_points = {
+			11463 3
+		}
+		victory_points = {
+			11613 2
+		}
+		victory_points = {
+			9478 4
+		}
+		victory_points = {
+			9867 4
+		}
+		
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			school = 1
+			synthetic_refinery = 1
+			infrastructure = 7
+			industrial_complex = 1
+			dockyard = 1
+			air_base = 2
+		}
+		add_core_of = FRA
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces={
+		503 527 3495 3509 3523 9478 9867 11463 11465 11613 11616 
+	}
+}

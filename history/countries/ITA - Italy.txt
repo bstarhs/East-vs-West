@@ -1,0 +1,363 @@
+﻿capital = 2
+
+oob = "ITA_1947"
+
+set_country_flag = west_euro_state
+set_research_slots = 1
+set_country_flag = developmented
+set_country_flag = has_monarchs
+set_country_flag = italy_states
+	set_country_flag = female_finished
+set_country_flag = main_country
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+
+	set_variable = { this.education = 72 }
+add_ideas = {
+	service_by_requirement
+	Catholicism
+	low_economic_mobilisation
+	mid_welfare
+	assimilation
+	ITA_punishment
+	Axis_problem_ideas
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_75
+	complete_national_focus = common_infra
+set_stability = 0.70
+# Starting tech
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	aluminum_tech = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	auto_industry = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#white_peace = ETH
+
+	#adding ministers
+}
+
+
+set_convoys = 200
+set_stability = 0.6
+
+
+	set_popularities = {
+		communism = 35
+		monarchism = 15
+		democratic = 50
+	}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1934.3.26"
+	election_frequency = 60
+	elections_allowed = no
+}
+
+
+
+
+create_country_leader = {
+	name = "Alcide De Gasperi"
+	desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+	picture = "gfx/leaders/ITA/Portrait_Italy_Alcide_De_Gasperi.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		
+	}
+}
+
+
+create_country_leader = {
+	name = "Palmiro Togliatti"
+	
+	picture = "gfx/leaders/ITA/Portrait_Italy_Togliatti.tga"
+	expire = "1988.1.1"
+		ideology = marxism
+	traits = {
+		pro_soviet communist_revolutionary
+	}
+}
+1948.1.1 = {
+	remove_ideas = ITA_punishment
+	add_ideas = ITA_Peace_treaty
+	complete_national_focus = common_64
+	complete_national_focus = common_13
+	add_ideas = nato_spirit
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_3
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	complete_national_focus = common_1
+	complete_national_focus = commons_5
+	complete_national_focus = common_14
+	add_ideas = {
+		service_by_requirement
+		UNmember
+	}
+	set_popularities = {
+		communism = 35
+		neutrality = 5
+		democratic = 60
+	}
+}
+1955.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = steel_produc
+	complete_national_focus = common_infra
+	complete_national_focus = oil_produc
+	set_popularities = {
+		communism = 30
+		neutrality = 10
+		democratic = 60
+	}
+	oob = "ITA_1956"
+	add_ideas = {
+		UNmember
+		ECSC
+	}
+	remove_ideas = Axis_problem_ideas
+	create_country_leader = {
+		name = "Antonio Segni"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Antonio_Segni.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1958.1.1 = {
+	set_country_flag = US_missile_base_employment
+}
+1961.3.1 = {
+	clr_country_flag = US_missile_base_employment
+	complete_national_focus = plastic_produc
+	set_technology = {
+	basic_light_tank = 1
+		excavation3 = 1
+		communie_Satellite = 1
+		supersonic_engine = 1
+		air_gun = 1
+		air_chaff = 1
+		countermeasure_flare = 1
+		guided_missile = 1
+		tech_Satellite = 1
+		rocket_engine = 1
+		spaa2 = 1
+		trans_helicopter_1 = 1
+		improved_light_tank = 1
+	}
+	create_country_leader = {
+		name = "Amintore Fanfani"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Amintore_Fanfani.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1964.1.1 = {
+	add_ideas = {
+	}
+	set_country_flag = Satellite_succes
+	set_technology = {
+		vaccum_tube = 1
+		auto_industry = 1
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+	}
+	create_country_leader = {
+		name = "Aldo Moro"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Aldo_Moro.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1971.1.1 = {
+	set_country_flag = china_diplomacy
+	add_ideas = {
+		Red_Brigade
+	}
+	create_country_leader = {
+		name = "Giulio Andreotti"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Giulio_Andreotti.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1983.1.1 = {
+	remove_ideas = {
+		Red_Brigade
+	}
+	create_country_leader = {
+		name = "Bettino Craxi"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Bettino_Craxi.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1988.1.1 = {
+	create_country_leader = {
+		name = "Ciriaco De Mita"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Ciriaco_De_Mita.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1990.1.1 = {
+	create_country_leader = {
+		name = "Giulio Andreotti"
+		
+		picture = "gfx/leaders/ITA/Portrait_Italy_Giulio_Andreotti.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}

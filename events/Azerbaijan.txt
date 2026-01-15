@@ -1,0 +1,65 @@
+﻿add_namespace = azr
+#阿塞拜疆宣布独立
+news_event = {
+	id = azr.1
+	title = azr.1.t
+	desc = azr.1.d
+	picture = GFX_AzerbaijanIndependent
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = SOV
+		date > 1986.1.1
+		OR = {
+			democratic > 0.8
+			has_country_flag = moscowcoup
+		}
+	}
+	option = {
+		name = azr.1.a
+		news_event = { id = azr.2 }
+		AZR = {
+			load_oob = "AZR_1992"
+			transfer_state = 229
+			transfer_state = 870
+			set_politics = { ruling_party =	authoritarianism }
+			create_country_leader = {
+				name = "Ayaz Niyazi Mutalibov"
+		
+				picture = "gfx/leaders/AZR/Portrait_Azerbaijan_Ayaz_Mutallibov.tga"
+				ideology = authoritarianism
+		
+				traits = {
+				}
+			}
+		}
+		NAK = {
+			transfer_state = 869
+			set_politics = { ruling_party =	authoritarianism }
+			create_country_leader = {
+			name = "Geydar Aliyev"
+				picture = "gfx/leaders/AZR/Portrait_Azerbaijan_Aliyev.tga"
+				expire = "1965.1.1"
+				ideology = authoritarianism
+				traits = {
+				#
+				}
+			}
+		}
+	}
+}
+#阿塞拜疆宣布独立
+news_event = {
+	id = azr.2
+	title = azr.2.t
+	desc = azr.2.d
+	picture = GFX_AzerbaijanIndependent
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ARM_1
+	}
+	option = { 
+		name = sov.13.a
+	}
+}

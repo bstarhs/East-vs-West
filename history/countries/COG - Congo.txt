@@ -1,0 +1,173 @@
+﻿capital = 295
+
+oob = "COG"
+
+set_country_flag = language_french
+set_country_flag = african_state
+set_country_flag = equatorial_africa
+set_country_flag = third_world
+# Starting tech
+add_ideas = {
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1200
+		producer = BEL
+	}
+set_country_flag = third_world
+set_technology = {
+	machine_gun1 = 1
+	tech_signal_company = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+}
+	add_ideas = {
+		partial_economic_mobilisation
+		scraping_the_barrel
+		miner
+		Belgium_puppet
+	}
+
+set_convoys = 5
+	set_popularities = {
+		democratic = 66
+		communism = 11
+		neutrality = 23
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+
+recruit_character = COG_Patris_Lumumba
+recruit_character = COG_Kasavubu
+recruit_character = COG_Pierre_Mulele
+recruit_character = COG_Mobutu
+recruit_character = COG_Antoine_Gizenga
+recruit_character = COG_Victor_Lundula
+
+1950.1.20 = {
+	set_technology = {
+		motorised_infantry = 1
+	}
+}
+1958.1.20 = {
+	promote_character = COG_Patris_Lumumba
+	set_technology = {
+		motorised_infantry = 1
+	}
+	remove_ideas = Belgium_puppet
+	add_ideas = Congo_crisis_idea
+}
+1960.9.20 = {
+	add_equipment_to_stockpile = {
+		type = fighter_equipment_0
+		amount = 20
+		producer = BEL
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 200
+		producer = BEL
+	}
+	set_nationality = {
+		target_country = KVU
+		character = COG_Antoine_Gizenga
+	}
+	add_ideas = {
+		UNmember
+	}
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		democratic = 20
+		communism = 5
+		neutrality = 75
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	retire_character = COG_Kasavubu
+	retire_character = COG_Pierre_Mulele
+	retire_character = COG_Patris_Lumumba
+	retire_character = COG_Victor_Lundula
+	promote_character = COG_Mobutu
+	recruit_character = COG_Siegfried_Muller
+	declare_war_on = {
+		target = KTG
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = KAI
+		type = annex_everything
+	}
+	add_ideas = {
+		corrupt
+		jungle_war
+		closed_economy
+	}
+}
+1964.1.20 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = USA
+	}
+	remove_ideas = Congo_crisis_idea
+	activate_decision = cities_name_Zaire
+	diplomatic_relation = { country = KAI relation = war_relation active = no }
+	diplomatic_relation = { country = KTG relation = war_relation active = no }
+	complete_national_focus = common_24
+}
+1967.1.20 = {
+	retire_character = COG_Siegfried_Muller
+	complete_national_focus = common_23
+	activate_decision = female_equality
+}
+1971.1.20 = {
+		set_cosmetic_tag = ZAI
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+	}
+}

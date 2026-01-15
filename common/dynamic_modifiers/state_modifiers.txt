@@ -1,0 +1,304 @@
+
+morgenthau_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_tur_etatism
+	state_production_speed_buildings_factor = -0.6
+}
+kinmen_broachast_debuff_modifiers = {
+	enable = { always = yes }
+	resistance_garrison_penetration_chance = 0.12
+	local_intel_to_enemies = 0.3
+	local_org_regain = -0.3
+}
+state_great_steel_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_GreatSteelIdeas
+	state_resource_steel = building_level@farm_building
+	state_resource_steel = building_level@farm_building
+	state_production_speed_farm_building_factor = -0.12
+}
+state_great_steel_punishment_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_corn_movement
+	state_resource_cost_steel = resource@steel
+}
+state_corn_1_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_corn_movement
+	state_production_speed_farm_building_factor = 0.06
+	state_resource_food = building_level@farm_building
+	local_factories = -0.12
+}
+state_corn_2_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_corn_movement
+	state_production_speed_farm_building_factor = 0.12
+	state_resource_food = building_level@farm_building
+	state_resource_food = building_level@farm_building
+	state_resource_food = building_level@farm_building
+	local_factories = -0.18
+}
+state_corn_3_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_corn_movement
+	state_production_speed_farm_building_factor = 0.2
+	state_resource_food = building_level@farm_building
+	state_resource_food = building_level@farm_building
+	state_resource_food = building_level@farm_building
+	state_resource_food = building_level@farm_building
+	local_factories = -0.25
+}
+agent_orange_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_agent_orange
+	resistance_growth = -0.25
+	state_production_speed_farm_building_factor = -0.6
+	state_production_speed_buildings_factor = -0.12
+}
+strategic_valley_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_strategic_valley
+	state_production_speed_buildings_factor = -0.2
+	resistance_target = -0.2
+}
+HCMTrail_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_HoChiMinhTrail
+	custom_modifier_tooltip = HCMTrail_modifier_tool
+}
+state_modifier_kanr = {
+	enable = { always = yes }
+	icon = GFX_state_modifier_kanr
+	state_resource_food = building_level@farm_building
+	state_production_speed_farm_building_factor = 0.15
+}
+lack_foods_modifiers = {
+	enable = { always = yes }
+	icon = GFX_lack_foods
+	compliance_gain = -0.05
+	mobilization_speed = -0.02
+	state_production_speed_buildings_factor = -0.08
+	local_factories = -0.12
+	local_resources = -0.08
+	local_supplies = -0.05
+}
+low_foods_modifiers = {
+	enable = { always = yes }
+	icon = GFX_low_foods
+	resistance_growth = 0.01
+	compliance_gain = -0.2
+	mobilization_speed = -0.05
+	resistance_target = 0.05
+	state_production_speed_buildings_factor = -0.12
+	local_factories = -0.3
+	local_resources = -0.15
+	local_supplies = -0.1
+}
+no_foods_modifiers = {
+	enable = { always = yes }
+	icon = GFX_no_foods
+	resistance_growth = 0.05
+	compliance_growth = -0.04
+	mobilization_speed = -0.15
+	resistance_target = 0.12
+	resistance_decay = -0.08
+	state_production_speed_buildings_factor = -0.5
+	local_factories = -0.5
+	local_resources = -0.4
+	local_supplies = -0.2
+}
+
+lack_power_modifiers = {
+	enable = { always = yes }
+	icon = GFX_lack_power
+	compliance_gain = -0.05
+	mobilization_speed = -0.02
+	state_production_speed_buildings_factor = -0.08
+	local_factories = -0.12
+	local_resources = -0.08
+	local_supplies = -0.05
+}
+low_power_modifiers = {
+	enable = { always = yes }
+	icon = GFX_low_power
+	resistance_growth = 0.01
+	compliance_gain = -0.2
+	mobilization_speed = -0.05
+	resistance_target = 0.05
+	state_production_speed_buildings_factor = -0.12
+	local_factories = -0.3
+	local_resources = -0.15
+	local_supplies = -0.1
+}
+no_power_modifiers = {
+	enable = { always = yes }
+	icon = GFX_no_power
+	resistance_growth = 0.05
+	compliance_growth = -0.04
+	mobilization_speed = -0.15
+	resistance_target = 0.12
+	resistance_decay = -0.08
+	state_production_speed_buildings_factor = -0.5
+	local_factories = -0.5
+	local_resources = -0.4
+	local_supplies = -0.2
+}
+economic_zones_modifier = {
+	icon = GFX_idea_generic_improved_industries
+	enable = { always = yes }
+	state_production_speed_buildings_factor = 0.15
+	local_factories = 0.15
+}
+state_savannah_modifier = {
+	icon = GFX_state_savannah
+	enable = { always = yes }
+	state_production_speed_buildings_factor = -0.2
+	local_factories = -0.1
+	local_supplies = -0.3
+}
+state_forest_modifier = {
+	icon = GFX_state_forest
+	enable = { always = yes }
+	custom_modifier_tooltip = state_forest_woods
+	state_production_speed_buildings_factor = 0.1
+	local_supplies = -0.2
+}
+state_cold_modifier = {
+	icon = GFX_state_cold
+	enable = { always = yes }
+	state_production_speed_buildings_factor = -0.8
+	local_factories = -0.5
+	local_resources = -0.3
+	local_building_slots_factor = -0.3
+	local_supplies = -0.6
+}
+state_jungle_modifier = {
+	icon = GFX_state_jungle
+	enable = { always = yes }
+	custom_modifier_tooltip = state_jungle_woods
+	state_production_speed_buildings_factor = -0.3
+	local_factories = -0.2
+	local_resources = -0.25
+	local_supplies = -0.5
+}
+state_hill_modifier = {
+	icon = GFX_state_hill
+	enable = { always = yes }
+	state_production_speed_buildings_factor = -0.15
+}
+state_desert_modifier = {
+	enable = { always = yes }
+	icon = GFX_state_desert
+	state_production_speed_buildings_factor = -0.5
+	local_factories = -0.35
+	local_resources = -0.3
+	state_resources_factor = -0.25
+}
+state_mountain_modifier = {
+	enable = { always = yes }
+	icon = GFX_state_mountain
+	state_production_speed_buildings_factor = -0.6
+	local_factories = -0.4
+	local_supplies = -0.6
+}
+RustBelt_modifiers = {
+	icon = GFX_idea_POL_disjointed_industry
+	enable = { always = yes }
+	compliance_growth = -0.2
+	resistance_decay = 0.05
+	state_production_speed_buildings_factor = -0.25
+	local_factories = -0.15
+	local_resources = -0.3
+}
+poispn_modifiers = {
+	icon = GFX_gas_peaons_2_medium
+	enable = { always = yes }
+	resistance_growth = -0.3
+	compliance_growth = -0.2
+	resistance_target = 0.1
+	resistance_decay = 0.2
+	state_production_speed_buildings_factor = -0.5
+	local_factories = -0.5
+	local_supplies = -0.8
+	local_manpower = -0.4
+	
+}
+emergency_modifiers = {
+	icon = GFX_idea_man_militarism
+	enable = { always = yes }
+	resistance_growth = -0.12
+	compliance_growth = 0.2
+	resistance_target = -0.15
+	resistance_decay = 0.2
+	state_production_speed_buildings_factor = -0.05
+	local_factories = -0.5
+	local_supplies = -0.2
+}
+food_collect_modifiers = {
+	enable = { always = yes }
+	icon = GFX_low_power
+	resistance_decay = 0.2
+	production_speed_buildings_factor = 0.4
+	local_factories = 0.5
+	local_resources = 0.3
+}
+more_rebel_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_MEX_revolutionary_army
+	resistance_growth = 0.3
+	compliance_growth = -0.2
+	compliance_gain = -0.2
+	mobilization_speed = -0.15
+	resistance_target = 0.3
+	resistance_decay = 0.3
+	state_production_speed_buildings_factor = -0.06
+	local_factories = -0.5
+	local_supplies = -0.2
+}
+oil_modifiers = {
+	enable = { always = yes }
+	state_resource_oil = building_level@oilfield
+}
+hight_food_production = {
+	enable = { always = yes }
+	state_resource_food = building_level@farm_building
+}
+yellow_river_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_agrarian_society
+	state_production_speed_buildings_factor = -0.15
+}
+more_food_production = {
+	enable = { always = yes }
+	state_resource_food = building_level@farm_building
+}
+rice_food_production = {
+	enable = { always = yes }
+	state_resource_food = building_level@farm_building
+}
+fish_production = {
+	enable = { always = yes }
+	state_resource_food = building_level@dockyard
+}
+husbandry_production = {
+	enable = { always = yes }
+	state_resource_food = 6
+}
+low_medic_state = {
+	enable = { always = yes }
+	icon = GFX_idea_low_medic
+	compliance_growth = -0.2
+	compliance_gain = -0.3
+	mobilization_speed = -0.5
+	resistance_decay = -0.15
+	state_production_speed_buildings_factor = -0.15
+	local_factories = -0.5
+	local_supplies = -0.5
+}
+civil_aviation_modifiers = {
+	enable = { always = yes }
+	compliance_growth = 0.25
+	state_production_speed_buildings_factor = 0.1
+	local_supplies = 0.25
+	state_resources_factor = 0.12
+}

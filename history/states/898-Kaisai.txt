@@ -1,0 +1,59 @@
+
+state={
+	id=898
+	name="STATE_898" # Leopoldville
+	manpower = 35409
+	
+	state_category = town
+	
+	resources={
+		tungsten=2
+		copper = 17
+		rubber = 36
+	}
+
+	history={
+		set_state_flag = ethnics_Katangese
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_to_array = { this.state_ethnics_list = 92 }
+		add_to_array = { this.state_ethnics_list = 32 }
+		owner = BEL
+		buildings = {
+			infrastructure = 3
+			farm_building = 1
+			plantation = 4
+			industrial_complex = 1
+		}
+		victory_points = { 9986 6 }
+		victory_points = { 1731 5 }
+		victory_points = { 13973 2 }
+		victory_points = { 13977 2 }
+		victory_points = { 4201 2 }
+		victory_points = { 13975 8 }
+		add_core_of = COG
+		add_core_of = KAI
+		1960.6.30 = {
+			owner = KAI	
+			COG = {
+				set_province_controller = 13979
+				set_province_controller = 8016
+				set_province_controller = 13980
+				set_province_controller = 7716
+				set_province_controller = 13977
+				set_province_controller = 13978
+				set_province_controller = 13976
+				set_province_controller = 1731
+				set_province_controller = 4128
+				set_province_controller = 13973
+			} 			
+		}
+		1962.6.30 = {
+			owner = COG
+		}
+	}
+
+	provinces={
+		9986 7716 2024 1731 4201 4128 8016 13972 13973 13974 13975 13976 13977 13978 13979 13980
+	}
+}

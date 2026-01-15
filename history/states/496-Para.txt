@@ -1,0 +1,49 @@
+
+state={
+	id=496
+	name="STATE_496" # Minas Gerais
+	manpower = 4603600
+	
+	state_category = city
+	
+	resources={
+		iron=4
+		rubber=11
+	}
+
+	history={
+		set_state_flag = sugar_production
+		set_state_flag = ethnics_Brazilian
+		set_state_flag = coffee_production
+		add_to_array = { this.state_ethnics_list = 40 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = BRA
+		victory_points = { 11002 6 }
+		victory_points = { 10999 6 }
+		victory_points = { 8233 4 }
+		buildings = {
+			power_plant = 1
+			infrastructure = 3
+			industrial_complex = 3
+			farm_building = 5
+			hospital = 1
+			school = 1
+			11002 = {
+				naval_base = 1
+			}
+		}
+		1958.1.4 = {
+			set_state_category = large_city
+			buildings = {
+				power_plant = 2
+				infrastructure = 5
+				industrial_complex = 5
+			}
+		}
+		add_core_of = BRA
+	}
+
+	provinces={
+		2153 4570 5223 7589 8196 8233 10419 10931 10999 11002 12422 12903 12909 12938 
+	}
+}

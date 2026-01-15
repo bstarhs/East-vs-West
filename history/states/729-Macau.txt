@@ -1,0 +1,46 @@
+state={
+	id=729
+	name="STATE_729"
+	manpower = 157805
+	
+	state_category = town
+	
+	history={
+		add_to_array = { this.state_ethnics_list = 2 }
+		set_state_flag = ethnics_Canton
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = POR
+		add_claim_by = CHI
+		add_claim_by = CTN
+		add_claim_by = PRC
+		add_claim_by = MAC
+		add_claim_by = POR
+		victory_points = {
+			4189 8 
+		}
+		buildings = {
+			hospital = 1
+			school = 1
+			industrial_complex = 2
+			infrastructure = 4
+			4189 = {
+				naval_base = 3
+			}
+		}
+		1960.8.23 = {
+			remove_claim_by = POR
+			add_core_of = POR
+		}
+		1984.8.23 = {
+			remove_core_of = POR
+			remove_claim_by = PRC
+			remove_claim_by = MAC
+			add_core_of = PRC
+			add_core_of = MAC
+		}
+	}
+	
+	provinces={
+		4189 
+	}
+}

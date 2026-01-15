@@ -1,0 +1,845 @@
+technologies = {
+	atomic_research = {
+		path = {
+			leads_to_tech = nucelar_fusion 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = LiD6 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = Enriched_Uranium 
+			research_cost_coeff = 1
+		}
+		
+		dependencies = {
+			vaccum_tube = 1
+			improved_machine_tools = 1
+			excavation2 = 1
+		}
+		start_year = 1945
+		research_cost = 5
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 3 y = 0 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 999
+				tag = SOV
+				date > 1943.1.1
+			}
+			modifier = {
+				add = 999
+				tag = PRC
+				date > 1958.1.1
+			}
+			modifier = {
+				add = 999
+				tag = FRA
+				date > 1947.1.1
+			}
+			modifier = {
+				add = 999
+				tag = ENG
+				date > 1947.1.1
+			}
+			modifier = {
+				add = 10
+				tag = IND
+				date > 1965.1.1
+			}
+			modifier = {
+				add = 10
+				tag = ISR
+				date > 1970.1.1
+			}
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		
+		categories = {
+			nuclear
+		}
+		
+
+	}
+	
+	LiD6 = {
+		start_year = 1943
+		research_cost = 30
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 1 y = 2 }
+		}
+		ai_will_do = {
+			factor = -1
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+	Enriched_Uranium = {
+		start_year = 1943
+		research_cost = 30
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 5 y = 2 }
+		}
+		ai_will_do = {
+			factor = -1
+		}
+		path = {
+			leads_to_tech = Plutonium_techs 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = nuke_Centrifuge 
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+	nuke_Centrifuge = {
+		start_year = 1948
+		research_cost = 5
+		folder = {
+			name = nuclear_folder
+			position = { x = 7 y = 4 }
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	Plutonium_techs = {
+		start_year = 1943
+		research_cost = 30
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 5 y = 4 }
+		}
+		ai_will_do = {
+			factor = -1
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+	nucelar_fusion = {
+		start_year = 1943
+		research_cost = 30
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 3 y = 2 }
+		}
+
+
+		path = {
+			leads_to_tech = nukes 
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				add = 10
+				tag = SOV
+				date > 1943.1.1
+			}
+			modifier = {
+				add = 10
+				tag = PRC
+				date > 1958.1.1
+			}
+			modifier = {
+				add = 50
+				tag = FRA
+				date > 1947.1.1
+			}
+			modifier = {
+				add = 10
+				tag = ENG
+				date > 1947.1.1
+			}
+			modifier = {
+				add = 10
+				tag = IND
+				date > 1965.1.1
+			}
+			modifier = {
+				add = 10
+				tag = ISR
+				date > 1970.1.1
+			}
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+
+	nukes = {
+	
+		start_year = 1945
+		research_cost = 12
+		nuclear_production = 1
+		enable_building = {
+			building = nuclear_reactor
+			level = 2
+		}
+        on_research_complete = {
+			add_political_power = 800
+			set_variable = { this.nukes_limit = 100 }
+            news_event = { id = research.1 }
+			add_named_threat = { threat = 10 name = NuclearTest }
+			if = {
+				limit = { tag = SOV }
+				play_song = comintern_war_1
+			}
+			if = {
+				limit = { tag = ENG }
+				play_song = ENG_9
+			}
+			
+        }
+		folder = {
+			name = nuclear_folder
+			position = { x = 3 y = 4 }
+		}
+		path = {
+			leads_to_tech = duck_cover
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = deterrence
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = dirty_bomb
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = fat_man
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = nuclear_fusion
+			research_cost_coeff = 1
+		}	
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 50
+				tag = SOV
+			}
+			modifier = {
+				add = 50
+				tag = ENG
+				date > 1950.1.1
+			}
+		}
+		
+		categories = {
+			nuclear
+			nuke_techs
+		}
+	}
+	nuclear_fusion = {
+	
+		path = {
+			leads_to_tech = nuclear_plant_1
+			research_cost_coeff = 1
+		}
+		start_year = 1948
+		research_cost = 5
+		folder = {
+			name = nuclear_folder
+			position = { x = 3 y = 6 }
+		}
+		path = {
+			leads_to_tech = thermonuclear
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	thermonuclear = {
+	
+		start_year = 1948
+		research_cost = 10
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_threat_tip
+			add_political_power = 200
+			set_variable = { this.nukes_limit = 100 }
+            news_event = { id = research.9 }
+			add_named_threat = { threat = 10 name = HydrogenBomb }
+			
+        }
+		
+		path = {
+			leads_to_tech = Mutual_Assured_Destruction
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = nuclear_folder
+			position = { x = 0 y = 8 }
+		}
+
+		path = {
+			leads_to_tech = neutron_bomb
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				tag = USA
+				date > 1951.1.1
+			}
+			modifier = {
+				add = 50
+				tag = SOV
+				date > 1954.1.1
+			}
+		}
+		
+		
+		
+		categories = {
+			nuclear
+			nuke_techs
+			hydro_bomb_tech
+		}
+	}
+	neutron_bomb = {
+	
+		start_year = 1949
+		research_cost = 5
+		folder = {
+			name = nuclear_folder
+			position = { x = -1 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		
+		
+		categories = {
+			nuclear
+			hydro_bomb_tech
+		}
+	}
+	fat_man = {
+	
+		start_year = 1945
+		research_cost = 5
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_threat_tip
+		}
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 1 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		
+		
+		categories = {
+			nuclear
+		}
+	}
+	dirty_bomb = {
+	
+		start_year = 1945
+		research_cost = 5
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_threat_tip
+		}
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = -1 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		
+		
+		categories = {
+			nuclear
+		}
+	}
+	duck_cover = {
+	
+		start_year = 1950
+		research_cost = 5
+		on_research_complete = {
+			if = {
+				limit = {
+					tag = USA
+				}
+				play_song = japanoverture
+				news_event = { id = usa.131 }
+				add_to_variable = { influences = 100 }
+				custom_effect_tooltip = focus_tooltip_influence_100
+			}
+		}
+		folder = {
+			name = nuclear_folder
+			position = { x = 10 y = 6 }
+		}
+		path = {
+			leads_to_tech = shelter_1
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	deterrence = {
+		dependencies = {
+			guided_missile = 1
+        }
+		start_year = 1945
+		research_cost = 5
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_reload_tip
+			custom_effect_tooltip = add_buke_threat_tip
+		}
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 8 y = 6 }
+		}
+		path = {
+			leads_to_tech = nuke_banlance
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	nuke_banlance = {
+		start_year = 1945
+		research_cost = 5
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_threat_tip
+		}
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 8 y = 8 }
+		}
+		path = {
+			leads_to_tech = disarmament
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	disarmament = {
+		start_year = 1945
+		research_cost = 5
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 8 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	Mutual_Assured_Destruction = {
+		start_year = 1945
+		research_cost = 5
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_reload_tip
+			custom_effect_tooltip = add_buke_threat_tip
+		}
+		dependencies = {
+			ICBM_missile = 1
+        }
+		folder = {
+			name = nuclear_folder
+			position = { x = 1 y = 12 }
+		}
+		path = {
+			leads_to_tech = second_strike
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	second_strike = {
+		start_year = 1945
+		research_cost = 5
+		on_research_complete = {
+			custom_effect_tooltip = add_buke_reload_tip
+			custom_effect_tooltip = add_buke_threat_tip
+		}
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 1 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	shelter_1 = {
+	
+		start_year = 1945
+		research_cost = 5
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 10 y = 8 }
+		}
+
+		path = {
+			leads_to_tech = shelter_2
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		categories = {
+			nuclear
+		}
+	}
+	shelter_2 = {
+		start_year = 1945
+		research_cost = 5
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 10 y = 12 }
+		}
+
+		path = {
+			leads_to_tech = shelter_3
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+	shelter_3 = {
+	
+		start_year = 1945
+		research_cost = 5
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 10 y = 18 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		categories = {
+			nuclear
+		}
+	}
+	nuclear_plant_1 = {
+
+		# can build reactors
+		
+		start_year = 1950
+		research_cost = 10
+
+		path = {
+			leads_to_tech = breeder_reactor
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = nuke_moderator
+			research_cost_coeff = 1
+		}
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 3
+		}
+		
+		categories = {
+			nuclear
+			nuclear_plant
+		}
+		
+		enable_building = {
+			building = nucelar_fusion
+			level = 3
+		}
+	}
+	breeder_reactor = {
+
+		# can build reactors
+		
+		start_year = 1960
+		research_cost = 10
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 6 y = 8 }
+		}
+		path = {
+			leads_to_tech = controlled_fusion
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 3
+		}
+		
+		categories = {
+			nuclear
+			nuclear_plant
+			advanced_nuclear
+		}
+		
+		enable_building = {
+			building = nucelar_fusion
+			level = 4
+		}
+	}
+	controlled_fusion = {
+		start_year = 1960
+		research_cost = 10
+		folder = {
+			name = nuclear_folder
+			position = { x = 6 y = 10 }
+		}
+		path = {
+			leads_to_tech = minor_reactors_tech
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		categories = {
+			nuclear
+			nuclear_plant
+			advanced_nuclear
+		}
+	}
+	minor_reactors_tech = {
+		start_year = 1960
+		research_cost = 10
+		folder = {
+			name = nuclear_folder
+			position = { x = 6 y = 14 }
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		path = {
+			leads_to_tech = minor_reactors_tech2
+			research_cost_coeff = 1
+		}
+		categories = {
+			advanced_nuclear
+		}
+		enable_building = {
+			building = nucelar_fusion
+			level = 5
+		}
+	}
+	minor_reactors_tech2 = {
+		start_year = 1960
+		research_cost = 10
+		folder = {
+			name = nuclear_folder
+			position = { x = 6 y = 16 }
+		}
+		ai_will_do = {
+			factor = 3
+		}
+		path = {
+			leads_to_tech = civilian_reactors_tech
+			research_cost_coeff = 1
+		}
+		categories = {
+			advanced_nuclear
+		}
+		enable_building = {
+			building = nucelar_fusion
+			level = 6
+		}
+	}
+	civilian_reactors_tech = {
+		start_year = 1960
+		research_cost = 10
+		folder = {
+			name = nuclear_folder
+			position = { x = 6 y = 18 }
+		}
+		ai_will_do = {
+			factor = 3
+		}
+			advanced_nuclear
+		}
+		enable_building = {
+			building = nucelar_fusion
+			level = 8
+		}
+	}
+	nuke_moderator = {
+
+		# can build reactors
+		
+		path = {
+			leads_to_tech = nuclear_plant_2
+			research_cost_coeff = 1
+		}
+		start_year = 1960
+		research_cost = 10
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 4 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 3
+		}
+		
+		categories = {
+			nuclear
+			nuclear_plant
+		}
+		
+		enable_building = {
+			building = nucelar_fusion
+			level = 4
+		}
+	}
+	nuclear_plant_2 = {
+
+		# can build reactors
+		
+		start_year = 1960
+		research_cost = 10
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 4 y = 12 }
+		}
+
+		path = {
+			leads_to_tech = nuclear_plant_3
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 3
+		}
+		
+		categories = {
+			nuclear
+			nuclear_plant
+		}
+		
+		enable_building = {
+			building = nucelar_fusion
+			level = 4
+		}
+	}
+	nuclear_plant_3 = {
+
+		# can build reactors
+		
+		start_year = 1980
+		research_cost = 10
+		
+		folder = {
+			name = nuclear_folder
+			position = { x = 4 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 3
+		}
+		
+		categories = {
+			nuclear
+			nuclear_plant
+		}
+		
+		enable_building = {
+			building = nucelar_fusion
+			level = 5
+		}
+	}
+}

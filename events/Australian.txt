@@ -1,0 +1,379 @@
+﻿add_namespace = ast
+
+news_event = {
+	id = ast.1
+	title = ast.1.t
+	desc = ast.1.d 
+	picture = GFX_Ali_Jinnah_funeral
+	major = yes  
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1951.2.1
+		date < 1951.5.1
+		NOT = { has_global_flag = ChoudhryRahmatAliDeath }
+		tag = AST
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = ChoudhryRahmatAliDeath
+	}
+}
+#1948
+news_event = {
+	id = ast.4
+	title = ast.4.t
+	desc = ast.4.d
+	picture = GFX_asts
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = AST
+		date > 1949.1.1
+		date < 1950.1.1
+		has_government = democratic
+	}
+	
+	option = {	#Robert Gordon Menzies
+		name = ast.1949.a
+		ai_chance = {
+			factor = 60	
+		}
+		create_country_leader = {
+			name = "Robert Gordon Menzies"
+			picture = "gfx/leaders/AST/Portrait_Australia_Robert_Menzies.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+			news_event = {  id = ast.6 }
+	}
+	
+	option = {	#Ben Chifley
+		name = ast.1949.b
+		ai_chance = {
+			factor = 10	
+		}
+		create_country_leader = {
+			name = "Herbert Vere Evatt"
+			picture = "gfx/leaders/AST/Portrait_Australia_Ben_Chifley.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+			news_event = {  id = ast.5 }
+	}
+}
+news_event = {
+	id = ast.5
+	title = ast.5.t
+	desc = ast.5.d
+	picture = GFX_NewFoundlandJoined
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+news_event = {
+	id = ast.6
+	title = ast.6.t
+	desc = ast.6.d
+	picture = GFX_NewFoundlandJoined
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+news_event = {
+	id = ast.10
+	title = ast.10.t
+	desc = ast.10.d
+	picture = GFX_NewFoundlandJoined
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = ENG
+		has_global_flag = ElizabethVisitAST
+		date > 1954.2.1
+		date < 1954.12.1
+		has_idea = Elizabeth_young
+	}
+	major = yes
+	option = {
+		name = prc.19.a
+		set_global_flag = ElizabethVisitAST
+		if = {
+			limit = { tag = AST }
+			add_stability = 0.08
+		}
+	}
+}
+news_event = {
+	id = ast.101
+	title = ast.101.t
+	desc = ast.101.d
+	picture = GFX_MelbournePlympic
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = AST
+		date > 1956.11.1
+		date < 1956.12.15
+		NOT = { has_global_flag = ast101 }
+	}
+	major = yes
+	option = {
+		name = prc.1.a
+		set_global_flag = ast101
+	}
+}
+news_event = {
+	id = ast.102
+	title = ast.102.t
+	desc = ast.102.d
+	picture = GFX_MelbournePlympic
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1956.11.1
+		date < 1956.12.15
+		NOT = { has_country_flag = ast102 }
+		has_global_flag = ast101
+		OR = {
+			tag = EGY
+			tag = IRQ
+			tag = CAM
+		}
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast102
+		news_event = {  id = ast.103 }
+	}
+}
+news_event = {
+	id = ast.103
+	title = ast.103.t
+	desc = ast.103.d
+	picture = GFX_MelbourneOlypicPoster
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+news_event = {
+	id = ast.104
+	title = ast.104.t
+	desc = ast.104.d
+	picture = GFX_MelbournePlympic
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1956.11.1
+		date < 1956.12.15
+		NOT = { has_country_flag = ast104 }
+		has_global_flag = ast101
+		OR = {
+			tag = SPR
+			tag = HOL
+			tag = SWI
+		}
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast104
+		news_event = {  id = ast.105 }
+	}
+}
+news_event = {
+	id = ast.105
+	title = ast.105.t
+	desc = ast.105.d
+	picture = GFX_MelbourneOlypicPoster
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+news_event = {
+	id = ast.106
+	title = ast.106.t
+	desc = ast.106.d
+	picture = GFX_MelbournePlympic
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		date > 1956.11.1
+		date < 1956.12.15
+		NOT = { has_country_flag = ast106 }
+		has_global_flag = ast101
+		OR = {
+			tag = DDR
+			tag = WDR
+		}
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast1061
+		if = {
+			limit = {
+				WDR = { has_country_flag = ast1061 }
+				DDR = { has_country_flag = ast1061 }
+			}
+			news_event = {  id = ast.107 }
+		}
+	}
+}
+news_event = {
+	id = ast.107
+	title = ast.107.t
+	desc = ast.107.d
+	picture = GFX_MelbourneOlypicPoster
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+news_event = {
+	id = ast.108
+	title = ast.108.t
+	desc = ast.108.d
+	picture = GFX_MelbourneOlym
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		date > 1956.11.10
+		date < 1956.12.15
+		tag = AST
+		NOT = { has_country_flag = ast108 }
+		has_global_flag = ast101
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast108
+		PRC = {
+			news_event = { id = ast.109 }
+		}
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast108
+		CHI = {
+			news_event = { id = ast.115 }
+		}
+	}
+}
+news_event = {
+	id = ast.109
+	title = ast.109.t
+	desc = ast.109.d
+	picture = GFX_MelbourneOlym
+	is_triggered_only = yes
+	option = {
+		name = can.6.a
+			news_event = { id = ast.110 }
+	}
+}
+news_event = {
+	id = ast.110
+	title = ast.110.t
+	desc = ast.110.d
+	picture = GFX_MelbourneOlym
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+news_event = {
+	id = ast.111
+	title = ast.111.t
+	desc = ast.111.d
+	picture = GFX_MelbourneOlym
+	major = yes
+	mean_time_to_happen = { days = 6 }
+	immediate = {
+		play_song = AST_1
+	}
+	trigger = {
+		date > 1956.12.1
+		date < 1956.12.30
+		tag = AST
+		NOT = { has_country_flag = ast111 }
+		has_global_flag = ast101
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast111
+	}
+}
+news_event = {
+	id = ast.112
+	title = ast.112.t
+	desc = ast.112.d
+	picture = GFX_BattleMelbourne
+	major = yes
+	mean_time_to_happen = { days = 6 }
+	trigger = {
+		date > 1956.12.1
+		date < 1956.12.30
+		tag = AST
+		NOT = { has_country_flag = ast112 }
+		has_global_flag = ast111
+	}
+	option = {
+		name = prc.1.a
+		set_country_flag = ast112
+	}
+}
+news_event = {
+	id = ast.113
+	title = ast.113.t
+	desc = ast.113.d
+	picture = GFX_MelbourneOlym
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1956.12.20
+		date < 1957.1.10
+		tag = AST
+		NOT = { has_country_flag = ast113 }
+		has_idea = Olympic
+	}
+	option = {
+		name = prc.1.a
+		if = {
+			limit = {
+				tag = AST
+			}
+			remove_ideas = Olympic
+		}
+	}
+}
+news_event = {
+	id = ast.115
+	title = ast.115.t
+	desc = ast.115.d
+	picture = GFX_MelbourneOlym
+	is_triggered_only = yes
+	option = {
+		name = can.6.a
+			news_event = { id = ast.116 }
+	}
+}
+news_event = {
+	id = ast.116
+	title = ast.116.t
+	desc = ast.116.d
+	picture = GFX_MelbourneOlym
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}

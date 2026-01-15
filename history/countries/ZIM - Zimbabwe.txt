@@ -1,0 +1,99 @@
+﻿capital = 770
+
+# Starting tech
+set_country_flag = british_colonies
+set_technology = {
+	infantry_weapons = 1
+	tech_mountaineers = 1
+}
+set_country_flag = third_world
+
+set_country_flag = african_state
+
+add_ideas = {
+
+	Anglicanism
+
+	partial_economic_mobilisation
+}
+set_convoys = 5
+
+1939.1.1 = {
+	#generic focuses
+	
+	set_technology = {
+
+		#doctrines
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+create_country_leader = {
+	
+	name = "Godfrey Huggins"
+	picture = "gfx/leaders/ZIM/Portrait_Rhodesia_Godfrey_Huggins.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = { 
+		}
+}
+
+
+#Now a colony of Italy  However, if independent it would have
+1939.1.1 = {
+	set_popularities = {
+		democratic = 75
+		communism = 5
+		neutrality = 20
+	}
+}
+1960.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		democratic = 30
+		communism = 10
+		neutrality = 60
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Robert Mugabe"
+		
+		picture = "gfx/leaders/ZIM/Portrait_Rhodesia_Robert_Mugabe.tga"
+		expire = "2050.1.1"
+		ideology = centrism
+		
+		traits = {
+		
+		}
+	}
+}
+1980.1.1 = {
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+	}
+}

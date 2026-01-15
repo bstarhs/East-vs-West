@@ -1,0 +1,256 @@
+﻿add_namespace = sud
+#南苏丹暴动
+country_event = {
+	id = sud.5
+	title = sud.5.t
+	desc = sud.5.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sud.1.a
+		SUD = {
+			declare_war_on = { target = SSD type = annex_everything }
+		}
+	}
+}
+#镇压南苏丹
+news_event = {
+	id = sud.6
+	title = sud.6.t
+	desc = sud.6.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sud.1.a
+	}
+}
+#苏丹解放
+news_event = {
+	id = sud.17
+	title = sud.17.t
+	desc = sud.17.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sud.1.a
+	}
+}
+news_event = {
+	id = sud.20
+	title = sud.20.t
+	desc = sud.20.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	option = {
+		name = egy.27.a
+			news_event = { id = sud.21 }
+			set_global_flag = SudanIndepend
+			add_political_power = 300
+	}
+	option = {
+		name = egy.27.a
+			news_event = { id = sud.22 }
+			set_global_flag = SudanNodepend
+			add_political_power = -100
+	}
+}
+news_event = {
+	id = sud.21
+	title = sud.21.t
+	desc = sud.21.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = egy.27.a
+	}
+}
+news_event = {
+	id = sud.22
+	title = sud.22.t
+	desc = sud.22.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = egy.27.a
+	}
+}
+news_event = {
+	id = sud.23
+	title = sud.23.t
+	desc = sud.23.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = egy.27.a
+	}
+}
+news_event = {
+	id = sud.50
+	title = sud.50.t
+	desc = sud.50.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sud.1.a
+		trigger = { NOT = { tag = EGY } }
+	}
+	option = {
+		name = sud.1.a
+		trigger = { tag = EGY }
+		ENG = { news_event = { id = sud.51 } }
+	}
+	option = {
+		name = sud.1.a
+		trigger = { tag = EGY }
+		ENG = { news_event = { id = sud.53 } }
+	}
+}
+news_event = {
+	id = sud.51
+	title = sud.51.t
+	desc = sud.51.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	option = {
+		name = sud.1.a
+		news_event = { id = sud.52 }
+		release_autonomy = {
+			target = SUD
+			autonomous_state = autonomy_colony
+			freedom_level = 0.5
+		}
+	}
+}
+#苏丹自治
+news_event = {
+	id = sud.52
+	title = sud.52.t
+	desc = sud.52.d
+	picture = GFX_VritishTrooperEgypt
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = EGY
+		has_completed_focus = EGY_abandon_sudan
+		ENG = { has_completed_focus = ENG_commonwealth }
+		NOT = { country_exists = SUD }
+	}
+	option = {
+		name = sud.1.a
+		if = {
+			limit = { tag = ENG }
+			release = SUD
+			set_autonomy = {
+				target = SUD
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.6
+			}
+		}
+	}
+}
+news_event = {
+	id = sud.53
+	title = sud.53.t
+	desc = sud.53.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	option = {
+		name = sud.1.a
+		news_event = { id = sud.52 }
+		set_global_flag = EgyAnnexSud
+	}
+}
+news_event = {
+	id = sud.54
+	title = sud.54.t
+	desc = sud.54.d
+	picture = GFX_VritishTrooperEgypt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sud.1.a
+	}
+}
+news_event = {
+	id = sud.55
+	title = sud.55.t
+	desc = sud.55.d
+	picture = GFX_VritishTrooperEgypt
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = EGY
+		ENG = { controls_state = 551 }
+		has_global_flag = EgyAnnexSud
+	}
+	option = {
+		name = sud.1.a
+		if = {
+			limit = { tag = EGY }
+			every_state = {
+				limit = { is_core_of = SUD }
+				transfer_state_to = EGY
+			}
+			add_stability = 0.12
+			add_political_power = 400
+			if = {
+				limit = { ENG = { has_completed_focus = ENG_support_waft } }
+				add_popularity = { ideology = authoritarianism popularity = 0.2 }
+			}
+			else_if = {
+				limit = { ENG = { has_completed_focus = ENG_abandon_suez } }
+				give_military_access = ENG
+			}
+		}
+		if = {
+			limit = { tag = ENG }
+			add_intel = {
+				target = EGY
+				civilian_intel = 20
+				army_intel = 20
+				navy_intel = 20
+				airforce_intel = 20
+			}
+		}
+	}
+}
+#苏丹独立
+news_event = {
+	id = sud.60
+	title = sud.60.t
+	desc = sud.60.d
+	picture = GFX_SudanIndependent
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ENG
+		country_exists = SUD
+		has_subject = SUD
+		date > 1956.1.1
+		date < 1956.3.1
+	}
+	immediate = {
+		play_song = SUD_1
+	}
+	option = {
+		name = sud.1.a
+		if = {
+			limit = { tag = ENG }
+			end_puppet = SUD
+		}
+		if = {
+			limit = { tag = SUD }
+			set_cosmetic_tag = SUD
+			leave_faction = yes
+		}
+	}
+}

@@ -1,0 +1,827 @@
+ideas = {
+
+	country = {
+		FRA_Minitel_idea = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = Minitel_idea
+			modifier = {
+				research_speed_factor = 0.05
+				production_factory_max_efficiency_factor = 0.12
+				production_speed_buildings_factor = 0.05
+				compliance_growth = 0.25
+				political_power_factor = 0.25
+				stability_factor = 0.05
+				custom_modifier_tooltip = add_computers_request
+			}
+		}
+		students_communie_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = work_communie
+			modifier = {
+				stability_factor = 0.15
+				political_power_factor = 0.15
+				drift_defence_factor = -0.2
+				production_speed_school_factor = 0.15
+				communism_drift = 0.02
+				democratic_drift = 0.01
+			}
+		}
+		workers_communie_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = work_communie
+			modifier = {
+				stability_factor = 0.15
+				political_power_factor = -0.15
+				production_speed_buildings_factor = 0.18
+				production_factory_max_efficiency_factor = 0.25
+				local_resources_factor = 0.12
+				war_support_factor = 0.25
+				production_factory_efficiency_gain_factor = 0.12
+				drift_defence_factor = 0.15
+			}
+		}
+		terreur_ideas = {
+			picture = white_terror
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				resistance_target = -0.15
+				drift_defence_factor = 0.5
+				communism_drift = 0.12
+				stability_factor = -0.2
+				weekly_manpower = -1000 
+				political_power_cost = 0.5
+				
+			}
+		}
+		French_revolution_ideas = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				NOT = { has_government = communism }
+			}
+			picture = FRA_republique_legacy
+			modifier = {
+				stability_factor = -0.35
+				political_power_cost = 0.12
+				democratic_drift = 0.3
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		FRA_milice = {
+			picture = generic_war_preparation
+			allowed = {
+				original_tag = FRA
+				always = yes
+			}
+			allowed_civil_war = {
+				has_government = fascism
+			}
+			removal_cost = -1
+			
+			modifier = {
+				resistance_growth = -0.2
+				communism_drift = -0.2
+				democratic_drift = -0.1
+			}
+		}
+		crusade_ideas = {
+			allowed = { always = yes }
+
+			picture = crusade_ideas
+
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.35
+				army_morale_factor = 0.55
+				ai_focus_aggressive_factor = 0.8
+				drift_defence_factor = 1
+				land_reinforce_rate = 0.5
+				supply_consumption_factor = -0.5
+				war_support_factor = 0.6
+				supply_factor = 0.5
+				supply_combat_penalties_on_core_factor = -0.3
+				equipment_capture_factor = 0.5 
+				command_power_gain = 0.3
+			}
+		}
+		patria_familia_ideas = {
+			allowed = { always = yes }
+
+			picture = patria_familia_ideas
+
+			removal_cost = -1
+			modifier = {
+				monarchism_drift = 0.01
+				authoritarianism_drift = 0.02
+				drift_defence_factor = 0.15
+				political_power_gain = -0.3
+				war_support_factor = 0.12
+				stability_factor = 0.25
+			}
+		}
+		FRA_boubor_debuff = {
+			allowed = { always = yes }
+
+			picture = FRA_boubor_debuff
+
+			removal_cost = -1
+			modifier = {
+				monarchism_drift = -0.05
+				stability_factor = -0.15
+			}
+		}
+		FRA_Etrangere = {
+			allowed = { always = yes }
+
+			picture = FRA_Etrangere
+
+			removal_cost = -1
+			modifier = {
+				autonomy_manpower_share = -0.25
+				required_garrison_factor = -0.15
+			}
+		}
+		FRA_republique_legacy = {
+			allowed = { always = yes }
+
+			picture = FRA_republique_legacy
+
+			removal_cost = -1
+			modifier = {
+				monarchism_drift = -0.12
+				stability_factor = 0.15
+			}
+		}
+		FRA_Vieille_Garde = {
+			allowed = { always = yes }
+
+			picture = FRA_Vieille_Garde
+
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.35
+				army_morale_factor = 0.55
+				ai_focus_aggressive_factor = 0.8
+				drift_defence_factor = 1
+				land_reinforce_rate = 0.5
+				supply_consumption_factor = -0.5
+				war_support_factor = 0.6
+				supply_factor = 0.5
+				supply_combat_penalties_on_core_factor = -0.3
+				equipment_capture_factor = 0.5 
+				command_power_gain = 0.3
+			}
+		}
+		FRA_napoleon_reback = {
+			allowed = { always = yes }
+
+			picture = FRA_napoleon_reback
+
+			removal_cost = -1
+			modifier = {
+				monarchism_drift = 0.12
+				stability_factor = 0.25
+			}
+		}
+		FRA_policia_afrique = {
+			allowed = { always = yes }
+
+			picture = FRA_policia_afrique
+
+			removal_cost = -1
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 8
+				send_volunteers_tension = -1
+				army_defence_factor = 0.15
+			}
+		}
+		FRA_paris_communie_ideas = {
+			allowed = { always = yes }
+			picture = FRA_paris_communie_ideas
+			removal_cost = -1
+			modifier = {
+				communism_drift = 0.25
+				political_power_cost = 0.15
+				drift_defence_factor = 0.12
+				war_support_factor = 0.15
+			}
+		}
+		FRA_culure_revolution = {
+			allowed = { always = yes }
+			picture = FRA_culure_revolution
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 0.5
+				communism_drift = 0.12
+				stability_factor = -0.12
+				political_power_cost = 0.12
+			}
+		}
+		FRA_immgrate_comeback = {
+			allowed = {
+				always = yes
+			}
+			picture = FRA_immgrate_comeback
+			modifier = {
+				political_power_cost = 0.15
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		FRA_rightwing_revolt = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				NOT = { has_government = communism }
+			}
+			picture = FRA_rightwing_revolt
+			modifier = {
+				stability_factor = -0.3
+				political_power_cost = 0.05
+				neutrality_drift = 0.03
+				authoritarianism_drift = 0.03
+				monarchism_drift = 0.03
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		FRA_unrest_armee_ideas = {
+			allowed = {
+				always = yes
+			}
+			picture = FRA_unrest_armee_ideas
+			modifier = {
+				stability_factor = -0.3
+				political_power_cost = 0.05
+				neutrality_drift = 0.05
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		FRA_chaos_ideas = {
+			allowed = {
+				always = yes
+			}
+			picture = FRA_chaos_ideas
+			modifier = {
+				stability_factor = -0.25
+				political_power_cost = 0.08
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		FRA_left_union = {
+			allowed = {
+				always = yes
+			}
+			picture = FRA_left_union
+			modifier = {
+				stability_factor = 0.2
+				political_power_gain = 0.05
+				political_power_cost = -0.12
+				communism_drift = 0.02
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		African_police = {
+			allowed = {
+				always = yes
+			}
+			picture = African_police
+			modifier = {
+				send_volunteer_size = 3
+				political_power_cost = 0.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		france_colony = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			picture = france_colony
+	
+			modifier = {
+			}
+		}
+		EURO_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			picture = EURO
+			modifier = {
+				political_power_gain = 0.08
+				
+			}
+		}
+		ECSC = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			picture = ECSC
+			modifier = {
+				political_power_gain = 0.08
+				
+			}
+		}
+		Mai68 = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			picture = generic_communism_drift_bonus
+			
+			modifier = {
+					communism_drift = 0.05
+			}
+		}
+		FRA_IVRepublic = {
+		
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				land_reinforce_rate = -0.5
+				supply_consumption_factor = 0.6
+			}
+		}
+
+		FRA_disjointed_government = {
+			
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+			
+			modifier = {
+				political_power_cost = 0.8
+				stability_factor = -0.10
+			}
+		}
+
+	}
+	industrial_concern = {
+		designer = yes
+	
+		# TECHNOLOGY 
+		Sanofi = {
+						
+			picture = Sanofi
+			
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				medical = 0.12
+			}
+			modifier = {
+				production_speed_hospital_factor = 0.12
+			}
+			visible = {
+				has_completed_focus = FRA_manufacture1
+			}		
+		}
+		Michelin = {
+						
+			picture = Michelin
+			
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				synth_resources = 0.05
+			}
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.12
+			}
+			visible = {
+				has_completed_focus = FRA_manufacture2
+			}		
+		}
+		TotalEnergies = {
+						
+			picture = TotalEnergies
+			
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			visible = {
+				has_completed_focus = FRA_oilfroduc
+			}		
+			traits = { refinery_concern }
+		}
+		PeugeotCitroen = {
+	
+			picture = Peugeot
+						
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 50
+			}
+			visible = {
+				has_completed_focus = FRA_auto_indus
+			}		
+			research_bonus = {
+				armor = 0.25
+			}
+			traits = { auto_manufacturer Luxury_auto_manufacturer }
+		}
+		
+		SchneiderCorp = {
+			picture = SchneiderCorp
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				has_completed_focus = FRA_manufacture2
+			}
+			research_bonus = {
+				industry = 0.15
+			}
+			traits = { steel_making_concern }
+		}
+		
+		SchneiderSteel = {
+			picture = SchneiderSteel
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				NOT = { has_completed_focus = FRA_manufacture2 }
+			}
+			traits = { steel_making_concern }
+		}
+		Thomson = {
+			picture = Thomson
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			visible = {
+				has_completed_focus = FRA_electronic
+			}
+			
+			traits = { electronics_concern }
+		}
+		Alstom = {
+			picture = Alstom
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				has_completed_focus = FRA_railway
+			}
+			modifier = {
+				production_speed_rail_way_factor = 0.12
+			}
+		}
+		FRA_EDF = {
+			picture = FRA_EDF
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				has_completed_focus = FRA_manufacture1
+			}
+			modifier = {
+				production_speed_power_plant_factor = 0.2
+			}
+		}
+		Framatome_europe = {
+			picture = Framatome
+			allowed = {
+				always = yes
+			}
+			research_bonus = {
+				nuclear = 0.06
+			}
+			visible = {
+				has_country_flag = FRA_EAEC_allow
+			}
+			modifier = {
+				production_speed_nuclear_reactor_factor = 0.12
+			}
+		}
+		Framatome = {
+			picture = Framatome
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				has_completed_focus = FRA_civil_nuclear
+			}
+			research_bonus = {
+				nuclear = 0.2
+			}
+			modifier = {
+				production_speed_nuclear_reactor_factor = 0.25
+			}
+		}
+		usinor = {
+			picture = usinor
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				has_completed_focus = FRA_manufacture3
+			}
+			traits = { steel_making_concern }
+		}
+		Arianespace = {
+			picture = Arianespace
+						
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 50
+			}
+			visible = {
+				has_completed_focus = FRA_space
+			}		
+			research_bonus = {
+				rocketry = 0.10
+			}
+		}
+		Peugeot = {
+	
+			picture = Peugeot
+						
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 50
+			}
+			visible = {
+				NOT = { has_completed_focus = FRA_auto_indus }
+			}		
+			research_bonus = {
+				armor = 0.10
+			}
+			traits = { auto_manufacturer }
+		}
+		Citroen = {
+	
+			picture = Citroen
+						
+			allowed = {
+				original_tag = FRA
+			}
+			visible = {
+				NOT = { has_completed_focus = FRA_auto_indus }
+			}
+			ai_will_do = {
+				factor = 50
+			}
+						
+			research_bonus = {
+				armor = 0.10
+			}
+			traits = { auto_manufacturer }
+		}
+		renault_fra = {
+	
+			picture = renault
+						
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 50
+			}
+						
+			research_bonus = {
+				armor = 0.2
+			}
+			traits = { auto_manufacturer }
+		}
+		airbus = {
+			picture = airbus
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = AirbusAllow
+			}
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			traits = { heavy_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		renault_fra = {
+	
+			picture = renault
+						
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 50
+			}
+						
+			research_bonus = {
+				armor = 0.10
+			}
+			traits = { auto_manufacturer }
+		}
+		Aerospatiale = {
+		
+			picture = Aerospatiale
+						
+			allowed = {
+				original_tag = FRA
+			}	
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			traits = { heavy_tank_manufacturer }
+		}
+	
+		FRA_AMX = {
+		
+			picture = generic_tank_manufacturer_2			
+			allowed = {
+				original_tag = FRA
+			}
+						
+			research_bonus = {
+				armor = 0.10
+			}
+			
+
+			traits = { fast_tank_manufacturer }
+		}
+		somua = {
+		
+			allowed = {
+				original_tag = FRA
+			}
+
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+
+		}
+		
+		mas = {
+						
+			allowed = {
+				original_tag = FRA
+			}
+						
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+	
+		schneider = {
+						
+			allowed = {
+				original_tag = FRA
+			}		
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			traits = { artillery_manufacturer }
+		}
+		morane_saulnier = {
+			
+			allowed = {
+				original_tag = FRA
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer medium_aircraft_manufacturer }
+		}
+		
+		amiot = {
+						
+			allowed = {
+				original_tag = FRA
+			}
+						
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { heavy_aircraft_manufacturer }
+		}
+		
+		levasseur = {
+						
+			allowed = {
+				original_tag = FRA
+			}
+						
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { naval_aircraft_manufacturer }
+		}
+		fcm = {
+						
+			allowed = {
+				original_tag = FRA
+			}
+						
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { naval_manufacturer }
+		}
+		famh = {
+						
+			allowed = {
+				original_tag = FRA
+			}
+						
+			research_bonus = {
+				industry = 0.10
+			}
+			
+			traits = { industrial_concern }
+		}
+	}
+}

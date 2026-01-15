@@ -1,0 +1,78 @@
+state=
+{
+	id=756
+	name="STATE_756"
+	manpower = 2392537
+	state_category = city
+	local_supplies=0.0
+	history=
+	{
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 5 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		set_state_flag = banana_production
+		set_state_flag = ethnics_Minnan
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = sugar_production
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by = JAP
+		buildings = {
+			farm_building = 2
+			hospital = 2
+			power_plant = 2
+			school = 1
+			infrastructure = 4
+			arms_factory = 1
+			air_base = 2
+			industrial_complex = 3
+			7186 = {
+				naval_base = 5
+			}
+			11959 = {
+				naval_base = 3
+			}
+		}
+		victory_points = {
+			7186 15
+		}
+		victory_points = {
+			7214 2
+		}
+		victory_points = {
+			11959 2
+		}
+		victory_points = {
+			4096 2
+		}
+		1950.8.23 = {
+			buildings = {
+			radar_station = 1
+			}
+		}
+		1955.8.23 = {
+			remove_claim_by = JAP
+			add_core_of = TWI
+			add_core_of = PRC
+		}
+		1960.8.23 = {
+			buildings = {
+				industrial_complex = 5
+				power_plant = 3
+			}
+		}
+		1977.8.23 = {
+			buildings = {
+				nuclear_reactor = 1 
+			}
+		}
+		1979.8.23 = {
+			buildings = { nuclear_reactor = 2 }
+		}
+	}
+	provinces={
+		11959 4096 9955 7214 7186 
+		}
+}

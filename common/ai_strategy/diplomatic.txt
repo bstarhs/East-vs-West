@@ -1,0 +1,25 @@
+
+pro_soviet = {
+	enable = {
+		has_country_leader_with_trait = pro_soviet
+	}
+	abort = {
+		NOT = { has_country_leader_with_trait = pro_soviet }
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOV
+		value = 200
+	}
+}
+pro_america = {
+	enable = {
+		has_country_leader_with_trait = pro_america
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = USA
+		value = 200
+	}
+}

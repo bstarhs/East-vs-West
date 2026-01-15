@@ -1,0 +1,37 @@
+
+state={
+	id=237
+	name="STATE_237"
+	manpower = 169620
+	
+	state_category = rural
+	resources={
+		salt=13
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Kalmyks
+		set_state_flag = SOV_corn_states
+		add_to_array = { this.state_ethnics_list = 89 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		victory_points = { 11724 6 }
+		owner = SOV
+		buildings = {
+			hospital = 1
+			farm_building = 1
+			infrastructure = 2
+		}
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		add_core_of = SOV
+		add_core_of = KAL
+	}
+
+	provinces={
+		481 742 745 759 3413 3439 3475 3597 3746 3774 6463 6791 6794 9426 9594 9720 9739 11566 11724 
+	}
+}

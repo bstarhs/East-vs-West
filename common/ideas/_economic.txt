@@ -1,0 +1,1247 @@
+ideas = {
+	economy = {
+		law = yes
+		undisturbed_isolation = {
+			
+			
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+		
+			modifier = {
+				production_speed_industrial_complex_factor = -0.5
+				production_speed_arms_factory_factor = -0.5
+				conversion_cost_civ_to_mil_factor = 0.5
+				conversion_cost_mil_to_civ_factor = 0.5
+				generate_wargoal_tension = 1.00
+				join_faction_tension = 0.20
+				lend_lease_tension = 0.50
+				send_volunteers_tension = 0.20
+				guarantee_tension = 0.75
+			}
+			
+			allowed_to_remove = {
+				OR = {
+					has_war_support > 0.5
+					has_war = yes
+				}
+			}
+			
+			cancel_if_invalid = yes
+		}
+		
+		isolation = {
+			
+			
+			
+			allowed = {
+				always = no
+			}
+			cost = -1
+			removal_cost= 9999
+			
+			modifier = {
+				production_speed_industrial_complex_factor = -0.4
+				production_speed_arms_factory_factor = -0.4
+				conversion_cost_civ_to_mil_factor= 0.4
+				conversion_cost_mil_to_civ_factor = 0.4
+				generate_wargoal_tension = 1.00
+				join_faction_tension = 0.20
+				send_volunteers_tension = 0.20
+				guarantee_tension = 0.5
+			}
+			allowed_to_remove = {
+				OR = {
+					has_war_support > 0.75
+					has_war = yes					
+				}
+			}
+			
+			cancel_if_invalid = yes
+		}
+		
+		civilian_economy = {
+			available = {
+				NOT = { has_government = communism }
+			}
+			cost = -1
+			removal_cost= 9999
+
+			ai_will_do = {
+   				factor = 0
+
+   				modifier = {
+					add = 1
+					has_government = democratic
+				}
+   				modifier = {
+					factor = 0
+					has_government = fascism
+				}
+				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   				modifier = {
+					add = 10
+					has_completed_focus = common_62
+				}
+   			}
+			
+			modifier = {
+				min_export = 0.0
+				custom_modifier_tooltip = law_add_comsumer_product
+				custom_modifier_tooltip = reduce_building_cost_tool
+				custom_modifier_tooltip = add_output_gain_tool
+				production_speed_buildings_factor = -0.12
+			}
+			
+			
+			cancel_if_invalid = yes
+		}
+		governed_economic = {
+			cost = -1
+			removal_cost= 9999
+			
+			modifier = {
+				min_export = 0.0
+				production_speed_buildings_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.2 
+				political_power_factor = 0.02
+			}
+			
+			cancel_if_invalid = yes
+			default = yes
+			ai_will_do = {
+   				factor = 10
+   				modifier = {
+					add = -50
+					has_country_leader_with_trait = neoliberal
+				}
+   			}
+		}
+		
+		low_economic_mobilisation = {
+			
+			available = {
+				has_stability > 0.2
+				NOT = { has_government = communism }
+			}
+			cost = -1
+			removal_cost= 9999
+			
+			modifier = {
+				min_export = 0.0
+				custom_modifier_tooltip = add_building_cost_tool
+				production_speed_buildings_factor = 0.12
+				political_power_factor = 0.04
+			}
+			
+			cancel_if_invalid = yes
+
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					add = -50
+					has_country_leader_with_trait = neoliberal
+				}
+   			}
+		}
+		
+		partial_economic_mobilisation = {
+			
+			available = {
+				has_stability > 0.6
+				NOT = {
+					OR = {
+						has_government = democratic
+						has_government = monarchism
+					}
+				}
+			}
+			cost = -1
+			removal_cost= 9999
+			
+			modifier = {
+				custom_modifier_tooltip = law_add_comsumer_product
+				political_power_factor = 0.02
+				min_export = 0.0
+				production_speed_arms_factory_factor = 0.1
+				conversion_cost_civ_to_mil_factor= -0.1
+				conversion_cost_mil_to_civ_factor = -0.1
+				production_speed_industrial_complex_factor = 0.1
+			}
+			
+			cancel_if_invalid = yes
+
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					add = -50
+					has_country_leader_with_trait = neoliberal
+				}
+
+   				modifier = {
+					factor = 20
+				}
+   			}
+		}
+		
+		BannedEconomic = {
+			available = {
+				NOT = { has_government = democratic }	
+			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				min_export = 0.0
+				custom_modifier_tooltip = war_economy_tool
+			}
+			cancel_if_invalid = yes
+			
+			ai_will_do = {
+   				factor = 0	
+   			}
+		}
+		AncapitalEconomic = {
+			available = {
+				NOT = { has_government = democratic }	
+			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				min_export = 0.0
+				custom_modifier_tooltip = war_economy_tool
+			}
+			cancel_if_invalid = yes
+			
+			ai_will_do = {
+   				factor = 0	
+   			}
+		}
+		ThiefEconomic = {
+			available = {
+				NOT = { has_government = democratic }	
+			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				min_export = 0.0
+				custom_modifier_tooltip = war_economy_tool
+			}
+			cancel_if_invalid = yes
+			
+			ai_will_do = {
+   				factor = 0	
+   			}
+		}
+		war_economy = {
+			
+			
+			available = {
+				NOT = { has_government = democratic }	
+			}
+			cost = -1
+			removal_cost= 9999
+			
+			modifier = {
+				min_export = 0.0
+				production_speed_buildings_factor = 0.4
+				production_factory_efficiency_gain_factor = 0.4 
+				custom_modifier_tooltip = war_economy_tool
+			}
+			
+			cancel_if_invalid = yes
+			
+			ai_will_do = {
+   				factor = 0
+
+				modifier = {
+					factor = 1
+					has_government = communism
+				}	
+   			}
+		}
+		
+		tot_economic_mobilisation = {
+			cost = -1
+			removal_cost= 9999
+			available = {
+				NOT = { has_government = democratic }
+			}
+
+			ai_will_do = {
+   				factor = 0
+
+				modifier = {
+					factor = 25
+					has_government = communism
+					has_war = yes
+				}	
+				modifier = {
+					factor = 25
+					has_government = communism
+					has_war = yes
+				}		
+				modifier = {
+					factor = 25
+					has_completed_focus = common_55
+				}			
+   			}
+			
+			cost = 100
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				custom_modifier_tooltip = add_building_cost_tool
+				min_export = 0.0
+				conscription = -0.03
+				production_speed_arms_factory_factor = 0.3
+				conversion_cost_civ_to_mil_factor= -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
+			}
+			
+			cancel_if_invalid = yes
+		}
+	}
+	
+	trade_laws = {
+		law = yes
+
+		free_trade = {
+			available = {
+				NOT = { 
+				has_government = communism
+				has_government = fascism
+				has_government = neutrality
+				}
+			}
+			
+			
+			cost = 150
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = -0.25	
+				political_power_gain = 0.5
+				democratic_acceptance = 50
+				stability_factor = 0.15
+				improve_relations_maintain_cost_factor = -0.30
+			}
+			
+			cancel_if_invalid = yes
+		}
+		
+		export_focus = {
+			
+			available = {
+			}
+			
+			
+			cost = 150
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.3	
+				political_power_gain = -0.1
+			}
+			
+			default = yes
+			
+			cancel_if_invalid = yes
+
+			ai_will_do = {
+   				factor = 1
+   			}
+		}
+		
+		limited_exports = {
+			
+			
+			available = {
+			}
+		
+			cost = 150
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.4
+				political_power_factor = -0.2
+				democratic_acceptance = -30
+				improve_relations_maintain_cost_factor = 0.30
+				resistance_target = -0.08
+				compliance_gain = 0.05
+			}
+			
+			cancel_if_invalid = yes
+
+			ai_will_do = {
+   				factor = 1
+
+   				modifier = {
+					add = 10
+					has_government = communism
+				}
+   				modifier = {
+					add = 10
+					has_government = neutrality
+				}
+   				modifier = {
+					add = 10
+					has_government = fascism
+				}
+   				modifier = {
+					add = 20
+					OR = {
+						has_idea = muslin_reballion
+						has_idea = Red_Brigade
+						has_idea = southeast_revolution
+						has_idea = jungle_war
+					}
+				}
+   				modifier = {
+					add = 20
+					any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+   			}
+		}
+		
+		closed_economy = {
+			available = {
+				OR = {
+				has_government = communism
+				has_government = fascism
+				has_government = neutrality
+				}
+			}
+			
+			cost = 150
+			removal_cost = -1
+			
+			
+			modifier = {
+				resistance_target = -0.15
+				compliance_gain = 0.22
+				drift_defence_factor = 0.8
+				political_power_factor = -0.5
+				stability_factor = 0.2
+				democratic_acceptance = -50
+				improve_relations_maintain_cost_factor = 0.50
+			}
+			
+			on_add = {
+				custom_effect_tooltip = closed_economy_TT
+			}
+			
+			cancel_if_invalid = yes
+
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 2
+					has_government = neutrality
+				}
+   				modifier = {
+					factor = 10
+					has_government = fascism
+				}
+   				modifier = {
+					factor = 10
+					has_idea = redkhmer
+				}
+   				modifier = {
+					add = 5
+					has_idea = gaulle
+				}
+   				modifier = {
+					add = 5
+					has_idea = Safe_minister
+				}
+   			}
+		}
+	}
+	religion_laws = {
+		law = yes
+		Anglicanism = {
+			available = {
+				NOT = { 
+				has_government = communism
+				has_government = fascism
+				}
+			}
+			visible = {
+				OR = {
+				tag = ENG
+				tag = SCO
+				tag = IRE
+				tag = CAN
+				tag = MLT
+				tag = USA
+				tag = AST
+				tag = NZL
+				tag = HKN
+				tag = IND
+				tag = SIG
+				tag = BLZ
+					capital_scope = {
+					is_on_continent = africa
+					}
+				}
+			}
+			cost = -1
+			removal_cost= 9999
+			
+			modifier = {
+				research_speed_factor = 0.02
+				democratic_drift = 0.01
+			}
+			
+			cancel_if_invalid = yes
+		}
+		Anti_religious = {
+			available = {
+				AND = {
+					NOT = { has_government = fascism }
+					NOT = { has_idea = polish_catholics }
+				}
+			}
+			on_add = {
+				news_event = { id = gen.55 }
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					add = 50
+					has_country_leader_with_trait = stalinism
+				}
+   			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					add = 50
+					has_country_leader_with_trait = anti_religion_trait
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				research_speed_factor = 0.04
+				communism_drift = 0.02
+			}
+			on_add = {
+			add_stability = -0.1
+				if = {
+					limit = {
+						OR = {
+							capital_scope = {
+								is_on_continent = middle_east
+							}
+							capital_scope = {
+								is_on_continent = south_america
+							}
+							tag = AFG
+							tag = JAP
+							tag = INS
+							tag = MAL
+							tag = IND
+							tag = PAK
+							tag = SML
+							tag = ALG
+							tag = LBA
+						}
+					}
+					add_stability = -0.2
+				}
+			}
+			
+			cancel_if_invalid = yes
+		}
+		Sunni = {
+			visible = {
+				OR = {
+					capital_scope = {
+						is_on_continent = middle_east
+					}
+					has_country_flag = islam_state
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   				modifier = {
+					add = 10
+					OR = {
+						has_government = monarchism
+						has_government = fascism
+					}
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				fascism_drift = 0.02
+				army_core_defence_factor = 0.2
+			}
+			cancel_if_invalid = yes
+		}
+		Shia = {
+			visible = {
+				OR = {
+				tag = IRQ
+				tag = PER
+				tag = YEM
+				tag = LEB
+				tag = AFG
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   				modifier = {
+					add = 10
+					OR = {
+						has_government = monarchism
+						has_government = fascism
+					}
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				fascism_drift = 0.02
+				army_core_defence_factor = 0.2
+			}
+			cancel_if_invalid = yes
+		}
+		African_religious = {
+			visible = {
+				capital_scope = {
+					is_on_continent = africa
+				}
+				NOT = {
+					OR = {
+						tag = SML
+						tag = EGY
+						tag = ALG
+						tag = TUN
+						tag = MOR
+						tag = MRT
+					}
+				}	
+			}
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				research_speed_factor = -0.06
+			}
+			cancel_if_invalid = yes
+		}
+		Buddhism = {
+			visible = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+			}
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				resistance_target = -0.25
+				compliance_gain = 0.15
+				stability_factor = 0.2
+			}
+			cancel_if_invalid = yes
+		}
+		Hinayana = {
+			visible = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+			}
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				resistance_target = -0.25
+				compliance_gain = 0.15
+				stability_factor = 0.2
+			}
+			cancel_if_invalid = yes
+		}
+		Catholicism = {
+			visible = {
+				OR = {
+					capital_scope = {
+						is_on_continent = europe
+					}
+					capital_scope = {
+						is_on_continent = south_america
+					}
+					tag = PHI
+					tag = CHI
+					tag = KOR
+					tag = SVN
+					NOT = { 
+						tag = SOV
+						tag = YUG
+						tag = UKR
+						tag = BLR
+						tag = FIN
+						tag = ALB
+						tag = DDR
+					}
+				}
+			}
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   				modifier = {
+					factor = 0
+					tag = ENG
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		Hinduism = {
+			visible = {
+				OR = {
+				tag = IND
+				tag = SRI
+				tag = LTE
+				tag = NEP
+				tag = BAN
+				}
+			}
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   				modifier = {
+					add = 10
+					tag = IND
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				resistance_target = -0.25
+				compliance_gain = 0.15
+				stability_factor = 0.2
+			}
+			cancel_if_invalid = yes
+		}
+		Secularism = {
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					add = 1
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				research_speed_factor = 0.05
+			}
+			cancel_if_invalid = yes
+		}
+		Jewism = {
+			visible = {
+				tag = ISR
+			}
+			ai_will_do = {
+   				factor = 1
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   				modifier = {
+					add = 10
+					tag = ISR
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				research_speed_factor = 0.04
+				army_core_defence_factor = 0.5
+			}
+			cancel_if_invalid = yes
+		}
+		Lutheranism = {
+			visible = {
+				OR = {
+					tag = FIN
+					has_country_flag = baltic_state
+					has_country_flag = language_German
+					has_country_flag = scandinavia_states
+				}
+			}
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.08
+				democratic_drift = 0.03
+			}
+			cancel_if_invalid = yes
+		}
+		Calvinists = {
+			visible = {
+				OR = {
+					tag = SAF
+					tag = HOL
+				}
+			}
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.08
+				democratic_drift = 0.03
+			}
+			cancel_if_invalid = yes
+		}
+		Tibetan_Buddhism = {
+			visible = {
+				OR = {
+					has_idea = Himalaya
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				resistance_target = -0.25
+				compliance_gain = 0.15
+				stability_factor = 0.2
+			}
+			cancel_if_invalid = yes
+		}
+		egyptian_religion = {
+			visible = {
+				OR = {
+					tag = EGY
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		Chinese_religional = {
+			visible = {
+				OR = {
+					has_country_flag = chinese_states
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		zoroastrian = {
+			visible = {
+				OR = {
+					tag = PER
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		Hellenic = {
+			visible = {
+				OR = {
+					tag = GRE
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		Druid = {
+			visible = {
+				OR = {
+					has_country_flag = celtic_states
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		Norse = {
+			visible = {
+				OR = {
+					has_country_flag = scandinavia_states
+				}
+			}
+			ai_will_do = {
+   				factor = 0
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+		ArmaniaChurch = {
+			visible = {
+				OR = {
+					tag = ARM
+					tag = ART
+				}
+			}
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.05
+			}
+			cancel_if_invalid = yes
+		}
+		EthiopiaChurch = {
+			visible = {
+				OR = {
+					tag = ETH
+					tag = ERI
+				}
+			}
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.05
+			}
+			cancel_if_invalid = yes
+		}
+		Orthodox = {
+			visible = {
+				OR = {
+					has_country_flag = orthodox_state
+				}
+			}
+			ai_will_do = {
+   				factor = 2
+   				modifier = {
+					factor = 0
+					has_government = communism
+				}
+   			}
+			cost = -1
+			removal_cost= 9999
+			modifier = {
+				stability_factor = 0.02
+			}
+			cancel_if_invalid = yes
+		}
+	}
+	welfare_laws = {
+		law = yes
+		no_welfare = {
+			available = {
+				NOT = { has_idea = low_economic_mobilisation }
+			}
+			cost = 20
+			removal_cost = -1
+			ai_will_do = {
+   				modifier = {
+					add = -50
+					has_country_leader_with_trait = neoliberal
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				consumer_goods_factor =1.0
+			}
+		}
+		low_welfare = {
+			available = {
+				NOT = { has_idea = low_economic_mobilisation }
+			}
+			cost = 100
+			default = yes
+			removal_cost = -1
+			ai_will_do = {
+   				modifier = {
+					add = 50
+					has_dynamic_modifier = { modifier = financial_deficit_modifier }
+				}
+			}
+			modifier = {
+				consumer_goods_factor =1.0
+			}
+			
+			cancel_if_invalid = yes
+		}
+		mid_welfare = {
+			cost = 180
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.1
+				consumer_goods_factor =1.0
+			}
+			ai_will_do = {
+   				factor = 3
+   				modifier = {
+					add = 10
+					has_country_leader_with_trait = neoliberal
+				}
+   				modifier = {
+					add = -10
+					has_dynamic_modifier = { modifier = financial_deficit_modifier }
+				}
+   			}
+			cancel_if_invalid = yes
+		}
+		hight_welfare = {
+			cost = 250
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = -0.1
+				stability_factor = 0.1
+				consumer_goods_factor =1.0
+			}
+			ai_will_do = {
+   				modifier = {
+					add = 1
+					has_government = democratic
+				}
+   				modifier = {
+					add = -50
+					has_war = yes
+				}
+				modifier = {
+					add = 1
+					has_government = communism
+				}
+				modifier = {
+					add = 1
+					has_idea = low_economic_mobilisation
+				}
+   				modifier = {
+					add = -50
+					has_country_leader_with_trait = neoliberal
+				}
+   			}
+			cancel_if_invalid = yes
+		}
+		welfare_state = {
+			cost = 320
+			removal_cost = -1
+			available = {
+				NOT = { has_idea = civilian_economy }
+			}
+			modifier = {
+				industrial_capacity_factory = -0.15
+				production_speed_buildings_factor = -0.2
+				stability_factor = 0.2
+				consumer_goods_factor =1.0
+			}
+			ai_will_do = {
+   				modifier = {
+					add = 1
+					has_government = democratic
+				}
+   				modifier = {
+					add = -50
+					has_war = yes
+				}
+				modifier = {
+					add = 1
+					tag = SWE
+				}
+   			}
+			cancel_if_invalid = yes
+		}
+	}
+	ethnics_laws = {
+		law = yes
+		assimilated = {
+			cost = 9999
+			removal_cost = -1
+			ai_will_do = {
+   				modifier = {
+					factor = 5
+				}
+   			}
+			modifier = {
+				political_power_gain = -0.1
+				stability_factor = 0.02
+			}
+			
+			cancel_if_invalid = yes
+		}
+		harmonious = {
+			cost = 9999
+			removal_cost = -1
+			ai_will_do = {
+   				modifier = {
+					factor = 5
+				}
+   			}
+			modifier = {
+				political_power_gain = -0.1
+				stability_factor = 0.12
+			}
+			
+			cancel_if_invalid = yes
+		}
+		assimilation = {
+			cost = 9999
+			removal_cost = -1
+			ai_will_do = {
+   				modifier = {
+					factor = 5
+				}
+   			}
+			default = yes
+			modifier = {
+				stability_factor = 0.08
+			}
+			cancel_if_invalid = yes
+		}
+		apartheid = {
+			cost = 9999
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+			}
+			
+			cancel_if_invalid = yes
+		}
+		geonocide = {
+			cost = 9999
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+			}
+			
+			cancel_if_invalid = yes
+		}
+	}
+}

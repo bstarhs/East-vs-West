@@ -1,0 +1,54 @@
+state= {
+	id=37
+	name="STATE_37"
+	manpower = 2034114
+
+	state_category = large_city
+	local_supplies=0.0
+
+	history=
+	{
+		set_state_flag = sugar_production
+		owner = DEN
+		set_state_flag = ethnics_Dennish
+		add_to_array = { this.state_ethnics_list = 62}
+		add_dynamic_modifier = { modifier = fish_production }
+		victory_points = { 
+			6287 15
+		}
+		victory_points = {
+			3325 5
+		}
+		buildings = {
+			school = 2
+			farm_building = 3
+			hospital = 2
+			power_plant = 2
+			infrastructure = 8
+			arms_factory = 2
+			industrial_complex = 4
+			dockyard = 2
+			air_base = 6
+			6287 = {
+				naval_base = 8
+			}
+			3325 = {
+				naval_base = 3
+			}
+			6361 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = DEN
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces= {
+		3260 3305 3325 3374 6287 6361 6393 
+	}
+}

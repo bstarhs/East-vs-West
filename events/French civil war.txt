@@ -1,0 +1,175 @@
+﻿add_namespace = frawar
+
+news_event = {
+	id = frawar.25
+	title = frawar.25.t
+	desc = frawar.25.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			complete_national_focus = FRA_socialist
+				set_cosmetic_tag = FRA
+		}
+	}
+}
+news_event = {
+	id = frawar.20
+	title = frawar.20.t
+	desc = frawar.20.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			PRC = {
+				transfer_state = 111
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.40
+	title = frawar.40.t
+	desc = frawar.40.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			NMA = {
+				set_cosmetic_tag = NMA_FRAWAR_democratic
+				transfer_state = 15
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.42
+	title = frawar.42.t
+	desc = frawar.42.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			BRI = {
+				transfer_state = 14
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.44
+	title = frawar.44.t
+	desc = frawar.44.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			AQI = {
+				set_cosmetic_tag = AQI_FRAWAR_authoritarianism
+				transfer_state = 19
+				transfer_state = 31
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.45
+	title = frawar.45.t
+	desc = frawar.45.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			SAV = {
+				set_cosmetic_tag = SAV_FRAWAR_authoritarianism
+				transfer_state = 735
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.49
+	title = frawar.49.t
+	desc = frawar.49.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			COR = {
+				set_politics = { ruling_party = neutrality }
+				set_cosmetic_tag = COR_FRAWAR
+				transfer_state = 21
+				transfer_state = 1
+				transfer_state = 460
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.60
+	title = frawar.60.t
+	desc = frawar.60.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			 ALS = {
+				set_cosmetic_tag = ALS_FRAWAR
+				transfer_state = 28
+			}
+		}
+	}
+}
+news_event = {
+	id = frawar.70
+	title = frawar.60.t
+	desc = frawar.60.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		
+		name = sov.22.a
+		if = {
+			limit = { tag = FRA }
+			 PCD = {
+				set_politics = { ruling_party = communism }
+				set_cosmetic_tag = PCD_FRAWAR
+				transfer_state = 29
+				transfer_state = 18
+			}
+		}
+	}
+}

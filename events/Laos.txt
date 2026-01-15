@@ -1,0 +1,630 @@
+﻿add_namespace = lao
+#探测器
+news_event = {
+	id = lao.3
+	title = lao.3.t
+	desc = lao.3.d
+	picture = GFX_SisavangVong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.7
+	title = lao.7.t
+	desc = lao.7.d
+	picture = GFX_PrincePhuma
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = LAO
+		date > 1955.11.1
+		date < 1956.1.1
+		LAO_Phouma = { is_country_leader = no }
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		promote_character = LAO_Phouma
+		news_event = { id = lao.8 }
+	}
+}
+news_event = {
+	id = lao.8
+	title = lao.8.t
+	desc = lao.8.d
+	picture = GFX_PrincePhuma
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.9
+	title = lao.9.t
+	desc = lao.9.d
+	picture = GFX_LaosUnitedGov
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = LAO
+		date > 1956.3.1
+		date < 1957.1.1
+		has_idea = LAO_civilwar_idea
+		LAO_Phouma = { is_country_leader = yes }
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		remove_ideas = LAO_civilwar_idea
+			add_stability = 0.15
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		set_global_flag = Pathet_Lao_rise
+		news_event = { id = lao.10 }
+	}
+}
+news_event = {
+	id = lao.10
+	title = lao.10.t
+	desc = lao.10.d
+	picture = GFX_LaosUnitedGov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.11
+	title = lao.11.t
+	desc = lao.11.d
+	picture = GFX_LaosUnitedGov
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		date < 1958.1.1
+		LAO = { has_global_flag = Pathet_Lao_rise }
+	} 
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.12
+	title = lao.12.t
+	desc = lao.12.d
+	picture = GFX_LaosUnitedGov
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = LAO
+		date < 1958.1.1
+		NOT = { has_idea = laotian_united }
+		has_global_flag = Pathet_Lao_rise
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		if = {
+			limit = { tag = LAO }
+			add_ideas = laotian_united
+		}
+	}
+}
+##老挝大选
+news_event = {
+	id = lao.13
+	title = lao.13.t
+	desc = lao.13.d
+	picture = GFX_LaosUnitedGov
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = LAO
+		date > 1957.5.1
+		date < 1958.3.1
+		has_idea = laotian_united
+		has_global_flag = Pathet_Lao_rise
+	} 
+	option = {
+		name = lao.4.a	#攻击
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		set_global_flag = lao14
+		news_event = { id = lao.14 }
+	}
+}
+news_event = {
+	id = lao.14
+	title = lao.14.t
+	desc = lao.14.d
+	picture = GFX_LaosUnitedGov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+	option = {
+		name = lao.4.a	#攻击
+		trigger = { tag = USA }
+		ai_chance = {
+			factor = 500
+		}
+		news_event = { id = lao.20 }
+	}
+}
+news_event = {
+	id = lao.15
+	title = lao.15.t
+	desc = lao.15.d
+	picture = GFX_LaosUnitedGov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.20
+	title = lao.20.t
+	desc = lao.20.d
+	picture = GFX_Eisenhower
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.21
+	title = lao.21.t
+	desc = lao.21.d
+	picture = GFX_LaosCoup
+	major = yes
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = LAO
+		date > 1957.5.1
+		date < 1958.3.1
+		OR = {
+			USA = { has_completed_focus = Penetration_Laos }
+			SVN = { has_completed_focus = SVN_suport_laos_rightwing }
+		}
+		has_idea = laotian_united
+		has_global_flag = Pathet_Lao_rise
+		has_global_flag = lao14
+		NOT = { has_global_flag = lao21 }
+	}  
+	option = {
+		name = lao.4.a	#攻击
+		set_global_flag = lao21
+	}
+}
+news_event = {
+	id = lao.22
+	title = lao.22.t
+	desc = lao.22.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = LAO
+		date > 1958.2.1
+		date < 1958.8.1
+		LAO_Phouma = { is_country_leader = yes }
+		OR = {
+			USA = { has_completed_focus = Penetration_Laos }
+			SVN = { has_completed_focus = SVN_suport_laos_rightwing }
+		}
+		has_idea = laotian_united
+		has_global_flag = Pathet_Lao_rise
+		has_global_flag = lao14
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		remove_ideas = laotian_united
+		set_global_flag = LaosCoup1958
+		add_political_power = -200
+		promote_character = LAO_Phoui_Sananikone
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+		news_event = { id = lao.23 }
+	}
+}
+news_event = {
+	id = lao.23
+	title = lao.23.t
+	desc = lao.23.d
+	picture = GFX_LaosCoup
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.24
+	title = lao.24.t
+	desc = lao.24.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = LAO
+		has_global_flag = LaosCoup1958
+		NOT = { has_global_flag = lao24 }
+		date < 1958.8.1
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		set_global_flag = lao24
+	}
+}
+news_event = {
+	id = lao.25
+	title = lao.25.t
+	desc = lao.25.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = LAO
+		has_global_flag = LaosCoup1958
+		OR = { 
+			has_country_flag = southeastasia
+			tag = PRC
+			is_in_faction_with = SOV
+			is_in_faction_with = USA
+		}
+		NOT = { has_country_flag = lao25 }
+		date < 1958.10.1
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		set_country_flag = lao25
+		news_event = { id = lao.26 }
+	}
+	option = {
+		name = lao.4.a	#攻击
+		set_country_flag = lao25
+		news_event = { id = lao.27 }
+	}
+}
+news_event = {
+	id = lao.26
+	title = lao.26.t
+	desc = lao.26.d
+	picture = GFX_LaosCoup
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.27
+	title = lao.27.t
+	desc = lao.27.d
+	picture = GFX_LaosCoup
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.28
+	title = lao.28.t
+	desc = lao.28.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = LAO
+		has_global_flag = lao24
+		NOT = { has_idea = LAO_civilwar_idea }
+		date < 1958.11.1
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		if = {
+			limit = { tag = LAO }
+			add_ideas = LAO_civilwar_idea
+		}
+	}
+}
+##丰沙里边境战争
+news_event = {
+	id = lao.30
+	title = lao.30.t
+	desc = lao.30.d
+	picture = GFX_LaosCivilwar
+	is_triggered_only = yes 
+	major = yes
+	option = {
+		name = lao.35.a
+	}
+}
+news_event = {
+	id = lao.31
+	title = lao.31.t
+	desc = lao.31.d
+	picture = GFX_LaosCivilwar
+	is_triggered_only = yes 
+	major = yes
+	option = {
+		name = lao.35.a
+		if = {
+			limit = { tag = VIN }
+			army_experience = 40
+			if = {
+				limit = { controls_state = 766 }
+				766 = { add_resistance = -6 }
+			}
+			if = {
+				limit = { NOT = { controls_state = 766 } }
+				transfer_state = 766
+				766 = { add_resistance = 12 }
+			}
+		}
+		if = {
+			limit = { tag = LAO }
+			add_political_power = -80
+			add_war_support = -0.02
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = lao.32
+	title = lao.32.t
+	desc = lao.32.d
+	picture = GFX_LaosRoyalArmy
+	is_triggered_only = yes 
+	major = yes
+	option = {
+		name = lao.35.a
+		if = {
+			limit = { tag = VIN }
+			army_experience = -80
+			add_political_power = -80
+			add_war_support = -0.06
+		}
+		if = {
+			limit = { tag = LAO }
+			add_political_power = 100
+			add_stability = 0.02
+			add_war_support = 0.08
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			if = {
+				limit = { controls_state = 766 }
+				766 = { add_resistance = -6 }
+			}
+			if = {
+				limit = { NOT = { controls_state = 766 } }
+				transfer_state = 766
+				766 = { add_resistance = 12 }
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = lao.35
+	title = lao.35.t
+	desc = lao.35.d
+	picture = GFX_vietCongSmall
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1958.10.1
+		date < 1960.12.1
+		LAO = { has_idea = LAO_civilwar_idea }
+		VIN = { controls_state = 766 }
+	} 
+	option = {
+		name = lao.35.a
+		custom_effect_tooltip = lao35tool
+		if = {
+			limit = { has_completed_focus = Penetration_Laos }
+			LAO = {
+				set_country_flag = usa_arms_sell
+				set_country_flag = UsaAdvisorAllow	
+				set_country_flag = usa_army_advisor
+				country_event = { id = usa.45 }
+				add_political_power = 200
+			}
+		}
+	}
+}
+
+news_event = {
+	id = lao.33
+	title = lao.33.t
+	desc = lao.33.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = LAO
+		date > 1959.10.1
+		date < 1959.12.1
+		has_idea = LAO_civilwar_idea
+		LAO_Phoui_Sananikone = { is_country_leader = yes }
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		if = {
+			limit = { tag = LAO }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.35
+		}
+				set_politics = { ruling_party = neutrality }
+				promote_character = LAO_Phoumi_Nosavan
+		}
+	}
+}
+news_event = {
+	id = lao.40
+	title = lao.40.t
+	desc = lao.40.d
+	picture = GFX_SisavangVong
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = LAO
+		date > 1959.9.1
+		date < 1959.11.1
+		NOT = { has_global_flag = lao40 }
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		set_global_flag = lao40
+		if = {
+			limit = { tag = LAO }
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.08
+			}
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = lao.41
+	title = lao.41.t
+	desc = lao.41.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = LAO
+		date > 1960.8.1
+		date < 1960.12.1
+		has_idea = LAO_civilwar_idea
+		has_global_flag = lao40
+		LAO_Phoumi_Nosavan = { is_country_leader = yes }
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		if = {
+			limit = { tag = LAO }
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.35
+			}
+			set_global_flag = LaoCoup1960
+			remove_ideas = LAO_civilwar_idea
+				set_politics = { ruling_party = monarchism }
+				promote_character = LAO_Phouma
+		}
+	}
+}
+news_event = {
+	id = lao.44
+	title = lao.44.t
+	desc = lao.44.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = LAO
+		date > 1960.8.1
+		date < 1961.5.1
+		NOT = { has_idea = LAO_civilwar_idea }
+		LAO_Phouma = { is_country_leader = yes }
+		has_global_flag = LaoCoup1960
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		trigger = { tag = LAO }
+		start_civil_war = {
+			ideology = neutrality
+			capital = 998
+			states = { 998 782 1023 }
+		}
+	}
+	option = {
+		name = lao.4.a
+		trigger = { NOT = { tag = LAO } }
+	}
+	option = {
+		name = lao.4.a	#攻击
+		trigger = {
+			has_country_leader_with_trait = anti_communist
+			NOT = { tag = LAO }
+		}
+		ai_chance = {
+			factor = 100
+		}
+			news_event = { id = lao.45 }
+	}
+}
+news_event = {
+	id = lao.45
+	title = lao.45.t
+	desc = lao.45.d
+	picture = GFX_LaosCoup
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = lao.4.a	#攻击
+	}
+}
+news_event = {
+	id = lao.48
+	title = lao.48.t
+	desc = lao.48.d
+	picture = GFX_LaosCoup
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = LAO
+		has_global_flag = LaoCoup1960
+		any_other_country = {
+		has_war_with = LAO
+		has_government = neutrality
+		controls_province = 1464
+		LAO = { has_government = monarchism }
+		NOT = {
+			tag = SVN
+			tag = SIA
+			tag = CAM
+			tag = CHI
+		}
+		}
+	} 
+	option = {
+		name = lao.4.a	#攻击
+		if = {
+			limit = { tag = LAO }
+			every_other_country = {
+				limit = { has_character = LAO_Phoumi_Nosavan }
+				retire_character = LAO_Phoumi_Nosavan
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.35
+			}
+			set_politics = { ruling_party = neutrality }
+			recruit_character = LAO_Phoumi_Nosavan
+			promote_character = LAO_Phoumi_Nosavan
+			every_state = {
+				limit = { is_core_of = LAO }
+				transfer_state_to = LAO
+			}
+		}
+	}
+}

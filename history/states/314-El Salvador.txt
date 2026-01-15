@@ -1,0 +1,40 @@
+state=
+{
+	id=314
+	name="STATE_314"
+	manpower = 1437611
+	resources={
+		tungsten=1
+	}
+	
+	state_category = town
+	
+	history=
+	{
+		owner = ELS
+		set_state_flag = ethnics_CenturalAmerican
+		set_state_flag = banana_production
+		set_state_flag = coffee_production
+		add_to_array = { this.state_ethnics_list = 117 }
+		buildings = {
+			infrastructure = 4
+			farm_building = 1
+			industrial_complex = 2 
+			air_base = 1
+			12823 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = ELS
+		victory_points = {
+			12823 8
+		}
+		victory_points = {
+			13093 4
+		}
+
+	}
+	provinces={
+		12823 13093 
+	}
+}

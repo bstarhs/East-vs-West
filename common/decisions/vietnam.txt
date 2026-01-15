@@ -1,0 +1,98 @@
+
+
+VIN_VietCong_catogary = {
+	
+	VIN_Enter = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+
+		cost = 80
+
+		visible = {
+			has_idea = HoChiMinhTrail
+			SVN = {
+				OR = {
+					has_government = neutrality
+				}
+				has_idea = DietCong
+			 }
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			SVN = { 
+				add_stability = -0.12
+				753 = { add_resistance = 12 }
+				752 = { add_resistance = 12 }
+				286 = { add_resistance = 12}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.08
+				}
+			}
+		}
+
+	}
+}
+political_actions = {
+	SVN_DietCong = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = SVN
+		}
+		ai_will_do = {
+			factor = 100
+		}
+
+		cost = 20
+
+		available = {
+			NOT = { SVN = { has_idea = DietCong } }
+			SVN = { has_government = neutrality }
+			date > 1959.1.1
+		}
+
+		complete_effect = {
+				SVN = { add_ideas = DietCong }
+		}
+
+	}
+	
+	VIN_HCM_CITY = {
+
+		icon = generic_research
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			VIN = { has_government = communism }
+			SVN = { has_government = communism }
+			286 = { is_controlled_by = VIN }
+		}
+
+		complete_effect = {
+			set_province_name = { id = 4401 name = VICTORY_POINTS_HCM_CITY }
+		}
+
+	}
+}

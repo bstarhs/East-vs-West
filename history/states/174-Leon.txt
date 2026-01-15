@@ -1,0 +1,52 @@
+
+state={
+	id=174
+	name="STATE_174"
+	manpower = 1566041
+	
+	state_category = large_town
+	resources={
+		copper=9
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Castile
+		add_to_array = { this.state_ethnics_list = 47 }
+		owner = SPR
+		victory_points = {
+			11707 6
+		}
+		victory_points = {
+			6907 4
+		}
+		victory_points = {
+			3920 5
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 6
+			arms_factory = 1
+			power_plant = 1
+			industrial_complex = 2
+			11707 = {
+				naval_base = 1
+			}
+			6749 = {
+				naval_base = 2
+			}
+		}
+		1954.1.4 = {
+			buildings = {
+				steel_making = 2
+			}
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		726 918 920 3725 3727 3729 3744 3918 3920 6746 6749 6907 9699 9719 11707 11843 4024
+	}
+}

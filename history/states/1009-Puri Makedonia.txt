@@ -1,0 +1,32 @@
+
+state={
+	id=1009
+	name="STATE_1009"
+	manpower = 74200
+	
+	state_category = rural
+	history={
+		set_state_flag = ethnics_Macedonia
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 42 }
+		add_to_array = { this.state_ethnics_list = 104 }
+		owner = BUL
+		buildings = {
+			hospital = 1
+			infrastructure = 2
+		}
+		victory_points = {
+			6857 5
+		}
+		add_claim_by = MCD
+		add_core_of = BUL
+		1948.8.23 = {
+			remove_claim_by = MCD
+			add_core_of = MCD
+		}
+	}
+
+	provinces={
+		6857 9818 
+	}
+}

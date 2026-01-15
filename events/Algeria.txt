@@ -1,0 +1,1167 @@
+﻿add_namespace = alg
+#阿尔及利亚独立战争
+
+news_event = {
+	id = alg.1
+	title = alg.1.t
+	desc = alg.1.d
+	picture = GFX_ALGwar
+	major = yes
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		tag = FRA
+		date > 1954.5.14
+		date < 1964.8.15
+		OR = {
+			NOT = { country_exists = ALG }
+			ALG = { is_puppet_of = FRA }
+		}
+		OR = {
+			460 = { resistance > 80 }
+			513 = { resistance > 80 }
+			1013 = { resistance > 80 }
+			1045 = { resistance > 80 }
+		}
+		NOT = { has_country_flag = alg_peace }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			every_owned_state = {
+				limit = {
+					is_core_of = ALG
+					resistance > 80
+				}
+				transfer_state_to = ALG
+			}
+			ALG = {
+				leave_faction = yes
+				set_politics = { ruling_party = authoritarianism }
+				load_oob = "ALG_1956"
+			}
+			declare_war_on = {
+				target = ALG
+				type = annex_everything
+			}
+			add_to_variable = { influences = -50 } 
+			add_stability = -0.01
+			add_war_support = -0.02
+			end_puppet = ALG
+		}
+	}
+}
+#阿尔及利亚独立
+news_event = {
+	id = alg.2
+	title = alg.2.t
+	desc = alg.1.d
+	picture = GFX_BellaAndHouari
+	trigger = {
+		has_global_flag = AlgeriaPeace
+		tag = FRA
+	}
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	immediate = {
+		play_song = ALG_1
+	}
+	option = {
+		name = alg.1.b
+		
+		ALG = {
+				transfer_state = 459
+				transfer_state = 460
+				transfer_state = 513
+				transfer_state = 514
+				transfer_state = 1045
+				transfer_state = 1046
+				transfer_state = 514
+		}
+		if = {
+			limit = { tag = ALG }
+			white_peace = FRA
+		}
+		if = {
+			limit = { has_war_with = ALG }
+			white_peace = ALG
+		}
+		if = {
+			limit = { tag = FRA }
+			set_country_flag = alg_peace
+			add_stability = 0.15
+			add_war_support = 0.2
+		}
+		if = {
+			limit = {
+				tag = FRA
+				NOT = { has_completed_focus = FRA_Proxy }
+			}
+			set_country_flag = alg_peace
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.15
+			}
+			add_political_power = -200
+		}
+		if = {
+			limit = { tag = ALG }
+			add_stability = 0.5
+			add_war_support = 0.25
+			add_political_power = 800
+			every_owned_state = {
+				add_resistance = -100
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+}
+#袭击
+news_event = {
+	id = alg.3
+	title = alg.1.t
+	desc = alg.1.d
+	picture = GFX_ALGwar
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = FRA
+		NOT = { country_exists = ALG }
+		460 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		514 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	option = {
+		name = alg.1.b
+		random_owned_state = {
+			limit = { is_core_of = ALG }
+			add_resistance = 30
+		}
+		add_political_power = -40
+	}
+}
+#披露法国暴行
+news_event = {
+	id = alg.4
+	title = alg.4.t
+	desc = alg.4.d
+	picture = GFX_AlgeriaMassacre
+	major = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_global_flag = fra_crime_alg }
+		ALG = { has_war_with = FRA }
+		date > 1955.4.1
+	}
+	option = {
+		name = alg.4.a
+		set_global_flag = fra_crime_alg
+		if = {
+			limit = { tag = FRA }
+			add_war_support = -0.12
+			add_political_power = -120
+			add_to_variable = { influences = -150 } 
+		}
+	}
+}
+#被镇压
+news_event = {
+	id = alg.5
+	title = alg.5.t
+	desc = alg.5.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = FRA }
+			every_owned_state = {
+				limit = { is_core_of = ALG }
+				add_resistance = -20
+			}
+		}
+	}
+}
+#被镇压
+news_event = {
+	id = alg.6
+	title = alg.6.t
+	desc = alg.6.d
+	picture = GFX_AlgeriaIndependent
+	major = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	immediate = {
+		play_song = ALG_2
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_global_flag = AlgeriaRevolt }
+		NOT = { country_exists = ALG }
+		460 = { is_controlled_by = FRA }
+		513 = { is_controlled_by = FRA }
+		OR = {
+			date > 1954.3.1
+			has_global_flag = VinGenevaNegoSucces
+		}
+	}
+	option = {
+		name = alg.5.b1
+		set_global_flag = AlgeriaRevolt
+		trigger = { tag = FRA }
+		if = {
+			limit = { tag = FRA }
+			460 = {
+				add_resistance = 30
+				add_compliance = -70
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			459 = {
+				add_resistance = 30
+				add_compliance = -70
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			514 = {
+				add_resistance = 30
+				add_compliance = -70
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			513 = {
+				add_resistance = 30
+				add_compliance = -70
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			add_to_variable = { influences = -50 } 
+			add_stability = -0.2
+			add_war_support = -0.12
+		}
+	}
+	option = {
+		name = alg.1.b
+		trigger = { NOT = { tag = FRA } }
+		if = {
+			limit = {
+				OR = {
+					tag = PRC
+					tag = SOV
+					tag = EGY
+					tag = ENG
+					tag = USA
+				}
+			}
+			news_event = { id = alg.7 days = 2 }
+		}
+	}
+	option = {
+		name = alg.1.b
+		trigger = { NOT = { tag = FRA } }
+	}
+}
+news_event = {
+	id = alg.7
+	title = alg.7.t
+	desc = alg.7.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1b1
+		if = {
+			limit = { tag = FRA }
+			add_war_support = 0.01
+			460 = {
+				add_resistance = 2
+			}
+			514 = {
+				add_resistance = 2
+			}
+			513 = {
+				add_resistance = 2
+			}
+		}
+	}
+}
+news_event = {
+	id = alg.8
+	title = alg.8.t
+	desc = alg.8.d
+	picture = GFX_ALGwar
+	major = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = FRA
+		has_global_flag = AlgeriaRevolt
+		NOT = { country_exists = ALG }
+		460 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		1045 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		513 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+	}
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = FRA }
+			add_war_support = 0.08
+			460 = {
+				add_compliance = 20
+			}
+			514 = {
+				add_compliance = 20
+			}
+			513 = {
+				add_compliance = 20
+			}
+			549 = {
+				add_compliance = 20
+			}
+			add_political_power = 200
+			ALG = { remove_ideas = ColonyWar }
+		}
+	}
+}
+news_event = {
+	id = alg.9
+	title = alg.9.t
+	desc = alg.9.d
+	picture = GFX_ALGwar
+	major = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = FRA
+		has_global_flag = AlgeriaRevolt
+		NOT = { country_exists = ALG }
+		460 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		1046 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		1045 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		514 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		513 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+		549 = {
+			is_controlled_by = FRA
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 5
+		}
+	}
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = FRA }
+			clr_global_flag = AlgeriaRevolt
+			460 = {
+				add_compliance = 50
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			514 = {
+				add_compliance = 50
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			549 = {
+				add_compliance = 50
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			513 = {
+				add_compliance = 50
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			add_political_power = 500
+			add_stability = 0.4
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}	
+		}
+	}
+}
+news_event = {
+	id = alg.10
+	title = alg.10.t
+	desc = alg.10.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.11
+	title = alg.11.t
+	desc = alg.11.d
+	picture = GFX_ALGwar
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {	
+		tag = ALG
+		459 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		NOT = { has_global_flag = AlgeriaPeace }
+		FRA = {
+			has_tech = nucelar_fusion
+			has_completed_focus = FRA_retreat_algeria
+			OR = {
+				controls_state = 459
+				has_war_with = ALG
+			}	
+		}
+	}
+	option = {
+		name = alg.5.b1
+		set_global_flag = AlgeriaPeace
+		news_event = { id = alg.12 }
+	}
+}
+news_event = {
+	id = alg.12
+	title = alg.12.t
+	desc = alg.12.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.13
+	title = alg.13.t
+	desc = alg.13.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.14
+	title = alg.14.t
+	desc = alg.14.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.15
+	title = alg.15.t
+	desc = alg.15.d
+	picture = GFX_LarbiBenMhidi
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = alg15
+			460 = {
+				add_resistance = -20
+			}
+			514 = {
+				add_resistance = -20
+			}
+			549 = {
+				add_resistance = -20
+			}
+			513 = {
+				add_resistance = -20
+			}
+		}
+		
+	}
+}
+news_event = {
+	id = alg.16
+	title = alg.16.t
+	desc = alg.16.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = FRA }
+			460 = {
+				add_resistance = -20
+			}
+			514 = {
+				add_resistance = -20
+			}
+			549 = {
+				add_resistance = -20
+			}
+			513 = {
+				add_resistance = -20
+			}
+		}
+		
+	}
+}
+news_event = {
+	id = alg.17
+	title = alg.17.t
+	desc = alg.17.d
+	picture = GFX_ALGwar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		has_global_flag = BenbellaArrest
+	}
+	option = {
+		name = alg.5.b1
+		ai_chance = {
+			factor = 10
+		}
+		news_event = { id = alg.18 }
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = alg.5.b1
+		news_event = { id = alg.20 }
+	}
+}
+news_event = {
+	id = alg.18
+	title = alg.18.t
+	desc = alg.18.d
+	picture = GFX_BenBellaArrest
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.19
+	title = alg.19.t
+	desc = alg.19.d
+	picture = GFX_BenBellaArrest
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.20
+	title = alg.20.t
+	desc = alg.20.d
+	picture = GFX_BenBellaArrest
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.30
+	title = alg.30.t
+	desc = alg.30.d
+	picture = GFX_CasbahBomb
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_country_flag = alg30 }
+		date > 1956.6.15
+		date < 1956.8.2
+		460 = { is_controlled_by = FRA }
+		513 = { is_controlled_by = FRA }
+	}
+	option = {
+		name = prc.19.a
+		if = {
+			limit = { tag = FRA }
+			add_war_support = -0.12
+			set_country_flag = alg30
+			460 = {
+				add_resistance = 50
+			}
+			514 = {
+				add_resistance = 50
+			}
+			459 = {
+				add_resistance = 50
+			}
+			513 = {
+				add_resistance = 50
+			}
+		}
+	}
+}
+#苏曼会议
+news_event = {
+	id = alg.35
+	title = alg.35.t
+	desc = alg.35.d
+	picture = GFX_FNLleaders
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = ALG
+		date > 1955.5.14
+		date < 1956.8.15
+		OR = {
+			date < 1955.12.15
+			date > 1956.7.15
+		}
+		NOT = {
+			has_global_flag = alg35
+		}
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = ALG }
+			set_global_flag = alg35
+			promote_character = ALG_Abane_Ramdane
+		}
+	}
+}
+#红色万圣节
+news_event = {
+	id = alg.36
+	title = alg.36.t
+	desc = alg.36.d
+	picture = GFX_ALGwar
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1954.11.1
+		date < 1954.12.15
+		NOT = {
+			country_exists = ALG
+			has_global_flag = alg36
+		}
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = alg36
+			ALG = {
+				leave_faction = yes
+				set_politics = { ruling_party = authoritarianism }
+				transfer_state = 459
+				transfer_state = 460
+			}
+			declare_war_on = {
+				target = ALG
+				type = annex_everything
+			}
+		}
+	}
+}
+#菲利普维尔
+news_event = {
+	id = alg.37
+	title = alg.37.t
+	desc = alg.37.d
+	picture = GFX_FrenchArmyAlgeria
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1955.8.14
+		date < 1956.12.15
+		NOT = { has_global_flag = alg37 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = alg37
+		}
+	}
+}
+news_event = {
+	id = alg.38
+	title = alg.38.t
+	desc = alg.38.d
+	picture = GFX_FrenchArmyAlgeria
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1955.8.14
+		date < 1956.12.15
+		has_global_flag = alg37
+		NOT = { has_global_flag = alg38 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = alg38
+		}
+	}
+}
+news_event = {
+	id = alg.39
+	title = alg.39.t
+	desc = alg.39.d
+	picture = GFX_UN
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = FRA
+		date > 1957.5.14
+		date < 1957.12.15
+		NOT = { has_global_flag = alg39 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { has_country_flag = main_country }
+			set_global_flag = alg39
+			news_event = { id = alg.7 days = 2 }
+		}
+	}
+	option = {
+		name = alg.1.b
+	}
+}
+#Ramdane被清洗
+news_event = {
+	id = alg.41
+	title = alg.41.t
+	desc = alg.41.d
+	picture = GFX_BellaAndHouari
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = ALG
+		date > 1957.8.1
+		date < 1957.12.15
+		NOT = { has_global_flag = alg41 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = ALG }
+			set_global_flag = alg41
+			promote_character = ALG_Houari_Boumediene
+		}
+	}
+}
+#咖啡馆爆炸案
+news_event = {
+	id = alg.42
+	title = alg.42.t
+	desc = alg.42.d
+	picture = GFX_CogHardi
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1957.4.1
+		date < 1957.5.15
+		NOT = { has_global_flag = alg42 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			add_war_support = -0.05
+			set_global_flag = alg42
+		}
+	}
+}
+news_event = {
+	id = alg.43
+	title = alg.43.t
+	desc = alg.43.d
+	picture = GFX_DjamilaBouhired
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1957.7.1
+		date < 1957.8.15
+		has_global_flag = alg42
+		NOT = { has_global_flag = alg43 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = alg43
+		}
+	}
+}
+news_event = {
+	id = alg.44
+	title = alg.44.t
+	desc = alg.44.d
+	picture = GFX_DjamilaBouhired
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1957.8.1
+		date < 1957.9.15
+		has_global_flag = alg42
+		NOT = { has_global_flag = alg44 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = alg44
+		}
+	}
+}
+#奥丁失踪案
+news_event = {
+	id = alg.45
+	title = alg.45.t
+	desc = alg.45.d
+	picture = GFX_MauriceAudin
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = FRA
+		date > 1957.6.1
+		date < 1957.6.15
+		NOT = { has_global_flag = alg45 }
+	}
+	option = {
+		name = alg.1.b
+		if = {
+			add_war_support = -0.06
+			limit = { tag = FRA }
+			set_global_flag = alg45
+		}
+	}
+}
+
+state_event = {
+	id = alg.50
+	title = alg.50.t
+	desc = alg.50.d
+	picture = GFX_AlgeriaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+state_event = {
+	id = alg.51
+	title = alg.51.t
+	desc = alg.51.d
+	picture = GFX_AlgeriaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.52
+	title = alg.52.t
+	desc = alg.52.d
+	picture = GFX_AlgeriaProFrance
+	is_triggered_only = yes
+	option = {
+		name = alg.52.a
+		
+	}
+}
+state_event = {
+	id = alg.53
+	title = alg.53.t
+	desc = alg.53.d
+	picture = GFX_AlgeriaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.60
+	title = alg.60.t
+	desc = alg.60.d
+	picture = GFX_BachagaBoualam
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.61
+	title = alg.61.t
+	desc = alg.61.d
+	picture = GFX_AlainPeyrefitte
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.62
+	title = alg.62.t
+	desc = alg.62.d
+	picture = GFX_AlgeriaProFrance
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = FRA
+			controls_state = 459
+			controls_state = 460
+			controls_state = 1045
+			controls_state = 1046
+			NOT = { country_exists = ALG }
+		NOT = { has_global_flag = alg62 }
+		has_completed_focus = FRA_Peyrefitte_plan
+	}
+	major = yes
+	option = {
+		name = alg.5.b1
+		set_global_flag = alg62
+	}
+}
+news_event = {
+	id = alg.63
+	title = alg.63.t
+	desc = alg.63.d
+	picture = GFX_BachagaBoualam
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = FRA
+		NOT = { country_exists = ALG }
+		has_global_flag = alg62
+	}
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = FRA }
+			ALG = {
+				transfer_state = 459
+				transfer_state = 460
+				transfer_state = 513
+				transfer_state = 1045
+				transfer_state = 1046
+				set_politics = { ruling_party = democratic }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+				promote_character = ALG_Bachaga_Boualam
+				add_ideas = france_colony
+			}
+			give_guarantee = ALG
+			diplomatic_relation = {
+				relation = military_access
+				country = ALG
+				active = yes
+			}
+		}
+	}
+}
+state_event = {
+	id = alg.64
+	title = alg.64.t
+	desc = alg.64.d
+	picture = GFX_AlgeriaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = alg.65
+	title = alg.65.t
+	desc = alg.65.d
+	picture = GFX_TunkuAbdulRahman
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = FRA
+		date < 1958.9.1
+		any_owned_state = {
+			school > 0
+			hospital > 0
+			has_state_flag = ALG_newtown
+			NOT = { has_state_flag = alg65 }
+		}
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal58
+		random_owned_state = {
+			limit = {
+				school > 0
+				hospital > 0
+				has_state_flag = ALG_newtown
+				NOT = { has_state_flag = alg65 }
+			}
+			add_resistance = -15
+			set_state_flag = alg65
+		}
+	}
+}
+news_event = {
+	id = alg.66
+	title = alg.66.t
+	desc = alg.66.d
+	picture = GFX_TunkuAbdulRahman
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = FRA
+		date < 1958.9.1
+		any_owned_state = {
+			school < 1
+			hospital < 1
+			has_state_flag = ALG_newtown
+		}
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal58
+		random_owned_state = {
+			limit = {
+				school < 1
+				hospital < 1
+				has_state_flag = ALG_newtown
+			}
+			add_resistance = 5
+			set_state_flag = alg65
+		}
+	}
+}
+##强奸案
+news_event = {
+	id = alg.80
+	title = alg.80.t
+	desc = alg.80.d
+	picture = GFX_AlgeriaMassacre
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_global_flag = fra_crime_alg }
+		ALG = { has_war_with = FRA }
+		date > 1955.4.1
+	}
+	option = {
+		name = alg.4.a
+		set_global_flag = fra_crime_alg
+		if = {
+			limit = { tag = FRA }
+			add_political_power = -200
+			add_to_variable = { influences = -150 } 
+			random_state = {
+				limit = {
+					is_core_of = ALG
+					is_owned_by = FRA
+				}
+				add_resistance = 6
+			}
+			random_state = {
+				limit = {
+					is_core_of = ALG
+					is_owned_by = FRA
+				}
+				add_resistance = 6
+			}
+			random_state = {
+				limit = {
+					is_core_of = ALG
+					is_owned_by = FRA
+				}
+				add_resistance = 6
+			}
+		}
+	}
+}

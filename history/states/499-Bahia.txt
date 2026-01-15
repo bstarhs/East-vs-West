@@ -1,0 +1,53 @@
+
+state={
+	id=499
+	name="STATE_499"
+	manpower = 4233900
+	
+	state_category = large_town
+	resources={
+		copper=11
+	}
+
+	history={
+		set_state_flag = ethnics_Brazilian
+		set_state_flag = banana_production
+		set_state_flag = coffee_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = sugar_production
+		add_to_array = { this.state_ethnics_list = 40 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = BRA
+		
+		buildings = {
+			farm_building = 4
+			school = 1
+			infrastructure = 3
+			industrial_complex = 2
+			air_base = 1
+			10946 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = BRA
+		victory_points = {
+			10946 8
+		}
+		victory_points = {
+			8143 6
+		}
+		victory_points = {
+			8242 4
+		}
+		1956.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+
+	}
+
+	provinces={
+		4617 5194 8143 8177 8184 8197 8242 10392 10926 10946 
+	}
+}

@@ -1,0 +1,68 @@
+
+state={
+	id=461
+	name="STATE_461"
+	manpower = 3197719
+	
+	state_category = large_town
+	
+	resources={
+		phosphate=25
+		salt=15
+	}
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Maghreb
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_to_array = { this.state_ethnics_list = 22 }
+                               
+		owner = MOR
+
+		victory_points = {
+			7069 8
+		}
+		victory_points = {
+			10070 10
+		}
+		victory_points = {
+			4139 6
+		}
+		victory_points = {
+			4097 5
+		}
+		victory_points = {
+			10013 3
+		}
+		victory_points = {
+			11987 8
+		}
+		victory_points = {
+			989 3
+		}
+		victory_points = {
+			10023 4
+		}
+		victory_points = {
+			7100 3
+		}
+		buildings = {
+			hospital = 1
+			power_plant = 1
+			farm_building = 2
+			infrastructure = 3
+			industrial_complex = 2
+			air_base = 4
+			7069 = {
+				naval_base = 4
+			}
+		}
+		add_core_of = MOR
+	}
+
+	provinces={
+		989 1079 1111 1194 4084 4097 4139 7069 7100 7116 7173 10013 10023 10070 11943 11987 12042 
+	}
+}

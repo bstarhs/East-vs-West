@@ -1,0 +1,478 @@
+
+USA_CAM_coup = {
+	allowed = {
+		original_tag = USA
+	}
+	abort_when_not_enabled = yes
+	enable = {
+		num_of_operatives > 2
+		has_idea = Total_Vietnam_War
+		CAM = {
+			OR = {
+				date > 1960.1.1
+			}
+		}
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = CAM
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = propaganda
+		value = 600
+		mission_target = CAM
+		state = 741
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = CAM
+		num_operatives = 1
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_coup_government
+		value = 2500
+		operation_target = CAM
+	}
+}
+VIN_support_Vietcong = {
+	allowed = {
+		original_tag = VIN
+	}
+	
+	enable = {
+		country_exists = VIN
+		country_exists = SVN
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = SVN
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = SVN
+		num_operatives = 2
+		state = 286
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = SVN
+		state = 286
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_make_resistance_contacts
+		value = 1200
+		operation_target = SVN
+	}
+}
+FRA_SVN_garrison = {
+	enable = {
+		tag = FRA
+		OR = {
+			owns_state = 671
+			SVN = { is_subject_of = FRA }
+		}
+	}
+	abort = {
+		NOT = { owns_state = 671 }
+		SVN = { is_subject = no }
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			671
+			779
+			752
+			670
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "VIN"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = VIN
+		value = 9999
+	}
+}
+SVN_garrison = {
+	enable = {
+		date < 1974.1.1
+		SVN = { has_war_with = VIN }
+		SVN = { controls_province = 10309 }
+		OR = {
+		tag = SVN
+		}
+	}
+	abort = {
+		OR = { 
+			NOT = { SVN = { has_war_with = VIN } }
+			VIN = { controls_province = 10309 }
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			753
+			752
+			286
+		}
+	}
+}
+VIN_support_vietcon = {
+	enable = {
+		VIN = { has_war_with = VIN }
+		tag = VIN
+	}
+	abort = {
+		OR = { 
+			VIN = { controls_province = 10309 }
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = SVN
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = SVN
+		num_operatives = 2
+		state = 286
+	}
+}
+Viet_invade_Cambodia = {
+	allowed = {
+		original_tag = VIN
+	}
+	enable = {
+		date > 1978.10.1
+		date < 1981.1.1
+		country_exists = CAM
+	}
+	abort = {
+		NOT = { country_exists = CAM }
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "CAM"
+		value = 200
+	}	
+	ai_strategy = {
+		type = declare_war
+		id = "CAM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "CAM"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = "CAM"
+		value = 200
+	}
+}
+VIN_no_affence = {
+	abort_when_not_enabled = yes
+	enable = {
+		date < 1974.1.1
+		SVN = { has_war_with = VIN }
+		tag = VIN
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			779
+		}
+	}
+}
+SVN_no_affence = {
+	enable = {
+		date < 1974.1.1
+		SVN = { has_war_with = VIN }
+		SVN = { controls_province = 10309 }
+		OR = {
+		tag = SVN
+		tag = USA
+		tag = KOR
+		tag = AST
+		}
+	}
+	abort = {
+		OR = { 
+			NOT = { SVN = { has_war_with = VIN } }
+			VIN = { controls_province = 10309 }
+		}
+	}
+	ai_strategy = {
+		type = invade
+		id = "VIN"
+		value = -800
+	}
+	ai_strategy = {
+		type = conquer
+		id = "VIN"
+		value = -800
+	}
+}
+support_SVN = {
+	enable = {
+		tag = USA
+		SVN = { has_war = yes }
+		USA = { has_completed_focus = Interfering_Vietnam }
+	}
+	abort = {
+		VIN = { controls_state = 286 }
+	}
+	ai_strategy = {
+		type = support
+		id = SVN
+		value = 80
+	}
+}
+FRA_invade_VIN = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = FRA
+		has_war_with = VIN
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			671
+		}
+	}
+	ai_strategy = {
+		type = conquer
+		id = VIN		
+		value = 50
+	}
+}
+PRC_support_VIN = {
+	enable = {
+		tag = PRC
+		has_completed_focus = prc23
+		VIN = { has_war_with = FRA }
+	}
+	abort = {
+		AND = {
+		PRC = { has_idea = SovietChinaConflit }
+		VIN = { has_completed_focus = common_48 }
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = "VIN"
+		value = 500
+	}
+	ai_strategy = {
+		type = befriend
+		id = "VIN"
+		value = 150
+	}
+}
+SOV_support_VIN = {
+	abort_when_not_enabled = yes
+	enable = {
+		OR = {
+		tag = SOV
+		tag = DDR
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = VIN
+		value = 200
+	}
+	ai_strategy = {
+		type = befriend
+		id = VIN
+		value = 50
+	}
+}
+PRC_anti_VIN = {
+	enable = {
+		tag = PRC
+		VIN = { has_completed_focus = common_48 }
+		has_idea = SovietChinaConflit
+	}
+	abort = {
+		country_exists = SVN
+	}
+	ai_strategy = {
+		type = contain
+		id = "VIN"	
+		value = 200
+	}
+}
+USA_anti_VIN = {
+	enable = {
+		tag = USA
+		VIN = { has_government = communism }
+		has_completed_focus = Interfering_Vietnam
+	}
+	abort = {
+		NOT = { country_exists = SVN }
+	}
+	ai_strategy = {
+		type = contain
+		id = "VIN"	
+		value = 200
+	}
+}
+PRC_NO_VIN = {
+	enable = {
+		original_tag = PRC
+	}
+	abort = {
+		date > 1973.1.1
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = VIN			
+		value = 0
+	}
+}
+USA_SVN_war = {
+	enable = {
+		tag = USA
+		NOT = { has_government = communism }
+		NOT = { SVN = { has_government = communism } }
+		SVN = {
+			OR = {
+				has_civil_war = yes
+				communism > 0.3
+			}
+		}
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+			date < 1956.1.1
+			SVN = { has_government = communism }
+		}
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SVN
+		value = 500
+	}
+}
+KOR_SVN_war = {
+	enable = {
+		original_tag = KOR
+		NOT = { SVN = { has_government = communism } }
+	}
+	abort = {
+		date < 1970.1.1
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SVN"
+		value = 500
+	}
+}
+AST_SVN_war = {
+	enable = {
+		original_tag = AST
+		NOT = { SVN = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1974.1.1
+			date < 1965.1.1
+		}
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SVN
+		value = 500
+	}
+}
+FRA_SVN_war = {
+	enable = {
+		original_tag = FRA
+		SVN = { NOT = { has_government = communism } }
+	}
+	abort = {
+		date > 1956.1.1
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SVN			
+		value = 50
+	}
+	ai_strategy = {
+		type = protect
+		id = SVN			
+		value = 500
+	}
+}
+PRC_VIN_war = { 
+	enable = {
+		tag = PRC
+		CAM = { has_government = communism }
+	}
+	abort = {
+		CAM = { is_puppet = yes }
+	}
+	
+	ai_strategy = {
+		type = protect
+		id = "CAM"			
+		value = 500
+	}
+	ai_strategy = {
+		type = invade
+		id = "VIN"
+		value = 200
+	}
+	
+}

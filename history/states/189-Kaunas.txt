@@ -1,0 +1,52 @@
+
+state={
+	id=189
+	name="STATE_189"
+	manpower = 697100
+	
+	state_category = town
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Lithuanian
+		add_to_array = { this.state_ethnics_list = 101 }
+		owner = SOV
+		victory_points = {
+			9483 5
+		}
+		victory_points = { 6314 3 }
+		buildings = {
+			hospital = 1
+			farm_building = 1
+			infrastructure = 5
+			6314 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = LIT
+		add_core_of = SOV
+		1955.1.1 = {
+			buildings = {
+				farm_building = 2
+				school = 1
+				power_plant = 1
+				industrial_complex = 2
+			}
+		}
+		1968.1.1 = {
+			buildings = {
+				farm_building = 2
+				school = 1
+				power_plant = 2
+				industrial_complex = 4
+			}
+		}
+		1990.1.1 = {
+			owner = LIT
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		530 3337 3354 6229 6314 6360 6376 9483 9499 9731 3288 
+	}
+}

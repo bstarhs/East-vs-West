@@ -1,0 +1,49 @@
+state={
+	id=230
+	name="STATE_230"
+	state_category=city
+	resources={
+		copper=15
+	}
+	history={
+		set_state_flag = ethnics_Armenian
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SOV
+		add_to_array = { this.state_ethnics_list = 26 }
+		victory_points = { 12441 4 }
+		victory_points = { 12380 2 }
+		victory_points = { 4660 2 }
+		victory_points = { 12320 8 }
+		buildings = {
+			power_plant = 1
+			farm_building = 2
+			infrastructure = 3
+			industrial_complex = 2
+			air_base = 2
+			hospital = 1
+
+		}
+		add_core_of = SOV
+		add_core_of = ARM
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 3
+
+			}
+
+		}
+		1990.8.23 = {
+			owner = ARM
+			remove_core_of = SOV
+		}
+
+	}
+
+	provinces={
+		3564 4660 6642 11708 12320 12380 12441 12450 13123 13529
+	}
+	manpower=1250082
+	buildings_max_level_factor=1.000
+}

@@ -1,0 +1,46 @@
+
+state={
+	id=185
+	name="STATE_185"
+	manpower = 760900
+	
+	state_category = town
+	
+	resources={
+		iron = 13
+		coal = 8
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 74 }
+		set_state_flag = wine_production
+		victory_points = { 10203 6 }
+		victory_points = { 3914 5 }
+		victory_points = { 1106 3}
+		owner = GRE
+		set_state_flag = ethnics_Greeks
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 4
+			air_base = 3
+			9805 = {
+				naval_base = 1
+			}
+		}
+		KKE = {
+			set_province_controller = 11786
+		}
+		add_core_of = GRE
+		1949.4.24 = {
+		controller = GRE
+		}
+	}
+
+	provinces={
+		841 1106 1205 3914 3980 9805 9837 9916 10203 11786 11895 12001 
+	}
+}

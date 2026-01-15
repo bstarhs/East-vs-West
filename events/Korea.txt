@@ -1,0 +1,2050 @@
+﻿add_namespace = kor
+#南韩独立
+
+news_event = {
+	id = kor.1
+	title = kor.1.t
+	desc = kor.1.d
+	picture = GFX_ROK_independent
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = SCO_10
+	}
+	option = {
+		name = kor.1.a
+	}
+}
+
+#大韩民国总统选举
+news_event = {
+	id = kor.2
+	title = kor.2.t
+	desc = kor.2.d
+	picture = GFX_KimKoo
+	is_triggered_only = yes
+	major = yes
+	option = {
+		if = {
+			limit = { tag = KOR }
+			random_list = {
+				60 = {
+					modifier = {
+						add = -99
+						has_global_flag = KimKooDeath
+					}
+					news_event = { id = kor.3 }
+				}
+				40 = {
+					modifier = {
+						add = 90
+						has_global_flag = KimKooDeath
+					}
+					news_event = { id = kor.4 }
+				}
+			}
+		}
+	}
+}
+#金九当选
+news_event = {
+	id = kor.3
+	title = kor.3.t
+	desc = kor.3.d
+	picture = GFX_KimKoo
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.3.a
+		if = {
+			limit = { tag = KOR }
+			promote_character = KOR_Kim_Koo
+		}
+	}
+}
+#李承晚当选
+news_event = {
+	id = kor.4
+	title = kor.4.t
+	desc = kor.4.d
+	picture = GFX_SynmanRhee
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.2.a
+		if = {
+			limit = { tag = KOR }
+			set_politics = { ruling_party = authoritarianism }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.25
+			}
+			promote_character = KOR_Syngman_Rhee
+		}
+	}
+}
+#北傀入侵
+news_event = {
+	id = kor.6
+	title = kor.6.t
+	desc = kor.6.d
+	picture = GFX_KPA1950
+	major = yes
+	immediate = {
+		set_variable = { television_visible = 1 }
+		set_global_flag = video_korea_war
+	}
+	is_triggered_only = yes
+	option = {
+		name = kor.2.a
+	}
+}
+#南韩入侵
+news_event = {
+	id = kor.8
+	title = kor.8.t
+	desc = kor.8.d
+	picture = GFX_KoreanArmy1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = kor.8.a
+		}
+
+}
+#志愿军入朝
+news_event = {
+	id = kor.12
+	title = kor.12.t
+	desc = kor.12.d
+	picture = GFX_KoreanWar
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = PRC_8
+	}
+	option = {
+		name = kor.12.a
+		if = {
+			limit = { tag = PRK }
+			add_war_support = 0.45
+		}
+		if = {
+			limit = { tag = PRC }
+			if = { 
+				limit = {
+					KOR = {
+						controls_province = 9918
+					}
+				}
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 328
+						num_provinces = 4
+						on_win = kor.145
+					}
+					defender = {
+						state = 786
+						num_provinces = 4
+					}
+				}
+			}
+		}
+		if = {
+			limit = { tag = KOR }
+			add_war_support = -0.25
+			damage_units = {
+				state = 787
+				state = 786
+				damage = 0.5
+				org_damage = 0.5
+				str_damage = 0.5
+			}
+		}
+	}
+}
+#联合国军入朝
+news_event = {
+	id = kor.13
+	title = kor.13.t
+	desc = kor.13.d
+	picture = GFX_KoreanWar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = kor.12.a
+	}
+}
+#谈判
+news_event = {
+	id = kor.14
+	title = kor.14.t
+	desc = kor.14.d
+	picture = GFX_KoreanWar
+	is_triggered_only = yes
+	option = {
+		name = kor.12.a  #接受
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				date > 1953.1.1
+			}
+			modifier = {
+				add = 50
+				has_war_support < 0.4
+			}
+		}
+		set_global_flag = KoreaNego
+		news_event = { id = prk.22 }
+	}
+	option = {
+		name = kor.12.a  #拒绝
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 10
+				date < 1952.1.1
+			}
+			modifier = {
+				add = 50
+				has_war_support > 0.6
+			}
+		}
+		if = {
+			limit = { tag = PRK }
+			KOR = { news_event = { id = prk.21 } }
+			USA = { news_event = { id = prk.21 } }
+		}
+		if = {
+			limit = { tag = KOR }
+			PRK = { news_event = { id = prk.21 } }
+			PRC = { news_event = { id = prk.21 } }
+		}
+		
+	}
+}
+#朴正熙政变
+news_event = {
+	id = kor.19
+	title = kor.19.t
+	desc = kor.19.d
+	picture = GFX_Park_coup
+	fire_only_once = yes
+	trigger = {
+		tag = KOR
+		date > 1961.1.1
+		date < 1964.12.1
+		has_government = democratic
+	}
+	
+	option = {	#支持政变
+		name = kor.19.b
+		ai_chance = {
+			factor = 75	
+		}
+		add_to_variable = { influences = -80 }
+		set_politics = { ruling_party = neutrality }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.6
+			}
+		create_country_leader = {
+			name = "Park Chung-Hee"
+			picture = "gfx/leaders/KOR/Portrait_Korea_Park_ChungHee.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+				Developmentalism pro_america anti_communist
+			}
+		}
+	}
+}
+# 
+#朴正熙存活
+news_event = {
+	id = kor.26
+	title = kor.26.t
+	desc = kor.26.d
+	picture = GFX_ParkDead
+	major = yes
+	is_triggered_only = yes
+	
+	option = {	#崔圭夏
+		name = kor.27.a
+		if = {
+			limit = {
+			tag = KOR
+			}
+		}
+	}
+}
+#朴正熙遇刺
+news_event = {
+	id = kor.27
+	title = kor.27.t
+	desc = kor.27.d
+	picture = GFX_ParkDead
+	major = yes
+	is_triggered_only = yes
+	option = {	#崔圭夏
+		name = kor.27.a
+		if = {
+			limit = { tag = KOR }
+			remove_ideas = Kim_JaeGyu
+			create_country_leader = {
+				name = "Choi Kyu-Ha"
+				desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+				picture = "gfx/leaders/KOR/Portrait_Korea_Choi_KyuHa.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+		}
+	}
+}
+#1212
+country_event = {
+	id = kor.28
+	title = kor.28.t
+	desc = kor.28.d
+	picture = GFX_Jang-Taewan
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = KOR
+		date > 1979.12.1
+		has_country_leader = { name = "Choi Kyu-Ha" }
+	}
+	
+	option = {	#全斗焕
+		name = kor.28.a
+		ai_chance = {
+			factor = 1
+		}
+		news_event = { id = kor.30 }
+		add_to_variable = { influences = -60 }
+		create_country_leader = {
+			name = "Chun Doo-Hwan"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/KOR/Portrait_Korea_Chun_Doohwan.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+		
+		play_song = KOR_12
+		add_stability = -0.3
+		set_global_flag = chun_doohwan
+	}
+	
+	option = {	#内战
+		name = kor.28.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		play_song = KOR_12
+		news_event = { id = kor.29 }
+		create_country_leader = {
+			name = "Choi Kyu-Ha"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/KOR/Portrait_Korea_Choi_KyuHa.tga"
+			expire = "1988.1.1"
+			ideology = conservatism
+			traits = {
+			}
+		}
+		create_country_leader = {
+			name = "Chun Doo-Hwan"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/KOR/Portrait_Korea_Chun_Doohwan.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+		set_politics = { ruling_party = democratic }
+		set_global_flag = rok_civil_war
+		add_stability = -0.5
+		start_civil_war = {
+			ideology = neutrality
+			size = 0.8
+		}
+	}
+}
+#全都换上台
+news_event = {
+	id = kor.30
+	title = kor.30.t
+	desc = kor.30.d
+	picture = GFX_ChunDooHwanCoup
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = kor.29.a
+	}
+}
+#政变新闻
+news_event = {
+	id = kor.29
+	title = kor.29.t
+	desc = kor.29.d
+	picture = GFX_KoreanCoup1979
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = kor.29.a
+	}
+}
+#光州民主运动
+news_event = {
+	id = kor.31
+	title = kor.31.t
+	desc = kor.31.d
+	picture = GFX_Gwangju1980
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = KOR
+		date > 1980.1.1
+		date < 1980.12.1
+		has_global_flag = chun_doohwan
+	}
+	
+	option = {	#镇压
+		name = kor.31.a
+		ai_chance = {
+			factor = 75	
+		}
+		add_to_variable = { influences = -120 }
+		add_political_power = -60 
+		add_stability = -0.2
+		news_event = { id = kor.32 }
+			start_civil_war = {
+				ideology = democratic
+				capital = 783
+				states = { 783 }
+			}
+	}
+}
+#光州暴动
+news_event = {
+	id = kor.32
+	title = kor.32.t
+	desc = kor.32.d
+	picture = GFX_GwangjuUprising
+	immediate = {
+		play_song = KOR_4
+	}
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = kor.32.a
+	}
+}
+#金钟泌
+news_event = {
+	id = kor.33
+	title = kor.33.t
+	desc = kor.33.d
+	picture = GFX_KorDemocratic1980s
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = kor.33.a
+		KOR = {
+			set_party_name = { 
+				ideology = authoritarianism
+				long_name = KOR_democratic_republican_long 
+				name = KOR_democratic_republican
+			}
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Kim Chung-Bil"
+				picture = "gfx/leaders/KOR/Portrait_Korea_Kim_Chungbil.tga"
+				expire = "1988.1.1"
+				ideology = authoritarianism
+				traits = {
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = kor.34
+	title = kor.34.t
+	desc = kor.34.d
+	picture = GFX_KorDemocratic1980s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = kor.34.a
+	}
+}
+#007号班机空难
+news_event = {
+	id = kor.35
+	title = kor.35.t
+	desc = kor.35.d
+	picture = GFX_KAL007
+
+	fire_only_once = yes
+
+	trigger = {
+			date > 1983.9.1
+			date < 1984.1.1
+	}
+	option = {
+		name = kor.35.a
+			KOR = {
+				add_opinion_modifier = {
+				target = SOV
+				modifier = hostile_status
+				}
+			}
+			SOV = {
+				add_to_variable = { influences = -120 }
+				add_named_threat = { threat = 10 name = KAL007-crash }
+			}
+	}
+}
+#李承晚线
+news_event = {
+	id = kor.36
+	title = kor.36.t
+	desc = kor.36.d
+	picture = GFX_SynmanRhee
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = kor.36.a
+	}
+}
+#请求与日本改善关系
+news_event = {
+	id = kor.37
+	title = kor.37.t
+	desc = kor.37.d
+	picture = GFX_ParkVisitJapan
+	is_triggered_only = yes
+	option = {
+		name = kor.37.a
+		ai_chance = {
+			base = 10
+		}
+		news_event = { id = kor.38 }
+		add_political_power = 200
+		set_global_flag = kor_jap_relation
+			add_opinion_modifier = {
+				target = KOR
+				modifier = USA_special_relationship
+			}
+	}
+	option = {
+		name = kor.37.a
+		KOR = { news_event = { id = kor.39 } }
+	}
+}
+#与日本改善关系
+news_event = {
+	id = kor.38
+	title = kor.38.t
+	desc = kor.38.d
+	picture = GFX_ParkVisitJapan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.37.a
+		if = {
+			limit = { tag = KOR }
+			add_political_power = 200
+		}
+	}
+}
+#日本拒绝
+news_event = {
+	id = kor.39
+	title = kor.39.t
+	desc = kor.39.d
+	picture = GFX_ParkVisitJapan
+	is_triggered_only = yes
+	option = {
+		name = kor.36.a
+	}
+}
+#建交抗议
+news_event = {
+	id = kor.40
+	title = kor.40.t
+	desc = kor.40.d
+	picture = GFX_KoreaProtest1970s
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = KOR
+		has_country_flag = kor_jap_relation
+		date < 1975.1.1
+	}
+	option = {
+		name = kor.36.a
+		add_stability = -0.01
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.01
+		}
+	}
+}
+#新村运动
+news_event = {
+	id = kor.41
+	title = kor.41.t
+	desc = kor.41.d
+	picture = GFX_Saemaul
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = KOR_9
+	}
+	option = {
+		name = kor.41.a
+	}
+}
+#请求与朝鲜改善关系
+news_event = {
+	id = kor.42
+	title = kor.42.t
+	desc = kor.42.d
+	picture = GFX_KoreanNego1970s
+	is_triggered_only = yes
+	option = {
+		name = kor.42.a
+		ai_chance = {
+			base = 10
+		}
+		news_event = { id = kor.43 }
+		add_political_power = 200
+		set_global_flag = kor_jap_relation
+			add_opinion_modifier = {
+				target = KOR
+				modifier = USA_special_relationship
+			}
+	}
+	option = {
+		name = kor.42.a
+		KOR = { news_event = { id = kor.44 } }
+	}
+}
+#与朝鲜改善关系
+news_event = {
+	id = kor.43
+	title = kor.43.t
+	desc = kor.43.d
+	picture = GFX_KoreanNego1970s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.43.a
+		if = {
+			limit = { tag = KOR }
+			add_political_power = 200
+		}
+	}
+}
+#朝鲜拒绝
+news_event = {
+	id = kor.44
+	title = kor.44.t
+	desc = kor.44.d
+	picture = GFX_KimIlsong
+	is_triggered_only = yes
+	option = {
+		name = kor.36.a
+	}
+}
+#金九遇刺
+news_event = {
+	id = kor.45
+	title = kor.45.t
+	desc = kor.45.d
+	picture = GFX_KimKooDeath
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+		if = {
+			limit = { tag = KOR }
+			set_global_flag = KimKooDeath
+			add_stability = 0.-05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+		}
+	}
+}
+#金九幸存
+news_event = {
+	id = kor.46
+	title = kor.46.t
+	desc = kor.46.d
+	picture = GFX_KimKoo
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+		set_country_flag = KimKooSurvive
+		if = {
+			limit = { tag = KOR }
+			add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
+	}
+}
+
+
+
+
+#国民防卫军溃退
+news_event = {
+	id = kor.50
+	title = kor.50.t
+	desc = kor.50.d
+	picture = GFX_KoreaWarPLA
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = KOR
+		NOT = { has_global_flag = KumingunCollabs }
+		has_war_with = PRK
+		controls_province = 4052
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 2
+			}
+		}
+	}
+	option = {
+		name = prk.1.a
+		set_global_flag = KumingunCollabs
+		if = {
+			limit = { tag = KOR }
+			add_stability = -0.12
+			add_war_support = -0.15
+			damage_units = {
+				state = 527
+				state = 786
+				damage = 0.5
+				org_damage = 0.5
+				str_damage = 0.5
+			}
+		}
+		if = {
+			limit = { tag = PRK }
+			set_state_controller = 786
+			add_stability = 0.12
+			add_war_support = 0.15
+			
+		}
+	}
+
+}
+#日本补给
+news_event = {
+	id = kor.51
+	title = kor.51.t
+	desc = kor.51.d
+	picture = GFX_TokushuKeiki
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		JAP = { NOT = { has_idea = JAP_war_growth } }
+		KOR = { has_war_with = PRK }
+		PRK = { controls_province = 13372 }
+		date < 1955.1.1
+	}
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { tag = JAP }
+			add_stability = 0.12
+			add_ideas = JAP_war_growth
+		}
+		if = {
+			limit = { tag = KOR }
+			add_war_support = 0.12
+			add_ideas = KOR_war_growth
+		}
+	}
+
+}
+
+#信托统治
+news_event = {
+	id = kor.60
+	title = kor.60.t
+	desc = kor.60.d
+	picture = GFX_AntiTrusteeship
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		tag = USA
+		date > 1945.1.1
+		date < 1952.12.1
+		controls_state = 783
+	}
+	option = {	#支持政变
+		name = kor.19.b
+		ai_chance = {
+			factor = 75	
+		}
+	}
+}
+news_event = {
+	id = kor.61
+	title = kor.61.t
+	desc = kor.61.d
+	picture = GFX_AntiTrusteeship
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		date > 1948.1.1
+		date < 1950.12.1
+		controls_state = 783
+		NOT = { has_global_flag = kor61 }
+	}
+	option = {	#支持政变
+		name = kor.19.b
+		set_global_flag = kor61
+	}
+}
+news_event = {
+	id = kor.62
+	title = kor.62.t
+	desc = kor.62.d
+	picture = GFX_YeoUnHyeong
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		date > 1947.7.1
+		date < 1947.12.1
+		controls_state = 783
+		NOT = { has_global_flag = kor62 }
+	}
+	option = {	#支持政变
+		name = kor.19.b
+		set_global_flag = kor62
+	}
+}
+news_event = {
+	id = kor.63
+	title = kor.63.t
+	desc = kor.63.d
+	picture = GFX_SynmanRhee
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		date > 1948.1.1
+		date < 1950.12.1
+		controls_state = 783
+		NOT = { has_global_flag = kor63 }
+	}
+	option = {	#支持政变
+		name = kor.19.b
+		set_global_flag = kor63
+	}
+}
+	#1952改宪
+news_event = {
+	id = kor.65
+	title = kor.65.t
+	desc = kor.65.d
+	picture = GFX_ROKParliament
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.19.b
+	}
+}
+news_event = {
+	id = kor.66
+	title = kor.66.t
+	desc = kor.66.d
+	picture = GFX_ROKParliament
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.19.b
+		set_global_flag = kor66
+	}
+}
+news_event = {
+	id = kor.67
+	title = kor.67.t
+	desc = kor.67.d
+	picture = GFX_ROKParliament
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = KOR
+		has_global_flag = kor66
+		NOT = { has_global_flag = kor67 }
+	}
+	option = {	#支持政变
+		name = kor.19.b
+		set_global_flag = kor67
+	}
+}
+news_event = {
+	id = kor.68
+	title = kor.68.t
+	desc = kor.68.d
+	picture = GFX_KoreanProtest1950s
+	major = yes
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = KOR
+		NOT = { has_global_flag = kor68 }
+		has_global_flag = kor67
+	}
+	option = {	#支持政变
+		name = kor.19.b
+		set_global_flag = kor68
+	}
+}
+news_event = {
+	id = kor.70
+	title = kor.70.t
+	desc = kor.70.d
+	picture = GFX_KoreanArmy1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.19.b
+		set_global_flag = kor66
+	}
+}
+news_event = {
+	id = kor.71
+	title = kor.71.t
+	desc = kor.71.d
+	picture = GFX_BodoMassacre
+	major = yes
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = KOR
+		has_war_with = PRK
+		has_completed_focus = KOR_bodo_union
+		NOT = { has_global_flag = kor71 }
+		date < 1960.1.1
+	}
+	option = {
+		name = kor.19.b
+		set_global_flag = kor71
+		if = {
+			limit = { tag = USA }
+			KOR = { news_event = { id = kor.72 } }
+		}
+	}
+}
+news_event = {
+	id = kor.72
+	title = kor.72.t
+	desc = kor.72.d
+	picture = GFX_BodoMassacre
+	is_triggered_only = yes
+	option = {
+		name = kor.19.b
+		add_war_support = 0.12
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.12
+		}
+	}
+}
+news_event = {
+	id = kor.73
+	title = kor.73.t
+	desc = kor.73.d
+	picture = GFX_ROKArmyEarly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.19.b
+		set_global_flag = kor66
+	}
+}
+news_event = {
+	id = kor.74
+	title = kor.74.t
+	desc = kor.74.d
+	picture = GFX_JejuRiot
+	major = yes
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = KOR
+		NOT = { has_global_flag = kor74 }
+		has_government = authoritarianism
+		date < 1952.1.1
+	}
+	option = {
+		name = kor.19.b
+		set_global_flag = kor74
+		if = {
+			limit = { tag = KOR }
+			871 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+news_event = {
+	id = kor.75
+	title = kor.75.t
+	desc = kor.75.d
+	picture = GFX_ROKArmyEarly
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = KOR
+		871 = {
+			resistance < 20
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		has_government = authoritarianism
+		date < 1952.1.1
+	}
+	option = {
+		name = kor.19.b
+		if = {
+			limit = { tag = KOR }
+			871 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+news_event = {
+	id = kor.76
+	title = kor.76.t
+	desc = kor.76.d
+	picture = GFX_WaltonHarrisWalker
+	major = yes
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = KOR
+		has_war_with = PRK
+		NOT = { has_global_flag = kor76 }
+		date > 1950.12.1
+		date < 1960.1.1
+	}
+	option = {
+		name = kor.19.b
+		set_global_flag = kor76
+		if = {
+			limit = { tag = USA }
+			retire_character = USA_WaltonWalker
+		}
+	}
+}
+news_event = {
+	id = kor.77
+	title = kor.77.t
+	desc = kor.77.d
+	picture = GFX_KoreanPOW
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = KOR
+		has_war_with = PRK
+		NOT = { has_global_flag = kor77 }
+		has_global_flag = KoreaNego
+	}
+	option = {
+		name = kor.19.b
+		set_global_flag = kor77
+	}
+}
+news_event = {
+	id = kor.78
+	title = kor.78.t
+	desc = kor.78.d
+	picture = GFX_UNforcesKorea
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		KOR = { has_war_with = PRK }
+		NOT = { has_country_flag = kor78 }
+		KOR = {
+			has_volunteers_amount_from = {
+			tag = FROM
+			count > 0
+			}
+		}
+	}
+	option = {
+		name = kor.19.b
+		FROM = { set_country_flag = kor78 }
+	}
+}
+news_event = {
+	id = kor.79
+	title = kor.79.t
+	desc = kor.79.d
+	picture = GFX_UNforcesKorea
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		KOR = { NOT = { has_war_with = PRK } }
+		country_exists = KOR
+		has_country_flag = kor78
+		NOT = { has_country_flag = kor79 }
+	}
+	option = {
+		name = kor.19.b
+		set_country_flag = kor79
+		add_stability = 0.1
+		add_political_power = 200
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+	}
+}
+#1956大选
+news_event = {
+	id = kor.90
+	title = kor.90.t
+	desc = kor.90.d
+	picture = GFX_ROKParliament
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = KOR
+		has_completed_focus = KOR_rhee_rule
+		date > 1956.5.1
+		date < 1956.7.1
+		NOT = { has_global_flag = kor90 }
+	}
+	option = {
+		name = kor.19.b
+		trigger = { NOT = { tag = KOR } }
+		set_global_flag = kor90
+	}
+	option = {
+		ai_chance = {
+			base = 20
+		}
+		name = kor.19.b
+		trigger = { tag = KOR }
+		news_event = kor.92
+	}
+	option = {
+		ai_chance = {
+			base = 0
+		}
+		name = kor.19.b
+		trigger = { tag = KOR }
+		news_event = kor.94
+	}
+}
+news_event = {
+	id = kor.91
+	title = kor.91.t
+	desc = kor.91.d
+	picture = GFX_ROKParliament
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = KOR
+		NOT = { has_completed_focus = KOR_rhee_rule }
+		date > 1956.5.1
+		date < 1956.7.1
+		NOT = { has_global_flag = kor90 }
+	}
+	option = {
+		name = kor.19.b
+		trigger = { NOT = { tag = KOR } }
+		set_global_flag = kor90
+	}
+	option = {
+		name = kor.19.b
+		ai_chance = {
+			base = 20
+		}
+		trigger = { tag = KOR }
+		news_event = kor.93
+	}
+	option = {
+		ai_chance = {
+			base = 0
+		}
+		name = kor.19.b
+		trigger = { tag = KOR }
+		news_event = kor.94
+	}
+}
+#李承晚当选
+news_event = {
+	id = kor.92
+	title = kor.92.t
+	desc = kor.92.d
+	picture = GFX_SynmanRhee
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.2.a
+		if = {
+			limit = { tag = KOR }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.05
+			}
+		}
+	}
+}
+#李承晚当选
+news_event = {
+	id = kor.93
+	title = kor.93.t
+	desc = kor.93.d
+	picture = GFX_YiKibung
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.2.a
+		if = {
+			limit = { tag = KOR }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.15
+			}
+			promote_character = KOR_Yi_Kibung
+		}
+	}
+}
+#李承晚当选
+news_event = {
+	id = kor.94
+	title = kor.94.t
+	desc = kor.94.d
+	picture = GFX_ChoBungam
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.2.a
+		if = {
+			limit = { tag = KOR }
+			set_politics = { ruling_party = democratic }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+			promote_character = KOR_Cho_bungam
+		}
+	}
+}
+#光复节的一天
+news_event = {
+	id = kor.95
+	title = kor.95.t
+	desc = kor.95.d
+	picture = GFX_KoreaRevaval
+	mean_time_to_happen = { days = 9 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = SOV
+			tag = JAP
+			tag = CHI
+			tag = PRC
+			tag = PRK
+			tag = KOR
+		}
+		NOT = { has_country_flag = kor95 }
+		date > 1947.8.1
+		date < 1947.9.1
+	}
+	option = {
+		name = kor.19.b
+		set_country_flag = kor95
+	}
+}
+news_event = {
+	id = kor.96
+	title = kor.96.t
+	desc = kor.96.d
+	picture = GFX_SouthKoreanGuardTroops
+	mean_time_to_happen = { days = 9 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = KOR
+		}
+		NOT = { has_country_flag = kor96 }
+		date > 1949.8.1
+		date < 1950.3.1
+	}
+	option = {
+		name = kor.19.b
+		set_country_flag = kor96
+	}
+}
+news_event = {
+	id = kor.97
+	title = kor.97.t
+	desc = kor.97.d
+	picture = GFX_KoreaWarRefugee
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = KOR
+		NOT = { has_global_flag = kor97 }
+		has_war_with = PRK
+		date > 1949.8.1
+		date < 1950.12.1
+	}
+	option = {
+		name = kor.19.b
+		set_global_flag = kor97
+	}
+}
+news_event = {
+	id = kor.99
+	title = kor.99.t
+	desc = kor.99.d
+	picture = GFX_KoreanPOW
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = USA
+		}
+		NOT = { has_country_flag = kor99 }
+		has_war_with = PRK
+		date > 1951.2.1
+		date < 1952.12.1
+	}
+	option = {
+		name = kor.19.b
+		set_country_flag = kor99
+	}
+}
+news_event = {
+	id = kor.100
+	title = kor.100.t
+	desc = kor.100.d
+	picture = GFX_KoreaPLATrench
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = kor100 }
+		has_idea = SupportKorea
+		date > 1951.1.1
+		date < 1951.5.1
+	}
+	option = {
+		name = kor.100.a
+		set_country_flag = kor100
+	}
+}
+
+
+
+#四一九革命
+news_event = {
+	id = kor.110
+	title = kor.110.t
+	desc = kor.110.d
+	picture = GFX_ChoBungAmTrial
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = KOR
+		NOT = { has_global_flag = kor110 }
+		has_government = authoritarianism
+		has_character = KOR_Cho_bungam
+		has_idea = SupportKorea
+		date > 1959.7.1
+		date < 1959.8.1
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor110
+		if = {
+			limit = { tag = KOR }
+			retire_character = KOR_Cho_bungam
+		}
+	}
+}
+news_event = {
+	id = kor.111
+	title = kor.111.t
+	desc = kor.111.d
+	picture = GFX_ChangMyeong
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = KOR
+		NOT = { has_global_flag = kor111 }
+		has_government = authoritarianism
+		date > 1960.1.20
+		date < 1960.2.25
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor111
+	}
+}
+news_event = {
+	id = kor.112
+	title = kor.112.t
+	desc = kor.112.d
+	picture = GFX_ChangMyeong
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = KOR
+		has_global_flag = kor111
+		NOT = { has_global_flag = kor112 }
+		has_government = authoritarianism
+		date > 1960.3.5
+		date < 1960.4.10
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor112
+	}
+}
+news_event = {
+	id = kor.113
+	title = kor.113.t
+	desc = kor.113.d
+	picture = GFX_MasanProtest
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = KOR
+		has_global_flag = kor112
+		NOT = { has_global_flag = kor113 }
+		has_government = authoritarianism
+		date > 1960.3.5
+		date < 1960.4.20
+	}
+	option = {
+		name = kor.100.a
+		if = {
+			limit = { tag = KOR }
+			news_event = { id = kor.114 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = kor.114
+	title = kor.114.t
+	desc = kor.114.d
+	picture = GFX_MasanProtest
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.100.a
+		set_global_flag = kor114
+	}
+}
+news_event = {
+	id = kor.115
+	title = kor.115.t
+	desc = kor.115.d
+	picture = GFX_KimJuYeol
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = KOR
+		has_global_flag = kor114
+		NOT = { has_global_flag = kor115 }
+		has_government = authoritarianism
+		date > 1960.3.5
+		date < 1960.4.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor115
+		if = {
+			limit = { tag = KOR }
+			news_event = { id = kor.116 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = kor.116
+	title = kor.116.t
+	desc = kor.116.d
+	picture = GFX_KOR419Revo1
+	immediate = {
+		play_song = KOR_17
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = kor_419revo_video
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.100.a
+		set_global_flag = kor116
+		if = {
+			limit = { tag = KOR }
+			news_event = { id = kor.117 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = kor.117
+	title = kor.117.t
+	desc = kor.117.d
+	picture = GFX_KOR419Revo2
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.100.a
+		set_global_flag = kor117
+		if = {
+			limit = { tag = KOR }
+			news_event = { id = kor.118 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = kor.118
+	title = kor.118.t
+	desc = kor.118.d
+	picture = GFX_KOR419RevoSupress
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.100.a
+		if = {
+			limit = { tag = KOR }
+			news_event = { id = kor.119 days = 1 }
+			retire_character = KOR_Syngman_Rhee
+			promote_character = KOR_Heo_Jeong
+		}
+		set_global_flag = kor117
+	}
+}
+news_event = {
+	id = kor.119
+	title = kor.119.t
+	desc = kor.119.d
+	picture = GFX_RheeDown
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+	}
+}
+
+news_event = {
+	id = kor.121
+	title = kor.121.t
+	desc = kor.121.d
+	picture = GFX_YiKibung
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = KOR
+		has_global_flag = kor117
+		NOT = { has_global_flag = kor121 }
+		has_government = authoritarianism
+		date > 1960.4.3
+		date < 1960.4.30
+	}
+	option = {
+		name = kor.100.a
+		if = {
+			limit = { tag = KOR }
+			retire_character = KOR_Yi_Kibung
+		}
+		set_global_flag = kor117
+	}
+}
+country_event = {
+	id = kor.130
+	title = kor.130.t
+	desc = kor.130.d
+	picture = GFX_KoreanWarSmall
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		OR = {
+			tag = CHI
+			tag = PHI
+			tag = SIA
+			tag = AST
+		}
+		NOT = { has_country_flag = kor130 }
+		NOT = { has_government = communism }
+		KOR = {
+			has_war_with = PRK
+		}
+		date > 1950.8.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		add_political_power = -80
+		set_country_flag = kor130
+		set_country_flag = kor130a
+		KOR = { country_event = kor.131 }
+	}
+	option = {
+		name = kor.100.a
+		set_country_flag = kor130
+	}
+}
+country_event = {
+	id = kor.131
+	title = kor.131.t
+	desc = kor.131.d
+	picture = GFX_KoreanWarSmall
+	is_triggered_only = yes
+	option = {
+		name = kor.100.a
+		add_war_support = 0.01
+		army_experience = 30
+		add_political_power = 80
+	}
+}
+news_event = {
+	id = kor.132
+	title = kor.132.t
+	desc = kor.132.d
+	picture = GFX_ROCPropaganda
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = CHI
+		has_country_flag = kor130a
+		NOT = { has_global_flag = kor132 }
+		KOR = {
+			has_war_with = PRK
+		}
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 2
+			}
+		}
+		date > 1950.9.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor132
+	}
+}
+news_event = {
+	id = kor.134
+	title = kor.134.t
+	desc = kor.134.d
+	picture = GFX_KoreanWarPropaganda
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = CHI
+		has_global_flag = kor132
+		NOT = { has_global_flag = kor134 }
+		KOR = {
+			has_war_with = PRK
+		}
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 2
+			}
+		}
+		date > 1950.9.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor134
+		if = {
+			limit = { tag = PRC }
+			add_war_support = -0.04
+		}
+		if = {
+			limit = { tag = PRK }
+			add_war_support = -0.04
+		}
+		if = {
+			limit = { tag = KOR }
+			add_war_support = -0.02
+		}
+	}
+}
+news_event = {
+	id = kor.140
+	title = kor.140.t
+	desc = kor.140.d
+	picture = GFX_MacarthurTrumen
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_character = USA_douglas_macarthur
+		NOT = { has_global_flag = kor140 }
+		KOR = {
+			has_war_with = PRK
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 1
+			}
+		}
+		date > 1950.4.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor140
+	}
+}
+news_event = {
+	id = kor.141
+	title = kor.141.t
+	desc = kor.141.d
+	picture = GFX_MacarthurKorea
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_character = USA_douglas_macarthur
+		has_global_flag = prk7
+		NOT = { has_global_flag = kor141 }
+		KOR = {
+			controls_province = 7125
+			has_war_with = PRK
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 1
+			}
+		}
+		date > 1950.4.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor141
+		if = {
+			limit = {
+				KOR = {
+					has_volunteers_amount_from = {
+						tag = PREV
+						count > 1
+					}
+				}
+			}
+			786 = { teleport_armies = { to_state_array = 526 } }
+			787 = { teleport_armies = { to_state_array = 526 } }
+		}
+	}
+}
+news_event = {
+	id = kor.142
+	title = kor.142.t
+	desc = kor.142.d
+	picture = GFX_RidgewayKorea
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_character = USA_douglas_macarthur
+		NOT = { has_global_flag = kor142 }
+		KOR = {
+			has_war_with = PRK
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 1
+			}
+		}
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 1
+			}
+		}
+		date > 1950.4.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor142
+		if = {
+			limit = { tag = USA }
+			add_command_power = -80
+		}
+	}
+}
+news_event = {
+	id = kor.143
+	title = kor.143.t
+	desc = kor.143.d
+	picture = GFX_MacarthurWar
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_character = USA_douglas_macarthur
+		has_global_flag = kor142
+		NOT = { has_global_flag = kor143 }
+		KOR = {
+			has_war_with = PRK
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 1
+			}
+		}
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 1
+			}
+		}
+		date > 1950.4.3
+		date < 1950.12.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor143
+		if = {
+			limit = { tag = USA }
+			add_threat = 10
+		}
+	}
+}
+news_event = {
+	id = kor.144
+	title = kor.144.t
+	desc = kor.144.d
+	picture = GFX_MacarthurWar
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_character = USA_douglas_macarthur
+		NOT = { has_global_flag = kor144 }
+		KOR = {
+			has_war_with = PRK
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 1
+			}
+		}
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 1
+			}
+		}
+		date > 1951.2.3
+		date < 1951.6.30
+	}
+	option = {
+		name = kor.100.a
+		set_global_flag = kor144
+		if = {
+			limit = { tag = KOR }
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = USA }
+			add_political_power = -60
+			add_threat = 4
+			add_war_support = -0.04
+		}
+	}
+	option = {
+		name = kor.100.a
+		trigger = { tag = USA }
+		ai_chance = {
+			base = 20
+		}
+		retire_character = USA_douglas_macarthur
+		news_event = { id = kor.145 days = 3 }
+	}
+}
+news_event = {
+	id = kor.145
+	title = kor.145.t
+	desc = kor.145.d
+	picture = GFX_MacarthurRhee
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = kor.100.a
+		if = {
+			limit = { tag = KOR }
+			add_war_support = -0.12
+		}
+		if = {
+			limit = { tag = USA }
+			retire_character = USA_douglas_macarthur
+		}
+	}
+}
+news_event = {
+	id = kor.150
+	title = kor.150.t
+	desc = kor.150.d
+	picture = GFX_MacarthurRhee
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = kor.100.a
+		if = {
+			limit = { tag = KOR }
+			add_war_support = -0.12
+		}
+		if = {
+			limit = { tag = PRC }
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = PRK }
+			set_state_controller = 786
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = USA }
+			damage_units = {
+				state = 5
+				org_damage = 0.5
+				ratio = yes
+				army = yes
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+#金九的倡议
+news_event = {
+	id = kor.192
+	title = kor.192.t
+	desc = kor.192.d
+	picture = GFX_KAL007
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+		PRK = { news_event = { id = kor.193 } }
+	}
+}
+#来自金九的建议
+news_event = {
+	id = kor.193
+	title = kor.193.t
+	desc = kor.193.d
+	picture = GFX_KAL007
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+			KOR = { news_event = { id = kor.194 } }
+	}
+	option = {
+		name = kor.190.a
+			KOR = { news_event = { id = kor.195 } }
+	}
+}
+#金日成接受
+news_event = {
+	id = kor.194
+	title = kor.194.t
+	desc = kor.194.d
+	picture = GFX_KAL007
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+		PRK = { 
+			news_event = { id = kor.196 } 
+		}
+	}
+}
+#朝鲜人民共和国
+news_event = {
+	id = kor.196
+	title = kor.194.t
+	desc = kor.194.d
+	picture = GFX_KAL007
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = kor.190.a
+		PRK = {
+			change_tag_from = KOR
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+				name = "Kim Koo"
+				picture = "gfx/leaders/KOR/Portrait_Kim_Koo.tga"
+				expire = "1988.1.1"
+				ideology = liberalism
+				traits = {
+				}
+			}
+			annex_country = {
+				target = KOR
+				transfer_troops = yes
+			}
+		}
+	}
+}
+#去拿一台
+news_event = {
+	id = kor.198
+	title = kor.198.t
+	desc = kor.198.d
+	picture = GFX_KAL007
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		KOR = {
+			has_government = neutrality
+			date > 1970.1.1
+			date < 1971.1.1
+			NOT = { has_country_flag = JeonIlTae }
+		}
+	}
+	option = {
+		name = kor.198.a
+		if = {
+			limit = { tag = KOR }
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.08
+			}
+			set_country_flag = JeonIlTae 
+		}
+	}
+}

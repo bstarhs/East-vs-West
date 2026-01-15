@@ -1,0 +1,991 @@
+﻿add_namespace = isr
+#巴勒斯坦独立
+news_event = {
+	id = isr.1
+	title = isr.1.t
+	desc = isr.1.d
+	picture = GFX_Isreal1948
+	major = yes
+	immediate = {
+		play_song = ISR_15
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = israel_war_video
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = JOR
+		date > 1948.5.14
+		date < 1949.8.15
+		ENG = { owns_state = 788 }
+	}
+	option = {
+		name = isr.1.b
+		if = {
+			limit = { tag = ENG }
+			ISR = {
+				add_equipment_to_stockpile = {
+    				type = infantry_equipment
+					amount = 200000
+    				producer = ENG
+				}
+				add_equipment_to_stockpile = {
+ 				   type = machine_gun
+					amount = 18000
+    				producer = ENG
+				}
+				transfer_state = 454
+				transfer_state = 788
+				add_war_support = 0.9
+				load_oob = "ISR_1947"
+				
+			}
+			PAL = {
+				transfer_state = 762
+				transfer_state = 761
+				load_oob = "PAL"
+			}
+		}
+	}
+}
+#中东战争
+news_event = {
+	id = isr.2
+	title = isr.2.t
+	desc = isr.2.d
+	picture = GFX_IsraliWAR1948
+	is_triggered_only = yes
+	option = {
+		name = isr.2.a
+		ai_chance = {
+			factor = 100
+		}
+		add_war_support = 0.8
+			declare_war_on = {
+				target = ISR
+				type = take_state_focus
+				generator = { 762 }
+			}
+		if = {
+			limit = { tag = JOR }
+			declare_war_on = {
+				target = PAL
+				type = take_state_focus
+				generator = { 762 }
+			}
+		}
+		if = {
+			limit = { tag = ISR }
+			add_war_support = 0.2
+		}
+	}
+	option = {
+		name = isr.2.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+#约旦占领耶路撒冷
+news_event = {
+	id = isr.3
+	title = isr.3.t
+	desc = isr.3.d
+	picture = GFX_IsraliWAR1948
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = isr.4.a
+			JOR = { 
+			transfer_state = 762
+			}
+		}
+
+}
+#1967停战
+country_event = {
+	id = isr.4
+	title = isr.4.t
+	desc = isr.4.d
+	picture = GFX_IsraliWAR1948
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		AND = {
+			has_global_flag = six_days_war
+			has_war_with = ISR
+			has_war_support < 0.5
+		}
+		OR = { 
+			tag = EGY 
+			tag = JOR 
+			tag = SYR 
+			tag = IRQ
+		}
+	}
+	option = {
+		name = isr.4.a
+			white_peace = ISR
+		}
+
+}
+#以色列求和
+country_event = {
+	id = isr.5
+	title = isr.5.t
+	desc = isr.5.d
+	picture = GFX_IsraliWAR1948
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1950.1.1
+		AND = {
+			has_war_with = ISR
+			ISR = { has_war_support < 0.5 }
+		}
+		OR = { 
+			tag = EGY 
+			tag = JOR 
+			tag = SYR 
+			tag = IRQ
+		}
+	}
+	option = {
+		name = isr.4.a
+			white_peace = ISR
+			ISR = {
+			add_stability = -0.2
+			add_to_variable = { influences = -40 }
+			}
+		}
+
+}
+#1968占领耶路撒冷
+news_event = {
+	id = isr.6
+	title = isr.6.t
+	desc = isr.6.d
+	picture = GFX_Jerusalem1967
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		if = {
+			limit = { tag = ISR }
+			transfer_state = 762
+		}
+	}
+}
+#1968以色列占领西奈
+news_event = {
+	id = isr.7
+	title = isr.7.t
+	desc = isr.7.d
+	picture = GFX_Jerusalem1967
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		if = {
+			limit = { tag = ISR }
+			transfer_state = 761
+			transfer_state = 453
+			transfer_state = 860
+		}
+	}
+
+}
+#美国提出协议
+country_event = {
+	id = isr.8
+	title = isr.8.t
+	desc = isr.9.d
+	picture = GFX_DavidCamp
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		ISR = { country_event = { id = isr.9 } }
+	}
+}
+#埃及提出和平
+country_event = {
+	id = isr.9
+	title = isr.9.t
+	desc = isr.9.d
+	picture = GFX_DavidCamp
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		ISR = { white_peace = EGY }
+		EGY = { country_event = { id = isr.10 } }
+	}
+}
+#以色列接受
+country_event = {
+	id = isr.10
+	title = isr.10.t
+	desc = isr.9.d
+	picture = GFX_DavidCamp
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		country_event = { id = egy.27 }
+		EGY = {
+			add_to_variable = { influences = 100 }
+			white_peace = ISR 
+			transfer_state = 453
+			add_ideas = { EGY_David_Camp } 
+		}
+		ISR = {
+			add_to_variable = { influences = 100 }
+		}
+		USA = {
+			add_to_variable = { influences = 40 }
+		}
+	}
+}
+#巴解出现西岸
+news_event = {
+	id = isr.11
+	title = isr.11.t
+	desc = isr.11.d
+	picture = GFX_PLO
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		date > 1964.1.1
+		tag = ISR
+		controls_state = 762
+	}
+	option = {
+		name = isr.15.a
+		add_stability = -0.1
+		762 = { add_resistance = 20 add_compliance = -20 }
+	}
+
+}
+#巴解出现加沙
+news_event = {
+	id = isr.12
+	title = isr.12.t
+	desc = isr.12.d
+	picture = GFX_PLO
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		date > 1964.1.1
+		tag = ISR
+		controls_state = 761
+	}
+	option = {
+		name = isr.15.a
+		add_stability = -0.1
+		761 = { add_resistance = 20 add_compliance = -20 }
+	}
+
+}
+#巴解起义
+news_event = {
+	id = isr.13
+	title = isr.13.t
+	desc = isr.13.d
+	picture = GFX_PLO
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		date > 1964.1.1
+		tag = ISR
+		controls_state = 762
+		has_stability < 0.3
+		762 = { resistance > 80 }
+	}
+	option = {
+		name = isr.15.a
+		PAL = {
+			transfer_state = 762
+		}
+		ISR = {
+			declare_war_on = { target = PAL type = annex_everything }
+		}
+	}
+
+}
+news_event = {
+	id = isr.14
+	title = cze.25.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_isrealparliament
+	trigger = {
+			tag = ISR
+			has_government = democratic
+			date > 1977.1.20
+			date < 1977.12.20
+	}
+	option = {
+		name = cze.20.b2
+		create_country_leader = {
+			name = "Menachem Begin"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/ISR/Portrait_Israel_Menachem.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+				
+			traits = {
+			
+			}
+		}
+	}
+}
+#1968埃及入侵
+news_event = {
+	id = isr.15
+	title = isr.15.t
+	desc = isr.15.d
+	picture = GFX_6dayswar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = isr.15.a
+	}
+
+}
+#代尔亚辛村大屠杀
+news_event = {
+	id = isr.16
+	title = isr.16.t
+	desc = isr.16.d
+	picture = GFX_DeirYassin
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+			tag = ISR
+			country_exists = ISR
+			country_exists = PAL
+			NOT = { has_global_flag = DeirYassin }
+			date > 1948.4.20
+			date < 1949.12.20
+	}
+	option = {
+		name = isr.16.a
+		if = {
+			limit = { tag = ISR }
+			set_global_flag = DeirYassin
+			EGY = { news_event = { id = isr.2 } }
+			SYR = { news_event = { id = isr.2 } }
+			JOR = { news_event = { id = isr.2 } }
+			PAL = { news_event = { id = isr.2 } }
+			add_to_variable = { influences = -100 }
+		}
+	}
+
+}
+#1968以色列占领戈兰高地
+country_event = {
+	id = isr.17
+	title = isr.17.t
+	desc = isr.17.d
+	picture = GFX_Jerusalem1967
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		if = {
+			limit = { tag = ISR }
+			transfer_state = 810
+		}
+	}
+
+}
+#丛林战争镇压成功
+country_event = {
+	id = isr.18
+	title = isr.18.t
+	desc = isr.18.d
+	picture = GFX_israliarmy
+	is_triggered_only = yes
+	option = {
+		name = isr.18.a
+			add_stability = 0.05
+			762 = { add_resistance = -15 }
+			761 = { add_resistance = -15 }
+			454 = { add_resistance = -15 }
+	}
+
+}
+#丛林战争镇压失败
+country_event = {
+	id = isr.19
+	title = isr.19.t
+	desc = isr.19.d
+	picture = GFX_PLOsmall
+	is_triggered_only = yes
+	option = {
+		name = isr.19.a
+		add_stability = -0.04
+	}
+
+}
+
+#1947停火
+news_event = {
+	id = isr.20
+	title = isr.20.t
+	desc = isr.20.d
+	picture = GFX_Jerusalem1967
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		add_war_support = 0.5
+	}
+}
+#苏联老兵参战
+news_event = {
+	id = isr.21
+	title = isr.21.t
+	desc = isr.21.d
+	picture = GFX_Jerusalem1967
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+			tag = ISR
+			has_war = yes
+			date < 1949.12.20
+	}
+	option = {
+		name = isr.4.a
+		add_stability = 0.05
+		add_war_support = 0.3
+		add_manpower = 22000
+		army_experience = 300
+	}
+}
+#外交承认
+news_event = {
+	id = isr.23
+	title = isr.23.t
+	desc = isr.23.d
+	picture = GFX_IsraelDiplomatic
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+#外交承认
+news_event = {
+	id = isr.24
+	title = isr.24.t
+	desc = isr.24.d
+	picture = GFX_TrumanIsrael
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+#移民
+news_event = {
+	id = isr.25
+	title = isr.25.t
+	desc = isr.25.d
+	picture = GFX_TrumanIsrael
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+			tag = ISR
+			has_completed_focus = ISR_Immigration
+			date < 1960.12.20
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		add_manpower = 2000
+		add_political_power = 50
+	}
+}
+#以色列国防军成立
+news_event = {
+	id = isr.26
+	title = isr.26.t
+	desc = isr.26.d
+	picture = GFX_IsraliWAR1948
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+#以色列战败
+news_event = {
+	id = isr.30
+	title = isr.30.t
+	desc = isr.30.d
+	picture = GFX_IsraliWAR1948
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+		if = {
+			limit = { tag = ISR }
+			add_ideas = ISR_loose_treaty
+			add_stability = -0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.4
+			}
+		}
+		if = {
+			limit = { tag = JOR }
+			transfer_state = 762
+			white_peace = ISR
+		}
+		if = {
+			limit = { tag = EGY }
+			white_peace = ISR
+			transfer_state = 761
+			transfer_state = 788
+		}
+	}
+}
+#1948停火
+news_event = {
+	id = isr.31
+	title = isr.31.t
+	desc = isr.31.d
+	picture = GFX_IsraliWAR1948
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = isr.40
+	title = isr.40.t
+	desc = isr.40.d
+	picture = GFX_UN
+	trigger = {
+		has_country_flag = main_country
+		has_idea = UNmember
+		date > 1947.10.1
+		date < 1947.11.1
+		NOT = { has_country_flag = isr40 }
+	}
+	mean_time_to_happen = { days = 3 }
+	option = {
+		name = isr.40.a
+		set_country_flag = isr40
+		if = {
+			limit = { tag = ENG }
+			set_global_flag = isr40_yes
+		}
+		if = {
+			limit = { tag = FRA }
+			set_global_flag = isr40_yes
+		}
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = isr40_yes
+		}
+		if = {
+			limit = { tag = USA }
+			set_global_flag = isr40_yes
+		}
+	}
+	option = {
+		name = isr.40.b
+		set_country_flag = isr40
+	}
+}
+news_event = {
+	id = isr.41
+	title = isr.41.t
+	desc = isr.41.d
+	picture = GFX_UN
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1947.11.1
+		date < 1947.12.1
+		NOT = { has_global_flag = isr41 }
+		has_global_flag = isr40_yes
+	}
+	mean_time_to_happen = { days = 3 }
+	option = {
+		name = isr.40.a
+		set_global_flag = isr41
+	}
+}
+news_event = {
+	id = isr.50
+	title = isr.50.t
+	desc = isr.50.d
+	picture = GFX_IrgunAttack
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ENG
+		date > 1947.1.1
+		date < 1947.3.1
+		NOT = { has_global_flag = isr50 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr50
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -20
+		}
+	}
+}
+news_event = {
+	id = isr.51
+	title = isr.51.t
+	desc = isr.51.d
+	picture = GFX_IrgunTroopers
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ENG
+		date > 1947.3.1
+		date < 1947.4.1
+		NOT = { has_global_flag = isr51 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr51
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -120
+		}
+	}
+}
+news_event = {
+	id = isr.52
+	title = isr.52.t
+	desc = isr.52.d
+	picture = GFX_IrgunTroopers
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ENG
+		date > 1947.5.1
+		date < 1947.7.1
+		NOT = { has_global_flag = isr51 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr52
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -50
+		}
+	}
+}
+news_event = {
+	id = isr.53
+	title = isr.53.t
+	desc = isr.53.d
+	picture = GFX_IrgunKilled
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = ENG
+		date > 1947.5.1
+		date < 1947.7.1
+		has_global_flag = isr52
+		NOT = { has_global_flag = isr51 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr53
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -50
+		}
+	}
+}
+news_event = {
+	id = isr.54
+	title = isr.54.t
+	desc = isr.54.d
+	picture = GFX_UN
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date > 1947.6.1
+		date < 1947.7.1
+		NOT = { has_global_flag = isr54 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr54
+		if = {
+			limit = { tag = ENG }
+			add_political_power = 100
+		}
+	}
+}
+news_event = {
+	id = isr.55
+	title = isr.55.t
+	desc = isr.55.d
+	picture = GFX_Irgun
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date > 1947.6.1
+		date < 1948.7.1
+		has_global_flag = isr41
+		NOT = { has_global_flag = isr55 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr55
+	}
+}
+news_event = {
+	id = isr.56
+	title = isr.56.t
+	desc = isr.56.d
+	picture = GFX_Exodus1947
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = ENG
+		date > 1947.7.1
+		date < 1947.9.1
+		NOT = { has_global_flag = isr53 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr53
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -50
+		}
+	}
+}
+news_event = {
+	id = isr.57
+	title = isr.57.t
+	desc = isr.57.d
+	picture = GFX_IrgunTroopers
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date > 1947.6.1
+		date < 1948.7.1
+		has_global_flag = isr55
+		NOT = { has_global_flag = isr57 }
+	}
+	option = {
+		name = isr.40.a
+		set_global_flag = isr57
+	}
+}
+country_event = {
+	id = isr.58
+	title = isr.58.t
+	desc = isr.58.d
+	picture = GFX_IrgunSmall
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		has_country_flag = main_country
+		date > 1947.6.1
+		date < 1948.12.1
+		has_global_flag = isr57
+		NOT = { has_country_flag = isr58 }
+	}
+	option = {
+		name = isr.58.a
+		set_country_flag = isr58
+		if = {
+			limit = { country_exists = ISR }
+			ISR = {
+				add_political_power = 80
+				add_manpower = 200
+				army_experience = 50
+			}
+		}
+	}
+	option = {
+		name = isr.58.b
+		set_country_flag = isr58
+	}
+}
+news_event = {
+	id = isr.60
+	title = isr.60.t
+	desc = isr.60.d
+	picture = GFX_Fidaiyun
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = isr.62
+	title = isr.62.t
+	desc = isr.62.d
+	picture = GFX_FidayunAttack
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ISR
+		date > 1952.6.1
+		date < 1954.12.1
+		EGY = { has_completed_focus = EGY_support_PAL }
+		NOT = { has_country_flag = isr62 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		set_global_flag = isr62
+	}
+}
+news_event = {
+	id = isr.63
+	title = isr.63.t
+	desc = isr.63.d
+	picture = GFX_FidayunAttack
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = ISR
+		date > 1956.10.20
+		date < 1956.12.1
+		EGY = { has_completed_focus = EGY_support_PAL }
+		NOT = { has_global_flag = isr63 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		set_global_flag = isr63
+	}
+}
+news_event = {
+	id = isr.66
+	title = isr.66.t
+	desc = isr.66.d
+	picture = GFX_OperationSamalia
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ISR
+		date > 1956.10.1
+		date < 1956.12.1
+		has_country_flag = isr63
+		NOT = { has_country_flag = isr66 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		set_global_flag = isr66
+	}
+}
+news_event = {
+	id = isr.67
+	title = isr.67.t
+	desc = isr.67.d
+	picture = GFX_YehudAttack
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = ISR
+		date > 1953.10.1
+		date < 1953.11.1
+		EGY = { has_completed_focus = EGY_support_PAL }
+		NOT = { has_country_flag = isr67 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		set_global_flag = isr67
+	}
+}
+news_event = {
+	id = isr.68
+	title = isr.68.t
+	desc = isr.68.d
+	picture = GFX_YehudAttack
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = ISR
+		date > 1953.10.1
+		date < 1953.11.1
+		has_country_flag = isr67
+		NOT = { has_country_flag = isr68 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		set_global_flag = isr68
+	}
+}
+#拉冯事件
+news_event = {
+	id = isr.70
+	title = isr.70.t
+	desc = isr.70.d
+	picture = GFX_PinhasLavon
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = ISR
+		date > 1954.7.10
+		date < 1954.8.1
+		has_idea = Pinhas_Lavon
+		NOT = { has_country_flag = isr70 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		name = sov.22.a
+		set_global_flag = isr70
+		if = {
+			limit = { tag = ISR }
+			retire_character = ISR_Pinhas_Lavon
+		}
+	}
+}
+news_event = {
+	id = isr.71
+	title = isr.71.t
+	desc = isr.71.d
+	picture = GFX_ReuvenShiloah
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = isr.75
+	title = isr.75.t
+	desc = isr.75.d
+	picture = GFX_YehudAttack
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = ISR
+		date > 1953.10.1
+		date < 1953.11.1
+		EGY = { has_completed_focus = EGY_support_PAL }
+		NOT = { has_country_flag = isr67 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		set_global_flag = isr67
+	}
+}

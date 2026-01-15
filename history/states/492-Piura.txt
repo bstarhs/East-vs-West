@@ -1,0 +1,49 @@
+state={
+	id=492
+	name="STATE_492"
+	resources={
+		tungsten=2.000
+	}
+	
+	state_category = rural
+	resources={
+		iron=17
+		copper=22
+		salt=12
+	}
+
+	history={
+		owner = PRU
+		set_state_flag = ethnics_Chilenos
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 31 }
+		add_dynamic_modifier = { modifier = fish_production }
+		buildings = {
+			farm_building = 2
+			power_plant = 1
+			infrastructure = 3
+			air_base = 1
+
+		}
+		add_core_of = PRU
+		victory_points = {
+			2210 6
+		}
+		victory_points = {
+			12953 4
+		}
+		victory_points = {
+			2225 4
+		}
+		victory_points = {
+			13399 3
+		}
+
+	}
+
+	provinces={
+		2182 2210 2225 5202 12953 13086 13175 13399 13400 13401 13403
+	}
+	manpower=1601278
+	buildings_max_level_factor=1.000
+}

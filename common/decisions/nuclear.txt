@@ -1,0 +1,122 @@
+
+nuclear_decitions = {
+	nuclear_controlled_reaction_decis = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 200
+		days_re_enable = 200
+		days_remove = 120
+		visible = {
+			has_tech = nuclear_fusion
+		}
+		available = {
+			check_variable = { total_constructed_civilian_factory > 3 }
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = chromium
+						amount > 0
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	nuclear_fuel_making = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 120
+		days_re_enable = 300
+		days_remove = 80
+		visible = {
+			has_tech = atomic_research
+			NOT = { has_tech = nukes }
+		}
+		available = {
+			if = {
+				limit = { tag = ENG }
+				has_country_flag = ENG_nuketest_place
+			}
+			check_variable = { total_constructed_civilian_factory > 8 }
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = chromium
+						amount > 0
+					}
+				}
+				any_subject_country = {
+					any_owned_state = {
+						has_resources_amount = {
+							resource = chromium
+							amount > 0
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 0.6
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+	uranium_enrichment = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 120
+		days_re_enable = 300
+		days_remove = 120
+		visible = {
+			has_tech = atomic_research
+			NOT = { has_tech = nukes }
+		}
+		available = {
+			if = {
+				limit = { tag = ENG }
+				has_country_flag = ENG_nuketest_place
+			}
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = chromium
+						amount > 0
+					}
+				}
+				any_subject_country = {
+					any_owned_state = {
+						has_resources_amount = {
+							resource = chromium
+							amount > 0
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 0.6
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+}

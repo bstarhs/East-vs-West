@@ -1,0 +1,53 @@
+
+state={
+	id=119
+	name="STATE_119"
+	state_category="city"
+	resources={
+		coal=13
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Irish
+		add_to_array = { this.state_ethnics_list = 65 }
+		add_to_array = { this.state_ethnics_list = 85 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = ENG
+		victory_points = {
+			3379 12
+		}
+		victory_points = {
+			385 5
+		}
+		victory_points = {
+			3329 2
+		}
+		victory_points = {
+			3242 2
+		}
+		buildings = {
+			hospital = 2
+			power_plant = 2
+			farm_building = 3
+			infrastructure = 6
+			industrial_complex = 4
+			air_base = 2
+			dockyard = 4
+			3379 = {
+				naval_base = 4
+			}
+		}
+		add_core_of = ENG
+		add_core_of = IRE
+		add_core_of = IRA
+		1969.5.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+
+	provinces={
+		276 385 3217 3242 3329 3379 11257 
+	}
+	manpower=1198537
+	buildings_max_level_factor=1
+}

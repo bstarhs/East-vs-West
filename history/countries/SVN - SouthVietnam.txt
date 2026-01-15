@@ -1,0 +1,407 @@
+﻿capital = 286 #Saigon
+oob = "SVN_1949"
+set_country_flag = main_country
+set_country_flag = third_world
+set_country_flag = southeastasia
+recruit_character = SVN_Nguyen_CaoKy
+set_country_flag = japan_invade_victims
+add_ideas = {
+	southeast_revolution
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+	france_colony
+	SVN_BinhXuyenRevolt
+}
+set_country_flag = french_advisor
+	add_opinion_modifier = {
+		target = VIN
+		modifier = disappinion
+	}
+	set_variable = { this.education = 36 }
+set_cosmetic_tag = FID
+set_stability = 0.76
+set_war_support = 0.86
+recruit_character = SVN_Tran_VanHuu
+recruit_character = SVN_Ngo_Dinhdiem
+# Starting tech
+# clone of France
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	fuel_silos = 1
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+}
+	set_popularities = {
+		democratic = 56
+		
+		communism = 24
+
+		neutrality = 20
+	}
+set_politics = {
+
+	ruling_party = democratic
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Émile Bollaert"
+	
+	picture = "gfx/leaders/SVN/Portrait_Emile_Bollaert.tga"
+	expire = "1953.3.1"
+	ideology = socialism
+	traits = {
+	}
+}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 4000
+		producer = FRA
+	}
+1949.1.1 = {
+	set_popularities = {
+		democratic = 66
+		
+		communism = 24
+
+		neutrality = 10
+	}
+declare_war_on = {
+	target = VIN
+	type = annex_everything
+}
+	create_country_leader = {
+		name = "Nguyen Phuc-Thien"
+		
+		picture = "gfx/leaders/SVN/Portrait_Vietnam_Bao_Dai.tga"
+		ideology = socialism
+		traits = {
+		}
+	}
+}
+1954.1.20 = {
+	retire_character = SVN_Tran_VanHuu
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	set_popularities = {
+		democratic = 10
+		communism = 27
+		authoritarianism = 53
+		neutrality = 10
+	}
+	set_cosmetic_tag = SVN
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	promote_character = SVN_Ngo_Dinhdiem
+	add_ideas = {
+		corrupt
+	}
+	set_variable = { this.education = 42 }
+	leave_faction = yes
+	add_ideas = {
+		SEATO
+		SVN_Immigration
+	}
+	remove_ideas = SVN_BinhXuyenRevolt
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	remove_ideas = france_colony
+	remove_ideas = southeast_revolution
+	oob = "SVN_1965"
+	add_ideas = DietCong
+	complete_national_focus = SVN_president_ngo
+	complete_national_focus = SVN_supress_binh_xuyen
+	complete_national_focus = SVN_clear_french
+	complete_national_focus = SVN_can_lao_party
+	complete_national_focus = SVN_republic
+	complete_national_focus = SVN_supress_commie
+	complete_national_focus = SVN_airforce
+}
+1959.1.1 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2000
+		producer = USA
+	}
+	set_variable = { this.US_gov_aid_opinion = 12 }
+	set_variable = { this.US_public_aid_opinion = 7 }
+	set_country_flag = japan_diplomatic
+	add_ideas = Marshall
+	complete_national_focus = SVN_american_assistance
+	complete_national_focus = SVN_asia_free_alliance
+	complete_national_focus = SVN_political_works
+	complete_national_focus = SVN_marines
+	complete_national_focus = SVN_strategic_vally
+	set_country_flag = usa_army_advisor
+	add_opinion_modifier = {
+		target = KOR
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = JAP
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = PHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = CHI
+		modifier = ally_asia
+	}
+	set_popularities = {
+		democratic = 10
+		communism = 30
+		authoritarianism = 40
+		neutrality = 20
+	}
+	set_technology = {
+		radio_detection = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	basic_train = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	marines = 1
+	basic_medium_tank = 1
+	mechanised_infantry = 1
+	infantry_weapons2 = 1
+	superior_firepower = 1
+	fighter2 = 1
+	overwhelming_firepower = 1
+		CAS2 = 1
+	}
+	add_ideas = {
+		VietCongRevolt
+		SVN_BuddhismCrisis
+		SVN_MAAG
+		usa_military_advisitor_idea
+	}
+	create_country_leader = {
+		name = "Nguyen Huu-Tho"
+		
+		picture = "gfx/leaders/SVN/Portrait_Vietnam_Nguyen_HuuTho"
+		expire = "1988.1.1"
+		ideology = marxism
+		
+		traits = {
+		
+		}
+	}
+	set_stability = 0.2
+}
+1964.12.20 = {
+	retire_character = SVN_Nguyen_NgocTho
+	retire_character = SVN_Truong_CongCuu
+	set_variable = { this.US_gov_aid_opinion = 10 }
+	set_variable = { this.US_public_aid_opinion = 5 }
+	set_country_flag = developmented
+	set_technology = {
+		trans_helicopter_1 = 1
+	}
+	add_ideas = {
+		SVN_CIDG_idea
+		militarist_politician
+	}
+	remove_ideas = {
+		SVN_Immigration
+	}
+	remove_ideas = SVN_BuddhismCrisis
+	set_popularities = {
+		democratic = 10
+		communism = 35
+		authoritarianism = 20
+		neutrality = 35
+	}
+	set_politics = {
+		ruling_party = neutrality
+	}
+	create_country_leader = {
+		name = "Nguyen Khanh"
+		
+		picture = "gfx/leaders/SVN/Portrait_Vietnam_Nguyen_Khanh.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+	create_corps_commander = {
+		name = "Duong Van-Minh"
+		portrait_path = "gfx/leaders/SVN/Portrait_Vietnam_Duong_Van_Minh.tga"
+		traits = {  }
+		skill = 2
+	}
+	create_corps_commander = {
+		name = "Nguyen Khanh"
+		portrait_path = "gfx/leaders/SVN/Portrait_Vietnam_Nguyen_Khanh.tga"
+		traits = {  }
+		skill = 2
+	}
+	create_corps_commander = {
+		name = "Cao Van-Vien"
+		portrait_path = "gfx/leaders/SVN/Portrait_Vietnam_Cao_VanVien.tga"
+		traits = {  }
+		skill = 2
+	}
+}
+1968.1.1 = {
+	retire_character = SVN_Tranh_CanhThanh
+	set_variable = { this.US_gov_aid_opinion = 9 }
+	set_variable = { this.US_public_aid_opinion = 3 }
+	set_technology = {
+		trans_helicopter_1 = 1
+		basic_heavy_tank = 1
+		command_cooperation = 1
+		motorized_infantry = 1
+	motorize_doctrine = 1
+	motorized_transport = 1
+	armor_doctrine = 1
+		paratroopers2 = 1
+		mechanised_infantry2 = 1
+		infantry_weapons1 = 1
+		fighter1 = 1
+		fighter2 = 1
+		heavy_fighter1 = 1
+		heavy_fighter2 = 1
+		CAS1 = 1
+		halicopter_machinegun = 1
+		CAS2 = 1
+		interwar_artillery = 1
+		dispersed_industry3 = 1
+	}
+	create_country_leader = {
+		name = "Nguyen Van-Thieu"
+		desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+		picture = "gfx/leaders/SVN/Portrait_Vietnam_Nguyen_VanThieu.tga"
+		expire = "2050.1.1"
+		ideology = despotism
+		traits = {
+			pro_america stout_defender
+		}
+	}
+}
+1975.1.20 = {
+	oob = "SVN_no"
+	}

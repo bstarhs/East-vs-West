@@ -1,0 +1,123 @@
+﻿capital = 323
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_mountaineers = 1
+}
+set_country_flag = has_monarchs
+set_country_flag = indian_state
+set_country_flag = british_colonies
+add_ideas = {
+	no_welfare
+	Hinduism
+	partial_economic_mobilisation
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "NEP_1947"
+	set_technology = {
+		gw_artillery = 1
+		tech_support = 1		
+		tech_engineers = 1
+		infantry_weapons1 = 1
+		
+
+		#doctrines
+		
+
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		synth_oil_experiments = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+	set_popularities = {
+		democratic = 1
+		monarchism = 95
+		neutrality = 4
+	}
+set_politics = {
+	
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Tribhuvan"
+	desc = "POLITICS_JUDDHA_RANA_DESC"
+	picture = "gfx/leaders/NEP/Portrait_Nepal_Tribhuvan.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		 tratidional_trait
+	}
+}
+
+1951.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		democratic = 8
+		monarchism = 80
+		neutrality = 10
+		communism = 2
+	}
+	create_country_leader = {
+		name = "Mahendra"
+		
+		picture = "gfx/leaders/NEP/Portrait_Nepal_Mahendra.tga"
+		expire = "1979.1.1"
+		ideology = monarchism
+		
+		traits = {
+		
+		}
+	}
+}
+1955.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+	}
+	set_country_flag = china_diplomacy
+}
+1972.1.23 = {
+	create_country_leader = {
+		name = "Birendra"
+		
+		picture = "gfx/leaders/NEP/Portrait_Nepal_Birendra.tga"
+		expire = "1999.1.1"
+		ideology = monarchism
+		
+		traits = {
+		
+		}
+	}
+}
+1979.5.1 = {
+	set_popularities = {
+		democratic = 15
+		monarchism = 60
+		neutrality = 15
+		communism = 10
+	}
+}

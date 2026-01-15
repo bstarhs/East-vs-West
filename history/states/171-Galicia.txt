@@ -1,0 +1,48 @@
+
+state={
+	id=171
+	name="STATE_171"
+	manpower = 2295085
+	
+	state_category = town
+	resources={
+		aluminium=28
+		iron=2
+		coal = 4
+	}
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SPR
+		add_to_array = { this.state_ethnics_list = 47 }
+		add_to_array = { this.state_ethnics_list = 71 }
+		set_state_flag = ethnics_Galician
+		victory_points = {
+			758 8
+		}
+		victory_points = {
+			11677 4
+		}
+		victory_points = {
+			6734 3
+		}
+		buildings = {
+			hospital = 1
+			infrastructure = 6
+			dockyard = 2
+			arms_factory = 1
+			air_base = 2
+			power_plant = 1
+			758 = {
+				naval_base = 6
+			}
+		}
+		add_core_of = SPR
+		add_core_of = GAL
+	}
+
+	provinces={
+		729 758 3761 6734 6764 6955 9686 9689 11675 11677 11692 11710 11840 
+	}
+}

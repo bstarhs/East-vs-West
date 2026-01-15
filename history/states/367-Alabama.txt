@@ -1,0 +1,48 @@
+
+state={
+	id=367
+	name="STATE_367"
+	manpower = 2646247
+	
+	state_category = city
+
+	resources={
+		coal=23
+	}
+	history={
+		set_state_flag = cutton_production
+		set_state_flag = ethnics_Dixies
+		add_claim_by = ABM
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 174 }
+		add_to_array = { this.state_ethnics_list = 175 }
+		add_to_array = { this.state_ethnics_list = 162 }
+                               
+		add_core_of = CSA
+		owner = USA
+		buildings = {
+			hospital = 2
+			farm_building = 4
+			power_plant = 3
+			infrastructure = 5
+			industrial_complex = 3
+			7480 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = USA
+		victory_points = { 5059 4 }
+		victory_points = { 7480 4 }
+		victory_points = { 492 8 }
+		victory_points = { 12735 6 }
+		victory_points = { 7640 3 }
+		victory_points = { 4622 3 }
+		victory_points = { 860 2 }
+
+	}
+
+	provinces={
+		492 860 1587 4594 4622 4756 5059 7422 7480 7640 10192 10520 11509 11942 12735 12803 
+	}
+}

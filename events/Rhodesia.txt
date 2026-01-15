@@ -1,0 +1,341 @@
+﻿add_namespace = rho
+news_event = {
+	id = rho.12
+	title = rho.12.t
+	desc = rho.12.d
+	picture = GFX_GodfreyHuggins
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.1.b
+		if = {
+			limit = { tag = RHO }
+			annex_country = {
+				target = MLW
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = ZAM
+				transfer_troops = yes
+			}
+		}
+	}
+
+}
+news_event = {
+	id = rho.13
+	title = rho.13.t
+	desc = rho.13.d
+	picture = GFX_AfricaVote2
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1953.12.1
+		date < 1954.2.1
+		controls_state = 796
+		NOT = { has_global_flag = rho13 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho13
+	}
+
+}
+news_event = {
+	id = rho.14
+	title = rho.14.t
+	desc = rho.14.d
+	picture = GFX_GodfreyHuggins
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1954.7.1
+		date < 1958.8.1
+		NOT = { has_global_flag = rho14 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho14
+	}
+
+}
+news_event = {
+	id = rho.16
+	title = rho.16.t
+	desc = rho.16.d
+	picture = GFX_GodfreyHuggins
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date > 1956.3.1
+		date < 1956.4.1
+		NOT = { has_global_flag = rho16 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho16
+		news_event = { id = rho.17 }
+	}
+
+}
+news_event = {
+	id = rho.17
+	title = rho.17.t
+	desc = rho.17.d
+	picture = GFX_GodfreyHuggins
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.1.b
+	}
+
+}
+news_event = {
+	id = rho.19
+	title = rho.19.t
+	desc = rho.19.d
+	picture = GFX_RoyWelensky
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1956.9.1
+		date < 1966.11.1
+		NOT = { has_global_flag = rho19 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho19
+		if = {
+			limit = { tag = RHO }
+			promote_character = RHO_Roy_Welensky
+		}
+	}
+
+}
+news_event = {
+	id = rho.20
+	title = rho.20.t
+	desc = rho.20.d
+	picture = GFX_NyasalandCongress
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1954.1.1
+		date < 1954.20.1
+		controls_state = 796
+		NOT = { has_global_flag = rho20 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho20
+	}
+
+}
+news_event = {
+	id = rho.21
+	title = rho.21.t
+	desc = rho.21.d
+	picture = GFX_NyasalandCongress
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = RHO
+		controls_state = 796
+		has_global_flag = rho14
+		NOT = { has_global_flag = rho21 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho21
+	}
+
+}
+news_event = {
+	id = rho.22
+	title = rho.22.t
+	desc = rho.22.d
+	picture = GFX_NyasalandCongress
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1956.11.1
+		date < 1957.2.20
+		has_global_flag = egy_suezv
+		NOT = { has_global_flag = rho22 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho22
+	}
+
+}
+news_event = {
+	id = rho.23
+	title = rho.23.t
+	desc = rho.23.d
+	picture = GFX_NyasalandCongress
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1957.8.1
+		date < 1957.10.20
+		has_global_flag = egy_suezv
+		has_global_flag = rho22
+		NOT = { has_global_flag = rho23 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho23A
+	}
+
+}
+news_event = {
+	id = rho.25
+	title = rho.25.t
+	desc = rho.25.d
+	picture = GFX_NyasalandProtest
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = RHO
+		has_global_flag = rho23A
+		NOT = { has_global_flag = rho25 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho25
+		if = {
+			limit = { tag = RHO }
+			add_ideas = RHO_nyasaland_emergency
+		}
+	}
+
+}
+news_event = {
+	id = rho.26
+	title = rho.26.t
+	desc = rho.26.d
+	picture = GFX_BandaReturn
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1958.6.1
+		date < 1958.8.20
+		has_global_flag = rho25
+		NOT = { has_global_flag = rho23 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho23A
+	}
+
+}
+news_event = {
+	id = rho.27
+	title = rho.27.t
+	desc = rho.27.d
+	picture = GFX_ZambiaCongress
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1958.10.1
+		date < 1958.11.20
+		has_global_flag = rho25
+		NOT = { has_global_flag = rho27 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho27
+	}
+
+}
+#尼亚萨兰危机
+news_event = {
+	id = rho.28
+	title = rho.28.t
+	desc = rho.28.d
+	picture = GFX_NyasalandProtest
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = RHO
+		date > 1959.1.1
+		date < 1959.4.20
+		has_global_flag = rho27
+		NOT = { has_global_flag = rho28 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho28
+		if = {
+			limit = { tag = RHO }
+			add_stability = -0.12
+			add_political_power = -200
+		}
+	}
+
+}
+news_event = {
+	id = rho.29
+	title = rho.29.t
+	desc = rho.29.d
+	picture = GFX_NyasalandProtest
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = RHO
+		date > 1959.1.1
+		date < 1959.4.20
+		has_global_flag = rho28
+		NOT = { has_global_flag = rho29 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho29
+		news_event = { id = rho.30 days = 2 }
+	}
+
+}
+news_event = {
+	id = rho.30
+	title = rho.30.t
+	desc = rho.30.d
+	picture = GFX_NyasalandProtest
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = isr.1.b
+		set_global_flag = rho30
+		if = {
+			limit = { tag = RHO }
+			add_stability = 0.12
+			remove_ideas = RHO_nyasaland_emergency
+		}
+	}
+
+}
+news_event = {
+	id = rho.31
+	title = rho.31.t
+	desc = rho.31.d
+	picture = GFX_NyasalandProtest
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = RHO
+		date > 1959.1.1
+		date < 1959.6.20
+		has_global_flag = rho30
+		NOT = { has_global_flag = rho31 }
+	}
+	option = {
+		name = isr.1.b
+		set_global_flag = rho31
+	}
+
+}

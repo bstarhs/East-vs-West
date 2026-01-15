@@ -1,0 +1,51 @@
+﻿add_namespace = cch
+#阿塞拜疆宣布独立
+news_event = {
+	id = cch.1
+	title = cch.1.t
+	desc = cch.1.d
+	picture = GFX_Dudayev
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = SOV
+		date > 1986.1.1
+		OR = {
+			democratic > 0.8
+			has_country_flag = moscowcoup
+		}
+	}
+	option = {
+		name = cch.1.a
+		news_event = { id = cch.2 }
+		CCH = {
+			load_oob = "CCH_1992"
+			transfer_state = 814
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Dzhokhar Dudayev"
+		
+				picture = "gfx/leaders/CCH/Portrait_Dudayev.tga"
+				ideology = despotism
+		
+				traits = {
+				}
+			}
+		}
+	}
+}
+#阿塞拜疆宣布独立
+news_event = {
+	id = cch.2
+	title = cch.2.t
+	desc = cch.2.d
+	picture = GFX_Dudayev
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ARM_1
+	}
+	option = { 
+		name = sov.13.a
+	}
+}

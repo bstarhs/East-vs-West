@@ -1,0 +1,52 @@
+defined_text = {
+	name = GetChief
+	text = {
+		trigger = {
+			ROOT = {
+				tag = USA
+				has_government = democratic
+			}
+		}
+		localization_key = USA_PRESIDENT_TITLE
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_leader = { character = PRC_mao_zedong ruling_only = yes }
+				has_country_leader = { character = PRC_liu_shaoqi ruling_only = yes }
+			}
+		}
+		localization_key = prc_chairman
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_leader = { character = PRC_zhou_enlai ruling_only = yes }
+				has_country_leader = { character = PRC_Hua_Guofeng ruling_only = yes }
+			}
+		}
+		localization_key = prc_primier
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_leader = { character = PRC_deng_xiao_ping ruling_only = yes }
+				has_country_leader = { character = PRC_lin_biao ruling_only = yes }
+			}
+		}
+		localization_key = prc_militarist
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_leader = { character = PRC_Zhao_ZiYang ruling_only = yes }
+				has_country_leader = { character = PRC_Hu_YaoBang ruling_only = yes }
+				has_country_leader = { character = PRC_ChenYun ruling_only = yes }
+				has_country_leader = { character = PRC_Kang_Sheng ruling_only = yes }
+				has_country_leader = { character = PRC_Wang_Hong_Wen ruling_only = yes }
+				has_country_leader = { character = PRC_Jiang_ZeMin ruling_only = yes }
+			}
+		}
+		localization_key = prc_security
+	}
+}

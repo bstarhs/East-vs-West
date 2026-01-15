@@ -1,0 +1,372 @@
+﻿capital = 41
+
+	set_variable = { this.education = 73 }
+set_country_flag = main_country
+set_country_flag = developmented
+oob = "SPR_1936"
+set_country_flag = language_spannish
+recruit_character = SPR_Juan_Fernandez
+
+set_research_slots = 3
+add_ideas = {
+	service_by_requirement
+	Catholicism
+	closed_economy
+	falangist_debuff
+	Juan_Fernandez
+	SPR_INI
+	Axis_problem_ideas
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	complete_national_focus = common_9
+	complete_national_focus = common_10
+	complete_national_focus = common_4
+	complete_national_focus = common_11
+	complete_national_focus = common_23
+	complete_national_focus = common_63
+	complete_national_focus = common_56
+	complete_national_focus = common_57
+	activate_decision = create_radio_station
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+	can_foods = 1
+}
+set_convoys = 150
+set_stability = 0.5	
+		create_equipment_variant = {
+			name = "Canarias-Class"
+			type = heavy_cruiser_1
+			parent_version = 0
+			upgrades = {
+				ship_reliability_upgrade = 2
+				ship_engine_upgrade = 2
+				ship_armor_upgrade = 2
+				ship_gun_upgrade = 3
+			}
+			obsolete = yes
+		}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "SPA_1947"
+	set_popularities = {
+		democratic = 13
+		communism = 2
+		neutrality = 85
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1934.3.26"
+		election_frequency = 60
+		elections_allowed = no
+	}
+}
+create_country_leader = {
+	name = "Francisco Franco"
+	desc = "POLITICS_FRANCISCO_FRANCO_DESC"
+	picture = "gfx/leaders/SPR/Portrait_Spain_Franco.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		dictator industry_reformer pro_america 
+	}
+}
+create_country_leader = {
+	name = "Torrores Ibarruri"
+	desc = "POLITICS_FRANCISCO_FRANCO_DESC"
+	picture = "gfx/leaders/SPR/Portrait_Spain_Ibarruri.tga"
+	expire = "1965.1.1"
+	ideology = stalinism
+	traits = {
+	}
+}
+create_field_marshal = {
+	name = "José Asensio Torrado"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+	traits = {  }
+	skill = 2
+}
+1955.1.1 = {
+	set_technology = {
+		laundry = 1
+		frozen_food = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		decimetric_radar = 1
+		construction2 = 1
+		rocket_engines = 1
+		telegraph = 1
+	aluminum_tech = 1
+		machine_gun2 = 1
+		spaa1 = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+	}
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+	}
+	remove_ideas = {
+		falangist_debuff
+		Axis_problem_ideas
+	}
+}
+1959.1.1 = {
+	set_technology = {
+		spaa1 = 1
+		sp_artillery1 = 1
+		
+		vaccum_tube = 1
+		basic_heavy_tank = 1
+		napalm = 1
+		rubber_processing = 1
+		improved_medium_tank = 1
+		fuel_refining = 1
+	}
+	add_ideas = {
+		ETArevolt
+		civilian_economy
+	}
+}
+1964.1.20 = {
+	set_country_flag = female_finished
+	remove_ideas = {
+		Juan_Fernandez
+	}
+	set_technology = {
+		CAS3 = 1
+		fighter2 = 1
+		improved_decimetric_radar = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		excavation3 = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		power_generation2 = 1
+		cable_television = 1
+		construction3 = 1
+		auto_industry = 1
+	}
+}
+1970.1.20 = {
+	set_technology = {
+		machine_gun2 = 1
+		fuel_refining2 = 1
+		fighter3 = 1
+		improved_rubber_processing = 1
+		improved_heavy_tank = 1
+		improved_infantry_weapons = 1
+	}
+	add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	oob = "SPR_1970"
+	set_popularities = {
+		democratic = 25
+		communism = 5
+		neutrality = 70
+	}
+}
+1975.1.11 = {
+	set_country_flag = china_diplomacy
+	create_country_leader = {
+		name = "Juan Caros I"
+		
+		picture = "gfx/leaders/SPR/Portrait_Spain_Juan_Caros.tga"
+		expire = "2050.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+	set_country_flag = Satellite_succes
+	set_technology = {
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+	}
+	add_ideas = {
+		JuanCarlos
+		export_focus
+	}
+	set_popularities = {
+		democratic = 65
+		communism = 5
+		neutrality = 30
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1935.9.8"
+		election_frequency = 36
+		elections_allowed = no
+	}
+}
+1976.1.20 = {
+	activate_decision = female_equality
+	create_country_leader = {
+		name = "Adolfo Suarez Gonzalez"
+		
+		picture = "gfx/leaders/SPR/Portrait_Spain_Adolfo_Suarez.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		democratic_reformer
+		}
+	}
+	create_country_leader = {
+		name = "Dolores Ibarrur"
+		
+		picture = "gfx/leaders/SPR/Portrait_Spain_Dolores_Ibarruri.tga"
+		expire = "2050.1.1"
+		ideology = stalinism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.1 = {
+	set_technology = {
+		infantry_at2 = 1
+		CAS4 = 1
+		advanced_medium_tank = 1
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+	}
+	complete_national_focus = common_14
+	add_ideas = nato_spirit
+}
+1986.1.20 = {
+	set_technology = {
+		advanced_heavy_tank = 1
+		fighter4 = 1
+	}
+	add_ideas = {
+		ECSC
+		Olympic
+	}
+	create_country_leader = {
+		name = "Felipe Gonzalez Marquez"
+		
+		picture = "gfx/leaders/SPR/Portrait_Spain_Felipe_Gonzalez.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}

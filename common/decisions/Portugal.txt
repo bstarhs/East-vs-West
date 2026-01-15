@@ -1,0 +1,39 @@
+colonal_efforts = {
+	
+	POR_Timor_independent = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = POR
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				date > 1974.1.1
+			}
+		}
+		fire_only_once = yes
+		cost = 20
+		visible = {
+			controls_state = 721
+		}
+		complete_effect = {
+			add_war_support = 0.5
+			news_event = { id = ind.20 } 
+			add_political_power = 300
+			add_to_variable = { influences = 100 } 
+			TIM = {
+				transfer_state = 721
+					set_politics = { ruling_party = democratic }
+			}
+			INS = {
+				country_event = { id = ind.21 }
+			}
+		}
+
+	
+	}
+}

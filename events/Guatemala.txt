@@ -1,0 +1,161 @@
+﻿add_namespace = gua
+#哈科沃·阿本斯·古斯曼
+news_event = {
+	id = gua.1
+	title = gua.1.t
+	desc = gua.1.d
+	picture = GFX_Jacobo_Guzman
+	mean_time_to_happen = { days = 5 }
+	trigger = {	
+		tag = GUA
+		date > 1951.3.20
+		date < 1951.6.20
+		has_government = democratic
+	}
+	option = {	
+		name = gua.1.a
+			if = {
+				limit = { tag = GUA }
+				create_country_leader = {
+					name = "Jacobo Arbenz Guzman"
+					picture = "gfx/leaders/GUA/Portrait_Guatemala_Jacobo_Arbenz_Guzman.tga"
+					expire = "1988.1.1"
+					ideology = socialism
+					traits = {
+					}
+				}
+			}
+		}
+}
+#900号法案
+news_event = {
+	id = gua.2
+	title = gua.2.t
+	desc = gua.2.d
+	picture = GFX_Jacobo_Guzman
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {	
+			AND = {
+			tag = GUA
+				date > 1952.6.17
+				date < 1952.10.17
+			}
+	}
+	option = {	#接受
+		name = gua.2.a
+		news_event = { id = gua.3 }
+		add_ideas = decree900
+	}
+	option = {	#反对
+		name = gua.2.b
+		add_stability = -0.40
+	}
+}
+news_event = {
+	id = gua.3
+	title = gua.3.t
+	desc = gua.3.d
+	picture = GFX_Jacobo_Guzman
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.36.a
+	}
+}
+
+news_event = {
+	id = gua.4
+	title = gua.4.t
+	desc = gua.4.d
+	picture = GFX_Jacobo_Guzman
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {	
+		tag = USA
+		GUA = { has_idea = decree900 }
+		date > 1954.6.17
+		date < 1954.8.17
+	}
+	option = {
+		name = prc.36.a
+		add_political_power = -100
+		GUA = { news_event = gua.6 }
+	}
+}
+#1954政变
+news_event = {
+	id = gua.6
+	title = gua.6.t
+	desc = gua.6.d
+	picture = GFX_GuatemalaCoup1954
+	is_triggered_only = yes
+	option = {	
+		name = gua.3.a
+		set_politics = { ruling_party = neutrality }
+		news_event = { id = gua.7 }
+		set_global_flag = gua7
+		create_country_leader = {
+			name = "Carlos Castillo Armas"
+			picture = "gfx/leaders/GUA/Portrait_Guatemala_Carlos_Castillo_Armas.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+#政变新闻
+news_event = {
+	id = gua.7
+	title = gua.7.t
+	desc = gua.7.d
+	picture = GFX_GuatemalaCoup1954
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.36.a
+	}
+}
+news_event = {
+	id = gua.8
+	title = gua.8.t
+	desc = gua.8.d
+	picture = GFX_Jacobo_Guzman
+	mean_time_to_happen = { days = 5 }
+	trigger = {	
+		tag = MEX
+		GUA = { has_government = neutrality }
+		has_global_flag = gua7
+		NOT = { has_global_flag = gua8 }
+		date < 1955.12.1
+	}
+	major = yes
+	option = {
+		name = prc.36.a
+		set_global_flag = gua8
+	}
+}
+
+
+news_event = {
+	id = gua.10
+	title = gua.10.t
+	desc = gua.10.d
+	picture = GFX_UnitedFruitPlantation
+	mean_time_to_happen = { days = 5 }
+	trigger = {	
+		tag = USA
+		GUA = {
+			has_government = neutrality
+			has_idea = FruitCompany
+		}
+		date < 1966.1.1
+		NOT = { has_global_flag = gua9 }
+	}
+	option = {
+		name = gua.10.a
+		set_global_flag = gua9
+	}
+}
+

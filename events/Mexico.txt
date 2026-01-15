@@ -1,0 +1,254 @@
+﻿add_namespace = mex
+#1952
+news_event = {
+	id = mex.5
+	title = mex.5.t
+	desc = mex.5.d
+	picture = GFX_MexicoElect
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = MEX
+		date > 1952.2.1
+		date < 1952.5.1
+		NOT = { has_global_flag = mex5 }
+	}
+	option = {
+		name = bra.12.a
+		set_global_flag = mex5
+		news_event = { id = mex.6 days = 4 }
+	}
+}
+news_event = {
+	id = mex.6
+	title = mex.6.t
+	desc = mex.6.d
+	picture = GFX_EduardoMontalva
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		if = {
+			limit = { tag = MEX }
+			promote_character = MEX_Adolfo_Cortines
+		}
+	}
+}
+#1958
+news_event = {
+	id = mex.8
+	title = mex.8.t
+	desc = mex.8.d
+	picture = GFX_MexicoElect
+	fire_only_once = yes
+	trigger = {
+		tag = MEX
+		date > 1958.2.1
+		date < 1959.1.1
+		NOT = { has_global_flag = mex8 }
+	}
+	option = {
+		name = bra.12.a
+		set_global_flag = mex8
+		news_event = { id = mex.9 days = 4 }
+	}
+}
+news_event = {
+	id = mex.9
+	title = mex.9.t
+	desc = mex.9.d
+	picture = GFX_AdolfoMateos
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		if = {
+			limit = { tag = MEX }
+			promote_character = MEX_Adolfo_Mateos
+		}
+	}
+}
+#1962
+news_event = {
+	id = mex.10
+	title = mex.10.t
+	desc = mex.10.d
+	picture = GFX_MexicoElect
+	fire_only_once = yes
+	trigger = {
+		tag = MEX
+		date > 1962.2.1
+		date < 1963.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Gustavo Díaz Ordaz"
+			picture = "gfx/leaders/MEX/Portrait_Mexico_Gustavo_Ordaz.tga"
+			ideology = despotism
+		}
+	}
+}
+#1976
+news_event = {
+	id = mex.15
+	title = mex.15.t
+	desc = mex.15.d
+	picture = GFX_MexicoElect
+	fire_only_once = yes
+	trigger = {
+		tag = MEX
+		date > 1976.2.1
+		date < 1977.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "José López Portillo"
+			picture = "gfx/leaders/MEX/Portrait_Mexico_López_Portillo.tga"
+			ideology = despotism
+		}
+	}
+}
+#石油危机
+news_event = {
+	id = mex.20
+	title = mex.20.t
+	desc = mex.20.d
+	
+	picture = GFX_PLA1970
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.66.b
+		add_ideas = debt_crisis
+		add_political_power = -100
+	}
+}
+#1982
+news_event = {
+	id = mex.22
+	title = mex.22.t
+	desc = mex.22.d
+	picture = GFX_MexicoElect
+	fire_only_once = yes
+	trigger = {
+		tag = MEX
+		date > 1982.2.1
+		date < 1983.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Miguel de la Madrid"
+			picture = "gfx/leaders/MEX/Portrait_Mexico_Miguel_Madrid.tga"
+			ideology = despotism
+		}
+	}
+}
+#1988
+news_event = {
+	id = mex.24
+	title = mex.24.t
+	desc = mex.24.d
+	picture = GFX_MexicoElect
+	fire_only_once = yes
+	trigger = {
+		tag = MEX
+		date > 1988.2.1
+		date < 1989.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Carlos Salinas de Gortari"
+			picture = "gfx/leaders/MEX/Portrait_Mexico_Salinas_Gortari.tga"
+			ideology = despotism
+		}
+	}
+}
+news_event = {
+	id = mex.101
+	title = mex.101.t
+	desc = mex.101.d
+	picture = GFX_FridaCarol
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	trigger = {
+		tag = MEX
+		NOT = { has_government = communism }
+		NOT = { has_global_flag = mex102 }
+		date > 1954.11.1
+		date < 1954.12.20
+	}
+	option = {
+		name = fin.30a
+		set_global_flag = mex102
+		
+	}
+}
+news_event = {
+	id = mex.102
+	title = mex.102.t
+	desc = mex.102.d
+	picture = GFX_DiegoRivera
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	trigger = {
+		tag = MEX
+		NOT = { has_government = communism }
+		NOT = { has_global_flag = mex102 }
+		date > 1957.11.1
+		date < 1957.12.20
+	}
+	option = {
+		name = fin.30a
+		set_global_flag = mex102
+		
+	}
+}
+news_event = {
+	id = mex.103
+	title = mex.103.t
+	desc = mex.103.d
+	picture = GFX_LaGloriosaVictoria
+	mean_time_to_happen = { days = 5 }
+	trigger = {	
+		tag = MEX
+		GUA = { has_government = neutrality }
+		has_global_flag = gua8
+		NOT = { has_global_flag = mex103 }
+		date < 1955.12.1
+	}
+	major = yes
+	option = {
+		name = prc.36.a
+		set_global_flag = mex103
+	}
+}
+news_event = {
+	id = mex.104
+	title = mex.104.t
+	desc = mex.104.d
+	picture = GFX_DiegoRivera
+	mean_time_to_happen = {
+		days = 16
+	}
+	major = yes
+	trigger = {
+		tag = MEX
+		NOT = { has_government = communism }
+		NOT = { has_global_flag = mex104 }
+		date > 1955.11.1
+		date < 1957.12.20
+	}
+	option = {
+		name = fin.30a
+		set_global_flag = mex104
+		
+	}
+}

@@ -1,0 +1,44 @@
+state={
+	id=81
+	name="STATE_81"
+	manpower=1519300
+	state_category = large_town
+	local_supplies=0.0
+	
+	resources={
+		coal = 18
+		copper=11
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = ROM
+		add_to_array = { this.state_ethnics_list = 141 }
+		victory_points = { 3645 3 }
+		set_state_flag = ethnics_Romanian
+		buildings = {
+			power_plant = 2
+			farm_building = 3
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 2
+		}
+		add_core_of = ROM
+		1960.1.1 = {
+			buildings = {
+				synthetic_refinery = 2
+				oilfield = 1
+			}
+		}
+		1972.1.1 = {
+			buildings = {
+				dam_plant = 2
+				
+			}
+		}
+	}
+	provinces={
+		637 3630 3645 6652 6667 11588 11605 11657 
+	}
+}

@@ -1,0 +1,31 @@
+state={
+	id=830
+	name="STATE_830"
+	manpower=1625	
+	state_category = rural
+	
+	history=
+	{
+		set_state_flag = ethnics_Minnan
+		add_to_array = { this.state_ethnics_list = 5 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		owner = CHI
+		add_dynamic_modifier = { modifier = fish_production }
+		buildings = {
+			infrastructure = 1
+			13264 = {
+				naval_base = 2
+			}
+		}
+		1950.8.23 = {
+		add_core_of = PRC
+		}
+		add_core_of = CHI
+		victory_points = { 13262 1 }
+		victory_points = { 13264 1 }
+	}
+	
+	provinces={
+		13264 13262
+	}
+}

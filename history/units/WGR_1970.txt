@@ -1,0 +1,252 @@
+﻿division_template = {
+	name = "Infanteriebrigade"
+	division_names_group = GER_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Panzerbrigade"
+	division_names_group = GER_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 1 }		
+		mechanized_aa_missile_battalion = { x = 1 y = 2 }		
+		motorized = { x = 2 y = 0 }	
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Seebataillon"	
+	division_names_group = GER_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		signal_company = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+division_template = {
+	name = "Artilleriebataillon" 	
+	division_names_group = GER_ARM_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Fallschirmjäger Brigade"
+	division_names_group = GER_PAR_01
+	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	#1. Armee Flensburg
+	division = {
+		name = "Seebataillon"
+		location = 9347
+		division_template = "Seebataillon"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "1 Division"
+		location = 6389
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "2 Division"
+		location = 6389
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "3 Division"
+		location = 6389
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "4 Division"
+		location = 6389
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	#2. Armee Hannover
+	division = {
+		name = "6 Division"
+		location = 6377
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "7 Division"
+		location = 6377
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "8 Division"
+		location = 6377
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "9 Division"
+		location = 6377
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "10 Division"
+		location = 6377
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.7
+	}
+	#3. Armee Dortmund
+	division = {
+		name = "11 Division"
+		location = 495
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "12 Division"
+		location = 495
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "13 Division"
+		location = 495
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "14 Division"
+		location = 495
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "15 Division"
+		location = 495
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	#4. Armee Stuttgart
+	division = {
+		name = "16 Division"
+		location = 9517
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "17 Division"
+		location = 9517
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "18 Division"
+		location = 9517
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "19 Division"
+		location = 9517
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "20 Division"
+		location = 9517
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	#5.Armee Munich
+	
+	division = {
+		name = "21 Division"
+		location = 692
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "22 Division"
+		location = 692
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "23 Division"
+		location = 692
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.7
+	}
+	
+}
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	51 = {															# Brussels	# East Anglia 	
+		CAS_equipment_2 = { owner = "WDR" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "WDR" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+	42 = {															# Brussels	# East Anglia 	
+		CAS_equipment_2 = { owner = "WDR" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "WDR" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+	58 = {															# Brussels	# East Anglia 	
+		CAS_equipment_2 = { owner = "WDR" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "WDR" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+	56 = {															# Brussels	# East Anglia 	
+		CAS_equipment_2 = { owner = "WDR" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "WDR" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+	57 = {															# Brussels	# East Anglia 	
+		CAS_equipment_2 = { owner = "WDR" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "WDR" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+	57 = {															# Brussels	# East Anglia 	
+		transport_plane_equipment_2 = { owner = "WDR" amount = 80 }
+	}
+	58 = {															# Brussels	# East Anglia 	
+		transport_plane_equipment_2 = { owner = "WDR" amount = 80 }
+	}
+}
+

@@ -1,0 +1,48 @@
+
+state={
+	id=425
+	name="STATE_425" # Mysore
+	manpower = 12348200
+	
+	state_category = town
+	
+	resources={
+		tungsten=20
+		iron = 8
+	}
+
+	history={
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_core_of = KNT
+		set_state_flag = ethnics_kannada
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = gold_production
+		add_to_array = { this.state_ethnics_list = 80 }
+		owner = ENG
+		add_core_of = IND
+		set_state_flag = cutton_production
+		1949.10.25 = {
+		owner = IND
+		}
+		victory_points = { 12146 5 }
+		victory_points = { 12105 5 }
+		victory_points = { 7250 5 }
+		victory_points = { 10190 3 }
+		victory_points = { 5032 4 }
+		buildings = {
+			power_plant = 1
+			farm_building = 4
+			hospital = 1
+			school = 1
+			infrastructure = 4
+			industrial_complex = 2
+		}
+
+	}
+
+	provinces={
+		4278 4291 5032 7250 7411 10259 10799 12105 12208 
+	}
+}

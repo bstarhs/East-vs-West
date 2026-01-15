@@ -1,0 +1,37 @@
+
+state={
+	id=982
+	name="STATE_982"
+	manpower = 2950100
+	state_category = town
+	resources={
+		rubber=13
+		iron = 5
+	}
+	history={
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 40 }
+		set_state_flag = ethnics_Brazilian
+		owner = BRA
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			school = 1
+			industrial_complex = 1
+		}
+		add_core_of = BRA
+		victory_points = { 13694 3 }
+		victory_points = { 13656 5 }
+		victory_points = { 2228 8 }
+		1984.1.1 = {
+			buildings = {
+				dam_plant = 1
+			}
+		}
+
+	}
+	provinces={
+		13656 2228 5153 10984 5218 5204 13693 13694 13695 13696 13697
+	}
+}

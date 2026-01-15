@@ -1,0 +1,720 @@
+technologies = {
+	early_missile = {
+		enable_equipments = {
+			guided_missile_equipment
+		}
+		dependencies = {
+			vaccum_tube = 1
+			radio = 1
+			advanced_machine_tools = 1
+			radar_station = 1
+			aluminum_tech = 1
+			concentrated_industry2 = 1
+			radio_detection = 1
+			rocket_engines = 1
+        }
+		
+		enable_building = {
+			building = rocket_site
+			level = 1
+		}
+		path = {
+			leads_to_tech = guided_missile
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1948
+		
+		folder = {
+			name = missile_folder
+			position = { x = -6 y = -2 }
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	guided_missile = {
+		enable_equipments = {
+			guided_missile_equipment_1
+		}
+        on_research_complete = {
+			set_variable = { this.nuke_speed = 10 }
+			if = {
+				limit = { tag = SOV }
+				news_event = { id = sov.443 }
+			}
+        }
+		enable_building = {
+			building = rocket_site
+			level = 2
+		}
+		path = {
+			leads_to_tech = midrange_missile
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = tac_missile1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1950
+		
+		folder = {
+			name = missile_folder
+			position = { x = -6 y = 0 }
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	tac_missile1 = {
+		dependencies = {
+			rocket_vehicle = 1
+        }
+		enable_equipments = {
+			guided_missile_equipment_2
+		}
+		path = {
+			leads_to_tech = tac_missile2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = missile_folder
+			position = { x = -4 y = 3 }
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	tac_missile2 = {
+		
+		enable_equipments = {
+			guided_missile_equipment_3
+		}
+		
+		research_cost = 2
+		start_year = 1980
+		
+		folder = {
+			name = missile_folder
+			position = { x = -4 y = 8 }
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	midrange_missile = {
+		on_research_complete = {
+			custom_effect_tooltip = guided_ICBM_equipment_1_tool
+			set_variable = { this.nuke_speed = 6 }
+        }
+		enable_equipments = {
+			guided_ICBM_equipment_1
+		}
+		dependencies = {
+			communie_Satellite = 1
+		}
+		
+		path = {
+			leads_to_tech = ICBM_missile
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1960
+		
+		folder = {
+			name = missile_folder
+			position = { x = -8 y = 2 }
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	nuclear_powered_missile = {
+		on_research_complete = {
+			custom_effect_tooltip = guided_ICBM_equipment_2_tool
+			set_variable = { this.nuke_speed = 12 }
+        }
+		enable_equipments = {
+			nuclear_powered_missile_0
+		}
+		dependencies = {
+			communie_Satellite = 1
+		}
+		
+		path = {
+			leads_to_tech = midrange_missile
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1960
+		
+		folder = {
+			name = missile_folder
+			position = { x = -6 y = 4 }
+		}
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	ICBM_missile = {
+		
+		on_research_complete = {
+			custom_effect_tooltip = guided_ICBM_equipment_2_tool
+		}
+		enable_equipments = {
+			guided_ICBM_equipment_2
+		}
+		path = {
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = missile_folder
+			position = { x = -8 y = 8 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			rocketry
+			missile
+		}		
+	}
+	aa_missile_1 = {
+		enable_subunits = {
+			aa_missile_battalion
+		}
+		enable_equipments = {
+			aa_missile_1
+		}
+		dependencies = {
+			laser_weapon = 1
+			decimetric_radar = 1
+        }
+		motorized = {
+			air_attack = 0.12
+		}
+		anti_air = {
+			air_attack = 0.12
+		}
+		mechanized = {
+			air_attack = 0.12
+		}
+		light_armor = {
+			air_attack = 0.12
+		}
+		path = {
+			leads_to_tech = aa_missile_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1950
+		
+		folder = {
+			name = missile_folder
+			position = { x = 4 y = 0 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	aa_missile_2 = {
+		dependencies = {
+			television_guidance = 1
+        }
+		enable_equipments = {
+			aa_missile_2
+		}
+		path = {
+			leads_to_tech = mechanized_aa_missile_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = aa_missile_3
+			research_cost_coeff = 1
+		}
+		infantry = {
+			air_attack = 0.12
+			need = {
+				aa_missile = 10
+			}
+		}
+		motorized = {
+			air_attack = 0.12
+			need = {
+				aa_missile = 20
+			}
+		}
+		anti_air = {
+			air_attack = 0.12
+		}
+		mechanized = {
+			air_attack = 0.12
+			need = {
+				aa_missile = 40
+			}
+		}
+		light_armor = {
+			air_attack = 0.12
+			need = {
+				aa_missile = 40
+			}
+		}
+		research_cost = 2
+		start_year = 1965
+		
+		folder = {
+			name = missile_folder
+			position = { x = 4 y = 2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	mechanized_aa_missile_1 = {
+		enable_subunits = {
+			mechanized_aa_missile_battalion
+		}
+		path = {
+			leads_to_tech = mechanized_aa_missile_2
+			research_cost_coeff = 1
+		}
+		enable_equipments = {
+			mechanized_aa_missile_1
+		}
+		research_cost = 2
+		start_year = 1965
+		
+		folder = {
+			name = missile_folder
+			position = { x = 1 y = 4 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	mechanized_aa_missile_2 = {
+		dependencies = {
+			television_guidance = 1
+        }
+		enable_equipments = {
+			mechanized_aa_missile_2
+		}
+		research_cost = 2
+		start_year = 1965
+		
+		folder = {
+			name = missile_folder
+			position = { x = 1 y = 8 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	aa_missile_3 = {
+		enable_equipments = {
+			aa_missile_3
+		}
+		path = {
+			research_cost_coeff = 1
+		}
+		motorized = {
+			air_attack = 0.12
+		}
+		anti_air = {
+			air_attack = 0.12
+		}
+		mechanized = {
+			air_attack = 0.12
+		}
+		light_armor = {
+			air_attack = 0.12
+		}
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = missile_folder
+			position = { x = 4 y = 8 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	aim_missile_1 = {
+		research_cost = 2
+		start_year = 1955
+		
+		air_attack_factor = 0.3
+		air_interception_detect_factor = 0.3
+		air_intercept_efficiency = 0.4
+		air_escort_efficiency = 0.6
+		enable_equipments = {
+			aim_missile_1
+		}
+		folder = {
+			name = missile_folder
+			position = { x = 5 y = 2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	at_missile_1 = {
+		enable_subunits = {
+			at_missile_battalion
+		}
+		dependencies = {
+			laser_weapon = 1
+        }
+		enable_equipments = {
+			at_missile_1
+		}
+		path = {
+			leads_to_tech = lines_homing
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = at_missile_2
+			research_cost_coeff = 1
+		}
+		motorized = {
+			hard_attack = 0.2
+			need = {
+				at_missile = 10
+			}
+		}
+		category_all_armor = {
+			hard_attack = 0.2
+		}
+		category_all_infantry = {
+			hard_attack = 0.2
+		}
+		mechanized = {
+			hard_attack = 0.2
+			need = {
+				at_missile = 30
+			}
+		}
+		research_cost = 2
+		start_year = 1960
+		
+		folder = {
+			name = missile_folder
+			position = { x = 12 y = 2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	lines_homing = {
+		research_cost = 4.5
+		folder = {
+			name = missile_folder
+			position = { x = 13 y = 3 }
+		}
+		motorized = {
+			hard_attack = 0.2
+			need = {
+				at_missile = 10
+			}
+		}
+		category_all_armor = {
+			hard_attack = 0.2
+		}
+		category_all_infantry = {
+			hard_attack = 0.2
+		}
+		mechanized = {
+			hard_attack = 0.2
+			need = {
+				at_missile = 30
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+			missile
+		}
+	}
+	at_missile_2 = {
+		enable_equipments = {
+			at_missile_2
+		}
+		path = {
+			leads_to_tech = at_missile_3
+			research_cost_coeff = 1
+		}
+		category_all_armor = {
+			hard_attack = 0.2
+		}
+		motorized = {
+			hard_attack = 0.2
+		}
+		category_all_infantry = {
+			hard_attack = 0.2
+		}
+		mechanized = {
+			hard_attack = 0.2
+		}
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = missile_folder
+			position = { x = 12 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	at_missile_3 = {
+		enable_equipments = {
+			at_missile_3
+		}
+		category_all_armor = {
+			hard_attack = 0.2
+		}
+		motorized = {
+			hard_attack = 0.2
+		}
+		category_all_infantry = {
+			hard_attack = 0.2
+		}
+		mechanized = {
+			hard_attack = 0.2
+		}
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = missile_folder
+			position = { x = 12 y = 8 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			missile
+		}		
+	}
+	laser_weapon = {
+		air_superiority_bonus_in_combat = 0.2
+		research_cost = 4.5
+		start_year = 1955
+		path = {
+			leads_to_tech = infraed_homing
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = at_missile_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = aim_missile_1
+			research_cost_coeff = 1
+		}
+		
+		folder = {
+			name = missile_folder
+			position = { x = 8 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+			missile
+		}
+	}
+	infraed_homing = {
+		air_superiority_bonus_in_combat = 0.2
+		
+		research_cost = 4.5
+		
+		folder = {
+			name = missile_folder
+			position = { x = 8 y = 2 }
+		}
+		path = {
+			leads_to_tech = television_guidance
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = semi_active_radar_homing
+			research_cost_coeff = 1
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+			missile
+		}
+	}
+	television_guidance = {
+		air_superiority_bonus_in_combat = 0.2
+		air_strategic_bomber_bombing_factor = 0.3
+		
+		research_cost = 4.5
+		
+		folder = {
+			name = missile_folder
+			position = { x =9 y = 3 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+			missile
+		}
+	}
+	semi_active_radar_homing = {
+		air_superiority_bonus_in_combat = 0.2
+		air_strategic_bomber_bombing_factor = 0.3
+		
+		path = {
+			leads_to_tech = active_radar_homing
+			research_cost_coeff = 1
+		}
+		research_cost = 4.5
+		
+		folder = {
+			name = missile_folder
+			position = { x =8 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+			missile
+		}
+	}
+	active_radar_homing = {
+		air_superiority_bonus_in_combat = 0.2
+		air_strategic_bomber_bombing_factor = 0.3
+		
+		research_cost = 4.5
+		
+		folder = {
+			name = missile_folder
+			position = { x =8 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			electronics
+			radar_tech
+			missile
+		}
+	}
+}

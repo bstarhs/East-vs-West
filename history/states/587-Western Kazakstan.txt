@@ -1,0 +1,46 @@
+state={
+	id=587
+	name="STATE_587"
+
+	history={
+		set_state_flag = ethnics_Khazakhs
+		add_to_array = { this.state_ethnics_list = 11 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		
+		owner = SOV
+		buildings = {
+			infrastructure = 1
+
+		}
+		add_core_of = SOV
+		
+		add_core_of = KAZ
+		1949.1.1 = {
+			buildings = {
+				hospital = 1
+				nuclear_reactor = 2
+
+			}
+		}
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		victory_points = {
+			11701 4
+		}
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		475 642 1517 3593 4523 4620 7641 10262 11701 12163 12383 13008 
+	}
+	manpower=245133
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

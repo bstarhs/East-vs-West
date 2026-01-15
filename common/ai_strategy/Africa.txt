@@ -1,0 +1,218 @@
+
+FRA_supress_madagascar = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = FRA
+		OR = {
+			controls_state = 543
+			has_subject = MAD
+		}
+		543 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			543
+			923
+			924
+			925
+		}
+	}
+}
+PRC_africa = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PRC
+		date > 1955.1.1
+	}
+	ai_strategy = {
+		type = support
+		id = "ALG"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "TAZ"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "SUD"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "ZIM"
+		value = 200
+	}
+}
+SAF_NAM_garrison = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = SAF
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = {
+			541
+			822
+		}
+	}
+}
+POR_coloniewar = {
+	enable = {
+		tag = POR
+		has_government = authoritarianism
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			790
+			807
+			544
+			825
+		}
+	}
+}
+UGAN_invade_TANZ = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = UGA
+		date > 1978.1.1
+		date < 1980.1.1
+		has_government = neutrality
+	}
+	ai_strategy = {
+		type = conquer
+		id = "TAZ"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "TAZ"
+		value = 200
+	}
+}
+ANTI_MONBUTU = {
+	enable = {
+		OR = {
+			tag = TAZ
+			tag = RWA
+			tag = UGA
+		}
+		has_government = democratic
+		COG = { has_government = neutrality }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = "COG"	
+		value = 200
+	}
+}
+ALG_SAHA = {
+	enable = {
+		tag = ALG
+		country_exists = WSH
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = "WSH"
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = "WSH"
+		value = 50
+	}
+}
+SAF_FRIEND_RHO = {
+	enable = {
+		tag = SAF
+		has_idea = SAF_history_of_segregation
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = "RHO"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "RHO"
+		value = 200
+	}
+}
+SOV_FRIEND_ETH = {
+	enable = {
+		original_tag = SOV
+		ETH = { has_country_leader_with_trait = pro_soviet }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = ETH
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = ETH
+		value = 100
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ETH
+		value = 100
+	}
+}
+UN_Congo_troops = {
+	enable = {
+		has_idea = UN_congo_actions
+		country_exists = KTG
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = COG
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = COG
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = COG
+		value = 200
+	}
+}
+BEL_KTG = {
+	enable = {
+		tag = BEL
+		KTG = { has_war_with = COG }
+		date < 1964.1.1
+		country_exists = KTG
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = KTG
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KTG
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = KTG
+		value = 200
+	}
+}

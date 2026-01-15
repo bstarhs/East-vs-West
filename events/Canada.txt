@@ -1,0 +1,474 @@
+﻿add_namespace = can
+
+#拉布拉多与纽芬兰前途问题
+news_event = {
+	id = can.1
+	title = can.1.t
+	desc = can.1.d
+	picture = GFX_NewFoundlandVote
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date > 1948.5.1
+		date < 1949.1.1
+		331 = { is_owned_and_controlled_by = ENG }
+		NOT = { has_global_flag = NewFoundland }
+	}
+	
+	option = {	
+		name = can.1.a
+		ai_chance = {
+			factor = 0	
+		}
+		news_event = { id = can.2 }
+		set_global_flag = NewFoundland
+	}
+	option = {	
+		name = can.1.b
+		ai_chance = {
+			factor = 80	
+		}
+		news_event = { id = can.3 }
+		remove_state_claim = 331
+		set_global_flag = NewFoundland
+	}
+}
+#soviet experts
+news_event = {
+	id = can.2
+	title = can.2.t
+	desc = can.2.d
+	picture = GFX_NewFoundlandVote
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name =can.2.a
+	}
+}
+news_event = {
+	id = can.3
+	title = can.3.t
+	desc = can.3.d
+	picture = GFX_NewFoundlandVote
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.3.a
+	}
+}
+news_event = {
+	id = can.4
+	title = can.4.t
+	desc = can.4.d
+	picture = GFX_NewFoundlandJoined
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.4.a
+		if = {
+			limit = { tag = ENG }
+			LAB = {
+				transfer_state = 332
+				transfer_state = 331
+				add_state_core = 331
+				add_state_core = 332
+			}
+		}
+	}
+}
+news_event = {
+	id = can.5
+	title = can.5.t
+	desc = can.5.d
+	picture = GFX_NewFoundlandJoined
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.5.a
+		if = {
+			limit = { tag = CAN }
+			CAN = {
+				transfer_state = 332
+				transfer_state = 331
+				add_state_core = 331
+				add_state_core = 332
+			}
+		}
+	}
+}
+news_event = {
+	id = can.6
+	title = can.6.t
+	desc = can.6.d
+	picture = GFX_NewFoundlandJoined
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+#1948大选
+news_event = {
+	id = can.10
+	title = can.10.t
+	desc = can.10.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1948.1.1
+		date < 1949.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Louis Stephen St. Laurent"
+			picture = "gfx/leaders/CAN/Portrait_Canada_Louis_StLaurent.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = can.15
+	title = can.15.t
+	desc = can.15.d
+	picture = GFX_MackenzieKingFuneral
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CAN
+		NOT = { has_global_flag = MackenzieKingDeath }
+		date > 1950.7.20
+		date < 1950.8.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = MackenzieKingDeath
+		
+	}
+}
+#1948大选
+news_event = {
+	id = can.16
+	title = can.16.t
+	desc = can.16.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1948.1.1
+		date < 1948.8.1
+		has_government = democratic
+	}
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Louis St Laurent"
+		
+			picture = "gfx/leaders/CAN/Portrait_Canada_Louis_StLaurent.tga"
+			expire = "1997.1.1"
+			ideology = liberalism
+		
+			traits = {
+		
+			}
+		}
+		news_event = { id = can.17 }
+	}
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 10	
+		}
+		create_country_leader = {
+			name = "James Garfield Gardiner"
+			picture = "gfx/leaders/CAN/Portrait_Canada_John_Diefenbaker.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+		news_event = { id = can.17 }
+	}
+}
+news_event = {
+	id = can.17
+	title = can.17.t
+	desc = can.17.d
+	picture = GFX_NewFoundlandJoined
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = can.6.a
+	}
+}
+#压倒性地建立自由世界
+#美国企业进驻
+#科伦坡计划
+#苏伊士运河危机
+#来自加拿大的建议
+#诺贝尔和平奖
+#来自英国的抗议
+#来自加拿大的援助
+
+#维和部队抵达埃及
+news_event = {
+	id = can.20
+	title = can.20.t
+	desc = can.20.d
+	picture = GFX_LesterPearson
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = CAN
+		date < 1958.1.1
+		has_government = democratic
+		has_global_flag = egy_suez
+		NOT = { has_global_flag = can20 }
+	}
+	option = {	
+		name = can.10.a
+		set_global_flag = can20
+	}
+}
+#1957大选
+news_event = {
+	id = can.21
+	title = can.21.t
+	desc = can.21.d
+	picture = GFX_LouisSaintLaurent
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = CAN
+		date > 1957.6.1
+		date < 1958.1.1
+		has_government = democratic
+		NOT = { has_global_flag = can21 }
+	}
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		set_global_flag = can21
+		news_event = { id = can.22 days = 2}
+		promote_character = CAN_John_Diefenbaker
+	}
+}
+news_event = {
+	id = can.22
+	title = can.22.t
+	desc = can.22.d
+	picture = GFX_JohnDiefenbaker
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.8.a
+	}
+}
+#北美防空协定
+#Maurice Duplessis去世
+#Jean Lesage上台
+#魁北克国有化运动
+#1963大选
+news_event = {
+	id = can.30
+	title = can.30.t
+	desc = can.30.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1963.1.1
+		date < 1964.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Lester Pearson"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CAN/Portrait_Canada_Lester_Pearson.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+
+#1968大选
+news_event = {
+	id = can.40
+	title = can.40.t
+	desc = can.40.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1968.1.1
+		date < 1969.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Pierre Trudeau"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CAN/Portrait_Canada_Pierre_Trudeau.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#取消歧视
+#《官方语言法案》
+#反通货膨胀委员会
+#戴高乐访问魁北克
+#劳工部长被绑架
+#蒙特利尔大学生罢课
+#示威者围攻魁北克政府
+#魁北克独立战争爆发
+#魁北克暴动被镇压
+#1979大选
+news_event = {
+	id = can.50
+	title = can.50.t
+	desc = can.50.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1979.1.1
+		date < 1980.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Charles Joseph Clark"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CAN/Portrait_Canada_Joe_Clark.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#魁北克人党获得胜利！
+#魁北克人党惨败
+#《101法案》
+#魁北克公投
+#魁北克宣布独立！
+#加拿大入侵魁北克
+#魁北克共同结果揭晓
+
+#1980大选
+news_event = {
+	id = can.55
+	title = can.55.t
+	desc = can.55.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1980.1.1
+		date < 1981.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Pierre Trudeau"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CAN/Portrait_Canada_Pierre_Trudeau.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#加拿大请求收回修宪权
+#伦敦拒绝了我们的请求
+#加拿大获得独立修宪权
+
+#1984大选
+news_event = {
+	id = can.60
+	title = can.60.t
+	desc = can.60.d
+	picture = GFX_CanElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CAN
+		date > 1984.1.1
+		date < 1985.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = can.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Martin Brian Mulroney"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CAN/Portrait_Canada_Brian_Mulroney.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#米奇湖协议

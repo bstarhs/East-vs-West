@@ -1,0 +1,37 @@
+
+state={
+	id=659
+	name="STATE_659"
+	manpower = 891505
+
+	state_category = pastoral
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Arabs
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		
+		owner = ENG
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_core_of = SYM
+		victory_points = {
+			5074 8 
+		}
+		buildings = {
+			farm_building = 1
+			infrastructure = 3
+			air_base = 4
+			5074 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = YEM
+		1962.8.23 = {
+			owner = SYM
+		}
+	}
+
+	provinces={
+		5074 12821 13346 13386
+	}
+}

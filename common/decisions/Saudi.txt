@@ -1,0 +1,111 @@
+opec_decitions = {
+	
+	OPEC_join = {
+		icon = GFX_deci_opec
+
+		allowed = {
+			always = yes
+		}
+		cost = 300
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 100 
+				date > 1960.1.1
+			}
+		}
+		available = {
+			any_owned_state = {
+				has_resources_amount = {
+					resource = oil
+					amount > 20
+				}
+			}
+			any_owned_state = {
+				oilfield > 2
+			}
+			NOT = { has_idea = OPEC }
+		}
+		visible = {
+			NOT = { has_country_flag = main_country }
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = oil_modifiers }
+			}
+		}
+		complete_effect = {
+			news_event = { id = sau.4 }
+			add_ideas = OPEC
+			
+		}
+	}
+	OPEC_organized = {
+
+		icon = GFX_deci_opec
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 150
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 100 
+				date > 1960.1.1
+			}
+		}
+
+		visible = {
+			date > 1958.1.1
+			OR = {
+				tag = SAU
+				tag = PER
+				tag = IRQ
+				tag = VEN
+				tag = KWT
+			}
+			NOT = { has_idea = OPEC }
+		}
+
+		complete_effect = {
+			news_event = { id = sau.3 }
+			SAU = { news_event = { id = sau.2 } }
+			PER = { news_event = { id = sau.2 } }
+			IRQ = { news_event = { id = sau.2 } }
+			VEN = { news_event = { id = sau.2 } }
+			KWT = { news_event = { id = sau.2 } }
+			
+		}
+	}
+	SAU_oil = {
+
+		icon = GFX_deci_opec
+
+		allowed = {
+			always = yes
+			tag = SAU
+		}
+
+		cost = 150
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				USA = { has_guaranteed = ISR }
+			}
+		}
+
+		visible = {
+			EGY = { has_war_with = ISR }
+			has_idea = OPEC
+		}
+
+		complete_effect = {
+			news_event = { id = sau.5 }
+		set_global_flag = oil_crisis
+			
+		}
+	}
+}

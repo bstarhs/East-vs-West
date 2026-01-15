@@ -1,0 +1,44 @@
+state= {
+	id=341
+	name="STATE_341"
+	manpower = 1404509
+	resources={
+		tungsten=14
+		iron=17
+	}
+	
+	state_category = city
+
+	history= {
+		add_to_variable = { state_tourist = 100 }
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 167 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Turkish
+		add_core_of = GRE
+		owner = TUR
+		victory_points = {
+			9833 12
+		}
+		victory_points = {
+			11842 4
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 2
+			power_plant = 3
+			infrastructure = 5
+			industrial_complex = 4
+			dockyard = 1
+			arms_factory = 2
+			air_base = 4
+			9833 = {
+				naval_base = 8
+			}
+		}
+		add_core_of = TUR
+	}
+	provinces=
+	{
+849 922 3879 3893 6895 9833 11829 11842 	}
+}

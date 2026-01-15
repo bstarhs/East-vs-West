@@ -1,0 +1,310 @@
+decision_Beria_category = {
+	########争取
+	decision_Beria_strive_mikoyan_support = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_Beria_struggle_idea
+			NOT = { has_global_flag = decision_Beria_strive_mikoyan_support }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		complete_effect = {
+			random_list = {
+				4 = { country_event = { id = sov.621 days = 1 } }
+				Beiria_influence = { country_event = { id = sov.622 days = 1 } }
+			}
+		}
+	}
+	decision_Beria_strive_malenkov_support = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_Beria_struggle_idea
+			NOT = { has_global_flag = decision_Beria_strive_malenkov_support }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		complete_effect = {
+			random_list = {
+				5 = { country_event = { id = sov.619 days = 1 } }
+				Beiria_influence = { country_event = { id = sov.620 days = 1 } }
+			}
+		}
+	}
+	decision_Beria_strive_suslov_support = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_Beria_struggle_idea
+			NOT = { has_global_flag = decision_Beria_strive_suslov_support }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		complete_effect = {
+			random_list = {
+				4 = { country_event = { id = sov.617 days = 1 } }
+				Beiria_influence = { country_event = { id = sov.618 days = 1 } }
+			}
+		}
+	}
+	decision_Beria_strive_rokossovsky_support = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_Beria_struggle_idea
+			NOT = { has_global_flag = decision_Beria_strive_rokossovsky_support }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		complete_effect = {
+			random_list = {
+				3 = { country_event = { id = sov.615 days = 1 } }
+				Beiria_influence = { country_event = { id = sov.616 days = 1 } }
+			}
+		}
+	}
+	decision_Beria_strive_voroshirov_support = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_Beria_struggle_idea
+			NOT = { has_global_flag = decision_Beria_strive_voroshirov_support }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		complete_effect = {
+			random_list = {
+				7 = { country_event = { id = sov.613 days = 1 } }
+				Beiria_influence = { country_event = { id = sov.614 days = 1 } }
+			}
+		}
+	}
+	decision_Beria_strive_korsigyn_support = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_Beria_struggle_idea
+			NOT = { has_global_flag = decision_Beria_strive_korsigyn_support }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		complete_effect = {
+			random_list = {
+				5 = { country_event = { id = sov.611 days = 1 } }
+				Beiria_influence = { country_event = { id = sov.612 days = 1 } }
+			}
+		}
+	}
+	########平反
+	decision_Beria_trail_minglian = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 100
+		fire_only_once = yes
+		visible = {
+			NOT = { has_global_flag = decision_Beria_trail_minglian }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		available = {
+			has_completed_focus = SOV_RemovePersonalWorship
+		}
+		complete_effect = {
+			set_global_flag = decision_Beria_trail_minglian
+			news_event = { id = sov.601 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			custom_effect_tooltip = decision_Beria_add_influence
+			add_to_variable = { Beiria_influence = 2 }
+			recruit_character = SOV_Pyotr_Shariya
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	decision_Beria_trail_Polina_Zhemchuzhina = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 80
+		fire_only_once = yes
+		visible = {
+			NOT = { has_global_flag = decision_Beria_trail_Polina_Zhemchuzhina }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		available = {
+			has_completed_focus = SOV_RemovePersonalWorship
+		}
+		complete_effect = {
+			set_global_flag = decision_Beria_trail_Polina_Zhemchuzhina
+			news_event = { id = sov.602 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			custom_effect_tooltip = decision_Beria_add_influence
+			add_to_variable = { Beiria_influence = 2 }
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	decision_Beria_trail_Aleksandr_Novikov = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 80
+		fire_only_once = yes
+		visible = {
+			NOT = { has_global_flag = decision_Beria_trail_Aleksandr_Novikov }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		available = {
+			has_completed_focus = SOV_RemovePersonalWorship
+		}
+		complete_effect = {
+			set_global_flag = decision_Beria_trail_Aleksandr_Novikov
+			news_event = { id = sov.603 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			custom_effect_tooltip = decision_Beria_add_influence
+			add_to_variable = { Beiria_influence = 2 }
+			recruit_character = SOV_aleksandr_novikov
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	decision_Beria_trail_Viktor_Abakumov = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1954.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 80
+		fire_only_once = yes
+		visible = {
+			NOT = { has_global_flag = decision_Beria_trail_Viktor_Abakumov }
+			SOV_lavrenty_beriya = { is_country_leader = yes }
+		}
+		available = {
+			has_completed_focus = SOV_RemovePersonalWorship
+		}
+		complete_effect = {
+			set_global_flag = decision_Beria_trail_Viktor_Abakumov
+			news_event = { id = sov.604 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			custom_effect_tooltip = decision_Beria_add_influence
+			add_to_variable = { Beiria_influence = 2 }
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+}

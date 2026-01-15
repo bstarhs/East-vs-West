@@ -1,0 +1,38 @@
+
+state={
+	id=353
+	name="STATE_353"
+	manpower = 523537
+	state_category = rural
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Turkish
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 167 }
+		add_to_array = { this.state_ethnics_list = 97 }
+		victory_points = { 11853 7 }
+		add_to_array = { this.state_ethnics_list = 26 }
+		owner = TUR
+		buildings = {
+			hospital = 1
+			farm_building = 1
+			infrastructure = 3
+		}
+		1974.1.1 = {
+			buildings = {
+			industrial_complex = 1
+				dam_plant = 2
+			}
+		}
+		1976.5.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		add_core_of = TUR
+		add_core_of = KUR
+	}
+
+	provinces={
+		652 876 7470 9858 9954 10399 11853 11880 13121 
+	}
+}

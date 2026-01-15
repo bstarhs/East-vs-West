@@ -1,0 +1,98 @@
+﻿capital = 796
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_country_flag = british_colonies
+set_country_flag = third_world
+set_convoys = 0
+
+	set_cosmetic_tag = MLW_ENG
+set_country_flag = african_state
+1939.1.1 = {
+	
+	#generic focuses
+	
+	set_technology = {
+		tech_support = 1
+		tech_recon = 1
+		
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+
+	set_popularities = {
+		democratic = 15
+		communism = 5
+		neutrality = 80
+	}
+	set_popularities = {
+		democratic = 90
+		authoritarianism = 10
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "British Nyasaland Governeor"
+	picture = "gfx/leaders/KEN/Build_Portrait_Kenya_Governor.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Hastings Kamuzu Banda"
+	picture = "gfx/leaders/MLW/Portrait_Malawi_Hastings_Banda.tga"
+	ideology = authoritarianism
+	traits = {
+		popular_figurehead anti_communist smooth_talking_charmer dictator pro_america
+	}
+}
+1964.1.1 = {
+
+	set_popularities = {
+		democratic = 20
+		authoritarianism = 80
+	}
+	set_politics = { ruling_party = authoritarianism }
+	set_cosmetic_tag = MLW
+	add_ideas = {
+		UNmember
+	}
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+}

@@ -1,0 +1,2784 @@
+focus_tree = {
+	id = FocusTree_0
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SVN
+		}
+	}
+	
+	default = no
+	focus = {
+		id = SVN_hold_situation
+		icon = GFX_focus_generic_industrialists
+		cost = 6
+		x = 12
+		y = -1
+		completion_reward = {
+			add_stability = 0.3
+			add_political_power = 100
+			add_to_variable = { influences = 200 }
+			custom_effect_tooltip = focus_tooltip_influence_200
+		}
+	}
+	focus = {
+		id = SVN_keep_france_relation
+		icon = GFX_goal_diplo_france
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 4
+		y = 0
+		completion_reward = {
+			add_opinion_modifier = {
+				target = FRA
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SVN_french_economic_assis
+		icon = GFX_goal_franc
+		cost = 6
+		prerequisite = {
+			focus = SVN_keep_france_relation
+		}
+		x = 0
+		y = 1
+
+	}
+	focus = {
+		id = SVN_french_military_assis
+		icon = GFX_goal_FRA_aircraft
+		cost = 6
+		prerequisite = {
+			focus = SVN_keep_france_relation
+		}
+		x = 2
+		y = 1
+
+	}
+	focus = {
+		id = SVN_annex_tonkin
+		icon = GFX_goal_caochi_united
+		cost = 6
+		prerequisite = {
+			focus = SVN_french_military_assis
+		}
+		prerequisite = {
+			focus = SVN_french_economic_assis
+		}
+		x = 1
+		y = 3
+
+	}
+	focus = {
+		id = SVN_keep_laos_relation
+		icon = GFX_goal_diplo_laos
+		cost = 6
+		prerequisite = {
+			focus = SVN_keep_france_relation
+		}
+		x = 4
+		y = 1
+		completion_reward = {
+			add_opinion_modifier = {
+				target = LAO
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_keep_kam_relation
+		icon = GFX_goal_diplo_kampuchea
+		cost = 6
+		prerequisite = {
+			focus = SVN_keep_france_relation
+		}
+		x = 6
+		y = 1
+		available = {
+			country_exists = CAM
+			CAM = {
+				communism < 0.3
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = CAM
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_france_alliance
+		icon = GFX_goal_french_indochina
+		cost = 6
+		prerequisite = {
+			focus = SVN_keep_kam_relation
+		}
+		prerequisite = {
+			focus = SVN_keep_laos_relation
+		}
+		x = 5
+		y = 2
+
+	}
+	focus = {
+		id = SVN_french_christian
+		icon = GFX_focus_generic_vatican_state
+		cost = 6
+		prerequisite = {
+			focus = SVN_keep_france_relation
+		}
+		x = 8
+		y = 1
+		available = {
+			NOT = { has_government = monarchism }
+		}
+		completion_reward = {
+			news_event = { id = gen.145 }
+			add_stability = 0.12
+			add_political_power = -200
+		}
+	}
+	focus = {
+		id = SVN_christian_refugee
+		icon = GFX_focus_BEL_christian_corporatism
+		cost = 6
+		prerequisite = {
+			focus = SVN_french_christian
+		}
+		x = 8
+		y = 2
+		available = {
+			has_government = authoritarianism
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SVN_hoi_yen_district
+		icon = GFX_goal_hoi_yen
+		cost = 6
+		prerequisite = {
+			focus = SVN_christian_refugee
+		}
+		x = 8
+		y = 3
+		available = {
+			has_government = authoritarianism
+			PRC = { controls_state = 594 }
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SVN_hoahao_focus
+		icon = GFX_goal_hoahao
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 10
+		y = 0
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_ideas = Secularism
+			add_stability = 0.04
+			add_political_power = -100
+		}
+	}
+	focus = {
+		id = SVN_supress_binh_xuyen
+		icon = GFX_focus_SOV_mobilization_plan
+		cost = 6
+		prerequisite = {
+			focus = SVN_clear_french
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 60
+				date > 1954.1.1
+			}
+		}
+		available = {
+			num_divisions > 4
+			has_army_experience > 80
+		}
+		x = 14
+		y = 1
+		completion_reward = {
+			news_event = svn.11
+		}
+	}
+	focus = {
+		id = SVN_clear_french
+		icon = GFX_goal_france_in_chain
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 12
+		y = 0
+		available = {
+			NOT = { is_subject_of = FRA }
+		}
+		completion_reward = {
+			news_event = { id = svn.101 }
+			add_stability = 0.15
+			add_political_power = 200
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+			diplomatic_relation = {
+				country = FRA
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = FRA
+				relation = military_access
+				active = no
+			}
+		}
+	}
+	focus = {
+		id = SVN_freeway
+		icon = GFX_focus_generic_population_growth
+		cost = 6
+		prerequisite = {
+			focus = SVN_clear_french
+		}
+		x = 10
+		y = 1
+		completion_reward = {
+			news_event = { id = svn.2 }
+			add_political_power = 300
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+		}
+
+	}
+	focus = {
+		id = SVN_technical_refugee
+		icon = GFX_focus_generic_university_3
+		cost = 6
+		prerequisite = {
+			focus = SVN_freeway
+		}
+		x = 10
+		y = 2
+		completion_reward = {
+			add_political_power = 300
+		}
+
+	}
+	focus = {
+		id = SVN_republic
+		icon = GFX_goal_vietnam_conghoa
+		cost = 6
+		prerequisite = {
+			focus = SVN_clear_french
+		}
+		x = 12
+		y = 2
+		completion_reward = {
+			recruit_character = SVN_Nguyen_NgocTho
+			news_event = { id = svn.102 }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+			add_political_power = 300
+		}
+
+	}
+	focus = {
+		id = SVN_president_ngo
+		icon = GFX_goal_gno_dingdiem
+		cost = 6
+		prerequisite = {
+			focus = SVN_republic
+		}
+		available = {
+			authoritarianism > 0.5
+		}
+		x = 10
+		y = 3
+		completion_reward = {
+			news_event = { id = svn.103 }
+			set_politics = { ruling_party = authoritarianism }
+			promote_character = SVN_Ngo_Dinhdiem
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.02
+			}
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = SVN_chatolics_support
+		icon = GFX_focus_generic_catholic_dominion
+		cost = 6
+		prerequisite = {
+			focus = SVN_christian_refugee
+		}
+		prerequisite = {
+			focus = SVN_president_ngo
+		}
+		x = 6
+		y = 4
+		completion_reward = {
+			recruit_character = SVN_Ngo_DinhCan
+			news_event = { id = gen.145 }
+			add_ideas = Catholicism
+			add_stability = 0.12
+			add_political_power = -200
+		}
+	}
+	
+	focus = {
+		id = SVN_supress_buddhism
+		icon = GFX_goal_PRC_posijiu
+		cost = 6
+		prerequisite = {
+			focus = SVN_chatolics_support
+		}
+		x = 6
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.161 }
+			add_stability = -0.12
+			add_political_power = -200
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.05
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_can_lao_party
+		icon = GFX_goal_vietnam_canlao_party
+		cost = 6
+		prerequisite = {
+			focus = SVN_president_ngo
+		}
+		x = 10
+		y = 4
+		completion_reward = {
+			recruit_character = SVN_Tranh_CanhThanh
+			news_event = { id = gen.161 }
+			add_political_power = 200
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.05
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_thanh_nu_cong_hoa
+		icon = GFX_goal_thanh_nu_cong_hoa
+		cost = 6
+		prerequisite = {
+			focus = SVN_can_lao_party
+		}
+		x = 8
+		y = 5
+		completion_reward = {
+			add_political_power = 120
+		}
+
+	}
+	focus = {
+		id = SVN_ngo_family
+		icon = GFX_focus_GER_expand_gestapo
+		cost = 6
+		prerequisite = {
+			focus = SVN_can_lao_party
+		}
+		x = 10
+		y = 5
+		completion_reward = {
+			add_political_power = 200
+			recruit_character = SVN_Ngo_DinhNhu
+			recruit_character = SVN_Tran_LeXuan
+		}
+
+	}
+	focus = {
+		id = SVN_militarist_gov
+		icon = GFX_goal_svn_military_gov
+		cost = 6
+		prerequisite = {
+			focus = SVN_republic
+		}
+		x = 14
+		y = 3
+		available = {
+			neutrality > 0.4
+			has_stability < 0.6
+		}
+		completion_reward = {
+			set_politics = { ruling_party = neutrality }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+			add_stability = 0.15
+			add_political_power = -100
+		}
+	}
+	focus = {
+		id = SVN_supress_commie
+		icon = GFX_goal_anti_communist
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_gov
+		}
+		prerequisite = {
+			focus = SVN_president_ngo
+		}
+		x = 12
+		y = 4
+		completion_reward = {
+			recruit_character = SVN_Do_CaoTri
+			add_political_power = 120
+			add_stability = 0.12
+			add_ideas = DietCong
+			news_event = { id = gen.51 }
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+		}
+
+	}
+	focus = {
+		id = SVN_Phu_Tinh_Bao
+		icon = GFX_goal_SVN_intel
+		cost = 6
+		prerequisite = {
+			focus = SVN_supress_commie
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_stability = 0.13
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_supress_militarist
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		cost = 6
+		prerequisite = {
+			focus = SVN_ngo_family
+		}
+		x = 12
+		y = 6
+
+	}
+	focus = {
+		id = SVN_buddha_focus
+		icon = GFX_goal_tfv_smiling_buddha
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 14
+		y = 0
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_ideas = Secularism
+			add_stability = 0.04
+			add_political_power = -100
+		}
+	}
+	focus = {
+		id = SVN_quocdandang
+		icon = GFX_goal_vietnam_quocdan_party
+		cost = 6
+		prerequisite = {
+			focus = SVN_republic
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 17
+		y = 3
+
+	}
+	focus = {
+		id = SVN_democratic_election
+		icon = GFX_goal_generic_national_unity
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocdandang
+		}
+		x = 17
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.82 }
+			set_country_flag = election_ready
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = SVN_supress_corropt
+		icon = GFX_goal_handcuffs
+		cost = 6
+		prerequisite = {
+			focus = SVN_democratic_election
+		}
+		x = 15
+		y = 5
+
+	}
+	focus = {
+		id = SVN_free_constitution
+		icon = GFX_goal_vote
+		cost = 6
+		prerequisite = {
+			focus = SVN_democratic_election
+		}
+		x = 17
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+	focus = {
+		id = SVN_asia_free_alliance
+		icon = GFX_goal_strike_china
+		cost = 6
+		prerequisite = {
+			focus = SVN_clear_french
+		}
+		x = 27
+		y = 2
+		completion_reward = {
+			recruit_character = SVN_Pham_DangLam
+		}
+
+	}
+	focus = {
+		id = SVN_relation_cam
+		icon = GFX_goal_diplo_kampuchea
+		cost = 6
+		prerequisite = {
+			focus = SVN_asia_free_alliance
+		}
+		x = 24
+		y = 3
+		available = {
+			country_exists = CAM
+			CAM = {
+				communism < 0.3
+			}
+		}
+		completion_reward = {
+			CAM = { news_event = { id = svn.110 } }
+			add_opinion_modifier = {
+				target = CAM
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SVN_relation_laos
+		icon = GFX_goal_diplo_laos
+		cost = 6
+		prerequisite = {
+			focus = SVN_asia_free_alliance
+		}
+		x = 26
+		y = 3
+		available = {
+			country_exists = LAO
+			LAO = {
+				communism < 0.3
+			}
+		}
+		completion_reward = {
+			LAO = { news_event = { id = svn.110 } }
+			add_opinion_modifier = {
+				target = LAO
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_relation_thailand
+		icon = GFX_goal_diplo_thailand
+		cost = 6
+		prerequisite = {
+			focus = SVN_relation_laos
+		}
+		prerequisite = {
+			focus = SVN_relation_cam
+		}
+		x = 25
+		y = 4
+		available = { 
+			SIA = { has_government = neutrality }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			SIA = { news_event = { id = svn.110 } }
+			add_opinion_modifier = {
+				target = SIA
+				modifier = USA_special_relationship
+			}
+			SIA = {
+				news_event = { id = usa.200 }
+				custom_effect_tooltip = Focus_USA_armssell_allowed
+				set_country_flag = usa_arms_sell
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_seat
+		icon = GFX_goal_SEAT
+		cost = 6
+		prerequisite = {
+			focus = SVN_relation_thailand
+		}
+		x = 25
+		y = 5
+
+	}
+	focus = {
+		id = SVN_relation_roc
+		icon = GFX_goal_diplo_roc
+		cost = 6
+		prerequisite = {
+			focus = SVN_asia_free_alliance
+		}
+		x = 28
+		y = 3
+		completion_reward = {
+			CHI = { news_event = { id = svn.110 } }
+			add_opinion_modifier = {
+				target = SIA
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = SVN_relation_guangxi
+		icon = GFX_goal_diplo_roc
+		cost = 6
+		prerequisite = {
+			focus = SVN_relation_roc
+		}
+		available = {
+			country_exists = GXC
+			GXC = {
+				controls_state = 594
+				communism < 0.3
+			}
+		}
+		x = 27
+		y = 4
+
+	}
+	focus = {
+		id = SVN_ROc_forces
+		icon = GFX_goal_roc_svn_nego
+		cost = 6
+		prerequisite = {
+			focus = SVN_relation_roc
+		}
+		x = 28
+		y = 5
+
+	}
+	focus = {
+		id = SVN_crownland
+		icon = GFX_goal_taynguyen_ethnics
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 30
+		y = 0
+	}
+	focus = {
+		id = SVN_taygngyuen_autonomy
+		icon = GFX_goal_taynguyen_ethnics
+		cost = 6
+		prerequisite = {
+			focus = SVN_crownland
+		}
+		x = 30
+		y = 1
+
+	}
+	focus = {
+		id = SVN_relation_kor
+		icon = GFX_goal_diplo_rok
+		cost = 6
+		prerequisite = {
+			focus = SVN_asia_free_alliance
+		}
+		available = {
+			country_exists = KOR
+			KOR = {
+				controls_state = 525
+				communism < 0.3
+			}
+		}
+		x = 30
+		y = 3
+		completion_reward = {
+			KOR = { news_event = { id = svn.110 } }
+			add_opinion_modifier = {
+				target = KOR
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_ROK_forces
+		icon = GFX_goal_kor_air_forces
+		cost = 6
+		prerequisite = {
+			focus = SVN_relation_kor
+		}
+		available = {
+			country_exists = KOR
+			KOR = {
+				controls_state = 525
+				communism < 0.3
+			}
+		}
+		x = 30
+		y = 4
+	}
+	focus = {
+		id = SVN_baodai_back
+		icon = GFX_goal_baodai
+		cost = 6
+		prerequisite = {
+			focus = SVN_clear_french
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 21
+		y = 2
+
+	}
+	focus = {
+		id = SVN_nguyen_dynasty
+		icon = GFX_goal_baodai_emperor
+		cost = 6
+		prerequisite = {
+			focus = SVN_baodai_back
+		}
+		x = 21
+		y = 4
+
+	}
+	focus = {
+		id = SVN_emperor_rules
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		cost = 6
+		prerequisite = {
+			focus = SVN_nguyen_dynasty
+		}
+		x = 18
+		y = 6
+
+	}
+	focus = {
+		id = SVN_confusious
+		icon = GFX_goal_confucion
+		cost = 6
+		prerequisite = {
+			focus = SVN_nguyen_dynasty
+		}
+		x = 22
+		y = 6
+
+	}
+	focus = {
+		id = SVN_empire
+		icon = GFX_goal_daiviet
+		cost = 6
+		prerequisite = {
+			focus = SVN_confusious
+		}
+		x = 22
+		y = 7
+		completion_reward = {
+			add_state_core = 766
+			add_state_core = 998
+			add_state_core = 752
+			add_state_core = 767
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CAM
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LAO
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_monarch_constitue
+		icon = GFX_goal_vote
+		cost = 6
+		prerequisite = {
+			focus = SVN_nguyen_dynasty
+		}
+		x = 20
+		y = 6
+
+	}
+	focus = {
+		id = SVN_quocquan
+		icon = GFX_goal_svn_militarist
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 39
+		y = 0
+
+	}
+	focus = {
+		id = SVN_police
+		icon = GFX_goal_ROV_police
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 33
+		y = 1
+
+	}
+	focus = {
+		id = SVN_emergency
+		icon = GFX_focus_generic_full_social_mobilization
+		cost = 6
+		prerequisite = {
+			focus = SVN_police
+		}
+		x = 33
+		y = 2
+
+	}
+	focus = {
+		id = SVN_hue_capital
+		icon = GFX_goal_hue_palace
+		cost = 6
+		prerequisite = {
+			focus = SVN_confusious
+		}
+		x = 24
+		y = 7
+
+	}
+	focus = {
+		id = SVN_airforce
+		icon = GFX_goal_ROV_airforce
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 35
+		y = 1
+		completion_reward = {
+			recruit_character = SVN_Tran_ThienKhiem
+		}
+
+	}
+	focus = {
+		id = SVN_research_fighters
+		icon = GFX_goal_F15
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_planes
+		}
+		x = 34
+		y = 3
+
+	}
+	focus = {
+		id = SVN_buy_planes
+		icon = GFX_goal_expand_the_luftwaffe
+		cost = 6
+		prerequisite = {
+			focus = SVN_airforce
+		}
+		x = 35
+		y = 2
+		completion_reward = {
+			air_experience = 100
+		}
+
+	}
+	focus = {
+		id = SVN_airbase
+		icon = GFX_focus_generic_air_bases
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_planes
+		}
+		x = 33
+		y = 4
+		completion_reward = {
+			air_experience = 100
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+		}
+
+	}
+	focus = {
+		id = SVN_develop_jet1
+		icon = GFX_focus_generic_cas_aircraft
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_planes
+		}
+		x = 35
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = light_air
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_develop_jet2
+		icon = GFX_goal_A10
+		cost = 6
+		prerequisite = {
+			focus = SVN_develop_jet1
+		}
+		x = 35
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = light_air
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_avalions
+		icon = GFX_focus_generic_cas_aircraft
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 37
+		y = 1
+
+	}
+	focus = {
+		id = SVN_helicop
+		icon = GFX_goal_uh1
+		cost = 6
+		prerequisite = {
+			focus = SVN_avalions
+		}
+		x = 37
+		y = 2
+
+	}
+	focus = {
+		id = SVN_militarist_indus_1
+		icon = GFX_goal_militarist
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 39
+		y = 1
+		available = {
+			has_tech = basic_machine_tools
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_militarist_indus_2
+		icon = GFX_goal_militarist
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_indus_1
+		}
+		x = 39
+		y = 2
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = infantry_weapons
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_airdrop
+		icon = GFX_focus_FIN_expand_air_force_academy
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_indus_2
+		}
+		x = 37
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = para_tech
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_militarist_indus_3
+		icon = GFX_goal_militarist
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_indus_2
+		}
+		x = 39
+		y = 3
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = infantry_weapons
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_political_works
+		icon = GFX_goal_can_lao_propaganda
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 31
+		y = 1
+		completion_reward = {
+			recruit_character = SVN_Truong_CongCuu
+		}
+
+	}
+	focus = {
+		id = SVN_popular_support
+		icon = GFX_goal_ROV_navy
+		cost = 6
+		prerequisite = {
+			focus = SVN_political_works
+		}
+		x = 31
+		y = 2
+		completion_reward = {
+				
+		}
+	}
+	focus = {
+		id = SVN_mechanized
+		icon = GFX_focus_SWE_lynx_armored_car
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_indus_1
+		}
+		x = 41
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = cat_light_armor
+			}
+		}
+	}
+	focus = {
+		id = SVN_armor
+		icon = GFX_goal_generic_army_tanks
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_indus_2
+		}
+		x = 41
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = cat_medium_armor
+				ahead_reduction = 2
+				uses = 1
+				category = cat_medium_armor
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_bietdong
+		icon = GFX_goal_ROV_bietdongquan
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 43
+		y = 1
+		completion_reward = {
+			army_experience = 300
+			set_technology = {
+					tech_special_forces = 1
+					advanced_special_forces = 1
+					improved_special_forces = 1
+			}
+			add_dynamic_modifier = { modifier = focus_special_forces_modifiers }
+		}
+	}
+	focus = {
+		id = SVN_broken_trail
+		icon = GFX_goal_unknown
+		cost = 6
+		prerequisite = {
+			focus = SVN_bietdong
+		}
+		x = 43
+		y = 2
+
+	}
+	focus = {
+		id = SVN_local_army
+		icon = GFX_goal_ROV_local_army
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 45
+		y = 1
+
+	}
+	focus = {
+		id = SVN_nacy
+		icon = GFX_goal_ROV_navy
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 47
+		y = 2
+		completion_reward = {
+			navy_experience = 180		
+		}
+	}
+	focus = {
+		id = SVN_coast_defence
+		icon = GFX_goal_unknown
+		cost = 6
+		prerequisite = {
+			focus = SVN_nacy
+		}
+		x = 45
+		y = 3
+
+	}
+	focus = {
+		id = SVN_buy_ship
+		icon = GFX_focus_generic_destroyer
+		cost = 6
+		prerequisite = {
+			focus = SVN_nacy
+		}
+		x = 47
+		y = 3
+		completion_reward = {
+			navy_experience = 180	
+		}
+
+	}
+	focus = {
+		id = SVN_buy_submarines
+		icon = GFX_focus_generic_destroyer
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_ship
+		}
+		x = 45
+		y = 4
+		completion_reward = {
+			navy_experience = 180		
+		}
+	}
+	focus = {
+		id = SVN_marines
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_ship
+		}
+		x = 43
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1958.1.1
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = marine_tech
+				ahead_reduction = 2
+				category = marine_tech
+			}
+			navy_experience = 180		
+		}
+	}
+	focus = {
+		id = SVN_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_submarines
+		}
+		x = 45
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = ss_tech
+			}	
+			navy_experience = 180		
+		}
+	}
+	focus = {
+		id = SVN_light_ships
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 6
+		prerequisite = {
+			focus = SVN_buy_ship
+		}
+		x = 47
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_tech
+				ahead_reduction = 2
+				category = cl_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = SVN_medium_ships
+		icon = GFX_focus_generic_cruiser2
+		cost = 6
+		prerequisite = {
+			focus = SVN_light_ships
+		}
+		x = 47
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = cl_tech
+				ahead_reduction = 2
+				category = dd_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = SVN_expand_navalbase
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 6
+		prerequisite = {
+			focus = SVN_nacy
+		}
+		x = 49
+		y = 3
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+			if = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+	focus = {
+		id = SVN_saigon_base
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 6
+		prerequisite = {
+			focus = SVN_expand_navalbase
+		}
+		x = 49
+		y = 4
+		completion_reward = {
+			navy_experience = 250	
+			386 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 13727
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 13727
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 13730
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 13730
+				}
+			}	
+		}
+
+	}
+	focus = {
+		id = SVN_take_northisland
+		icon = GFX_goal_island
+		cost = 6
+		prerequisite = {
+			focus = SVN_light_ships
+		}
+		x = 49
+		y = 5
+		completion_reward = {
+			832 = { add_core_of = SVN }
+		}
+	}
+	focus = {
+		id = SVN_supress_minor
+		icon = GFX_focus_SOV_penal_battalions
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 49
+		y = 1
+
+	}
+	focus = {
+		id = SVN_CIDG
+		icon = GFX_goal_m16
+		cost = 6
+		prerequisite = {
+			focus = SVN_supress_minor
+		}
+		x = 49
+		y = 2
+
+	}
+	focus = {
+		id = SVN_hoian_base
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 6
+		prerequisite = {
+			focus = SVN_expand_navalbase
+		}
+		x = 51
+		y = 4
+		completion_reward = {
+			navy_experience = 250	
+			753 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 13727
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 13727
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 13730
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 13730
+				}
+			}	
+		}
+
+	}
+	focus = {
+		id = SVN_take_southisland
+		icon = GFX_goal_island
+		cost = 6
+		prerequisite = {
+			focus = SVN_light_ships
+		}
+		x = 51
+		y = 5
+		completion_reward = {
+			842 = { add_core_of = SVN }
+		}
+	}
+	focus = {
+		id = SVN_suport_cambodia_rightwing
+		icon = GFX_goal_against_cambodia
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 54
+		y = 1
+		available = {
+			country_exists = CAM
+			CAM = {
+				OR = {
+					communism > 0.4
+					has_government = communism
+					has_country_leader_with_trait = pro_third_world
+				}
+			}
+		}
+		completion_reward = {
+			CAM = {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.15
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_suport_laos_rightwing
+		icon = GFX_goal_against_laos
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 56
+		y = 1
+		available = {
+			country_exists = LAO
+			LAO = {
+				OR = {
+					communism > 0.4
+					has_government = communism
+					has_country_leader_with_trait = pro_third_world
+					has_idea = laotian_united
+				}
+			}
+		}
+		completion_reward = {
+			LAO = {
+				add_stability = -0.12
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.15
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_american_assistance
+		icon = GFX_goal_m16
+		cost = 6
+		prerequisite = {
+			focus = SVN_quocquan
+		}
+		x = 52
+		y = 1
+		completion_reward = {
+			recruit_character = SVN_Joseph_Buttinger
+			set_country_flag = UsaAdvisorAllow
+			set_country_flag = USA_militar_advisor_focus
+			custom_effect_tooltip = USA_militar_advisor_focus
+		}
+
+	}
+	focus = {
+		id = SVN_strategic_vally
+		icon = GFX_goal_apartheid
+		cost = 6
+		prerequisite = {
+			focus = SVN_american_assistance
+		}
+		available = {
+			has_idea = VietCongRevolt
+		}
+		x = 51
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200
+				has_idea = VietCongRevolt
+			}
+		}
+		completion_reward = {
+			news_event = svn.65
+			add_stability = 0.06
+			add_political_power = -100
+			every_owned_state = {
+				add_resistance = -20
+			}
+		}
+	}
+	focus = {
+		id = SVN_ne_village
+		icon = GFX_goal_soviet_passport
+		cost = 6
+		prerequisite = {
+			focus = SVN_strategic_vally
+		}
+		x = 51
+		y = 3
+
+	}
+	focus = {
+		id = SVN_militarist_assis
+		icon = GFX_goal_US_troop_vietnam
+		cost = 6
+		prerequisite = {
+			focus = SVN_american_assistance
+		}
+		x = 54
+		y = 2
+
+	}
+	focus = {
+		id = SVN_american_opinion
+		icon = GFX_goal_diplo_usa
+		cost = 6
+		prerequisite = {
+			focus = SVN_militarist_assis
+		}
+		x = 53
+		y = 3
+
+	}
+	focus = {
+		id = SVN_economic
+		icon = GFX_goal_PRC_economic_reform
+		cost = 6
+		prerequisite = {
+			focus = SVN_hold_situation
+		}
+		x = 62
+		y = 0
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = SVN_social_reform
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 6
+		prerequisite = {
+			focus = SVN_dong
+		}
+		x = 58
+		y = 2
+		completion_reward = {
+			set_country_flag = social_reform
+				news_event = { id = gen.91 }
+			add_stability = 0.1
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = SVN_female_reform
+		icon = GFX_goal_rose
+		cost = 6
+		prerequisite = {
+			focus = SVN_social_reform
+		}
+		x = 56
+		y = 3
+		completion_reward = {
+			set_country_flag = female_refrom
+			news_event = { id = gen.54 }
+			add_political_power = 300
+			add_stability = 0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = SVN_lien_doi_phu_nu
+		icon = GFX_focus_FIN_mustapaidat
+		cost = 6
+		prerequisite = {
+			focus = SVN_female_reform
+		}
+		x = 56
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SVN_medic
+		icon = GFX_goal_medical
+		cost = 6
+		prerequisite = {
+			focus = SVN_social_reform
+		}
+		x = 58
+		y = 3
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = SVN_education
+		icon = GFX_goal_education
+		cost = 6
+		prerequisite = {
+			focus = SVN_economic
+		}
+		x = 71
+		y = 1
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					school < 1
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = SVN_tuu_quocngu
+		icon = GFX_goal_chuquocngu
+		cost = 6
+		prerequisite = {
+			focus = SVN_education
+		}
+		x = 70
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SVN_simpilized_tuunam
+		icon = GFX_goal_simpilized_tuunam
+		cost = 6
+		prerequisite = {
+			focus = SVN_education
+		}
+		x = 72
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SVN_electro_construct
+		icon = GFX_focus_generic_energy
+		cost = 3
+		prerequisite = {
+			focus = SVN_economic
+		}
+		x = 60
+		y = 1
+		available = {
+			has_tech = power_generation1
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					power_plant < 1
+					OR = {
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = city
+					}
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					power_plant < 1
+					OR = {
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = city
+					}
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_dynamic_modifier = {
+			modifier = power_construct_modifiers
+				days = 1800
+			}
+		}
+	}
+	focus = {
+		id = SVN_dong
+		icon = GFX_goal_svn_dong
+		cost = 6
+		prerequisite = {
+			focus = SVN_economic
+		}
+		x = 62
+		y = 1
+		completion_reward = {
+			custom_effect_tooltip = RMB_tip
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = SVN_infrastruct
+		icon = GFX_goal_generic_construct_civilian
+		cost = 6
+		prerequisite = {
+			focus = SVN_economic
+		}
+		x = 64
+		y = 1
+		completion_reward = {
+				every_owned_state = {
+				limit = {
+					infrastructure < 2
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = SVN_saigon_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 6
+		prerequisite = {
+			focus = SVN_infrastruct
+		}
+		x = 64
+		y = 2
+		completion_reward = {
+			286 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SVN_civil_indus_1
+		icon = GFX_focus_generic_modernize_industry
+		cost = 6
+		prerequisite = {
+			focus = SVN_dong
+		}
+		x = 62
+		y = 2
+		available = {
+			any_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+			}
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}	
+
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = SVN_foreign_invest
+		icon = GFX_focus_mex_privatisation
+		cost = 6
+		prerequisite = {
+			focus = SVN_civil_indus_2
+		}
+		x = 58
+		y = 4
+		available = {
+			has_stability > 0.7
+			OR = {
+				has_idea = civilian_economy
+				has_idea = partial_economic_mobilisation
+			}
+			NOT = {
+				has_idea = low_education
+				has_idea = low_diplomacy
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = foreign_companies_tool
+			add_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = SVN_civil_indus_2
+		icon = GFX_focus_generic_modernize_industry
+		cost = 6
+		prerequisite = {
+			focus = SVN_civil_indus_1
+		}
+		x = 62
+		y = 3
+		available = {
+			any_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+			}
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}	
+
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = SVN_civil_indus_3
+		icon = GFX_focus_generic_modernize_industry
+		cost = 6
+		prerequisite = {
+			focus = SVN_civil_indus_2
+		}
+		x = 62
+		y = 4
+		available = {
+			any_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+			}
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}	
+
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = SVN_plastic
+		icon = GFX_goal_plastic_indus
+		cost = 6
+		prerequisite = {
+			focus = SVN_civil_indus_1
+		}
+		x = 64
+		y = 3
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = rubber_processing
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+				any_owned_state = {
+		            is_controlled_by = ROOT 
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+				}
+			}
+		}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		    IF = {
+				limit = {
+				any_owned_state = {
+		            is_controlled_by = ROOT 
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+				}
+			}
+		}
+		}
+		}
+
+	}
+	focus = {
+		id = SVN_steel
+		icon = GFX_goal_steel
+		cost = 6
+		prerequisite = {
+			focus = SVN_civil_indus_2
+		}
+		x = 64
+		y = 4
+		available = {
+			has_tech = steel_making_tech
+			iron > 4
+			coal > 9
+		}
+		completion_reward = {
+			if = {
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 4
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			}
+		}
+	}
+	focus = {
+		id = SVN_landreform
+		icon = GFX_goal_PRC_baochan
+		cost = 6
+		prerequisite = {
+			focus = SVN_economic
+		}
+		x = 68
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 9999
+				date > 1955.1.1
+			}
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.04
+			}
+			custom_effect_tooltip = focus_landreform_tool
+			add_political_power = 120
+			add_stability = 0.1
+			add_to_variable = { influences = 40 }
+			news_event = { id = svn.19 }
+			set_country_flag = land_reform
+		}
+	}
+	focus = {
+		id = SVN_refugee_settlement
+		icon = GFX_focus_SWE_hygienic_housing
+		cost = 6
+		prerequisite = {
+			focus = SVN_landreform
+		}
+		available = {
+			has_idea = SVN_Immigration
+		}
+		x = 66
+		y = 2
+		completion_reward = {
+			add_political_power = 120
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.03
+			}
+		}
+	}
+	focus = {
+		id = SVN_rural_construct
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		cost = 6
+		prerequisite = {
+			focus = SVN_landreform
+		}
+		x = 68
+		y = 2
+
+	}
+	focus = {
+		id = SVN_dinh_dien
+		icon = GFX_goal_agriculture
+		cost = 6
+		prerequisite = {
+			focus = SVN_refugee_settlement
+		}
+		prerequisite = {
+			focus = SVN_rural_construct
+		}
+		x = 66
+		y = 3
+		completion_reward = {
+			custom_effect_tooltip = SVN_dinh_dien_tool
+			add_political_power = 120
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.03
+			}
+		}
+	}
+	focus = {
+		id = SVN_agriculture
+		icon = GFX_focus_generic_farmland
+		cost = 6
+		prerequisite = {
+			focus = SVN_rural_construct
+		}
+		x = 68
+		y = 3
+		completion_reward = {
+			set_technology = {
+				dispersed_industry = 1
+				dispersed_industry2 = 1
+				can_foods = 1
+				frozen_food = 1
+			}
+			add_to_variable = { influences = 40 }
+			custom_effect_tooltip = focus_tooltip_influence_40
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = SVN_plantation
+		icon = GFX_focus_generic_coffee
+		cost = 6
+		prerequisite = {
+			focus = SVN_agriculture
+		}
+		x = 68
+		y = 4
+
+	}
+	focus = {
+		id = SVN_plantation2
+		icon = GFX_focus_generic_coffee
+		cost = 6
+		prerequisite = {
+			focus = SVN_plantation
+		}
+		x = 68
+		y = 5
+
+	}
+	focus = {
+		id = SVN_plantation_rubber
+		icon = GFX_focus_generic_rubber_plantations
+		cost = 6
+		prerequisite = {
+			focus = SVN_plantation
+		}
+		x = 70
+		y = 5
+
+	}
+	focus = {
+		id = SVN_plantation3
+		icon = GFX_focus_generic_coffee
+		cost = 6
+		prerequisite = {
+			focus = SVN_plantation2
+		}
+		x = 68
+		y = 6
+
+	}
+	focus = {
+		id = SVN_social_theory_law
+		icon = GFX_focus_POL_end_the_regency
+		cost = 6
+		prerequisite = {
+			focus = SVN_chatolics_support
+		}
+		x = 4
+		y = 5
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		completion_reward = {
+			news_event = { id = gen.149 }
+			add_ideas = limited_exports
+		}
+	}
+	focus = {
+		id = SVN_defence_island
+		icon = GFX_goal_island
+		cost = 6
+		prerequisite = {
+			focus = SVN_take_southisland
+		}
+		prerequisite = {
+			focus = SVN_take_northisland
+		}
+		x = 50
+		y = 6
+
+	}
+	focus = {
+		id = SVN_develop_transport
+		icon = GFX_goal_generic_air_bomber
+		cost = 6
+		prerequisite = {
+			focus = SVN_develop_jet2
+		}
+		x = 34
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = medium_air
+			}
+		}
+	}
+	focus = {
+		id = SVN_develop_bomber
+		icon = GFX_focus_generic_long_range_aircraft
+		cost = 6
+		prerequisite = {
+			focus = SVN_develop_jet2
+		}
+		x = 36
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = heavy_air
+			}
+		}
+	}
+	focus = {
+		id = SVN_electronic
+		icon = GFX_goal_electronic
+		cost = 6
+		prerequisite = {
+			focus = SVN_civil_indus_3
+		}
+		x = 62
+		y = 5
+		available = {
+			has_tech = vaccum_tube
+			has_tech = improved_machine_tools
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronics
+				ahead_reduction = 1
+				category = electronics
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = focus_electro_tool
+		}
+
+	}
+	focus = {
+		id = SVN_high_tech
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 6
+		prerequisite = {
+			focus = SVN_electronic
+		}
+		x = 62
+		y = 6
+		available = {
+			has_tech = Semiconductor
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = electronics
+			}
+		}
+
+	}
+	focus = {
+		id = SVN_danang_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 6
+		prerequisite = {
+			focus = SVN_foreign_invest
+		}
+		x = 57
+		y = 5
+
+	}
+	focus = {
+		id = SVN_Commercial_Import_Program
+		icon = GFX_focus_generic_american_investments
+		cost = 6
+		prerequisite = {
+			focus = SVN_foreign_invest
+		}
+		x = 59
+		y = 5
+
+	}
+	focus = {
+		id = SVN_bienhoa
+		icon = GFX_goal_PRC_economic_reform
+		cost = 6
+		prerequisite = {
+			focus = SVN_foreign_invest
+		}
+		x = 58
+		y = 6
+
+	}
+	focus = {
+		id = SVN_infra
+		icon = GFX_goal_Hight_way
+		cost = 6
+		prerequisite = {
+			focus = SVN_rural_construct
+		}
+		x = 70
+		y = 3
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+			every_owned_state = {
+				limit = {
+					infrastructure < 2
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = SVN_PHI_forces
+		icon = GFX_goal_diplo_Philippines
+		cost = 6
+		prerequisite = {
+			focus = SVN_seat
+		}
+		x = 24
+		y = 6
+
+	}
+	focus = {
+		id = SVN_AST_forces
+		icon = GFX_goal_diplo_australia
+		cost = 6
+		prerequisite = {
+			focus = SVN_seat
+		}
+		x = 26
+		y = 6
+
+	}
+}

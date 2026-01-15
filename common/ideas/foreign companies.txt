@@ -1,0 +1,258 @@
+ideas = {
+	industrial_concern = {
+		designer = yes
+		common_Toshiba = {
+			picture = Toshiba
+			allowed = {
+				always = yes
+			}
+			available = {
+				has_opinion = {
+					target = JAP
+					value > 39
+				}
+			}	
+			visible = {
+				JAP = { has_completed_focus = JAP_Jinmu_boom }
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}	
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		common_SONY = {
+			allowed = {
+				always = yes
+			}
+			picture = SONY
+			available = {
+				has_opinion = {
+					target = JAP
+					value > 39
+				}
+			}	
+			visible = {
+				JAP = { has_completed_focus = JAP_Jinmu_boom }
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}	
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		common_toyota = {
+			picture = toyota
+			allowed = {
+				always = yes
+			}
+			available = {
+				has_opinion = {
+					target = JAP
+					value > 39
+				}
+			}	
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				JAP = { has_completed_focus = JAP_Jinmu_boom }
+			}
+			traits = { auto_manufacturer }
+		}
+		common_Ericsson = {
+			allowed = {
+				always = yes
+			}	
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_opinion = {
+					target = SWE
+					value > 39
+				}
+			}	
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		common_ikea = {
+			
+			picture = ikea
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				has_opinion = {
+					target = SWE
+					value > 39
+				}
+			}
+			traits = { cement_manufacturer }
+		}
+		common_volvo = {
+			
+			picture = volvo
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				has_opinion = {
+					target = SWE
+					value > 39
+				}
+			}
+			traits = { auto_manufacturer }
+		}
+		common_shell_oil = {
+						
+			picture = shell_oil
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				has_opinion = {
+					target = HOL
+					value > 39
+				}
+				has_opinion = {
+					target = ENG
+					value > 39
+				}
+			}
+			traits = { refinery_concern }
+		}
+		common_chevron = {
+						
+			picture = chevron
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				has_opinion = {
+					target = USA
+					value > 39
+				}
+			}
+			traits = { refinery_concern }
+		}
+		common_standard_oils = {
+						
+			picture = standard_oils
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				has_opinion = {
+					target = USA
+					value > 39
+				}
+			}
+			traits = { refinery_concern }
+		}
+		common_siemens = {
+			picture = siemens
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+				has_opinion = {
+					target = WDR
+					value > 39
+				}
+			}
+			ai_will_do = {
+				factor = 50
+			}
+			traits = { auto_manufacturer }
+		}
+		common_volkswagen = {
+	
+			picture = volkswagen
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_opinion = {
+					target = WDR
+					value > 39
+				}
+			}
+			ai_will_do = {
+				factor = 50
+			}
+			traits = { auto_manufacturer }
+		}
+		common_renault = {
+	
+			picture = renault
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_opinion = {
+					target = FRA
+					value > 39
+				}
+			}
+			ai_will_do = {
+				factor = 50
+			}
+			traits = { auto_manufacturer }
+		}
+		common_fiat = {
+			
+			picture = fiat
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			}
+			available = {
+				has_opinion = {
+					target = ITA
+					value > 39
+				}
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

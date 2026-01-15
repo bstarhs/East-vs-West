@@ -1,0 +1,763 @@
+scripted_map_modes = {
+	more_mapmodes_war_goals_map_mode = {
+		top = {
+			type = state
+
+			color = {
+				FROM = {
+					set_temp_variable = { alpha = 1.0 }
+					if = {
+						if = {
+							limit = {
+								has_state_flag = ethnics_Han
+							}
+							set_temp_variable = { red = 1.78 }
+							set_temp_variable = { green = 1.36 }
+							set_temp_variable = { blue = 0.8 }
+						}
+						if = {
+							limit = {
+								has_state_flag = ethnics_Inuit
+							}
+							set_temp_variable = { red = 1.78 }
+							set_temp_variable = { green = 1.36 }
+							set_temp_variable = { blue = 0.8 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Albanian
+							}
+							set_temp_variable = { red = 8.30 }
+							set_temp_variable = { green = 0.09 }
+							set_temp_variable = { blue = 0.05 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Bosniak
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 5.12 }
+							set_temp_variable = { blue = 0.01 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Croatia
+							}
+							set_temp_variable = { red = 7.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 3.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Belarus
+							}
+							set_temp_variable = { red = 7.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 3.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Lithuanian
+							}
+							set_temp_variable = { red = 7.13 }
+							set_temp_variable = { green = 0.09 }
+							set_temp_variable = { blue = 7.05 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Latvian
+							}
+							set_temp_variable = { red = 1.6 }
+							set_temp_variable = { green = 0 }
+							set_temp_variable = { blue = 0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Serbian
+							}
+							set_temp_variable = { red = 7.13 }
+							set_temp_variable = { green = 0.09 }
+							set_temp_variable = { blue = 7.05 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Norwegian
+							}
+							set_temp_variable = { red = 7.13 }
+							set_temp_variable = { green = 0.09 }
+							set_temp_variable = { blue = 7.05 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Scottish
+							}
+							set_temp_variable = { red = 0.00 }
+							set_temp_variable = { green = 4.09 }
+							set_temp_variable = { blue = 4.05 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_English
+							}
+							set_temp_variable = { red = 9.30 }
+							set_temp_variable = { green = 0.09 }
+							set_temp_variable = { blue = 0.05 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Vietnamese
+							}
+							set_temp_variable = { red = 9.30 }
+							set_temp_variable = { green = 0.09 }
+							set_temp_variable = { blue = 0.05 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Deutscher
+							}
+							set_temp_variable = { red = 0.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 0.55 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Slovakian
+							}
+							set_temp_variable = { red = 0.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 0.55 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Amharic
+							}
+							set_temp_variable = { red = 0.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 0.55 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Polish
+							}
+							set_temp_variable = { red = 3.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 2.55 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Laos
+							}
+							set_temp_variable = { red = 3.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 2.55 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Malayan
+							}
+							set_temp_variable = { red = 0.02 }
+							set_temp_variable = { green = 1.12 }
+							set_temp_variable = { blue = 3.01 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Mexican
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 9.12 }
+							set_temp_variable = { blue = 0.01 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Tibetan
+							}
+							set_temp_variable = { red = 0.79 }
+							set_temp_variable = { green = 7.12 }
+							set_temp_variable = { blue = 0.01 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Australian
+							}
+							set_temp_variable = { red = 0.79 }
+							set_temp_variable = { green = 7.12 }
+							set_temp_variable = { blue = 0.01 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Sweden
+							}
+							set_temp_variable = { red = 0.02 }
+							set_temp_variable = { green = 0.12 }
+							set_temp_variable = { blue = 7.01 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Dutch
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Castile
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 5.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Bambara
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Afrikaaners
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Czech
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_French
+							}
+							set_temp_variable = { red = 0.02 }
+							set_temp_variable = { green = 0.12 }
+							set_temp_variable = { blue = 7.01 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Caribbean
+							}
+							set_temp_variable = { red = 0.02 }
+							set_temp_variable = { green = 0.12 }
+							set_temp_variable = { blue = 7.01 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Chilenos
+							}
+							set_temp_variable = { red = 0.02 }
+							set_temp_variable = { green = 0.12 }
+							set_temp_variable = { blue = 7.01 }
+						}
+						else = {
+							limit = {
+								has_state_flag = ethnics_Quebec
+							}
+							set_temp_variable = { red = 0.02 }
+							set_temp_variable = { green = 0.12 }
+							set_temp_variable = { blue = 7.01 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Korean
+							}
+							set_temp_variable = { red = 1.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 2.55 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Yakut
+							}
+							set_temp_variable = { red = 1.30 }
+							set_temp_variable = { green = 0.69 }
+							set_temp_variable = { blue = 2.55 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Mongols
+							}
+							set_temp_variable = { red = 0.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Makua
+							}
+							set_temp_variable = { red = 0.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Greeks
+							}
+							set_temp_variable = { red = 0.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Hui
+							}
+							set_temp_variable = { red = 5.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Minnan
+							}
+							set_temp_variable = { red = 5.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Maghreb
+							}
+							set_temp_variable = { red = 5.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Maasai
+							}
+							set_temp_variable = { red = 5.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Aymara
+							}
+							set_temp_variable = { red = 5.13 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Ughurs
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 1.8 }
+							set_temp_variable = { blue = 8.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Barvarian
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 1.8 }
+							set_temp_variable = { blue = 8.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Somalian
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 1.8 }
+							set_temp_variable = { blue = 8.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Austrian
+							}
+							set_temp_variable = { red = 1.8 }
+							set_temp_variable = { green = 1.8 }
+							set_temp_variable = { blue = 1.8 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Ukraine
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 1.8 }
+							set_temp_variable = { blue = 8.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Khazakhs
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 9.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Argentina
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 9.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Finnish
+							}
+							set_temp_variable = { red = 0.09 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 9.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Yankee
+							}
+							set_temp_variable = { red = 0.00 }
+							set_temp_variable = { green = 2.0 }
+							set_temp_variable = { blue = 9.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Texas
+							}
+							set_temp_variable = { red = 1.00 }
+							set_temp_variable = { green = 0.0 }
+							set_temp_variable = { blue = 9.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Japanese
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 9.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Komi
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 9.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Octavian
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 9.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_CenturalAmerican
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 9.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Romanian
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 9.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Sami
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 5.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Khmer
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 5.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Canton
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Hutu
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Quechua
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Canadian
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Turkish
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Dennish
+							}
+							set_temp_variable = { red = 8.61 }
+							set_temp_variable = { green = 0.53 }
+							set_temp_variable = { blue = 2.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Russian
+							}
+							set_temp_variable = { red = 0.61 }
+							set_temp_variable = { green = 2.53 }
+							set_temp_variable = { blue = 0.18}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Arabs
+							}
+							set_temp_variable = { red = 0.13 }
+							set_temp_variable = { green = 1.8 }
+							set_temp_variable = { blue = 0.67}
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Brazilian
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 4.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Irish
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 4.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Persian
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Burmese
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Basque
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Mayan
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Estonian
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 1.86 }
+							set_temp_variable = { blue = 1.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Italian
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 1.86 }
+							set_temp_variable = { blue = 1.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Hungarian
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.86 }
+							set_temp_variable = { blue = 0.34 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Hindustan
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 1.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Manchu
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 1.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Kurdish
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 1.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Chewa
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 1.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Amazigh
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 1.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Colombian
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 1.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Thai
+							}
+							set_temp_variable = { red = 2.43 }
+							set_temp_variable = { green = 3.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Pashto
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Portuguese
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Bakongo
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Bangladesh
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Zhuang
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Bulgarian
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.52 }
+							set_temp_variable = { blue = 0.0 }
+						}
+						else_if = {
+							limit = {
+								has_state_flag = ethnics_Turkmeni
+							}
+							set_temp_variable = { red = 0.0 }
+							set_temp_variable = { green = 0.8 }
+							set_temp_variable = { blue = 0.0 }
+						}
+					}
+				}
+			}
+
+			thickness = no
+
+			targets = {
+				target_array = global.states
+			}
+		}
+
+		bottom = {
+			type = country
+
+			color = {
+				set_temp_variable = { alpha = 0.2 }
+				set_temp_variable = { thickness = 1.0 }
+				set_temp_variable = { red = 0.33 }
+				set_temp_variable = { green = 0.33 }
+				set_temp_variable = { blue = 0.33 }
+			}
+
+			thickness = yes
+			targets = {
+				targets = { ROOT }
+			}
+		}
+
+		far_text = country
+		near_text = state
+
+		update_daily = yes
+	}
+}

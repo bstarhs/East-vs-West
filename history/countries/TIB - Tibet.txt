@@ -1,0 +1,76 @@
+﻿capital = 322
+
+oob = "TIB_1936"
+set_country_flag = has_monarchs
+# Starting tech
+set_country_flag = third_world
+set_country_flag = himalaya
+set_technology = {
+	infantry_weapons = 1
+		basic_machine_tools = 1
+}
+
+add_ideas = {
+	Himalaya
+	TIbetan_Buddhism
+	isolated
+	limited_exports
+	no_welfare
+	tot_economic_mobilisation
+	TIB_Gaxha
+	TIB_slavery
+	low_education
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+}
+
+	set_popularities = {
+		democratic = 5
+		communism = 5
+		monarchism = 90
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Taktra Ngawang Sungrab Thutob"
+	desc = "POLITICS_JAMPHEL_YESHE_GYALTSEN_DESC"
+	picture = "gfx/leaders/TIB/Portrait_Tibet_Taktra.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		tratidional_trait
+	}
+}
+1951.1.1 = {
+	add_ideas = 17th_treaty
+	set_politics = {
+		ruling_party = monarchism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_politics = { ruling_party = monarchism }
+			create_country_leader = { 
+				name = "Dalai Lama XIV" 
+				picture = "gfx/leaders/TIB/Portrait_POLITICS_DALAI_LAMA.tga" 
+				expire = "2000.1.1" 
+				ideology =  monarchism 
+				traits = { } 
+			} 
+}
+create_country_leader = {
+	name = "Jiang Luojin Suolangjiebu"
+	picture = "gfx/leaders/TIB/Portrait_Tibet_Jiang_Luojin_Suolangjiebu.tga"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}

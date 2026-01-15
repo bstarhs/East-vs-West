@@ -1,0 +1,285 @@
+guiTypes = {
+	containerWindowType = {
+
+		name = "new_state_production"
+		position = { x=-50 y=-320 }
+			iconType = {
+				name ="food_icon"
+				spriteType = "GFX_food_icon"
+				position = { x=60 y=10 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "state_food_text"
+			}
+			instantTextBoxType = {
+				name ="state_food_production"
+				position = { x=70 y=10 }
+				font = "hoi_18mbs"
+				text = STATE_FOOD_VALUE
+				format = center
+				maxWidth = 60
+				maxHeight = 24
+				fixedsize = yes
+				pdx_tooltip = "state_food_text"
+			}
+			instantTextBoxType = {
+				name ="low_food"
+				position = { x=50 y=10 }
+				font = "hoi_18mbs"
+				text = "low_food"
+				format = left
+				maxWidth = 45
+				maxHeight = 24
+				fixedsize = no
+				pdx_tooltip = "low_food_tex"
+			}
+			buttonType = {
+				name ="add_foods"
+				spriteType = "GFX_zoom_in"
+				position = { x=120 y=0 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "state_add_foods"
+			}
+			buttonType = {
+				name ="reduce_foods"
+				spriteType = "GFX_zoom_out"
+				position = { x=120 y=13 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "state_reduce_foods"
+			}
+			iconType = {
+				name ="power_icon"
+				spriteType = "GFX_power_icon"
+				position = { x=60 y=30 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "state_food_text"
+			}
+	
+			instantTextBoxType = {
+				name ="state_POWER_low_coal"
+				position = { x=90 y=30 }
+				font = "hoi_18mbs"
+				text = state_POWER_low_coal
+				format = center
+				maxWidth = 60
+				maxHeight = 24
+				fixedsize = no
+				pdx_tooltip = "state_POWER_low_coal_tool"
+			}
+			instantTextBoxType = {
+				name ="state_POWER_production"
+				position = { x=70 y=30 }
+				font = "hoi_18mbs"
+				text = STATE_POWER_VALUE
+				format = center
+				maxWidth = 60
+				maxHeight = 24
+				fixedsize = no
+				pdx_tooltip = "state_power_text"
+			}
+			#医疗#
+		
+			iconType = {
+				name ="health_icon"
+				spriteType = "GFX_health_icon"
+				position = { x=60 y=50 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "state_food_text"
+				scale = 0.8
+			}
+			instantTextBoxType = {
+				name ="state_health_production"
+				position = { x=70 y=50 }
+				font = "hoi_18mbs"
+				text = STATE_HEALTH_VALUE
+				format = center
+				maxWidth = 60
+				maxHeight = 24
+				fixedsize = no
+				pdx_tooltip = "state_health_text"
+			}
+			#教育#
+		
+			iconType = {
+				name ="educate_icon"
+				spriteType = "GFX_education_icon"
+				position = { x=60 y=70 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "state_educate_text"
+				scale = 0.8
+			}
+			instantTextBoxType = {
+				name ="state_educate_production"
+				position = { x=70 y=70 }
+				font = "hoi_18mbs"
+				text = STATE_EDUCATION_VALUE
+				format = center
+				maxWidth = 60
+				maxHeight = 24
+				fixedsize = no
+				pdx_tooltip = "state_educate_text"
+			}
+	}
+
+	containerWindowType = {
+		name = "state_agriculture"
+		position = { x=62 y=-410 }
+		iconType = {
+			name ="state_wealth_icon"
+			spriteType = "GFX_state_wealth"
+			position = { x=60 y=20 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_agriculture_reach_text"
+		}
+		iconType = {
+			name ="state_rice_icon"
+			spriteType = "GFX_state_rice"
+			position = { x=60 y=20 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_agriculture_rice_text"
+		}
+		iconType = {
+			name ="state_weat_icon"
+			spriteType = "GFX_state_weat"
+			position = { x=60 y=20 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_agriculture_weat_text"
+		}
+	}
+	containerWindowType = {
+		name = "state_mines"
+		position = { x=110 y=-410 }
+		iconType = {
+			name ="state_coal"
+			spriteType = "GFX_state_coal"
+			position = { x=60 y=20 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_coal_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_fish"
+			spriteType = "GFX_state_fish"
+			position = { x=60 y=50 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_fish_text"
+			scale = 0.6
+		}
+		
+		iconType = {
+			name ="state_husbandry"
+			spriteType = "GFX_state_husbandry"
+			position = { x=100 y=50 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_husbandry_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_tobacco"
+			spriteType = "GFX_state_tobacco"
+			position = { x=100 y=50 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_tobacco_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_coffee"
+			spriteType = "GFX_state_coffee"
+			position = { x=80 y=50 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_coffee_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_sugar"
+			spriteType = "GFX_state_sugar"
+			position = { x=140 y=50 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_sugar_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_banana"
+			spriteType = "GFX_state_banana"
+			position = { x=170 y=50 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_banana_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_tourist"
+			spriteType = "GFX_economic_tourism"
+			position = { x=220 y=05 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_tourist_text"
+		}
+	
+			instantTextBoxType = {
+				name ="state_tourist_production"
+			position = { x=245 y=20 }
+				font = "hoi_18mbs"
+				text = STATE_tourist_VALUE
+				format = center
+				maxWidth = 60
+				maxHeight = 24
+				fixedsize = no
+			pdx_tooltip = "state_tourist_text"
+			}
+		
+		iconType = {
+			name ="state_wine"
+			spriteType = "GFX_state_wine"
+			position = { x=120 y=10 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_gold"
+			spriteType = "GFX_state_gold"
+			position = { x=150 y=10 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_gold_text"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_cutton"
+			spriteType = "GFX_state_cutton"
+			position = { x=180 y=10 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.6
+		}
+		iconType = {
+			name ="state_oil"
+			spriteType = "GFX_state_oil"
+			position = { x=150 y=20 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "state_oil_text"
+			scale = 0.6
+		}
+	}
+	containerWindowType = {
+		name = "state_production_build_list"
+		position = { x=62 y=-170 }
+			buttonType = {
+				name ="power_plant_select"
+				spriteType = "GFX_power_icon"
+				position = { x=60 y=-10 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "power_plant_select"
+			}
+			buttonType = {
+				name ="production_build_select"
+				spriteType = "GFX_conversion_mapicon_industry"
+				position = { x=80 y=-10 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "production_build_select"
+			}
+	}
+	containerWindowType = {
+		name = "state_power_production_building"
+		position = { x=62 y=-170 }
+	}
+	containerWindowType = {
+		name = "state_production_building"
+		position = { x=62 y=-170 }
+	}
+}

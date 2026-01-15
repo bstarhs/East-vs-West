@@ -1,0 +1,138 @@
+﻿capital = 283
+	set_cosmetic_tag = XSM_CHI
+set_country_flag = islam_state
+oob = "XSM_1947"
+# Starting tech
+	set_technology = {
+	steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	early_bomber = 1
+	
+	machine_gun1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_mountaineers = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	CAS1 = 1
+	construction1 = 1
+	marines = 1
+	paratroopers = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	
+	power_generation1 = 1
+}
+add_ideas = {
+	CHI_warlords_spirits
+	CHI_civil_war_deserters
+	all_adults_serve
+	corrupt
+	low_education
+	closed_economy
+	partial_economic_mobilisation
+	assimilation
+	Secularism
+	low_welfare
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+
+	oob = "XSM_1947"
+	
+	set_technology = {
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		fuel_silos = 1
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+	}
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
+}
+
+create_country_leader = {
+	name = "Ma Bufang"
+	desc = ""
+	picture = "gfx/leaders/XSM/Portrait_Ma_Bufang.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}
+
+create_corps_commander = {
+	name = "Ma Hongbin"
+	portrait_path = "gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+	traits = { }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+1949.1.1 = {
+	oob = "NO"
+}
+1955.1.1 = {
+	set_cosmetic_tag = HUI
+}

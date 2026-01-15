@@ -1,0 +1,1859 @@
+characters={
+	PRC_mao_zedong = {
+		name = PRC_mao_zedong
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PRC/Portrait_China_Mao_Zedong2.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { communist_revolutionary independent popular_figurehead voice_of_restraint cornered_fox }
+			expire = "1976.3.1.1"
+			desc = "ccp_title"
+		}
+	}
+	PRC_Guo_MoRuo={
+		name=PRC_Guo_MoRuo
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Guo_MoRuo.tga"
+				small="gfx/interface/ideas/idea_Guo_MoRuo.dds"
+			}
+		}
+		advisor={
+			visible={
+				date > 1958.1.1
+				has_completed_focus = prc24
+			}
+			slot = political_advisor
+			idea_token = Guo_MoRuo
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				political_power_cost = -0.03
+				drift_defence_factor = 0.04
+			}
+		}
+	}
+	PRC_Wang_DongXing={
+		name=PRC_Wang_DongXing
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Wang_DongXing.tga"
+				small="gfx/interface/ideas/idea_Wang_DongXing.dds"
+			}
+		}
+		advisor={
+			visible={
+				date > 1958.1.1
+			}
+			slot = political_advisor
+			idea_token = Wang_DongXing
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				compliance_growth_on_our_occupied_states = 0.05
+			}
+		}
+	}
+	PRC_Hu_Jintao={
+		name=PRC_Hu_Jintao
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Hu_JinTAo.tga"
+				small="gfx/interface/ideas/idea_Hu_Jintao.dds"
+			}
+		}
+		advisor={
+			visible={
+				date > 1958.1.1
+			}
+			slot = political_advisor
+			idea_token = Hu_Jintao
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+			}
+		}
+	}
+	PRC_Ren_BiShi={
+		name=PRC_Ren_BiShi
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Ren_BiShi.tga"
+				small="gfx/interface/ideas/idea_Ren_BiShi.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1950.10.1
+			}
+			slot = political_advisor
+			idea_token = Ren_BiShi
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				compliance_growth_on_our_occupied_states = 0.12
+				war_support_factor = 0.12
+			}
+		}
+	}
+	PRC_Li_RuiHuan={
+		name=PRC_Li_RuiHuan
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Li_RuiHuan.tga"
+				small="gfx/interface/ideas/idea_Li_RuiHuan.dds"
+			}
+		}
+		advisor={
+			visible={
+				date > 1958.1.1
+			}
+			slot = political_advisor
+			idea_token = Li_RuiHuan
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+			}
+		}
+	}
+	PRC_Li_XienNien={
+		name=PRC_Li_XienNien
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Li_XienNian.tga"
+				small="gfx/interface/ideas/idea_Li_XienNien.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1958.1.1
+			}
+			slot = political_advisor
+			idea_token = Li_XienNien
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+			}
+		}
+	}
+	PRC_gaogang={
+		name=PRC_gaogang
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_gaogang.tga"
+				small="gfx/interface/ideas/idea_gaogang.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+				comintern_workhorse
+			}
+			expire="1978.1.1.1"
+			id=-1
+			desc = "ccp_title"
+		}
+		advisor={
+			visible={
+				date < 1958.1.1
+			}
+			slot = political_advisor
+			idea_token = gaogang
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				silent_workhorse 
+			}
+		}
+	}
+	PRC_liu_shaoqi={
+		name=PRC_liu_shaoqi
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Liu_Shaoqi.tga"
+				small="GFX_idea_PRC_liu_shaoqi"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+				comintern_workhorse socialist_reformism Developmentalism 
+			}
+			expire="1978.1.1.1"
+			id=-1
+			desc = "ccp_title"
+		}
+		advisor={
+			visible={
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_liu_shaoqi
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				silent_workhorse 
+			}
+		}
+	}
+	PRC_deng_xiao_ping={
+		name=PRC_deng_xiao_ping
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Deng_xiaoping.tga"
+				small="gfx/interface/ideas/idea_deng_60s.dds"
+			}
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Deng.tga"
+				small="gfx/interface/ideas/idea_deng_60s.dds"
+			}
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+		advisor={
+			visible={
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = deng_xiao_ping
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				silent_workhorse 
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+				socialist_reformism
+				compassionate_gentleman
+				silent_workhorse
+				ideological_crusader
+			}
+			desc = "prc_militarist"
+			expire="1997.1.1.1"
+			id=-1
+		}
+	}
+	PRC_Jiang_ZeMin ={
+		name=PRC_Jiang_ZeMin
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Jiang_Zemin.tga"
+				small="gfx/interface/ideas/idea_Jiang_ZeMin.dds"
+			}
+		}
+		country_leader={
+			desc = "prc_security"
+			ideology=leninism
+			traits = {
+				socialist_reformism
+				compassionate_gentleman
+				silent_workhorse
+				ideological_crusader
+				economic_organizer
+			}
+			expire="1997.1.1.1"
+			id=-1
+		}
+		advisor={
+			visible={
+				date > 1984.1.1
+			}
+			slot = political_advisor
+			idea_token = Jiang_ZeMin
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				smooth_talking_charmer economic_organizer technocrat
+			}
+		}
+	}
+	PRC_Hua_Guofeng={
+		name=PRC_Hua_Guofeng
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Hua_Guofeng.dds"
+				large="gfx/leaders/PRC/Portrait_China_Hua_Guofeng.tga"
+			}
+		}
+		advisor={
+			visible={
+				date < 1982.1.1
+			}
+			slot = political_advisor
+			idea_token = Hua_Guofeng
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				silent_workhorse 
+			}
+		}
+		country_leader={
+			desc = "prc_security"
+			ideology=marxism
+			traits = {
+				popular_figurehead
+			}
+			expire="1997.1.1.1"
+			id=-1
+		}
+	}
+
+	PRC_zhu_de={
+		name=PRC_zhu_de
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Zhude.tga"
+				small="gfx/interface/ideas/idea_Zhu_De.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1976.1.1
+			}
+			slot = army_chief
+			idea_token = PRC_zhu_de
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_chief_morale_3
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 10.000
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1976.1.1
+			}
+			traits={ infantry_officer organizer }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_chen_yi={
+		name=PRC_chen_yi
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_ChenYi.tga"
+				small="gfx/interface/ideas/idea_PRC_chen_yi.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_chen_yi
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			visible={
+				date < 1971.1.1
+			}
+			traits = {
+				army_armored_2
+			}
+				cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander={
+			visible={
+				date < 1971.1.1
+			}
+			traits={ infantry_officer }
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	PRC_Wang_Hong_Wen={
+		name=PRC_Wang_Hong_Wen
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Wang_Hongwen.tga"
+				small="gfx/interface/ideas/idea_Wang_HongWen.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Wang_Hong_Wen
+			allowed  = {
+				original_tag  = PRC
+			}
+			visible={
+				date < 1977.1.1
+			}
+			traits  = {
+				ideological_crusader 
+			}
+		}
+	}
+	PRC_peng_dehuai={
+		name=PRC_peng_dehuai
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Peng_Dehuai.tga"
+				small="GFX_idea_Peng_DeHuai"
+			}
+		}
+		field_marshal={
+		visible={
+			date < 1973.1.1
+		}
+			traits={ guerilla_fighter winter_expert army_chief_maneuver_2 army_artillery_2 }
+			skill=4
+			attack_skill=3
+			defense_skill=5
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	PRC_liang_ma={
+		name=PRC_liang_ma
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			traits={ financial_expert }
+			expire="1949.1.1.12"
+			id=-1
+		}
+	}
+
+
+	### THEORISTS ###
+
+	#Claire Lee Chennault in shared file
+
+	PRC_liu_bocheng={
+		name=PRC_liu_bocheng
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Liu_Bocheng.tga"
+				small="gfx/interface/ideas/idea_Liu_BoCheng.dds"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ fhill_fighter fortress_buster offensive_doctrine army_chief_offensive_2 }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = PRC_liu_bocheng
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				military_theorist
+			}
+		}
+	}
+	### ARMY CHIEFS ###
+
+	# Alexander von Falkenhausen in shared file
+
+	# Zhu De up there in this file along with other Unit Leaders
+
+	PRC_he_long={
+		name=PRC_he_long
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Helong.tga"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ defensive_doctrine urban_assault_specialist army_regrouping_2 army_chief_organizational_2 }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_su_yu={
+		name=PRC_su_yu
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Suyu.tga"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ defensive_doctrine urban_assault_specialist army_regrouping_2 army_chief_organizational_2 }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+
+
+	### NAVY CHIEFS ###
+
+
+	### AIR CHIEFS ###
+
+	# Claire Lee Chennault in shared file
+
+	PRC_gao_gang={
+		name=PRC_gao_gang
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_2"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = PRC_gao_gang
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				air_chief_safety_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### MILITARY HIGH COMMAND ###
+
+	# Chen Yi up there in this file along with other Unit Leaders
+
+	PRC_xu_xiangqian={
+		name=PRC_xu_xiangqian
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Xu_XiangQian.tga"
+				small="GFX_idea_PRC_xu_xiangqian"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1988.1.1
+			}
+			traits={ defensive_doctrine offensive_doctrine }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={	
+			visible={
+				date < 1988.1.1
+			}
+			slot = high_command
+			idea_token = PRC_xu_xiangqian
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	PRC_Luo_RongHuan={
+		name=PRC_Luo_RongHuan
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Luo_RongHuan.tga"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1963.1.1
+			}
+			traits={ fast_planner trait_mountaineer}
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_nie_rongzhen={
+		name=PRC_nie_rongzhen
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Nie_Rongzhen.tga"
+				small="GFX_idea_Nie_RongZhen"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1987.1.1
+			}
+			traits={ fast_planner trait_mountaineer}
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={
+			visible={
+				date < 1987.1.1
+			}
+			slot = high_command
+			idea_token = PRC_nie_rongzhen
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	PRC_Hayashi_Yaichirou={
+		name=PRC_Hayashi_Yaichirou
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Hayashi_Yaichirou.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1958.1.1
+			}
+			cost = 100
+			slot = air_chief
+			idea_token = Hayashi_Yaichirou
+			ledger = air
+			allowed = {
+				original_tag = PRC
+			}
+			modifier = {
+				experience_gain_air_factor = 0.12
+			}
+		}
+	}
+	PRC_Huang_KeCheng={
+		name=PRC_Huang_KeCheng
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Huang_KeCheng.tga"
+			}
+		}
+		corps_commander={
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_Li_Tao={
+		name=PRC_Li_Tao
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Li_Tao.tga"
+				small="gfx/interface/ideas/idea_Li_Tao.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = army_chief
+			idea_token = Li_Tao
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			modifier = {
+				command_power_gain = 0.12
+			}
+		}
+	}
+	PRC_Liu_YaLou={
+		name=PRC_Liu_YaLou
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Liu_YaLou.tga"
+				small="gfx/interface/ideas/idea_Liu_YaLou.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={
+			visible = {
+				has_completed_focus = prc17
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = air_chief
+			idea_token = Liu_YaLou
+			ledger = air
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				air_equipment = 0.05
+			}
+		}
+	}
+	PRC_Liu_XingYuan={
+		name=PRC_Liu_XingYuan
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Liu_XingYuan.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_zhang_guohua={
+		name=PRC_zhang_guohua
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Zhang_GuoGuang.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+				date < 1968.1.1
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_Song_ShiLun={
+		name=PRC_Song_ShiLun
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Song_ShiLun.tga"
+				small="gfx/interface/ideas/idea_CHI_Song_ShiLun.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1961.1.1
+			}
+			traits={ hill_fighter logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={	
+			visible={
+				date < 1961.1.1
+			}
+			slot = high_command
+			idea_token = Song_ShiLun
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_entrenchment_1
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	PRC_chen_geng={
+		name=PRC_chen_geng
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_ChenGeng.tga"
+				small="GFX_idea_PRC_chen_geng"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1961.1.1
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={	
+			visible={
+				date < 1961.1.1
+			}
+			slot = high_command
+			idea_token = PRC_chen_geng
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	
+	PRC_ye_jianying={
+		name=PRC_ye_jianying
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Ye_Jianying.tga"
+				small="GFX_idea_yejianying_military"
+			}
+			civilian={
+				small="GFX_idea_YeJianying"
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1986.1.1
+			}
+			traits={ inspirational_leader fast_planner }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+		advisor={
+			visible={
+				date < 1970.1.1
+			}
+			slot = high_command
+			ledger = army
+			idea_token = PRC_ye_jianying_military
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+		}
+		advisor={
+			visible={
+				date < 1986.1.1
+				date > 1976.1.1
+			}
+			ledger = civilian
+			slot = political_advisor
+			idea_token = PRC_ye_jianying
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				the_statist
+			}
+			cost = 100
+		}
+	}
+	PRC_Chi_Haotian={
+		name=PRC_Chi_Haotian
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Chi_Haotian.tga"
+				small="GFX_idea_Xu_ShiYou"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Zhang_Aiping={
+		name=PRC_Zhang_Aiping
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Zhang_Aiping.tga"
+				small="gfx/interface/ideas/idea_CHI_Zhang_Aiping.dds"
+			}
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Zhang_Aiping.tga"
+				small="gfx/interface/ideas/idea_CHI_Zhang_Aiping.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+		advisor={
+			visible = {
+				date > 1960.1.1
+			}
+			cost = 150
+			slot = high_command
+			idea_token = Zhang_Aiping
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				rocketry = 0.25
+			}
+		}
+	}
+	PRC_Liu_Huaqing={
+		name=PRC_Liu_Huaqing
+		portraits={
+			navy={
+				large="gfx/leaders/PRC/Portrait_China_Liu_Huaqing.tga"
+				small="gfx/interface/ideas/idea_CHI_Liu_Huaqing.dds"
+			}
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Liu_Huaqing.tga"
+				small="gfx/interface/ideas/idea_CHI_Liu_Huaqing.dds"
+			}
+		}
+		navy_leader={
+			visible = {
+				date > 1960.1.1
+			}
+			traits={ navy_career_officer aviation_enthusiast caustic_personality blockade_runner superior_tactician }
+			skill=5
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=6
+		}
+		advisor={
+			visible = {
+				date > 1960.1.1
+			}
+			cost = 150
+			slot = high_command
+			idea_token = Liu_Huaqing
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				ship_modules_tech = 0.25
+			}
+		}
+	}
+	PRC_Tan_Zheng={
+		name=PRC_Tan_Zheng
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Tan_Zheng.tga"
+				small="gfx/interface/ideas/idea_CHI_Tan_Zheng.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1993.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Wang_Zhen={
+		name=PRC_Wang_Zhen
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Wang_Zhen.tga"
+				small="gfx/interface/ideas/idea_CHI_Wang_Zhen.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1993.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Wei_GuoQing={
+		name=Wei_GuoQing
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Wei_GuoQing.tga"
+				small="gfx/interface/ideas/idea_CHI_Wei_GuoQing.dds"
+			}
+		}
+		corps_commander={
+			visible={
+				date > 1950.1.1
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_ZhangWanNian={
+		name=ZhangWanNian
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_ZhangWanNian.tga"
+				small="gfx/interface/ideas/idea_CHI_ZhangWanNian.dds"
+			}
+		}
+		corps_commander={
+			visible={
+				date > 1990.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Li_Da={
+		name=Li_Da
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Li_Da.tga"
+				small="gfx/interface/ideas/idea_CHI_Li_Da.dds"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1993.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Tan_Zhenlin={
+		name=Tan_Zhenlin
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Tan_Zhenlin.tga"
+				small="gfx/interface/ideas/idea_CHI_Tan_Zhenlin.dds"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1983.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Peng_Zhen={
+		name=Peng_Zhen
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Peng_Zhen.tga"
+				small="gfx/interface/ideas/idea_CHI_Peng_Zhen.dds"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1986.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	PRC_Xu_ShiYou={
+		name=Xu_ShiYou
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Xu_ShiYou.tga"
+				small="GFX_idea_Xu_ShiYou"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1986.1.1
+				original_tag = PRC
+			}
+			traits={ hill_fighter  logistics_wizard }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={
+			visible={
+				date < 1986.1.1
+			}
+			slot = high_command
+			idea_token = Xu_ShiYou
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+		}
+	}
+
+
+	
+
+	### POLITICAL ADVISOR ###
+
+	# Communist Revolutionary auto-generated
+
+	# Kang Sheng in shared file
+
+	# science 
+	PRC_Qian_WeiChang={
+		name=PRC_Qian_WeiChang
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Qian_WeiChang.dds"
+				large="gfx/leaders/PRC/Portrait_China_Qian_WeiChang.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Qian_WeiChang
+			ledger = air
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				space = 0.12
+			}
+		}
+	}
+	PRC_Qian_Sanqiang={
+		name=PRC_Qian_Sanqiang
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Qian_Sanqiang.dds"
+				large="gfx/leaders/PRC/Portrait_China_Qian_Sanqiang.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Qian_Sanqiang
+			ledger = air
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+		}
+	}
+	PRC_Hua_LuoGeng={
+		name=Hua_LuoGeng
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_HuaLuoGeng.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+				date > 1949.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Hua_LuoGeng
+			ledger = air
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				electronics = 0.150
+			}
+		}
+	}
+	PRC_Qian_xuesen={
+		name=Qian_xuesen
+		portraits={
+			civilian={
+				small="GFX_idea_Qian_Xuesen"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = Qian_Xuesen
+			ledger = air
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				rocketry = 0.150
+			}
+			traits = {
+				rocket_scientist
+			}
+		}
+	}
+	PRC_Deng_Jiaxian={
+		name=Deng_Jiaxian
+		portraits={
+			civilian={
+				small="GFX_idea_Deng_Jiaxian"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Deng_Jiaxian
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+
+	# Luo Ruiqing in shared file
+
+	PRC_lin_bojiu={
+		name=PRC_lin_bojiu
+		portraits={
+			civilian={
+				small="GFX_idea_generic_political_advisor_asia_1"
+			}
+		}
+		advisor={
+			visible={
+				date < 1960.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_lin_bojiu
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				armaments_organizer 
+			}
+		}
+	}
+
+
+	PRC_li_xiannian={
+		name=PRC_li_xiannian
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_li_xiannian.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = li_xiannian
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				resistance_damage_to_garrison_on_our_occupied_states = -0.3
+				stability_factor = 0.05
+			}
+		}
+	}
+	PRC_zhou_enlai={
+		name=PRC_zhou_enlai
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Zhou_EnLai.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1976.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_zhou_enlai
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				ideological_crusader smooth_talking_charmer compassionate_gentleman 
+			}
+		}
+	}
+	PRC_Kang_Sheng={
+		name=PRC_Kang_Sheng
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Kang_Sheng.tga"
+				small="gfx/interface/ideas/idea_Kang_Sheng.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1975.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_Kang_Sheng
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				stability_factor = 0.15
+			}
+		}
+	}
+	PRC_Xie_FuZhi={
+		name=PRC_Xie_FuZhi
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Xie_FuZhi.tga"
+				small="gfx/interface/ideas/idea_Xie_FuZhi.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1976.1.1
+				date > 1964.1.1
+			}
+			slot = political_advisor
+			idea_token = Xie_FuZhi
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				stability_factor = 0.1
+			}
+		}
+	}
+	PRC_Zhang_Chun_Qiao={
+		name=PRC_Zhang_Chun_Qiao
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Zhang_ChunQiao.tga"
+				small="gfx/interface/ideas/idea_Zhang_ChunQiao.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1976.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_Zhang_Chun_Qiao
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				communism_drift = 0.01
+			}
+		}
+	}
+	PRC_Yao_WenYuan={
+		name=PRC_Yao_WenYuan
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Yao_WenYuan.tga"
+				small="gfx/interface/ideas/idea_Yao_WenYuan.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1976.1.1
+			}
+			slot = political_advisor
+			idea_token = Yao_WenYuan
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				political_power_factor = 0.03
+			}
+		}
+	}
+	PRC_Jiang_Qing={
+		name=PRC_Jiang_Qing
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Jiang_Qing.tga"
+				small="gfx/interface/ideas/idea_Jiang_Qing.dds"
+			}
+		}
+		advisor={
+			visible={
+				date < 1976.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_Jiang_Qing
+			allowed  = {
+				original_tag  = PRC
+			}
+			modifier  = {
+				communism_drift = 0.01
+				drift_defence_factor = 0.12
+			}
+		}
+	}
+	PRC_Li_Peng ={
+		name=PRC_Li_Peng
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Li_Peng.tga"
+				small="gfx/interface/ideas/idea_Li_Peng.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_completed_focus = prc39
+			}
+			slot = political_advisor
+			idea_token = Li_Peng
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits = { old_workhorse captain_of_industry }
+		}
+	}
+	PRC_WanLi ={
+		name=PRC_WanLi
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Liu_Shaoqi.tga"
+				small="gfx/interface/ideas/idea_WanLi.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_completed_focus = prc39
+			}
+			slot = political_advisor
+			idea_token = PRC_WanLi
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				smooth_talking_charmer economic_organizer technocrat
+			}
+		}
+	}
+	PRC_Xi_ZhongXun ={
+		name=PRC_Xi_ZhongXun
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Xi_ZhongXun.tga"
+				small="gfx/interface/ideas/idea_Xi_ZhongXun.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Xi_ZhongXun
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				smooth_talking_charmer economic_organizer technocrat
+			}
+		}
+	}
+	PRC_Hu_YaoBang ={
+		name=PRC_Hu_YaoBang
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Liu_Shaoqi.tga"
+				small="gfx/interface/ideas/idea_Hu_YaoBang.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_completed_focus = prc39
+				date < 1986.6.1
+			}
+			slot = political_advisor
+			idea_token = PRC_Hu_YaoBang
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				democratic_reformer popular_figurehead
+			}
+		}
+	}
+	PRC_Qiao_GuanHua ={
+		name=PRC_Qiao_GuanHua
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Qiao_GuanHua.tga"
+				small="gfx/interface/ideas/idea_Qiao_GuanHua.dds"
+			}
+		}
+		advisor={
+			visible={
+				date > 1953.6.1
+				date < 1975.6.1
+			}
+			slot = political_advisor
+			idea_token = Qiao_GuanHua
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits = {}
+		}
+	}
+	PRC_Qian_QiChen ={
+		name=PRC_Qian_QiChen
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Qian_QiChen.tga"
+				small="gfx/interface/ideas/idea_Qian_QiChen.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_completed_focus = prc39
+				date > 1986.6.1
+			}
+			slot = political_advisor
+			idea_token = Qian_QiChen
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits = {}
+		}
+	}
+	PRC_ChenYun ={
+		name=PRC_ChenYun
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_ChenYun.tga"
+				small="gfx/interface/ideas/idea_ChenYun.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_completed_focus = prc39
+				date < 1990.6.1
+			}
+			slot = political_advisor
+			idea_token = PRC_ChenYun
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits = { old_figurehead communist_revolutionary }
+		}
+	}
+	PRC_Zhao_ZiYang={
+		name=PRC_Zhao_ZiYang
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Zhao_Ziyang.tga"
+				small="gfx/interface/ideas/idea_Zhao_ZiYang.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_completed_focus = prc39
+				date < 1989.6.1
+			}
+			slot = political_advisor
+			idea_token = PRC_Zhao_ZiYang
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				democratic_reformer compassionate_gentleman
+			}
+		}
+	}
+	TIB_Panchen_Erdini={
+		name=Panchen_Erdini
+		portraits={
+			civilian={
+				small="GFX_idea_panchen"
+			}
+		}
+		advisor={
+			visible={
+				date < 1990.1.1
+			}
+			slot = political_advisor
+			idea_token = Panchen_Erdini
+			allowed  = {
+				OR = {
+					original_tag = PRC
+					original_tag = TIB
+				}
+			}
+			visible  = {
+				NOT = { has_idea = Cultrue_Revolution }
+			}
+			traits  = {
+				religion_leader
+			}
+		}
+	}
+	PRC_Luo_RuiChing={
+		name=PRC_Luo_RuiChing
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Luo_RuiQing.tga"
+				small="gfx/interface/ideas/idea_Luo_RuiQing.dds"
+			}
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Luo_RuiQing.tga"
+			}
+		}
+		advisor={
+			visible={
+				date < 1966.1.1
+				has_completed_focus = prc_police
+			}
+			slot = political_advisor
+			idea_token = PRC_Luo_RuiChing
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				prince_of_terror
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1966.1.1
+			}
+			traits={ hidden_sympathies brilliant_strategist army_chief_offensive_2 trickster }
+			skill=5
+			attack_skill=4
+			defense_skill=5
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_lin_biao={
+		name=PRC_lin_biao
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Lin_Biao.tga"
+				small="gfx/interface/ideas/idea_Lin_Piao.dds"
+			}
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Lin_Biao.tga"
+				small="gfx/interface/ideas/idea_Lin_Piao.dds"
+			}
+		}
+		country_leader={
+			desc = "ccp_title"
+			ideology=marxism
+			traits = {
+				pro_soviet perso nal_worship old_coup_maker comintern_workhorse
+			}
+			expire="1978.1.1.1"
+			id=-1
+		}
+		advisor={
+			visible={
+				date < 1972.1.1
+			}
+			slot = high_command
+			idea_token = PRC_lin_biao
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				mass_assault_expert
+			}
+			modifier = {
+				army_attack_speed_factor = 0.06
+				breakthrough_factor = 0.05
+			}
+			ai_will_do = {
+				factor = 10.000
+			}
+		}
+		field_marshal={
+			visible={
+				date < 1972.1.1
+			}
+			traits={ hidden_sympathies brilliant_strategist army_chief_offensive_2 trickster }
+			skill=5
+			attack_skill=9
+			defense_skill=5
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_dong_biwu={
+		name=PRC_dong_biwu
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_dong_biwu"
+			}
+		}
+		advisor={
+			visible={
+				date < 1975.1.1
+			}
+			slot = political_advisor
+			idea_token = PRC_dong_biwu
+			allowed  = {
+				original_tag  = PRC
+			}
+			traits  = {
+				popular_figurehead 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+}

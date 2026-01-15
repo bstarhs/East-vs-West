@@ -1,0 +1,1379 @@
+﻿add_namespace = raj
+#印度独立
+news_event = {
+	id = raj.1
+	title = raj.1.t
+	desc = raj.1.d
+	picture = GFX_IndiaIndependent
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		play_song = RAJ_1
+	}
+	trigger = {
+		AND = {
+			date > 1947.8.1
+			date < 1947.8.30
+			controls_state = 439
+		}
+		NOT = { has_global_flag = IndiaIndependent }
+	}
+	option = {
+		name = raj.1.a
+		set_global_flag = IndiaIndependent
+		if = {
+			limit = { tag = ENG }
+			release_on_controlled = IND
+			IND = {
+			transfer_state = 434
+			load_oob = "RAJ_1950"
+			}
+			KAS = {
+			transfer_state = 441
+			transfer_state = 755
+			transfer_state = 903
+			}
+		}
+	}
+}
+#海得拉巴问题
+news_event = {
+	id = raj.2
+	title = raj.2.t
+	desc = raj.2.d
+	picture = GFX_IndiaIndependent
+	fire_only_once = yes
+	trigger = {
+	country_exists = IND
+	country_exists = HYD
+	}
+	option = {
+		name = raj.2.a
+		HYD = { 
+			country_event = { id = raj.3 }
+		}
+		ENG = { 
+			end_puppet = HYD
+		}
+	}
+}
+#是否归顺
+news_event = {
+	id = raj.3
+	title = raj.3.t
+	desc = raj.3.d
+	picture = GFX_SikhArmy
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = raj.3.a
+		IND = {
+			transfer_state = 427
+		}
+	}
+	option = {
+		name = raj.3.a
+		IND = {
+			declare_war_on = { target = HYD type = annex_everything }
+		}
+	}
+}
+
+#甘地遇刺
+news_event = {
+	id = raj.4
+	title = raj.4.t
+	desc = raj.4.d
+	picture = GFX_GandhiDead
+	major = yes
+	trigger = {
+		tag = ENG
+		date > 1948.1.1
+		date < 1948.12.1
+		NOT = { has_global_flag = GandhiDeath }
+	}
+	mean_time_to_happen = { days = 10 }
+	immediate = {
+		play_song = RAJ_2
+	}
+	option = {
+		name = raj.4.a
+		if = {
+			set_global_flag = GandhiDeath
+			limit = { tag = IND }
+			add_stability = -0.2
+		}
+	}
+}
+
+#亚洲关系会议
+news_event = {
+	id = raj.5
+	title = raj.5.t
+	desc = raj.5.d
+	picture = GFX_AsianRelationsConference
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date < 1947.4.1
+	}
+	option = {
+		name = raj.5.a
+	}
+}
+
+#印度共和国成立
+news_event = {
+	id = raj.6
+	title = raj.6.t
+	desc = raj.6.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.5.a
+	}
+}
+
+
+#women's right
+news_event = {
+	id = raj.7
+	title = raj.7.t
+	desc = raj.7.d
+	picture = GFX_IndiaRefugee
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = ENG
+		date > 1947.2.1
+		date < 1947.3.1
+		NOT = { has_global_flag = raj7 }
+	}
+	option = {
+		name = raj.5.a
+		set_global_flag = raj7
+	}
+}
+news_event = {
+	id = raj.8
+	title = raj.8.t
+	desc = raj.8.d
+	picture = GFX_IndiaGeonocide
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = ENG
+		date > 1947.6.1
+		date < 1947.7.1
+		NOT = { has_global_flag = raj8 }
+	}
+	option = {
+		name = raj.5.a
+		set_global_flag = raj8
+	}
+}
+news_event = {
+	id = raj.9
+	title = raj.9.t
+	desc = raj.9.d
+	picture = GFX_IndiaRefugee
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date < 1947.4.1
+		date > 1947.6.1
+		NOT = { has_global_flag = raj9 }
+	}
+	option = {
+		name = raj.5.a
+		set_global_flag = raj9
+	}
+}
+
+
+#population control
+news_event = {
+	id = raj.10
+	title = raj.10.t
+	desc = raj.10.d
+	picture = GFX_IndiaIndependent
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			add_political_power = 200
+			#add_ideas = IND_pop_control
+		}
+	}
+	
+	option = {
+		name = raj.10.a
+		effect_tooltip = {
+			add_political_power = 200
+			#add_ideas = IND_pop_control
+		}
+	}
+}
+
+#USA aid
+news_event = {
+	id = raj.12
+	title = raj.12.t
+	desc = raj.12.d
+	picture = GFX_IndiaIndependent
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			#add_opinion_modifier = {
+			#	target = USA
+			#	modifier = IND_aid_positive
+			#}
+			#add_opinion_modifier = {
+			#	target = SOV
+			#	modifier = IND_aid_negative
+			#}
+		}
+	}
+	
+	option = {
+		name = raj.12.a
+		effect_tooltip = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			#add_opinion_modifier = {
+			#	target = USA
+			#	modifier = IND_aid_positive
+			#}
+			#add_opinion_modifier = {
+			#	target = SOV
+			#	modifier = IND_aid_negative
+			#}
+		}
+	}
+}
+
+#SOV aid
+news_event = {
+	id = raj.13
+	title = raj.13.t
+	desc = raj.13.d
+	picture = GFX_IndiaIndependent
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			#add_opinion_modifier = {
+			#	target = SOV
+			#	modifier = IND_aid_positive
+			#}
+			#add_opinion_modifier = {
+			#	target = USA
+			#	modifier = IND_aid_negative
+			#}
+		}
+	}
+	
+	option = {
+		name = raj.12.a
+		effect_tooltip = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			#add_opinion_modifier = {
+			#	target = SOV
+			#	modifier = IND_aid_positive
+			#}
+			#add_opinion_modifier = {
+			#	target = USA
+			#	modifier = IND_aid_negative
+			#}
+		}
+	}
+}
+
+#kashmir
+news_event = {
+	id = raj.17
+	title = raj.17.t
+	desc = raj.17.d
+	picture = GFX_Kashmir
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = IND
+		country_exists = KAS
+		date > 1947.11.1
+	}
+	fire_only_once = yes
+	option = {
+		name = raj.17.a
+		#要求
+		give_guarantee = KAS
+		ai_chance = {
+			factor = 100
+		}
+		#导致穆斯林袭击克什米尔
+		country_event = { id = raj.19 }
+	}
+	
+	option = {
+		#放弃克什米尔
+		name = raj.17.b
+		ai_chance = {
+			factor = 0
+		}
+		KAS = {
+			country_event = { id = raj.18 }
+		}
+	}
+}
+
+#巴基斯坦向克什米尔提出要求
+news_event = {
+	id = raj.18
+	title = raj.18.t
+	desc = raj.18.d
+	picture = GFX_Kashmir
+	is_triggered_only = yes
+	option = {
+		name = raj.18.a
+		#拒绝巴基斯坦
+		ai_chance = {
+			factor = 100
+		}
+		IND = {
+			country_event = { id = raj.19 }
+		}
+	}
+	option = {
+		name = raj.18.b
+		#接受
+		ai_chance = {
+			factor = 0
+		}
+			country_event = { id = raj.24 }
+		PAK = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+#穆斯林袭击克什米尔
+news_event = {
+	id = raj.19
+	title = raj.19.t
+	desc = raj.19.d
+	picture = GFX_IndianPkistanWar1947
+	is_triggered_only = yes
+	option = {
+		name = raj.19.a
+		ai_chance = {
+			factor = 100
+		}
+		#印度保护克什米尔并导致巴基斯坦入侵
+		IND = {
+				set_autonomy = {
+					target = KAS
+					autonomous_state = autonomy_dominion
+					freedom_level = 0.4
+				}
+			country_event  = { id = raj.21 }
+		}
+		KAS = {
+			set_politics = { ruling_party = monarchism }
+		}
+	}
+	option = {
+		name = raj.19.b
+		ai_chance = {
+			factor = 0
+		}
+		#印度放弃克什米尔
+		country_event = { id = raj.24 }
+	}
+}
+
+#克什米尔并入印度
+news_event = {
+	id = raj.20
+	title = raj.20.t
+	desc = raj.20.d
+	picture = GFX_IndianPkistanWar1947
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.20.a
+		IND = {
+			transfer_state = 441
+			transfer_state = 755
+			transfer_state = 903
+		}
+	}
+}
+
+#克什米尔战争
+news_event = {
+	id = raj.21
+	title = raj.21.t
+	desc = raj.21.d
+	picture = GFX_IndianPkistanWar1947
+	
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = RAJ_22
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = kashmir_war_video
+	}
+	option = {
+		name = raj.21.a
+		if = {
+			limit = { tag = PAK }
+			set_global_flag = kashmir_war
+			declare_war_on = {
+				target = KAS
+				type = annex_everything
+			}	
+		}
+		if = {
+			limit = { tag = KAS }
+			add_dynamic_modifier = { modifier = suprise_attack_modifier }
+		}
+		if = {
+			limit = { tag = IND }
+			add_dynamic_modifier = { modifier = suprise_attack_modifier }
+		}
+	}
+}
+
+#印度占领克什米尔
+news_event = {
+	id = raj.22
+	title = raj.22.t
+	desc = raj.22.d
+	picture = GFX_IndianPkistanWar1947
+	trigger = {
+		has_global_flag = kashmir_war
+		IND = {
+			has_war_with = PAK
+			controls_province = 2084 
+			controls_province = 1910 
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	option = {
+			name = raj.22.a
+		if = {
+			limit = { tag = IND }
+			transfer_state = 441
+			add_war_support = 0.2
+			add_stability = 0.1
+			PAK = {
+				add_war_support = -0.2
+				add_stability = -0.1
+			}
+		}
+	}
+}
+
+#巴基斯坦占领克什米尔
+news_event = {
+	id = raj.23
+	title = raj.23.t
+	desc = raj.23.d
+	picture = GFX_IndianPkistanWar1947
+	trigger = {
+					tag = IND
+					has_war_with = PAK
+					date < 1950.1.1
+	}
+	major = yes
+	mean_time_to_happen = { days = 12 }
+	option = {
+		name = raj.22.a
+		if = {
+			limit = { tag = IND }
+			add_war_support = -0.6
+		}
+		if = {
+			limit = { tag = PAK }
+			add_war_support = -0.6
+		}
+	}
+}
+
+#克什米尔并入巴基斯坦
+news_event = {
+	id = raj.24
+	title = raj.24.t
+	desc = raj.24.d
+	picture = GFX_IndianPkistanWar1947
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.24.a
+		PAK = {
+			transfer_state = 441
+			transfer_state = 755
+			transfer_state = 903
+		}
+	}
+}
+
+#联合国要求停火
+news_event = {
+	id = raj.25
+	title = raj.25.t
+	desc = raj.25.d
+	picture = GFX_IndianPkistanWar1947
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.25.b
+		if = {
+			limit = {
+				tag = PAK
+				PAK = { controls_province = 13723 }
+			}
+			430 = { set_demilitarized_zone = no }
+			433 = { set_demilitarized_zone = no }
+			transfer_state = 441
+			transfer_state = 430
+			white_peace = IND
+			IND = {
+				transfer_state = 755
+				transfer_state = 903
+			}
+			news_event = { id = raj.26 }
+		}
+		if = {
+			limit = {
+				tag = PAK
+				controls_province = 2041 
+				controls_province = 10905 
+				controls_province = 8005 
+			}
+			news_event = { id = raj.24 }
+			white_peace = IND
+			transfer_state = 441
+				transfer_state = 755
+				transfer_state = 903
+		}
+	}
+}
+
+#split 克什米尔分治
+news_event = {
+	id = raj.26
+	title = raj.26.t
+	desc = raj.26.d
+	picture = GFX_IndianPkistanWar1947
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = raj.26.a
+	}
+}
+#联合国要求停火
+news_event = {
+	id = raj.27
+	title = raj.27.t
+	desc = raj.27.d
+	picture = GFX_IndianPkistanWar1947
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.25.b
+		if = {
+			limit = {
+				tag = PAK
+				PAK = { controls_province = 13723 }
+			}
+			430 = { set_demilitarized_zone = no }
+			433 = { set_demilitarized_zone = no }
+			transfer_state = 441
+			transfer_state = 430
+			white_peace = IND
+			IND = {
+				transfer_state = 755
+				transfer_state = 903
+			}
+			news_event = { id = raj.26 }
+		}
+		if = {
+			limit = {
+				tag = PAK
+				controls_province = 2041 
+				controls_province = 10905 
+				controls_province = 8005 
+			}
+			news_event = { id = raj.24 }
+			white_peace = IND
+			transfer_state = 441
+				transfer_state = 755
+				transfer_state = 903
+		}
+	}
+}
+#发起不结盟运动
+news_event = {
+	id = raj.39
+	title = raj.39.t
+	desc = raj.39.d
+	picture = GFX_BandungConference
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.26.a
+	}
+}
+#印度进入藏南
+news_event = {
+	id = raj.46
+	title = raj.46.t
+	desc = raj.46.d
+	picture = GFX_SikhArmy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = raj.46.a
+		IND = {
+			country_event = { id = raj.47 }
+		}
+	}
+	
+	option = {
+		name = raj.46.b
+		add_political_power = -200
+		add_stability = -0.1
+	}
+}
+
+#中国警告
+news_event = {
+	id = raj.47
+	title = raj.47.t
+	desc = raj.47.d
+	picture = GFX_IndiaIndependent
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = raj.47.a
+		ai_chance = {
+			factor = 0	
+		}
+		news_event = { id = raj.48 }
+		PRC = {
+			transfer_state = 434
+		}
+		add_political_power = -200
+		add_stability = -0.1
+	}
+	
+	option = {
+		name = raj.47.b
+		ai_chance = {
+			factor = 10	
+		}
+		PRC = {
+			country_event = { id = raj.49 }
+		}
+	}
+}
+
+#印度同意撤离
+news_event = {
+	id = raj.48
+	title = raj.48.t
+	desc = raj.48.d
+	picture = GFX_IndiaIndependent
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.48.a
+	}
+}
+
+#印度拒绝撤离
+news_event = {
+	id = raj.49
+	title = raj.49.t
+	desc = raj.49.d
+	picture = GFX_SikhArmy
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			factor = 0	
+		}
+		name = raj.49.a
+		add_political_power = -200
+		add_stability = -0.1
+	}
+	
+	option = {
+		ai_chance = {
+			factor = 60	
+		}
+		name = raj.49.b
+		add_named_threat = {
+			threat = 4
+			name = Sino_Indian_Conflict
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 322
+				num_provinces = 4
+				on_win = raj.52
+			}
+				
+			defender = {
+				state = 434
+				num_provinces = 4
+				on_win = raj.51
+			}
+		}
+		IND = {
+			news_event = { id = raj.50 }
+			add_stability = -0.1
+		}
+	}
+}
+
+#边境战争
+news_event = {
+	id = raj.50
+	title = raj.50.t
+	desc = raj.50.d
+	picture = GFX_IndiaIndependent
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.50.a
+	}
+}
+#中国撤退
+news_event = {
+	id = raj.51
+	title = raj.51.t
+	desc = raj.51.d
+	picture = GFX_SikhArmy
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.51.a
+	}
+}
+#决定
+news_event = {
+	id = raj.52
+	title = raj.52.t
+	desc = raj.52.d
+	picture = GFX_ChinaIndiaWar
+	
+	is_triggered_only = yes
+	option = {
+		name = raj.52.a
+		ai_chance = {
+			factor = 10	
+		}
+		news_event = { id = raj.53 }
+	}
+	option = {
+		name = raj.52.a
+		news_event = { id = raj.54 }
+		PRC = {
+			transfer_state = 434
+		}
+	}
+}
+#胜利撤退
+news_event = {
+	id = raj.53
+	title = raj.53.t
+	desc = raj.53.d
+	picture = GFX_ChinaIndiaWar
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.53.a
+	}
+}
+#中国占领
+news_event = {
+	id = raj.54
+	title = raj.54.t
+	desc = raj.54.d
+	picture = GFX_ChinaIndiaWar
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+	}
+}
+#印度索要果阿
+news_event = {
+	id = raj.55
+	title = raj.55.t
+	desc = raj.55.d
+	picture = GFX_RajGoa
+	
+	is_triggered_only = yes
+	
+	option = {#同意
+		name = raj.47.a
+		ai_chance = {
+			factor = 0	
+		}
+		news_event = { id = raj.56 }
+		IND = {
+			transfer_state = 321
+		}
+		add_political_power = -200
+		add_stability = -0.1
+	}
+	
+	option = { #拒绝
+		name = raj.47.b
+		ai_chance = {
+			factor = 10	
+		}
+		IND = {
+			country_event = { id = raj.57 }
+		}
+	}
+}
+
+#葡萄牙同意撤离
+news_event = {
+	id = raj.56
+	title = raj.56.t
+	desc = raj.56.d
+	picture = GFX_RajGoa
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.56.a
+	}
+}
+
+#葡萄牙拒绝撤离
+news_event = {
+	id = raj.57
+	title = raj.57.t
+	desc = raj.57.d
+	picture = GFX_RajGoa
+	
+	is_triggered_only = yes
+	
+	option = { #放弃
+		ai_chance = {
+			factor = 0	
+		}
+		name = raj.57.a
+		add_political_power = -200
+		add_stability = -0.1
+	}
+	
+	option = { #开展
+		ai_chance = {
+			factor = 60	
+		}
+		name = raj.57.b
+		add_named_threat = {
+			threat = 1
+			name = Portugal_Indian_Conflict
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 425
+				num_provinces = 4
+				on_win = raj.62
+			}
+				
+			defender = {
+				state = 321
+				num_provinces = 4
+				on_win = raj.59
+			}
+		}
+		IND = {
+			news_event = { id = raj.58 }
+			add_stability = -0.1
+		}
+	}
+}
+
+#边境战争
+news_event = {
+	id = raj.58
+	title = raj.58.t
+	desc = raj.58.d
+	picture = GFX_SikhArmy
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.58.a
+	}
+}
+#印度撤退
+news_event = {
+	id = raj.59
+	title = raj.59.t
+	desc = raj.59.d
+	picture = GFX_SikhArmy
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.59.a
+	}
+}
+#印度占领
+news_event = {
+	id = raj.62
+	title = raj.62.t
+	desc = raj.62.d
+	picture = GFX_RajGoa
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		IND = {
+			transfer_state = 321
+		}
+		name = raj.62.a
+	}
+}
+
+#尼赫鲁去世
+news_event = {
+	id = raj.87
+	title = raj.87.t
+	desc = raj.87.d
+	picture = GFX_NehruDeath
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IND
+		date > 1964.1.1
+		date < 1964.12.1
+	}
+	
+	option = {	#夏斯特里
+		name = raj.87.a
+		ai_chance = {
+			factor = 60	
+		}
+		create_country_leader = {
+			name = "Lal Bahadur Shastri"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/IND/Portrait_India_Lal_Bahadur_Shastri.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#德赛
+		name = raj.87.b
+		ai_chance = {
+			factor = 40	
+		}
+		create_country_leader = {
+			name = "Morarji Ranchhodji Desai"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/IND/Portrait_India_Morarji_Desai.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+	}
+}
+
+#第二次印巴战争
+news_event = {
+	id = raj.88
+	title = raj.87.t
+	desc = raj.87.d
+	picture = GFX_NehruDeath
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PAK
+		date > 1965.8.1
+		date < 1966.1.1
+	}
+	
+	option = {	#夏斯特里
+		name = raj.87.a
+		IND = { news_event = { id = raj.89 } }
+	}
+}
+#第二次印巴战争
+news_event = {
+	id = raj.89
+	title = raj.87.t
+	desc = raj.87.d
+	picture = GFX_NehruDeath
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {	#夏斯特里
+		name = raj.87.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 440
+				num_provinces = 4
+				on_win = raj.90
+				on_lose = raj.90
+			}
+				
+			defender = {
+				state = 439
+				num_provinces = 4
+				on_win = raj.90
+				on_lose = raj.90
+			}
+		}
+	}
+}
+#停战
+news_event = {
+	id = raj.90
+	title = raj.87.t
+	desc = raj.87.d
+	picture = GFX_NehruDeath
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		IND = {
+			white_peace = PAK
+		}
+		PAK = {
+			white_peace = IND
+		}
+	}
+}
+#夏斯特里
+news_event = {
+	id = raj.91
+	title = raj.87.t
+	desc = raj.87.d
+	picture = GFX_NehruDeath
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = IND
+		date > 1966.1.1
+		date < 1966.5.1
+	}
+	
+	option = {	#英迪拉
+		name = raj.87.a
+		ai_chance = {
+			factor = 60	
+		}
+		create_country_leader = {
+			name = "Indira Gandhi"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/IND/Portrait_India_Indir_Gandhi.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+				popular_figurehead silent_workhorse pro_soviet pro_third_world
+			}
+		}
+	}
+	
+	option = {	#德赛
+		name = raj.87.b
+		ai_chance = {
+			factor = 40	
+		}
+		create_country_leader = {
+			name = "Morarji Ranchhodji Desai"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/IND/Portrait_India_Morarji_Desai.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+	}
+}
+#英迪拉遇刺
+news_event = {
+	id = raj.95
+	title = raj.95.t
+	desc = raj.95.d
+	picture = GFX_IndiraAssassin
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = IND
+		date > 1984.10.1
+		date < 1985.12.1
+		NOT = { has_global_flag = indira_dead }
+	}
+	option = {
+		name = yug.6.a
+		set_global_flag = indira_dead
+		if = {
+			limit = { tag = IND }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.1
+			}
+			add_stability = -0.15
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Rajiv Gandhi"
+				picture = "gfx/leaders/IND/Portrait_India_Rajiv_Gandhi.tga"
+				ideology = authoritarianism
+				traits = {
+					pro_third_world the_young_magnate ideological_crusader
+				}
+			}
+		}
+	}
+}
+#中国占领
+news_event = {
+	id = raj.100
+	title = raj.100.t
+	desc = raj.100.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+	}
+}
+#印度开始筹备亚洲运动会
+news_event = {
+	id = raj.101
+	title = raj.101.t
+	desc = raj.101.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+		if = {
+			limit = {
+				NOT = { tag = IND }
+				has_war = no
+				is_subject = no
+				OR = {
+					has_country_flag = southeastasia
+					has_country_flag = eastasia
+					has_country_flag = indian_state
+				}
+			}
+			news_event = { id = raj.102 days = 3 }
+		}
+	}
+}
+#中国占领
+news_event = {
+	id = raj.102
+	title = raj.102.t
+	desc = raj.102.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+	}
+}
+#中国占领
+news_event = {
+	id = raj.103
+	title = raj.103.t
+	desc = raj.103.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+	}
+}
+#中国占领
+news_event = {
+	id = raj.110
+	title = raj.110.t
+	desc = raj.110.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+	}
+}
+news_event = {
+	id = raj.111
+	title = raj.111.t
+	desc = raj.111.d
+	picture = GFX_IndiaIndependent
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = raj.54.a
+	}
+}
+#天鹅绒革命
+news_event = {
+	id = raj.120
+	title = cze.25.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_TibetanArmy
+	trigger = {
+			tag = IND
+			date > 1989.12.1
+	}
+	option = {
+		name = cze.20.b2
+		create_country_leader = {
+			name = "Vishwanath Pratap Singh"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/IND/Portrait_India_Vishwanath_Singh.tga"
+			expire = "1994.1.1"
+			ideology = authoritarianism
+				
+			traits = {
+			
+			}
+		}
+	}
+}
+
+#阿萨姆独立战争
+news_event = {
+	id = raj.150
+	title = cze.25.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_TibetanArmy
+	trigger = {
+		tag = IND
+		has_stability < 0.2
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		IND = {
+			declare_war_on = { target = ASM type = annex_everything }
+		}
+		ASM = {
+			transfer_state = 432
+		}
+		
+	}
+}
+
+#萨维特莉
+news_event = {
+	id = raj.200
+	title = raj.200.t
+	desc = raj.200.d
+	fire_only_once = yes
+	picture = GFX_SavitriDevi
+	is_triggered_only = yes
+	option = { 
+		name = raj.200.a
+		set_cosmetic_tag = INDDEVI
+		set_politics = { ruling_party = neutrality }
+		create_country_leader = {
+			name = "Savitri Devi Mukherji"
+			picture = "gfx/leaders/IND/Portrait_India_Savitri_Devi.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+
+news_event = {
+	id = raj.201
+	title = raj.201.t
+	desc = raj.201.d
+	major = yes
+	picture = GFX_SavitriDevi
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = IND
+		date > 1958.6.1
+		date < 1959.1.1
+		NOT = { has_global_flag = raj201 }
+	}
+	option = { 
+		name = raj.201.a
+		set_global_flag = raj201
+	}
+}
+
+news_event = {
+	id = raj.202
+	title = raj.202.t
+	desc = raj.202.d
+	major = yes
+	picture = GFX_SriAurobindo
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = IND
+		date > 1950.12.5
+		date < 1951.1.1
+		NOT = { has_global_flag = raj202 }
+	}
+	option = { 
+		name = raj.201.a
+		set_global_flag = raj202
+	}
+}

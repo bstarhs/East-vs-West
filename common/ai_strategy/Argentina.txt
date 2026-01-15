@@ -1,0 +1,26 @@
+ARG_Falkland = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = ARG
+		has_government = neutrality
+		has_war_with = ENG
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 64
+		value = 80
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "ENG"		
+		value = 200
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = {
+			299
+			720
+		}
+	}
+}

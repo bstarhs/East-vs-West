@@ -1,0 +1,439 @@
+﻿add_namespace = bel
+
+news_event = {
+	id = bel.1
+	title = bel.1.t
+	desc = bel.1.d
+	picture = GFX_Juliana
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1950.7.1
+		date < 1950.10.1
+		NOT = { has_idea = LeopoldIII }
+		tag = BEL
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = BEL }
+			add_ideas = LeopoldIII
+			add_ideas = LeopoldCrisis
+			add_political_power = -200
+			add_stability = -0.35
+		}
+	}
+
+}
+news_event = {
+	id = bel.5
+	title = bel.5.t
+	desc = bel.5.d
+	picture = GFX_Juliana
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		has_idea = LeopoldCrisis
+		tag = BEL
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = BEL }
+			add_political_power = -20
+			add_stability = -0.02
+			34 = { add_resistance = 5 }
+		}
+	}
+
+}
+news_event = {
+	id = bel.6
+	title = bel.6.t
+	desc = bel.6.d
+	picture = GFX_Juliana
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		has_idea = LeopoldCrisis
+		has_idea = LeopoldIII
+		tag = BEL
+		date > 1951.10.1
+	}
+	option = {
+		name = den.1.a
+		remove_ideas = LeopoldCrisis
+		remove_ideas = LeopoldIII
+		add_ideas = Baudouin
+		add_political_power = 300
+		add_stability = 0.3
+		news_event = { id = bel.10 }
+	}
+
+}
+#1947
+country_event = {
+	id = bel.2
+	title = bel.2.t
+	desc = bel.2.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1947.3.1
+		date < 1948.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Paul-Henri Spaak"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Paul_Henri_Spaak.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+news_event = {
+	id = bel.20
+	title = bel.20.t
+	desc = bel.20.d
+	picture = PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+		if = {
+			limit = { is_in_faction_with = BEL }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_2
+				amount = 3000
+				producer = BEL
+			}
+			USA = { news_event = { id = bel.21 } }
+			BEL = { news_event = { id = bel.21 } }
+			if = {
+				limit = { NOT = { has_tech = infantry_weapons1 } }
+				set_technology = { infantry_weapons1 = 1 }
+				add_ideas = us_762mm_modifier
+			} 
+		}
+			else_if = {
+				limit = { NOT = { has_tech = infantry_weapons1 } }
+				set_technology = { infantry_weapons1 = 1 }
+				add_ideas = us_762mm_modifier
+			} 
+	}
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = bel.21
+	title = bel.21.t
+	desc = bel.21.d
+	picture = PRC_SOV_friends_ship
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = bel.10
+	title = bel.10.t
+	desc = bel.10.d
+	picture = GFX_Juliana
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = BEL }
+			remove_ideas = LeopoldIII
+			add_ideas = Baudouin
+			add_political_power = 200
+			add_war_support = 0.2
+		}
+	}
+
+}
+#1949
+country_event = {
+	id = bel.29
+	title = bel.29.t
+	desc = bel.29.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1949.3.1
+		date < 1950.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Gaston Eyskens"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Gaston_Eyskens.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1952
+country_event = {
+	id = bel.40
+	title = bel.20.t
+	desc = bel.20.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1952.3.1
+		date < 1953.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Jean Van Houtte"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Gaston_Eyskens.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1954
+country_event = {
+	id = bel.50
+	title = bel.20.t
+	desc = bel.20.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1954.3.1
+		date < 1955.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Achille Van Acker"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Achille_Acker.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1958
+country_event = {
+	id = bel.60
+	title = bel.20.t
+	desc = bel.20.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1958.3.1
+		date < 1959.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Gaston Eyskens"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Gaston_Eyskens.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1961
+country_event = {
+	id = bel.70
+	title = bel.20.t
+	desc = bel.20.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1961.3.1
+		date < 1962.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Théo Lefèvre"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Theo_Lefevre.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1965
+country_event = {
+	id = bel.80
+	title = bel.20.t
+	desc = bel.20.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1965.3.1
+		date < 1966.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Pierre Harmel"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Theo_Lefevre.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1968
+country_event = {
+	id = bel.90
+	title = bel.20.t
+	desc = bel.20.d
+	picture = GFX_BelElection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BEL
+		date > 1968.3.1
+		date < 1969.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = bel.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Gaston Eyskens"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/BEL/Portrait_Belgium_Gaston_Eyskens.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = bel.30
+	title = bel.30.t
+	desc = bel.30.d
+	picture = GFX_SputnikBrussele
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1958.4.1
+		date < 1958.6.1
+		NOT = { has_global_flag = bel30 }
+		tag = BEL
+		SOV = { has_country_flag = Satellite_succes }
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = bel30
+			add_political_power = 200
+		}
+		if = {
+			limit = {
+				has_country_flag = west_euro_state
+				NOT = { has_government = communism }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+
+}

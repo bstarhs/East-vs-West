@@ -1,0 +1,59 @@
+
+state={
+	id=57
+	name="STATE_57"
+	manpower = 5109333
+	state_category = large_city
+	local_supplies=0.0
+	resources={
+		coal=17
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Deutscher
+		add_to_array = { this.state_ethnics_list = 63 }
+                              
+		owner = ENG
+		controller = ENG
+		add_core_of = RHI
+		victory_points = {
+			495 6
+		}
+		victory_points = {
+			9509 6
+		}
+		victory_points = {
+			6535 4
+		}
+		buildings = {
+			school = 1
+			hospital = 1
+			steel_making = 3
+			farm_building = 4
+			infrastructure = 1
+			arms_factory = 2
+			industrial_complex = 1
+			air_base = 3
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		1949.5.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = WDR
+			add_core_of = DDR
+		}
+		1954.8.17 = {
+			buildings = {
+				rubber_factory = 2
+				anti_air_building = 2
+			}
+		}
+
+	}
+
+	provinces={
+		405 495 3355 3398 6535 6622 9443 9509 11346 11431 
+	}
+}

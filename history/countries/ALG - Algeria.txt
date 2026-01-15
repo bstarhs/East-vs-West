@@ -1,0 +1,161 @@
+﻿capital = 459
+
+
+set_country_flag = islam_state
+set_country_flag = third_world
+set_country_flag = maghrib_state
+set_research_slots = 2
+set_convoys = 500
+set_stability = 0.75
+set_country_flag = arabs_state
+
+set_technology = {
+		excavation1 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+		medical1 = 1
+	
+	power_generation1 = 1
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+	
+}
+
+
+	set_popularities = {
+		democratic = 6
+		communism = 4
+		authoritarianism = 84
+		fascism = 6
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1945.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+recruit_character = ALG_Ahmad_Ben_Bella
+recruit_character = ALG_Houari_Boumediene
+recruit_character = ALG_Abane_Ramdane
+
+
+1954.6.19 = {
+		set_global_flag = AlgeriaRevolt
+	add_ideas = {
+		scraping_the_barrel
+		Sunni
+		ColonyWar
+	}
+	OOB = "ALG_1956"
+}
+	create_country_leader = {
+		name = "Ferhat Abbas"
+		desc = "POLITICS_AGUSTIN_PEDRO_JUSTO_DESC"
+		picture = "gfx/leaders/ALG/Portrait_Algeria_Ferhat_Abbas.tga"
+		expire = "1965.1.1"
+		ideology = authoritarianism
+		traits = {
+			arabs_nationalism
+		}
+	}
+1955.6.19 = {
+			promote_character = ALG_Abane_Ramdane
+}
+1958.1.1 = {
+	recruit_character = ALG_Bachaga_Boualam
+			promote_character = ALG_Houari_Boumediene
+	complete_national_focus = common_medic
+	activate_decision = create_radio_station
+	set_technology = {
+		radio_detection = 1
+		telegraph = 1
+		steel_making_tech = 1
+		oil_processing = 1
+	}
+	set_country_flag = china_diplomacy
+}
+1962.1.1 = {
+	complete_national_focus = common_24
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = common_63
+	complete_national_focus = Focus_Goverment_reform
+	
+	add_ideas = {
+		UNmember
+	arabs_league
+	}
+			promote_character = ALG_Ahmad_Ben_Bella
+}
+
+1965.6.19 = {
+	set_technology = {
+		dispersed_industry4 = 1
+		army_aviation = 1
+		basic_battery = 1
+	}
+	remove_ideas = ColonyWar
+			promote_character = ALG_Houari_Boumediene
+}
+1969.1.1 = {
+	complete_national_focus = common_61
+	add_opinion_modifier = {
+		target = ISR
+		modifier = anti_arabs
+	}
+	add_ideas = {
+		OPEC
+		IslamOrg
+	}
+}
+1973.1.20 = {
+	complete_national_focus = steel_produc
+	add_ideas = {
+		NonAligned
+	}
+}
+1979.6.19 = {
+	set_country_flag = female_finished
+	create_country_leader = {
+		name = "Chadli Bendjedid"
+		
+		picture = "gfx/leaders/ALG/Portrait_Algeria_Chadli_Bendjedid.tga"
+		expire = "2050.1.1"
+		ideology = authoritarianism
+		traits = {
+			#
+		}
+	}
+}

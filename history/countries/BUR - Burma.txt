@@ -1,0 +1,207 @@
+﻿capital = 288
+set_research_slots = 2
+set_convoys = 500
+set_stability = 0.75
+set_country_flag = third_world
+set_country_flag = southeastasia
+set_country_flag = british_colonies
+set_country_flag = has_monarchs
+	set_variable = { this.education = 32 }
+	activate_decision = create_radio_station
+	activate_decision = female_equality
+	set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+		medical1 = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+add_ideas = {
+	Hinayana
+	Panglong_Agreement
+}
+	set_popularities = {
+		democratic = 65
+		communism = 20
+		neutrality = 15
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+
+}
+
+
+
+create_country_leader = {
+	name = "Aung san"
+	desc = "POLITICS_YAN XISHAN_DESC"
+	picture = "gfx/leaders/BUR/Portrait_Burma_Aungsan.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+1947.10.20 = {
+	oob = "BUR_1949"
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "U Nu"
+		
+		picture = "gfx/leaders/BUR/Portrait_Burma_Unu.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		
+		traits = {
+			pro_third_world
+		}
+	}
+	set_country_flag = china_diplomacy
+	add_ideas = {
+		UNmember
+	}
+}
+1952.10.20 = {
+	add_ideas = BUR_kmt_occupied
+	activate_decision = Establishment_of_National_Museum
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+	create_country_leader = {
+		name = "Ne Win"
+		
+		picture = "gfx/leaders/BUR/Portrait_Burma_NeWin.tga"
+		expire = "1993.1.1"
+		ideology = centrism
+		traits = {
+			anti_communist jefe dictator
+		}
+	}
+}
+1961.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	remove_ideas = BUR_kmt_occupied
+	oob = "BUR_1960"
+	remove_ideas = Panglong_Agreement
+	complete_national_focus = common_24
+	complete_national_focus = common_76
+	add_ideas = {
+	militarist_politician
+		Burmese_civilwar
+		NonAligned
+		closed_economy
+	}
+}
+1962.3.12 = {
+	add_ideas = {
+		war_economy
+	}
+	set_variable = { this.education = 52 }
+	set_technology = {
+		basic_light_tank = 1
+		dispersed_industry4 = 1
+		basic_battery = 1
+		radio_detection = 1
+	}
+	set_popularities = {
+		democratic = 8
+		communism = 20
+		neutrality = 72
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1981.1.20 = {
+	complete_national_focus = common_medic
+	create_country_leader = {
+		name = "San Yu"
+		
+		picture = "gfx/leaders/BUR/Portrait_Burma_SanYu.tga"
+		expire = "2004.1.1"
+		ideology = centrism
+		traits = {
+		
+		}
+	}
+	set_popularities = {
+		democratic = 18
+		communism = 62
+		neutrality = 20
+	}
+}
+1988.1.20 = {
+	set_country_flag = female_finished
+	add_ideas = {
+	isolated
+	}
+	set_popularities = {
+		democratic = 22
+		communism = 15
+		neutrality = 63
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Saw Maung"
+		
+		picture = "gfx/leaders/BUR/Portrait_Burma_Saw_Maung.tga"
+		expire = "2004.1.1"
+	ideology = centrism
+		traits = {
+		
+		}
+	}
+}

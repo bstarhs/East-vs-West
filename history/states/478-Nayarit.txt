@@ -1,0 +1,38 @@
+
+state={
+	id=478
+	name="STATE_478" # Jalisco
+	manpower = 2470875
+	
+	state_category = large_town
+	
+	resources={
+		tungsten=10
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Mexican
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 119 }
+		owner = MEX
+		buildings = {
+			infrastructure = 3
+			farm_building = 2
+		}
+		add_core_of = MEX
+		victory_points = { 13089 8 }
+		victory_points = { 14019 4 }
+		victory_points = { 14018 4 }
+		victory_points = { 12746 4 }
+		victory_points = { 14022 6 }
+		victory_points = { 10172 6 }
+		victory_points = { 12873 4 }
+
+	}
+
+	provinces={
+		2051 5052 10172 12746 12873 13089 14018 14019 14020 14021 14022 14023 14024 14025 14026
+	}
+	
+}

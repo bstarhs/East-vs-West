@@ -1,0 +1,118 @@
+﻿
+division_template = {
+	name = "Mechanized Division"		
+	division_names_group = ISR_MEC_01
+	regiments = {					
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		aa_missile_battalion = { x = 2 y = 0 }
+		at_missile_battalion = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armored Division" 		
+	division_names_group = ISR_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	#south
+	division = {
+		name = "80th Division "
+		location = 13409
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "143th Division "
+		location = 13409
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "162th Division "
+		location = 13409
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "252th Division "
+		location = 13409
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	#south
+	division = {
+		name = "210th Division "
+		location = 13252
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "91th Division "
+		location = 13252
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "36th Division "
+		location = 13252
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "319th Division "
+		location = 13252
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	#centural
+	division = {
+		name = "340th Division "
+		location = 1086
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "877th Division "
+		location = 1086
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+}
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	454 = {															# Brussels
+		fighter_equipment_2 = { owner = "ISR" amount = 180 }			
+		fighter_equipment_3 = { owner = "ISR" amount = 180 }
+		CAS_equipment_2 = { owner = "ISR" amount = 192 }
+	}
+	454 = {																						# Brussels
+		fighter_equipment_2 = { owner = "ISR" amount = 180 }			
+		fighter_equipment_3 = { owner = "ISR" amount = 180 }
+		CAS_equipment_2 = { owner = "ISR" amount = 192 }
+	}
+	454 = {																								# Brussels
+		fighter_equipment_2 = { owner = "ISR" amount = 180 }			
+		fighter_equipment_3 = { owner = "ISR" amount = 180 }
+		CAS_equipment_2 = { owner = "ISR" amount = 192 }
+	}
+}

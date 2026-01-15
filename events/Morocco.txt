@@ -1,0 +1,441 @@
+add_namespace = mor
+#丹吉尔宣言
+news_event = {
+	id = mor.1
+	title = mor.1.t
+	desc = mor.1.d
+	picture = GFX_MohammedVMorocco
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1947.4.1
+		date < 1949.4.1
+		tag = MOR
+		NOT = { has_global_flag = MoroccoIndependent }
+		is_subject_of = FRA
+	}
+	option = {
+		name = mor.1.a
+		set_global_flag = MoroccoIndependent
+	}
+}
+news_event = {
+	id = mor.2
+	title = mor.2.t
+	desc = mor.2.d
+	picture = GFX_MohammedVMorocco
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1950.4.1
+		date < 1951.4.1
+		tag = MOR
+		NOT = { has_global_flag = MoroccoIndependentPartyRise }
+		is_subject_of = FRA
+	}
+	option = {
+		name = mor.1.a
+		set_global_flag = MoroccoIndependentPartyRise
+	}
+}
+news_event = {
+	id = mor.3
+	title = mor.3.t
+	desc = mor.3.d
+	picture = GFX_MohammedVMorocco
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1951.1.1
+		date < 1952.4.1
+		tag = MOR
+		NOT = { has_global_flag = MoroccoNationalist }
+		is_subject_of = FRA
+	}
+	option = {
+		name = mor.1.a
+		set_global_flag = MoroccoNationalist
+	}
+}
+news_event = {
+	id = mor.4
+	title = mor.4.t
+	desc = mor.4.d
+	picture = GFX_MohammedVMorocco
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = FRA
+		has_global_flag = MoroccoNationalis
+		MOR = { is_subject_of = FRA }
+	}
+	option = {
+		name = mor.1.a
+		random_list = {
+			40 = {
+			} 
+			60 = {
+				news_event = { id = mor.5 }
+			} 
+		}
+	}
+}
+news_event = {
+	id = mor.5
+	title = mor.5.t
+	desc = mor.5.d
+	picture = GFX_MohammedVMorocco
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+	}
+}	
+news_event = {
+	id = mor.6
+	title = mor.6.t
+	desc = mor.6.d
+	picture = GFX_MohammedVMorocco
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = FRA
+		has_global_flag = MoroccoNationalis
+		MOR = { is_subject_of = FRA }
+	}
+	option = {
+		name = mor.1.a
+		news_event = { id = mor.11 }
+		set_global_flag = MORMuhammedVexield
+	}
+}
+news_event = {
+	id = mor.7
+	title = mor.7.t
+	desc = mor.7.d
+	picture = GFX_MohammedVMorocco
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = FRA
+		has_global_flag = MORMuhammedVexield
+		MOR = { is_subject_of = FRA }
+	}
+	option = {
+		name = mor.26.a
+		news_event = { id = mor.20 }
+		clr_global_flag = MORMuhammedVexield
+	}
+	option = {
+		name = mor.1.a
+		random_list = {
+			40 = {
+			} 
+			60 = {
+				news_event = { id = mor.8 }
+			} 
+		}
+	}
+}
+news_event = {
+	id = mor.8
+	title = mor.8.t
+	desc = mor.8.d
+	picture = GFX_MohammedVMorocco
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+	}
+}	
+news_event = {
+	id = mor.9
+	title = mor.9.t
+	desc = mor.9.d
+	picture = GFX_MohammedVMorocco
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		MOR = { is_subject_of = FRA }
+		has_global_flag = MORMuhammedVexield
+		NOT = { has_country_flag =  MORMuhammedVAnswer }
+		OR = { 
+			has_country_flag = main_country
+			has_country_flag = islam_state
+		}
+	}
+	option = {
+		name = hun.20.b1
+		set_country_flag = MORMuhammedVAnswer
+		news_event = { id = mor.10 }
+	}
+}
+news_event = {
+	id = mor.10
+	title = mor.10.t
+	desc = mor.10.d
+	picture = GFX_MohammedVMorocco
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+	}
+}	
+news_event = {
+	id = mor.20
+	title = mor.20.t
+	desc = mor.20.d
+	picture = GFX_MohammedVMorocco
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+	}
+}	
+news_event = {
+	id = mor.21
+	title = mor.21.t
+	desc = mor.21.d
+	picture = GFX_MohammedVMorocco
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1955.8.1
+		tag = FRA
+		MOR = {
+			is_subject_of = FRA
+			NOT = { has_country_flag = MoroccoIndependent }
+			NOT = { has_country_flag = MORMuhammedVexield }
+		}
+	}
+	option = {
+		name = mor.1.a
+		trigger = {
+			NOT = { tag = FRA }
+		}
+	}
+	option = {
+		name = mor.1.a
+		trigger = { tag = FRA }
+		news_event = { id = mor.26 }
+		set_country_flag = MoroccoIndependent
+	}
+}
+news_event = {
+	id = mor.26
+	title = mor.26.t
+	desc = mor.26.d
+	picture = GFX_MohammedVMorocco
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+	}
+}	
+news_event = {
+	id = mor.28
+	title = mor.28.t
+	desc = mor.28.d
+	picture = GFX_MohammedVMorocco
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	immediate = {
+		play_song = MOR_1
+	}
+	trigger = {
+		date > 1956.3.1
+		tag = MOR
+		MOR = {
+			is_subject_of = FRA
+			has_country_flag = MoroccoIndependent
+		}
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = MOR }
+			FRA = { end_puppet = MOR }
+			add_stability = 0.5
+			clr_country_flag = MoroccoIndependent
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.25
+			}
+			leave_faction = yes
+			set_cosmetic_tag = MOR
+		}
+	}
+}
+news_event = {
+	id = mor.30
+	title = mor.30.t
+	desc = mor.30.d
+	picture = GFX_IfniWar
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		date > 1957.3.1
+		date < 1959.3.1
+		is_subject = no
+		tag = MOR
+		SPR = { controls_state = 852 }
+		NOT = { has_global_flag = mor30 }
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = SPR }
+			852 = { add_resistance = 10 }
+			set_global_flag = mor30
+		}
+		if = {
+			limit = { tag = MOR }
+			news_event = { id = mor.31 }
+		}
+	}
+}
+news_event = {
+	id = mor.31
+	title = mor.31.t
+	desc = mor.31.d
+	picture = GFX_MohammedVMorocco
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+	}
+}	
+news_event = {
+	id = mor.33
+	title = mor.33.t
+	desc = mor.33.d
+	picture = GFX_IfniWar
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		date > 1957.3.1
+		tag = MOR
+		SPR = { controls_state = 852 }
+		852 = { resistance > 15 }
+		has_global_flag = mor30
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = SPR }
+			852 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+news_event = {
+	id = mor.35
+	title = mor.35.t
+	desc = mor.35.d
+	picture = GFX_IfniWar
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		date > 1957.3.1
+		tag = MOR
+		SPR = { controls_state = 852 }
+		852 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = SPR }
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 462
+					num_provinces = 4
+					on_lose = mor.36
+				}
+				defender = {
+					state = 852
+					num_provinces = 4
+					on_lose = mor.36
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = mor.36
+	title = mor.36.t
+	desc = mor.36.d
+	picture = GFX_UN_event
+	is_triggered_only = yes
+	option = {
+		name = mor.26.a
+		add_war_support = -0.3
+	}
+}
+news_event = {
+	id = mor.37
+	title = mor.37.t
+	desc = mor.37.d
+	picture = GFX_IfniWar
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		date > 1957.3.1
+		tag = MOR
+		SPR = { controls_state = 852 }
+		NOT = { has_global_flag = mor37 }
+		852 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = MOR }
+			set_global_flag = mor37
+		}
+	}
+}
+news_event = {
+	id = mor.38
+	title = mor.38.t
+	desc = mor.38.d
+	picture = GFX_IfniWar
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		date > 1957.3.1
+		tag = SPR
+		SPR = { controls_state = 852 }
+		852 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		has_war_support < 0.6
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = SPR }
+			add_political_power = -50
+			852 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+news_event = {
+	id = mor.39
+	title = mor.39.t
+	desc = mor.39.d
+	picture = GFX_IfniWar
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		date > 1957.3.1
+		tag = MOR
+		SPR = { controls_state = 852 }
+		852 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		has_war_support < 0.6
+	}
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = MOR }
+			add_political_power = -200
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.1
+			}
+			852 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}

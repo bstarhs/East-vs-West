@@ -1,0 +1,35 @@
+
+state={
+	id=902
+	name="STATE_902"
+	manpower = 1794880
+	
+	resources={
+		salt=17
+	}
+	state_category = rural
+	history={
+		set_state_flag = ethnics_Basque
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 36 }
+		add_to_array = { this.state_ethnics_list = 47 }
+		owner = SPR
+		victory_points = {
+			3931  3
+		}
+		buildings = {
+			hospital = 1
+			farm_building = 2
+			infrastructure = 2
+			power_plant = 1
+			industrial_complex = 1
+		}
+		add_core_of = SPR
+		add_core_of = BAS
+	}
+
+	provinces={
+		3931 3737 3933 932 9857 
+	}
+}

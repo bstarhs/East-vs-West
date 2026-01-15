@@ -1,0 +1,405 @@
+
+ICE_Cod_war_decis = {
+	ICE_claime_12_miles_decis = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1958.9.1
+			}
+		}
+		visible = {
+			tag = ICE
+			NOT = { has_idea = ICE_12zone }
+			NOT = { has_global_flag = ice21 }
+			date < 1960.1.1
+		}
+		complete_effect = {    
+			news_event = ice.10
+			add_ideas = ICE_12zone
+		}
+    
+	}
+	ICE_negotiation_decis12 = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 50
+		ai_will_do = {
+			base = 20
+		}
+		visible = {
+			tag = ENG
+			ICE = { has_idea = ICE_12zone }
+			NOT = { has_global_flag = ice21 }
+			date < 1960.1.1
+		}
+		complete_effect = {    
+			ICE = { country_event = ice.11 }
+		}
+    
+	}
+	ICE_warning_usa_12 = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 50
+		ai_will_do = {
+			base = 20
+		}
+		visible = {
+			tag = ICE
+			has_global_flag = ice13
+			NOT = { has_global_flag = ice21 }
+			date < 1960.1.1
+		}
+		complete_effect = {  
+			country_event = ice.18		
+			USA = { country_event = ice.18 }
+		}
+    
+	}
+	ICE_give_up_12 = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 50
+		ai_will_do = {
+			base = 20
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = ice13
+			NOT = { has_global_flag = ice21 }
+		}
+		complete_effect = {  
+			country_event = ice.21
+			set_global_flag = ice21
+		}
+    
+	}
+	ICE_war_on_cod12 = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 50
+		visible = {
+			tag = ENG
+			NOT = { has_global_flag = ice21 }
+			ICE = { has_idea = ICE_12zone }
+		}
+		available = {
+			OR = {
+				is_ai = yes
+				ships_in_area = { area = 45 size > 0 }
+			}
+		}
+		ai_will_do = {
+			base = 20
+		}
+		complete_effect = {    
+			ICE = { country_event = ice.13 }
+		}
+    
+	}
+}
+nuclear_decitions = {
+	ENG_nuketest_ast = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			AST = { news_event = bri.120 }
+		}
+    
+	}
+	ENG_nuketest_CAN = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			CAN = { news_event = bri.120 }
+		}
+    
+	}
+	ENG_nuketest_SAF = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			SAF = { news_event = bri.120 }
+		}
+    
+	}
+	ENG_nuketest_Guyana = {
+		icon = GFX_deci_nuclear 
+		cost = 300
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+			controls_state = 687
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			news_event = bri.123
+			custom_effect_tooltip = ENG_nuketest_place_warning
+		}
+    
+	}
+	ENG_nuketest_India = {
+		icon = GFX_deci_nuclear 
+		cost = 300
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+			controls_state = 710
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			news_event = bri.123
+			custom_effect_tooltip = ENG_nuketest_place_warning
+		}
+    
+	}
+	ENG_nuketest_Malvinas = {
+		icon = GFX_deci_nuclear 
+		cost = 300
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+			controls_state = 299
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			news_event = bri.123
+			custom_effect_tooltip = ENG_nuketest_place_warning
+		}
+    
+	}
+	ENG_nuketest_Pacific = {
+		icon = GFX_deci_nuclear 
+		cost = 300
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+			controls_state = 643
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			news_event = bri.123
+			custom_effect_tooltip = ENG_nuketest_place_warning
+		}
+    
+	}
+	ENG_nuketest_Hebrides = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		days_re_enable = 100
+		available = {  
+			has_tech = atomic_research
+			controls_state = 120
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = ENG_nuketest_place }
+		}
+		complete_effect = {    
+			news_event = bri.123
+			custom_effect_tooltip = ENG_nuketest_place_warning
+		}
+    
+	}
+	ENG_Windscale_reactors = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		available = {  
+			has_tech = Plutonium_techs
+		}
+		visible = {
+			tag = ENG
+			has_tech = nukes
+		}
+		days_remove = 220
+		remove_effect = {    
+			set_country_flag = ENG_Windscale_reactors
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = nuclear
+			}
+		}
+    
+	}
+}
+nuke_weapons = {
+	ENG_Polaris = {
+		icon = hol_attract_foreign_investors 
+		fire_only_once = no
+		
+		available = {  
+			ENG = { has_tech = nukes }
+			USA = { has_tech = nukes }
+		}
+		visible = {
+			tag = ENG
+			NOT = { has_country_flag = USA_refuse }
+		}
+		complete_effect = {    
+			USA = {
+				country_event = bri.55
+			}
+		}
+    
+	}
+}
+generic_reform = {
+	activate_health_nationalized = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_government = democratic
+				has_government = authoritarianism
+				has_government = neutrality
+			}
+			OR = {
+				has_idea = low_economic_mobilisation
+				has_idea = partial_economic_mobilisation
+			}
+			NOT = { has_dynamic_modifier = { modifier = health_nationalized_modifier } }
+		}
+		complete_effect = {
+			news_event = { id = bri.77 }
+			add_dynamic_modifier = { modifier = health_nationalized_modifier }
+			add_stability = 0.08
+		}
+	}
+}
+military_action = {
+	supress_IRE= {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 180
+		visible = {
+			has_completed_focus = ENG_mounted
+			tag = ENG
+			controls_state = 119
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		complete_effect = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						has_idea = sanctions
+					}
+					modifier = {
+						factor = 2
+						has_war_support < 0.5
+					}
+					modifier = {
+						factor = 2
+						has_stability < 0.3
+					}
+					country_event = { id = bri.72 }
+				}
+				20 = {
+					modifier = {
+						factor = 2
+						has_stability > 0.7
+					}
+					country_event = { id = bri.73 }
+				}
+			}
+		}
+	
+	}
+}
+
+political_actions = {
+	ENG_Suppression_strikes = {
+
+		icon = generic_political_discourse
+
+		allowed = {
+			tag = ENG
+		}
+
+		available = {
+			has_government = democratic
+		}
+
+		cost = 300
+
+		fire_only_once = yes
+
+		visible = {
+			has_idea = strike1984
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				has_stability < 0.6
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.25
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			add_political_power = 150
+		}
+
+	}
+
+}
+
+operations = {
+}

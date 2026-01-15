@@ -1,0 +1,2723 @@
+﻿add_namespace = fra
+#政府更迭
+country_event = {
+	id = fra.1
+	title = fra.1.t
+	desc = fra.10.d
+	picture = GFX_4thRepublic
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {	
+			tag = FRA
+			has_idea = FRA_IVRepublic
+	}
+	option = {
+	name = fra.10.a
+		add_war_support = -0.02
+		add_political_power = -20
+	}
+}
+#1954大选
+country_event = {
+	id = fra.3
+	title = fra.3.t
+	desc = fra.10.d
+	picture = GFX_4thRepublic
+	fire_only_once = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {	
+			tag = FRA
+			has_idea = FRA_IVRepublic
+			date > 1954.10.1
+			date < 1954.12.1
+	}
+	option = {
+		name = fra.10.a
+		create_country_leader = {
+			name = "René Coty"
+			picture = "gfx/leaders/FRA/Portrait_France_Rene_Coty.tga"
+			expire = "1956.1.1"
+			ideology = socialism
+			
+			traits = {
+			
+			}
+		}
+	}
+}
+#阿尔及尔暴动
+news_event = {
+	id = fra.5
+	title = fra.5.t
+	desc = fra.5.d
+	picture = GFX_ALGwar
+	major = yes
+	mean_time_to_happen = { days = 4 }
+	trigger = {	
+		tag = FRA
+		any_owned_state = {
+			is_core_of = ALG
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		date > 1958.5.10
+		has_war_support < 0.5
+		NOT = { has_character = FRA_charles_de_gaulle }
+		OR = {
+			has_war_support < 0.12
+			date > 1958.5.10
+		}
+	}
+	option = {
+		name = fra.10.a
+		trigger = { NOT = { tag = FRA } }
+	}
+	option = {
+		name = fra.10.a
+		trigger = { tag = FRA }
+		ai_chance = { factor = 50 }
+		news_event = { id = fra.8 days = 1 }
+		recruit_character = FRA_charles_de_gaulle
+		add_stability = 0.2
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.08
+		}
+	}
+	option = {
+		name = fra.14.b
+		trigger = { tag = FRA }
+		ai_chance = { factor = 0 }
+		news_event = { id = fra.6 days = 1 }
+			create_country_leader = {
+				name = "Jacques Massu"
+				picture = "gfx/leaders/FRA/Portrait_France_Jacques_Massu.tga"
+				expire = "1956.1.1"
+				ideology = centrism
+				traits = {
+					colonist
+				}
+			}
+			add_named_threat = { threat = 20 name = French-coup } 
+			start_civil_war = {
+				ideology = neutrality
+				size = 0.8
+			}
+			add_stability = -0.1
+	}
+}
+#法兰西共同体形成
+news_event = {
+	id = fra.6
+	title = fra.6.t
+	desc = fra.6.d
+	picture = GFX_DeGaulle
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#邀请戴高乐组阁
+news_event = {
+	id = fra.8
+	title = fra.8.t
+	desc = fra.8.d
+	picture = GFX_DeGaulle
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.8.a
+	}
+}
+#法兰西共同体形成
+news_event = {
+	id = fra.10
+	title = fra.10.t
+	desc = fra.10.d
+	picture = GFX_DeGaulle
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#五月风暴
+news_event = {
+	id = fra.12
+	title = fra.12.t
+	desc = fra.10.d
+	picture = GFX_Mai68
+	fire_only_once = yes
+	trigger = {
+			tag = FRA
+			PRC = { has_idea = Cultrue_Revolution }
+			date > 1968.5.1
+			date < 1968.12.1
+	}
+	option = {
+		add_ideas = Mai68
+		name = fra.10.a
+	}
+}
+#1969大选
+country_event = {
+	id = fra.13
+	title = fra.13.t
+	desc = fra.10.d
+	picture = GFX_4thRepublic
+	fire_only_once = yes
+	trigger = {
+			tag = FRA
+			date > 1969.6.1
+			date < 1969.12.1
+	}
+	option = {
+		name = fra.10.a
+			remove_ideas = Mai68
+			create_country_leader = {
+			name = "Georges Pompidou"
+			picture = "gfx/leaders/FRA/Portrait_France_Georges_Pompidou.tga"
+			expire = "1956.1.1"
+			ideology = socialism
+				traits = {
+				}
+			}
+	}
+	option = {
+		name = fra.10.b
+			create_country_leader = {
+			name = "Alain Poher"
+			picture = "gfx/leaders/FRA/Portrait_France_Georges_Pompidou.tga"
+			expire = "1956.1.1"
+			ideology = socialism
+			
+			traits = {
+			
+			}
+		}
+	}
+}
+#右翼政变
+#欧洲关系
+news_event = {
+	id = fra.16
+	title = fra.16.t
+	desc = fra.16.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		add_opinion_modifier = {
+			target = FRA
+			modifier = euro_union
+		}
+		FRA = { news_event = { id = fra.18 } }
+		if = {
+			limit = { tag = WDR }
+			news_event = { id = fra.27 }
+			set_country_flag = fra_wdr_relation
+			FRA = { give_guarantee = WDR }
+			
+		}
+	}
+}
+news_event = {
+	id = fra.18
+	title = fra.18.t
+	desc = fra.18.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = euro_union
+		}
+	}
+}
+news_event = {
+	id = fra.19
+	title = fra.19.t
+	desc = fra.19.d
+	picture = GFX_DeGaulle
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+news_event = {
+	id = fra.20
+	title = fra.20.t
+	desc = fra.20.d
+	major = yes
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		if = {
+			limit = { is_subject_of = FRA }
+				leave_faction = yes
+			
+		}
+		
+	}
+}
+
+news_event = {
+	id = fra.21
+	title = fra.21.t
+	desc = fra.21.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		FRA = { news_event = { id = fra.22 } }
+	}
+}
+news_event = {
+	id = fra.22
+	title = fra.22.t
+	desc = fra.22.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		add_war_support = 0.4
+		play_song = happymarch
+		USA = {
+			declare_war_on = {
+			target = FRA
+			type = annex_everything
+			}
+		}
+		news_event = { id = fra.23 }
+	}
+}
+news_event = {
+	id = fra.23
+	title = fra.23.t
+	desc = fra.23.d
+	major = yes
+	picture = GFX_EBR
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+news_event = {
+	id = fra.24
+	title = fra.24.t
+	desc = fra.24.d
+	major = yes
+	picture = GFX_EBR
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+news_event = {
+	id = fra.25
+	title = fra.25.t
+	desc = fra.25.d
+	major = yes
+	picture = GFX_EditPiaf
+	mean_time_to_happen = { days = 30 }
+	immediate = {
+		play_song = FRA_9
+	}
+	trigger = {
+		tag = FRA
+		date > 1963.10.1
+		date < 1964.1.1
+		NOT = { has_global_flag = EditPiaf }
+	}
+	option = {
+		name = fra.10.a
+		set_global_flag = EditPiaf
+	}
+}
+#建交抗议
+news_event = {
+	id = fra.26
+	title = fra.26.t
+	desc = fra.26.d
+	picture = GFX_Mai68
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = FRA
+		has_country_flag = fra_wdr_relation
+		date < 1965.1.1
+	}
+	option = {
+		name = kor.36.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.02
+		}
+	}
+}
+#爱丽舍条约
+news_event = {
+	id = fra.27
+	title = fra.27.t
+	desc = fra.27.d
+	major = yes
+	picture = GFX_ElyseTreaty
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+#成立莱茵兰共和国
+news_event = {
+	id = fra.28
+	title = fra.28.t
+	desc = fra.28.d
+	major = yes
+	picture = GFX_WGRindependent
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+#萨尔兰回归德国
+news_event = {
+	id = fra.29
+	title = fra.29.t
+	desc = fra.29.d
+	major = yes
+	picture = GFX_WGRindependent
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+#戴高乐支持魁北克
+news_event = {
+	id = fra.30
+	title = fra.30.t
+	desc = fra.30.d
+	major = yes
+	picture = GFX_DeGaulleQuebec
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1967.1.1
+		date < 1967.12.1
+		has_country_leader = { name = "Charles De Gaulle" }
+		tag = FRA
+	}
+	option = {
+		name = fra.10.a
+		
+	}
+}
+#法国支持魁北克
+news_event = {
+	id = fra.31
+	title = fra.31.t
+	desc = fra.31.d
+	major = yes
+	picture = GFX_QuebecLibre
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		
+	}
+}
+#君主主义正在复苏
+news_event = {
+	id = fra.32
+	title = fra.32.t
+	desc = fra.32.d
+	major = yes
+	picture = GFX_FrenchRoyalist
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = FRA
+		has_idea = FRA_IVRepublic
+		has_stability < 0.4
+		date > 1960.1.1
+	}
+	option = {
+		name = kor.36.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.03
+		}
+	}
+}
+#是否接受法国保护
+country_event = {
+	id = fra.33
+	title = fra.33.t
+	desc = fra.33.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = {
+		name = fra.4.a
+		FRA = { 
+			add_to_variable = { influences = 20 }
+			add_to_faction = ROOT
+		}
+		news_event = { id = fra.34 }
+		give_military_access = FRA
+	}
+	option = {
+		name = fra.4.b
+		news_event = { id = fra.36 }
+		FRA = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROOT
+			}
+		}
+	}
+}
+#接受法国保护
+news_event = {
+	id = fra.34
+	title = fra.34.t
+	desc = fra.34.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#拒绝法国保护
+news_event = {
+	id = fra.35
+	title = fra.35.t
+	desc = fra.35.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.36
+	title = fra.36.t
+	desc = fra.36.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.37
+	title = fra.37.t
+	desc = fra.37.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.38
+	title = fra.38.t
+	desc = fra.38.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#罗马条约
+news_event = {
+	id = fra.39
+	title = fra.39.t
+	desc = fra.39.d
+	picture = GFX_RomanTreaty
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = FRA
+		has_idea = ECSC
+		WDR = { has_idea = ECSC }
+		ITA = { has_idea = ECSC }
+		NOT = { has_global_flag = fra39 }
+		date > 1957.3.1
+	}
+	option = {
+		name = usatext.5.a
+		set_global_flag = fra39
+	}
+}
+#加入煤钢共同体
+country_event = {
+	id = fra.40
+	title = fra.40.t
+	desc = fra.40.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = fra.4.a
+		add_ideas = ECSC
+		add_political_power = 200
+		FRA = { 
+			add_to_variable = { influences = 20 }
+			give_guarantee = ROOT
+		}
+		news_event = { id = fra.37 days = 3 }
+	}
+}
+#选择王室
+news_event = {
+	id = fra.41
+	title = fra.41.t
+	desc = fra.41.d
+	picture = GFX_FrenchCoronate
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		set_cosmetic_tag = FRA_Orleans
+		promote_character = {
+			character = FRA_HenriVI
+			ideology = monarchism
+		}
+		set_party_name = {
+			ideology = monarchism
+			long_name = FRA_Orleans_monarchism_party
+			name = FRA_Orleans_monarchism_party
+		}
+		play_song = FRA_6
+		set_politics = { ruling_party = monarchism }
+		news_event = { id = fra.321 }
+	}
+	option = {
+		name = usatext.5.b
+		set_cosmetic_tag = FRA_Bourbon
+		set_politics = { ruling_party = monarchism }
+		news_event = { id = fra.42 }
+		add_timed_idea = {
+			idea = FRA_boubor_debuff
+			days = 300
+		}
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = SPR
+					is_core_of = NAP
+					is_core_of = SIC
+					is_core_of = LUX
+				}
+			}
+			add_claim_by = FRA
+		}
+		play_song = FRA_15
+	}
+}
+#法国复辟君主制
+news_event = {
+	id = fra.42
+	title = fra.42.t
+	desc = fra.42.d
+	picture = GFX_FrenchCoronate
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {   #世卫成立
+	id = fra.43
+	title = fra.43.t
+	desc = fra.43.d
+	picture = GFX_WHO
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_global_flag = WHO }
+		date > 1948.4.1
+		date < 1948.10.1
+		
+	}
+	option = {
+		name = fra.43.a
+		set_global_flag = WHO
+	}
+}
+
+#申请加入欧共体
+news_event = {
+	id = fra.44
+	title = fra.44.t
+	desc = fra.44.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.50
+	title = fra.50.t
+	desc = fra.50.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.51
+	title = fra.51.t
+	desc = fra.51.d
+	picture = GFX_FrenchProxies
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		is_subject_of = FRA
+		has_country_flag = release_african
+		NOT = { has_country_flag = independent_voted }
+		FRA = { has_completed_focus = FRA_exit_Colonialism }
+	}
+	option = {
+		name = west_africa.1.a
+		news_event = { id = fra.50 }
+		set_country_flag = independent_voted
+		set_country_flag = africa_electioned
+			add_autonomy_score = {
+				value = 600
+				localization = wind_of_change
+			}
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.60
+	title = fra.60.t
+	desc = fra.60.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.61
+	title = fra.61.t
+	desc = fra.61.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+			play_song = FRA_7
+		if = {
+			limit = { tag = FRA }
+			promote_character = {
+				character = FRA_charles_de_gaulle
+				ideology = conservatism
+			}
+		}
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.62
+	title = fra.62.t
+	desc = fra.62.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#商人联盟
+news_event = {
+	id = fra.63
+	title = fra.63.t
+	desc = fra.63.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_country_flag = Poujadistas }
+		has_idea = FRA_IVRepublic
+		date > 1955.1.1
+		date < 1956.1.1
+	}
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			set_country_flag = Poujadistas
+		}
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.64
+	title = fra.64.t
+	desc = fra.64.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.65
+	title = fra.65.t
+	desc = fra.65.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#法国青年民族运动崛起
+news_event = {
+	id = fra.66
+	title = fra.66.t
+	desc = fra.66.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_country_flag = jeune_nacion }
+		has_idea = FRA_IVRepublic
+		date > 1950.1.1
+		date < 1952.1.1
+	}
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			set_country_flag = jeune_nacion
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.03
+			}
+		}
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.67
+	title = fra.67.t
+	desc = fra.67.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.68
+	title = fra.68.t
+	desc = fra.68.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.69
+	title = fra.69.t
+	desc = fra.69.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_idea = FRA_IVRepublic }
+		has_country_flag = Poujadistas
+		has_character = FRA_Poujade
+	}
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			retire_character = FRA_Poujade
+		}
+	}
+}
+#法属非洲独立
+news_event = {
+	id = fra.70
+	title = fra.70.t
+	desc = fra.70.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+
+news_event = {
+	id = fra.100
+	title = fra.100.t
+	desc = fra.100.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		play_song = FRA_12
+		name = usatext.5.a
+		if = {
+			limit = { is_neighbor_of = FRA }
+			add_popularity = { ideology = communism popularity = 0.06 }
+		}
+	}
+}
+news_event = {
+	id = fra.101
+	title = fra.101.t
+	desc = fra.101.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.102
+	title = fra.102.t
+	desc = fra.102.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.103
+	title = fra.103.t
+	desc = fra.103.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.104
+	title = fra.104.t
+	desc = fra.104.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.105
+	title = fra.105.t
+	desc = fra.105.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.106
+	title = fra.106.t
+	desc = fra.106.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		has_government = communism
+		date > 1964.7.1
+		date < 1965.1.1
+		has_country_leader = {
+			character = FRA_maurice_thorez
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = usatext.5.a
+		retire_character = FRA_maurice_thorez
+		news_event = { id = fra.110 }
+		promote_character = {
+			character = FRA_Jean_Sartre
+			ideology = marxism
+		}
+	}
+	option = {
+		name = usatext.5.a
+		news_event = { id = fra.107 }
+		retire_character = FRA_maurice_thorez
+		promote_character = {
+			character = FRA_Jacques_Duclos
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = fra.107
+	title = fra.107.t
+	desc = fra.107.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.108
+	title = fra.108.t
+	desc = fra.108.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		has_government = communism
+		OR = {
+			date > 1978.7.1
+			has_completed_focus = FRA_maoism
+			has_completed_focus = FRA_workerism
+		}
+		has_country_leader = {
+			character = FRA_Jacques_Duclos
+			ruling_only = yes
+		}
+		date < 1978.1.1
+	}
+	option = {
+		name = usatext.5.a #罗歇
+		retire_character = FRA_Jacques_Duclos
+		news_event = { id = fra.109 }
+		promote_character = {
+			character = FRA_Jean_Sartre
+			ideology = marxism
+		}
+	}
+	option = {
+		name = usatext.5.a
+		#居里
+		trigger = {
+			has_completed_focus = FRA_workerism
+			NOT = { has_completed_focus = FRA_maoism }
+		}
+		news_event = { id = fra.111 }
+		retire_character = FRA_Jacques_Duclos
+		promote_character = {
+			character = FRA_henri_curiel
+			ideology = marxism
+		}
+	}
+	option = {
+		name = usatext.5.a
+		#贝特海姆
+		trigger = {
+			has_completed_focus = FRA_maoism
+		}
+		news_event = { id = fra.112 }
+		retire_character = FRA_Jacques_Duclos
+		promote_character = {
+			character = FRA_Charles_Bettelheim
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = fra.109
+	title = fra.109.t
+	desc = fra.109.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.110
+	title = fra.110.t
+	desc = fra.110.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.111
+	title = fra.111.t
+	desc = fra.111.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.112
+	title = fra.112.t
+	desc = fra.112.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.113
+	title = fra.113.t
+	desc = fra.113.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		has_government = communism
+		has_country_leader = {
+			character = FRA_Charles_Bettelheim
+			ruling_only = yes
+		}
+		OR = {
+			date > 1980.7.1
+			has_completed_focus = FRA_students_autonomy
+			has_completed_focus = FRA_workerism
+		}
+	}
+	option = {
+		name = usatext.5.a #罗歇
+		retire_character = FRA_Charles_Bettelheim
+		trigger = {
+			has_completed_focus = FRA_workerism
+		}
+		news_event = { id = fra.115 }
+			create_country_leader = {
+				name = "Commune Pueble"
+				picture = "gfx/leaders/FRA/Portrait_France_Communie.tga"
+				ideology = marxism
+				traits = {
+				}
+			}
+	}
+	option = {
+		name = usatext.5.a
+		#居里
+		trigger = {
+			has_completed_focus = FRA_students_autonomy
+		}
+		news_event = { id = fra.114 }
+		retire_character = FRA_Charles_Bettelheim
+		promote_character = {
+			character = FRA_Jacques_Sauvageot
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = fra.114
+	title = fra.114.t
+	desc = fra.114.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.115
+	title = fra.115.t
+	desc = fra.115.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.116
+	title = fra.116.t
+	desc = fra.116.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		has_government = communism
+		has_country_leader = {
+			character = FRA_Jean_Sartre
+			ruling_only = yes
+		}
+		date > 1978.7.1
+	}
+	option = {
+		name = usatext.5.a #罗歇
+		retire_character = FRA_Jean_Sartre
+		trigger = {
+			has_completed_focus = FRA_workerism
+		}
+		news_event = { id = fra.115 }
+			create_country_leader = {
+				name = "Commune Pueble"
+				picture = "gfx/leaders/FRA/Portrait_France_Communie.tga"
+				ideology = marxism
+				traits = {
+				}
+			}
+	}
+	option = {
+		name = usatext.5.a
+		#贝特海姆
+		trigger = {
+			has_completed_focus = FRA_maoism
+		}
+		news_event = { id = fra.112 }
+		retire_character = FRA_Jean_Sartre
+		promote_character = {
+			character = FRA_Charles_Bettelheim
+			ideology = marxism
+		}
+	}
+	option = {
+		name = usatext.5.a
+		trigger = {
+			NOT = {
+				AND = {
+			has_completed_focus = FRA_workerism
+				has_completed_focus = FRA_maoism
+				}
+			}
+		}
+		#居里
+		news_event = { id = fra.117 }
+		retire_character = FRA_Jean_Sartre
+		promote_character = {
+			character = FRA_Georges_Marchais
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = fra.117
+	title = fra.117.t
+	desc = fra.117.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.118
+	title = fra.118.t
+	desc = fra.118.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.120
+	title = fra.120.t
+	desc = fra.120.d
+	picture = GFX_ChinoisAParis
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		news_event = { id = fra.121 }
+	}
+}
+news_event = {
+	id = fra.121
+	title = fra.121.t
+	desc = fra.121.d
+	picture = GFX_ChinoisAParis1
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.130
+	title = fra.130.t
+	desc = fra.130.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.131
+	title = fra.131.t
+	desc = fra.131.d
+	picture = GFX_RomanTreaty
+	major = yes
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		tag = MLI
+		FRA = { has_government = communism }
+		any_country = {
+			has_country_flag = RejectFrenchCommies
+		}
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = {
+				tag = MLI
+			}
+				add_autonomy_score = {
+					value = 800
+				}
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Félix Houphouët-Boigny"
+				picture = "gfx/leaders/IVO/Portrait_IVO_Felix.tga"
+				ideology = authoritarianism
+				traits = {
+					dictator personal_worship corrupt_leader interventionism anti_communist
+				}
+			}
+		}
+	}
+}
+#工人国际法国支部的衰败
+news_event = {
+	id = fra.150
+	title = fra.150.t
+	desc = fra.150.d
+	picture = GFX_Mai68
+	major = yes
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+			tag = FRA
+			has_completed_focus = FRA_Gaullisme
+			has_character = FRA_Mitterrand
+			has_character = FRA_Pierre_Mendes
+	}
+	option = {
+		name = fra.10.a
+		if = {
+			limit = { tag = FRA }
+			retire_character = FRA_Mitterrand
+			retire_character = FRA_Pierre_Mendes
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.151
+	title = fra.151.t
+	desc = fra.151.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		tag = FRA
+		has_completed_focus = FRA_Gaullisme
+		date > 1969.2.1
+		NOT = { has_character = FRA_Mitterrand }
+		NOT = { has_country_flag = FranceSocialismeParti }
+	}
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			set_country_flag = FranceSocialismeParti
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.152
+	title = fra.152.t
+	desc = fra.152.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.153
+	title = fra.153.t
+	desc = fra.153.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.154
+	title = fra.154.t
+	desc = fra.154.d
+	picture = GFX_RomanTreaty
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = FRA
+		has_completed_focus = FRA_invite_social_party
+		has_country_flag = FranceSocialismeParti
+		NOT = { has_character = FRA_Alain_Savary }
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			recruit_character = FRA_Alain_Savary
+			add_stability = 0.12
+			add_political_power = 300
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.155
+	title = fra.155.t
+	desc = fra.155.d
+	picture = GFX_RomanTreaty
+	trigger = {
+		tag = FRA
+		has_country_flag = FranceSocialismeParti
+		has_character = FRA_Alain_Savary
+	}
+	mean_time_to_happen = {
+		days = 60
+	}
+	option = {
+		name = usatext.5.a
+		news_event = { id = fra.156 }
+		promote_character = {
+			character = FRA_Alain_Savary
+			ideology = socialism
+		}
+	}
+}
+news_event = {
+	id = fra.156
+	title = fra.156.t
+	desc = fra.156.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.157
+	title = fra.157.t
+	desc = fra.157.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.158
+	title = fra.158.t
+	desc = fra.158.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.159
+	title = fra.159.t
+	desc = fra.159.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.160
+	title = fra.160.t
+	desc = fra.160.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.161
+	title = fra.161.t
+	desc = fra.161.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#阿尔及尔暴动
+news_event = {
+	id = fra.200
+	title = fra.200.t
+	desc = fra.200.d
+	picture = GFX_PolPotFrance
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = CAM_3
+	}
+	option = {
+		name = fra.10.a
+		if = {
+			limit = { tag = FRA }
+			set_politics = { ruling_party = communism }
+			set_country_flag = PolpotFrance
+			set_cosmetic_tag = FRA_PPT
+			create_country_leader = {
+				name = "Pol Pot"
+				picture = "gfx/leaders/CAM/Portrait_Cambodia_PolPot.tga"
+				expire = "1988.1.1"
+				ideology = stalinism
+				traits = {
+					tyrant anti_religion_trait
+				}
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.201
+	title = fra.201.t
+	desc = fra.201.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#伊娃贝隆去世
+news_event = {
+	id = fra.202
+	title = fra.202.t
+	desc = fra.202.d
+	picture = GFX_LattreDeTassigny
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1952.1.1
+		date < 1952.3.1
+		has_character = FRA_jean_de_lattre_de_tassigny
+		tag = FRA
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = FRA }
+			retire_character = FRA_jean_de_lattre_de_tassigny
+			671 = { add_resistance = 20 }
+			779 = { add_resistance = 20 }
+		}
+	}
+
+}
+#反对越战
+news_event = {
+	id = fra.203
+	title = fra.203.t
+	desc = fra.203.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		has_war_with = VIN
+		tag = FRA
+		OR = {
+			communism > 0.25
+			has_war_support < 0.6
+		}
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -30
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.204
+	title = fra.204.t
+	desc = fra.204.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		has_war_with = ALG
+		tag = FRA
+		OR = {
+			communism > 0.25
+			has_war_support < 0.6
+		}
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -30
+	}
+}
+#反对马歇尔计划游行示威
+news_event = {
+	id = fra.205
+	title = fra.205.t
+	desc = fra.205.d
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		has_idea = Marshall
+		tag = FRA
+		communism > 0.3
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -30
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.206
+	title = fra.206.t
+	desc = fra.206.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.207
+	title = fra.207.t
+	desc = fra.207.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.208
+	title = fra.208.t
+	desc = fra.208.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			remove_ideas = { FRA_left_union }
+		}
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = fra.209
+	title = fra.209.t
+	desc = fra.209.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.260
+	title = fra.260.t
+	desc = fra.260.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		communism < 0.6
+		has_stability < 0.7
+		has_government = communism
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -50
+		add_stability = -0.02
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+	}
+}
+news_event = {
+	id = fra.261
+	title = fra.261.t
+	desc = fra.261.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		communism < 0.6
+		has_stability < 0.7
+		has_government = communism
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { NOT = { has_idea = FRA_rightwing_revolt } }
+			add_ideas = FRA_rightwing_revolt
+		}
+		add_political_power = -50
+		add_stability = -0.03
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.01
+		}
+		random_owned_state = {
+			limit = { is_core_of = OCC }
+			add_resistance = 15
+		}
+		random_owned_state = {
+			limit = { is_core_of = OCC }
+			add_resistance = 15
+		}
+		random_owned_state = {
+			limit = { is_core_of = OCC }
+			add_resistance = 15
+		}
+	}
+}
+news_event = {
+	id = fra.262
+	title = fra.262.t
+	desc = fra.262.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		communism < 0.6
+		has_stability < 0.6
+		has_government = communism
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { NOT = { has_idea = FRA_rightwing_revolt } }
+			add_ideas = FRA_rightwing_revolt
+		}
+		add_political_power = -50
+		add_stability = -0.03
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.03
+		}
+		30 = {
+			add_resistance = 15
+		}
+	}
+}
+news_event = {
+	id = fra.263
+	title = fra.263.t
+	desc = fra.263.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		has_stability < 0.6
+		monarchism < 0.1
+		NOT = { has_government = monarchism }
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -50
+		add_stability = -0.01
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.03
+		}
+	}
+}
+news_event = {
+	id = fra.268
+	title = fra.268.t
+	desc = fra.268.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		has_stability < 0.5
+		communism < 0.5
+		has_government = communism
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -50
+		add_stability = -0.04
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.02
+		}
+		random_owned_state = {
+			add_resistance = 15
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		random_owned_state = {
+			add_resistance = 15
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		random_owned_state = {
+			add_resistance = 15
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+}
+#意大利内战
+news_event = {
+	id = fra.269
+	title = fra.269.t
+	desc = fra.269.d
+	picture = GFX_ItalyWar
+	mean_time_to_happen = {
+		days = 40
+	}
+		major = yes
+	trigger = {
+		tag = FRA
+		communism < 0.4
+		has_war = no
+		has_government = communism
+		OR = {
+			has_stability < 0.4
+			communism < 0.4
+			any_owned_state = { resistance > 80 }
+		}
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		set_global_flag = FranceCivilWar
+			play_song = FRA_17
+		if = {
+			limit = {
+				tag = FRA
+				neutrality < authoritarianism
+			}
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			start_civil_war = {
+				ideology = authoritarianism
+				capital = 21
+				size = 0.3
+				states = { 21 32 22 31 20 30 29 26 }
+			}
+			create_country_leader = {
+			name = "Francois Mitterrand"
+			picture = "gfx/leaders/FRA/Portrait_France_Mitterrand.tga"
+			expire = "1956.1.1"
+			ideology = authoritarianism
+			traits = { }
+			}
+		}
+		if = {
+			limit = {
+				tag = FRA
+				neutrality > authoritarianism
+			}
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			start_civil_war = {
+				ideology = neutrality
+				capital = 21
+				size = 0.3
+				states = { 21 32 22 31 20 30 29 26 }
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.290
+	title = fra.290.t
+	desc = fra.290.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		democratic > 0.08
+		has_stability < 0.75
+		OR = {
+			has_government = monarchism
+			has_government = authoritarianism
+			has_government = neutrality
+		}
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -50
+		add_stability = -0.02
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.03
+		}
+	}
+}
+news_event = {
+	id = fra.291
+	title = fra.291.t
+	desc = fra.291.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		democratic > 0.3
+		has_stability < 0.7
+		OR = {
+			has_government = monarchism
+			has_government = authoritarianism
+			has_government = neutrality
+		}
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { NOT = { has_idea = French_revolution_ideas } }
+			add_ideas = French_revolution_ideas
+		}
+		add_political_power = -50
+		add_stability = -0.03
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.03
+		}
+		random_owned_state = {
+			add_resistance = 15
+		}
+		random_owned_state = {
+			add_resistance = 15
+		}
+		random_owned_state = {
+			add_resistance = 15
+		}
+	}
+}
+news_event = {
+	id = fra.292
+	title = fra.292.t
+	desc = fra.292.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		democratic > 0.15
+		has_stability < 0.7
+		OR = {
+			has_government = monarchism
+			has_government = authoritarianism
+			has_government = neutrality
+		}
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -50
+		add_stability = -0.01
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.01
+		}
+		random_owned_state = {
+			add_resistance = 10
+		}
+	}
+}
+news_event = {
+	id = fra.293
+	title = fra.293.t
+	desc = fra.293.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		democratic > 0.15
+		has_stability < 0.7
+		OR = {
+			has_government = monarchism
+			has_government = authoritarianism
+			has_government = neutrality
+		}
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -50
+		add_stability = -0.02
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.04
+		}
+	}
+}
+news_event = {
+	id = fra.295
+	title = fra.295.t
+	desc = fra.295.d
+	picture = GFX_RomanTreaty
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = FRA
+		democratic > 0.3
+		has_stability < 0.6
+		OR = {
+			has_government = monarchism
+			has_government = authoritarianism
+			has_government = neutrality
+		}
+		NOT = { has_global_flag = SecondFreeFrance }
+	}
+	option = {
+		name = usatext.5.a
+		add_political_power = -500
+		add_stability = -0.2
+		add_popularity = {
+			ideology = communism
+			popularity = 0.12
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
+		random_owned_state = {
+			add_resistance = 15
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		random_owned_state = {
+			add_resistance = 15
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		random_owned_state = {
+			add_resistance = 15
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+}
+#意大利内战
+news_event = {
+	id = fra.297
+	title = fra.297.t
+	desc = fra.297.d
+	picture = GFX_ItalyWar
+	mean_time_to_happen = {
+		days = 40
+	}
+		major = yes
+	trigger = {
+		tag = FRA
+		democratic > 0.4
+		has_stability < 0.5
+		OR = {
+			has_government = monarchism
+			has_government = authoritarianism
+			has_government = neutrality
+		}
+		has_global_flag = SecondFreeFrance
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		set_global_flag = FranceCivilWar
+		play_song = FRA_22
+		if = {
+			limit = { tag = FRA }
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			start_civil_war = {
+				ideology = democratic
+				capital = 21
+				size = 0.3
+				states = { 21 32 22 31 20 30 29 26 }
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.280
+	title = fra.280.t
+	desc = fra.280.d
+	picture = GFX_4thRepublic
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {	
+		tag = FRA
+		has_country_flag = FRA_reject_algeria_indep
+	}
+	option = {
+	name = fra.10.a
+		add_political_power = -20
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.01
+		}
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.03
+		}
+	}
+}
+news_event = {
+	id = fra.281
+	title = fra.281.t
+	desc = fra.281.d
+	picture = GFX_4thRepublic
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {	
+		tag = FRA
+		has_country_flag = FRA_reject_algeria_indep
+	}
+	option = {
+	name = fra.10.a
+		add_stability = -0.01
+		add_political_power = -20
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.03
+		}
+	}
+}
+news_event = {
+	id = fra.282
+	title = fra.282.t
+	desc = fra.282.d
+	picture = GFX_4thRepublic
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {	
+		tag = FRA
+		has_country_flag = FRA_reject_algeria_indep
+		NOT = { has_country_flag = FRA_armee_secret }
+		neutrality < 0.1
+		has_stability < 0.9
+	}
+	option = {
+		name = fra.10.a
+		if = {
+			limit = { tag = FRA }
+			add_ideas = FRA_unrest_armee_ideas
+			add_stability = -0.2
+			set_country_flag = FRA_armee_secret
+			add_political_power = -150
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.283
+	title = fra.283.t
+	desc = fra.283.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.301
+	title = fra.301.t
+	desc = fra.301.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = {
+				OR = {
+					tag = CAN
+					tag = USA
+					is_neighbor_of = FRA
+				}
+				NOT = { is_subject_of = FRA }
+			}
+			news_event = { id = fra.302 }
+		}
+		if = {
+			limit = {
+				is_subject_of = FRA
+			}
+			news_event = { id = fra.130 }
+			set_country_flag = RejectFrenchCommies
+				add_autonomy_score = {
+					value = 800
+				}
+		}
+	}
+}
+news_event = {
+	id = fra.302
+	title = fra.302.t
+	desc = fra.302.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.303
+	title = fra.303.t
+	desc = fra.303.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			play_song = FRA_12
+		}
+	}
+}
+#是否接受法国保护
+country_event = {
+	id = fra.310
+	title = fra.310.t
+	desc = fra.310.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = {
+		name = fra.4.a
+		FRA = { 
+			add_to_variable = { influences = 20 }
+			give_guarantee = ROOT
+			give_military_access = ROOT
+		}
+		news_event = { id = fra.34 }
+		give_military_access = FRA
+	}
+	option = {
+		name = fra.4.b
+		news_event = { id = fra.36 }
+	}
+}
+#接受法国保护
+news_event = {
+	id = fra.311
+	title = fra.311.t
+	desc = fra.311.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#拒绝法国保护
+news_event = {
+	id = fra.312
+	title = fra.312.t
+	desc = fra.312.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#奥尔良王朝
+news_event = {
+	id = fra.320
+	title = fra.320.t
+	desc = fra.320.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.321
+	title = fra.321.t
+	desc = fra.321.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.322
+	title = fra.322.t
+	desc = fra.322.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.323
+	title = fra.323.t
+	desc = fra.323.d
+	picture = GFX_RomanTreaty
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = FRA
+		has_completed_focus = FRA_democratic_monarchism
+		NOT = { has_character = FRA_charles_de_gaulle }
+	}
+	option = {
+		name = usatext.5.a
+		random_list = {
+			60 = { 
+				recruit_character = FRA_charles_de_gaulle
+				promote_character = {
+					character = FRA_charles_de_gaulle
+					ideology = socialism
+				}
+				add_ideas = charles_de_gaulle
+				news_event = { id = fra.324 }
+			}
+			20 = { 
+				news_event = { id = fra.325 }
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.324
+	title = fra.324.t
+	desc = fra.324.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.325
+	title = fra.325.t
+	desc = fra.325.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.326
+	title = fra.326.t
+	desc = fra.326.d
+	picture = GFX_RomanTreaty
+	major = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = FRA
+		has_government = monarchism
+		NOT = { has_character = FRA_Le_Pon }
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			recruit_character = FRA_Le_Pon
+		}
+	}
+}
+news_event = {
+	id = fra.327
+	title = fra.327.t
+	desc = fra.327.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.328
+	title = fra.328.t
+	desc = fra.328.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.329
+	title = fra.329.t
+	desc = fra.329.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.340
+	title = fra.340.t
+	desc = fra.340.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.341
+	title = fra.341.t
+	desc = fra.341.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = {
+				OR = {
+					tag = CAN
+					tag = USA
+					tag = ENG
+					is_neighbor_of = FRA
+				}
+			}
+			news_event = { id = fra.347 }
+			FRA = {
+				add_stability = -0.01
+				add_popularity = { ideology = authoritarianism popularity = -0.01 }
+			}
+		}
+	}
+}
+news_event = {
+	id = fra.342
+	title = fra.342.t
+	desc = fra.342.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.343
+	title = fra.343.t
+	desc = fra.343.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.344
+	title = fra.344.t
+	desc = fra.344.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.345
+	title = fra.345.t
+	desc = fra.345.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.346
+	title = fra.346.t
+	desc = fra.346.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.347
+	title = fra.347.t
+	desc = fra.347.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.348
+	title = fra.348.t
+	desc = fra.348.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		play_song = FRA_35
+	}
+}
+news_event = {
+	id = fra.350
+	title = fra.350.t
+	desc = fra.350.d
+	picture = GFX_PetainDeath
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_global_flag = PetainDeath }
+		date > 1951.7.20
+		date < 1951.10.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = PetainDeath
+		
+	}
+}
+news_event = {
+	id = fra.351
+	title = fra.351.t
+	desc = fra.351.d
+	picture = GFX_AntoninArtaud
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = FRA
+		NOT = { has_global_flag = fra351 }
+		date > 1948.2.20
+		date < 1948.4.20
+		
+	}
+	option = {
+		name = fra.351.a
+		set_global_flag = fra351
+		
+	}
+}
+news_event = {
+	id = fra.360
+	title = fra.360.t
+	desc = fra.360.d
+	picture = GFX_NuclearReactors
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = fra.361
+	title = fra.361.t
+	desc = fra.361.d
+	picture = GFX_NuclearReactors
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_political_power = 200
+		FROM = {
+			news_event = fra.362
+			set_country_flag = FRA_EAEC_allow
+		}
+	}
+}
+news_event = {
+	id = fra.362
+	title = fra.362.t
+	desc = fra.362.d
+	picture = GFX_NuclearReactors
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}

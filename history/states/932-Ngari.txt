@@ -1,0 +1,39 @@
+
+state={
+	id=932
+	name="STATE_932" # Xikang
+	manpower = 9682
+	
+	state_category = wasteland
+
+	history={
+		set_state_flag = ethnics_Tibetan
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		owner = TIB
+		add_to_array = { this.state_ethnics_list = 6 }
+		add_claim_by = PRC
+		add_core_of = CHI
+		add_core_of = TIB
+		buildings = {
+			infrastructure = 1
+		}	
+		victory_points = {
+			10802 2 
+		}
+		1959.5.23 = {
+		add_core_of = PRC
+		owner = PRC
+		}
+
+		1965.1.1 = {
+			buildings = {
+				infrastructure = 3
+			}
+		}
+
+	}
+
+	provinces={
+		10802 1961 8029 12801 5094 12784 
+	}
+}

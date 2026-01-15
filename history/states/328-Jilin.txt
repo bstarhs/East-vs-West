@@ -1,0 +1,79 @@
+
+state={
+	id=328
+	name="STATE_328" # Kirin
+	manpower = 7536266
+	
+	state_category = city
+	resources={
+		copper=9
+	}
+	history={
+		add_claim_by = MAN
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 7 }
+		add_to_array = { this.state_ethnics_list = 14 }
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Han
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = DOB
+		add_core_of = PRC
+		buildings = {
+			farm_building = 3
+			power_plant = 2
+			arms_factory = 1
+			infrastructure = 4
+				air_base = 1
+			4572 = {
+				bunker = 5
+			}
+		}
+		victory_points = {
+			4572 12
+		}
+		victory_points = {
+			10433 8
+		}
+		victory_points = {
+			6905 4
+		}
+		victory_points = {
+			11864 2
+		}
+		victory_points = {
+			7652 5
+		}
+		1938.10.25 = {		
+			DOB = {
+				set_province_controller = 4572
+				set_province_controller = 4503
+			} 			
+		}
+		1949.10.14 = {
+		owner = PRC
+		add_core_of = CHI
+		}
+		1956.1.1 = {
+			buildings = {
+				power_plant = 1
+				rocket_site = 1
+				industrial_complex = 3
+				arms_factory = 2
+				air_base = 2
+			}
+		}
+		1960.10.14 = {
+			buildings = {
+				fuel_silo = 3
+				hospital = 2
+				air_base = 4
+			}
+		}
+	}
+
+	provinces={
+		800 887 945 946 1567 3888 3913 3932 3949 4503 4572 6868 6905 6947 7523 7591 7652 7663 9759 9782 9803 9841 9848 9866 9913 10433 11744 11781 11850 11864 12412 
+	}
+}

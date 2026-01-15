@@ -1,0 +1,559 @@
+﻿capital = 282
+
+oob = "JAP_1946"
+set_country_flag = british_colonies
+set_country_flag = eastasia
+set_stability = 0.65
+set_country_flag = developmented
+
+			add_to_variable = { CUB.US_gov_aid_opinion = 8 }
+			add_to_variable = { CUB.US_public_aid_opinion = 2 }
+	set_variable = { this.education = 63 }
+set_country_flag = main_country
+	recruit_character = JAP_Itokawa_Hideo
+	recruit_character = JAP_suzuki_mosaburo
+	recruit_character = JAP_sanzo_nosaka
+	recruit_character = JAP_matsushita_kounosuke
+	recruit_character = JAP_ito_seigi
+	recruit_character = JAP_Abe_Shintaro
+	recruit_character = JAP_Miyamoto_kenji
+	recruit_character = JAP_ohira_masayoshi
+	recruit_character = JAP_hirose_ichiro
+	recruit_character = JAP_ikeda_taisaku
+	recruit_character = JAP_ikeda_hayato
+	recruit_character = JAP_Katayama_Tetsu
+	recruit_character = JAP_Yoshida_Shigeru
+	
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+set_research_slots = 3
+add_ideas = {
+	hurt_of_hiroshima
+	Buddhism
+	partial_economic_mobilisation
+	volunteer_only
+	governed_economic
+	GHQ
+	JCPmovement
+	assimilated
+}
+
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	set_technology = {
+	gasmask = 1
+	infantry_at = 1
+		excavation1 = 1
+		excavation2 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		medical1 = 1
+		motorize_doctrine = 1
+		basic_light_battery = 1
+		radio_detection = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		power_generation2 = 1
+		advanced_machine_tools = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		oil_processing = 1
+		army_aviation = 1
+		dispersed_industry4 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	can_foods = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_recon = 1
+	aluminum_tech = 1
+	tech_engineers = 1
+	motorised_infantry = 1
+	marines  = 1
+	gw_artillery = 1
+	gwtank = 1
+	basic_light_tank = 1
+	basic_heavy_tank = 1  # PLACEHOLDER
+	basic_medium_tank = 1 # PLACEHOLDER
+	
+	radio = 1
+	decimetric_radar = 1
+	
+	early_fighter = 1
+	radio_detection = 1
+	early_bomber = 1
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	
+	
+	early_ship_hull_cruiser = 1
+	basic_heavy_cruiser = 1
+	
+	transport = 1
+	fuel_silos = 1
+	rubber_processing = 1
+	synth_oil_experiments = 1
+	electronic_mechanical_engineering = 1
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	dispersed_industry = 1
+	construction1 = 1
+	component = 1
+	medical2 = 1
+	medical3 = 1
+	medical4 = 1
+	medical5 = 1
+	power_generation1 = 1
+	smoke_generator = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	basic_militia = 1
+		vaccum_tube = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	antiair1 = 1
+	military_college = 1
+		interwar_antiair = 1
+	tech_military_police = 1
+	artilelery_doctrine = 1
+		tech_signal_company = 1
+		tech_logistics_company = 1
+		tech_field_hospital = 1
+		machine_gun1 = 1
+	transport_1 = 1
+	assembly_line = 1
+}
+
+
+set_convoys = 400
+
+add_ideas = {
+	KuchiDynasty
+}
+
+	set_popularities = {
+		democratic = 75
+		communism = 23
+		neutrality = 2
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+promote_character = JAP_Yoshida_Shigeru
+
+
+create_country_leader = {
+	name = "Tokuda Kyuichi"
+	desc = "POLITICS_Hirohito_DESC"
+	picture = "gfx/leaders/JAP/Portrait_Japan_Tokuda_Kyuichi.tga"
+	expire = "1989.1.1"
+	ideology = marxism
+	traits = {
+		
+	}
+}
+1949.1.1 = {
+	complete_national_focus = JAP_Judgment
+	complete_national_focus = JAP_execute_warcrimer
+	complete_national_focus = JAP_Humanity_Declaration
+	complete_national_focus = JAP_peace_constitution
+	complete_national_focus = JAP_shakaito
+	add_ideas = Marshall
+}
+1955.1.20 = {
+			add_to_variable = { CUB.US_gov_aid_opinion = 10 }
+	recruit_character = JAP_inejiro_asunama
+	set_country_flag = israel_diplomacy
+	complete_national_focus = JAP_economic
+	complete_national_focus = JAP_Jinmu_boom
+	complete_national_focus = JAP_electro_project
+	complete_national_focus = JAP_steel_making
+	complete_national_focus = JAP_refinery_making
+	complete_national_focus = JAP_SanFrancisco_treaty
+	complete_national_focus = JAP_freed_warcrimeer
+	complete_national_focus = JAP_reconstruction_rightwing
+	complete_national_focus = JAP_Military_Pension
+	complete_national_focus = JAP_against_communist
+	complete_national_focus = JAP_Pro_Taiwan
+	complete_national_focus = JAP_Yoshida_Idea
+	set_popularities = {
+		democratic = 73
+		communism = 18
+		neutrality = 9
+	}
+	promote_character = JAP_Hatoyama_Ichiro
+	set_country_flag = InternationalAtomic
+	set_technology = {
+		cable_television = 1
+		auto_industry = 1
+		concentrated_industry = 1
+		spaa1 = 1
+		spaa1 = 1
+		tech_recon2 = 1
+		tech_maintenance_company = 1
+		tech_logistics_company2 = 1
+		fuel_refining = 1
+	}
+	remove_ideas = {
+		hurt_of_hiroshima
+		GHQ
+		JCPmovement
+	}
+	add_ideas = JAP_jinmu_boom_ideas
+	set_country_flag = FukuryuMaru
+}
+1956.12.1 = {
+	set_technology = {
+		synth_oil_experiments = 1
+		construction2 = 1
+		mechanised_infantry = 1
+		machine_gun2 = 1
+		CAS2 = 1
+		fighter1 = 1
+		laundry = 1
+		dispersed_industry2 = 1
+		rocket_engines = 1
+		spaa1 = 1
+		fire_control_methods_1 = 1
+		electrolytic_aluminum = 1
+		gasoline_train = 1
+		husbandry_feed = 1
+		early_computer = 1
+		atomic_research = 1
+	}
+	complete_national_focus = JAP_Jinmu_boom
+	complete_national_focus = JAP_okinawa_base
+	complete_national_focus = JAP_Police
+	complete_national_focus = JAP_Pro_America
+	complete_national_focus = JAP_JSDF
+	complete_national_focus = JAP_Promote_democracy
+	complete_national_focus = JAP_Yoshida_Idea
+	complete_national_focus = JAP_SanFrancisco_treaty
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+		Olympic
+	}
+}
+	
+1959.1.20 = {
+	retire_character = JAP_Yoshida_Shigeru
+	retire_character = JAP_Ogata_Taketora
+	retire_character = JAP_Hatoyama_Ichiro
+	remove_ideas = Marshall
+	remove_ideas = JAP_jinmu_boom_ideas
+			set_global_flag = jap244
+	complete_national_focus = JAP_Military_industry
+	complete_national_focus = JAP_Peace_with_soviet
+	complete_national_focus = JAP_join_UN
+	add_opinion_modifier = {
+		target = KOR
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = CHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = PHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = SVN
+		modifier = ally_asia
+	}
+	set_technology = {
+		excavation3 = 1
+		at_missile_1 = 1
+		spaa1 = 1
+		improved_sonar = 1
+		paratroopers = 1
+		fighter2 = 1
+		fighter3 = 1
+		air_gun = 1
+		concentrated_industry2 = 1
+		frozen_food = 1
+		basic_ship_hull_light = 1
+		sp_artillery1 = 1
+		improved_light_tank = 1
+		tech_signal_company2 = 1
+		tech_field_hospital2 = 1
+		
+		nucelar_fusion = 1
+		cooling_tower = 1
+	transport_2 = 1
+	cable_television = 1
+	aluminum_tech = 1
+	improved_rubber_processing = 1
+	}
+	oob = "JAP_1977"
+	complete_national_focus = JAP_economic
+	complete_national_focus = JAP_Revenue_growth
+	complete_national_focus = JAP_security_accord
+	create_country_leader = {
+		name = "Ikeda Hayato"
+		picture = "gfx/leaders/JAP/Portrait_Japan_Hayato_Ikeda.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+			jap_pm Developmentalism smooth_talking_charmer
+		}
+	}
+	create_country_leader = {
+		name = "Miyamoto Kenji"
+		
+		picture = "gfx/leaders/NJP/Portrait_njp_Miyamoto_Kenji.tga"
+		expire = "1988.1.1"
+		ideology = marxism
+		
+		traits = {
+		}
+	}
+}
+1960.1.1 = {
+	retire_character = JAP_inejiro_asunama
+	complete_national_focus = JAP_Military_industry
+	add_ideas = {
+		JAP_1960_renaval_plan
+	}
+	add_timed_idea = {
+		idea = JSPsepataris
+		days = 100
+	}
+}	
+1964.1.20 = {
+	set_variable = { this.education = 72 }
+	add_political_power = 1199
+	set_technology = {
+		vulcanization = 1
+		medium_computer = 1
+		computer_consol = 1
+		Semiconductor = 1
+		spaa2 = 1
+		spaa2 = 1
+		aa_missile_1 = 1
+		trans_helicopter_1 = 1
+		advanced_machine_tools = 1
+		basic_helicopter = 1
+		basic_medium_tank = 1
+		improved_medium_tank = 1
+		infantry_weapons2 = 1
+		improved_infantry_weapons = 1
+		concentrated_industry3 = 1
+		dispersed_industry3 = 1
+		construction3 = 1
+		infantry_at2 = 1
+		basic_ship_hull_cruiser = 1
+		artillery1 = 1
+		air_chaff = 1
+		halicopter_machinegun = 1
+		laser_weapon = 1
+		basic_secondary_battery = 1
+		basic_heavy_battery = 1
+		fuel_refining2 = 1
+		fishing_net = 1
+	}
+	remove_ideas = Olympic
+	remove_ideas = JSPsepataris
+	complete_national_focus = JAP_Korea_relationship
+	create_country_leader = {
+		name = "Sato Eisaku"
+		
+		picture = "gfx/leaders/JAP/Portrait_Japan_Sato_Eisaku.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+			jap_pm smooth_talking_charmer pro_america
+		}
+	}
+}
+1968.1.20 = {
+	set_popularities = {
+		democratic = 75
+		communism = 22
+		neutrality = 3
+	}
+	set_country_flag = Satellite_succes
+	add_ideas = {
+		zenkyouto
+		LDP_struggle
+	}
+	remove_ideas = JAP_1960_renaval_plan
+	set_technology = {
+		nuclear_plant_1 = 1
+		at_missile_2 = 1
+		tech_Satellite = 1
+		improved_airplane_launcher = 1
+		power_cable = 1
+		improved_ship_hull_light = 1
+		machine_gun3 = 1
+		mechanized_aa_missile_1 = 1
+		electric_arc_furnace_steel = 1
+		spaa2 = 1
+		land_guidance = 1
+		supersonic_engine = 1
+		trans_helicopter_2 = 1
+		coal_collection = 1
+		fire_control_methods_2 = 1
+		electro_train = 1
+	}
+}
+1976.1.20 = {
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_pro_west
+	}
+	complete_national_focus = JAP_YASUKUNI
+	remove_ideas = zenkyouto
+	set_technology = {
+		integrated_circuit = 1
+		improved_heavy_tank = 1
+		mechanised_infantry2 = 1
+		paratroopers2 = 1
+		transistor = 1
+		advanced_medium_tank = 1
+		concentrated_industry4 = 1
+		sp_artillery2 = 1
+		construction4 = 1
+		motorised_infantry_2 = 1
+		CAS3 = 1
+		countermeasure_flare = 1
+		halicopter_at_missile = 1
+		infraed_homing = 1
+		railway_control = 1
+		aa_missile_2 = 1
+		polymer = 1
+	}
+	complete_national_focus = JAP_electronic_indus
+	complete_national_focus = JAP_YASUKUNI
+	complete_national_focus = JAP_china_relationship
+	set_popularities = {
+		democratic = 76
+		communism = 21
+		neutrality = 3
+	}
+	create_country_leader = {
+		name = "Fukuda Takeo"
+		
+		picture = "gfx/leaders/JAP/Portrait_Japan_Fukuda_Takeo.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+			jap_pm neoliberal
+		}
+	}
+}
+1982.1.20 = {
+	set_variable = { this.education = 84 }
+	set_popularities = {
+		democratic = 85
+		communism = 12
+		neutrality = 3
+	}
+	add_ideas = {
+		Buble_economic
+	}
+	complete_national_focus = JAP_videogames
+	set_technology = {
+		medical6 = 1
+		assembly_line_production = 1
+		improved_secondary_battery = 1
+		improved_heavy_battery = 1
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		personal_computer = 1
+		advanced_heavy_tank = 1
+		concentrated_industry5 = 1
+		dispersed_industry4 = 1
+		sp_artillery1 = 1
+		at_missile_3 = 1
+		electric_arc_furnace = 1
+	}
+	create_country_leader = {
+		name = "Nakasone Yasuhiro"
+		
+		picture = "gfx/leaders/JAP/Portrait_Japan_Yasuhiro_Nakasone.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+			jap_pm pro_america neoliberal
+		}
+	}
+}
+	
+	
+1988.1.20 = {
+	remove_ideas = KuchiDynasty
+	remove_ideas = LDP_struggle
+	add_ideas = {
+		Akihito
+	}
+	set_technology = {
+		assembly_line_production = 1
+		advanced_infantry_weapons = 1
+		improved_infantry_weapons_2 = 1
+		advanced_light_tank = 1
+		fire_control_methods_3 = 1
+		spaa3 = 1
+		fighter4 = 1
+		robot_arms = 1
+		fighter_firecontrol = 1
+	}
+	create_country_leader = {
+		name = "Takeshita Noboru"
+		
+		picture = "gfx/leaders/JAP/Portrait_Japan_Takeshita_Noboru.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+			jap_pm 
+		}
+	}
+}
+1991.1.20 = {
+	set_technology = {
+		aa_missile_3 = 1
+		advanced_light_tank = 1
+	}
+	create_country_leader = {
+		name = "Miyazawa Iichi"
+		
+		picture = "gfx/leaders/JAP/Portrait_Japan_Miyazawa_Iichi.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+			jap_pm 
+		}
+	}
+}

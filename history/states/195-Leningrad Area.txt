@@ -1,0 +1,45 @@
+
+state={
+	id=195
+	name="STATE_195"
+	manpower = 3750158
+	
+	state_category = metropolis
+
+	history={
+		owner = SOV
+		add_to_variable = { state_tourist = 120 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Russian
+		victory_points = {
+			3151 15
+		}
+		buildings = {
+			rubber_factory = 1
+			farm_building = 3
+			hospital = 2
+			power_plant = 3
+			infrastructure = 7
+			arms_factory = 6
+			industrial_complex = 1
+			dockyard = 3
+			air_base = 10
+			3151 ={
+				naval_base = 10
+				coastal_bunker = 5
+			}
+		}
+		add_core_of = SOV
+		1974.8.23 = {
+			buildings = { nuclear_reactor = 2 }
+		}
+		1981.8.23 = {
+			buildings = { nuclear_reactor = 4 }
+		}
+	}
+
+	provinces={
+		79 149 3151 6174 11068 
+	}
+}

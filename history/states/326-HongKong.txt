@@ -1,0 +1,54 @@
+state=
+{
+	id=326
+	name="STATE_326"
+	manpower = 1143516
+	state_category = city
+	history = {
+		add_to_array = { this.state_ethnics_list = 2 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_to_array = { this.state_ethnics_list = 65 }
+		set_state_flag = ethnics_Canton
+		add_dynamic_modifier = { modifier = fish_production }
+		add_core_of = CTN
+		add_core_of = HKN
+		buildings = {
+			power_plant = 1
+			industrial_complex = 2
+			anti_air_building = 1
+			farm_building = 2
+			hospital = 1
+			air_base = 2
+			infrastructure = 3
+			10062 = {
+				naval_base = 6
+				coastal_bunker = 1
+				bunker = 2
+			}
+		}
+		owner = HKN
+		add_claim_by = CHI
+		1950.1.4 = {
+			add_claim_by = PRC
+		}
+		1975.1.4 = {
+			set_state_category = metropolis
+			buildings = {
+				power_plant = 6
+				infrastructure = 9
+				industrial_complex = 10
+				air_base = 5
+				infrastructure = 5
+				10062 = {
+					bunker = 6
+				}
+			}
+		}
+		victory_points = {
+			10062 15
+		}
+	}
+	provinces={
+		10062
+	}
+}

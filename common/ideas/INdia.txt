@@ -1,0 +1,362 @@
+ideas = {
+	country = {
+		IND_Caste_3 = {
+
+			picture = IND_Caste_3
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.20
+				local_manpower = 0.3
+				political_power_cost = 0.2
+				political_power_factor = -0.15
+				drift_defence_factor = -0.2
+				production_speed_school_factor = -0.25
+			}
+		}
+		IND_Caste_4 = {
+
+			picture = IND_Caste_4
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.25
+				local_manpower = 0.32
+				political_power_cost = 0.25
+				political_power_factor = -0.2
+				drift_defence_factor = -0.22
+				production_speed_school_factor = -0.3
+			}
+		}
+		IND_indian_gurkhas = {
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = 0.02
+			}
+		}
+		IND_azad_hind = {
+			picture = generic_morale_bonus
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				fascism_drift = 0.05
+			}
+		}
+
+		IND_marginalized_muslim_community = {
+		
+			picture = raj_marginalized_muslim_community
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.1
+				conscription_factor = -0.2
+			}
+		}
+
+		IND_marginalized_muslim_community_angry = {
+		
+			picture = raj_marginalized_muslim_community_angry
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.1
+				conscription_factor = -0.2
+				autonomy_gain = -0.4
+			}
+		}
+
+		IND_marginalized_muslim_community_happy = {
+		
+			picture = raj_marginalized_muslim_community_happy
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.02
+				conscription_factor = -0.1
+				autonomy_gain = 0.6
+			}
+		}
+
+		IND_risk_of_famine = {
+
+			picture = raj_risk_of_famine
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+
+			}
+		}
+
+		IND_famine = {
+
+			picture = ENG_the_war_to_end_all_wars
+
+			allowed = {
+				original_tag = IND
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.15
+				industrial_capacity_factory = -0.25
+				industrial_capacity_dockyard = -0.25
+				conscription_factor = -0.1
+			}
+		}
+
+	}
+
+
+	political_advisor = {
+		indra_gandhi = {
+			allowed = {
+				original_tag = IND
+			}
+			visible = {
+				date < 1966.1.1
+				date > 1956.1.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		Shastri = {
+			allowed = {
+				original_tag = IND
+			}
+			visible = {
+				date < 1966.1.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		morarji_desai = {
+			allowed = {
+				original_tag = IND
+			}
+			visible = {
+				date < 1990.1.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		sanjay_gandhi = {
+			allowed = {
+				original_tag = IND
+			}
+			visible = {
+				date < 1980.1.1
+				date > 1966.1.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	
+	}
+	industrial_concern = {
+		tata = {
+			
+			picture = tata
+			allowed = {
+				original_tag = IND
+			}
+			
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		designer = yes
+		
+		mazagon_dock_limited = {
+			
+			allowed = {
+				has_dlc = "Together for Victory"
+				original_TAG = IND
+			}
+
+			picture = generic_naval_manufacturer_1
+						
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { convoy_escort_naval_manufacturer }
+
+		}
+		
+		garden_reach_shipbuilders = {
+			
+			allowed = {
+				has_dlc = "Together for Victory"
+				original_TAG = IND
+			}
+			
+			picture = generic_naval_manufacturer_3
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { pacific_fleet_naval_manufacturer }
+		}
+		
+		scindia_shipyard = {
+			
+			allowed = {
+				has_dlc = "Together for Victory"
+				original_TAG = IND
+			}
+			
+			picture = generic_naval_manufacturer_2
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { atlantic_fleet_naval_manufacturer }
+			
+		}
+		hindustan_aircraft= {
+			
+			allowed = {
+				has_dlc = "Together for Victory"
+				original_TAG = IND
+			}
+			
+			picture = generic_air_manufacturer_1
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		ishapore_rifle_factory = {
+			
+			allowed = {
+				has_dlc = "Together for Victory"
+				original_TAG = IND
+			}
+
+			picture = generic_infantry_equipment_manufacturer_2
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		ordnance_factories_board = {
+			
+			allowed = {
+				has_dlc = "Together for Victory"
+				original_TAG = IND
+			}
+			
+			picture = generic_artillery_manufacturer_2
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+}

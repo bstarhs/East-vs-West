@@ -1,0 +1,175 @@
+scripted_gui = {
+	state_production = {
+		window_name = "new_state_production"
+		context_type = selected_state_context
+		parent_window_name = "province_image"
+		ai_enabled = { always = yes }
+		ai_test_interval = 1
+		ai_check = {
+			date > 1945.1.1
+		}
+		ai_weights = {
+			add_foods_click = {
+				ai_will_do = {
+					factor = 2
+					modifier = {
+						add = 100
+						check_variable = { this.state_food_production < this.state_food_need }
+					}
+					modifier = {
+						add = -20
+						check_variable = { this.state_food_production > this.state_food_need }
+					}
+				}
+			}
+		}
+		triggers = {
+			add_foods_click_enabled  = {
+				is_owned_by = ROOT
+				owner = { check_variable = { nation_food_free > 0 } }
+			}
+			reduce_foods_click_enabled  = {
+				check_variable = { this.state_food_production > this.state_food_need }
+				is_owned_by = ROOT
+			}
+			state_POWER_low_coal_visible = {
+				owner= { check_variable = { resource@coal < 1 }  }
+				NOT = { has_dynamic_modifier = { modifier = power_general_fuel } }
+			}
+			low_food_visible = {
+				check_variable = { state_food_production < state_food_low_limit }
+			}
+		}
+		effects = {
+			add_foods_click = {
+				add_to_variable = { this.state_food_added = 1 }
+				add_to_variable = { this.state_food_production = 1 }
+				owner = { add_to_variable = { this.nation_food_free = -1 } }
+				owner = { add_to_variable = { this.total_state_food_neighber = 1 } }
+				if = {
+					limit = { check_variable = { this.foods_to_save > 0 } }
+					add_to_variable = { this.foods_to_save = -1 }
+				}
+            }
+			reduce_foods_click = {
+				add_to_variable = { this.state_food_production = -1 }
+				add_to_variable = { this.foods_to_save = 1 }
+				owner = { add_to_variable = { this.nation_food_free = 1 } }
+				owner = { add_to_variable = { this.total_state_food_neighber = -1 } }
+				if = {
+					limit = { check_variable = { this.state_food_added > 0 } }
+					add_to_variable = { this.state_food_added = -1 }
+				}
+            }
+		}
+	}
+	state_mines = {
+		window_name = "state_mines"
+		context_type = selected_state_context
+		parent_window_name = "province_image"
+		ai_enabled = { always = yes }
+		ai_test_interval = 96
+		triggers = {
+			state_coal_visible = {
+				check_variable = { resource@coal > 0 }
+			}
+			state_oil_visible = {
+				has_dynamic_modifier = { modifier = oil_modifiers }
+			}
+			state_fish_visible = {
+				has_dynamic_modifier = { modifier = fish_production }
+			}
+			state_husbandry_visible = {
+				has_dynamic_modifier = { modifier = husbandry_production }
+			}
+			state_tobacco_visible = {
+				has_state_flag = tobacco_production
+			}
+			state_coffee_visible = {
+				has_state_flag = coffee_production
+			}
+			state_cutton_visible = {
+				has_state_flag = cutton_production
+			}
+			state_gold_visible = {
+				has_state_flag = gold_production
+			}
+			state_wine_visible = {
+				has_state_flag = wine_production
+			}
+			state_sugar_visible = {
+				has_state_flag = sugar_production
+			}
+			state_banana_visible = {
+				has_state_flag = banana_production
+			}
+		}
+	}
+	state_production = {
+		window_name = "state_agriculture"
+		context_type = selected_state_context
+		parent_window_name = "province_image"
+		ai_enabled = { always = yes }
+		ai_test_interval = 96
+		triggers = {
+			state_rice_icon_visible = {
+				has_dynamic_modifier = { modifier = rice_food_production }
+			}
+			state_wealth_icon_visible = {
+				has_dynamic_modifier = { modifier = hight_food_production }
+			}
+			state_weat_icon_visible = {
+				has_dynamic_modifier = { modifier = more_food_production }
+			}
+		}
+	}
+	state_power_production_building = {
+		window_name = "state_power_production_building"
+		context_type = selected_state_context
+		parent_window_name = "province_image"
+		ai_enabled = { always = yes }
+		ai_test_interval = 96
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			add_school_num_click_enabled  = {
+				check_variable = { plant_num < plant_max }
+				owner = { has_political_power > 20 }
+			}
+			add_school_num_visible = {
+				check_variable = { state_plant_construction_days < 1 }
+			}
+			building_construction_visible = {
+				check_variable = { state_plant_construction_days > 0 }
+			}
+		}
+		effects = {
+			add_school_num_click = {
+				add_to_variable = { state_plant_construction_days = 220 }
+				owner = { add_political_power = -20 }
+				
+            }
+		}
+		ai_weights = {
+			add_school_num_click = {
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						add = 10
+					}
+					modifier = {
+						add = -50
+						owner = { check_variable = { power > power_max } }
+					}
+				}
+				
+			}
+		}
+		visible = {
+			is_controlled_by = ROOT
+			has_state_flag = state_powerplant_show
+		}
+	}
+}
+

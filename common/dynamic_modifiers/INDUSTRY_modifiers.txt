@@ -1,0 +1,49 @@
+
+power_general_fuel = {
+	enable = { always = yes }
+	fuel_cost = powerplant_oil_coast
+}
+oil_crisis = {
+	enable = { always = yes }
+	fuel_gain_factor = -0.7
+	production_oil_factor = -0.5
+}
+fuel_crisis = {
+	enable = { always = yes }
+	industry_repair_factor = -0.3
+	production_speed_buildings_factor = -0.5 
+	supply_node_range = -0.4
+	compliance_growth_on_our_occupied_states = -0.5
+	production_factory_efficiency_gain_factor = -0.5 
+	production_factory_max_efficiency_factor = -0.5 
+}
+can_foods_modifier = {
+	enable = { always = yes }
+	state_resource_food = industrial_complex_level
+}
+corn_modifier = {
+	enable = { always = yes }
+	state_resource_food = building_level@farm_building
+}
+cement_modifier = {
+	enable = { always = yes }
+	production_speed_buildings_factor = cement_factory_modifier
+}
+autos_low_modifiers = {
+	enable = { always = yes }
+	political_power_gain = -0.03
+	production_speed_buildings_factor = -0.08
+	fuel_cost = consumer_auto
+}
+auto_effect_modifier = {
+	enable = { always = yes }
+	political_power_gain = 0.08
+	stability_factor = 0.06
+	production_speed_buildings_factor = 0.12
+	fuel_cost = auto_request
+	drift_defence_factor = 0.04
+}
+total_fuel_cost = {
+	enable = { always = yes }
+	fuel_cost = total_fuel_cost
+}

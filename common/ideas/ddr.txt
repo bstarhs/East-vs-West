@@ -1,0 +1,273 @@
+ideas = {
+	country = {
+		DDR_Wieden = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Wieden
+			modifier = {
+			}
+		}
+		DDR_border_control = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_border_control
+			modifier = {
+				political_power_cost = 0.12
+				stability_factor = 0.12
+				drift_defence_factor = 0.2
+			}
+		}
+		DDR_Grundlagenvertrag = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Grundlagenvertrag
+			modifier = {
+				justify_war_goal_time = 0.5
+				generate_wargoal_tension = 0.5
+				enemy_justify_war_goal_time = 0.5
+				stability_factor = 0.12
+				political_power_factor = 0.06
+			}
+		}
+		DDR_617 = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Montagsdemonstrationen
+			modifier = {
+				political_power_cost = 0.2
+				stability_factor = -0.12
+				communism_drift = -0.02
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		DDR_Rot_preussen = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Rot_preussen
+			modifier = {
+			}
+		}
+		DDR_Montagsdemonstrationen = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Montagsdemonstrationen
+			modifier = {
+				communism_drift = -0.02
+				stability_factor = -0.15
+				democratic_drift = 0.05
+				political_power_factor = -0.25
+				war_support_factor = -0.4
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		DDR_Republikflucht_1 = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Republikflucht_1
+			modifier = {
+				political_power_cost = 0.10
+				stability_factor = -0.06
+				political_power_factor = -0.10
+				drift_defence_factor = -0.12
+				custom_modifier_tooltip = DDR_Republikflucht_tool
+			}
+		}
+		DDR_Republikflucht_2 = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Republikflucht_2
+			modifier = {
+				political_power_cost = 0.12
+				stability_factor = -0.1
+				political_power_factor = -0.12
+				drift_defence_factor = -0.15
+				custom_modifier_tooltip = DDR_Republikflucht_tool
+			}
+		}
+		DDR_Republikflucht_3 = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Republikflucht_3
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.12
+				political_power_factor = -0.15
+				drift_defence_factor = -0.2
+				custom_modifier_tooltip = DDR_Republikflucht_tool
+			}
+		}
+		DDR_Republikflucht_4 = {
+			allowed = {
+				always = yes
+			}
+			picture = DDR_Republikflucht_4
+			modifier = {
+				political_power_cost = 0.18
+				stability_factor = -0.2
+				political_power_factor = -0.2
+				drift_defence_factor = -0.25
+				custom_modifier_tooltip = DDR_Republikflucht_tool
+			}
+		}
+		stassi = {
+			allowed = {
+				always = yes
+			}
+			picture = stassi
+			modifier = {
+				drift_defence_factor = 0.2
+				communism_drift = 0.02
+				operative_slot = 3
+				resistance_target = -0.1
+				compliance_gain = 0.06
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		Berlin_wall = {
+			allowed = {
+				always = yes
+			}
+			picture = BerlinWall
+			modifier = {
+				political_power_cost = 0.2
+				stability_factor = 0.15
+				drift_defence_factor = 0.3
+				custom_modifier_tooltip = influence_limit_300
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		Schiessbefehl = {
+			allowed = {
+				always = yes
+			}
+			picture = Schiessbefehl
+			modifier = {
+				drift_defence_factor = -0.20
+				stability_factor = -0.02
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	political_advisor = {
+		Erich_Mielke = {
+			allowed = {
+				original_tag = DDR
+			}
+			visible = {
+				date > 1957.1.1
+			}
+			traits = { prince_of_terror }
+		}
+	}
+	industrial_concern = {
+			
+		designer = yes
+		IFA = {
+			picture = IFA
+			allowed = {
+				original_tag = DDR
+			}
+
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+
+		}
+		VEB_Spezialtechnik = {
+			picture = VEB_Spezialtechnik
+			allowed = {
+				original_tag = DDR
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		EFW = {
+			picture = EFW
+			allowed = {
+				original_tag = DDR
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			traits = { light_aircraft_manufacturer medium_aircraft_manufacturer }
+		}
+		LeipzigGrimma = {
+			picture = LeipzigGrimma
+			allowed = {
+				original_tag = DDR
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { refinery_concern }
+		}
+		Leuna = {
+			picture = Leuna
+			allowed = {
+				original_tag = DDR
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { refinery_concern }
+		}
+		Robotron = {
+			picture = Robotron
+			allowed = {
+				original_tag = DDR
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		DM_deresdent = {
+			picture = DM_deresdent
+			allowed = {
+				original_tag = DDR
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		trabant = {
+			
+			picture = trabant
+			allowed = {
+				original_tag = DDR
+			}
+			
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

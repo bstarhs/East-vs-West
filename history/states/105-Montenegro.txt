@@ -1,0 +1,43 @@
+
+state={
+	id=105
+	name="STATE_105" # Montenegro
+	manpower = 895500
+	
+	state_category = town
+	
+	resources={
+		tungsten=5
+		aluminium=9
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 122 }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Montenegro
+		owner = YUG
+		add_core_of = MNT
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 1
+		}
+		victory_points = { 
+			9809 8 
+		}
+		victory_points = { 
+			13850 5 
+		}
+		victory_points = { 
+			9821 2
+		}
+		add_core_of = YUG
+	}
+
+	provinces={
+		937 6913 9809 9821 11858 13850
+	}
+}

@@ -1,0 +1,60 @@
+state= {
+	id=2
+	name="STATE_2" # Latium
+	manpower = 2781971
+	
+	state_category = city
+	local_supplies=0.0
+
+	history=
+	{
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_variable = { state_tourist = 20 }
+		set_state_flag = ethnics_Italian
+		owner = ITA
+		add_to_array = { this.state_ethnics_list = 87 }
+		victory_points = { 9904 15 }
+		victory_points = { 11846 5 }
+		victory_points = { 11751 5 }
+		buildings = {
+			school = 1
+			hospital = 1
+			farm_building = 1
+			power_plant = 2
+			infrastructure = 8
+			air_base = 8
+			arms_factory = 1
+			industrial_complex = 2
+			11751 = {
+				naval_base = 2
+			}
+			11846 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = ITA
+		1955.1.1 = {
+			add_to_variable = { state_tourist = 60 }
+			set_state_category = metropolis
+			buildings = {
+				farm_building = 3
+				industrial_complex = 6
+				synthetic_refinery = 1
+				rubber_factory = 1
+			}
+		}
+		1962.8.23 = {
+			buildings = {
+				steel_making = 2
+				industrial_complex = 8
+				synthetic_refinery = 2
+				rubber_factory = 2
+			}
+		}
+	}
+
+	provinces= {
+		923 6862 9794 9904 11751 11846 11882
+ 	}
+}

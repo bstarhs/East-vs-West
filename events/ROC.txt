@@ -1,0 +1,2974 @@
+﻿add_namespace = roc
+
+
+#华南抵抗
+news_event = {
+	id = roc.1
+	title = roc.1.t
+	desc = roc.1.d
+	picture = GFX_ROCArmy1940s
+	trigger = {
+		tag = CHI
+		has_war_with = PRC
+		controls_state = 593
+		controls_state = 592
+		controls_state = 599
+		OR = {
+		has_stability < 0.4
+		has_war_support > 0.5
+		}
+	}
+	mean_time_to_happen = { days = 30 }
+	option = {
+		name = roc.8.a
+		593 = { add_resistance = 30 }
+		592 = { add_resistance = 30 }
+		599 = { add_resistance = 30 }
+	}
+}
+#中原抵抗
+news_event = {
+	id = roc.2
+	title = roc.2.t
+	desc = roc.2.d
+	picture = GFX_ROCArmy1940s
+	trigger = {
+		tag = CHI
+		has_war_with = PRC
+		controls_state = 607
+		controls_state = 622
+		OR = {
+		has_stability < 0.4
+		has_war_support > 0.5
+		}
+	}
+	mean_time_to_happen = { days = 30 }
+	option = {
+		name = roc.8.a
+		615 = { add_resistance = 30 }
+		607 = { add_resistance = 30 }
+		622 = { add_resistance = 30 }
+	}
+}
+#通货膨胀
+news_event = {
+	id = roc.3
+	title = roc.3.t
+	desc = roc.3.d
+	picture = GFX_ChinaEconomicCrisis
+	trigger = {
+		tag = CHI
+		has_war_with = PRC
+		controls_state = 613
+		OR = {
+			has_stability < 0.4
+			has_war_support > 0.5
+		}
+	}
+	mean_time_to_happen = { days = 200 }
+	option = {
+		name = roc.8.a
+		add_stability = -0.03
+		add_war_support = -0.03
+		add_manpower = -120
+	}
+}
+#反共救国军出现
+news_event = {
+	id = roc.4
+	title = roc.4.t
+	desc = roc.4.d
+	picture = GFX_ROCArmyInThailand
+	major = yes
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		325 = { is_owned_by = PRC }
+		594 = { is_owned_by = PRC }
+		835 = { is_owned_by = BUR }
+		836 = { is_owned_by = BUR }
+		country_exists = BUR
+		NOT = { country_exists = YUN }
+		date < 1954.1.1
+	}
+	option = {
+		name = roc.8.a
+		if = {
+			limit = { tag = BUR }
+			add_ideas = BUR_kmt_occupied
+			YUN = {
+				promote_character = CHI_Li_mi
+				add_ideas = YUN_resistance_army
+				transfer_state = 835
+				transfer_state = 836
+			}
+		}
+	}
+}
+#反共军攻击
+news_event = {
+	id = roc.5
+	title = roc.5.t
+	desc = roc.5.d
+	picture = GFX_ROCArmyInThailand
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.5.a
+		if = {
+			limit = { tag = PRC }
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 325
+					num_provinces = 4
+					on_win = roc.7
+				}
+				defender = {
+					state = 835
+					num_provinces = 4
+					on_win = roc.6
+				}
+			}
+		}
+	}
+}
+#国军失败
+news_event = {
+	id = roc.6
+	title = roc.6.t
+	desc = roc.6.d
+	picture = GFX_ROCArmyInThailand
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.6.a
+		if = {
+			limit = { tag = YUN }
+			add_stability = -0.12
+		}
+		if = {
+			limit = { tag = PRC }
+			add_stability = 0.04
+			325 = { add_resistance = -20 }
+		}
+	}
+}
+#共军失败
+news_event = {
+	id = roc.7
+	title = roc.7.t
+	desc = roc.7.d
+	picture = GFX_ROCArmyInThailand
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.8.a
+		if = {
+			limit = { tag = YUN }
+			add_stability = 0.1
+			army_experience = 100
+		}
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.04
+			325 = { add_resistance = 20 }
+		}
+	}
+}
+
+
+#常凯申
+news_event = {
+	id = roc.8
+	title = roc.8.t
+	desc = roc.8.d
+	picture = GFX_Chiang_KiaShek
+	fire_only_once = yes
+	trigger = {
+		tag = CHI
+		CHI = { has_government = communism }
+		date < 1975.1.1
+	}
+	option = {
+		name = roc.8.a
+		add_political_power = 60 
+		add_stability = 0.1
+		create_country_leader = {
+			name = "Chang Kai Shen"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/CHI/Portrait_China_Chang_KaiShen.tga"
+			expire = "1988.1.1"
+			ideology = marxism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = roc.10
+	title = roc.10.t
+	desc = roc.10.d
+	picture = GFX_Chiang_KiaShek
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+#虎据台湾
+news_event = {
+	id = roc.12
+	title = roc.12.t
+	desc = roc.12.d
+	picture = GFX_ROCretreat
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		613 = { is_controlled_by = PRC }
+		591 = { is_controlled_by = PRC }
+		619 = { is_controlled_by = PRC }
+		325 = { is_controlled_by = PRC }
+		PRC = { NOT = { has_country_flag = China_liberate } }
+	}
+	option = {
+		name = roc.12.a
+		if = {
+			limit = { tag = PRC }
+			remove_ideas = libiration
+			every_core_state = {
+				transfer_state_to = PRC
+			}
+			annex_country = {
+				target = DOB
+				transfer_troops = no
+			}
+			annex_country = {
+				target = SHX
+				transfer_troops = no
+			}
+			annex_country = {
+				target = GXC
+				transfer_troops = no
+			}
+			white_peace = CHI
+			set_country_flag = China_liberate
+		}
+		if = {
+			limit = {
+				tag = FRA
+				owns_state = 671
+			}
+			671 = { add_resistance = 20}
+			779 = { add_resistance = 20}
+			792 = { add_resistance = 20}
+			286 = { add_resistance = 20 add_compliance = -60 }
+		}
+		if = {
+			limit = { tag = CHI }
+			add_timed_idea = {
+				idea = CHI_mainland_immigrate
+				days = 300
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = MAL
+					tag = PHI
+					tag = SIA
+				}
+			}
+			random_owned_state = { add_resistance = 20 }
+			random_owned_state = { add_resistance = 20 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+			add_stability = -0.12
+		}
+	}
+}
+
+#金门炮战
+news_event = {
+	id = roc.13
+	title = roc.13.t
+	desc = roc.13.d
+	picture = GFX_Kinmen
+	immediate = {
+		play_song = CHI_4
+	}
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		has_global_flag = kinmenbattle
+	}
+	
+	option = {
+		name = roc.12.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 595
+				num_provinces = 4
+			}
+				
+			defender = {
+				state = 830
+				num_provinces = 4
+			}
+		}
+	}
+}
+
+#二二八
+news_event = {
+	id = roc.15
+	title = roc.15.t
+	desc = roc.15.d
+	picture = GFX_Taiwan228
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		date > 1947.2.1
+		date < 1948.1.1
+		controls_state = 524
+		NOT = { has_global_flag = taiwan228 }
+	}
+	option = {
+		name = roc.20.a
+			ai_chance = {
+				factor = 10
+			}
+		news_event = { id = roc.16 }
+		756 = { add_resistance = -5 }
+		524 = { add_resistance = -5 }
+		add_stability = 0.02
+		add_political_power = -400
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.04
+			}
+		
+	}
+	option = {
+		name = roc.20.a
+			ai_chance = {
+				factor = 99
+			}
+		set_global_flag = taiwan228
+		news_event = { id = roc.17 }
+		756 = { add_resistance = 18 }
+		524 = { add_resistance = 18 }
+		add_political_power = -160
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+	}
+}
+news_event = {
+	id = roc.16
+	title = roc.16.t
+	desc = roc.16.d
+	picture = GFX_Taiwan228
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.17
+	title = roc.17.t
+	desc = roc.17.d
+	picture = GFX_Taiwan228
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = CHI }
+			add_timed_idea = {
+				idea = CHI_wave_228
+				days = 500
+			}
+		}
+	}
+}
+#整肃匪谍
+news_event = {
+	id = roc.20
+	title = roc.20.t
+	desc = roc.20.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+#警备司令部
+news_event = {
+	id = roc.21
+	title = roc.21.t
+	desc = roc.21.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+#二七部队
+news_event = {
+	id = roc.22
+	title = roc.22.t
+	desc = roc.22.d
+	picture = GFX_ROCArmyInThailand
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = CHI
+		date > 1947.2.1
+		date < 1948.1.1
+		756 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+		has_global_flag = taiwan228
+	}
+	option = {
+		name = roc.20.a
+		if = {
+		limit = { tag = CHI }
+		756 = {
+			add_resistance = 20
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		add_stability = -0.02
+		}
+		
+	}
+}
+#二七部队失败
+news_event = {
+	id = roc.24
+	title = roc.24.t
+	desc = roc.24.d
+	picture = GFX_ROCArmyInThailand
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = CHI
+		756 = {
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			 resistance < 5
+		}
+		has_global_flag = taiwan228
+	}
+	option = {
+		name = roc.20.a
+		if = {
+		limit = { tag = CHI }
+		add_stability = 0.02
+		756 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		}
+	}
+}
+#迁移
+news_event = {
+	id = roc.27
+	title = roc.27.t
+	desc = roc.27.d
+	picture = GFX_LiZongren
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.28
+	title = roc.28.t
+	desc = roc.28.d
+	picture = GFX_ROCretreat
+	major = yes
+	is_triggered_only = yes
+	option = {
+		play_song = CHI_14
+		name = roc.20.a
+	}
+}
+#蒋介石去世
+news_event = {
+	id = roc.30
+	title = roc.30.t
+	desc = roc.30.d
+	picture = GFX_Chiang_KiaShekDead
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		date > 1975.4.5
+		date < 1975.6.5
+	}
+	
+	option = {	#蒋经国
+		name = roc.70.a
+		ai_chance = {
+			factor = 60	
+		}
+		create_country_leader = {
+			name = "Chiang Chin-kuo"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CHI/Portrait_CHI_Chiang_Chinkuo.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			Developmentalism anti_communist pro_america
+			}
+		}
+	}
+	
+	option = {	#蒋纬国
+		name = roc.70.b
+		ai_chance = {
+			factor = 40	
+		}
+		create_country_leader = {
+			name = "Chiang Wei-kuo"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/CHI/Portrait_China_Chiang_Wei_kuo.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+#美丽岛示威
+news_event = {
+	id = roc.32
+	title = roc.32.t
+	desc = roc.70.d
+	picture = GFX_TaiwanRoit
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		date > 1979.12.1
+		date < 1980.2.1
+	}
+	
+	option = {	#暴力镇压
+		name = roc.70.a
+		add_stability = -0.2
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.2
+		}
+		create_country_leader = {
+			name = "Lin Yi-Hsiung"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/CHI/Portrait_CHI_Lin_YiHsiung.tga"
+			expire = "1988.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+		news_event = { id = roc.33 }
+	}
+}
+#美丽岛大审
+news_event = {
+	id = roc.33
+	title = roc.33.t
+	desc = roc.70.d
+	picture = GFX_Meilidao
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {	#大审
+		name = roc.70.a
+		add_stability = -0.2
+	}
+	option = {	#释放
+		name = roc.70.a
+		add_stability = 0.2
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.15
+		}
+	}
+}
+#蒋经国去世
+news_event = {
+	id = roc.38
+	title = roc.38.t
+	desc = roc.70.d
+	picture = GFX_ChiangChinKuoDead
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		date > 1988.1.5
+		date < 1988.3.5
+	}
+	
+	option = {	#李登辉
+		name = roc.70.a
+		ai_chance = {
+			factor = 60	
+		}
+		create_country_leader = {
+			name = "Lee Teng-Hui"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CHI/Portrait_China_Lee_Tenghui.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#蒋纬国
+		name = roc.70.b
+		ai_chance = {
+			factor = 40	
+		}
+		create_country_leader = {
+			name = "Song Chu-Yul"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/CHI/Portrait_Soong_ChuYul.tga"
+			expire = "1988.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+#美国介入
+news_event = {
+	id = roc.40
+	title = roc.40.t
+	desc = roc.40.d
+	picture = GFX_EisenhowerChiang
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.6.a
+		if = {
+			limit = { tag = CHI }
+			add_war_support = 0.1
+		}
+		if = {
+			limit = { tag = PRC }
+			add_war_support = -0.05
+		}
+	}
+}
+news_event = {
+	id = roc.41
+	title = roc.41.t
+	desc = roc.41.d
+	picture = GFX_ROCArmyInThailand
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = CHI
+		has_war_with = PRC
+		has_volunteers_amount_from = {
+			tag = USA
+			count > 1
+		}
+		NOT = { has_country_flag = USAtroops }
+	}
+	option = {
+		name = roc.6.a
+		if = {
+			limit = { tag = USA }
+			add_named_threat = {
+				threat = 8
+				name = UsSendTroopsToChina
+			}
+		}
+		if = {
+			limit = { tag = CHI }
+			set_country_flag = USAtroops
+			add_war_support = 0.2
+		}
+		if = {
+			limit = { tag = PRC }
+			add_war_support = -0.2
+		}
+	}
+}
+#大胆岛战役
+news_event = {
+	id = roc.42
+	title = roc.42.t
+	desc = roc.42.d
+	picture = GFX_Kinmen
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = CHI
+		CHI = {
+			owns_state = 830
+			has_war = no
+		}
+		PRC = { owns_state = 595 }
+		date < 1953.1.1
+		NOT = { has_global_flag = DaDanIsland }
+	}
+	option = {
+		name = vin.21.a
+		set_global_flag = DaDanIsland
+		if = {
+			limit = { tag = PRC }
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 595
+					num_provinces = 4
+					on_win = roc.44
+				}
+				defender = {
+					state = 830
+					num_provinces = 4
+					on_win = roc.43
+				}
+			}
+		}
+	}
+}
+#中原抵抗
+news_event = {
+	id = roc.43
+	title = roc.43.t
+	desc = roc.43.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#中共攻占金门
+news_event = {
+	id = roc.44
+	title = roc.44.t
+	desc = roc.44.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#中原抵抗
+news_event = {
+	id = roc.50
+	title = roc.50.t
+	desc = roc.50.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#中原抵抗
+news_event = {
+	id = roc.51
+	title = roc.51.t
+	desc = roc.51.d
+	picture = GFX_TaiwanDemocratMovement
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.51.a
+	}
+}
+#一个中国
+news_event = {
+	id = roc.52
+	title = roc.52.t
+	desc = roc.52.d
+	picture = GFX_ReaganChina
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.51.a
+	}
+}
+#协防台湾
+news_event = {
+	id = roc.55
+	title = roc.55.t
+	desc = roc.55.d
+	picture = GFX_TaiwanStraitFleet
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.51.a
+	}
+}
+#协防台湾
+news_event = {
+	id = roc.60
+	title = roc.60.t
+	desc = roc.60.d
+	picture = GFX_ROCArmyInThailand
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.51.a
+	}
+}
+###1958金门炮战
+news_event = {
+	id = roc.61
+	title = roc.61.t
+	desc = roc.61.d
+	picture = GFX_PRC-UStalk
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		date > 1958.2.1
+		date < 1958.6.1
+		tag = PRC
+		owns_state = 595
+		CHI = { owns_state = 830 }
+		has_war = no
+		NOT = { has_global_flag = roc61 }
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = roc61
+	}
+}
+news_event = {
+	id = roc.62
+	title = roc.62.t
+	desc = roc.62.d
+	picture = GFX_PRC-UStalk
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = USA
+		PRC = { owns_state = 595 }
+		CHI = { owns_state = 830 }
+		has_global_flag = roc61
+		NOT = { has_global_flag = roc62 }
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = roc62
+		clr_global_flag = Kinmen_vienn_talks
+			ai_chance = {
+				factor = 0
+			}
+		news_event = { id = roc.63 }
+		diplomatic_relation = {
+			country = CHI
+			relation = guarantee
+			active = no
+		}
+		diplomatic_relation = {
+			relation = military_access
+			country = CHI
+			active = yes
+		}
+	}
+	option = {
+		name = roc.20.a
+			ai_chance = {
+				factor = 40
+			}
+		set_global_flag = roc62
+		clr_global_flag = Kinmen_vienn_talks
+		news_event = { id = roc.64 }
+	}
+}
+news_event = {
+	id = roc.63
+	title = roc.63.t
+	desc = roc.63.d
+	picture = GFX_PRC-UStalk
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = CHI }
+			add_stability = -0.12
+			add_war_support = -0.3
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.12
+			}
+			add_political_power = -120
+		}
+	}
+}
+news_event = {
+	id = roc.64
+	title = roc.64.t
+	desc = roc.64.d
+	picture = GFX_PRC-UStalk
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+		set_global_flag = Kinmen_bombs_allow
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 400
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.02
+			add_war_support = 0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = roc.65
+	title = roc.65.t
+	desc = roc.65.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = CHI_4
+	}
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.66
+	title = roc.66.t
+	desc = roc.66.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = PRC }
+			add_stability = 0.01
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+			add_political_power = 60
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = -0.02
+			add_war_support = -0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_political_power = -60
+		}
+	}
+}
+news_event = {
+	id = roc.67
+	title = roc.67.t
+	desc = roc.67.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.01
+			add_war_support = -0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			add_political_power = -60
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.01
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = roc.68
+	title = roc.68.t
+	desc = roc.68.d
+	picture = GFX_USairforceKinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.01
+			add_war_support = -0.05
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.02
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {
+	id = roc.69
+	title = roc.69.t
+	desc = roc.69.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.70
+	title = roc.70.t
+	desc = roc.70.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.72
+	title = roc.72.t
+	desc = roc.72.d
+	picture = GFX_KinmenSupport
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = USA
+		CHI = {
+			has_equipment = {
+				convoy < 30
+			}
+		}
+		has_global_flag = Kinmen_bombs_start
+	}
+	option = {
+		name = roc.20.a
+			send_equipment = {
+				equipment = convoy
+				amount = 60
+				target = convoy
+			}
+		CHI = {
+			news_event = { id = roc.73 }
+		}
+	}
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.73
+	title = roc.73.t
+	desc = roc.73.d
+	picture = GFX_KinmenSupport
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.74
+	title = roc.74.t
+	desc = roc.74.d
+	picture = GFX_KinmenSupport
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = USA
+		CHI = {
+			has_equipment = {
+				convoy < 30
+			}
+		}
+		has_global_flag = Kinmen_bombs_start
+	}
+	option = {
+		name = roc.20.a
+			send_equipment = {
+				equipment = convoy
+				amount = 60
+				target = convoy
+			}
+		CHI = {
+			news_event = { id = roc.73 }
+		}
+	}
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.75
+	title = roc.75.t
+	desc = roc.75.d
+	picture = GFX_KinmenSupport
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.76
+	title = roc.76.t
+	desc = roc.76.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.77
+	title = roc.77.t
+	desc = roc.77.d
+	picture = GFX_Kinmen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.20.a
+	}
+}
+news_event = {
+	id = roc.78
+	title = roc.78.t
+	desc = roc.78.d
+	picture = GFX_KinmenSupport
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_global_flag = Kinmen_US_airforces
+		has_global_flag = Kinmen_bombs_start
+	}
+	option = {
+		name = roc.20.a
+		clr_global_flag = Kinmen_US_airforces
+		if = {
+			limit = {
+				OR = {
+					tag = SOV
+					tag = PRC
+				}
+			}
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = missile
+			}
+		}
+	}
+}
+news_event = {
+	id = roc.79
+	title = roc.79.t
+	desc = roc.79.d
+	picture = GFX_Kinmen
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = { 
+			tag = JAP
+			tag = KOR
+			tag = PRK
+			tag = SOV
+			tag = USA
+			tag = ENG
+			tag = PHI
+			tag = IND
+			tag = LAO
+		}
+		has_global_flag = Kinmen_bombs_start
+		NOT = {
+			has_country_flag = Kinmen_diplomat
+			tag = PRC
+			tag = CHI
+		}
+	}
+	option = {
+		name = roc.20.a
+		set_country_flag = Kinmen_diplomat
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 20
+				has_country_leader_with_trait = anti_america
+			}
+			modifier = {
+				add = 200
+				has_government = communism
+			}
+		}
+		if = {
+			limit = { NOT = { tag = SOV } }
+			news_event = { id = roc.77 }
+		}
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = roc.69 }
+		}
+	}
+	option = {
+		name = roc.20.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 100
+				is_in_faction_with = USA
+			}
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		set_country_flag = Kinmen_diplomat
+			news_event = { id = roc.76 }
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.80
+	title = roc.80.t
+	desc = roc.80.d
+	picture = GFX_Taiwan_ZNR
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+		596 = { add_resistance = 8 }
+		if = {
+			limit = { 1001 = { is_owned_by = PRC } }
+			1001 = { add_resistance = 20 }
+		}
+		add_political_power = 40
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.81
+	title = roc.81.t
+	desc = roc.81.d
+	picture = GFX_Taiwan_ZNR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.82
+	title = roc.82.t
+	desc = roc.82.d
+	picture = GFX_Taiwan_ZNR
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+		595 = { add_resistance = 8 }
+		if = {
+			limit = { 830 = { is_owned_by = PRC } }
+			830 = { add_resistance = 20 }
+		}
+		add_political_power = 40
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.83
+	title = roc.83.t
+	desc = roc.83.d
+	picture = GFX_Taiwan_ZNR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.84
+	title = roc.84.t
+	desc = roc.84.d
+	picture = GFX_Taiwan_ZNR
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+		593 = { add_resistance = 8 }
+		add_political_power = 40
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.85
+	title = roc.85.t
+	desc = roc.85.d
+	picture = GFX_Taiwan_ZNR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.86
+	title = roc.86.t
+	desc = roc.86.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.87
+	title = roc.87.t
+	desc = roc.87.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.88
+	title = roc.88.t
+	desc = roc.88.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.89
+	title = roc.89.t
+	desc = roc.89.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#沿海作战
+news_event = {
+	id = roc.90
+	title = roc.90.t
+	desc = roc.90.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+news_event = {
+	id = roc.91
+	title = roc.91.t
+	desc = roc.91.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+news_event = {
+	id = roc.92
+	title = roc.92.t
+	desc = roc.92.d
+	picture = GFX_Taiwan_ZNR
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+		set_global_flag = roc92
+	}
+}
+news_event = {
+	id = roc.100
+	title = roc.100.t
+	desc = roc.100.d
+	picture = GFX_PowToTaiwan
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = CHI
+		has_global_flag = KoreaPOVtoTW
+		NOT = { has_global_flag = POVarriveTW }
+	}
+	major = yes
+	option = {
+		name = prc.19.a
+		set_global_flag = POVarriveTW
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_political_power = 400
+		}
+	}
+}
+news_event = {
+	id = roc.110
+	title = roc.110.t
+	desc = roc.110.d
+	picture = GFX_LiaoWenYi
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		NOT = { has_global_flag = FormosaRepublic }
+		date > 1956.2.1
+		date < 1956.3.1
+		has_completed_focus = CHI_purge_CCP
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = FormosaRepublic
+		if = {
+			limit = { tag = CHI }
+			add_stability = -0.02
+			756 = { add_core_of = TWI }
+			534 = { add_core_of = TWI }
+		}
+	}
+}
+##乳状入侵台湾案
+news_event = {
+	id = roc.111
+	title = roc.111.t
+	desc = roc.111.d
+	picture = GFX_TaiwanStraitFleet
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = PRC
+		date > 1950.2.1
+		date < 1950.8.1
+		owns_state = 595
+		CHI = { owns_state = 830 }
+		USA = { has_completed_focus = Defence_Taiwan }
+		NOT = { has_global_flag = roc111 }
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = roc111
+		news_event = { id = roc.112 days = 3 }
+	}
+}
+news_event = {
+	id = roc.112
+	title = roc.112.t
+	desc = roc.112.d
+	picture = GFX_UN1955
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = roc.113 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = roc.113
+	title = roc.113.t
+	desc = roc.113.d
+	picture = GFX_WuXiuQuen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+		custom_effect_tooltip = roc113tool
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = roc.114 days = 30 }
+		}
+	}
+}
+news_event = {
+	id = roc.114
+	title = roc.114.t
+	desc = roc.114.d
+	picture = GFX_WuXiuQuen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+		trigger = {
+			NOT = {
+				OR = {
+					tag = SOV
+					tag = USA
+					tag = FRA
+					tag = ENG
+					tag = YUG
+					tag = IND
+					tag = EGY
+					tag = NOR
+				}
+			}
+		}
+	}
+	option = {
+		name = prc.19.a
+		trigger = {
+			OR = {
+				tag = SOV
+				tag = USA
+				tag = FRA
+				tag = ENG
+				tag = YUG
+				tag = IND
+				tag = EGY
+				tag = NOR
+			}
+		}
+		add_to_variable = { global.roc114vote = 1 }
+	}
+	option = {
+		name = prc.19.a
+		trigger = {
+			OR = {
+				tag = SOV
+				tag = USA
+				tag = FRA
+				tag = ENG
+				tag = YUG
+				tag = IND
+				tag = EGY
+				tag = NOR
+			}
+		}
+		add_to_variable = { global.roc114vote = -1 }
+	}
+}
+news_event = {
+	id = roc.115
+	title = roc.115.t
+	desc = roc.115.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1950.2.1
+		date < 1950.10.1
+		check_variable = { global.roc114vote > 2 }
+		NOT = { has_global_flag = roc115 }
+		NOT = { has_global_flag = roc116 }
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = roc115
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 200
+		}
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -200
+			add_stability = -0.08
+		}
+	}
+}
+news_event = {
+	id = roc.116
+	title = roc.116.t
+	desc = roc.116.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1950.2.1
+		date < 1950.10.1
+		check_variable = { global.roc114vote < 3 }
+		NOT = { has_global_flag = roc115 }
+		NOT = { has_global_flag = roc116 }
+	}
+	option = {
+		name = roc.20.a
+		set_global_flag = roc116
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -200
+		}
+		if = {
+			limit = { tag = CHI }
+			add_political_power = 200
+			add_stability = 0.12
+		}
+	}
+}
+#五二四
+news_event = {
+	id = roc.120
+	title = roc.120.t
+	desc = roc.120.d
+	picture = GFX_Taiwan524
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = CHI
+		NOT = { has_global_flag = Taiwan524 }
+		date > 1957.5.1
+		date < 1957.6.1
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = Taiwan524
+	}
+}
+news_event = {
+	id = roc.121
+	title = roc.121.t
+	desc = roc.121.d
+	picture = GFX_Taiwan524
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		has_global_flag = Taiwan524
+	}
+	option = {
+		name = prc.19.a
+		ai_chance = { factor = 100 }
+		news_event = { id = roc.122 }
+	}
+	option = {
+		name = prc.19.a
+		ai_chance = { factor = 0 }
+		news_event = { id = roc.123 }
+	}
+}
+news_event = {
+	id = roc.122
+	title = roc.122.t
+	desc = roc.122.d
+	picture = GFX_Taiwan524
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+news_event = {
+	id = roc.123
+	title = roc.123.t
+	desc = roc.123.d
+	picture = GFX_Taiwan524
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+news_event = {
+	id = roc.125
+	title = roc.125.t
+	desc = roc.125.d
+	picture = GFX_Taiwan87Flood
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		controls_state = 524
+		date > 1959.7.20
+		date < 1959.9.1
+	}
+	option = {
+		name = prc.19.a
+		if = {
+			limit = {
+				tag = CHI
+				controls_state = 524
+			}
+			country_event = { id = roc.126 days = 5 }
+		}
+	}
+}
+country_event = {
+	id = roc.126
+	title = roc.126.t
+	desc = roc.126.d
+	picture = GFX_ChiangSmall
+	is_triggered_only = yes
+	option = {
+		name = roc.126.a
+		set_global_flag = roc126
+	}
+}
+news_event = {
+	id = roc.127
+	title = roc.127.t
+	desc = roc.127.d
+	picture = GFX_Taiwan87Flood
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		controls_state = 524
+		date > 1959.8.1
+		date < 1959.9.1
+		has_global_flag = roc126
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = roc127
+		if = {
+			limit = {
+				tag = CHI
+				controls_state = 524
+			}
+			add_stability = -0.2
+			add_political_power = -200
+			524 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 5
+				}
+				damage_building = {
+					type = farm_building
+					damage = 2
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = roc.128
+	title = roc.128.t
+	desc = roc.128.d
+	picture = GFX_TaiwanFloodSmall
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		controls_state = 524
+		date > 1959.8.1
+		date < 1959.9.1
+		has_global_flag = roc127
+		NOT = { has_country_flag = roc128 }
+	}
+	option = {
+		name = roc.126.a
+		set_country_flag = roc128 
+		add_political_power = -150
+		add_stability = 0.12
+	}
+	option = {
+		name = roc.126.a
+		set_country_flag = roc128 
+	}
+}
+country_event = {
+	id = roc.129
+	title = roc.129.t
+	desc = roc.129.d
+	picture = GFX_TaiwanFloodSmall
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = JAP
+			tag = PHI
+			tag = ENG
+		}
+		date > 1959.8.1
+		date < 1959.9.1
+		has_global_flag = roc127
+		NOT = { has_country_flag = roc129 }
+	}
+	option = {
+		name = roc.126.a
+		set_country_flag = roc128roc129
+		add_political_power = -20
+		news_event = { id = roc.130 days = 2 }
+	}
+	option = {
+		name = roc.126.a
+		set_country_flag = roc128roc129
+	}
+}
+news_event = {
+	id = roc.130
+	title = roc.130.t
+	desc = roc.130.d
+	picture = GFX_TaiwanFloodRescue
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+		if = {
+			limit = {
+				tag = CHI
+				controls_state = 524
+			}
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = roc.140
+	title = roc.140.t
+	desc = roc.140.d
+	picture = GFX_ChanYi
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		date > 1947.5.1
+		date < 1947.8.1
+		has_global_flag = taiwan228
+		NOT = { has_country_flag = roc140 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc140
+	}
+}
+news_event = {
+	id = roc.141
+	title = roc.141.t
+	desc = roc.141.d
+	picture = GFX_ChanYiArrest
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		date > 1948.5.1
+		date < 1950.1.1
+		has_global_flag = roc140
+		NOT = { has_country_flag = roc141 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc141
+	}
+}
+news_event = {
+	id = roc.142
+	title = roc.142.t
+	desc = roc.142.d
+	picture = GFX_ChanYiArrest
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		date > 1950.2.1
+		date < 1950.6.1
+		has_global_flag = roc141
+		NOT = { has_country_flag = roc142 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc142
+	}
+}
+#谋议独立案
+news_event = {
+	id = roc.145
+	title = roc.145.t
+	desc = roc.145.d
+	picture = GFX_LimHimTeng
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		date > 1947.7.1
+		date < 1947.9.1
+		NOT = { has_country_flag = roc145 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc145
+		news_event = roc.146
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc145
+		news_event = roc.147
+	}
+}
+news_event = {
+	id = roc.146
+	title = roc.146.t
+	desc = roc.146.d
+	picture = GFX_LimHimTeng
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.147
+	title = roc.147.t
+	desc = roc.147.d
+	picture = GFX_LimHimTeng
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+##三七五减租
+news_event = {
+	id = roc.150
+	title = roc.150.t
+	desc = roc.150.d
+	picture = GFX_TaiwanLandReform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+##新臺幣
+news_event = {
+	id = roc.151
+	title = roc.151.t
+	desc = roc.151.d
+	picture = GFX_YanChiaKan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+#台大学运
+news_event = {
+	id = roc.157
+	title = roc.157.t
+	desc = roc.157.d
+	picture = GFX_TaiwanUniversityIncident
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = CHI
+		date > 1949.4.1
+		date < 1949.10.1
+		PRC = {
+			controls_state = 11771
+			controls_state = 9843
+		}
+		NOT = { has_country_flag = roc157 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc157
+		add_stability = -0.01
+		add_political_power = -80
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.02
+		}
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc157
+		news_event = roc.159
+	}
+}
+news_event = {
+	id = roc.158
+	title = roc.158.t
+	desc = roc.158.d
+	picture = GFX_TaiwanUniversityIncident
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = CHI
+		date > 1949.4.1
+		date < 1949.6.1
+		NOT = { has_country_flag = roc158 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc157
+		add_stability = -0.01
+		add_political_power = -80
+		add_war_support = -0.03
+		add_popularity = {
+			ideology = communism
+			popularity = 0.01
+		}
+		news_event = roc.159
+	}
+}
+news_event = {
+	id = roc.159
+	title = roc.159.t
+	desc = roc.159.d
+	picture = GFX_TaiwanUniversityIncident
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+#林献堂离开台湾
+news_event = {
+	id = roc.160
+	title = roc.160.t
+	desc = roc.160.d
+	picture = GFX_LinHsienTang
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = CHI
+		date > 1949.9.1
+		date < 1949.10.1
+		has_global_flag = taiwan228
+		NOT = { has_country_flag = roc160 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc160
+	}
+}
+#中国游说团
+news_event = {
+	id = roc.161
+	title = roc.161.t
+	desc = roc.161.d
+	picture = GFX_TrumenSign
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = CHI
+		date > 1949.9.1
+		date < 1950.10.1
+		PRC = {
+			controls_state = 11913
+			controls_state = 7014
+			controls_state = 7191
+		}
+		NOT = { has_country_flag = roc161 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc161
+		if = {
+			limit = { tag = USA }
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = roc.162
+	title = roc.162.t
+	desc = roc.162.d
+	picture = GFX_ZhejiangIslandsBattle
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.163
+	title = roc.163.t
+	desc = roc.163.d
+	picture = GFX_ZhejiangIslandsBattle
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -40
+			add_war_support = -0.01
+		}
+		if = {
+			limit = { tag = CHI }
+			add_political_power = 40
+			add_war_support = 0.02
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = roc.164
+	title = roc.164.t
+	desc = roc.164.d
+	picture = GFX_ZhejiangIslandsBattle
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 100
+			add_war_support = 0.01
+			transfer_state = 1001
+		}
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -80
+			add_war_support = -0.05
+			add_stability = -0.06
+		}
+	}
+}
+#自由中国
+news_event = {
+	id = roc.165
+	title = roc.165.t
+	desc = roc.165.d
+	picture = GFX_FreeChinaMagazine
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = CHI
+		date > 1949.11.1
+		date < 1950.1.1
+		NOT = { has_country_flag = roc165 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = roc165
+		if = {
+			limit = { tag = CHI }
+			add_political_power = 200
+			add_war_support = 0.05
+			add_stability = 0.02
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.04
+			}
+		}
+	}
+}
+#空投气球
+news_event = {
+	id = roc.170
+	title = roc.170.t
+	desc = roc.170.d
+	picture = GFX_KMTBallonsPropaganda
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		date > 1954.11.1
+		date < 1970.1.1
+		has_global_flag = CHI_counter_attack_propaganda_drop_operation
+	}
+	option = {
+		name = prc.19.a
+		clr_global_flag = CHI_counter_attack_propaganda_drop_operation
+		add_political_power = -20
+		add_war_support = -0.02
+	}
+}
+news_event = {
+	id = roc.171
+	title = roc.171.t
+	desc = roc.171.d
+	picture = GFX_TaiwanBroachast
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.172
+	title = roc.172.t
+	desc = roc.172.d
+	picture = GFX_MashanBroachast
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+#心战广播效果事件
+news_event = {
+	id = roc.173
+	title = roc.173.t
+	hidden = yes
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = PRC
+		date > 1954.11.1
+		date < 1989.1.1
+		has_global_flag = CHI_counter_attack_fuxing_radio
+		has_stability < 0.6
+	}
+	option = {
+		name = prc.19.a
+		add_political_power = -20
+		random_state = {
+			limit = { has_state_flag = east_china_states }
+			add_resistance= 2
+		}
+		random_state = {
+			limit = { has_state_flag = east_china_states }
+			add_resistance= 2
+		}
+	}
+}
+
+news_event = {
+	id = roc.174
+	title = roc.174.t
+	desc = roc.174.d
+	picture = GFX_ChiangKinMen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+country_event = {
+	id = roc.175
+	title = roc.175.t
+	desc = roc.175.d
+	picture = GFX_M1Carbine
+	is_triggered_only = yes
+	option = {
+		name = roc.146.a
+	}
+}
+country_event = {
+	id = roc.176
+	title = roc.176.t
+	desc = roc.176.d
+	picture = GFX_KMTArmyBurma
+	is_triggered_only = yes
+	option = {
+		name = roc.146.a
+		news_event = roc.5
+		add_war_support = 0.02
+		army_experience = 50
+	}
+}
+country_event = {
+	id = roc.178
+	title = roc.178.t
+	desc = roc.178.d
+	picture = GFX_KMTArmyBurma
+	is_triggered_only = yes
+	option = {
+		name = roc.146.a
+	}
+}
+country_event = {
+	id = roc.179
+	title = roc.179.t
+	desc = roc.179.d
+	picture = GFX_KMTArmyBurma
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		OR = {
+			tag = CHI
+			tag = YUN
+		}
+		date > 1951.5.1
+		country_exists = YUN
+		PRC = {
+			OR = {
+				communism < 0.75
+				has_stability < 0.7
+			}
+		}
+	}
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = YUN }
+			add_political_power = 100
+			add_manpower = 1200
+			army_experience = 100
+		}
+		PRC = {
+			add_manpower = -1200
+			325 = { add_compliance = -8 }
+		}
+	}
+}
+#逃港
+news_event = {
+	id = roc.180
+	title = roc.180.t
+	desc = roc.180.d
+	picture = GFX_HKescape1
+	major = yes
+	mean_time_to_happen = { days = 140 }
+	trigger = {
+		tag = CHI
+		ENG = { has_subject = HKN }
+		date > 1951.5.1
+		PRC = {
+			has_idea = anti_right
+			communism < 0.9
+		}
+	}
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = PRC }
+			add_manpower = -50
+			add_stability = -0.01
+			593 = { add_compliance = -2 }
+			592 = { add_compliance = -2 }
+		}
+	}
+	option = {
+		name = roc.146.a
+		trigger = { has_completed_focus = CHI_mainland_refugee_rescue }
+		news_event = { id = roc.184 days = 3 }
+	}
+}
+news_event = {
+	id = roc.181
+	title = roc.181.t
+	desc = roc.181.d
+	picture = GFX_HKescape1
+	major = yes
+	mean_time_to_happen = { days = 140 }
+	trigger = {
+		tag = CHI
+		ENG = { has_subject = HKN }
+		date > 1951.5.1
+		PRC = {
+			has_idea = GreatLeapForward_ideas
+		}
+	}
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = PRC }
+			add_manpower = -50
+			add_stability = -0.01
+			593 = { add_compliance = -2 }
+			592 = { add_compliance = -2 }
+		}
+	}
+	option = {
+		name = roc.146.a
+		trigger = { has_completed_focus = CHI_mainland_refugee_rescue }
+		news_event = { id = roc.184 days = 3 }
+	}
+}
+news_event = {
+	id = roc.182
+	title = roc.182.t
+	desc = roc.182.d
+	picture = GFX_HKescape2
+	major = yes
+	mean_time_to_happen = { days = 140 }
+	trigger = {
+		tag = CHI
+		ENG = { has_subject = HKN }
+		date > 1951.5.1
+		PRC = {
+			has_idea = Cultrue_Revolution
+			has_stability < 0.8
+		}
+	}
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = PRC }
+			add_manpower = -50
+			add_stability = -0.01
+			593 = { add_compliance = -2 }
+			592 = { add_compliance = -2 }
+		}
+	}
+	option = {
+		name = roc.146.a
+		trigger = { has_completed_focus = CHI_mainland_refugee_rescue }
+		news_event = { id = roc.184 days = 3 }
+	}
+}
+news_event = {
+	id = roc.183
+	title = roc.183.t
+	desc = roc.183.d
+	picture = GFX_HKescape2
+	major = yes
+	mean_time_to_happen = { days = 140 }
+	trigger = {
+		tag = CHI
+		ENG = { has_subject = HKN }
+		date > 1951.5.1
+		PRC = {
+			has_idea = PeoplesCommuni
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = lack_foods_modifiers }
+			}
+		}
+	}
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = PRC }
+			add_manpower = -50
+			add_stability = -0.01
+			593 = { add_compliance = -2 }
+			592 = { add_compliance = -2 }
+		}
+	}
+	option = {
+		name = roc.146.a
+		trigger = { has_completed_focus = CHI_mainland_refugee_rescue }
+		news_event = { id = roc.184 days = 3 }
+	}
+}
+#提供救助
+news_event = {
+	id = roc.184
+	title = roc.184.t
+	desc = roc.184.d
+	picture = GFX_HKescapeRescue
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+		if = {
+			limit = { tag = HKN }
+			add_political_power = 50
+			add_stability = 0.01
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.01
+			}
+		}
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -50
+			add_stability = 0.01
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+		}
+		if = {
+			limit = { tag = PRC }
+			add_manpower = -50
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = roc.190
+	title = roc.190.t
+	desc = roc.190.d
+	picture = GFX_TaiwanLandReform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.191
+	title = roc.191.t
+	desc = roc.191.d
+	picture = GFX_MacarthurChiang
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = CHI
+		date > 1950.8.1
+		date < 1950.12.1
+		KOR = {
+			has_war_with = PRK
+		}
+		NOT = { has_global_flag = roc191 }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc191
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = roc.192
+	title = roc.192.t
+	desc = roc.192.d
+	picture = GFX_MacarthurChiang
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = CHI
+		date > 1950.8.1
+		date < 1950.12.1
+		KOR = {
+			has_war_with = PRK
+		}
+		has_global_flag = roc191
+		NOT = { has_global_flag = roc192 }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc192
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = roc.193
+	title = roc.193.t
+	desc = roc.193.d
+	picture = GFX_TaiwanTerrorNews
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = CHI
+		date > 1951.8.1
+		date < 1958.12.1
+		communism < 0.05
+		NOT = { has_global_flag = roc193 }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc193
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = roc.194
+	title = roc.194.t
+	desc = roc.194.d
+	picture = GFX_ROCyouth
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.195
+	title = roc.195.t
+	desc = roc.195.d
+	picture = GFX_TaiwanLandReform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.196
+	title = roc.196.t
+	desc = roc.196.d
+	picture = GFX_TaiwanFarmer
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.198
+	title = roc.198.t
+	desc = roc.198.d
+	picture = GFX_TaiwanRoad
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.199
+	title = roc.199.t
+	desc = roc.199.d
+	picture = GFX_TaiwanTerrorNews
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = CHI
+		date > 1951.8.1
+		date < 1958.12.1
+		has_global_flag = roc92
+		NOT = { has_global_flag = roc199 }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc199
+		if = {
+			limit = { tag = CHI }
+			add_political_power = 80
+		}
+	}
+}
+news_event = {
+	id = roc.200
+	title = roc.200.t
+	desc = roc.200.d
+	picture = GFX_HKescapeRescue
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+#门德列斯访台
+news_event = {
+	id = roc.201
+	title = roc.201.t
+	desc = roc.201.d
+	picture = GFX_MenderesTaiwan
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = CHI
+		date > 1958.3.1
+		date < 1958.5.1
+		NOT = { has_global_flag = roc201 }
+		TUR = { has_government = democratic }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc201
+	}
+}
+country_event = {
+	id = roc.202
+	title = roc.202.t
+	desc = roc.202.d
+	picture = GFX_KMTArmyBurma
+	is_triggered_only = yes
+	option = {
+		name = roc.5.a
+	}
+}
+#陶普斯号
+news_event = {
+	id = roc.210
+	title = roc.210.t
+	desc = roc.210.d
+	picture = GFX_Tuapse
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = CHI
+		date > 1954.5.1
+		date < 1954.8.1
+		NOT = { has_global_flag = roc210 }
+		PRC = { has_idea = CHI_coast_blocked }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc210
+		news_event = { id = roc.211 days = 1 }
+	}
+}
+news_event = {
+	id = roc.211
+	title = roc.211.t
+	desc = roc.211.d
+	picture = GFX_Tuapse
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc211
+	}
+}
+news_event = {
+	id = roc.212
+	title = roc.212.t
+	desc = roc.212.d
+	picture = GFX_Tuapse
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1954.6.10
+		date < 1954.8.1
+		has_global_flag = roc211
+		NOT = { has_global_flag = roc212 }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc212
+	}
+}
+news_event = {
+	id = roc.213
+	title = roc.213.t
+	desc = roc.213.d
+	picture = GFX_UN1955
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = CHI
+		date > 1954.6.20
+		date < 1954.8.1
+		has_global_flag = roc212
+		NOT = { has_global_flag = roc213 }
+	}
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc213
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -100
+			news_event = { id = roc.214 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = roc.214
+	title = roc.214.t
+	desc = roc.214.d
+	picture = GFX_Tuapse
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc214
+		if = {
+			limit = { tag = SOV }
+			add_political_power = 200
+		}
+	}
+}
+#中日和约
+news_event = {
+	id = roc.230
+	title = roc.230.t
+	desc = roc.230.d
+	picture = GFX_ROCJapanPeace
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date < 1955.8.1
+		OR = {
+			JAP = { has_completed_focus = JAP_Pro_Taiwan }
+		}
+		NOT = { has_global_flag = roc230 }
+	}
+	option = {
+		name = roc.146.a
+		set_global_flag = roc230
+	}
+}
+news_event = {
+	id = roc.231
+	title = roc.231.t
+	desc = roc.231.d
+	picture = GFX_ROCJapanPeace
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date < 1955.8.1
+		has_global_flag = roc230
+		NOT = { has_global_flag = roc231 }
+	}
+	option = {
+		name = roc.146.a
+		set_global_flag = roc231
+		trigger = {
+			NOT = {
+				tag = JAP
+				tag = CHI
+			}
+		}
+	}
+	option = {
+		name = roc.146.a
+		set_global_flag = roc231
+		trigger = { tag = JAP }
+		remove_state_claim = 756
+		remove_state_claim = 524
+		news_event = { id = roc.234 days = 4 }
+	}
+}
+news_event = {
+	id = roc.234
+	title = roc.234.t
+	desc = roc.234.d
+	picture = GFX_ROCJapanPeace
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+##孙立人兵变
+news_event = {
+	id = roc.240
+	title = roc.240.t
+	desc = roc.240.d
+	picture = GFX_ROCArmy1950
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1953.5.20
+		date < 1955.8.20
+		has_character = CHI_sun_li_jen
+		NOT = { has_global_flag = roc240 }
+		OR = {
+			date > 1955.5.20
+			has_completed_focus = CHI_sun_li_jen_gov
+			has_stability < 0.6
+			neutrality < 0.6
+		}
+	}
+	option = {
+		name = roc.146.a
+		trigger = {  NOT = { tag = CHI } }
+	}
+	option = {
+		name = roc.146.a #鎮壓
+		trigger = { tag = CHI }
+		random_list = {
+			80 = { news_event = { id = roc.242 days = 1 } } 
+			2 = {
+				news_event = { id = roc.241 days = 1 }
+				modifier = {
+					add = 30
+					has_completed_focus = CHI_sun_li_jen_gov
+				}
+				modifier = {
+					add = 10
+					has_stability < 0.5
+				}
+				modifier = {
+					add = 10
+					neutrality < 0.5
+				}
+			} 
+		}
+	}
+	option = {
+		name = roc.146.a #支持
+		trigger = { has_completed_focus = CHI_sun_li_jen_gov }
+		news_event = { id = roc.241 days = 1 }
+	}
+}
+news_event = {
+	id = roc.241
+	title = roc.241.t
+	desc = roc.241.d
+	picture = GFX_ROCArmy1980s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+	}
+}
+news_event = {
+	id = roc.242
+	title = roc.242.t
+	desc = roc.242.d
+	picture = GFX_ROCArmy1980s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a #失败
+		set_global_flag = roc242
+	}
+}
+news_event = {
+	id = roc.243
+	title = roc.243.t
+	desc = roc.243.d
+	picture = GFX_ROCArmy1980s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.146.a
+		set_global_flag = roc243
+	}
+}
+news_event = {
+	id = roc.244
+	title = roc.244.t
+	desc = roc.244.d
+	picture = GFX_SunLiRen
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1955.8.1
+		has_global_flag = roc243
+		NOT = { has_global_flag = roc244 }
+	}
+	option = {
+		name = roc.146.a
+		set_global_flag = roc244
+		if = {
+			limit = { tag = CHI }
+			promote_character = CHI_sun_li_jen
+		}
+	}
+}
+news_event = {
+	id = roc.249
+	title = roc.249.t
+	desc = roc.249.d
+	picture = GFX_SunLiRen
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1955.8.1
+		has_global_flag = roc242
+		has_idea = white_terror
+		NOT = { has_global_flag = roc249 }
+	}
+	option = {
+		name = roc.146.a
+		set_global_flag = roc249
+		if = {
+			limit = { tag = CHI }
+			retire_character = CHI_sun_li_jen
+		}
+	}
+}

@@ -1,0 +1,44 @@
+
+state={
+	id=157
+	name="STATE_157"
+	manpower = 2979335
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Italian
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 87 }
+		
+		owner = ITA
+		victory_points = {
+			925 6
+		}
+		victory_points = {
+			6831 5
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			power_plant = 1
+			infrastructure = 4
+			industrial_complex = 1
+			925 = {
+				naval_base = 4
+			}
+			6831 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = ITA
+	}
+
+	provinces={
+		925 963 967 3910 3923 3966 6831 6926 9838 11790 11861 
+	}
+}

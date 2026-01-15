@@ -1,0 +1,67 @@
+political_actions = {
+	
+	Saemaul = {
+
+		icon = generic_research
+
+		visible = {
+			always = yes
+			tag = KOR
+			date > 1960.1.1
+			date < 1980.1.1
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				date > 1970.6.1
+			}
+		}
+
+
+		cost = 300
+
+		complete_effect = {
+			KOR = { add_ideas = Saemaul }
+		}
+
+	
+	}
+	
+	KOR_end_WAR = {
+
+		icon = generic_research
+
+		visible = {
+			always = yes
+			tag = KOR
+			has_war_with = PRK
+			date < 1956.6.1 
+			NOT = { has_global_flag = KoreaNego }
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 50 
+				has_war_support < 0.3
+			}
+			modifier = { 
+				add = -100 
+				date < 1952.1.1
+			}
+			modifier = {
+				add = 100 
+				date > 1953.1.1
+				date < 1955.7.1
+			}
+		}
+
+		complete_effect = {
+			PRK = {	news_event = { id = kor.14 } }
+		}
+
+	
+	}
+}

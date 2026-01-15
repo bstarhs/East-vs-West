@@ -1,0 +1,40 @@
+state=
+{
+	id=911
+	name="STATE_911"
+	manpower = 4224516
+	
+	state_category = large_town
+	provinces={
+		10028 12044 1151 7073 12071 
+	}
+	history = {
+		add_to_variable = { state_tourist = 5 }
+		set_state_flag = ethnics_Arabs
+		add_to_array = { this.state_ethnics_list = 24 }
+		owner = EGY
+		buildings = {
+			farm_building = 1
+			infrastructure = 2
+		}
+		victory_points = {
+			7073 8
+		}
+		victory_points = {
+			12044 4
+		}
+		1958.8.23 = {
+			buildings = {
+				arms_factory = 2
+				infrastructure = 4
+				hospital = 1
+				school = 1
+				power_plant = 1
+				industrial_complex = 3
+			}
+		}
+		1967.8.23 = {
+			set_state_category = city
+		}
+	}
+}

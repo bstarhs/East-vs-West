@@ -1,0 +1,273 @@
+
+ideas = {
+
+	country = {
+		mahdism_idea = {
+			picture = mahdism_idea
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				war_support_factor = 0.25
+				drift_defence_factor = 0.12
+				political_power_cost = 0.15
+				political_power_factor = 0.12
+			}
+		}
+		jafarrism_idea = {
+			picture = jafarrism_idea
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				stability_factor = 0.25
+				resistance_target = -0.15
+			}
+		}
+		health_corps_idea = {
+			picture = health_corps_idea
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				production_speed_hospital_factor = 0.15
+				
+			}
+		}
+		literary_corps_idea = {
+			picture = literary_corps_idea
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				political_power_cost = -0.05
+				political_power_factor = -0.03
+				production_speed_school_factor = 0.12
+				
+			}
+		}
+		theory_police_idea = {
+			picture = theory_police_idea
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				resistance_target = -0.15
+				fascism_drift = 0.05
+				drift_defence_factor = 0.5
+				political_power_cost = 0.5
+				
+			}
+		}
+		royal_Bonyad_idea = {
+		    picture = royal_Bonyad_idea
+			allowed = {
+				original_tag = PER
+			}
+			cancel = {
+				NOT = { has_government = monarchism }
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				monarchism_drift = 0.02
+				political_power_cost = 0.12
+				political_power_factor = 0.2
+			}
+		}
+		PER_Pasdaran = {
+			allowed = { always = yes }
+			picture = PER_Pasdaran
+			removal_cost = -1
+			allowed = {
+				original_tag = PER
+			}
+			modifier = {
+				army_core_defence_factor = 0.15
+				stability_factor = 0.12
+				drift_defence_factor = 0.25
+				political_power_cost = 0.2
+				custom_modifier_tooltip = SDI_idea_tool
+			}
+		}
+		PER_reneval_soroastic = {
+			removal_cost = -1
+			allowed = {
+				original_tag = PER
+			}
+			picture = PER_reneval_soroastic
+			modifier = {
+				monarchism_drift = 0.01
+			}
+		}
+		PER_latinized_farsi = {
+			removal_cost = -1
+			allowed = {
+				original_tag = PER
+			}
+			picture = PER_latinized_farsi
+			modifier = {
+				research_speed_factor = 0.05
+				compliance_growth = 0.05
+				political_power_factor = 0.12
+				state_production_speed_school_factor = 0.15
+			}
+		}
+		PER_ally_occupied = {
+			picture = PER_ally_occupied
+			allowed = {
+				original_tag = PER
+			}
+
+			removal_cost = -1
+	
+			modifier = {
+				join_faction_tension = 1.00
+				justify_war_goal_time = 1
+				lend_lease_tension = 0.50
+				generate_wargoal_tension = 1.00
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				ai_badass_factor = 0.01
+				minimum_training_level = 0.3 
+				industry_air_damage_factor = -0.1
+				army_morale_factor = -0.1
+			}
+		}
+		PER_jabheye_melli_ideas = {
+
+			picture = unrest_gov
+
+			allowed = {
+				original_tag = PER
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				has_stability > 0.6
+			}
+			modifier = {
+				monarchism_drift = 0.01
+				communism_drift = 0.01
+				fascism_drift = 0.01
+				stability_factor = -0.25
+				political_power_cost = 0.12
+			}
+		}
+		PER_after_coup = {
+
+			picture = unrest_gov
+
+			allowed = {
+				original_tag = PER
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				monarchism_drift = -0.02
+				stability_factor = -0.12
+				political_power_cost = 0.12
+			}
+		}
+		white_revolution = {
+			picture = white_revolution
+			allowed = {
+				always = no
+			}
+			cancel = {
+				NOT = { has_government = monarchism }
+			}
+			removal_cost = 1
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				production_speed_infrastructure_factor = 0.1
+		
+			}
+		}
+		PER_anglo_iranian_oil_company = {
+			allowed = {
+				original_tag = PER
+				always = no
+			}
+			allowed_civil_war = { always = yes }
+			
+			picture = PER_anglo_iranian_oil_company
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.5
+			}
+		}
+		PER_week_army = {
+			allowed = {
+				original_tag = PER
+				always = no
+			}
+			allowed_civil_war = { always = yes }
+			
+			picture = generic_army_problems
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = -0.2
+				war_support_factor = -0.2
+				army_attack_factor = -0.15
+			}
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		khodro_auto = {
+			
+			picture = khodro_auto
+			allowed = {
+				original_tag = EGY
+			}
+			visible = {
+				has_completed_focus = PER_auto_industrial
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		NIOC = {
+						
+			picture = NIOC
+			
+			allowed = {
+				original_tag = PER
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			
+			traits = { refinery_concern }
+		}
+	}
+}

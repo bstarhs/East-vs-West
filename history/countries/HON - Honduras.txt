@@ -1,0 +1,123 @@
+﻿capital = 312
+
+oob = "HON"
+
+set_country_flag = language_spannish
+set_country_flag = latin_america
+# Starting tech
+set_country_flag = centural_america
+set_technology = {
+	infantry_weapons = 1
+}
+	add_to_array = { global.UNmember_list = FROM }
+set_country_flag = monroe_doctrine
+add_ideas = {
+	UNmember
+	FruitCompany
+	Catholicism
+}
+set_convoys = 10
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	set_technology = {
+		infantry_weapons1 = 1
+		medical1 = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+set_popularities = {
+		democratic = 60
+		communism = 10
+		neutrality = 30
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1932.10.28"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Tiburcio Carías Andino"
+	desc = "POLITICS_TIBURCIO_CARIAS_ANDINO_DESC"
+	picture = "gfx/leaders/HON/Portrai_Honduras_Tiburcio_Andino.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+1963.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		APLA
+	}
+	create_country_leader = {
+		name = "Oswaldo López Arellano"
+		desc = "POLITICS_GEORGI_DIMITROV_DESC"
+		picture = "gfx/leaders/HON/Portrait_Honduras_Oswaldo_Arellano.tga"
+		expire = "1949.1.1"
+		ideology = conservatism
+		traits = {
+			#
+		}
+	}
+}
+1975.1.1 = {
+	remove_ideas = FruitCompany
+	add_ideas = {
+		gaulle
+	}
+	create_country_leader = {
+		name = "Juan Alberto Melgar Castro"
+		desc = "POLITICS_GEORGI_DIMITROV_DESC"
+		picture = "gfx/leaders/HON/Portrait_Honduras_Juan_Alberto.tga"
+		expire = "1949.1.1"
+		ideology = conservatism
+		traits = {
+			#
+		}
+	}
+}
+1986.1.1 = {
+	create_country_leader = {
+		name = "José Simón Azcona del Hoyo"
+		desc = "POLITICS_GEORGI_DIMITROV_DESC"
+		picture = "gfx/leaders/HON/Portrait_Honduras_Jose_Simon.tga"
+		expire = "1949.1.1"
+		ideology = conservatism
+		traits = {
+			#
+		}
+	}
+}

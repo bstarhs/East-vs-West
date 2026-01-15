@@ -1,0 +1,272 @@
+add_namespace = latin
+#去除公司
+
+#XX驱逐了公司
+
+#来自华盛顿的警告
+
+#XX接受了我们的要求
+
+#XX拒绝了我们的要求
+
+#政变爆发
+
+#政变失败
+
+#政变成功
+
+#美国入侵
+
+#扶持傀儡政府
+
+#苏联支持
+
+#（独裁）内战爆发
+
+#游击队出现
+country_event = {
+	id = latin.4
+	title = latin.4.t
+	desc = latin.4.d
+	picture = GFX_guarrillas
+	fire_only_once = yes
+	trigger = {
+		AND = {
+			has_country_flag = latin_america
+			NOT = {
+				has_government = communism
+				tag = CAN
+				tag = CUB
+			}
+			has_stability < 0.6
+			communism > 0.1
+		}
+	} 
+
+	option = { 
+		name = latin.4.a
+		add_ideas = { gaulle }
+	}
+}
+
+#游击英雄
+news_event = {
+	id = latin.8
+	title = latin.8.t
+	desc = latin.8.d
+	fire_only_once = yes
+	picture = GFX_Guevara
+	major = yes
+	trigger = {
+		CUB = { has_global_flag = Guevara_leave }
+		date > 1968.1.1
+		date < 1969.1.1
+	}
+	option = { 
+		name = latin.8.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+	}
+}
+
+#游击队起义
+country_event = {
+	id = latin.10
+	title = latin.10.t
+	desc = latin.10.d
+	picture = GFX_guarrillas
+	fire_only_once = yes
+	trigger = {
+		AND = {
+			num_of_controlled_states < 2
+			has_idea = gaulle 
+			has_country_flag = latin_america
+		}
+		NOT = {
+			OR = {
+				has_government = communism
+				tag = CAN
+				tag = USA
+				tag = CUB
+			}
+		}
+		OR = {
+			has_stability < 0.3
+			communism > 0.2
+		}
+	} 
+
+	option = {
+		name = latin.10.a
+		random_list = {
+			55 = {
+				news_event = { id = latin.11 }
+				complete_national_focus = common_2
+				complete_national_focus = common_26
+				set_politics = { ruling_party = communism }
+			}
+			45 = {
+				country_event = { id = latin.12 }
+			}
+		}
+	}
+
+	option = {
+		name = latin.10.b
+			news_event = { id = latin.11 }
+			complete_national_focus = common_2
+			complete_national_focus = common_26
+			set_politics = { ruling_party = communism }
+	}
+}
+#游击队胜利
+news_event = {
+	id = latin.11
+	title = latin.11.t
+	desc = latin.11.d
+	picture = GFX_guarrillas
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = latin.11.a
+		if = {
+			limit = { has_country_flag = latin_america }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+			
+	}
+}
+
+#游击队失败
+country_event = {
+	id = latin.12
+	title = latin.12.t
+	desc = latin.12.d
+	picture = GFX_guarrillas
+	is_triggered_only = yes
+	option = { 
+		name = latin.12.a
+		add_stability = 0.15
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+	}
+}
+
+#游击队解散
+country_event = {
+	id = latin.13
+	title = latin.13.t
+	desc = latin.13.d
+	picture = GFX_guarrillas
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		AND = {
+			has_idea = gaulle
+			communism < 0.12
+		}
+		OR = {
+			has_stability > 0.8
+		}
+	} 
+	option = { 
+		name = latin.13.a
+		add_stability = 0.15
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+		remove_ideas = gaulle
+	}
+}
+
+#（游击队）内战爆发
+
+#孔特拉斯
+country_event = {
+	id = latin.15
+	title = latin.15.t
+	desc = latin.15.d
+	picture = GFX_guarrillas
+	is_triggered_only = yes
+	option = { 
+		name = latin.15.a
+		add_stability = -0.15
+		add_popularity = {
+			ideology = communism
+			popularity = -0.08
+		}
+	}
+}
+#镇压成功
+country_event = {
+	id = latin.16
+	title = latin.16.t
+	desc = latin.16.d
+	picture = GFX_guarrillas
+	is_triggered_only = yes
+	option = { 
+		name = latin.16.a
+		add_stability = 0.15
+		every_owned_state = {
+			add_resistance = -20
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.08
+		}
+	}
+}
+#镇压失败
+country_event = {
+	id = latin.17
+	title = latin.17.t
+	desc = latin.17.d
+	picture = GFX_guarrillas
+	is_triggered_only = yes
+	option = { 
+		name = latin.17.a
+		add_stability = -0.1
+		every_owned_state = {
+			add_resistance = 20
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+}
+#美国控制政变
+news_event = {
+	id = latin.18
+	title = latin.18.t
+	desc = latin.18.d
+	picture = GFX_guarrillas
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = latin.17.a
+	}
+}
+
+#美国控制政变
+news_event = {
+	id = latin.19
+	title = latin.19.t
+	desc = latin.18.d
+	picture = GFX_guarrillas
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		has_country_flag = usa_coup
+	} 
+	option = { 
+		name = latin.17.a
+	}
+}

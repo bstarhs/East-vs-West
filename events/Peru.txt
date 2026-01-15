@@ -1,0 +1,59 @@
+﻿add_namespace = pru
+
+#1948政变
+news_event = {
+	id = pru.1
+	title = pru.1.t
+	desc = pru.1.d
+	fire_only_once = yes
+	picture = GFX_Jaruzelski
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRU
+		date > 1948.6.1
+		date < 1948.12.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		if = {
+			limit = { tag = PRU }
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Manuel Arturo Odría"
+				picture = "gfx/leaders/PRU/Portrait_Peru_Manuel_Odria.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+		}
+	}
+}
+#1990大选
+news_event = {
+	id = pru.30
+	title = pru.30.t
+	desc = pol.30.d
+	fire_only_once = yes
+	picture = GFX_Jaruzelski
+	trigger = {
+		tag = PRU
+		date > 1990.6.1
+		date < 1991.6.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		create_country_leader = {
+			name = "Alberto Fujimori"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/PRU/Portrait_Peru_Fujimori.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}

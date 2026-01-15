@@ -1,0 +1,71 @@
+
+state={
+	id=608
+	name="STATE_608"
+	manpower = 9648400
+	
+	state_category = city
+	local_supplies=0.0
+	resources={
+		salt=23
+	}
+
+	history={
+		add_to_variable = { state_tourist = 120 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 7 }
+		add_to_array = { this.state_ethnics_list = 8 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Han
+		owner = SHX
+		add_core_of = PRC
+		buildings = {
+			farm_building = 2
+			power_plant = 2
+			infrastructure = 5
+			arms_factory = 1
+			hospital = 2
+			steel_making = 1
+			school = 2
+			industrial_complex = 3
+			air_base = 1
+			10068 = {
+				naval_base = 2
+				bunker = 5
+			}
+			9843 = {
+				bunker = 8
+			}
+		}
+		victory_points = { 9843 18 }
+		victory_points = { 10068 8 }
+		victory_points = { 11761 2 }
+		victory_points = { 6904 2 }
+		1946.10.25 = {		
+			PRC = {
+				set_province_controller = 4137
+				set_province_controller = 9969
+			}
+		}
+		1948.8.23 = {
+			owner = PRC
+			add_core_of = CHI
+		}
+		1955.8.23 = {
+			buildings = {
+				hospital = 2
+				industrial_complex = 5
+			}
+		}
+		1968.8.23 = {
+			buildings = {
+				air_base = 3
+				rubber_factory = 2
+				steel_making =2
+			}
+		}
+	}
+	provinces={
+		4137 9843 9969 10068 11761 6904 9776
+	}
+}

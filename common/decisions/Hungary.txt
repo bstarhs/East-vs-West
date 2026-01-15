@@ -1,0 +1,237 @@
+HUN_revo_decis = {
+	HUN_revo_contact_sov = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			has_stability > 0.6
+		}
+		complete_effect = {
+			news_event = { id = hun.63 }
+			SOV = { news_event = { id = hun.63 } }
+			custom_effect_tooltip = HUN_revo_contact_sov_tool
+		}
+	
+	}
+	HUN_revo_exist_warsaw = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 120
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_Imre_Nagy
+				ruling_only = yes
+			}
+		}
+		complete_effect = {
+			news_event = { id = hun.52 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+			add_stability = 0.15
+		}
+	
+	}
+	HUN_revo_democratic_reform = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 120
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_Imre_Nagy
+				ruling_only = yes
+			}
+		}
+		complete_effect = {
+			news_event = { id = hun.43 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_stability = 0.15
+		}
+	
+	}
+	HUN_revo_stopping_violence = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_Imre_Nagy
+				ruling_only = yes
+			}
+		}
+		fire_only_once = yes
+		cost = 80
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			news_event = { id = hun.42 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+			add_stability = 0.12
+		}
+	
+	}
+	HUN_revo_erno_resign = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 80
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_country_leader = {
+				character = HUN_Imre_Nagy
+				ruling_only = yes
+			}
+			has_character = HUN_Erno_Gero
+		}
+		complete_effect = {
+			retire_character = HUN_Erno_Gero
+			news_event = { id = hun.41 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+	
+	}
+	HUN_revo_blamed = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			has_character = HUN_Erno_Gero
+		}
+		complete_effect = {
+			news_event = { id = hun.39 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.08
+		}
+	
+	}
+	HUN_revo_relase_church = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 50
+		}
+		complete_effect = {
+			news_event = { id = hun.62 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			add_stability = 0.1
+		}
+	
+	}
+	HUN_revo_relase_criminals = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 50
+		}
+		complete_effect = {
+			news_event = { id = hun.38 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			add_stability = 0.1
+		}
+	
+	}
+	
+}
+political_actions = {
+	HUN_Open_border = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HUN
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						SOV = { communism > 0.3 }
+					}
+				}
+			}
+		}
+		visible = {
+			date > 1989.5.1
+			democratic > 0.3
+			has_government = communism
+		}
+		complete_effect = {
+				DDR = { country_event = { id = ddr.20 } }
+		}
+
+	
+	}
+	
+}

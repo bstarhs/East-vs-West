@@ -1,0 +1,28 @@
+
+HK_construction = {
+	HKN_Shatin = {
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			always = yes
+			tag = HKN
+			has_idea = HKN_New_downtown
+		}
+
+		cost = 400
+		days_remove = 200
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+			add = 100 
+			date > 1972.3.1
+			}
+		}
+		remove_effect = {
+			326 = { set_state_category = metropolis }
+		}
+	
+	}
+	
+}

@@ -1,0 +1,41 @@
+ideas = {
+	country = {
+		CAN_red_flags = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = CAN_red_flags
+
+			modifier = {
+			}
+
+		}
+		QuebecCrisis = {
+			allowed = {
+				original_tag = CAN
+			}
+			picture = QuebecCrisis
+
+			allowed_civil_war = {
+				NOT ={
+					has_government = communism
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = QuebecCrisis_tool
+				political_power_gain = -0.12
+				stability_factor = -0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+	}
+}
+	

@@ -1,0 +1,40 @@
+
+state={
+	id=658
+	name="STATE_658"
+	manpower = 220000
+	state_category = rural
+	resources={
+		oil=60
+	}
+	history={
+		
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Arabs
+		owner = UAE
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_core_of = UAE
+		victory_points = {
+			7960 6
+		}
+		victory_points = {
+			2048 8
+		}
+		buildings = {
+			power_plant = 1
+			infrastructure = 2
+			industrial_complex = 1
+			oilfield = 1
+			synthetic_refinery = 1
+			7960 = {
+				naval_base = 3
+			}
+		}
+
+	}
+
+	provinces={
+		2048 7960 8108 10904 13390
+	}
+}

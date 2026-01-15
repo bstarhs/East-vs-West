@@ -1,0 +1,410 @@
+﻿division_template = {
+	name = "Divisão de Infantaria"	
+	division_names_group = BRA_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Infantaria Mecânizada"
+	division_names_group = BRA_MEC_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }	
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }	
+		mechanized = { x = 1 y = 1 }	
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Divisão de Blindada" 	
+	division_names_group = BRA_ARM_01 	
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 } 
+		maintenance_company = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "Grupamentos de Navais"	
+	division_names_group = BRA_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Brigada de Infantaria Pára-quedista" 
+	division_names_group = BRA_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+units = {
+	##### Amazon #####
+	division= {
+		name = "2a Região Militar"
+		location = 12919
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "1a Brigada de Infantaria de Selva"
+		location = 5214
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "2a Brigada de Infantaria de Selva"
+		location = 13323
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "16a Brigada de Infantaria de Selva"
+		location = 8254
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "17a Brigada de Infantaria de Selva"
+		location = 13233
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	##### North #####
+	division= {
+		name = "8a Região Militar"
+		location = 13639
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "22a Brigada de Infantaria de Selva"
+		location = 13650
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "23a Brigada de Infantaria de Selva"
+		location = 13635
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	##### North east #####
+	division= {
+		name = "6a Região Militar"
+		location = 10946
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "10a Região Militar"
+		location = 5107
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "7a Brigada de Infantaria Motorizada"
+		location = 10933
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "10a Brigada de Infantaria Motorizada"
+		location = 5168
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	##### west #####
+	division= {
+		name = "9a Região Militar"
+		location = 10959
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "4a Brigada de Cavalaria Mecanizada"
+		location = 8224
+		division_template = "Divisão de Blindada" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "13a Brigada de Infantaria Motorizada"
+		location = 2111
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	##### Planalto #####
+	division= {
+		name = "11a Região Militar"
+		location = 13296
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "3a Brigada de Cavalaria Mecanizada"
+		location = 2218
+		division_template = "Divisão de Blindada" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "Comando de Operações Especiais"
+		location = 13296
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.9
+	}
+	##### east #####
+	division= {
+		name = "1a Região Militar"
+		location = 10980
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "4a Região Militar"
+		location = 7476
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "Brigada de Infantaria Pára-quedista"
+		location = 10980
+		division_template = "Brigada de Infantaria Pára-quedista"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "4a Brigada de Infantaria Leve"
+		location = 8148
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	##### sap paul #####
+	division= {
+		name = "2a Brigada de Infantaria Motorizada"
+		location = 10513
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "11a Brigada de Infantaria Leve"
+		location = 10947
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "12a Brigada de Infantaria Leve"
+		location = 10947
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	##### south #####
+	division= {
+		name = "8a Brigada de Infantaria Motorizada"
+		location = 7638
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "3a Região Militar"
+		location = 10447
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "1a Brigada de Cavalaria Mecanizada"
+		location = 4575
+		division_template = "Divisão de Blindada" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "2a Brigada de Cavalaria Mecanizada"
+		location = 4575
+		division_template = "Divisão de Blindada" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "3a Brigada de Cavalaria Mecanizada"
+		location = 4604
+		division_template = "Divisão de Blindada" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "6a Brigada de Infantaria Blindada"
+		location = 4604
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "5a Região Militar"
+		location = 8181
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "5a Brigada de Cavalaria Mecanizada"
+		location = 5156
+		division_template = "Divisão de Blindada" 
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "14a Brigada de Infantaria Motorizada"
+		location = 10405
+		division_template = "Divisão de Infantaria"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "15a Região Militar"
+		location = 5178
+		division_template = "Infantaria Mecânizada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	##marines##
+	division= {
+		name = "1a GptFN"
+		location = 10980
+		division_template = "Grupamentos de Navais"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "2a GptFN"
+		location = 10946
+		division_template = "Grupamentos de Navais"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "3a GptFN"
+		location = 10933
+		division_template = "Grupamentos de Navais"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "4a GptFN"
+		location = 13639
+		division_template = "Grupamentos de Navais"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "5a GptFN"
+		location = 10447
+		division_template = "Grupamentos de Navais"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division= {
+		name = "8a GptFN"
+		location = 10513
+		division_template = "Grupamentos de Navais"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+}
+
+air_wings = {
+	### Aviação Militar -- Rio de Janiero
+	500 = {
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+		transport_plane_equipment_1 = { owner = "BRA" amount = 20 }
+	}
+	502 = {
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+		transport_plane_equipment_1 = { owner = "BRA" amount = 20 }
+	}
+	505 = {
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+		transport_plane_equipment_1 = { owner = "BRA" amount = 20 }
+	}
+	504 = {
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+	}
+	497 = {
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+	}
+	498 = {
+		fighter_equipment_2 =  { owner = "BRA" amount = 35 }
+		CAS_equipment_2 =  { owner = "BRA" amount = 20 }
+	}
+}
+

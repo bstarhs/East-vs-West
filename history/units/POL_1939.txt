@@ -1,0 +1,215 @@
+﻿
+division_template = {
+	name = "Brygada Piechoty"
+	division_names_group = POL_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Podhale Brigade"
+	division_names_group = POL_MNT_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		motorized = { x = 0 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Brygada Zmotoryzowana"
+	division_names_group = POL_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 0 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Brygada Morska"
+	division_names_group = POL_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 0 y = 2 }
+		marine = { x = 0 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Brygada Morska"
+	division_names_group = POL_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# BT-7 tanks
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }	
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	
+	priority = 2
+}
+division_template = {
+	name = "Brygada Powietrzna"
+	division_names_group = POL_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 0 y = 3 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	
+	priority = 2
+}
+division_template = {
+	name = "Pułku Artylerii"
+	division_names_group = POL_MOT_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+	
+	priority = 0
+}
+division_template = {
+	name = "Pułk Reconowy"
+	division_names_group = POL_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	division = {
+		name = "Polish Marines"
+		location = 362		#Danzig
+		division_template = "Brygada Morska"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "6th Brygada Powietrzna"
+		location = 9427		#Krakow
+		division_template = "Brygada Powietrzna"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "21st Podhale Rifles"
+		location = 6499		#Rzeszow
+		division_template = "Podhale Brigade"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "23rd Pułku Artylerii"
+		location = 11517	#Bolesławiec
+		division_template = "Pułku Artylerii"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "7th Coastal Defence Brigade"
+		location = 11372	#Słupsk
+		division_template = "Brygada Zmotoryzowana"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "5th Pułku Artylerii"
+		location = 11517	#Sulechów
+		division_template = "Pułku Artylerii"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "1st 'Warsaw' Brygada Morska"
+		location = 3544		#Warsaw
+		division_template = "Brygada Morska"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "11th Pułku Artylerii"
+		location = 266		#Węgorzewo
+		division_template = "Pułku Artylerii"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "2nd Pułk Reconowy"
+		location = 6580		#Hrubieszów
+		division_template = "Pułk Reconowy"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "9th Pułk Reconowy"
+		location = 3351		#Lidzbark Warmiński
+		division_template = "Pułk Reconowy"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "18th Pułk Reconowy"
+		location = 11301	#Bialystok
+		division_template = "Pułk Reconowy"
+		start_experience_factor = 0.3
+	}
+}
+
+### Air OOB ###
+air_wings = {
+	86 = {
+		#MiG-21
+		jet_multirole_equipment_1 = {
+			owner = "POL" 
+			amount = 80
+		}
+
+	}
+	87 = {
+		#MiG-21
+		jet_multirole_equipment_1 = {
+			owner = "POL" 
+			amount = 80
+		}
+
+	}
+	85 = {
+		#MiG-29A - If  80s equipment is added should be downgraded.
+		jet_multirole_equipment_3 = {
+			owner = "POL" 
+			amount = 16
+		}
+	}
+	10 = {
+		#MiG-29A - If  80s equipment is added should be downgraded.
+		jet_multirole_equipment_3 = {
+			owner = "POL" 
+			amount = 16
+		}
+	}
+	63 = {
+		#Su-22M4
+		jet_attack_equipment_2 = {
+			owner = "POL" 
+			amount = 50
+		}
+	}
+}

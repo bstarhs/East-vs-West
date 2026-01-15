@@ -1,0 +1,324 @@
+﻿add_namespace = eth
+#埃塞俄比亚颁布新宪法
+news_event = {
+	id = eth.1
+	title = eth.1.t
+	desc = eth.1.d
+	picture = GFX_ALGwar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = ETH }
+			recruit_character = ETH_Aklilu_Habte_Wold 
+			recruit_character = ETH_Mengistu_Neway 
+			recruit_character = ETH_Germame_Neway 
+		}
+	}
+}
+news_event = {
+	id = eth.2
+	title = eth.2.t
+	desc = eth.2.d
+	picture = GFX_Ethiopia1960
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		tag = ETH
+		has_government = monarchism
+		date > 1957.1.1
+		date < 1961.1.1
+		OR = {
+			EGY = { has_idea = arab_unired_idea }
+			country_exists = GUI
+			country_exists = PRC
+		}
+	}
+	option = {
+		name = alg.5.b1
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.02
+			}
+		set_global_flag = eth2
+	}
+}
+news_event = {
+	id = eth.3
+	title = eth.3.t
+	desc = eth.3.d
+	picture = GFX_Ethiopia1960
+	mean_time_to_happen = {
+		days = 12
+	}
+	immediate = {
+		play_song = ETH_8
+	}
+	trigger = {
+		tag = ETH
+		has_government = monarchism
+		monarchism < 0.6
+		date > 1960.12.1
+		date < 1961.2.1
+		has_global_flag = eth2
+		NOT = { has_global_flag = eth3 }
+	}
+	option = {
+		name = alg.5.b1
+		news_event = { id = eth.4 }
+		set_global_flag = eth3
+		promote_character = {
+			character = ETH_Mengistu_Neway
+			ideology = despotism
+		}
+		start_civil_war = {
+			ideology = neutrality
+			states = { 271 }
+			size = 0.2
+		}
+	}
+	option = {
+		name = alg.5.b1
+		news_event = { id = eth.6 }
+		set_global_flag = eth3
+		promote_character = {
+			character = ETH_Mengistu_Neway
+			ideology = despotism
+		}
+		add_stability = -0.3
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.5
+			}
+		set_politics = { ruling_party = neutrality }
+	}
+}
+news_event = {
+	id = eth.4
+	title = eth.4.t
+	desc = eth.4.d
+	picture = GFX_Ethiopia1960
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+	}
+}
+news_event = {
+	id = eth.5
+	title = eth.5.t
+	desc = eth.5.d
+	picture = GFX_EthiopiaCoupEnd
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+	}
+}
+news_event = {
+	id = eth.6
+	title = eth.6.t
+	desc = eth.6.d
+	picture = GFX_Ethiopia1960
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+	}
+	option = {
+		name = alg.5.b1
+		trigger = {
+			OR = {
+				tag = USA
+				tag = SOV
+				tag = EGY
+				tag = PRC
+			}
+		}
+		news_event = { id = eth.7 days = 3 }
+	}
+}
+news_event = {
+	id = eth.7
+	title = eth.7.t
+	desc = eth.7.d
+	picture = GFX_Ethiopia1960
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = ETH }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = eth.8
+	title = eth.8.t
+	desc = eth.8.d
+	picture = GFX_AsfawossenTafari
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = ETH
+		has_government = neutrality
+		date > 1960.12.1
+		date < 1961.2.1
+		has_global_flag = eth3
+		NOT = { has_global_flag = eth6 }
+	}
+	option = {
+		name = alg.5.b1
+		news_event = { id = eth.9 }
+		set_global_flag = eth6
+		if = {
+			limit = { tag = ETH }
+			add_stability = 0.12
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.1
+			}
+		}
+	}
+	option = {
+		name = alg.5.b1
+		news_event = { id = eth.10 }
+		set_global_flag = eth6
+		if = {
+			retire_character = ETH_Asfawossen_Tafari
+			limit = { tag = ETH }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.3
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = eth.9
+	title = eth.9.t
+	desc = eth.9.d
+	picture = GFX_AsfawossenTafari
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+	}
+}
+news_event = {
+	id = eth.10
+	title = eth.10.t
+	desc = eth.10.d
+	picture = GFX_AsfawossenTafari
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+	}
+}
+news_event = {
+	id = eth.11
+	title = eth.11.t
+	desc = eth.11.d
+	picture = GFX_AbebeAregai
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = ETH
+		has_government = neutrality
+		date > 1960.12.1
+		date < 1961.2.1
+		has_global_flag = eth3
+		NOT = { has_global_flag = eth11 }
+	}
+	option = {
+		name = alg.5.b1
+		set_global_flag = eth11
+		if = {
+			limit = { tag = ETH }
+			retire_character = ETH_Abebe_Aregai
+			add_stability = -0.15
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.1
+			}
+		}
+	}
+}
+
+news_event = {
+	id = eth.12
+	title = eth.12.t
+	desc = eth.12.d
+	picture = GFX_Ethiopia1960
+	mean_time_to_happen = {
+		days = 12
+	}
+	major = yes
+	trigger = {
+		tag = ETH
+		has_government = neutrality
+		has_stability < 0.4
+		neutrality < 0.5
+		date > 1960.12.1
+		date < 1961.3.1
+		NOT = { has_global_flag = eth12 }
+	}
+	option = {
+		name = alg.5.b1
+		set_global_flag = eth12
+		if = {
+			limit = { tag = ETH }
+			start_civil_war = {
+				ideology = monarchism
+				size = 0.8
+			}
+		}
+	}
+}
+news_event = {
+	id = eth.13
+	title = eth.13.t
+	desc = eth.13.d
+	picture = GFX_EthiopiaCoupEnd
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = alg.5.b1
+		if = {
+			limit = { tag = ETH }
+			add_ideas = ETH_atze_army
+		}
+	}
+}

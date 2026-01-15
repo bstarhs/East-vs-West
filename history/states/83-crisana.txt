@@ -1,0 +1,31 @@
+
+state={
+	id=83
+	name="STATE_83"
+	manpower = 632900
+	
+	state_category = rural
+	local_supplies=0.0
+	history={
+		owner = ROM
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_core_of = TRA
+		set_state_flag = ethnics_Romanian
+		add_to_array = { this.state_ethnics_list = 141 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 1
+		}
+		victory_points = {
+			6682 3
+		}
+		add_core_of = ROM
+	}
+
+	provinces={
+		696 6682 6697 9640 
+	}
+}

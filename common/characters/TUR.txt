@@ -1,0 +1,152 @@
+characters={
+	TUR_Hasan_Polatkan={
+		name=TUR_Hasan_Polatkan
+		portraits={
+			civilian={
+				large="gfx/leaders/TUR/Portrait_Turkey_Hasan_Polatkan.tga"
+				small="gfx/interface/ideas/idea_Hasan_Polatkan.dds"
+			}
+		}
+		advisor = {
+			visible = {
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Hasan_Polatkan
+			allowed = {
+				original_tag = TUR
+			}
+			traits = { pro_america }
+		}
+	}
+	TUR_Fatin_Rustu_Zorlu={
+		name=TUR_Fatin_Rustu_Zorlu
+		portraits={
+			civilian={
+				large="gfx/leaders/TUR/Portrait_Turkey_Fatin_Rustu_Zorlu.tga"
+				small="gfx/interface/ideas/idea_Fatin_Rustu_Zorlu.dds"
+			}
+		}
+		advisor = {
+			visible = {
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Fatin_Rustu_Zorlu
+			allowed = {
+				original_tag = TUR
+			}
+			traits = { pro_america ideological_crusader }
+		}
+	}
+	TUR_Ismet_Inonu={
+		name=TUR_Ismet_Inonu
+		portraits={
+			civilian={
+				large="gfx/leaders/TUR/Portrait_Turkey_Inonu.tga"
+				small="gfx/interface/ideas/idea_Ismet_Inonu.dds"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits = { trait_TUR_kemalist_champion Developmentalism }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = { trait_TUR_kemalist_champion }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor = {
+			visible = {
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Ismet_Inonu
+			allowed = {
+				original_tag = TUR
+			}
+			traits = { trait_TUR_kemalist_champion }
+		}
+	}
+	TUR_Adnan_Menderes={
+		name=TUR_Adnan_Menderes
+		portraits={
+			civilian={
+				large="gfx/leaders/TUR/Portrait_Turkey_Adnan_Menderes.tga"
+				small="gfx/interface/ideas/idea_Adnan_Menderes.dds"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits = { pro_america neoliberal anti_communist Developmentalism backroom_backstabber }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor = {
+			visible = {
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Adnan_Menderes
+			allowed = {
+				original_tag = TUR
+			}
+			traits = { pro_america neoliberal anti_communist Developmentalism backroom_backstabber }
+		}
+	}
+	TUR_Cemal_Madanoglu={
+		name=TUR_Cemal_Madanoglu
+		portraits={
+			army={
+				large="gfx/leaders/TUR/Portrait_Turkey_Cemal_Madanoglu.tga"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+			}
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+		country_leader={
+			ideology=despotism
+			traits={ pro_america anti_communist technocrat jefe }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+	TUR_Cemal_Gursel={
+		name=TUR_Cemal_Gursel
+		portraits={
+			army={
+				large="gfx/leaders/TUR/Portrait_Turkey_Cemal_Gursel.tga"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+			}
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+		country_leader={
+			ideology=despotism
+			traits={ pro_america anti_communist technocrat jefe }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+}

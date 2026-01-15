@@ -1,0 +1,42 @@
+
+garrison_generic = {
+
+	blocked_for = {
+		GER
+	}
+	
+	role = garrison
+	
+	upgrade_prio = {
+		base = 0.5
+
+		modifier = {
+			factor = 20
+			NOT = { ai_has_role_template = garrison }
+		}
+	}
+
+	garrison_generic = {
+		reinforce_prio = 0
+		custom_icon = 7
+	
+		upgrade_prio = {
+			base = 2
+
+			modifier = {
+				factor = 1
+			}
+		}
+		
+		target_template = {
+			
+			support = { 
+				engineer = 1
+			}
+			
+			regiments = {
+				infantry = 4
+			}
+		}
+	}
+}

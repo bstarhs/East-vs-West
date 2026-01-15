@@ -1,0 +1,136 @@
+﻿division_template = {
+	name = "Division d'Infanterie"	
+	division_names_group = BEL_MEC_01	
+	regiments = {
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }	
+		mechanized = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Brigade Blindée" 	
+	division_names_group = BEL_ARM_01	
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 1 }	
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Brigade d'Infanterie de Marine"	
+	division_names_group = BEL_MAR_01	
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+	priority = 2
+}
+division_template = {
+	name = "Division de Parachutistes" 
+	division_names_group = BEL_PAR_01	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Division d'Artillerie" 	
+	division_names_group = BEL_MEC_01	
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "1st Infantry Division"  		
+		location = 587
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "6th Mechanised Division"  	
+		location = 587
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Chasseurs Ardennais"  	
+		location = 11407
+		division_template = "Division d'Infanterie"
+		start_experience_factor = 0.8
+	}
+}
+
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	6 = {															# Brussels
+		fighter_equipment_1 =  { owner = "BEL" creator = "ENG" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		fighter_equipment_0 =  { owner = "BEL" creator = "ENG" amount = 22 }
+		fighter_equipment_0 =  { owner = "BEL" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "BEL"
+		}
+		requested_factories = 3
+		progress = 0.73
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "BEL"
+		}
+		requested_factories = 1
+		progress = 0.66
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_1
+			creator = "BEL"
+		}
+		requested_factories = 1
+		progress = 0.27
+		efficiency = 100
+	}
+}

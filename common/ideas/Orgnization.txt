@@ -1,0 +1,115 @@
+ideas = {
+
+	country = {
+
+		IslamOrg = {
+			allowed = {
+				always = yes
+			}
+			picture = CARICOM
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.01
+			}
+		}
+		CARICOM = {
+			allowed = {
+				always = yes
+			}
+			picture = CARICOM
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.01
+			}
+		}
+		ASEAN = {
+			allowed = {
+				always = yes
+			}
+			picture = ASEAN
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.01
+			}
+		}
+		APLA = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = APLA
+
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+				date > 1970.1.1
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.5
+			}
+		}
+		OPEC = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = OPEC
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.4
+			}
+		}	
+		CENTO = {
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = CENTO
+			
+			modifier = {
+				conscription_factor = 0.1
+				communism_drift = -0.01
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		SEATO = {
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = SEATO
+			
+			modifier = {
+				conscription_factor = 0.1
+				communism_drift = -0.01
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	
+	}
+}
+

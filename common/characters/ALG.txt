@@ -1,0 +1,70 @@
+characters={
+	ALG_Bachaga_Boualam={
+		name=ALG_Bachaga_Boualam
+		portraits={
+			army={
+				large="gfx/leaders/ALG/Portrait_Algeria_Bachaga_Boualam.tga"
+				small="gfx/interface/ideas/idea_Son_Ngok_Thanh.dds"
+			}
+		}
+		country_leader = {
+			ideology=socialism
+			traits = { dictator corrupt_leader pro_france }
+			expire = "1971.3.1.1"
+		}
+	}
+	ALG_Ahmad_Ben_Bella={
+		name=ALG_Ahmad_Ben_Bella
+		portraits={
+			army={
+				large="gfx/leaders/ALG/Portrait_Algeria_Ben_Bella.tga"
+				small="gfx/interface/ideas/idea_Son_Ngok_Thanh.dds"
+			}
+		}
+		country_leader = {
+			ideology = authoritarianism
+			traits = { pro_third_world popular_figurehead }
+			expire = "1971.3.1.1"
+		}
+	}
+	ALG_Abane_Ramdane={
+		name=ALG_Abane_Ramdane
+		portraits={
+			army={
+				large="gfx/leaders/ALG/Portrait_Algeria_Abane_Ramdane.tga"
+				small="gfx/interface/ideas/idea_Son_Ngok_Thanh.dds"
+			}
+		}
+		country_leader = {
+			ideology = authoritarianism
+			traits = { pro_third_world }
+			expire = "1971.3.1.1"
+		}
+	}
+	ALG_Houari_Boumediene={
+		name=ALG_Houari_Boumediene
+		portraits={
+			army={
+				large="gfx/leaders/ALG/Portrait_Algeria_Houari_Boumediene.tga"
+			}
+		}
+		country_leader = {
+			ideology = authoritarianism
+			traits = { arabs_nationalism dictator }
+			expire = "1971.3.1.1"
+		}
+		corps_commander={
+			visible={
+				date < 1962.1.1
+				is_country_leader = no
+			}
+			traits={ army_chief_offensive_2 }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+}

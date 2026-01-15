@@ -1,0 +1,43 @@
+
+state={
+	id=25
+	name="STATE_25"
+	manpower = 1343700
+	resources={
+		coal=26
+	}
+	state_category = large_town
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		owner = FRA
+		add_to_array = { this.state_ethnics_list = 70 }
+		add_to_array = { this.state_ethnics_list = 128 }
+		set_state_flag = ethnics_Octavian
+		add_core_of = OCC
+		buildings = {
+			school = 1
+			farm_building = 3
+			hospital = 1
+			infrastructure = 5
+		}
+		victory_points = {
+			620 8
+		}
+		victory_points = {
+			6792 3
+		}
+		add_core_of = FRA
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces={
+		620 625 755 3598 3771 6618 6775 6792 9717 9734 9751 11718 11720 
+	}
+}

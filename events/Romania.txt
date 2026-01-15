@@ -1,0 +1,494 @@
+﻿add_namespace = rom
+
+#米哈伊退位
+news_event = {
+	id = rom.1
+	title = rom.1.t
+	desc = rom.1.d
+	picture = GFX_GheorghiuDej
+	trigger = {
+		tag = ROM
+		has_government = monarchism
+		date > 1947.12.1
+		date < 1948.5.1
+	}
+	fire_only_once = yes
+	option = {
+		name = PRR.1.a
+		news_event = { id = rom.2 }
+		remove_ideas = ROM_micheal_under_control
+		set_politics = { ruling_party = communism }
+			promote_character = {
+				character = ROM_Gheorghiu_Dej
+				ideology = marxism
+			}
+	}
+}
+
+#开国大典
+news_event = {
+	id = rom.2
+	title = rom.2.t
+	desc = rom.2.d
+	picture = GFX_GheorghiuDej
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ROM_14
+	}
+	option = {
+		name = prc.2.a
+	}
+
+}
+#罗马尼亚人民党头目试图叛逃
+news_event = {
+	id = rom.3
+	title = rom.3.t
+	desc = rom.3.d
+	picture = GFX_AfacereaTamadau
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = ROM
+		has_government = monarchism
+		date > 1947.8.1
+		date < 1948.1.1
+		NOT = { has_global_flag = rom3 }
+	}
+	fire_only_once = yes
+	option = {
+		name = PRR.1.a
+		set_global_flag = rom3
+		news_event = { id = rom.4 }
+	}
+}
+news_event = {
+	id = rom.4
+	title = rom.4.t
+	desc = rom.4.d
+	picture = GFX_AfacereaTamadau
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.2.a
+	}
+
+}
+news_event = {
+	id = rom.5
+	title = rom.5.t
+	desc = rom.5.d
+	picture = GFX_AfacereaTamadau
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = ROM
+		has_government = monarchism
+		date > 1947.8.1
+		date < 1948.1.1
+		has_global_flag = rom3
+		NOT = { has_global_flag = rom5 }
+	}
+	fire_only_once = yes
+	option = {
+		name = PRR.1.a
+		set_global_flag = rom5
+	}
+}
+
+
+#铁托事件
+country_event = {
+	id = rom.10
+	title = rom.30.t
+	desc = rom.10.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 30 }
+	picture = GFX_GheorghiuDejSpeech
+	trigger = {
+		tag = ROM
+		YUG = { has_idea = SovietChinaConflit }
+		date < 1950.1.1
+	}
+	option = {
+		name = rom.10.a
+			ai_chance = {
+				factor = 60
+			}
+		set_country_flag = RomTitoNo
+		news_event = { id = rom.11 }
+	}
+	option = {
+		name = rom.10.b
+			ai_chance = {
+				factor = 10
+			}
+		set_country_flag = RomTitoYes
+		set_country_flag = TitoYes
+		news_event = { id = rom.12 }
+	}
+}
+news_event = {
+	id = rom.11
+	title = rom.11.t
+	desc = rom.11.d
+	picture = GFX_GheorghiuDejSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		if = {
+			limit = { tag = ROM }
+			retire_character = ROM_Lucretiu_Patrascanu
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.03
+		}
+		
+	}
+}
+news_event = {
+	id = rom.12
+	title = rom.12.t
+	desc = rom.12.d
+	picture = GFX_GheorghiuDejSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		if = {
+			limit = { tag = ROM }
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+			add_stability = 0.08
+		}
+		if = {
+			limit = {
+				is_neighbor_of = ROM
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+
+#去斯大林化风波
+news_event = {
+	id = rom.30
+	title = rom.30.t
+	desc = rom.30.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 30 }
+	picture = GFX_Romania1956
+	trigger = {
+		tag = ROM
+		SOV = { has_completed_focus = SOV_RemovingStalinization }
+		NOT = { has_global_flag = rom30 }
+		date > 1956.7.1
+		date < 1956.10.1
+	}
+	option = {
+		name = rom.10.a
+		ai_chance = { factor = 60 }
+		set_global_flag = rom30
+	}
+	option = {
+		name = rom.10.a
+		set_global_flag = rom30
+		ai_chance = { factor = 0 }
+		news_event = { id = rom.31 }
+	}
+}
+news_event = {
+	id = rom.31
+	title = rom.31.t
+	desc = rom.31.d
+	picture = GFX_GheorghiuDejSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = rom.10.a
+		ai_chance = { factor = 60 }
+	}
+}
+
+
+
+news_event = {
+	id = rom.32
+	title = rom.32.t
+	desc = rom.32.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	picture = GFX_Romania1956
+	trigger = {
+		tag = ROM
+		SOV = { has_completed_focus = SOV_RemovingStalinization }
+		POL = { has_country_flag = Poland_revolt_1956 }
+		date > 1956.7.1
+		date < 1956.12.1
+		NOT = { has_global_flag = rom32 }
+	}
+	option = {
+		name = rom.10.a
+		ai_chance = { factor = 60 }
+		set_global_flag = rom32
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+			add_stability = 0.02
+	}
+}
+news_event = {
+	id = rom.33
+	title = rom.33.t
+	desc = rom.33.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	picture = GFX_Romania1956
+	trigger = {
+		tag = ROM
+		has_global_flag = rom32
+		date > 1956.7.1
+		date < 1956.12.1
+		NOT = { has_global_flag = rom33 }
+	}
+	option = {
+		name = rom.10.a
+		ai_chance = { factor = 60 }
+		set_global_flag = rom33
+		news_event = { id = rom.37 days = 2 }
+	}
+}
+news_event = {
+	id = rom.37
+	title = rom.37.t
+	desc = rom.37.d
+	picture = GFX_Romania1956
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = rom.10.a
+		if = {
+			limit = { tag = ROM }
+			set_global_flag = rom37
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+			add_stability = -0.02
+		}
+	}
+}
+news_event = {
+	id = rom.38
+	title = rom.38.t
+	desc = rom.38.d
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	picture = GFX_Romania1956
+	trigger = {
+		tag = ROM
+		has_global_flag = rom37
+		date > 1956.7.1
+		date < 1956.12.1
+		NOT = { has_global_flag = rom38 }
+	}
+	option = {
+		name = rom.10.a
+		ai_chance = { factor = 60 }
+		set_global_flag = rom38
+	}
+}
+#卡罗尔二世去世
+news_event = {
+	id = rom.50
+	title = rom.50.t
+	desc = rom.50.d
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	picture = GFX_Romania1956
+	trigger = {
+		tag = ROM
+		date > 1953.4.5
+		date < 1953.6.1
+		NOT = { has_global_flag = rom50 }
+	}
+	option = {
+		name = rom.10.a
+		ai_chance = { factor = 60 }
+		set_global_flag = rom50
+	}
+}
+
+
+
+
+
+
+
+
+
+#齐奥塞斯库
+news_event = {
+	id = rom.100
+	title = alb.100.t
+	desc = alb.100.d
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
+	trigger = {
+		tag = ROM
+		has_government = communism
+		date > 1965.1.1
+		date < 1965.8.1
+	}
+	option = {
+		name = alb.5.a
+			create_country_leader = {
+			name = "Nicolae Ceausescu"
+			desc = "ROMITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/ROM/Portrait_Romania_Ceausescu.tga"
+			expire = "1988.1.1"
+			ideology = leninism
+		
+			traits = {
+			personal_worship independent_red
+			}
+		}
+	}
+}
+
+#蒂米什瓦拉事件
+news_event = {
+	id = rom.150
+	title = rom.150.t
+	desc = rom.150.d
+	picture = GFX_Timisoara
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = ROM
+		date > 1989.12.10
+		has_government = communism
+		has_idea = personal_worship
+	}
+	option = {
+		name = rom.20.b
+		ai_chance = {
+			factor = 1	
+		}
+		add_stability = -0.1
+		news_event = { id = rom.21 }
+	}
+	option = {
+		name = rom.20.a
+		ai_chance = {
+			factor = 0
+		}
+		remove_ideas = personal_worship
+		create_country_leader = {
+			name = "Ion Iliescu"
+			picture = "gfx/leaders/ROM/Portrait_Romania_Ion_Iliescu.tga"
+			expire = "2050.1.1"
+			ideology = marxism
+			traits = {
+				socialist_reformism
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
+	}
+}
+#罗马尼亚起义
+news_event = {
+	id = rom.151
+	title = rom.151.t
+	desc = rom.151.d
+	picture = GFX_RomaniaCvilWar
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = rom.20.b
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "Ion Iliescu"
+			picture = "gfx/leaders/ROM/Portrait_Romania_Ion_Iliescu.tga"
+			expire = "2050.1.1"
+			ideology = liberalism
+			traits = {
+			
+			}
+		}
+		add_stability = -0.2
+		random_list = {
+			5 = {
+				start_civil_war = {
+					ideology = democratic
+						states = { 46 }
+				}
+			}
+			90 = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.4
+				}
+				set_politics = { ruling_party = democratic }
+				news_event = { id = rom.22 }
+			}
+		}
+	}
+	option = {
+		name = rom.20.a
+		ai_chance = {
+			factor = 0	
+		}
+		remove_ideas = ROM_Carpathian_Stalin
+		create_country_leader = {
+			name = "Ion Iliescu"
+			picture = "gfx/leaders/ROM/Portrait_Romania_Ion_Iliescu.tga"
+			expire = "2050.1.1"
+			ideology = marxism
+			traits = {
+				socialist_reformism
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+		add_stability = 0.3
+	}
+}
+#枪毙齐奥塞斯库
+news_event = {
+	id = rom.152
+	title = rom.152.t
+	desc = rom.152.d
+	picture = GFX_CeausescusDead
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ROM_1
+	}
+	option = {
+		name = rom.22.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+}

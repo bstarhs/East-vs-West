@@ -1,0 +1,207 @@
+﻿capital = 558
+
+
+set_research_slots = 1
+set_convoys = 500
+set_country_flag = language_english
+set_stability = 0.75
+set_country_flag = islam_state
+set_country_flag = british_colonies
+
+add_ideas = {
+	biritish_colony
+	partial_economic_mobilisation
+	scraping_the_barrel
+}
+set_country_flag = third_world
+set_technology = {
+		oil_processing = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		steel_making_tech = 1
+	
+		medical1 = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	basic_light_tank = 1
+	
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+}
+
+set_country_flag = african_state
+set_cosmetic_tag = NGR_ENG
+
+	set_popularities = {
+		democratic = 35
+		neutrality = 50
+		communism = 15
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+
+create_country_leader = {
+	name = "British Nigeria Governeor"
+	desc = ""
+	picture = "gfx/leaders/NGR/Portrait_Nigeria_Governeor.tga"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+1960.1.1 = {
+	add_ideas = {
+		UNmember
+	}
+}
+1961.1.1 = {
+	remove_ideas = biritish_colony
+	activate_decision = female_equality
+
+		create_country_leader = {
+		name = "Benjamin Nnamdi Azikiwe"
+		desc = ""
+		picture = "gfx/leaders/NGR/Portrait_Nigeria_Azikiwe.tga"
+			ideology = conservatism
+		traits = {
+		#
+		}
+	}
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		partial_economic_mobilisation
+		OPEC
+	}
+}
+1964.1.20 = {
+	oob = "NGR"
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		NonAligned
+	}
+	set_cosmetic_tag = NGR
+}
+1966.1.20 = {
+	set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Yakubu Gowon"
+		
+		picture = "gfx/leaders/NGR/Portrait_Nigeria_Yakubu_Gowon.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1970.1.20 = {
+	complete_national_focus = common_medic
+	complete_national_focus = steel_produc
+}
+1976.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	create_country_leader = {
+		name = "Olusegun Obasanjo"
+		
+		picture = "gfx/leaders/NGR/Portrait_Nigeria_Obasanjo.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1979.1.20 = {
+	set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Shehu Shagari"
+		
+		picture = "gfx/leaders/NGR/Portrait_Nigeria_Shagari.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1983.1.20 = {
+	set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Muhammadu Buhari"
+		
+		picture = "gfx/leaders/NGR/Portrait_Nigeria_Buhari.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1985.1.20 = {
+	create_country_leader = {
+		name = "Ibrahim Badamasi Babangida"
+		
+		picture = "gfx/leaders/NGR/Portrait_Nigeria_Babangida.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+	add_ideas = {
+		IslamOrg
+	}
+}

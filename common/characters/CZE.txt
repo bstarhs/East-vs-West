@@ -1,0 +1,396 @@
+characters={
+	CZE_Gustav_Husak={
+		name=CZE_Gustav_Husak
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Husak.tga"
+				small="gfx/interface/ideas/idea_Gustav_Husak.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { socialist_reformism pro_soviet silent_workhorse }
+			expire = "1976.3.1.1"
+			desc = "ccp_title"
+		}
+		advisor={
+			visible = {
+				is_country_leader = no
+			}
+			slot = political_advisor
+			idea_token = Gustav_Husak
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				stability_factor = 0.05
+				political_power_factor = 0.02
+			}
+		}
+	}
+	CZE_Vaclav_Nosek={
+		name=CZE_Vaclav_Nosek
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Vaclav_Nosek.tga"
+				small="gfx/interface/ideas/idea_Vaclav_Nosek.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Vaclav_Nosek
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				stability_factor = 0.12
+				political_power_factor = -0.03
+			}
+		}
+	}
+	CZE_Jan_Masaryk={
+		name=CZE_Jan_Masaryk
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Jan_Masaryk.tga"
+				small="gfx/interface/ideas/idea_Jan_Masaryk.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Jan_Masaryk
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	CZE_Jozef_Lettrich={
+		name=CZE_Jozef_Lettrich
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Jozef_Lettrich.tga"
+				small="gfx/interface/ideas/idea_Jozef_Lettrich.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits={ independent }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor = {
+			visible = {
+				date < 1961.1.1
+			}
+			slot = political_advisor
+			idea_token = Jozef_Lettrich
+			allowed = {
+				original_tag = cze
+			}
+			traits = { democratic_reformer }
+		}
+	}
+	CZE_Jaroslav_Fajfr={
+		name=CZE_Jaroslav_Fajfr
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Jaroslav_Fajfr.tga"
+				small="gfx/interface/ideas/idea_Jaroslav_Fajfr.dds"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = Jaroslav_Fajfr
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				experience_gain_air_factor = 0.15
+			}
+		}
+	}
+	CZE_Alois_Vicherek={
+		name=CZE_Alois_Vicherek
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Alois_Vicherek.tga"
+				small="gfx/interface/ideas/idea_Alois_Vicherek.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = Alois_Vicherek
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				experience_gain_army_factor = 0.15
+			}
+		}
+	}
+	CZE_Josef_Urvalek={
+		name=CZE_Josef_Urvalek
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Josef_Urvalek.tga"
+				small="gfx/interface/ideas/idea_Josef_Urvalek.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Josef_Urvalek
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				drift_defence_factor = 0.15
+				stability_factor = 0.12
+			}
+		}
+	}
+	CZE_Bedrich_Reicin={
+		name=CZE_Bedrich_Reicin
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Bedrich_Reicin.tga"
+				small="gfx/interface/ideas/idea_Bedrich_Reicin.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = Bedrich_Reicin
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				experience_gain_army_factor = 0.12
+			}
+		}
+	}
+	CZE_Alexej_Cepicka={
+		name=CZE_Alexej_Cepicka
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Alexej_Cepicka.tga"
+				small="gfx/interface/ideas/idea_Alexej_Cepicka.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = Alexej_Cepicka
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				experience_gain_army_factor = 0.12
+			}
+		}
+	}
+	CZE_Vaclav_Kopecky={
+		name=CZE_Vaclav_Kopecky
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Vaclav_Kopecky.tga"
+				small="gfx/interface/ideas/idea_Vaclav_Kopecky.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Vaclav_Kopecky
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				drift_defence_factor = 0.1
+			}
+		}
+	}
+	CZE_Rudolf_Margolius={
+		name=CZE_Rudolf_Margolius
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Rudolf_Margolius.tga"
+				small="gfx/interface/ideas/idea_Rudolf_Margolius.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Rudolf_Margolius
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	CZE_Vladimir_Clementis={  ##铁托派
+		name=CZE_Rudolf_Margolius
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Vladimir_Clementis.tga"
+				small="gfx/interface/ideas/idea_Vladimir_Clementis.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Vladimir_Clementis
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				production_speed_buildings_factor = 0.12
+			}
+		}
+	}
+	CZE_Ludvik_Svoboda={
+		name=CZE_Ludvik_Svoboda
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Ludvik_Svoboda.tga"
+				small="gfx/interface/ideas/idea_Ludvik_Svoboda.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = Ludvik_Svoboda
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				stability_factor = 0.04
+				experience_gain_army = 0.12
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1975.1.1
+			}
+			traits={ army_chief_defensive_3 }
+			skill=3
+			attack_skill=2
+			defense_skill=5
+			planning_skill=3
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+	CZE_Antonin_Zapotocky={
+		name=CZE_Antonin_Zapotocky
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Antonin_Zapotocky.tga"
+				small="gfx/interface/ideas/idea_Antonin_Zapotocky.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Antonin_Zapotocky
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				political_power_factor = 0.05
+			}
+		}
+	}
+	CZE_Milada_Horakova={
+		name=CZE_Milada_Horakova
+		portraits={
+			civilian={
+				large="gfx/leaders/CZE/Portrait_Czech_Milada_Horakova.tga"
+				small="gfx/interface/ideas/idea_Milada_Horakova.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Milada_Horakova
+			allowed  = {
+				original_tag = CZE
+			}
+			modifier  = {
+				political_power_factor = 0.04
+				stability_factor = 0.02
+			}
+		}
+	}
+	CZE_Zdenek_Nejedly={
+		name=CZE_Zdenek_Nejedly
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_CZE_Zdenek_Nejedly.dds"
+				large="gfx/leaders/CZE/Portrait_Czech_Zdenek_Nejedly.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { pro_soviet staunch_stalinist }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Zdenek_Nejedly
+			allowed  = {
+				original_tag  = CZE
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	CZE_Antonin_Novotny={
+		name=CZE_Antonin_Novotny
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_CZE_Antonin_Novotny.dds"
+				large="gfx/leaders/CZE/Portrait_Czech_Novotny.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { pro_soviet staunch_stalinist }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			visible = {
+				is_country_leader = no
+			}
+			slot = political_advisor
+			idea_token = Antonin_Novotny
+			allowed  = {
+				original_tag  = CZE
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	CZE_Rudolf_Slansky={
+		name=CZE_Rudolf_Slansky
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Rudolf_Slansky.dds"
+				large="gfx/leaders/CZE/Portrait_Rudolf_Slansky.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { socialist_reformism independent_red pro_third_world }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Rudolf_Slansky
+			allowed  = {
+				original_tag  = CZE
+				has_government  = communism 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+	}
+}

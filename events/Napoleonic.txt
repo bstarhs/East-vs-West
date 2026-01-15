@@ -1,0 +1,298 @@
+add_namespace = napoleon
+news_event = {   #攻占延安
+	id = napoleon.4
+	title = napoleon.4.t
+	desc = napoleon.4.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = BEL
+		controls_province = 516
+		NOT = { has_global_flag = Bonaparte_bel }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_bel
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			annex_country = {
+				target = BEL
+				transfer_troops = yes
+			}
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.5
+	title = napoleon.5.t
+	desc = napoleon.5.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = HOL
+		controls_province = 391
+		NOT = { has_global_flag = Bonaparte_hol }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_hol
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			white_peace = HOL
+			puppet = HOL
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.6
+	title = napoleon.6.t
+	desc = napoleon.6.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = WDR
+		controls_province = 3547
+		NOT = { has_global_flag = Bonaparte_Bonn }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_Bonn
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = WDR }
+			add_stability = -0.12
+			add_war_support = -0.12
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.7
+	title = napoleon.7.t
+	desc = napoleon.7.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = WDR
+		controls_province = 6488
+		NOT = { has_global_flag = Bonaparte_Frankfurt }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_Frankfurt
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			annex_country = {
+				target = WDR
+				transfer_troops = yes
+			}
+			release_puppet = RHI
+			release_puppet = HAN
+			release_puppet = BAV
+			transfer_state = 854
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.8
+	title = napoleon.8.t
+	desc = napoleon.8.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = DEN
+		controls_province = 6287
+		NOT = { has_global_flag = Bonaparte_den }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_den
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			white_peace = DEN
+			puppet = DEN
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.9
+	title = napoleon.9.t
+	desc = napoleon.9.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		controls_province = 9764
+		has_war_with = SPR
+		NOT = { has_global_flag = Bonaparte_catalan }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_catalan
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			transfer_state = 165
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.10
+	title = napoleon.10.t
+	desc = napoleon.10.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		controls_province = 3938
+		has_war_with = SPR
+		NOT = { has_global_flag = Bonaparte_spa }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_spa
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			white_peace = SPR
+			puppet = SPR
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.11
+	title = napoleon.11.t
+	desc = napoleon.11.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		controls_province = 11805
+		has_war_with = POR
+		NOT = { has_global_flag = Bonaparte_POR }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_POR
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			white_peace = POR
+			puppet = POR
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.12
+	title = napoleon.12.t
+	desc = napoleon.12.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = ITA
+		controls_province = 9907
+		NOT = { has_global_flag = Bonaparte_Ferenze }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_Ferenze
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = napoleon.13
+	title = napoleon.13.t
+	desc = napoleon.13.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_cosmetic_tag = FRA_Bonaparte
+		has_war_with = ITA
+		controls_province = 3780
+		NOT = { has_global_flag = Bonaparte_Milano }
+		
+	}
+	option = {
+		name = napoleon.3.a
+		set_global_flag = Bonaparte_Milano
+		if = {
+			limit = { tag = FRA }
+			add_stability = 0.12
+			add_war_support = 0.12
+			release_puppet_on_controlled = LOM
+		}
+	}
+}

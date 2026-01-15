@@ -1,0 +1,55 @@
+state={
+	id=752
+	name="STATE_752"
+	resources={
+		rubber=13
+	}
+
+	history={
+		set_state_flag = ethnics_Vietnamese
+		add_to_array = { this.state_ethnics_list = 15 }
+		add_to_array = { this.state_ethnics_list = 18 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+                               
+		owner = FRA
+		add_core_of = VIN
+		add_core_of = SVN
+		1948.6.14 = {
+			owner = SVN
+		}
+		victory_points = { 1285 3 }
+		victory_points = { 10162 3 }
+		victory_points = { 1300 2 }
+		victory_points = { 4334 2 }
+		buildings = {
+			dockyard = 2
+			farm_building = 3
+			infrastructure = 2
+			industrial_complex = 2
+			1285 = {
+				naval_base = 3
+			}
+		}
+		1960.5.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			add_resistance = 60
+		}
+		1962.5.23 = {
+			add_dynamic_modifier = { modifier = strategic_valley_modifier }
+		}
+		1975.5.23 = {
+			add_resistance = -100
+			owner = VIN
+			remove_dynamic_modifier = { modifier = strategic_valley_modifier }
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+
+	provinces={
+		1285 1300 4255 4334 4405 10162 10232 12204 
+	}
+	manpower=1245000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

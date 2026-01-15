@@ -1,0 +1,51 @@
+characters={
+	YUG_Aleksandar_Rankovic={
+		name=YUG_Aleksandar_Rankovic
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Rudolf_Slansky.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Aleksandar_Rankovic.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { independent_red pro_third_world smooth_talking_charmer irredentist_academic }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Aleksandar_Rankovic
+			allowed = {
+				tag = YUG
+				has_government = communism 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+	}
+	YUG_Milosovich={
+		name=YUG_Milosovich
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Rudolf_Slansky.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Milosovich.tga"
+			}
+		}
+		country_leader = {
+			ideology = authoritarianism
+			traits = { irredentist_academic }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Milosovich
+			allowed = {
+				tag = YUG
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+	}
+}

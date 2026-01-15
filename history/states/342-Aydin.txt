@@ -1,0 +1,44 @@
+
+state={
+	id=342
+	name="STATE_342" # Antalya
+	manpower = 362689
+	resources={
+		tungsten=5
+		copper=6
+	}
+	state_category = rural
+
+	history={
+		set_state_flag = cutton_production
+		add_to_array = { this.state_ethnics_list = 167 }
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Turkish
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = TUR
+		victory_points = {
+			1005 6
+		}
+		victory_points = {
+			1005 4
+		}
+		victory_points = {
+			10122 4
+		}
+		buildings = {
+			hospital = 1
+			power_plant = 3
+			infrastructure = 3
+			industrial_complex = 1
+			1005 = {
+				naval_base = 4
+			}
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		1005 1119 9941 10122 11917 12013 12016 12096 
+	}
+}

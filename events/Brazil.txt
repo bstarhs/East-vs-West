@@ -1,0 +1,458 @@
+﻿add_namespace = bra
+#1951总统大选
+news_event = {
+	id = bra.1
+	title = bra.1.t
+	desc = bra.1.d
+	picture = GFX_BrazilElection
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = BRA
+		date > 1951.1.1
+		date < 1951.8.1
+	}
+	option = {
+		name = beifa.1.a
+		news_event = { id = bra.30 }
+		retire_country_leader = yes
+		promote_character = BRA_Vargas
+		set_country_flag = BRA_Vargas
+	}
+	option = {
+		name = beifa.1.b
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Eduardo Gomes"
+			desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Eduardo_Gomes.tga"
+			expire = "2200.1.1"
+			ideology = liberalism
+			traits = {  }
+		}
+	}
+}
+#托涅雷洛事件
+news_event = {
+	id = bra.2
+	title = bra.2.t
+	desc = bra.2.d
+	picture = GFX_BrazilElection
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = BRA
+		date > 1954.8.20
+		date < 1955.1.1
+		has_country_flag = BRA_Vargas
+		BRA_Vargas = { is_country_leader = yes }
+	}
+	option = {
+		name = beifa.2.a
+		add_stability = -0.2
+		random_list = {
+			50 = {
+				news_event = { id = bra.3 }
+			}
+			50 = {
+				news_event = { id = bra.4 }
+			}
+		}
+	}
+	option = {
+		name = beifa.2.b
+		news_event = { id = bra.3 }
+		promote_character = BRA_Cafe_Filho
+		add_stability = -0.2
+	}
+}
+#巴西爆发剧变！
+news_event = {
+	id = bra.3
+	title = bra.3.t
+	desc = bra.3.d
+	picture = GFX_VargasDead
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = beifa.3.a
+		if = {
+			limit = { tag = BRA }
+			add_stability = -0.12
+		}
+	}
+}
+#巴西爆发政变！
+news_event = {
+	id = bra.4
+	title = bra.4.t
+	desc = bra.4.d
+	picture = GFX_RioCoup
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = beifa.4.a
+	}
+}
+#João Fernandes Campos Café Filho辞职
+news_event = {
+	id = bra.5
+	title = bra.5.t
+	desc = bra.5.d
+	picture = GFX_BrazilElection
+	fire_only_once = yes
+	trigger = {
+		tag = BRA
+		date > 1954.1.1
+		date < 1955.1.1
+	}
+	immediate = {
+		hidden_effect = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Carlos Coimbra da Luz"
+				desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+				picture = "gfx/leaders/BRA/Portrait_Brazil_Carlos_Luz.tga"
+				expire = "2200.1.1"
+				ideology = liberalism
+				traits = {  }
+			}
+		}
+	}
+	option = {
+		name = beifa.5.a
+		effect_tooltip = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Carlos Coimbra da Luz"
+				desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+				picture = "gfx/leaders/BRA/Portrait_Brazil_Carlos_Luz.tga"
+				expire = "2200.1.1"
+				ideology = liberalism
+				traits = {  }
+			}
+		}
+		custom_effect_tooltip = BRA_the_effect_with_immediate
+	}
+}
+#Carlos Coimbra da Luz被弹劾
+news_event = {
+	id = bra.6
+	title = bra.6.t
+	desc = bra.6.d
+	picture = GFX_BrazilElection
+	fire_only_once = yes
+	trigger = {
+		tag = BRA
+		date > 1954.1.1
+		date < 1955.1.1
+	}
+	immediate = {
+		hidden_effect = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Nereu de Oliveira Ramos"
+				desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+				picture = "gfx/leaders/BRA/Portrait_Brazil_Nereu_Ramos.tga"
+				expire = "2200.1.1"
+				ideology = liberalism
+				traits = {  }
+			}
+			set_country_flag = BRA_neileiwu_lamesi
+		}
+	}
+	option = {
+		name = beifa.6.a
+		effect_tooltip = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Nereu de Oliveira Ramos"
+				desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+				picture = "gfx/leaders/BRA/Portrait_Brazil_Nereu_Ramos.tga"
+				expire = "2200.1.1"
+				ideology = liberalism
+				traits = {  }
+			}
+		}
+		custom_effect_tooltip = BRA_the_effect_with_immediate
+	}
+}
+#1955大选
+news_event = {
+	id = bra.7
+	title = bra.7.t
+	picture = GFX_KubitschekGourlat
+	mean_time_to_happen = {
+		days = 10
+	}
+	desc = {
+		text = bra.7.1.d
+		trigger = {
+			has_country_flag = BRA_neileiwu_lamesi
+		}
+	}
+	desc = {
+		text = bra.7.2.d
+		trigger = {
+			has_country_flag = BRA_retuliao_wajiasi
+		}
+	}
+	major = yes
+	trigger = {
+		tag = BRA
+		date > 1956.6.1
+		date < 1957.1.1
+		not = {
+			has_global_flag = bra_1955_xuanju
+		}
+	}
+	immediate = {
+		set_global_flag = bra_1955_xuanju
+	}
+	option = {
+		trigger = { NOT = { tag = BRA } }
+		name = beifa.7.a
+	}
+	option = {
+		trigger = { tag = BRA }
+		ai_chance = { factor = 20 }
+		name = beifa.7.a
+		retire_country_leader = yes
+		promote_character = BRA_Juscelino_Kubitschek
+		set_country_flag = BRA_Kubitschek
+		news_event = { id = bra.10 days = 3 }
+	}
+	option = {
+		trigger = { tag = BRA }
+		name = beifa.7.b
+		ai_chance = { factor = 0 }
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Juarez Távora"
+			desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Juarez_Tavora.tga"
+			expire = "2200.1.1"
+			ideology = liberalism
+			traits = {  }
+		}
+	}
+}
+#儒塞利诺的发展计划
+news_event = {
+	id = bra.8
+	title = bra.8.t
+	desc = bra.8.d
+	picture = GFX_BuildingBrazilia
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = BRA_Kubitschek
+	}
+	option = {
+		name = beifa.8.a
+		add_stability = 0.25
+		add_political_power = 200
+		add_ideas = FiveYearAsFiftyYear
+	}
+	option = {
+		name = beifa.8.b
+		add_political_power = -80
+	}
+}
+#建造巴西利亚
+news_event = {
+	id = bra.9
+	title = bra.9.t
+	desc = bra.9.d
+	picture = GFX_BuildingBrazilia
+	is_triggered_only = yes
+	option = {
+		name = beifa.9.a
+		add_political_power = 100
+		add_ideas = BuildingBrasilia
+		hidden_effect = {
+			news_event = {
+				id = beifa.10
+				days = 1095
+			}
+		}
+		custom_effect_tooltip = BRA_the_effect_with_days_news_event
+	}
+	option = {
+		name = beifa.9.b
+		add_political_power = -80
+	}
+}
+#迁都巴西利亚
+news_event = {
+	id = bra.10
+	title = bra.10.t
+	desc = bra.10.d
+	picture = GFX_KubitschekElected
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = beifa.10.a
+	}
+}
+#João Goulart
+news_event = {
+	id = bra.12
+	title = bra.12.t
+	desc = bra.12.d
+	picture = GFX_BrazilElection1960s
+	fire_only_once = yes
+	trigger = {
+		tag = BRA
+		date > 1961.2.1
+		date < 1962.1.1
+	}
+	option = {
+		name = bra.12.b
+		add_political_power = 100
+		promote_character = BRA_Joao_Goulart
+	}
+}
+#巴西政变
+news_event = {
+	id = bra.14
+	title = bra.14.t
+	desc = bra.14.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	trigger = {
+		tag = BRA
+		date > 1964.2.1
+		date < 1965.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Humberto de Alencar Castelo Branco"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Branco.tga"
+			ideology = despotism
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.2
+		}
+		set_politics = { ruling_party = neutrality }
+	}
+}
+#席尔瓦
+news_event = {
+	id = bra.16
+	title = bra.16.t
+	desc = bra.16.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	trigger = {
+		tag = BRA
+		date > 1967.2.1
+		date < 1968.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Artur da Costa e Silva"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Artur_da_Costa.tga"
+			ideology = despotism
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+#艾米利奥
+news_event = {
+	id = bra.18
+	title = bra.18.t
+	desc = bra.18.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	trigger = {
+		tag = BRA
+		date > 1969.2.1
+		date < 1970.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Emílio Garrastazu Médici"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Emilio_Garrastazu.tga"
+			ideology = despotism
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+#爱内斯托
+news_event = {
+	id = bra.20
+	title = bra.20.t
+	desc = bra.20.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	trigger = {
+		tag = BRA
+		date > 1974.2.1
+		date < 1975.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "Ernesto Beckmann Geisel"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Ernesto_Geisel.tga"
+			ideology = despotism
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+#菲格雷多
+news_event = {
+	id = bra.22
+	title = bra.22.t
+	desc = bra.22.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	trigger = {
+		tag = BRA
+		date > 1979.2.1
+		date < 1980.1.1
+	}
+	option = {
+		name = bra.12.a
+		create_country_leader = {
+			name = "João Baptista de Oliveira Figueiredo"
+			picture = "gfx/leaders/BRA/Portrait_Brazil_Joao_Figueiredo.tga"
+			ideology = despotism
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+}
+##瓦加斯再次当选
+news_event = {
+	id = bra.30
+	title = bra.30.t
+	desc = bra.30.d
+	picture = GFX_Vargas
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = beifa.4.a
+	}
+}

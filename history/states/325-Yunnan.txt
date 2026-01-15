@@ -1,0 +1,65 @@
+
+state={
+	id=325
+	name="STATE_325"
+	manpower = 11994500
+	
+	state_category = town
+	
+	resources={
+		copper = 24
+		iron = 25
+		tungsten=3
+		
+	}
+
+	history={
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Han
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 13 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = tobacco_production
+                              
+		owner = YUN
+		add_core_of = CHI
+		add_core_of = YUN
+		add_core_of = PRC
+		1951.10.12 = {
+			owner = PRC
+			remove_core_of = YUN
+		}
+		victory_points = { 1319 8 }
+		victory_points = { 7965 4 }
+		victory_points = { 10776 3 }
+		victory_points = { 4937 3 }
+		victory_points = { 4501 3 }
+		victory_points = { 12262 2 }
+		victory_points = { 10346 2 }
+		victory_points = { 10863 2 }
+		victory_points = { 10841 2 }
+		victory_points = { 10841 2 }
+		victory_points = { 5009 2 }
+		victory_points = { 7976 1 }
+		buildings = {
+			hospital = 1
+			farm_building = 3
+			power_plant = 1
+			infrastructure = 3
+			arms_factory = 1
+			industrial_complex = 4
+		}
+		1956.1.1 = {
+			buildings = {
+				rocket_site = 2
+				industrial_complex = 2
+			}
+		}
+	}
+
+	provinces={
+		1114 1172 1196 1319 1383 1522 1653 4501 4559 4937 5009 7446 7606 7965 7976 8023 8126 10346 10413 10776 10863 12262 12282 12789 12898 5072 12841 
+	}
+}

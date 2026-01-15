@@ -1,0 +1,343 @@
+guiTypes = {
+	containerWindowType = {
+		name = "space_race_container"
+		position = {x = 200 y = 100 }
+		size = { width = 2008 height = 1200 }
+		moveable = no
+		background = {
+			name = "Background"
+			spriteType = "GFX_space_race_bg"
+		}
+		instantTextboxType = {
+			name = "recommended_shop_headline"
+			position = {x=14 y=6}
+			font = "hoi_18mbs"
+			text = ""
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "SPACE_launch_vehicle" 
+			position = {x=520 y=600}	
+			spriteType = "GFX_launch_vehicle"
+			pdx_tooltip = "SPACE_launch_vehicle"
+			pdx_tooltip_delayed = "SPACE_launch_vehicle_DESC"
+			scale = 0.8
+		}
+		buttonType = {
+			name = "SPACE_space_dog" 
+			position = {x=650 y=370}	
+			spriteType = "GFX_space_dog"
+			pdx_tooltip = "SPACE_space_dog"
+			pdx_tooltip_delayed = "SPACE_space_dog_DESC"
+			scale = 0.8
+		}
+		
+		buttonType = {
+			name = "SPACE_manned_space" 
+			position = {x=780 y=370}	
+			spriteType = "GFX_manned_space"
+			pdx_tooltip = "SPACE_manned_space"
+			pdx_tooltip_delayed = "SPACE_manned_space_DESC"
+			scale = 0.7
+		}	
+		buttonType = {
+			name = "SPACE_Satellite" 
+			position = {x=650 y=500}	
+			spriteType = "GFX_Satellite"
+			pdx_tooltip = "SPACE_Satellite"
+			pdx_tooltip_delayed = "SPACE_Satellite_DESC"
+			scale = 0.6
+		}
+		buttonType = {
+			name = "SPACE_signal_Satellite" 
+			position = {x=780 y=500}	
+			spriteType = "GFX_signal_Satellite"
+			pdx_tooltip = "SPACE_signal_Satellite"
+			pdx_tooltip_delayed = "SPACE_signal_Satellite_DESC"
+			scale = 0.6
+		}	
+		buttonType = {
+			name = "SPACE_spy_satellite" 
+			position = {x=900 y=500}	
+			spriteType = "GFX_spy_satellite_icon"
+			pdx_tooltip = "SPACE_spy_satellite"
+			pdx_tooltip_delayed = "SPACE_spy_satellite_DESC"
+			scale = 0.3
+		}
+		iconType = {
+			name = "SPACE_spy_satellite_work" 
+			position = {x=900 y=500}	
+			spriteType = "GFX_station_working"
+			pdx_tooltip = "SPACE_spy_satellite_work"
+			scale = 0.5
+		}
+		
+		buttonType = {
+			name = "SPACE_moon_testing" 
+			position = {x=500 y=300}	
+			spriteType = "GFX_moon_testing"
+			pdx_tooltip = "SPACE_moon_testing"
+			pdx_tooltip_delayed = "SPACE_moon_testing_desc"
+			scale = 0.7
+		}
+		buttonType = {
+			name = "SPACE_moon_space_probe" 
+			position = {x=500 y=220}	
+			spriteType = "GFX_moon_landing"
+			pdx_tooltip = "SPACE_moon_space_probe"
+			pdx_tooltip_delayed = "SPACE_moon_space_probe_DESC"
+			scale = 0.7
+		}
+		iconType = {
+			name = "moon_space_probe" 
+			position = {x=540 y=230}	
+			spriteType = "GFX_space_probe"
+			pdx_tooltip = "moon_space_probe_working"
+			scale = 0.8
+		}
+		buttonType = {
+			name = "SPACE_moon_landing" 
+			position = {x=420 y=160}	
+			spriteType = "GFX_moon_landers"
+			pdx_tooltip = "SPACE_moon_landing"
+			pdx_tooltip_delayed = "SPACE_moon_landing_DESC"
+		}
+		buttonType = {
+			name = "SPACE_venus" 
+			position = {x=550 y=90}	
+			spriteType = "GFX_venus_icon"
+			pdx_tooltip = "space_venus"
+			scale = 0.3
+		}
+		iconType = {
+			name = "venus_space_probe" 
+			position = {x=600 y=90}	
+			spriteType = "GFX_space_probe"
+			pdx_tooltip = "venus_space_probe_working"
+			scale = 0.9
+		}
+		buttonType = {
+			name = "SPACE_mercury_icon" 
+			position = {x=680 y=90}	
+			spriteType = "GFX_mercury_icon"
+			pdx_tooltip = "space_mercury"
+			scale = 0.3
+		}
+		iconType = {
+			name = "mercury_space_probe" 
+			position = {x=720 y=90}	
+			spriteType = "GFX_space_probe"
+			pdx_tooltip = "mercury_space_probe_working"
+			scale = 0.9
+		}
+		buttonType = {
+			name = "SPACE_mars" 
+			position = {x=800 y=90}	
+			spriteType = "GFX_mars_icon"
+			pdx_tooltip = "space_mars"
+			pdx_tooltip_delayed = "space_mars_DESC"
+			scale = 0.3
+		}
+		iconType = {
+			name = "mars_space_probe" 
+			position = {x=840 y=90}	
+			spriteType = "GFX_space_probe"
+			pdx_tooltip = "mars_space_probe_working"
+			scale = 0.9
+		}
+		buttonType = {
+			name = "SPACE_jupiter" 
+			position = {x=900 y=90}	
+			spriteType = "GFX_jupiter_icon"
+			pdx_tooltip = "space_jupiter"
+			scale = 0.3
+		}
+		iconType = {
+			name = "jupiter_space_probe" 
+			position = {x=940 y=90}	
+			spriteType = "GFX_space_probe"
+			pdx_tooltip = "jupiter_space_probe_working"
+			scale = 0.9
+		}
+		buttonType = {
+			name = "SPACE_saturn" 
+			position = {x=1000 y=90}	
+			spriteType = "GFX_saturn"
+			pdx_tooltip = "space_saturn"
+			scale = 0.3
+		}
+		buttonType = {
+			name = "SPACE_space_station" 
+			position = {x=1180 y=80}	
+			spriteType = "GFX_space_station"
+			pdx_tooltip = "SPACE_space_station"
+			pdx_tooltip_delayed = "SPACE_space_station_DESC"
+			scale = 0.8
+		}
+		iconType = {
+			name ="Mir_LOGO"
+			spriteType = "GFX_Mir_icon"
+			position = {x=1200 y=80}	
+			scale = 0.2
+			pdx_tooltip = "SPACE_space_station_working"
+		}
+		iconType = {
+			name ="Skylab_LOGO"
+			spriteType = "GFX_Skylab_icon"
+			position = {x=1200 y=80}	
+			scale = 0.2
+			pdx_tooltip = "SPACE_space_station_working"
+		}
+		buttonType = {
+			name = "SPACE_Space_Shuttle" 
+			position = {x=1150 y=260}	
+			spriteType = "GFX_Space_Shuttle"
+			pdx_tooltip = "SPACE_Space_Shuttle"
+			pdx_tooltip_delayed = "SPACE_Space_Shuttle_DESC"
+			scale = 0.9
+		}
+	
+		buttonType = {
+			name = "SPACE_extravehicular_activity" 
+			position = {x=1000 y=240}	
+			spriteType = "GFX_walking"
+			pdx_tooltip = "SPACE_extravehicular_activity"
+			pdx_tooltip_delayed = "SPACE_extravehicular_activity_desc"
+			scale = 0.3
+		}
+		buttonType = {
+			name = "SPACE_sub_orbital_spaceflight" 
+			position = {x=1010 y=350}	
+			spriteType = "GFX_sub_orbital_spaceflight"
+			pdx_tooltip = "SPACE_sub_orbital_spaceflight"
+			pdx_tooltip_delayed = "SPACE_sub_orbital_spaceflight_desc"
+			scale = 0.3
+		}
+		
+		buttonType = {
+			name = "SPACE_orbit_fleight" 
+			position = {x=850 y=310}	
+			spriteType = "GFX_orbit_fleight"
+			pdx_tooltip = "SPACE_orbit_fleight"
+			pdx_tooltip_delayed = "SPACE_orbit_fleight_desc"
+			scale = 0.5
+		}
+		buttonType = {
+			name = "SPACE_close_button"
+			position = {x= 1480 y = 00 }
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+			clicksound = click_close
+		}
+		iconType = {
+			name ="NASA_LOGO"
+			spriteType = "GFX_NASA"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="SSA_LOGO"
+			spriteType = "GFX_SSA"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="PRC_LOGO"
+			spriteType = "GFX_space_PRC"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="CHI_LOGO"
+			spriteType = "GFX_space_CHI"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="FRA_LOGO"
+			spriteType = "GFX_space_FRA"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="RAJ_LOGO"
+			spriteType = "GFX_space_RAJ"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="ENG_LOGO"
+			spriteType = "GFX_space_ENG"
+			position = { x = 50 y = 50 }
+		}
+		iconType = {
+			name ="ISR_LOGO"
+			spriteType = "GFX_space_ISR"
+			position = { x = 50 y = 50 }
+		}
+		buttonType = {
+			name = "SPACE_add_spacepower" 
+			position = { x=365 y=370 }
+			spriteType = "GFX_zoom_in"
+		}
+		buttonType = {
+			name = "SPACE_reduce_spacepower" 
+			position = { x=285 y=370 }
+			spriteType = "GFX_zoom_out"
+		}
+		
+		instantTextBoxType = {
+			name ="space_next_times_title"
+			position = { x=245 y=600 }
+			font = "hoi_18mbs"
+			text = space_next_times_title
+			format = center
+			maxWidth = 200
+			maxHeight = 24
+			fixedsize = no
+			pdx_tooltip = "space_next_times_desc"
+		}
+		instantTextBoxType = {
+			name ="space_robe_times"
+			position = { x=25 y=600 }
+			font = "hoi_18mbs"
+			text = space_robe_times_title
+			format = center
+			maxWidth = 200
+			maxHeight = 24
+			fixedsize = no
+			pdx_tooltip = "space_robe_times_desc"
+		}
+		instantTextBoxType = {
+			name ="space_action_succes_gain_title"
+			position = { x=25 y=300 }
+			font = "hoi_18mbs"
+			text = space_action_succes_gain_title
+			format = center
+			maxWidth = 200
+			maxHeight = 24
+			fixedsize = no
+			pdx_tooltip = "space_action_succes_gain_desc"
+		}
+		instantTextBoxType = {
+			name ="space_power_value"
+			position = { x=235 y=300 }
+			font = "hoi_18mbs"
+			text = space_power
+			format = center
+			maxWidth = 200
+			maxHeight = 24
+			fixedsize = no
+			pdx_tooltip = "space_power_title"
+			pdx_tooltip_delayed = "space_power_DESC"
+		}
+		instantTextBoxType = {
+			name ="astronaut_value"
+			position = { x=80 y=800 }
+			font = "hoi_18mbs"
+			text = astronaut
+			format = center
+			maxWidth = 150
+			maxHeight = 24
+			fixedsize = no
+			pdx_tooltip = "astronaut_title"
+			pdx_tooltip_delayed = "astronaut_DESC"
+		}
+	}
+}

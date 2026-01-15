@@ -1,0 +1,479 @@
+﻿capital = 446
+
+set_country_flag = arabs_state
+set_country_flag = islam_state
+# Starting tech
+set_country_flag = has_monarchs
+set_country_flag = main_country
+set_country_flag = third_world
+	set_variable = { this.education = 32 }
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+		medical1 = 1
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	
+}
+oob = "EGY_1947"
+set_convoys = 20
+
+add_ideas = {
+	no_welfare
+	biritish_colony
+	all_adults_serve
+	Sunni
+}
+add_war_support = 0.3
+1939.1.1 = {
+	add_political_power = 2000
+	
+	set_technology = {
+		tech_support = 1
+		tech_recon = 1
+		
+		gw_artillery = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+		motorised_infantry = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	early_bomber = 1
+	basic_destroyer = 1
+	streamlined_line = 1
+	excavation1 = 1
+	excavation2 = 1
+	}
+}
+
+	set_popularities = {
+		democratic = 8
+		monarchism = 72
+		neutrality = 20
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Farouk I"
+	desc = ""
+	picture = "gfx/leaders/EGY/Portrait_Egypt_Farouk.tga"
+	ideology = monarchism
+	traits = {
+		inexperienced_imperialist hedonist unpopular_monarch
+	}
+}
+	add_ideas = EGY_anglo_Suez
+	add_opinion_modifier = {
+		target = ISR
+		modifier = anti_arabs
+	}
+	add_ideas = {
+		UNmember
+		arabs_league
+	}
+	
+recruit_character = EGY_Nasser
+recruit_character = EGY_Mohamed_Naguib
+recruit_character = EGY_Sadat
+recruit_character = EGY_Abdel_Hakim_Amer
+recruit_character = EGY_Ismail_Sabri_Abdullah
+
+1949.1.1 = {
+	complete_national_focus = EGY_Reform
+}
+1952.7.23 = {
+	promote_character = EGY_Nasser
+	add_ideas = {
+		militarist_politician
+	}
+	complete_national_focus = EGY_voice_of_arabia
+	complete_national_focus = EGY_Egypt_rise
+	complete_national_focus = EGY_Strengthen_army
+	complete_national_focus = EGY_Infrastructure
+	complete_national_focus = EGY_Third_World
+	complete_national_focus = EGY_Nasserism
+	complete_national_focus = EGY_Arab_nationalism
+	complete_national_focus = EGY_Abolish_monarch
+	complete_national_focus = EGY_economic
+	complete_national_focus = EGY_military_reforms
+	complete_national_focus = EGY_support_PAL
+	complete_national_focus = EGY_Aswan_Dam
+	set_popularities = {
+		democratic = 12
+		communism = 16
+		neutrality = 72
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = yes
+	}
+	set_technology = {
+		CAS1 = 1
+		infantry_weapons2 = 1
+		tech_mountaineers = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		fighter1 = 1
+		delay = 1
+		antiair2 = 1
+		antiair3 = 1
+		napalm = 1
+		assembly_line = 1
+	}
+
+	remove_ideas = biritish_colony
+}
+1958.1.20 = {
+	set_autonomy = {
+		target = SYR
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_country_flag = china_diplomacy
+	set_variable = { this.education = 42 }
+	complete_national_focus = Pro_Soviet
+	add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = female_equality
+	set_global_flag = egy_suez
+	set_technology = {
+		basic_destroyer = 1
+		rocket_engines = 1
+		infantry_weapons1 = 1
+		infantry_at = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+		motorize_doctrine = 1
+		radio_detection = 1
+		decimetric_radar = 1
+		machine_gun2 = 1
+		motorized_transport = 1
+		gasmask = 1
+		artillery1 = 1
+		air_gun = 1
+		basic_helicopter = 1
+		trans_helicopter_1 = 1
+		strategic_bomber1 = 1
+		can_foods = 1
+		laundry = 1
+		basic_light_tank = 1
+	}
+	set_country_flag = china_diplomacy
+	set_cosmetic_tag = UAR
+	complete_national_focus = EGY_Interference_Syria
+	complete_national_focus = EGY_arab_league
+	complete_national_focus = EGY_Suez_Line
+	complete_national_focus = EGY_weman_right
+	complete_national_focus = EGY_education_refrom
+	remove_ideas = EGY_anglo_Suez
+	complete_national_focus = EGY_take_suez
+}
+1961.1.20 = {
+	set_technology = {
+		improved_infantry_weapons_2 = 1
+		basic_heavy_tank = 1
+		laser_weapon = 1
+		tech_logistics_company2 = 1
+		spaa1 = 1
+		coal_collection = 1
+		concentrated_industry5 = 1
+		concentrated_industry2 = 1
+		power_generation2 = 1
+		excavation3 = 1
+		medical2 = 1
+		medical3 = 1
+	}
+	set_variable = { this.education = 46 }
+	set_country_flag = developmented
+	complete_national_focus = EGY_Land_Reform
+	complete_national_focus = EGY_Non-Aligned
+	complete_national_focus = EGY_anti_colonies
+	oob = "EGY_1965"
+	add_ideas = {
+		NonAligned
+	}
+	activate_decision = EGY_aswan_construct_1
+}
+
+1964.1.20 = {
+	set_country_flag = female_finished
+	activate_decision = EGY_aswan_construct_2
+	activate_decision = EGY_abu_simbel
+	set_country_flag = SavedAbuSibel
+	set_country_flag = EGY_Aswan_Dam_1
+	SYR = {
+		set_politics = { ruling_party = authoritarianism }
+	}
+	end_puppet = SYR
+	complete_national_focus = EGY_Cairo_Industrial
+	complete_national_focus = EGY_Navy
+	complete_national_focus = EGY_presidentship
+	complete_national_focus = EGY_NSA
+	complete_national_focus = EGY_Air_force
+	complete_national_focus = EGY_modern_industry
+	set_technology = {
+		land_guidance = 1
+		vaccum_tube = 1
+		fighter2 = 1
+		mechanised_infantry2 = 1
+		improved_infantry_weapons = 1
+		marines = 1
+		paratroopers = 1
+		tech_engineers2 = 1
+		tech_recon2 = 1
+		tech_signal_company2 = 1
+		tech_field_hospital2 = 1
+		tech_maintenance_company2 = 1
+		
+		air_chaff = 1
+		electrolytic_aluminum = 1
+		aluminum_tech = 1
+		gasoline_train = 1
+		improved_oil_processing = 1
+		rubber_processing = 1
+		fuel_refining2 = 1
+		husbandry_feed = 1
+		frozen_food = 1
+	}
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+	activate_decision = EGY_aswan_construct_3
+	complete_national_focus = EGY_Alexandria_Industrial
+	complete_national_focus = EGY_Industrial_area
+	set_country_flag = EGY_Aswan_Dam_2
+	set_country_flag = EGY_Aswan_Dam_3
+	set_variable = { this.education = 53 }
+	oob = "EGY_1972"
+	set_technology = {
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		fighter3 = 1
+		aim_missile_1 = 1
+		aa_missile_2 = 1
+		improved_medium_tank = 1
+		street_fight = 1
+		pattern = 1
+		improved_light_tank = 1
+		tech_military_police2 = 1
+		tech_signal_company3 = 1
+		tech_logistics_company3 = 1
+		spaa2 = 1
+		halicopter_machinegun = 1
+		halicopter_rocket_net = 1
+		halicopter_at_missile = 1
+		trans_helicopter_2 = 1
+		improved_heavy_tank = 1
+		improved_rubber_processing = 1
+		Semiconductor = 1
+	}
+	set_cosmetic_tag = EGY_1972
+	promote_character = EGY_Sadat
+}
+1974.9.17 = {
+	complete_national_focus = EGY_pro_Usa
+	complete_national_focus = EGY_US_aid
+	set_variable = { this.education = 57 }
+	set_technology = {
+		mechanized_aa_missile_1 = 1
+		frozen_food = 1
+		tech_recon3 = 1
+		autoloader = 1
+		integrated_circuit = 1
+		dispersed_industry4 = 1
+	}
+}
+1978.9.17 = {
+	set_technology = {
+		supersonic_engine = 1
+	}
+	set_variable = { this.education = 61 }
+	remove_opinion_modifier = {
+		target = ISR
+		modifier = anti_arabs
+	}
+	add_opinion_modifier = {
+		target = JOR
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = SYR
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = IRQ
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = SAU
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = LBA
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = TUN
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = ALG
+		modifier = faction_traitor
+	}
+	add_opinion_modifier = {
+		target = YEM
+		modifier = faction_traitor
+	}
+	complete_national_focus = EGY_Camp_David
+	complete_national_focus = EGY_Conciliation
+	complete_national_focus = EGY_Corrective_Revolution
+	set_popularities = {
+		democratic = 10
+		communism = 12
+		neutrality = 72
+		fascism = 6
+	}
+	add_ideas = { EGY_David_Camp }
+	remove_ideas = arabs_league
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = yes
+	}
+}
+1981.1.20 = {
+	create_country_leader = {
+		name = "Hosni Mubarak"
+		
+		picture = "gfx/leaders/EGY/Portrait_Egypt_Hosni_Mubarak.tga"
+		expire = "2050.1.1"
+		ideology = despotism
+		
+		traits = {
+		pro_america arabs_nationalism
+		}
+	}
+}
+1985.1.1 = {
+	complete_national_focus = EGY_new_town
+	set_variable = { this.education = 68 }
+	set_technology = {
+		advanced_light_tank = 1
+		mechanised_infantry3 = 1
+	}
+	set_cosmetic_tag = EGY_1984
+}

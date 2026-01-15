@@ -1,0 +1,1056 @@
+on_actions = {
+	on_ruling_party_change = {
+		effect = {
+			remove_ideas = personal_worship
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = TitoYes
+					SOV = { NOT = { has_completed_focus = SOV_SinatraDoctrine } }
+				}
+				SOV = { news_event = { id = sov.190 } }
+			}
+			if = {
+				limit = {
+					is_in_faction_with = SOV
+					has_completed_focus = common_27
+					NOT = { has_country_flag = sov191trigged }
+					SOV = { NOT = { has_completed_focus = SOV_SinatraDoctrine } }
+				}
+				set_country_flag = sov191trigged
+				SOV = { news_event = { id = sov.191 } }
+			}
+			if = {
+				limit = {
+					is_in_faction_with = SOV
+					has_completed_focus = common_32
+					NOT = { has_country_flag = sov192trigged }
+					SOV = { NOT = { has_completed_focus = SOV_SinatraDoctrine } }
+				}
+				set_country_flag = sov191trigged
+				SOV = { news_event = { id = sov.193 } }
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			#艾德蒙希拉里登山
+			if = {
+				limit = {
+				tag = NEP
+				date > 1951.5.1
+				date < 1951.8.1
+				NOT = { has_global_flag = EdmundHillary }
+				}
+				random_list = {
+					80 = { news_event = { id = nep.40 } }
+					30 = { news_event = { id = nep.41 } }
+				}
+				set_global_flag = EdmundHillary
+			}
+		}
+		effect = {
+			#危地马拉政变
+			if = {
+				limit = {
+				tag = GUA
+				has_government = democratic
+				USA = { is_ai = yes }
+				date > 1954.8.1
+				}
+				set_country_flag = usa_coup
+			}
+		}
+		effect = {
+			#万隆的发言
+			if = {
+				limit = {
+					INS = { check_variable = { Bandung_joined_num > 12 } }
+					NOT = { has_global_flag = ind105trigged }
+				}
+				set_global_flag = ind105trigged
+				PHI = { news_event = { id = ind.105 } }
+				random_country = {
+					limit = { has_country_flag = BangdungConferenceAttend }
+					news_event = { id = ind.105 }
+				}
+				random_country = {
+					limit = { has_country_flag = BangdungConferenceAttend }
+					news_event = { id = ind.105 }
+				}
+				random_country = {
+					limit = { has_country_flag = BangdungConferenceAttend }
+					news_event = { id = ind.105 }
+				}
+				random_country = {
+					limit = { has_country_flag = BangdungConferenceAttend }
+					news_event = { id = ind.105 }
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			#伊朗政变
+			if = {
+				limit = {
+				tag = PER
+				has_character = PER_mosaddegh
+				has_country_flag = PerRejectWarning
+				USA = { is_ai = yes }
+				}
+				set_country_flag = usa_coup
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					SVN = { is_ai = yes }
+					date > 1955.4.1
+					date < 1956.1.1
+					has_global_flag = VietnamFreeWay
+				}
+				USA = { news_event = { id = svn.1 } }
+				set_global_flag = VietnamFreeWay
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = suprise_attack_modifier }
+				}
+					remove_dynamic_modifier = {
+						modifier = suprise_attack_modifier
+					}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			#盖坦遇刺
+			if = {
+				limit = {
+					tag = COL
+					has_government = authoritarianism
+					date > 1948.3.1
+					date < 1948.8.1
+					NOT = { has_global_flag = GaitanAssassin }
+				}
+				set_global_flag = GaitanAssassin
+				random_list = {
+					80 = { 
+						news_event = { id = col.2 }
+					}
+					20 = { 
+						news_event = { id = col.3 }
+					}
+				}
+			}
+			#金九遇刺
+			if = {
+				limit = {
+					tag = KOR
+					country_exists = KOR
+					date > 1948.6.1
+					date < 1949.8.1
+					has_global_flag = Rhee
+					NOT = { has_global_flag = KimKooAssassin }
+				}
+				set_global_flag = KimKooAssassin
+				random_list = {
+					80 = { 
+						news_event = { id = kor.45 }
+					}
+					20 = { 
+						news_event = { id = kor.46 }
+					}
+				}
+			}
+			#纽芬兰公投
+			if = {
+				limit = {
+					tag = CAN
+					has_global_flag = NewFoundland
+					NOT = { has_global_flag = NewFoundland_voted }
+				}
+				set_global_flag = NewFoundland_voted
+				random_list = {
+					80 = { 
+						news_event = { id = can.5 }
+					}
+					20 = { 
+						news_event = { id = can.4 }
+					}
+				}
+			}
+		}
+		effect = {
+			#罗斯维尔
+			if = {
+				limit = {
+					tag = USA
+					date > 1947.6.1
+					date < 1947.8.1
+					NOT = { has_global_flag = Roswell }
+				}
+				news_event = { id = meme.34 }
+				set_global_flag = Roswell
+			}
+		}
+		effect = {
+			#披头士
+			if = {
+				limit = {
+					tag = ENG
+					date > 1960.1.1
+					date < 1961.1.1
+					NOT = { has_global_flag = Beatles1 }
+					ENG = { has_government = democratic }
+				}
+				news_event = { id =  bri.10 }
+				set_global_flag = Beatles1
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = ENG
+					date > 1962.1.1
+					date < 1963.1.1
+					NOT = { has_global_flag = Beatles2 }
+					ENG = { has_government = democratic }
+					USA = { has_government = democratic }
+				}
+				news_event = { id =  bri.11 }
+				set_global_flag = Beatles2
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = ENG
+					date > 1965.3.1
+					date < 1966.1.1
+					NOT = { has_global_flag = Beatles3 }
+					ENG = { has_government = democratic }
+				}
+				news_event = { id =  bri.12 }
+				set_global_flag = Beatles3
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = ENG
+					date > 1966.3.1
+					date < 1967.1.1
+					NOT = { has_global_flag = Beatles4 }
+					ENG = { has_government = democratic }
+				}
+				news_event = { id =  bri.13 }
+				set_global_flag = Beatles4
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = ENG
+					date > 1970.3.1
+					date < 1971.1.1
+					NOT = { has_global_flag = Beatles5 }
+					ENG = { has_government = democratic }
+				}
+				news_event = { id =  bri.14 }
+				set_global_flag = Beatles5
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					has_war = yes
+				}
+				add_war_support = -0.02
+			}
+			if = {
+				limit = {
+					has_war = yes
+					has_offensive_war = yes
+				}
+				add_war_support = -0.03
+			}
+		}
+	}
+	on_declare_war = {
+    effect = {
+			if = {
+				limit = {
+					tag = VIN
+					FROM = { tag = CAM }
+					CAM = { has_government = communism }
+				}
+					news_event = { id = cam.8 }
+			}
+		}
+	}
+	on_coup_succeeded = { 
+		effect = { 
+		#柬埔寨政变#
+			if = { 
+				limit = { 
+					has_government = neutrality
+					tag = CAM
+				}
+				news_event = { id = cam.4  }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			#华沙之跪
+			if = {
+				limit = {
+					date > 1970.12.1
+					date < 1971.12.20
+					WDR = {
+						is_ai = yes
+						has_country_leader = { name = "Willy Brandt" }
+					}
+					NOT = { has_global_flag = WarschauerKniefall }
+				}
+				news_event = { id = ger.34 }
+				set_global_flag = WarschauerKniefall
+			}
+			#希腊土耳其停火
+			if = {
+				limit = {
+					tag = GRE
+					NOT = { has_war_with = TUR }
+					NOT = { has_global_flag = gre_istanbul }
+					controls_province = 11929
+				}
+				news_event = { id = gre.43 }
+				set_global_flag = gre_istanbul
+			}
+			#印度占领孟加拉
+			if = {
+				limit = {
+					tag = PAK
+					has_war_with = IND
+					has_war_with = BAN
+					NOT = { controls_province = 11929 }
+					NOT = { controls_province = 12010 }
+					NOT = { has_country_flag = lost_bangladesh }
+				}
+				BAN = {
+					transfer_state = 430
+				}
+				PAK = {
+					set_country_flag = lost_bangladesh
+				}
+				news_event = { id = ban.5 }
+			}
+			#以色列傀儡巴勒斯坦
+			if = {
+				limit = {
+					tag = ISR
+					PAL = { is_puppet_of = ISR }
+				}
+				ISR = {
+					annex_country = {
+						target = PAL
+						transfer_troops = no
+					}
+				}
+			}
+			#阿富汗伊斯兰党夺权
+			if = {
+				limit = {
+					date > 1982.1.1
+					AFG = { has_government = communism }
+					has_government = neutrality
+					has_war_with = AFG
+					controls_province = 10737
+				}
+				AFG = {
+					set_politics = { ruling_party = neutrality }
+					add_political_power = -100
+					set_cosmetic_tag = AFG_1987
+					annex_country = {
+						target = FROM
+						transfer_troops = yes
+					}
+				}
+				news_event = { id = afg.25 }
+			}
+			#拥有第一艘航母#
+			if = {
+				limit = {
+					has_navy_size = {
+						size > 0
+						archetype = ship_hull_carrier
+					}
+					NOT = { has_country_flag = has_carrier }
+				}
+				set_country_flag = has_carrier
+				news_event = { id = research.8 }
+			}
+			#首先完成核潜艇#
+			if = {
+				limit = {
+					has_navy_size = {
+						size > 0
+						archetype = ship_hull_cruiser_submarine
+					}
+					all_other_country = {
+						has_navy_size = {
+							size < 1
+							archetype = ship_hull_cruiser_submarine
+						}
+					}
+				}
+				set_global_flag = nuclear_sub_founded
+				news_event = { id = research.7 }
+			}
+			#沙佩维尔大屠杀#
+			if = {
+				limit = {
+					tag = SAF
+					date > 1991.2.2
+					date < 1991.12.2
+					NOT = { has_global_flag = Shapville }
+					has_idea = SAF_history_of_segregation
+				}
+				set_global_flag = Shapville
+				news_event = { id = saf.10 }
+			}
+			#文明发售#
+			if = {
+				limit = {
+					tag = USA
+					date > 1991.2.2
+					date < 1991.12.2
+					NOT = { has_global_flag = CivilizationI }
+				}
+				set_global_flag = CivilizationI
+				news_event = { id = meme.31 }
+			}
+			#傀儡阿富汗#
+			if = {
+				limit = {
+					AFG = { is_puppet_of = SOV }
+				}
+				SOV = {
+					end_puppet = AFG
+					news_event = { id = afg.21  }
+				}
+			}
+			#Liqad遇刺#
+			if = {
+				limit = {
+					date > 1951.7.24
+					date < 1951.11.24
+					NOT = { has_global_flag = Liaquat_death }
+				}
+				news_event = { id = pak.4  }
+				set_global_flag = Liaquat_death
+			}
+			#成吉思汗#
+			if = {
+				limit = {
+					date > 1978.7.24
+					date < 1978.11.24
+					NOT = { has_global_flag = Chingiskhan }
+				}
+				news_event = { id = meme.19 }
+				set_global_flag = Chingiskhan
+			}
+			#奥特曼#
+			if = {
+				limit = {
+					date > 1966.7.24
+					date < 1966.11.24
+					NOT = { has_global_flag = Ultraman }
+				}
+				news_event = { id = jap.38 }
+				set_global_flag = Ultraman
+			}
+			#朴正熙遇刺#
+			if = {
+				limit = {
+					KOR = {
+						has_country_leader = { name = "Park Chung-Hee" }
+						has_government = neutrality
+						has_idea = KoreanProtest
+					}
+					date > 1979.10.24
+					date < 1979.11.24
+				}
+				random_list = {
+					80 = { 
+						news_event = { id = kor.27 }
+					}
+					20 = { 
+						news_event = { id = kor.26 }
+					}
+				}
+			}
+			#金钟泌上台#
+			if = {
+				limit = {
+					KOR = {
+						has_country_flag = ChoiKyuHaa
+						NOT = { has_country_flag = Kim_ChungBil }
+						neutrality < 0.5
+					}
+					date > 1981.7.1
+					date < 1984.8.1
+				}
+				news_event = { id = kor.33 }
+				KOR = {
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.2
+					}
+					clr_country_flag = ChoiKyuHaa
+					set_country_flag = Kim_ChungBil
+				}
+			}
+			#马丁路德金遇刺#
+			if = {
+				limit = {
+					USA = { has_idea = NegroMovement }
+					NOT = { has_global_flag = martin_king_assassin_event }
+					date > 1968.7.1
+					date < 1968.8.1
+				}
+				news_event = { id = usa.108 }
+				set_global_flag = martin_king_assassin_event
+			}
+			#嬉皮士#
+			if = {
+				limit = {
+					USA = { has_idea = Total_Vietnam_War }
+					NOT = { has_global_flag = usa_hippies_event }
+					date > 1964.1.1
+					date < 1974.1.1
+				}
+				news_event = { id = usa.106 }
+				set_global_flag = usa_hippies_event
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = greenpeace_event }
+					date > 1971.1.1
+					date < 1972.1.1
+				}
+				news_event = { id = usa.107 }
+				set_global_flag = greenpeace_event
+			}
+			#非洲独立#
+			if = {
+				limit = {
+					has_country_flag = africa14_event
+				}
+				news_event = { id = africa.14 }
+				clr_country_flag = africa14_event
+			}
+			#苏联干涉战争#
+			if = {
+				limit = {
+					
+					tag = SOV
+					date < 1980.12.1
+					AFG = { is_puppet_of = SOV }
+					SOV = { has_war_with = AFG }
+				}
+				news_event = { id = afg.21 }
+			}
+			if = {
+				limit = {
+					OR = {
+						tag = SOV
+						is_in_faction_with = SOV
+					}
+					date > 1956.10.1
+					date < 1957.12.1
+					SOV = { has_war_with = HUN }
+					OR = {
+						CZE = { controls_province = 9660 }
+						SOV = { controls_province = 9660 }
+					}
+				}
+				set_global_flag = sov_occupied_HUN
+				white_peace = HUN
+				SOV = { puppet = HUN }
+				news_event = { id = hun.20 }
+			}
+			#以色列占领戈兰高地#
+			if = {
+				limit = {
+					tag = ISR
+					controls_province = 13252
+					has_global_flag = six_days_war
+					SYR = { has_war_with = ISR }
+				}
+				transfer_state = 453
+				transfer_state = 810
+				SYR = { add_war_support = -0.5 }
+				news_event = { id = isr.17 }
+			}
+			#以色列占领西奈#
+			if = {
+				limit = {
+					tag = ISR
+					controls_province = 1155
+					has_global_flag = six_days_war
+					EGY = { has_war_with = ISR }
+				}
+				transfer_state = 761
+				transfer_state = 453
+				transfer_state = 860
+				EGY = { add_war_support = -0.5 }
+				news_event = { id = isr.7 }
+			}
+			#以色列占领耶路撒冷#
+			if = {
+				limit = {
+					tag = ISR
+					controls_province = 1086
+					has_global_flag = six_days_war
+					JOR = { has_war_with = ISR }
+				}
+				transfer_state = 762
+				JOR = { add_war_support = -0.5 }
+				news_event = { id = isr.6 }
+			}
+			#中东战争#
+			if = {
+				limit = {
+					tag = ISR
+					has_global_flag = yom_kippur_war
+					NOT = { has_country_flag = balev_crash }
+					EGY = { has_war_with = ISR }
+					EGY = {
+						OR = {
+						controls_province = 1155
+						controls_province = 9947
+						}
+					}
+				}
+				add_war_support = -0.8
+				add_stability = -0.6
+				news_event = { id = egy.26 }
+			}
+			#解放战争#
+			if = {
+				limit = {
+					tag = PRC
+					date < 1949.12.1
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = NJ_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 11913 }
+				}
+				news_event = { id = prc.2 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = GZ_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 1047 }
+				}
+				news_event = { id = prc.6 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = Changchun_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 4572 }
+				}
+				news_event = { id = prc.91 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = Shenyang_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 11771 }
+				}
+				news_event = { id = prc.92 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = Kaifeng_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 7656 }
+				}
+				news_event = { id = prc.93 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = Xuzhou_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 12055 }
+					PRC = { controls_province = 7025 }
+				}
+				news_event = { id = prc.94 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = Chongching_liberate }
+					PRC = { has_war_with = CHI }
+					PRC = { controls_province = 6999 }
+				}
+				news_event = { id = prc.95 }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = china_civil_war
+					NOT = { has_country_flag = Tibet_liberate }
+					PRC = { has_war_with = TIB }
+					PRC = { controls_province = 5033 }
+				}
+				news_event = { id = tib.10 }
+				set_country_flag = Tibet_liberate
+			}
+			#越南入侵柬埔寨#
+			if = {
+				limit = {
+					tag = VIN
+					VIN = { has_war_with = CAM }
+					VIN = { controls_province = 7376 }
+				}
+				white_peace = CAM
+				news_event = { id = cam.9 }
+			}
+			if = {
+				limit = {
+					tag = VIN
+					VIN = { has_war_with = PRC }
+					NOT = { has_country_flag = sino_occu_viet }
+					PRC = { controls_province = 7015 }
+				}
+				add_war_support = -0.5
+				set_country_flag = sino_occu_viet
+			}
+			#朝鲜战争
+			if = {
+				limit = {
+					has_global_flag = korea_war
+					tag = PRK
+					PRK = { has_war_with = KOR }
+					NOT = { has_country_flag = korea_war_seoul }
+					PRK = { controls_province = 7125 }
+				}
+				news_event = { id = prk.7 }
+				set_country_flag = korea_war_seoul
+			}
+			if = {
+				limit = {
+					tag = PRK
+					has_global_flag = korea_war
+					PRK = { has_war_with = KOR }
+					NOT = { has_country_flag = korea_war_busan }
+					PRK = { controls_province = 4056 }
+				}
+				news_event = { id = prk.8 }
+				set_country_flag = korea_war_busan
+			}
+			if = {
+				limit = {
+					tag = PRK
+					has_global_flag = korea_war
+					PRK = { has_war_with = KOR }
+					has_country_flag = korea_war_seoul
+					NOT = { has_country_flag = korea_war_38line }
+					KOR = {
+						OR = {
+						controls_province = 11915
+						controls_province = 7070
+						controls_province = 9981
+						controls_province = 848
+						}
+					}
+				}
+				news_event = { id = prk.9 }
+				set_country_flag = korea_war_38line
+			}
+			if = {
+				limit = {
+					tag = PRK
+					has_global_flag = korea_war
+					PRK = { has_war_with = KOR }
+					NOT = { has_country_flag = korea_war_pyeongyang }
+					KOR = { controls_province = 4052 }
+				}
+				news_event = { id = prk.10 }
+				set_country_flag = korea_war_pyeongyang
+			}
+			if = {
+				limit = {
+					tag = PRK
+					has_global_flag = korea_war
+					PRK = { has_war_with = KOR }
+					has_country_flag = korea_war_pyeongyang
+					NOT = { has_country_flag = korea_war_changsun }
+					PRK = { controls_province = 7171 }
+					PRK = { controls_province = 10083 }
+				}
+				news_event = { id = prk.11 }
+				set_country_flag = korea_war_changsun
+			}
+			#法国打败北约
+			if = {
+				limit = {
+					tag = FRA
+					has_war_with = USA
+					has_war_with = WDR
+					has_government = democratic
+					controls_province = 3547
+				}
+				USA = {
+					remove_from_faction = WDR
+					remove_from_faction = BEL
+				}
+				news_event = { id = fra.24 }
+				every_country = {
+					limit = { has_war_with = FRA }
+					white_peace = FRA
+				}
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = ALG
+					FROM = { 
+						tag = FRA
+					}
+				}
+				news_event = { id = alg.5 }
+				FRA = {
+					annex_country = {
+						target = ALG
+						transfer_troops = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					date > 1966.1.1
+					tag = SVN
+					FROM = { 
+						tag = VIN
+					}
+				}
+				news_event = { id = vin.48 }
+				white_peace = VIN
+				VIN = { puppet = SVN }
+			}
+			if = {
+				limit = {
+					tag = VIN
+					FROM = { 
+						is_subject_of = FRA
+					}
+				}
+				news_event = { id = vin.5 }
+				FRA = {
+					annex_country = {
+						target = VIN
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = CAM
+					has_government = neutrality
+					FROM = { 
+						has_government = communism
+					}
+				}
+				news_event = { id = cam.7 }
+			}
+			if = {
+				limit = {
+					OR = {
+					tag = ANG
+					tag = FNA
+					tag = UTA
+					}
+					FROM = { 
+						tag = POR
+					}
+				}
+				POR = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = no
+					}
+					add_war_support = 0.3
+					add_stability = 0.08
+				}
+				news_event = { id = ang.9 }
+			}
+			if = {
+				limit = {
+					tag = VIN
+					has_government = communism
+					FROM = { 
+						tag = FRA
+					}
+				}
+				FRA = {
+					annex_country = {
+						target = VIN
+						transfer_troops = yes
+					}
+					add_war_support = 0.3
+					add_stability = 0.08
+				}
+				news_event = { id = vin.5 }
+			}
+		}
+	}
+	on_subject_free = {
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						tag = BAN
+						tag = COG
+						tag = MAL
+						tag = UAE
+					}
+				}
+				news_event = { id = gen.35 }
+				ROOT = { news_event = { id = gen.35 } }
+			}
+			if = {
+				limit = { tag = COG }
+				news_event = { id = cog.2 }
+			}
+			if = {
+				limit = { tag = MAL }
+				news_event = { id = mal.10 }
+			}
+			if = {
+				limit = { tag = UAE }
+				set_cosmetic_tag = UAE
+				news_event = { id = sau.6 }
+				QAT = { news_event = { id = sau.7 } }
+				BHR = { news_event = { id = sau.7 } }
+			}
+		}
+	}
+	#推出阵营
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					has_idea = warsawpact
+					NOT = { is_in_faction_with = SOV }
+				}
+				remove_ideas = warsawpact
+			}
+		}
+	}
+	#投降
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					surrender_progress > 0.99
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+		}
+	}
+	#政变新闻
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+					has_government = neutrality
+					has_country_flag = usa_coup
+				}
+				news_event = { id = latin.18 }
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+					tag = CHL
+					has_country_flag = usa_coup
+				}
+				news_event = { id = chl.14 }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_global_flag = UN_speech_launched }
+					OR = {
+						date > 1947.10.1
+						date < 1947.12.1
+					}
+					OR = {
+						date > 1950.10.1
+						date < 1950.12.1
+					}
+					OR = {
+						date > 1956.10.1
+						date < 1956.12.1
+					}
+					OR = {
+						date > 1961.10.1
+						date < 1961.12.1
+					}
+					OR = {
+						date > 1965.10.1
+						date < 1965.12.1
+					}
+					OR = {
+						date > 1972.10.1
+						date < 1972.12.1
+					}
+					OR = {
+						date > 1978.1.15
+						date < 1978.12.1
+					}
+					OR = {
+						date > 1984.10.1
+						date < 1984.12.1
+					}
+					OR = {
+						date > 1989.10.1
+						date < 1989.12.1
+					}
+				}
+				country_event = { id = un.21 }
+			}
+		}
+	}
+}

@@ -1,0 +1,1735 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+focus_tree = {
+	id = roc_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CHI
+			NOT = {
+				capital_scope = { state = 756 }
+			}
+		}
+	}
+	default = no
+	
+	continuous_focus_position = { x = 55 y = 1500 }
+	focus = {
+		id = CHI_prepare_civil_war
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 5
+		x = 12
+		y = 0
+		completion_reward = {
+			add_political_power = 300
+		}
+
+	}
+	focus = {
+		id = CHI_politic
+		icon = GFX_goal_kmt
+		prerequisite = {
+			focus = CHI_prepare_civil_war
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 5
+		x = 12
+		y = 1
+		completion_reward = {
+			add_political_power = 80
+		}
+
+	}
+	focus = {
+		id = CHI_constitution
+		icon = GFX_goal_roc_constitution
+		prerequisite = {
+			focus = CHI_politic
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				add = 100
+				date > 1948.1.1
+			}
+		}
+		cost = 5
+		x = 12
+		y = 2
+		completion_reward = {
+			news_event = { id = chinawar.15 }
+			add_political_power = 200
+			add_stability = 0.3
+			add_war_support = 0.3
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+
+	}
+	focus = {
+		id = CHI_sanqing
+		icon = GFX_goal_tw_youth_corp
+		prerequisite = {
+			focus = CHI_politic
+		}
+		cost = 5
+		x = 10
+		y = 2
+
+	}
+	focus = {
+		id = CHI_yuan
+		icon = GFX_focus_chi_legislative_yuan
+		prerequisite = {
+			focus = CHI_politic
+		}
+		cost = 5
+		x = 24
+		y = 2
+		completion_reward = {
+			news_event = { id = chinawar.17 }
+			add_political_power = 200
+			add_stability = 0.12
+			add_war_support = 0.12
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+
+	}
+	focus = {
+		id = CHI_indus_wuhan
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = {
+			focus = CHI_yuan
+		}
+		cost = 5
+		x = 22
+		y = 3
+		available = {
+			controls_state = 620
+			620 = {
+				resistance < 30
+			}
+		}
+		completion_reward = {
+			620 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_indus_yangtze
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = {
+			focus = CHI_yuan
+		}
+		cost = 5
+		x = 24
+		y = 3
+		available = {
+			controls_state = 613
+			613 = {
+				resistance < 30
+			}
+		}
+		completion_reward = {
+			613 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_indus_sichuan
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = {
+			focus = CHI_yuan
+		}
+		cost = 5
+		x = 26
+		y = 3
+		available = {
+			controls_state = 605
+			605 = {
+				resistance < 30
+			}
+		}
+		completion_reward = {
+			605 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_indus_yunnan
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = {
+			focus = CHI_yuan
+		}
+		cost = 5
+		x = 23
+		y = 4
+		available = {
+			controls_state = 325
+			325 = {
+				resistance < 30
+			}
+		}
+		completion_reward = {
+			325 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_indus_canton
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = {
+			focus = CHI_yuan
+		}
+		cost = 5
+		x = 25
+		y = 4
+		available = {
+			controls_state = 592
+			592 = {
+				resistance < 30
+			}
+		}
+		completion_reward = {
+			592 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_national_parliament
+		icon = GFX_goal_vote
+		prerequisite = {
+			focus = CHI_constitution
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 5
+		x = 12
+		y = 3
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.14
+			add_war_support = 0.14
+			add_stability = 0.15
+			add_political_power = 100
+			every_controlled_state = {
+				add_compliance = 60
+			}
+			every_subject_country = {
+				every_controlled_state = {
+					add_compliance = 60
+				}
+			}
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+	}
+	focus = {
+		id = CHI_bureau_gov
+		icon = GFX_focus_generic_industrialists
+		prerequisite = {
+			focus = CHI_national_parliament
+		}
+		cost = 5
+		x = 12
+		y = 4
+
+	}
+	focus = {
+		id = CHI_strengh_admirate
+		icon = GFX_focus_chi_legislative_yuan
+		prerequisite = {
+			focus = CHI_bureau_gov
+		}
+		cost = 5
+		x = 12
+		y = 5
+
+	}
+	focus = {
+		id = CHI_contact_minor
+		icon = GFX_focus_ETH_the_heroes_of_ethiopa
+		prerequisite = {
+			focus = CHI_political_reform
+		}
+		prerequisite = {
+			focus = CHI_strengh_admirate
+		}
+		cost = 5
+		x = 12
+		y = 6
+		completion_reward = {
+			every_controlled_state = {
+				limit = { NOT = { has_state_flag = ethnics_Han } }
+				add_resistance = -25
+				add_compliance = 30
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_political_reform
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = {
+			focus = CHI_bureau_gov
+			focus = CHI_president_li
+		}
+		cost = 5
+		x = 15
+		y = 5
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = CHI_release_crimes
+		icon = GFX_focus_FIN_parmis_devils
+		prerequisite = {
+			focus = CHI_political_reform
+		}
+		cost = 5
+		x = 14
+		y = 6
+		completion_reward = {
+			add_ideas = limited_exports
+			add_political_power = 120
+			add_stability = 0.1
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.08
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_taken_politicians
+		icon = GFX_focus_NOR_broken_gun_policies
+		prerequisite = {
+			focus = CHI_release_crimes
+		}
+		cost = 5
+		x = 14
+		y = 7
+
+	}
+	focus = {
+		id = CHI_president_chiang
+		icon = GFX_goal_ChiangKS
+		prerequisite = {
+			focus = CHI_national_parliament
+		}
+		cost = 5
+		x = 6
+		y = 4
+		completion_reward = {
+			news_event = { id = rocc.31 }
+			add_political_power = 150
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_chiang_worship
+		icon = GFX_goal_chiang_worship
+		prerequisite = {
+			focus = CHI_president_chiang
+		}
+		cost = 5
+		x = 6
+		y = 5
+
+	}
+	
+	focus = {
+		id = CHI_gold_trensport
+		icon = GFX_focus_SWE_italian_destroyers
+		prerequisite = {
+			focus = CHI_president_chiang
+		}
+		cost = 5
+		x = 8
+		y = 5
+		completion_reward = {
+			custom_effect_tooltip = CHI_gold_trensport_tool
+			set_country_flag = CHI_gold_trensport
+		}
+
+	}
+	focus = {
+		id = CHI_president_li
+		icon = GFX_goal_lee_zongren
+		prerequisite = {
+			focus = CHI_national_parliament
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1948.9.1
+			}
+		}
+		completion_reward = {
+			annex_country = {
+			target = GXC
+			transfer_troops = yes
+			}
+			promote_character = CHI_li_zongren
+			add_war_support = 0.3
+			news_event = { id = chinawar.6 }
+		}	
+		cost = 5
+		x = 18
+		y = 4
+
+	}
+	focus = {
+		id = CHI_worlord_state
+		icon = GFX_goal_great_china
+		prerequisite = {
+			focus = CHI_president_li
+		}
+		cost = 5
+		x = 18
+		y = 5
+		completion_reward = {
+			every_subject_country = {
+				add_war_support = 0.3
+				add_stability = 0.5
+				army_experience = 300
+				add_political_power = 300
+			}
+		}	
+	}
+	focus = {
+		id = CHI_southern_army
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = {
+			focus = CHI_worlord_state
+		}
+		cost = 5
+		x = 18
+		y = 6
+		completion_reward = {
+			592 = { add_core_of = CTN }
+			593 = { add_core_of = CTN }
+			591 = { add_core_of = CTN }
+			release_on_controlled = CTN
+			set_autonomy = {
+				target = CTN
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.4
+			}
+			CTN = {
+				load_oob = "CTN"
+				add_war_support = 0.5
+				add_political_power = 500
+				add_stability = 0.5
+				army_experience = 700
+			}
+			news_event = { id = ctn.3 }
+		}
+	}
+	focus = {
+		id = CHI_canton_army
+		icon = GFX_goal_canton_revolts
+		prerequisite = {
+			focus = CHI_southern_army
+		}
+		cost = 5
+		x = 18
+		y = 7
+		completion_reward = {
+			release_on_controlled = GXC
+			set_autonomy = {
+				target = GXC
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.4
+			}
+			retire_character = CHI_bai_chongxi
+			retire_ideology_leader = neutrality
+			promote_character = {
+				character = CHI_bai_chongxi
+				ideology = despotism
+			}
+			GXC = {
+				recruit_character = CHI_bai_chongxi
+				add_war_support = 0.5
+				add_political_power = 500
+				add_stability = 0.5
+				army_experience = 700
+			}
+			CTN = {
+				add_war_support = 0.5
+				add_political_power = 500
+				add_stability = 0.5
+				army_experience = 700
+			}
+		}
+	}
+	focus = {
+		id = CHI_negotiation
+		icon = GFX_focus_chi_proclaim_rival_government
+		prerequisite = {
+			focus = CHI_political_reform
+		}
+		cost = 5
+		x = 16
+		y = 6
+	}
+	focus = {
+		id = CHI_river_devide
+		icon = GFX_goal_china_devide
+		prerequisite = {
+			focus = CHI_negotiation
+		}
+		available = {
+			PRC = { controls_province = 1069 }
+			PRC = { controls_province = 9958 }
+			PRC = { controls_province = 7301 }
+			PRC = { controls_province = 1134 }
+			PRC = { controls_province = 11764 }
+		}
+		cost = 5
+		x = 16
+		y = 7
+	}
+	focus = {
+		id = CHI_canton_gov
+		icon = GFX_goal_canton_kmt
+		prerequisite = {
+			focus = CHI_river_devide
+		}
+		cost = 5
+		x = 16
+		y = 8
+		available = {
+			OR = {
+				capital_scope = { state = 592 }
+				country_exists = CTN
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { country_exists = CTN }
+				CTN = {
+					annex_country = {
+						target = CHI
+						transfer_troops = yes
+					}
+					change_tag_from = CHI
+				}
+			}
+			add_victory_points = {
+				province = 10080
+				value = 2
+			}
+			add_victory_points = {
+				province = 9963
+				value = 2
+			}
+			add_victory_points = {
+				province = 12095
+				value = 2
+			}
+			add_victory_points = {
+				province = 11945
+				value = 2
+			}
+			add_victory_points = {
+				province = 1087
+				value = 2
+			}
+			add_victory_points = {
+				province = 4160
+				value = 2
+			}
+			add_victory_points = {
+				province = 4050
+				value = 2
+			}
+			add_victory_points = {
+				province = 4028
+				value = 2
+			}
+			add_victory_points = {
+				province = 4134
+				value = 2
+			}
+			add_victory_points = {
+				province = 4177
+				value = 2
+			}
+			add_victory_points = {
+				province = 1162
+				value = 3
+			}
+			add_victory_points = {
+				province = 9978
+				value = 3
+			}
+			add_victory_points = {
+				province = 1018
+				value = 3
+			}
+		}
+	}
+	focus = {
+		id = CHI_anti_communism
+		icon = GFX_goal_anti_communist
+		prerequisite = {
+			focus = CHI_politic
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 5
+		x = 8
+		y = 2
+		completion_reward = {
+			add_political_power = -120
+			add_stability = -0.15
+			news_event = { id = gen.51 }
+				add_popularity = {
+					ideology = communism
+					popularity = -0.25
+				}
+		}
+
+	}
+	
+	focus = {
+		id = CHI_anti_parties
+		icon = GFX_goal_mccarthyism
+		prerequisite = {
+			focus = CHI_politic
+		}
+		cost = 5
+		x = 6
+		y = 2
+		completion_reward = {
+			add_ideas = closed_economy
+			add_political_power = -120
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.1
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_anti_warlord
+		icon = GFX_goal_anti_capitalism
+		prerequisite = {
+			focus = CHI_chiang_worship
+		}
+		cost = 5
+		x = 6
+		y = 6
+		available = {
+			controls_state = 325
+			controls_state = 594
+			controls_state = 608
+			controls_state = 328
+			controls_state = 283
+		}
+		completion_reward = {
+			retire_character = CHI_fu_zuoyi
+			retire_character = CHI_li_zongren
+			retire_character = CHI_bai_chongxi
+			retire_character = CHI_yu_hanmou
+			every_state = {
+				limit = { is_core_of = SHX }
+				remove_core_of = SHX
+			}
+			every_state = {
+				limit = { is_core_of = DOB }
+				remove_core_of = DOB
+			}
+			every_state = {
+				limit = { is_core_of = XSM }
+				remove_core_of = XSM
+			}
+			every_state = {
+				limit = { is_core_of = GXC }
+				remove_core_of = GXC
+			}
+			every_state = {
+				limit = { is_core_of = YUN }
+				remove_core_of = YUN
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_command_support
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		prerequisite = {
+			focus = CHI_anti_communism
+		}
+		cost = 5
+		x = 10
+		y = 3
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			every_subject_country = {
+				add_political_power = 200
+				add_war_support = 0.3
+				add_ideas = CHI_civilwar_law
+			}
+			add_political_power = 200
+			add_stability = 0.3
+			add_war_support = 0.3
+			add_ideas = CHI_civilwar_law
+		}
+
+	}
+	focus = {
+		id = CHI_intellegence
+		icon = GFX_focus_generic_secret_service_agency
+		prerequisite = {
+			focus = CHI_anti_communism
+		}
+		cost = 5
+		x = 8
+		y = 3
+		completion_reward = {
+			recruit_character = CHI_Mao_RenFeng
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.06
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_special_court
+		icon = GFX_focus_FIN_parmis_devils
+		prerequisite = {
+			focus = CHI_anti_communism
+		}
+		cost = 5
+		x = 6
+		y = 3
+
+	}
+	focus = {
+		id = CHI_kmt_propaganda
+		icon = GFX_goal_kmt_propaganda
+		prerequisite = {
+			focus = CHI_politic
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1948.3.1
+			}
+		}
+		cost = 5
+		x = 15
+		y = 2
+		completion_reward = {
+			recruit_character = CHI_Tao_XiSheng
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = CHI_economic
+		icon = GFX_focus_ITA_devaluate_the_lire
+		prerequisite = {
+			focus = CHI_politic
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1948.3.1
+			}
+		}
+		cost = 5
+		x = 17
+		y = 2
+		completion_reward = {
+			news_event = { id = chinawar.18 }
+			add_stability = 0.05
+		}
+
+
+	}
+	focus = {
+		id = CHI_gold_currency
+		icon = GFX_focus_mex_privatisation
+		prerequisite = {
+			focus = CHI_economic
+		}
+		cost = 5
+		x = 16
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1948.3.1
+			}
+		}
+		completion_reward = {
+			add_ideas = golden_notes_ideas
+			add_political_power = 200
+			news_event = { id = chinawar.70 }
+		}
+
+	}
+	focus = {
+		id = CHI_shanghai_affair
+		icon = GFX_focus_SWE_bofors_fly_swatter
+		prerequisite = {
+			focus = CHI_economic
+		}
+		available = { 
+			controls_province = 7014
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1948.5.1
+			}
+		}
+		cost = 5
+		x = 18
+		y = 3
+		completion_reward = {
+			news_event = { id = chinawar.19 }
+			add_stability = 0.2
+			add_political_power = 300
+			add_war_support = 0.2
+		}
+
+	}
+	focus = {
+		id = CHI_tax_reduce_mainland
+		icon = GFX_focus_generic_agricultural_subsidies
+		prerequisite = {
+			focus = CHI_yuan
+		}
+		prerequisite = {
+			focus = CHI_economic
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1948.5.1
+			}
+		}
+		cost = 5
+		x = 20
+		y = 3
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.02
+			add_to_variable = { influences = 40 }
+			news_event = { id = rocc.30 }
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.02
+				}
+		}
+	}
+	focus = {
+		id = CHI_try_land_reform
+		icon = GFX_goal_PRC_baochan
+		prerequisite = {
+			focus = CHI_tax_reduce_mainland
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			NOT = { has_completed_focus = CHI_homeland_group }
+			controls_state = 597
+			controls_state = 615
+			controls_state = 614
+			controls_state = 622
+		}
+		cost = 5
+		x = 20
+		y = 4
+		completion_reward = {
+			custom_effect_tooltip = focus_landreform_tool
+			add_political_power = 100
+			add_stability = 0.02
+			add_to_variable = { influences = 40 }
+			news_event = { id = gen.65 }
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.02
+				}
+		}
+	}
+	focus = {
+		id = CHI_more_land_reform
+		icon = GFX_focus_generic_agricultural_subsidies
+		prerequisite = {
+			focus = CHI_try_land_reform
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			controls_state = 715
+			controls_state = 328
+			controls_state = 608
+			controls_state = 611
+		}
+		cost = 5
+		x = 20
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = CHI_military
+		icon = GFX_goal_roc_shell
+		prerequisite = {
+			focus = CHI_prepare_civil_war
+		}
+		cost = 5
+		x = 2
+		y = 1
+		completion_reward = {
+			every_country_division = { set_unit_organization = 0.6 }
+			army_experience = 500
+			add_command_power = 200
+			every_subject_country = {
+			army_experience = 500
+			add_command_power = 200
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_security_group
+		icon = GFX_focus_secret_rearmament
+		prerequisite = {
+			focus = CHI_military
+		}
+		cost = 5
+		x = 0
+		y = 2
+
+	}
+	focus = {
+		id = CHI_xuzhou_defence
+		icon = GFX_focus_SWE_hedgehog_defense
+		prerequisite = {
+			focus = CHI_military
+		}
+		cost = 5
+		x = -2
+		y = 2
+		completion_reward = {
+			598 = {
+				set_building_level = {
+					type = bunker
+					level = 3
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+			613 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+		}	
+
+	}
+	focus = {
+		id = CHI_homeland_group
+		icon = GFX_goal_homeland_group
+		prerequisite = {
+			focus = CHI_security_group
+		}
+		cost = 5
+		x = 0
+		y = 3
+		completion_reward = {
+			every_owned_state = {
+				add_resistance = -40
+				add_compliance = 30
+			}
+			every_subject_country = {
+				every_owned_state = {
+					add_resistance = -40
+					add_compliance = 30
+				}
+			}
+			add_stability = 0.12
+		}
+
+	}
+	focus = {
+		id = CHI_lijia
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = {
+			focus = CHI_security_group
+		}
+		cost = 5
+		x = -4
+		y = 3
+		completion_reward = {
+			every_owned_state = {
+				add_resistance = -10
+				add_compliance = 12
+			}
+			every_subject_country = {
+				every_owned_state = {
+					add_resistance = -5
+					add_compliance = 12
+				}
+			}
+			add_stability = 0.06
+		}
+
+	}
+	focus = {
+		id = CHI_stabilits
+		icon = GFX_focus_generic_advanced_military_studies
+		prerequisite = {
+			focus = CHI_lijia
+		}
+		cost = 5
+		x = -4
+		y = 4
+		available = {
+			controls_state = 597
+			controls_state = 615
+			controls_state = 614
+			controls_state = 622
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_compliance = 30
+			}
+			every_subject_country = {
+				every_owned_state = {
+					add_compliance = 30
+				}
+			}
+			add_stability = 0.1
+		}
+
+	}
+	focus = {
+		id = CHI_militarist_police
+		icon = GFX_goal_ROC_MP
+		prerequisite = {
+			focus = CHI_Defence_ministry
+		}
+		cost = 5
+		x = -2
+		y = 4
+		completion_reward = {
+			add_stability = 0.08
+		}
+	}
+	focus = {
+		id = CHI_amries_rebuild
+		icon = GFX_focus_chi_whampoa_military_academy
+		prerequisite = {
+			focus = CHI_military
+		}
+		cost = 5
+		x = 2
+		y = 2
+		completion_reward = {
+			army_experience = 100
+			add_war_support = 0.12
+		}
+
+	}
+	focus = {
+		id = CHI_Defence_ministry
+		icon = GFX_goal_ROC_marines
+		prerequisite = {
+			focus = CHI_amries_rebuild
+		}
+		cost = 5
+		x = 2
+		y = 3
+
+	}
+	focus = {
+		id = CHI_annex_yunnan
+		icon = GFX_goal_yunnan_warlord
+		prerequisite = {
+			focus = CHI_Defence_ministry
+		}
+		cost = 5
+		x = 0
+		y = 4
+		available = {
+			YUN = {
+				is_subject_of = CHI
+				controls_state = 325
+			}
+		}
+		completion_reward = {
+			YUN = { news_event = { id = rocc.20 } }
+		}
+
+	}
+	focus = {
+		id = CHI_annex_north
+		icon = GFX_goal_hebei_warlord
+		prerequisite = {
+			focus = CHI_Defence_ministry
+		}
+		cost = 5
+		x = 2
+		y = 4
+		available = {
+			SHX = {
+				is_subject_of = CHI
+				controls_state = 608
+				controls_state = 614
+				controls_state = 615
+			}
+		}
+		completion_reward = {
+			SHX = { news_event = { id = rocc.20 } }
+		}
+
+	}
+	focus = {
+		id = CHI_annex_northeast
+		icon = GFX_goal_dongbei_warlord
+		prerequisite = {
+			focus = CHI_Defence_ministry
+		}
+		cost = 5
+		x = 4
+		y = 4
+		available = {
+			DOB = {
+				is_subject_of = CHI
+				controls_state = 328
+				controls_state = 714
+				controls_state = 715
+			}
+		}
+		completion_reward = {
+			DOB = { news_event = { id = rocc.20 } }
+		}
+
+	}
+	focus = {
+		id = CHI_suply_focus
+		icon = GFX_focus_generic_armored_air_support
+		prerequisite = {
+			focus = CHI_Defence_ministry
+		}
+		cost = 5
+		x = 1
+		y = 5
+		completion_reward = {
+			add_ideas = CHI_armor_center
+		}
+
+	}
+	focus = {
+		id = CHI_militarist_corrupt
+		icon = GFX_focus_AUS_lawmaking_leniency
+		prerequisite = {
+			focus = CHI_suply_focus
+		}
+		cost = 5
+		x = -1
+		y = 6
+
+	}
+	focus = {
+		id = CHI_win_war
+		icon = GFX_goal_kmt_united
+		prerequisite = {
+			focus = CHI_stabilits
+		}
+		available = {
+			has_completed_focus = CHI_national_parliament
+			controls_state = 283
+			controls_state = 608
+			controls_state = 615
+			controls_state = 608
+			controls_state = 612
+			controls_state = 621
+			controls_state = 622
+			controls_state = 969
+			controls_state = 714
+			controls_state = 715
+			controls_state = 717
+			controls_state = 328
+		}
+		cost = 5
+		x = -3
+		y = 7
+		completion_reward = {
+			add_political_power = 600
+			add_stability = 0.35
+			add_to_variable = { influences = 40 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.2
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_militarist_court
+		icon = GFX_focus_generic_court
+		prerequisite = {
+			focus = CHI_suply_focus
+		}
+		cost = 5
+		x = 1
+		y = 6
+
+	}
+	focus = {
+		id = CHI_war_sinjang
+		icon = GFX_goal_sinjang_war
+		prerequisite = {
+			focus = CHI_annex_gansu
+		}
+		cost = 5
+		x = 3
+		y = 6
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SIK
+			}
+		}
+	}
+	focus = {
+		id = CHI_annex_gansu
+		icon = GFX_goal_gansu_warlord
+		prerequisite = {
+			focus = CHI_Defence_ministry
+		}
+		cost = 5
+		x = 3
+		y = 5
+		available = {
+			XSM = {
+				is_subject_of = CHI
+				controls_state = 283
+				controls_state = 616
+			}
+		}
+		completion_reward = {
+			XSM = { news_event = { id = rocc.20 } }
+		}
+
+	}
+	focus = {
+		id = CHI_manoo
+		icon = GFX_focus_generic_limited_social_mobilization
+		prerequisite = {
+			focus = CHI_military
+		}
+		cost = 5
+		x = 4
+		y = 2
+		completion_reward = {
+			every_subject_country = {
+				army_experience = 200
+				add_command_power = 80
+				add_manpower = 30000
+			}
+			army_experience = 200
+			add_command_power = 80
+			add_manpower = 100000
+		}
+
+	}
+	focus = {
+		id = CHI_diplomatic
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		prerequisite = {
+			focus = CHI_prepare_civil_war
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 5
+		x = 33
+		y = 1
+		completion_reward = {
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+
+	}
+	focus = {
+		id = CHI_ask_french
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = {
+			focus = CHI_diplomatic
+		}
+		cost = 5
+		x = 34
+		y = 2
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = CHI_strike_viets
+		icon = GFX_goal_war_veitnam
+		prerequisite = {
+			focus = CHI_ask_french
+		}
+		cost = 5
+		x = 34
+		y = 3
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = CHI_ask_btirish
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = {
+			focus = CHI_diplomatic
+		}
+		cost = 5
+		x = 32
+		y = 2
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = CHI_release_hk
+		icon = GFX_goal_hk_british
+		prerequisite = {
+			focus = CHI_ask_btirish
+		}
+		cost = 5
+		x = 32
+		y = 3
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = CHI_ask_american
+		icon = GFX_focus_chi_mission_to_the_us
+		prerequisite = {
+			focus = CHI_diplomatic
+		}
+		cost = 5
+		x = 29
+		y = 2
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = CHI_american_joined
+		icon = GFX_focus_chi_flying_tigers
+		prerequisite = {
+			focus = CHI_ask_american
+		}
+		cost = 5
+		x = 30
+		y = 3
+		completion_reward = {
+			USA = { country_event = { id = gen.47 } }
+			add_opinion_modifier = {
+				target = USA
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_american_aid
+		icon = GFX_focus_generic_american_investments
+		prerequisite = {
+			focus = CHI_ask_american
+		}
+		cost = 5
+		x = 28
+		y = 3
+		completion_reward = {
+			USA = { country_event = { id = gen.47 } }
+			add_opinion_modifier = {
+				target = USA
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_sov_negotiation
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = {
+			focus = CHI_diplomatic
+		}
+		cost = 5
+		x = 37
+		y = 2
+
+	}
+	focus = {
+		id = CHI_release_dalian
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = {
+			focus = CHI_sov_negotiation
+		}
+		cost = 5
+		x = 36
+		y = 3
+
+	}
+	focus = {
+		id = CHI_release_altay
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = {
+			focus = CHI_sov_negotiation
+		}
+		cost = 5
+		x = 38
+		y = 3
+
+	}
+	focus = {
+		id = CHI_indus_to_south
+		icon = GFX_goal_canton_industry
+		prerequisite = {
+			focus = CHI_prepare_civil_war
+		}
+		available = { 
+			PRC = { controls_province = 9843 }
+			PRC = { controls_province = 10068 }
+		}
+		ai_will_do = {
+			factor = 999
+		}
+		cost = 2
+		x = -6
+		y = 1
+		completion_reward = {
+			592 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = rubber_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			593 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_southern_base
+		icon = GFX_goal_roc_shell
+		prerequisite = {
+			focus = CHI_indus_to_south
+		}
+		available = { 
+			NOT = { controls_province = 12055 }
+		}
+		ai_will_do = {
+			factor = 999
+		}
+		cost = 2
+		x = -8
+		y = 2
+		completion_reward = {
+			592 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 11981
+				}
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 7152
+				}
+				set_building_level = {
+					type = bunker
+					level = 4
+					province = 1047
+				}
+			}
+			593 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 9938
+				}
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 9970
+				}
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 1202
+				}
+			}
+			591 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 1070
+				}
+			}
+			599 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 10404
+				}
+			}
+			600 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 7199
+				}
+			}
+			602 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 7502
+				}
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = 11918
+				}
+			}
+			593 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = CHI_to_canton
+		icon = GFX_goal_roc_shell
+		prerequisite = {
+			focus = CHI_indus_to_south
+		}
+		available = { 
+			NOT = { controls_province = 12055 }
+		}
+		ai_will_do = {
+			factor = 999
+		}
+		cost = 2
+		x = -6
+		y = 2
+		completion_reward = {
+			news_event = { id = roc.27 }
+			set_capital = {state = 592 }
+		}
+
+	}
+	focus = {
+		id = CHI_to_taiwan
+		icon = GFX_goal_map_taiwan
+		prerequisite = {
+			focus = CHI_to_canton
+		}
+		ai_will_do = {
+			factor = 999
+		}
+		available = { 
+			NOT = { controls_province = 11913 }
+		}
+		cost = 5
+		x = -6
+		y = 3
+		completion_reward = {
+			news_event = { id = roc.28 }
+			load_focus_tree = taiwan_focus
+			set_capital = { state = 756 }
+			if = {
+				limit = { has_country_flag = CHI_gold_trensport }
+				add_political_power = 1200
+			}
+			
+			
+			600 = {
+				teleport_armies = {
+					limit = {
+						original_tag = THIS 
+					}
+					to_state = 756
+				}
+			}
+			593 = {
+				teleport_armies = {
+					limit = {
+						original_tag = THIS 
+					}
+					to_state = 756
+				}
+			}
+			596 = {
+				teleport_armies = {
+					limit = {
+						original_tag = THIS 
+					}
+					to_state = 756
+				}
+			}
+			595 = {
+				teleport_armies = {
+					limit = {
+						original_tag = THIS 
+					}
+					to_state = 830
+				}
+			}
+		}
+	}
+}

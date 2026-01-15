@@ -1,0 +1,235 @@
+WDR_Wirtschaftswunder_category = {
+	WDR_Wolfsburg_Plant_decis = {
+		icon = generic_construction
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 120
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			NOT = { has_global_flag = WDR_Wolfsburg_Plant_decis }
+			has_completed_focus = WDR_volkswagen_auto
+		}
+		available = {
+			steel > 2
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1950.2.1
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = WDR_Wolfsburg_Plant_decis
+			59 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dam_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	WDR_Interbau_decis = {
+		icon = generic_construction
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 120
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			NOT = { has_global_flag = WDR_Interbau_decis }
+			has_completed_focus = WDR_manufacture_1
+		}
+		available = {
+			steel > 2
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1957.2.1
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = WDR_Interbau_decis
+			747 = {
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+	WDR_KaDeVe_decis = {
+		icon = generic_construction
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 120
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			NOT = { has_global_flag = WDR_KaDeVe_decis }
+			has_completed_focus = WDR_Berlinale
+		}
+		available = {
+			steel > 2
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1957.2.1
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = WDR_KaDeVe_decis
+			747 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	WDR_Nordweststadt_decis = {
+		icon = generic_construction
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 120
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			NOT = { has_global_flag = WDR_Nordweststadt_decis }
+			has_completed_focus = WDR_Industry
+		}
+		available = {
+			steel > 2
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1962.2.1
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = WDR_Nordweststadt_decis
+			55 = {
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+	WDR_Bundeshaus_decis = {
+		icon = generic_construction
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 120
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			NOT = { has_global_flag = WDR_Bundeshaus_decis }
+			has_completed_focus = WDR_Industry
+		}
+		available = {
+			steel > 2
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1952.2.1
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = WDR_Bundeshaus_decis
+			add_political_power = 150
+			51 = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	WDR_Volkswagen_T1_decis = {
+		icon = generic_operation
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 60
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			NOT = {has_global_flag = WDR_Volkswagen_T1_decis }
+			has_completed_focus = WDR_volkswagen_auto
+		}
+		available = {
+			steel > 3
+			copper > 2
+			aluminium > 2
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1950.2.1
+			}
+		}
+		days_remove = 60
+		remove_effect = {
+			set_global_flag = WDR_Volkswagen_T1_decis
+			add_political_power = 150
+		}
+	}
+}
+WDR_rearmed_decis_category = {
+	WDR_rearmed_diplomat_decis = {
+		icon = generic_construction
+		allowed = {
+			always = yes
+			tag = WDR
+		}
+		cost = 120
+		days_re_enable = 180
+		visible = {
+			tag = WDR
+			has_global_flag = Bundeswehr_flag
+		}
+		target_trigger = {
+			FROM = {
+				is_subject = no
+				OR = {
+					is_in_faction_with = USA
+					has_country_flag = west_euro_state
+				}
+				NOT = {
+					has_country_flag = Bundeswehr_allow
+					has_government = communism
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		complete_effect = {
+			FROM = {
+				news_event = { id = ger.66 }
+			}
+		}
+	}
+}

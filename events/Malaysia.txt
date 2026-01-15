@@ -1,0 +1,1118 @@
+﻿add_namespace = mal
+#东南亚
+country_event = {
+	id = mal.1
+	title = mal.1.t
+	desc = mal.1.d
+	picture = GFX_SouthEasrCom
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		AND = {
+			NOT = { has_government = communism }
+			NOT = { has_idea = southeast_revolution }
+			date < 1980.1.1
+			has_stability < 0.8
+		}
+		OR = {
+			communism > 0.3
+			has_stability < 0.4
+			AND = {
+				communism > 0.35
+				has_stability < 0.6
+			}
+		}
+		OR = {
+			tag = MAL
+			tag = SIA
+			tag = BUR
+		}
+	}
+	option = {
+		name = mal.1.a
+		add_ideas = southeast_revolution
+		add_stability = -0.12
+		add_political_power = -50
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+	}
+}
+
+#移除革命
+country_event = {
+	id = mal.2
+	title = mal.2.t
+	desc = mal.2.d
+	picture = GFX_MalayanEmergency
+	mean_time_to_happen = { days = 10 }
+	trigger = {	
+		AND = {
+			communism < 0.1
+			has_idea = southeast_revolution
+			has_stability > 0.8
+		}
+	}
+	option = {
+		name = mal.2.a
+		add_stability = 0.3
+		remove_ideas = southeast_revolution
+		if = {
+			limit = {
+				tag = MAL
+			}
+		news_event = { id = mal.43 days = 8 }
+			annex_country = {
+				target = CPM
+				transfer_troops = no
+			}
+			add_autonomy_score = {
+				value = 200
+				localization = colony_police
+			}
+		}
+	}
+}
+#革命袭击
+country_event = {
+	id = mal.3
+	title = mal.3.t
+	desc = mal.3.d
+	picture = GFX_SouthEasrCom
+	mean_time_to_happen = { days = 60 }
+	trigger = {	
+		AND = {
+			has_stability < 0.8
+			has_idea = southeast_revolution
+		}
+	}
+	option = {
+		name = mal.3.a
+		add_stability = -0.01
+		add_political_power = -40
+		add_popularity = {
+			ideology = communism
+			popularity = 0.01
+		}
+	}
+}
+#大马内战
+country_event = {
+	id = mal.4
+	title = mal.4.t
+	desc = mal.4.d
+	picture = GFX_SouthEasrCom
+	mean_time_to_happen = { days = 50 }
+	trigger = {	
+		AND = {
+			tag = MAL
+			has_idea = southeast_revolution
+		}
+		OR = { 
+			has_stability < 0.15
+			communism > 0.7
+		}
+	}
+	option = {
+		name = mal.4.a
+		add_stability = -0.02
+		add_political_power = -50
+		add_popularity = {
+			ideology = communism
+			popularity = -0.4
+		}
+		start_civil_war = {
+			ideology = communism
+				states = { 834 }
+		}
+	}
+}
+#其他内站
+country_event = {
+	id = mal.5
+	title = mal.4.t
+	desc = mal.4.d
+	picture = GFX_SouthEasrCom
+	mean_time_to_happen = { days = 50 }
+	trigger = {	
+		AND = {
+			has_stability < 0.3
+			has_idea = southeast_revolution
+			NOT = { tag = MAL }
+		}
+	}
+	option = {
+		name = mal.4.a
+		add_stability = -0.02
+		add_political_power = -50
+			start_civil_war = {
+				ideology = communism
+				size = 0.3
+				random_country = {
+				}
+			}
+	}
+}
+#刺杀亨利
+news_event = {
+	id = mal.6
+	title = mal.6.t
+	desc = mal.6.d
+	picture = GFX_SouthEasrCom
+	fire_only_once = yes
+	trigger = {	
+		MAL = {
+			has_idea = southeast_revolution
+			communism > 0.1
+			date > 1950.1.1
+			date < 1952.1.1
+		}
+	}
+	option = {
+		name = mal.5.a
+		if = {
+			limit = { tag = MAL }
+			add_stability = -0.3
+		}
+	}
+}
+#梧桐参选
+news_event = {
+	id = mal.7
+	title = mal.7.t
+	desc = mal.7.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {	
+		tag = MAL
+		date > 1955.8.1
+		date < 1956.1.1
+		MAL = {
+			NOT = { has_country_flag = Perikatan }
+			is_subject_of = ENG
+		}
+	}
+	option = {
+		name = mal.5.a
+		if = {
+			limit = { tag = MAL }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.4
+			}
+			add_stability = 0.3
+			set_country_flag = Perikatan
+			add_autonomy_score = {
+				value = 200
+				localization = colony_police
+			}
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Tunku Abdul Rahman"
+				picture = "gfx/leaders/MAL/Portrait_Malaysia_Tunku_Rahman.tga"
+				expire = "1988.1.1"
+				ideology = authoritarianism
+				traits = {
+					Developmentalism
+				}
+			}
+		}
+	}
+}
+#英国宣布马来亚进入紧急状态#
+news_event = {
+	id = mal.8
+	title = mal.8.t
+	desc = mal.8.d
+	picture = GFX_MalEmergency
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = MAL_4
+	}
+	option = {
+		name = mal.1.a
+	}
+}
+#马来西亚独立#
+news_event = {
+	id = mal.10
+	title = mal.10.t
+	desc = mal.10.d
+	picture = GFX_MalaysiaIndependent
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = MAL_1
+	}
+	option = {
+		name = un.1.a
+		if = {
+			limit = { tag = MAL }
+			leave_faction = yes
+		}
+	}
+
+}
+#马来西亚联邦构想#
+news_event = {
+	id = mal.11
+	title = mal.11.t
+	desc = mal.11.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mal.1.a
+	}
+}
+#马来西亚联邦构想回应#
+country_event = {
+	id = mal.12
+	title = mal.12.t
+	desc = mal.12.d
+	picture = GFX_TunkuAbdulRahman
+	is_triggered_only = yes
+	option = {
+		name = mal.12.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 20
+				tag = ENG
+			}
+		}
+		set_global_flag = sarawak_malaysia
+		news_event = { id = mal.13 }
+	}
+	option = {
+		name = mal.12.b
+		ai_chance = {
+			base = 10
+		}
+		if = {
+			limit = { tag = INS }
+			333 = {
+				add_claim_by = INS
+				add_resistance = 40
+			}
+			SRW = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.25
+				}
+			}
+		}
+		if = {
+			limit = { tag = INS }
+			855 = { add_claim_by = PHI }
+		}
+		news_event = { id = mal.14 }
+	}
+}
+#欢迎#
+news_event = {
+	id = mal.13
+	title = mal.13.t
+	desc = mal.13.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+	}
+}
+#拒绝#
+news_event = {
+	id = mal.14
+	title = mal.14.t
+	desc = mal.14.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+	}
+}
+#沙捞越自治#
+news_event = {
+	id = mal.15
+	title = mal.15.t
+	desc = mal.15.d
+	picture = GFX_SarawakIndependent
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+	}
+}
+#沙捞越统一#
+news_event = {
+	id = mal.16
+	title = mal.16.t
+	desc = mal.16.d
+	picture = GFX_SarawakIndependent
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+	}
+}
+#沙捞越暴动#
+news_event = {
+	id = mal.17
+	title = mal.17.t
+	desc = mal.17.d
+	picture = GFX_BoernoConflict
+	major = yes
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		333 = {
+			is_controlled_by = MAL
+			resistance > 40
+		}
+	}
+	option = {
+		name = un.1.a
+		if = {
+			limit = { tag = MAL }
+			333 = { add_resistance = 15 }
+		}
+	}
+}
+#沙捞越独立战争#
+news_event = {
+	id = mal.18
+	title = mal.18.t
+	desc = mal.18.d
+	picture = GFX_BoernoConflict
+	major = yes
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		333 = {
+			is_controlled_by = MAL
+			resistance > 85
+		}
+	}
+	option = {
+		name = un.1.a
+		if = {
+			limit = { tag = MAL }
+			333 = {  add_resistance = -70 }
+			add_stability = -0.2
+			SRW = {
+				set_politics = { ruling_party = communism }
+				transfer_state = 333
+			}
+			MAL = {
+				declare_war_on = { target = SRW type = annex_everything }
+			}
+		}
+	}
+}
+news_event = {   #帝国银行事件
+	id = mal.20
+	title = mal.20.t
+	desc = mal.20.d
+	picture = GFX_SouthEasrCom
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = MAL
+		NOT = { has_global_flag = MalayaLA }
+		date > 1949.1.20
+		date < 1950.1.20
+		613 = {
+			is_controlled_by = PRC
+		}
+		
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = MalayaLA
+		if = {
+			limit = { tag = MAL }
+			350 = {  add_resistance = 30 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+			add_stability = -0.3
+		}
+	}
+}
+#革命袭击
+news_event = {
+	id = mal.21
+	title = mal.21.t
+	desc = mal.21.d
+	picture = GFX_SouthEasrCom
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = MAL
+		NOT = { has_global_flag = Malaya1948attack }
+		date > 1948.4.20
+		date < 1950.1.20
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = Malaya1948attack
+		if = {
+			limit = { tag = MAL }
+			350 = {  add_resistance = 20 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = mal.22
+	title = mal.22.t
+	desc = mal.22.d
+	picture = GFX_MalayaStrike
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = MAL
+		date > 1947.6.20
+		date < 1949.3.20
+		NOT = { has_global_flag = mal22 }
+	}
+	option = {
+		name = hol.10.a
+		set_global_flag = mal22
+	}
+}
+news_event = {
+	id = mal.23
+	title = mal.23.t
+	desc = mal.23.d
+	picture = GFX_MalayaStrike
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		MAL = { is_subject_of = ENG }
+		OR = {
+			tag = MAL
+			tag = ENG
+		}
+		date > 1947.6.20
+		date < 1955.3.20
+		communism > 0.4
+	}
+	option = {
+		name = hol.10.a
+		MAL = {
+			add_political_power = -20
+		}
+	}
+}
+
+state_event = {
+	id = mal.24
+	title = mal.24.t
+	desc = mal.24.d
+	picture = GFX_MalayaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+state_event = {
+	id = mal.25
+	title = mal.25.t
+	desc = mal.25.d
+	picture = GFX_MalayaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+news_event = {
+	id = mal.26
+	title = mal.26.t
+	desc = mal.26.d
+	picture = GFX_ChingPeng
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mal.1.a
+	}
+}
+#披露法国暴行
+news_event = {
+	id = mal.27
+	title = mal.27.t
+	desc = mal.27.d
+	picture = GFX_MalayaWarcrime
+	major = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = ENG
+		has_global_flag = MAL_emergency
+		date > 1949.4.1
+		date < 1955.4.1
+		NOT = { has_global_flag = mal27 }
+	}
+	option = {
+		name = alg.4.a
+		set_global_flag = mal27
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -200
+			add_to_variable = { influences = -150 } 
+		}
+	}
+}
+news_event = {
+	id = mal.28
+	title = mal.28.t
+	desc = mal.28.d
+	picture = GFX_MalayaPolitic50s
+	is_triggered_only = yes
+	option = {
+		name = mal.3.a
+	}
+}
+news_event = {
+	id = mal.29
+	title = mal.29.t
+	desc = mal.29.d
+	picture = GFX_MalayaPolitic50s
+	is_triggered_only = yes
+	option = {
+		name = mal.3.a
+	}
+}
+
+
+
+#RosliDhoby
+news_event = {
+	id = mal.30
+	title = mal.30.t
+	desc = mal.30.d
+	picture = GFX_RosliDhoby
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_global_flag = RosliDhoby }
+		owns_state = 333
+		date > 1950.3.20
+		date < 1950.4.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = RosliDhoby
+		news_event = { id = mal.31 }
+		333 = { add_resistance = 30 }
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = RosliDhoby
+		news_event = { id = mal.32 }
+		333 = { add_resistance = 20 }
+	}
+}
+news_event = {
+	id = mal.31
+	title = mal.31.t
+	desc = mal.31.d
+	picture = GFX_RosliDhoby
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = mal.3.a
+	}
+}
+news_event = {
+	id = mal.32
+	title = mal.32.t
+	desc = mal.32.d
+	picture = GFX_RosliDhoby
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = mal.3.a
+	}
+}
+#玛丽亚·埃尔托格
+news_event = {
+	id = mal.35
+	title = mal.35.t
+	desc = mal.35.d
+	picture = GFX_MariaHertogh
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = SIG
+		NOT = { has_global_flag = MariaHertogh }
+		date > 1950.10.20
+		date < 1950.12.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = MariaHertogh
+		news_event = { id = mal.36 }
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = MariaHertogh
+		set_global_flag = MariaHertoghRoit
+		news_event = { id = mal.37 }
+	}
+}
+news_event = {
+	id = mal.36
+	title = mal.36.t
+	desc = mal.36.d
+	picture = GFX_MariaHertogh
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = mal.3.a
+	}
+}
+news_event = {
+	id = mal.37
+	title = mal.37.t
+	desc = mal.37.d
+	picture = GFX_MariaHertogh
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = mal.3.a
+	}
+}
+news_event = {
+	id = mal.38
+	title = mal.38.t
+	desc = mal.38.d
+	major = yes
+	picture = GFX_MariaHertoghRoit
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = SIG
+		has_global_flag = MariaHertoghRoit
+		NOT = { has_global_flag = mal38 }
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = mal38
+		if = {
+			limit = { tag = SIG }
+			758 = {  add_resistance = 10 }
+			add_stability = -0.12
+		}
+		
+	}
+}
+###
+news_event = {
+	id = mal.40
+	title = mal.40.t
+	desc = mal.40.d
+	picture = GFX_MalEmergency
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = MAL
+		has_idea = southeast_revolution
+		date > 1955.11.1
+		date < 1956.2.1
+		NOT = { has_global_flag = mal40 }
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = mal40
+	}
+}
+news_event = {
+	id = mal.41
+	title = mal.41.t
+	desc = mal.41.d
+	picture = GFX_MalEmergency
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = MAL
+		has_idea = southeast_revolution
+		date > 1955.11.1
+		date < 1956.2.1
+		has_global_flag = mal40
+	}
+	option = {
+		name = mal.3.a
+		clr_global_flag = mal40
+		add_stability = -0.12
+		add_political_power = -300
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		news_event = { id = mal.42 }
+	}
+}
+news_event = {
+	id = mal.42
+	title = mal.42.t
+	desc = mal.42.d
+	picture = GFX_MalEmergency
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mal.1.a
+	}
+}
+news_event = {
+	id = mal.43
+	title = mal.43.t
+	desc = mal.43.d
+	picture = GFX_ChingPeng
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mal.1.a
+	}
+}
+news_event = {
+	id = mal.45
+	title = mal.45.t
+	desc = mal.45.d
+	picture = GFX_MalEmergency
+	major = yes
+	mean_time_to_happen = {
+		days = 25
+	}
+	trigger = {
+		tag = MAL
+		has_global_flag = MAL_emergency
+		date > 1953.4.1
+		date < 1957.4.1
+		NOT = { has_global_flag = mal45 }
+		336 = { check_variable = { MAL_local_cooperate > 2 } }
+		849 = { check_variable = { MAL_local_cooperate > 2 } }
+		check_variable = { MAL.malays_support > 2 }
+		check_variable = { MAL.chinese_support > 2 }
+		check_variable = { MAL.indians_support > 2 }
+	}
+	option = {
+		name = alg.4.a
+		set_global_flag = mal45
+		if = {
+			limit = { tag = ENG }
+			add_political_power = 100
+		}
+		if = {
+			limit = { tag = MAL }
+			add_political_power = 100
+			add_stability = 0.3
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+	}
+}
+state_event = {
+	id = mal.46
+	title = mal.46.t
+	desc = mal.46.d
+	picture = GFX_AlgeriaCooperate
+	is_triggered_only = yes
+	option = {
+		name = alg.5.b1
+		
+	}
+}
+
+
+
+
+news_event = {
+	id = mal.50
+	title = mal.50.t
+	desc = mal.50.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mal.1.a
+		if = {
+			limit = { tag = MAL }
+			add_to_variable = { MAL.malays_support = 2 }
+		}
+	}
+}
+news_event = {
+	id = mal.51
+	title = mal.51.t
+	desc = mal.51.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = MAL
+		is_subject_of = ENG
+		date > 1956.1.15
+		date < 1962.2.1
+		has_global_flag = MalayaReadyIndependent
+		NOT = { has_global_flag = mal51 }
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal51
+	}
+}
+news_event = {
+	id = mal.52
+	title = mal.52.t
+	desc = mal.52.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = MAL
+		is_subject_of = ENG
+		date > 1956.2.15
+		date < 1964.2.1
+		has_global_flag = MalayaReadyIndependent
+		NOT = { has_global_flag = mal52 }
+		has_global_flag = mal51
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal52
+	}
+}
+news_event = {
+	id = mal.53
+	title = mal.53.t
+	desc = mal.53.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = MAL
+		is_subject_of = ENG
+		date > 1957.8.15
+		date < 1964.2.1
+		has_global_flag = MalayaReadyIndependent
+		NOT = { has_global_flag = mal53 }
+		has_global_flag = mal51
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal53
+		if = {
+			limit = { tag = MAL }
+			add_political_power = 500
+			add_autonomy_score = {
+				value = 999
+				localization = wind_of_change
+			}
+		}
+	}
+}
+news_event = {
+	id = mal.55
+	title = mal.55.t
+	desc = mal.55.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = MAL
+		date > 1957.7.15
+		date < 1957.9.1
+		NOT = { has_global_flag = mal55 }
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal55
+	}
+}
+news_event = {
+	id = mal.56
+	title = mal.56.t
+	desc = mal.56.d
+	picture = GFX_MalayaPolitic50s
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = MAL
+		date > 1947.3.15
+		date < 1948.9.1
+		NOT = { has_global_flag = mal56 }
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal56
+	}
+}
+news_event = {
+	id = mal.57
+	title = mal.57.t
+	desc = mal.57.d
+	picture = GFX_MalayaPolitic50s
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		OR = {
+			tag = MAL
+			tag = ENG
+			tag = CHI
+			tag = SIG
+			tag = USA
+		}
+		date > 1947.6.15
+		date < 1948.9.1
+		NOT = { has_country_flag = mal57 }
+	}
+	option = {
+		name = mal.1.a
+		set_country_flag = mal57
+	}
+}
+news_event = {
+	id = mal.58
+	title = mal.58.t
+	desc = mal.58.d
+	picture = GFX_TunkuAbdulRahman
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = MAL
+		date < 1958.9.1
+		has_global_flag = mal52
+		NOT = { has_global_flag = mal58 }
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal58
+		if = {
+			limit = { tag = MAL }
+			add_stability = 0.12
+			add_to_variable = { MAL.malays_support = 2 }
+			add_ideas = MAL_constitution_153
+		}
+	}
+}
+news_event = {
+	id = mal.59
+	title = mal.59.t
+	desc = mal.59.d
+	picture = GFX_MalayaNewTown
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = MAL
+		date < 1958.9.1
+		any_owned_state = {
+			school > 0
+			hospital > 0
+			has_state_flag = MAL_newtown
+			NOT = { has_state_flag = mal59 }
+		}
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal58
+		random_owned_state = {
+			limit = {
+				OR = {
+				school > 0
+				hospital > 0
+				}
+				has_state_flag = MAL_newtown
+				NOT = { has_state_flag = mal59 }
+			}
+			add_resistance = -15
+			set_state_flag = mal59
+		}
+		add_to_variable = { MAL.labour_support = 1 }
+		add_to_variable = { MAL.chinese_support = 1 }
+		add_stability = 0.02
+		add_popularity = {
+			ideology = communism
+			popularity = -0.12
+		}
+	}
+}
+news_event = {
+	id = mal.60
+	title = mal.60.t
+	desc = mal.60.d
+	picture = GFX_MalayaProtest
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = MAL
+		date < 1958.9.1
+		any_owned_state = {
+			school < 1
+			hospital < 1
+			has_state_flag = MAL_newtown
+		}
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal58
+		random_owned_state = {
+			limit = {
+				school < 1
+				hospital < 1
+				has_state_flag = MAL_newtown
+			}
+			add_resistance = 5
+			set_state_flag = mal59
+		}
+		add_to_variable = { MAL.labour_support = -1 }
+		add_to_variable = { MAL.chinese_support = -1 }
+	}
+}
+news_event = {
+	id = mal.61
+	title = mal.61.t
+	desc = mal.61.d
+	picture = GFX_MalayaStrike
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = MAL
+		date < 1958.9.1
+		NOT = { has_global_flag = mal61 }
+		check_variable = { MAL.labour_support > 3 }
+	}
+	option = {
+		name = mal.1.a
+		set_global_flag = mal61
+		add_stability = 0.12
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+	}
+}

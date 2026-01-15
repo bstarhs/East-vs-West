@@ -1,0 +1,213 @@
+﻿capital = 271
+
+
+	set_stability = 0.8
+	add_to_array = { global.UNmember_list = FROM }
+# Starting tech
+			recruit_character = ETH_Abebe_Aregai 
+			recruit_character = ETH_Imru_Haile_Selassie 
+			recruit_character = ETH_Asfawossen_Tafari 
+			recruit_character = ETH_Haile_Selassie
+			
+set_country_flag = third_world
+set_country_flag = has_monarchs
+set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+		medical1 = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+set_convoys = 5
+	set_popularities = {
+		democratic = 16
+		monarchism = 60
+		neutrality = 24
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+				promote_character = {
+					character = ETH_Haile_Selassie
+					ideology = monarchism
+				}
+create_country_leader = {
+	name = "Fitawrari Yeebio Woldai"
+	desc = "POLITICS_YEEBIO_WOLDAI_DESC"
+	picture = "gfx/leaders/ETH/Portrait_Ethiopia_Haile_Selassie.dds"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+
+
+#Now a colony of Italy  However, if independent it would have
+1945.1.1 = {
+	oob = "ETH_1947"
+	add_ideas = {
+		EthiopiaChurch
+		service_by_requirement
+		UNmember
+		ETH_lion_defenders
+	}
+}
+1948.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+}
+1955.1.1 = {
+	set_technology = {
+		motorised_infantry = 1
+	}
+	remove_ideas = ETH_lion_defenders
+			recruit_character = ETH_Aklilu_Habte_Wold 
+			recruit_character = ETH_Mengistu_Neway 
+			recruit_character = ETH_Germame_Neway 
+	activate_decision = female_equality
+}
+1961.1.20 = {
+		retire_character = ETH_Mengistu_Neway
+		retire_character = ETH_Germame_Neway
+		retire_character = ETH_Abebe_Aregai
+	complete_national_focus = common_24
+	set_popularities = {
+		democratic = 19
+		monarchism = 67
+		neutrality = 14
+	}
+	add_ideas = {
+		ETH_atze_army
+		NonAligned
+	}
+}
+1963.1.1 = {
+	add_ideas = {
+		african_union
+		
+	}
+}
+1974.1.20 = {
+	complete_national_focus = common_63
+	add_ideas = {
+		closed_economy
+		localism
+		Anti_religious
+		AgriculturalCollectivization
+	}
+	remove_ideas = {
+		ETH_atze_army
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic = 12
+		communism = 72
+		neutrality = 16
+	}
+	create_country_leader = {
+		name = "Haile Mengistu"
+		
+		picture = "gfx/leaders/ETH/Portrait_Ethiopia_Mengistu.tga"
+		expire = "1997.1.1"
+		ideology = marxism
+		
+		traits = {
+			tyrant pro_soviet
+		}
+	}
+}
+1977.2.1 = {
+	set_popularities = {
+		democratic = 26
+		communism = 54
+		neutrality = 20
+	}
+	create_country_leader = {
+		name = "Meles Zenawi"
+		
+		picture = "gfx/leaders/ETH/Portrait_Ethiopia_Meles_Zenawi.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		}
+	}
+}
+1988.1.1 = {
+	complete_national_focus = common_73
+	add_ideas = {
+		jungle_war
+	}
+}
+1991.3.29 = {
+	create_country_leader = {
+		name = "Meles Zenawi"
+		picture = "gfx/leaders/ETH/Portrait_Ethiopia_Meles_Zenawi.tga"
+		expire = "2050.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		}
+	}
+	remove_ideas = {
+		warsawpact
+		comecon
+		Secularism
+		AgriculturalCollectivization
+	}
+	set_popularities = {
+		authoritarianism = 63
+		democratic = 20
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}

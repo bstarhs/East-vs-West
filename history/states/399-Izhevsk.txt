@@ -1,0 +1,42 @@
+
+state={
+	id=399
+	name="STATE_399"
+	manpower = 1324935
+	state_category = city
+	resources={
+		tungsten=24
+		iron = 16
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Russian
+		add_to_array = { this.state_ethnics_list = 143 }
+		victory_points = { 6278 10 }
+		owner = SOV
+		buildings = {
+			rubber_factory = 2
+			hospital = 2
+			farm_building = 3
+			power_plant = 3
+			steel_making = 1
+			infrastructure = 6
+			arms_factory = 3
+			industrial_complex = 2
+		}
+		add_core_of = SOV
+		add_core_of = UDM
+		1974.8.17 = {
+			buildings = {
+				industrial_complex = 4
+			synthetic_refinery = 3
+			}
+		}
+	}
+
+	provinces={
+		305 370 381 3027 3270 3294 3300 3394 4356 4400 6217 6224 6278 6297 6388 7359 7403 9293 11320 11365 12203 12244 
+	}
+}

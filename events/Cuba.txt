@@ -1,0 +1,2172 @@
+﻿add_namespace = cub
+#古巴革命胜利
+news_event = {
+	id = cub.2
+	title = cub.2.t
+	desc = cub.2.d
+	picture = GFX_VivaCuba
+	major = yes
+	immediate = {
+		play_song = CUB_1
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = cuba_revo_video
+	}
+	is_triggered_only = yes
+	option = {
+		name = cub.2.a
+		trigger = { NOT = { tag = USA } }
+		if = {
+			limit = { tag = CUB }
+				recruit_character = CUB_Vilma_Espin
+				recruit_character = CUB_Raul_Castro
+				recruit_character = CUB_Faure_Chomon
+				recruit_character = CUB_Che_Guevara
+				recruit_character = CUB_Eloy_Gutierrez_Menoyo
+				recruit_character = CUB_Fidel_Castro
+				remove_ideas = CUB_revolucion
+				add_stability = 0.5
+				set_politics = { ruling_party = authoritarianism }
+				promote_character = {
+					character = CUB_Fidel_Castro
+					ideology = authoritarianism
+				}
+		}
+		if = {
+			limit = {
+				has_country_flag = latin_america
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.03
+			}
+		}
+	}
+	option = {
+		name = cub.2.b
+		trigger = { NOT = {
+			tag = USA
+			tag = CUB
+			has_government = communism
+		} }
+	}
+	option = {
+		name = cub.2.c
+		ai_chance = {
+			factor = 20
+		}
+		news_event = { id = cub.115 days = 1 }
+		add_to_variable = { CUB.US_gov_aid_opinion = -15 }
+		trigger = { tag = USA }
+	}
+}
+#卡斯特罗登陆
+news_event = {
+	id = cub.3
+	title = cub.3.t
+	desc = cub.3.d
+	picture = GFX_Che_Guerrilla
+	major = yes
+	mean_time_to_happen = { days = 20 }
+ 	trigger = {
+		tag = CUB
+		date > 1956.11.1
+		date < 1957.2.1
+		NOT = { has_global_flag = CubanosRevolucion }
+		CUB = { has_government = neutrality }
+	} 
+	option = { 
+		name = cub.3.a
+		if = {
+			limit = { tag = CUB }
+			set_global_flag = CubanosRevolucion
+			add_stability = -0.5
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.4
+			}
+			add_ideas = CUB_revolucion
+			887 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 40
+			}
+		}
+	}
+}
+#求助苏联
+country_event = {
+	id = cub.5
+	title = cub.5.t
+	desc = cub.5.d
+	picture = GFX_CubaMap
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = cub.5.a
+			CUB = { country_event = { id = cub.6 } }
+	}
+}
+#苏联同意
+country_event = {
+	id = cub.6
+	title = cub.6.t
+	desc = cub.6.d
+	picture = GFX_CubaMap
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = cub.6.a
+		CUB = { 
+			diplomatic_relation = {
+				relation = military_access
+				country = SOV
+				active = yes
+			}
+			set_global_flag = cuba_missiles
+		}
+		SOV = { load_oob = "CubaMsissil" }
+	}
+}
+
+#导弹基地被发现
+country_event = {
+	id = cub.10
+	title = cub.10.t
+	desc = cub.10.d
+	picture = GFX_CubaMap
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		CUB = {	has_global_flag = cuba_missiles }
+		has_character = CUB_Fidel_Castro
+	} 
+	option = {	#封锁古巴
+		name = cub.10.a
+		news_event = { id = cub.15 }
+		CUB = { add_named_threat = { threat = 10 name = Cuban_missile_crisis } }
+		custom_effect_tooltip = reformation_chosen
+		news_event = { id = cub.11 days = 10 }
+	}
+}
+#美国人封锁古巴
+news_event = {
+	id = cub.11
+	title = cub.11.t
+	desc = cub.11.d
+	picture = GFX_CubaMap
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = {
+			limit = { tag = SOV }
+			SOV = { add_named_threat = { threat = -25 name = USSR_remove_cuban_missiles } }
+		}
+	}
+
+	option = {	#派军舰去古巴
+		name = cub.10.a
+		if = {
+			limit = { tag = SOV }
+			USA = { country_event = { id = cub.12 days = 10 } }
+			SOV = {
+				add_named_threat = { threat = 10 name = Cuban_missile_crisis }
+			}
+		}
+	}
+}
+#苏联军舰靠近古巴
+country_event = {
+	id = cub.12
+	title = cub.12.t
+	desc = cub.10.d
+	picture = GFX_CubaMap
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {	#让步
+		name = cub.12.B
+		news_event = { id = cub.14 }
+		SOV = {
+			add_named_threat = { threat = -25 name = USA_remove_cuban_missiles }
+		}
+		USA = {
+			add_named_threat = { threat = -25 name = USA_remove_cuban_missiles }
+		}
+	}
+	option = {
+		name = cub.12.a
+		SOV = { country_event = { id = cub.13 } }
+	}
+}
+#苏联被拦截
+country_event = {
+	id = cub.13
+	title = cub.13.t
+	desc = cub.13.d
+	picture = GFX_CubaMap
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {	#让步
+		name = cub.13.b
+		news_event = { id = cub.14 }
+		SOV = {
+			add_named_threat = { threat = -25 name = USA_remove_cuban_missiles }
+		}
+		USA = {
+			add_named_threat = { threat = -25 name = USA_remove_cuban_missiles }
+		}
+	}
+
+	option = {	#派军舰去古巴
+		name = cub.13.a
+		USA = {
+			declare_war_on = {
+			target = CUB
+			type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+#苏联让步
+country_event = {
+	id = cub.14
+	title = cub.14.t
+	desc = cub.14.d
+	picture = GFX_CubaMap
+	is_triggered_only = yes
+	major = yes
+	option = {	#让步
+		name = cub.10.B
+		clr_global_flag = cuba_missiles
+	}
+}
+#古巴导弹危机（新闻
+news_event = {
+	id = cub.15
+	title = cub.15.t
+	desc = cub.15.d
+	picture = GFX_Kennedy
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = comintern_war_1
+	}
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+#格瓦拉出走
+news_event = {
+	id = cub.16
+	title = cub.16.t
+	desc = cub.10.d
+	picture = GFX_CubaMap
+	fire_only_once = yes
+	trigger = {
+		tag = CUB
+		has_global_flag = Cuban_fell
+		date > 1964.1.1
+		date < 1970.4.1
+	}
+
+	option = {	#派军舰去古巴
+		name = cub.10.a
+		CUB = {
+			set_global_flag = Guevara_leave
+		}
+	}
+}
+#格瓦拉领导游击队
+news_event = {
+	id = cub.17
+	title = cub.17.t
+	desc = cub.10.d
+	picture = GFX_Che_Guerrilla
+	fire_only_once = yes
+	trigger = {
+	AND = {
+		has_government = neutrality
+		CUB = { has_global_flag = Guevara_leave }
+		date > 1964.1.1
+		date < 1967.4.1
+		}
+		OR = { 
+			tag = COG	
+			tag = BOL
+			tag = GUA
+			tag = NIC
+			tag = VEN
+			tag = PAN
+			tag = COS
+			tag = HAI
+			tag = HON
+		}
+	}
+
+	option = {	#派军舰去古巴
+		name = cub.10.a
+		add_stability = -0.25
+		add_popularity = {
+			ideology = communism
+			popularity = 0.3
+		}
+	}
+}
+#巴蒂斯塔政变
+news_event = {
+	id = cub.20
+	title = cub.20.t
+	desc = cub.20.d
+	picture = GFX_Badista
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = BadistaCoup }
+		date > 1950.10.20
+		date < 1950.12.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = BadistaCoup
+		if = {
+			limit = { tag = USA }
+			news_event = { id = cub.21 }
+		}
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.3
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Fulgencio Batista"
+		
+				picture = "gfx/leaders/CUB/Portrait_Cuba_Fulgencio_Batista.tga"
+				ideology = despotism
+				
+				traits = {
+					anti_communist pro_america corrupt_leader
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = mal.3.a
+		trigger = { NOT = { tag = CUB } }
+		if = {
+			limit = { tag = USA }
+			news_event = { id = cub.22 }
+		}
+	}
+}
+news_event = {
+	id = cub.21
+	title = cub.21.t
+	desc = cub.21.d
+	picture = GFX_Badista
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = mal.3.a
+		if = {
+			limit = { tag = CUB }
+			add_stability = 0.12
+			add_political_power = 200
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.22
+	title = cub.22.t
+	desc = cub.22.d
+	picture = GFX_Badista
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = mal.3.a
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.3
+			add_political_power = -200
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.23
+	title = cub.23.t
+	desc = cub.23.d
+	picture = GFX_AttackMoncada
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = AttackMoncada }
+		COL = { has_government = authoritarianism }
+		has_government = neutrality
+		date > 1953.7.1
+		date < 1953.10.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = AttackMoncada
+		set_global_flag = MoncadaTrial
+	}
+}
+news_event = {
+	id = cub.24
+	title = cub.24.t
+	desc = cub.24.d
+	picture = GFX_TrialCastro
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub24 }
+		has_government = neutrality
+		has_global_flag = MoncadaTrial
+		date > 1953.7.1
+		date < 1953.10.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub24
+		if = {
+			limit = { tag = CUB }
+			set_party_name = {
+				ideology = authoritarianism
+				long_name = CUB_M267_party
+				name = CUB_M267_party
+			}
+			promote_character = {
+				character = CUB_Fidel_Castro
+				ideology = authoritarianism
+			}
+			add_stability = -0.3
+			add_political_power = -200
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.25
+	title = cub.25.t
+	desc = cub.25.d
+	picture = GFX_TrialCastro
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = MoncadaTrial
+		NOT = { has_global_flag = cub23 }
+		has_government = neutrality
+		date > 1955.7.1
+		date < 1955.10.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub23
+	}
+}
+country_event = {
+	id = cub.35
+	title = cub.35.t
+	desc = cub.35.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		date > 1948.2.1
+		has_stability > 0.7
+		NOT = { has_global_flag = cub38 }
+	}
+	option = {
+		name = cub.35.a
+		add_to_variable = { CUB.gambling_expanded = 1 }
+		add_to_variable = { CUB.gambling_loosing = -1 }
+		add_political_power = 80
+	}
+}
+country_event = {
+	id = cub.36
+	title = cub.36.t
+	desc = cub.36.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		date > 1948.2.1
+		has_stability < 0.7
+		has_stability > 0.5
+		NOT = { has_global_flag = cub38 }
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 30
+	}
+}
+country_event = {
+	id = cub.37
+	title = cub.37.t
+	desc = cub.37.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		date > 1948.2.1
+		has_stability < 0.5
+		NOT = { has_global_flag = cub38 }
+	}
+	option = {
+		name = cub.35.a
+		add_to_variable = { CUB.gambling_loosing = 1 }
+		add_political_power = -10
+	}
+}
+country_event = {
+	id = cub.38
+	title = cub.38.t
+	desc = cub.38.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		date > 1948.2.1
+		has_stability < 0.5
+		NOT = { has_global_flag = cub38 }
+		check_variable = { CUB.gambling_loosing > 4 }
+	}
+	option = {
+		name = cub.35.a
+		set_global_flag = cub38
+		add_political_power = -150
+		add_stability = -0.04
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.02
+		}
+	}
+}
+country_event = {
+	id = cub.39
+	title = cub.39.t
+	desc = cub.39.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		date > 1948.2.1
+		NOT = { has_global_flag = cub38 }
+		check_variable = { CUB.gambling_expanded > 4 }
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = -20
+		add_to_variable = { CUB.US_gov_aid_opinion = -1 }
+	}
+}
+
+
+
+
+news_event = {
+	id = cub.40
+	title = cub.40.t
+	desc = cub.40.d
+	picture = GFX_Che_Guerrilla
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = MoncadaTrial
+		NOT = { has_global_flag = cub40 }
+		has_government = neutrality
+		date > 1957.2.1
+		date < 1957.4.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub40
+	}
+}
+news_event = {
+	id = cub.41
+	title = cub.41.t
+	desc = cub.41.d
+	picture = GFX_CubaPalaceAttack
+	major = yes
+	mean_time_to_happen = {
+		days = 8
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub41 }
+		has_government = neutrality
+		date > 1957.3.1
+		date < 1957.3.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub41
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.12
+			add_political_power = -200
+			news_event = { id = cub.43 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = cub.43
+	title = cub.43.t
+	desc = cub.43.d
+	picture = GFX_CubaPalaceAttack
+	is_triggered_only = yes
+	major = yes
+	option = {	#让步
+		name = cub.10.B
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.05
+		}
+	}
+}
+news_event = {
+	id = cub.44
+	title = cub.44.t
+	desc = cub.44.d
+	picture = GFX_MuerteEcheverría
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = cub41
+		NOT = { has_global_flag = cub44 }
+		has_government = neutrality
+		date > 1957.3.1
+		date < 1957.3.30
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub44
+		if = {
+			limit = { tag = CUB }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.06
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.45
+	title = cub.45.t
+	desc = cub.45.d
+	picture = GFX_Humboldt_7
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = cub44
+		NOT = { has_global_flag = cub45 }
+		has_government = neutrality
+		date > 1957.3.1
+		date < 1957.3.30
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub45
+	}
+}
+news_event = {
+	id = cub.46
+	title = cub.46.t
+	desc = cub.46.d
+	picture = GFX_AmbEarlSmith
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub46 }
+		has_government = neutrality
+		date > 1957.6.1
+		date < 1957.7.15
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub46
+		if = {
+			limit = { tag = CUB }
+			add_stability = 0.1
+			add_political_power = 120
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.47
+	title = cub.47.t
+	desc = cub.47.d
+	picture = GFX_FrancPais
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub46 }
+		has_government = neutrality
+		date > 1957.7.1
+		date < 1957.8.15
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub46
+		if = {
+			limit = { tag = CUB }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.48
+	title = cub.48.t
+	desc = cub.48.d
+	picture = GFX_Cienfuegos
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub48 }
+		has_government = neutrality
+		date > 1957.9.1
+		date < 1957.10.15
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub48
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.50
+	title = cub.50.t
+	desc = cub.50.d
+	picture = GFX_313RevolutionDirectors
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub50 }
+		has_government = neutrality
+		date > 1957.11.1
+		date < 1957.12.15
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub50
+		if = {
+			limit = { tag = CUB }
+			set_party_name = {
+				ideology = democratic
+				long_name = CUB_revolucion_director_party
+				name = CUB_revolucion_director_party
+			}
+			888 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.51
+	title = cub.51.t
+	desc = cub.51.d
+	picture = GFX_Che_Guerrilla
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = MoncadaTrial
+		NOT = { has_global_flag = cub51 }
+		has_government = neutrality
+		date > 1958.2.1
+		date < 1958.4.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub51
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.15
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.52
+	title = cub.52.t
+	desc = cub.52.d
+	picture = GFX_CubanGrandPrix
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cub.71.a
+	}
+
+}
+
+news_event = {
+	id = cub.53
+	title = cub.53.t
+	desc = cub.53.d
+	picture = GFX_JuanFangio
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = cub52
+		NOT = { has_global_flag = cub53 }
+		has_government = neutrality
+		date > 1958.2.1
+		date < 1958.4.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub53
+	}
+}
+news_event = {
+	id = cub.57
+	title = cub.57.t
+	desc = cub.57.d
+	picture = GFX_JuanFangio
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CUB
+		has_global_flag = cub53
+		NOT = { has_global_flag = cub57 }
+		has_government = neutrality
+		date > 1958.2.1
+		date < 1958.4.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub57
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+		}
+	}
+}
+#内战爆发
+news_event = {
+	id = cub.58
+	title = cub.58.t
+	desc = cub.58.d
+	picture = GFX_VivaCuba
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		has_government = neutrality
+		has_war = no
+		OR = {
+			is_ai = yes
+			neutrality < 0.15
+		}
+		OR = {
+			AND = {
+				is_ai = yes
+				date > 1958.6.1
+			}
+			communism > 0.6
+			authoritarianism > 0.6
+		}
+	} 
+	option = {
+		name = cub.2.a
+		if = {
+			limit = { tag = CUB }
+			start_civil_war = {
+				ideology = authoritarianism
+				states = { 887 }
+				size = 0.8
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.61
+	title = cub.61.t
+	desc = cub.61.d
+	picture = GFX_Cienfuegos
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub61 }
+		has_government = neutrality
+		date > 1957.5.1
+		date < 1957.6.15
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub61
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.01
+
+		}
+	}
+}
+news_event = {
+	id = cub.62
+	title = cub.62.t
+	desc = cub.62.d
+	picture = GFX_CarlosSocarras
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub62 }
+		has_government = neutrality
+		date > 1957.6.1
+		date < 1957.7.15
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub62
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.04
+
+		}
+	}
+}
+country_event = {
+	id = cub.63
+	title = cub.63.t
+	desc = cub.63.d
+	picture = GFX_IrgunSmall
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			has_country_flag = latin_america
+			tag = SOV
+			tag = CZE
+			tag = CAN
+			tag = SWE
+		}
+		date > 1957.6.1
+		date < 1960.12.1
+		CUB = {
+			has_government = neutrality
+		}
+		NOT = { has_country_flag = cub63 }
+	}
+	option = {
+		name = isr.58.a
+		set_country_flag = cub63
+		CUB = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.01
+			}
+			887 = { add_resistance = 1 }
+		}
+	}
+	option = {
+		name = isr.58.b
+		set_country_flag = cub63
+	}
+}
+
+
+
+
+news_event = {
+	id = cub.70
+	title = cub.70.t
+	desc = cub.70.d
+	picture = GFX_Hemingway
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_global_flag = cub70 }
+		date > 1954.2.1
+		date < 1954.4.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = cub70
+	}
+}
+
+
+news_event = {
+	id = cub.71
+	title = cub.71.t
+	desc = cub.71.d
+	picture = GFX_313RevolutionDirectors
+	is_triggered_only = yes
+	option = {
+		name = cub.71.a
+		news_event = { id = cub.2 }
+		remove_ideas = CUB_revolucion
+			add_stability = -0.4
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.3
+			}
+		set_politics = { ruling_party = authoritarianism }
+		promote_character = {
+			character = CUB_Fidel_Castro
+			ideology = authoritarianism
+		}
+	}
+
+}
+country_event = {
+	id = cub.76
+	title = cub.76.t
+	desc = cub.76.d
+	picture = GFX_CubaCoast
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		date > 1948.2.1
+		has_stability > 0.6
+		NOT = { has_global_flag = cub78 }
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 40
+	}
+}
+country_event = {
+	id = cub.77
+	title = cub.77.t
+	desc = cub.77.d
+	picture = GFX_CubaCoast
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		date > 1948.2.1
+		has_stability < 0.5
+		NOT = { has_global_flag = cub78 }
+	}
+	option = {
+		name = cub.35.a
+		add_to_variable = { CUB.tourism_loosing = 1 }
+	}
+}
+country_event = {
+	id = cub.78
+	title = cub.78.t
+	desc = cub.78.d
+	picture = GFX_CubaCoast
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		date > 1948.2.1
+		has_stability < 0.5
+		check_variable = { CUB.tourism_loosing > 5 }
+	}
+	option = {
+		name = cub.35.a
+		set_global_flag = cub78
+		add_political_power = -15
+		add_stability = -0.02
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.02
+		}
+	}
+}
+country_event = {
+	id = cub.79
+	title = cub.79.t
+	desc = cub.79.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		date > 1948.2.1
+		has_stability > 0.7
+		neutrality > 0.6
+		any_owned_state = { resistance > 5 }
+		NOT = { has_global_flag = cub38 }
+	}
+	option = {
+		name = cub.35.a
+			random_owned_state = {
+				limit = {
+					is_core_of = CUB
+					resistance > 5
+				}
+				add_compliance = 12
+				add_resistance = -2
+			}
+	}
+}
+
+
+country_event = {
+	id = cub.81
+	title = cub.81.t
+	desc = cub.81.d
+	picture = GFX_CubaCoast
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		NOT = { has_global_flag = cub78 }
+		date > 1948.2.1
+		has_stability > 0.8
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 40
+	}
+}
+country_event = {
+	id = cub.82
+	title = cub.82.t
+	desc = cub.82.d
+	picture = GFX_CubaCoast
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		NOT = { has_global_flag = cub78 }
+		date > 1948.2.1
+		has_stability > 0.75
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 30
+	}
+}
+country_event = {
+	id = cub.83
+	title = cub.83.t
+	desc = cub.83.d
+	picture = GFX_CubaCoast
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		NOT = { has_global_flag = cub78 }
+		date > 1948.2.1
+		has_stability > 0.75
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 30
+	}
+}
+country_event = {
+	id = cub.90
+	title = cub.90.t
+	desc = cub.90.d
+	picture = GFX_IrgunSmall
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = CUB
+		887 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		887 = { has_state_flag = CUB_construct_slum }
+		888 = { has_state_flag = CUB_construct_slum }
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 30
+		add_stability = 0.01
+		887 = { add_resistance = -10 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.02
+		}
+	}
+}
+country_event = {
+	id = cub.91
+	title = cub.91.t
+	desc = cub.91.d
+	picture = GFX_IrgunSmall
+	mean_time_to_happen = {
+		days = 200
+	}
+	trigger = {
+		tag = CUB
+		887 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		887 = { has_state_flag = CUB_construct_slum }
+		888 = { has_state_flag = CUB_construct_slum }
+		315 = { has_state_flag = CUB_construct_slum }
+	}
+	option = {
+		name = cub.35.a
+		add_political_power = 30
+		add_stability = 0.02
+		887 = { add_resistance = -12 }
+		888 = { add_resistance = -12 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
+	}
+}
+country_event = {
+	id = cub.99
+	title = cub.99.t
+	desc = cub.99.d
+	picture = GFX_gambling_small
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		has_idea = CUB_casino
+		NOT = { has_government = neutrality }
+		NOT = { has_global_flag = cub99 }
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub99
+		add_political_power = -100
+		remove_ideas = CUB_casino
+		news_event = { id = cub.100 }
+	}
+	option = {
+		name = cub.99.b
+		set_global_flag = cub99
+		add_political_power = 800
+	}
+}
+news_event = {
+	id = cub.100
+	title = cub.100.t
+	desc = cub.100.d
+	picture = GFX_FidelCastro
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+news_event = {
+	id = cub.101
+	title = cub.101.t
+	desc = cub.101.d
+	picture = GFX_FidelCastro
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+country_event = {
+	id = cub.102
+	title = cub.102.t
+	desc = cub.102.d
+	picture = GFX_CubaCoast
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.102.a
+		news_event = { id = cub.103 }
+		add_to_variable = { CUB.US_gov_aid_opinion = -10 }
+		add_stability = -0.04
+	}
+	option = {	#让步
+		name = cub.102.b
+		add_political_power = -200
+		add_stability = 0.05
+		news_event = { id = cub.104 }
+	}
+}
+news_event = {
+	id = cub.103
+	title = cub.103.t
+	desc = cub.103.d
+	picture = GFX_FidelCastro
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+news_event = {
+	id = cub.104
+	title = cub.104.t
+	desc = cub.104.d
+	picture = GFX_FidelCastro
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+news_event = {
+	id = cub.105
+	title = cub.105.t
+	desc = cub.105.d
+	picture = GFX_FidelCastro
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+
+
+
+news_event = {
+	id = cub.110
+	title = cub.110.t
+	desc = cub.110.d
+	picture = GFX_CastroVisitUSA
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			news_event = { id = cub.111 days = 5 }
+		}
+	}
+}
+news_event = {
+	id = cub.111
+	title = cub.111.t
+	desc = cub.111.d
+	picture = GFX_CastroNixon
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		
+		ai_chance = {
+			factor = 0
+		}
+		if = { 
+			limit = { tag = CUB }
+			news_event = { id = cub.112 days = 8 }
+		}
+		if = { 
+			limit = { tag = USA }
+			news_event = { id = cub.114 days = 2 }
+		}
+	}
+	option = {	#让步
+		name = cub.10.B
+		trigger = { tag = USA }
+		ai_chance = {
+			factor = 20
+		}
+		if = { 
+			limit = { tag = USA }
+			news_event = { id = cub.115 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = cub.112
+	title = cub.112.t
+	desc = cub.112.d
+	picture = GFX_CastroUN
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		ai_chance = { factor = 0 }
+	}
+	option = {	#让步
+		name = cub.10.B
+		ai_chance = { factor = 10 }
+		trigger = { NOT = { tag = USA } }
+		set_country_flag = CUB_diplomatic
+		if = { 
+			limit = { tag = SOV }
+			news_event = { id = cub.120 days = 2 }
+		}
+		if = { 
+			limit = { tag = PRC }
+			news_event = { id = cub.121 days = 3 }
+		}
+		if = { 
+			limit = {
+				tag = EGY
+				has_government = neutrality
+			}
+			news_event = { id = cub.122 days = 4 }
+		}
+		if = { 
+			limit = {
+				tag = IND
+				has_government = authoritarianism
+			}
+			news_event = { id = cub.123 days = 5 }
+		}
+		if = { 
+			limit = {
+				tag = BRA
+				has_government = democratic
+			}
+			news_event = { id = cub.124 days = 6 }
+		}
+		if = { 
+			limit = {
+				tag = MEX
+				has_government = authoritarianism
+			}
+			news_event = { id = cub.125 days = 7 }
+		}
+	}
+}
+news_event = {
+	id = cub.114
+	title = cub.114.t
+	desc = cub.114.d
+	picture = GFX_Nixon1950s
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+news_event = {
+	id = cub.115
+	title = cub.115.t
+	desc = cub.115.d
+	picture = GFX_Nixon1950s
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_to_variable = { US_gov_aid_opinion = -50 }
+		}
+	}
+}
+
+news_event = {
+	id = cub.120
+	title = cub.120.t
+	desc = cub.120.d
+	picture = GFX_CastroKosygin
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.121
+	title = cub.121.t
+	desc = cub.121.d
+	picture = GFX_CastroZhou
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.122
+	title = cub.122.t
+	desc = cub.122.d
+	picture = GFX_CastroNasser
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = cub.123
+	title = cub.123.t
+	desc = cub.123.d
+	picture = GFX_CastroNehru
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = cub.124
+	title = cub.124.t
+	desc = cub.124.d
+	picture = GFX_CastroKubitschek
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = cub.125
+	title = cub.125.t
+	desc = cub.125.d
+	picture = GFX_CastroCadenas
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = cub.126
+	title = cub.126.t
+	desc = cub.126.d
+	picture = GFX_CastroCadenas
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		if = { 
+			limit = { tag = CUB }
+			add_political_power = 50
+		}
+	}
+}
+
+country_event = {
+	id = cub.127
+	title = cub.127.t
+	desc = cub.127.d
+	picture = GFX_CubaCoast
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.127.a
+		CUB = { country_event = cub.128 }
+		set_country_flag = CUB_diplomatic
+		if = { 
+			limit = { tag = SOV }
+			news_event = { id = cub.120 days = 2 }
+		}
+		if = { 
+			limit = { tag = PRC }
+			news_event = { id = cub.121 days = 3 }
+		}
+		if = { 
+			limit = {
+				tag = EGY
+				has_government = neutrality
+			}
+			news_event = { id = cub.122 days = 4 }
+		}
+		if = { 
+			limit = {
+				tag = IND
+				has_government = authoritarianism
+			}
+			news_event = { id = cub.123 days = 5 }
+		}
+		if = { 
+			limit = {
+				tag = BRA
+				has_government = democratic
+			}
+			news_event = { id = cub.124 days = 6 }
+		}
+		if = { 
+			limit = {
+				tag = MEX
+				has_government = authoritarianism
+			}
+			news_event = { id = cub.125 days = 7 }
+		}
+	}
+	option = {	#让步
+		name = cub.127.b
+		CUB = { country_event = cub.129 }
+	}
+}
+country_event = {
+	id = cub.128
+	title = cub.128.t
+	desc = cub.128.d
+	picture = GFX_CubaCoast
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+country_event = {
+	id = cub.129
+	title = cub.129.t
+	desc = cub.129.d
+	picture = GFX_CubaCoast
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+
+news_event = {
+	id = cub.130
+	title = cub.130.t
+	desc = cub.130.d
+	picture = GFX_EscambrayRebellion
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1960.6.1
+		has_completed_focus = common_61
+		NOT = { has_global_flag = cub130 }
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub130
+		add_political_power = -80
+		add_stability = -0.15
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.05
+		}
+		random_owned_state = {
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 15
+			}
+		}
+		random_owned_state = {
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 15
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.131
+	title = cub.131.t
+	desc = cub.131.d
+	picture = GFX_313RevolutionDirectors
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1960.6.1
+		has_completed_focus = common_48
+		NOT = { has_global_flag = cub131 }
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub131
+		add_political_power = -100
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.05
+		}
+	}
+}
+news_event = {
+	id = cub.132
+	title = cub.132.t
+	desc = cub.132.d
+	picture = GFX_313RevolutionDirectors
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1960.6.1
+		has_completed_focus = common_48
+		has_global_flag = cub131
+		NOT = { has_global_flag = cub132 }
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub132
+		add_political_power = -100
+		add_stability = -0.2
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.05
+		}
+	}
+}
+country_event = {
+	id = cub.133
+	title = cub.133.t
+	desc = cub.133.d
+	picture = GFX_DullesCIA
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = cub133 }
+		date < 1960.6.1
+		CUB = {
+			NOT = { has_government = neutrality }
+			has_completed_focus = common_48
+			has_global_flag = cub132
+		}
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub133
+		CUB = {
+			add_stability = -0.03
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.134
+	title = cub.134.t
+	desc = cub.134.d
+	picture = GFX_EscambrayRebellion
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1960.6.1
+		has_completed_focus = common_48
+		has_global_flag = cub133
+		NOT = { has_global_flag = cub134 }
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub134
+		add_political_power = -120
+		add_stability = -0.15
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.12
+		}
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			887 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 30
+			}
+		}
+	}
+}
+news_event = {
+	id = cub.135
+	title = cub.135.t
+	desc = cub.135.d
+	picture = GFX_EscambrayRebellion
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1961.6.1
+		887 = {
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 10
+		}
+		NOT = { has_global_flag = cub135 }
+	}
+	option = {
+		name = cub.99.a
+		set_global_flag = cub135
+		add_political_power = 200
+		add_stability = 0.3
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.15
+		}
+		887 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			add_resistance = -30
+		}
+		1047 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			add_resistance = -30
+		}
+	}
+}
+news_event = {
+	id = cub.142
+	title = cub.142.t
+	desc = cub.142.d
+	picture = GFX_BattleSantaClara
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1960.6.1
+		NOT = { has_global_flag = cub142 }
+		has_stability < 0.75
+	}
+	option = {
+		name = cub.99.a
+		add_political_power = -20
+		add_stability = -0.01
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.02
+		}
+		315 = {
+			add_resistance = 10
+		}
+	}
+}
+news_event = {
+	id = cub.143
+	title = cub.143.t
+	desc = cub.143.d
+	picture = GFX_CastroCelebrate
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		tag = CUB
+		NOT = { has_government = neutrality }
+		date < 1961.6.1
+		has_stability > 0.7
+		NOT = { 
+			has_idea = CUB_casino
+			has_idea = CUB_mafia_ideas
+			has_idea = FruitCompany
+			has_idea = corrupt
+			has_idea = Latin_Hacienda
+		}
+			if = {
+				limit = { has_government = democratic }
+				democratic > 0.6
+			}
+			if = {
+				limit = { has_government = authoritarianism }
+				authoritarianism > 0.6
+			}
+			if = {
+				limit = { has_government = communism }
+				communism > 0.6
+			}
+	}
+	option = {
+		name = cub.2.a
+		add_political_power = 40
+		add_stability = 0.02
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.02
+		}
+		random_owned_state = {
+			limit = { resistance > 15 }
+			add_resistance = -5
+		}
+		random_owned_state = {
+			limit = { resistance > 5 }
+			add_resistance = -3
+		}
+		random_owned_state = {
+			limit = { resistance > 5 }
+			add_resistance = -3
+		}
+	}
+}
+news_event = {
+	id = cub.144
+	title = cub.144.t
+	desc = cub.144.d
+	picture = GFX_CubaExecute
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+		set_country_flag = cub144
+		if = { 
+			limit = { tag = CUB }
+			add_to_variable = { US_gov_aid_opinion = -8 }
+		}
+	}
+}
+news_event = {
+	id = cub.145
+	title = cub.145.t
+	desc = cub.145.d
+	picture = GFX_SugarPlantation
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+news_event = {
+	id = cub.146
+	title = cub.146.t
+	desc = cub.146.d
+	picture = GFX_SugarPlantation
+	major = yes
+	is_triggered_only = yes
+	option = {	#让步
+		name = cub.10.B
+	}
+}
+news_event = {
+	id = cub.150
+	title = cub.150.t
+	desc = cub.150.d
+	picture = GFX_CastroCelebrate
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = CUB_3
+	}
+	option = {	#让步
+		name = cub.150.a
+	}
+}
+
+news_event = {
+	id = cub.155
+	title = cub.155.t
+	desc = cub.155.d
+	picture = GFX_LaCoubre
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CUB
+		has_government = authoritarianism
+		date > 1960.3.1
+		date < 1960.6.1
+		NOT = { has_global_flag = cub155 }
+	}
+	option = {
+		name = cub.155.a
+		set_global_flag = cub155
+		if = {
+			limit = { tag = CUB }
+				
+		news_event = { id = cub.156 days = 2 }
+			add_political_power = -20
+			add_stability = -0.01
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.01
+			}
+			
+		}
+	}
+}
+news_event = {
+	id = cub.156
+	title = cub.156.t
+	desc = cub.156.d
+	picture = GFX_GuerrilleroHeroico
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cub.156.a
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+	}
+}
+country_event = {
+	id = cub.160
+	title = cub.160.t
+	desc = cub.160.d
+	picture = GFX_IrgunSmall
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		has_country_flag = latin_america
+		OR = {
+			has_country_leader_with_trait = anti_communist
+			has_country_leader_with_trait = dictator
+			has_country_leader_with_trait = corrupt_leader
+		}
+		CUB = { has_government = authoritarianism }
+		date > 1958.3.1
+		date < 1961.1.1
+		NOT = { has_country_flag = cub160 }
+	}
+	option = {
+		name = cub.155.a
+		set_country_flag = cub160
+		add_political_power = -20
+		CUB = {
+			random_owned_state = {
+				add_resistance = 2
+			}
+		}
+	}
+	option = {
+		name = cub.155.a
+		set_country_flag = cub160
+	}
+}

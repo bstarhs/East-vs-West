@@ -1,0 +1,59 @@
+
+state={
+	id=289
+	name="STATE_289"
+	manpower = 12422400
+	
+	state_category = city
+	
+	resources={
+		rubber=10
+		tungsten=2
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = banana_production
+		add_to_array = { this.state_ethnics_list = 163 }
+		set_state_flag = coffee_production
+		set_state_flag = sugar_production
+		set_state_flag = ethnics_Thai
+		owner = SIA
+		buildings = {
+			hospital = 1
+			infrastructure = 3
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 3
+			farm_building = 4
+				power_plant = 1
+			dockyard = 2
+			7408 = {
+				naval_base = 3
+			}
+		}
+		1960.8.23 = {
+			set_state_category = large_city
+			buildings = {
+				farm_building = 6
+				power_plant = 2
+				steel_making = 1
+				synthetic_refinery = 1
+				rubber_factory = 1
+				industrial_complex = 3
+			}
+		}
+		victory_points = { 7408 10 }
+		victory_points = { 7367 4 }
+		victory_points = { 10250 5 }
+		victory_points = { 1244 4 }
+		victory_points = { 1472 4 }
+		victory_points = { 7225 3 }
+		add_core_of = SIA
+	}
+
+	provinces={
+		1244 1427 4433 7225 7292 7367 7408 7587 10250 10293 12224 
+	}
+}

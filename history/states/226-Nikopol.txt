@@ -1,0 +1,50 @@
+
+state={
+	id=226
+	name="STATE_226" # Dnipropertovsk
+	manpower = 2391047
+	state_category = large_town
+	resources={
+		oil=6
+	}
+
+	history={
+		set_state_flag = ethnics_Ukraine
+		set_state_flag = SOV_corn_states
+		add_to_array = { this.state_ethnics_list = 170 }
+                               
+		owner = SOV
+		victory_points = {
+			11437 10 
+		}
+		victory_points = {
+			9433 3
+		}
+		victory_points = {
+			11561 2
+		}
+		buildings = {
+			power_plant = 4
+			steel_making = 6
+			infrastructure = 5
+			industrial_complex = 2
+			air_base = 2
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1990.1.1 = {
+			owner = UKR
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		453 472 486 6423 9419 9433 9463 9479 11422 11437 11452 11561 
+	}
+}

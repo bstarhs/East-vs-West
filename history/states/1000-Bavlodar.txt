@@ -1,0 +1,30 @@
+state={
+	id=1000
+	name="STATE_1000"
+	state_category = rural
+	history={
+		add_to_array = { this.state_ethnics_list = 11 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Khazakhs
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = SOV
+		buildings = {
+			farm_building = 2
+			infrastructure = 4
+
+		}
+		victory_points = { 10630 3 }
+		add_core_of = SOV
+		add_core_of = KAZ
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		12616 4670 10630 10202 7708 4685 7317 1879 10235 1287 10292 10161 7350 
+	}
+	manpower=659223
+	buildings_max_level_factor=1.000
+}

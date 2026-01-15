@@ -1,0 +1,80 @@
+
+state={
+	id=413
+	name="STATE_413"
+	manpower = 797356
+	state_category = large_town
+	resources={
+		oil = 23
+	}
+	history={
+		add_to_array = { this.state_ethnics_list = 134 }
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_dynamic_modifier = { modifier = state_modifier_kanr }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Arabs
+		owner = PER
+		buildings = {
+			hospital = 1
+			school = 1
+			arms_factory = 2
+			infrastructure = 4
+			industrial_complex = 3
+			oilfield = 2
+			farm_building = 3
+			synthetic_refinery = 2
+			power_plant = 2
+			dockyard = 1
+			13730 = {
+				naval_base = 1
+			}
+			7953 = {
+				bunker = 1
+			}
+		}
+		victory_points = {
+			13348 10
+		}
+		victory_points = {
+			13730 5
+		}
+		victory_points = {
+			13729 4
+		}
+		victory_points = {
+			10774 3
+		}
+		victory_points = {
+			1922 3
+		}
+		victory_points = {
+			13349 2
+		}
+		victory_points = {
+			13727 8
+		}
+		add_core_of = PER
+		1963.1.1 = {
+			set_state_category = city
+			buildings = {
+				power_plant = 2
+				steel_making = 1
+			}
+		}
+		1976.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+		1985.1.1 = {
+			buildings = {
+				steel_making = 2
+			}
+		}
+	}
+
+	provinces={
+		1922 5005 7953 13348 13349 10774 13440 13733 13728 13730 13727 13729 13731
+	}
+}

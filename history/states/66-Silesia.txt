@@ -1,0 +1,63 @@
+
+state={
+	id=66
+	name="STATE_66"
+	manpower = 3052726
+	resources={
+		iron=50
+		coal = 72
+		aluminium=38
+		copper=24
+	}
+	local_supplies=0.0
+	state_category = large_city
+
+	history={
+		add_core_of = SIL
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Deutscher
+		add_core_of = WDR
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 63 }
+		add_to_array = { this.state_ethnics_list = 136 }
+		1950.1.1 = {
+		clr_state_flag = ethnics_Deutscher
+		set_state_flag = ethnics_Polish
+		}
+		owner = POL
+		victory_points = {
+			9570 10 
+		}
+		victory_points = {
+			6534 3
+		}
+		victory_points = {
+			3545 4
+		}
+		buildings = {
+			school = 1
+			farm_building = 1
+			infrastructure = 3
+			power_plant = 1
+			hospital = 1
+			industrial_complex = 1
+			air_base = 6
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+				farm_building = 3
+				power_plant = 3
+				arms_factory = 4
+				industrial_complex = 4
+			}
+		}
+		add_core_of = POL
+
+	}
+
+	provinces={
+		552 3283 3438 3485 3510 3545 6462 6534 6595 9470 9570 11517 
+	}
+}

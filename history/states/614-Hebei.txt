@@ -1,0 +1,58 @@
+
+state={
+	id=614
+	name="STATE_614" # Hebei
+	manpower = 18434900
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		owner = SHX
+		set_state_flag = ethnics_Han
+		set_state_flag = cutton_production
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_core_of = CHI
+		add_core_of = SHX
+		add_core_of = PRC	
+			PRC = {
+				set_province_controller = 7109
+				set_province_controller = 10022
+				set_province_controller = 11996
+			} 
+		buildings = {
+			4190 = {
+				bunker = 3
+			}
+			1188 = {
+				bunker = 3
+			}
+			hospital = 1
+			farm_building = 3
+			power_plant = 1
+			infrastructure = 4
+		}
+		1947.11.12 = {
+			controller = PRC
+		}
+		1949.11.12 = {
+			owner = PRC
+		}
+		victory_points = { 1188 4 }
+		victory_points = { 11944 3 }
+		victory_points = { 4190 5 }
+		victory_points = { 1134 6 }
+		victory_points = { 10003 3 }
+		1965.10.25 = {		
+			buildings = {
+				industrial_complex = 4
+				farm_building = 4
+			} 			
+		}
+
+	}
+
+	provinces={
+		1188 4032 4093 4190 4208 7000 7092 7109 10003 10022 10053 11944 11980 11996 12062 1169 4058 1134 4140 12026 1137 6828 
+	}
+}

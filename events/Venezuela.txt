@@ -1,0 +1,422 @@
+﻿add_namespace = ven
+#对军政府的日益不满
+news_event = {
+	id = ven.30
+	title = ven.30.t
+	desc = ven.30.d
+	picture = GFX_1958VenezuelaCoup
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven37 }
+		NOT = { has_global_flag = ven32 }
+		NOT = { has_global_flag = ven30 }
+		date > 1958.1.20
+		date < 1958.3.1
+		has_government = neutrality
+	}
+	option = {
+		name = ven.1.a
+		set_global_flag = ven30
+	}
+}
+news_event = {
+	id = ven.31
+	title = ven.31.t
+	desc = ven.31.d
+	picture = GFX_MarcosPerezJimenez
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven37 }
+		NOT = { has_global_flag = ven32 }
+		has_global_flag = ven30
+		date > 1958.1.20
+		date < 1958.4.1
+		has_government = neutrality
+	}
+	option = {
+		name = ven.1.a
+		set_global_flag = ven31
+		news_event = { id = ven.32 }
+	}
+}
+news_event = {
+	id = ven.32
+	title = ven.32.t
+	desc = ven.32.d
+	picture = GFX_1958VenezuelaCoup
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		set_global_flag = ven32
+	}
+}
+news_event = {
+	id = ven.33
+	title = ven.33.t
+	desc = ven.33.d
+	picture = GFX_1958VenezuelaCoup
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven37 }
+		NOT = { has_global_flag = ven33 }
+		has_global_flag = ven32
+		date > 1958.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = ven.1.a
+		set_global_flag = ven33
+	}
+}
+news_event = {
+	id = ven.34
+	title = ven.34.t
+	desc = ven.34.d
+	picture = GFX_1958VenezuelaCoup
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven37 }
+		has_global_flag = ven32
+		date > 1958.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = ven.1.a
+	}
+}
+news_event = {
+	id = ven.35
+	title = ven.35.t
+	desc = ven.35.d
+	picture = GFX_1958VenezuelaCoup
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven37 }
+		has_global_flag = ven32
+		date > 1958.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = ven.1.a
+	}
+}
+
+news_event = {
+	id = ven.36
+	title = ven.36.t
+	desc = ven.36.d
+	picture = GFX_1958VenezuelaCoup
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven37 }
+		has_global_flag = ven32
+		date > 1958.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = ven.1.a
+		promote_character = {
+			character = VEN_Wolfgang_Larrazabal
+			ideology = despotism
+		}
+		set_global_flag = ven37
+		news_event = { id = ven.37 }
+	}
+}
+news_event = {
+	id = ven.37
+	title = ven.37.t
+	desc = ven.37.d
+	picture = GFX_WolfgangLarrazabal
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		set_global_flag = ven37
+	}
+}
+news_event = {
+	id = ven.40
+	title = ven.40.t
+	desc = ven.40.d
+	picture = GFX_LarrazabalCastro
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven40 }
+		has_global_flag = ven37
+		date > 1958.1.20
+		has_government = neutrality
+		has_country_leader_with_trait = resolute_social_democrat
+	}
+	option = {
+		name = ven.1.a
+		set_global_flag = ven40
+		if = {
+			limit = { tag = CUB }
+			add_stability = -0.04
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.06
+			}
+		}
+	}
+}
+news_event = {
+	id = ven.41
+	title = ven.41.t
+	desc = ven.41.d
+	picture = GFX_LarrazabalNixon
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven41 }
+		has_global_flag = ven37
+		date > 1958.5.20
+		has_government = neutrality
+		has_country_leader_with_trait = resolute_social_democrat
+	}
+	option = {
+		name = ven.41.a
+		set_global_flag = ven41
+		if = {
+			limit = { tag = VEN }
+			news_event = { id = ven.42 days = 1 }
+		}
+	}
+}
+news_event = {
+	id = ven.42
+	title = ven.42.t
+	desc = ven.42.d
+	picture = GFX_NixonVenezuela
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		if = {
+			limit = { tag = USA }
+			VEN = { news_event = { id = ven.43 days = 3 } }
+		}
+	}
+}
+news_event = {
+	id = ven.43
+	title = ven.43.t
+	desc = ven.43.d
+	picture = GFX_NixonVenezuela
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		news_event = { id = ven.44 days = 4 }
+		add_political_power = -100
+		add_stability = 0.02
+	}
+	option = {
+		name = ven.5.a
+		news_event = { id = ven.45 days = 4 }
+		add_stability = -0.05
+	}
+}
+news_event = {
+	id = ven.44
+	title = ven.44.t
+	desc = ven.44.d
+	picture = GFX_NixonVenezuela
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+news_event = {
+	id = ven.45
+	title = ven.45.t
+	desc = ven.45.d
+	picture = GFX_NixonVenezuela
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+news_event = {
+	id = ven.46
+	title = ven.46.t
+	desc = ven.46.d
+	picture = GFX_Puntofijo
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven46 }
+		date > 1958.10.10
+		has_government = neutrality
+		has_country_leader_with_trait = resolute_social_democrat
+	}
+	option = {
+		name = ven.41.a
+		set_global_flag = ven46
+		news_event = { id = ven.47 days = 1 }
+		add_ideas = VEN_Puntofijo_doctrine
+		add_political_power = 200
+	}
+	option = {
+		name = ven.41.a
+		set_global_flag = ven46
+		news_event = { id = ven.48 days = 1 }
+		add_stability = -0.15
+	}
+}
+news_event = {
+	id = ven.47
+	title = ven.47.t
+	desc = ven.47.d
+	picture = GFX_Puntofijo
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+news_event = {
+	id = ven.48
+	title = ven.48.t
+	desc = ven.48.d
+	picture = GFX_WolfgangLarrazabal
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+##1958大选
+news_event = {
+	id = ven.49
+	title = ven.49.t
+	desc = ven.49.d
+	picture = GFX_Venezuela1958election
+	mean_time_to_happen = {
+		days = 15
+	}
+	major = yes
+	trigger = {
+		tag = VEN
+		NOT = { has_global_flag = ven49 }
+		date > 1958.10.10
+		has_idea = VEN_Puntofijo_doctrine
+		has_government = neutrality
+	}
+	option = {
+		trigger = { NOT = { tag = VEN } }
+		name = ven.5.a
+	}
+	option = {
+		name = ven.41.a
+		trigger = { tag = VEN }
+		set_global_flag = ven49
+		news_event = { id = ven.50 days = 2 }
+		promote_character = {
+			character = VEN_Romulo_Betancourt
+			ideology = liberalism
+		}
+		set_politics = { ruling_party = democratic }
+		add_stability = 0.15
+		add_political_power = 250
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.5
+		}
+	}
+	option = {
+		name = ven.41.a
+		trigger = { tag = VEN }
+		set_global_flag = ven49
+		news_event = { id = ven.51 days = 2 }
+		promote_character = {
+			character = VEN_Wolfgang_Larrazabal
+			ideology = liberalism
+		}
+		set_politics = { ruling_party = democratic }
+		add_stability = 0.05
+		add_political_power = 150
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.3
+		}
+	}
+}
+news_event = {
+	id = ven.50
+	title = ven.50.t
+	desc = ven.50.d
+	picture = GFX_Venezuela1958election
+	major = yes
+	immediate = {
+		play_song = VEN_2
+	}
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+news_event = {
+	id = ven.51
+	title = ven.51.t
+	desc = ven.51.d
+	picture = GFX_Venezuela1958election
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = VEN_6
+	}
+	option = {
+		name = ven.5.a
+		if = { 
+			limit = { tag = USA }
+			news_event = { id = ven.52 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = ven.52
+	title = ven.52.t
+	desc = ven.52.d
+	picture = GFX_Nixon1950s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}

@@ -1,0 +1,2097 @@
+﻿add_namespace = ger
+news_event = {
+	id = ger.1
+	title = ger.1.t
+	desc = ger.1.d
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
+	option = {
+		name = ger.1.a
+	}
+}
+
+
+news_event = {
+	id = ger.2
+	title = ger.2.t
+	desc = ger.2.d
+	picture = GFX_WDRindependent
+	is_triggered_only = yes
+	option = {
+		name = ger.2.a
+			ai_chance = {
+				factor = 10
+			}
+		set_global_flag = WDR_READY
+		USA = { news_event = { id = ger.3 } }
+	}
+	option = {
+		name = ger.2.b
+			ai_chance = {
+				factor = 0
+			}
+		set_global_flag = WDR_READY
+		news_event = { id = ger.15 days = 30 }
+	}
+}
+
+news_event = {
+	id = ger.3
+	title = ger.3.t
+	desc = ger.3.d
+	picture = GFX_WDRindependent
+	is_triggered_only = yes
+	option = {
+		name = ger.3.a
+		SOV = { news_event = { id = ger.4 days = 5 } }
+	}
+}
+
+news_event = {
+	id = ger.4
+	title = ger.4.t
+	desc = ger.4.d
+	
+	picture = GFX_WDRindependent
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ger.4.a
+			ai_chance = {
+				factor = 10
+			}
+		news_event = { id = ger.5 }
+		add_named_threat = {
+			threat = 20
+			name = berlin
+		}
+	}
+	
+	option = {
+		name = ger.4.b
+			ai_chance = {
+				factor = 0
+			}
+		news_event = { id = ger.15 days = 5 }
+	}
+}
+
+news_event = {
+	id = ger.5
+	title = ger.5.t
+	desc = ger.5.d
+	picture = GFX_Tempelhof
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = RussiaPeace1
+	}
+	option = {
+		name = ger.5.a
+			ai_chance = {
+				factor = 60
+			}
+		set_global_flag = ger5
+		if = {
+			limit = { tag = USA }
+			SOV = { news_event = { id = ger.6 days = 5 } }
+		}
+	}
+	option = {
+		name = ger.5.b
+			ai_chance = {
+				factor = 0
+			}
+		if = {
+			limit = { tag = USA }
+			news_event = { id = ger.9 days = 2 }
+		}
+	}
+}
+#美国开始空投
+news_event = {
+	id = ger.6
+	title = ger.6.t
+	desc = ger.6.d
+	
+	picture = GFX_BerlinBlockade
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ger.6.a
+	}
+}
+#苏联抗议空投
+news_event = {
+	id = ger.7
+	title = ger.7.t
+	desc = ger.7.d
+	
+	picture = GFX_BerlinBlockade
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ger.7.a
+		#美国认怂取消空投
+			ai_chance = {
+				factor = 1
+			}
+		news_event = { id = ger.9 days = 5 }
+	}
+	
+	option = {
+		name = ger.7.b
+		#强硬
+			ai_chance = {
+				factor = 50
+			}
+		SOV = { news_event = { id = ger.8 days = 5 } }
+	}
+}
+
+#美国人拒绝了我们的抗议
+news_event = {
+	id = ger.8
+	title = ger.8.t
+	desc = ger.8.d
+	
+	picture = GFX_CheckpointCharlie
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			factor = 80
+		}
+		name = ger.8.a
+		747 = { set_demilitarized_zone = no }
+		#苏联认怂
+		ai_chance = {
+			factor = 30
+			modifier = {
+				add = 20
+				PRC = { has_war = yes }
+			}
+		}
+		news_event = { id = ger.14 days = 5 }
+		news_event = { id = ger.15 days = 20 }
+	}
+	
+	option = {
+		#苏联入侵
+		ai_chance = {
+			factor = 2
+			modifier = {
+				add = 10
+				FIN = { has_government = communism }
+			}
+			modifier = {
+				add = 10
+				GRE = { has_government = communism }
+			}
+			modifier = {
+				add = 20
+				ITA = { has_government = communism }
+			}
+			modifier = {
+				add = 10
+				YUG = { NOT = { has_idea = SovietChinaConflit } }
+			}
+		}
+		name = ger.8.b
+		USA = { news_event = { id = ger.13 days = 5 } }
+	}
+}
+#美国撤销空投
+news_event = {
+	id = ger.9
+	title = ger.9.t
+	desc = ger.9.d
+	
+	picture = GFX_BerlinBlockade
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.9.a
+		if = {
+		limit = { tag = SOV }
+		USA  = { transfer_state = 55 }
+		set_global_flag = USAfailed1948
+		747 = { set_demilitarized_zone = no }
+			add_named_threat = {
+				threat = -10
+				name = American_retreat_west_berlin
+			}
+		}
+	}
+}
+
+news_event = {
+	id = ger.10
+	title = ger.10.t
+	desc = ger.10.d
+	picture = GFX_BerlinBlockade
+	is_triggered_only = yes
+	option = {
+		name = ger.11.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = ger.6.a
+		trigger = { tag = SOV }
+		#苏联认怂
+		ai_chance = {
+			factor = 30
+			modifier = {
+				add = 20
+				PRC = { has_war = yes }
+			}
+		}
+		news_event = { id = ger.14 days = 5 }
+		news_event = { id = ger.15 days = 20 }
+	}
+	option = {
+		name = ger.6.b
+		#苏联抗议
+		trigger = { tag = SOV }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				add = 10
+				FIN = { has_government = communism }
+			}
+			modifier = {
+				add = 10
+				GRE = { has_government = communism }
+			}
+			modifier = {
+				add = 20
+				ITA = { has_government = communism }
+			}
+			modifier = {
+				add = 10
+				YUG = { NOT = { has_idea = SovietChinaConflit } }
+			}
+		}
+		USA = { news_event = { id = ger.7 days = 5 } }
+	}
+}
+
+news_event = {
+	id = ger.11
+	title = ger.11.t
+	desc = ger.11.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = ger5
+		date > 1948.11.20
+		date < 1949.3.20
+		NOT = { has_global_flag = ger11 }
+	}
+	option = {
+		name = hol.10.a
+		set_global_flag = ger11
+	}
+}
+news_event = {
+	id = ger.12
+	title = ger.12.t
+	desc = ger.12.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = ger5
+		date > 1949.4.20
+		date < 1949.11.20
+	}
+	option = {
+		name = hol.10.a
+		news_event = { id = ger.14 days = 2 }
+		news_event = { id = ger.15 days = 20 }
+	}
+}
+news_event = {
+	id = ger.14
+	title = ger.14.t
+	desc = ger.14.d
+	
+	picture = GFX_Tempelhof
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = ger.14.a
+		clr_global_flag = ger5
+		if = {
+			limit = { tag = SOV }
+			747 = { set_demilitarized_zone = no }
+			add_named_threat = {
+				threat = -10 
+				name = berlin_release
+			}
+		}
+	}
+}
+
+
+#################
+
+news_event = {
+	id = ger.15
+	title = ger.15.t
+	desc = ger.15.d
+	picture = GFX_Adenauer
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = GER_5
+	}
+	option = {
+		name = ger.15.a
+		if = {
+			limit = { tag = USA }
+			WDR = {
+				transfer_state = 58
+				transfer_state = 59
+				transfer_state = 56
+				transfer_state = 57
+				transfer_state = 51
+				transfer_state = 53
+				transfer_state = 54
+				transfer_state = 55
+				transfer_state = 50
+				transfer_state = 42
+				transfer_state = 52
+			}
+			WBL = {
+				transfer_state = 747
+			}
+		}
+	}
+}
+news_event = {
+	id = ger.16
+	title = ger.16.t
+	desc = ger.16.d
+	picture = GFX_Tempelhof
+	fire_only_once = yes
+	trigger = {
+		tag = WDR
+		has_government = communism 
+		communism > 0.6
+	}
+	option = {
+		name = ger.15.a
+			DDR = {
+				transfer_state = 58
+				transfer_state = 59
+				transfer_state = 56
+				transfer_state = 57
+				transfer_state = 51
+				transfer_state = 53
+				transfer_state = 54
+				transfer_state = 55
+				transfer_state = 50
+				transfer_state = 42
+				transfer_state = 52
+				transfer_state = 747
+			}
+	}
+}
+#美国支持德国再武装计划
+news_event = {
+	id = ger.17
+	title = ger.17.t
+	desc = ger.17.d
+	picture = GFX_WGR_Army
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+	}
+}
+#联邦德国国防军
+news_event = {
+	id = ger.18
+	title = ger.18.t
+	desc = ger.18.d
+	picture = GFX_WGR_Army
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+	}
+}
+
+#受任总理选举
+news_event = {
+	id = ger.19
+	title = ger.19.t
+	desc = ger.19.d
+	picture = GFX_Adenauer
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = WDR
+		date > 1949.8.10
+		date < 1949.12.20
+		NOT = { has_global_flag = ger19 }
+	}
+	option = {
+		name = ger.14.a
+		set_global_flag = ger19
+		promote_character = WDR_Konrad_Adenauer
+	}
+}
+
+news_event = {
+	id = ger.26
+	title = ger.26.t
+	desc = ger.26.d
+	
+	picture = GFX_Adenauer
+	mean_time_to_happen = { days = 12 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_global_flag = WDR_READY
+		NOT = { has_global_flag = ger26 }
+	}
+	option = {
+		name = ger.14.a
+		set_global_flag = ger26
+	}
+}
+#阿登纳当选
+news_event = {
+	id = ger.27
+	title = ger.27.t
+	desc = ger.27.d
+	picture = GFX_Adenauer
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+	}
+}
+#艾哈德当选
+news_event = {
+	id = ger.28
+	title = ger.28.t
+	desc = ger.28.d
+	picture = GFX_Erhard
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+	}
+}
+#勃兰特当选
+news_event = {
+	id = ger.29
+	title = ger.29.t
+	desc = ger.29.d
+	picture = GFX_Brandt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+	}
+}
+#慕尼黑奥运会
+news_event = {
+	id = ger.30
+	title = ger.30.t
+	desc = ger.30.d
+	picture = GFX_MunichOlympic
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		date > 1972.9.1
+		date < 1972.12.1
+		country_exists = WDR
+		NOT = { has_global_flag = MunichOlympic }
+	}
+	option = {
+		name = ger.60.a
+		set_global_flag = MunichOlympic
+	}
+}
+#慕尼黑惨案发生
+news_event = {
+	id = ger.31
+	title = ger.31.t
+	desc = ger.31.d
+	picture = GFX_MunichMassacre
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = WDR
+		date > 1972.9.1
+		date < 1972.12.1
+		country_exists = ISR
+		ISR = { has_idea = PLOrevolt }
+		has_global_flag = MunichOlympic
+	}
+	option = {
+		name = ger.60.a
+			random_list = {
+				50 = { 
+					news_event = { id = ger.32 }
+				}
+				50 = { 
+					news_event = { id = ger.33 }
+				}
+			}
+	}
+}
+#人质遇害
+news_event = {
+	id = ger.32
+	title = ger.32.t
+	desc = ger.32.d
+	picture = GFX_MunichMassacre
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+		if = {
+			limit = { tag = WDR }
+			add_political_power = -100
+			add_to_variable = { influences = -50 }
+			add_stability = -0.05
+		}
+		if = {
+			limit = { tag = ISR }
+			add_political_power = -100
+			add_to_variable = { influences = -50 }
+			add_stability = -0.05
+		}
+	}
+}
+#人质获救
+news_event = {
+	id = ger.33
+	title = ger.33.t
+	desc = ger.33.d
+	picture = GFX_MunichMassacre
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+		if = {
+			limit = { tag = WDR }
+			add_political_power = 100
+			add_to_variable = { influences = 50 }
+			add_stability = 0.05
+		}
+		if = {
+			limit = { tag = ISR }
+			add_political_power = 100
+			add_to_variable = { influences = 50 }
+			add_stability = 0.05
+		}
+	}
+}
+#华沙之跪
+news_event = {
+	id = ger.34
+	title = ger.34.t
+	desc = ger.34.d
+	picture = GFX_BrandtInPolamd
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+		if = {
+			limit = { tag = WDR }
+			add_political_power = 100
+			add_to_variable = { influences = 50 }
+			add_stability = 0.15
+		}
+	}
+}
+#本诺·奥内佐格事件
+news_event = {
+	id = ger.35
+	title = ger.35.t
+	desc = ger.35.d
+	picture = GFX_BennoOhnesorg
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1967.1.1
+		date < 1967.12.1
+		tag = WDR
+		NOT = { has_global_flag = BennoOhnesorg }
+	}
+	option = {
+		name = ger.60.a
+		set_global_flag = BennoOhnesorg
+		if = {
+			limit = { tag = WDR }
+			add_to_variable = { influences = -50 }
+			add_stability = -0.15
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+		}
+	}
+}
+#吉绕姆事件
+news_event = {
+	id = ger.36
+	title = ger.36.t
+	desc = ger.36.d
+	picture = GFX_GunterGuillaume
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1973.1.1
+		date < 1973.12.1
+		has_country_leader = { name = "Willy Brandt" }
+		tag = WDR
+	}
+	option = {
+		name = ger.60.a
+		news_event = { id = ger.37 }
+		set_global_flag = GunterGuillaume
+		create_country_leader = {
+			name = "Helmut Schmidt"
+			picture = "gfx/leaders/WDR/Portrait_Germany_Schmidt.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+				ideological_crusader nuclear_enthusiast pro_third_world
+			}
+		}
+	}
+}
+#勃兰特辞职
+news_event = {
+	id = ger.37
+	title = ger.37.t
+	desc = ger.37.d
+	picture = GFX_GunterGuillaume
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ger.60.a
+	}
+}
+#红军旅的崛起
+news_event = {
+	id = ger.38
+	title = ger.38.t
+	desc = ger.38.d
+	picture = GFX_Deutscher_Herbst
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = WDR
+		has_stability < 0.8
+		country_exists = VIN
+		OR = {
+			country_exists = SVN
+			has_global_flag = GuevaraDeath
+			communism > 0.4
+		}
+		NOT = { has_global_flag = DeutscherHerbst }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = DeutscherHerbst
+		if = {
+			limit = { tag = WDR }
+			add_to_variable = { influences = -50 }
+			add_stability = -0.2
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_ideas = Red_Brigade
+		}
+	}
+}
+#里根访问柏林
+news_event = {
+	id = ger.40
+	title = ger.40.t
+	desc = ger.40.d
+	picture = GFX_ReagenVisitBerlin
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1987.1.1
+		date < 1987.12.1
+		country_exists = WDR
+		country_exists = DDR
+		USA = { has_country_leader = { name = "Ronald W. Reagan" } }
+		NOT = { has_global_flag = teardownwall }
+	}
+	option = {
+		name = ger.40
+		set_global_flag = teardownwall
+		if = {
+			limit = { is_in_faction_with = SOV }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_political_power = -100
+		}
+		if = {
+			limit = { tag = DDR }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_political_power = -100
+		}
+		if = {
+			limit = { tag = USA }
+			add_to_variable = { influences = 80 }
+			add_political_power = 2000
+		}
+	}
+
+}
+#德国复辟君主制
+news_event = {
+	id = ger.42
+	title = ger.42.t
+	desc = ger.42.d
+	picture = GFX_GermanCoronate
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = GER_17
+	}
+	option = {
+		name = usatext.5.a
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.3
+		}
+		create_country_leader = {
+			name = "Louis Ferdinand I"
+			picture = "gfx/leaders/WDR/Portrait_Germany_Louis_Ferdinand.tga"
+			expire = "1988.1.1"
+			ideology = monarchism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = ger.45
+	title = ger.45.t
+	desc = ger.45.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_Adenauer
+	option = {
+		name = ger.1.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = ger.46
+	title = ger.46.t
+	desc = ger.46.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = ger.50
+	title = ger.50.t
+	desc = ger.50.d
+	picture = GFX_RomanTreaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#反对再武装化的示威游行
+news_event = {
+	id = ger.51
+	title = ger.51.t
+	desc = ger.51.d
+	picture = GFX_AntiNatoProtest
+	major = yes
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		has_completed_focus = WDR_Bundeswehr
+		tag = WDR
+		NOT = { has_global_flag = sov_occupied_HUN }
+		date < 1960.1.1
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FROM }
+			add_political_power = -30
+		}
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = ger.52
+	title = ger.52.t
+	desc = ger.52.d
+	picture = GFX_AntiNatoProtest
+	major = yes
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		is_in_faction_with = USA
+		NOT = { tag = USA }
+		is_subject = no
+		OR = {
+			communism > 0.2
+			has_country_flag = AntiNatoProtest
+		}
+		NOT = {
+			has_global_flag = sov_occupied_HUN
+		}
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FROM }
+			add_political_power = -10
+		}
+	}
+}
+news_event = {
+	id = ger.53
+	title = ger.53.t
+	desc = ger.53.d
+	picture = GFX_WalterHallstein
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = WDR }
+			add_ideas = WDR_Hallstein_idea
+		}
+	}
+}
+news_event = {
+	id = ger.54
+	title = ger.54.t
+	desc = ger.54.d
+	picture = GFX_Berlinale
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#德国申请加入北约
+news_event = {
+	id = ger.55
+	title = ger.55.t
+	desc = ger.55.d
+	picture = GFX_Adenauer
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				OR = {
+					has_country_leader_with_trait = pro_america
+					has_country_leader_with_trait = anti_communist
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject = no
+				OR = {
+				is_in_faction_with = USA
+				tag = USA
+				tag = POL
+				tag = DDR
+				tag = YUG
+				}
+				NOT = { tag = WDR }
+			}
+			news_event = { id = ger.56 }
+		}
+	}
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 5
+			modifier = {
+				add = 20
+				has_government = communism
+			}
+		}
+		if = {
+			limit = {
+				is_subject = no
+				NOT = { tag = WDR }
+				OR = {
+					is_in_faction_with = USA
+					tag = USA
+				}
+			}
+				set_country_flag = {
+					flag = AntiNatoProtest
+					days = 250
+					value = 1
+				}
+			WDR = { add_to_variable = { wdr_nato_vote = 1 } }
+			news_event = { id = ger.57 }
+		}
+	}
+}
+news_event = {
+	id = ger.56
+	title = ger.56.t
+	desc = ger.56.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.57
+	title = ger.57.t
+	desc = ger.57.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入北约
+news_event = {
+	id = ger.59
+	title = ger.59.t
+	desc = ger.59.d
+	picture = GFX_AdenauerEisenhower
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = WDR
+		is_in_faction = no
+		check_variable = { this.wdr_nato_vote > 4 }
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = USA }
+			add_to_faction = WDR
+		}
+		if = {
+			limit = {
+				tag = WDR
+				has_country_flag = ger73_accept
+			}
+			add_ideas = WDR_Nato_command
+		}
+	}
+}
+#德国再武装化政策公布
+news_event = {
+	id = ger.60
+	title = ger.60.t
+	desc = ger.60.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				OR = {
+					has_country_leader_with_trait = pro_america
+					has_country_leader_with_trait = anti_communist
+				}
+			}
+		}
+	}
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 5
+			modifier = {
+				add = 20
+				has_government = communism
+			}
+			modifier = {
+				add = 20
+				tag = FRA
+			}
+		}
+		if = {
+			limit = {
+				is_subject = no
+				NOT = { tag = USA }
+				OR = {
+					is_in_faction_with = USA
+					tag = SOV
+				}
+			}
+			news_event = { id = ger.61 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = ger.61
+	title = ger.61.t
+	desc = ger.61.d
+	picture = GFX_Bundesgrenzschutz
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#申请加入欧共体
+news_event = {
+	id = ger.62
+	title = ger.62.t
+	desc = ger.62.d
+	picture = GFX_Bundesgrenzschutz
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = WDR
+		is_in_faction = no
+		NOT = { has_global_flag = ger62 }
+		has_global_flag = Bundeswehr_flag
+		date < 1956.1.1
+	}
+	option = {
+		name = usatext.5.a
+		set_global_flag = ger62
+	}
+}
+news_event = {
+	id = ger.63
+	title = ger.63.t
+	desc = ger.63.d
+	picture = GFX_Guderian
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = WDR
+		is_in_faction = no
+		NOT = { has_global_flag = ger63 }
+		has_global_flag = Bundeswehr_flag
+		date < 1956.1.1
+	}
+	option = {
+		name = ger.63.a
+		set_global_flag = ger63
+	}
+}
+news_event = {
+	id = ger.66
+	title = ger.66.t
+	desc = ger.66.d
+	picture = GFX_BundesFounded
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		news_event = { id = ger.67 }
+		set_country_flag = Bundeswehr_allow
+	}
+	option = {
+		name = usatext.5.a
+		news_event = { id = ger.68 }
+		
+	}
+}
+news_event = {
+	id = ger.67
+	title = ger.67.t
+	desc = ger.67.d
+	picture = GFX_BundesFounded
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = WDR }
+			army_experience = 30
+			add_to_variable = { WDR_army_accept = 1 }
+		}
+	}
+}
+news_event = {
+	id = ger.68
+	title = ger.68.t
+	desc = ger.68.d
+	picture = GFX_BundesFounded
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = WDR }
+			army_experience = -20
+		}
+	}
+}
+news_event = {
+	id = ger.69
+	title = ger.69.t
+	desc = ger.69.d
+	picture = GFX_BundesFounded
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = GER_16
+	}
+	option = {
+		name = usatext.5.a
+	}
+}
+#菲利普穆勒遇害
+news_event = {
+	id = ger.70
+	title = ger.70.t
+	desc = ger.70.d
+	picture = GFX_PhilippMuller
+	major = yes
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		tag = WDR
+		has_global_flag = Bundeswehr_flag
+		NOT = { has_global_flag = ger70 }
+		date < 1954.1.1
+		date > 1952.5.1
+	}
+	option = {
+		name = usatext.5.a
+		set_global_flag = ger70
+		if = {
+			limit = { tag = WDR }
+			add_political_power = -130
+			army_experience = -150
+			add_stability = -0.2
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+	}
+}
+news_event = {
+	id = ger.71
+	title = ger.71.t
+	desc = ger.71.d
+	picture = GFX_PhilippMuller
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		has_country_flag = Bundeswehr_allow
+		date < 1956.1.1
+		NOT = {
+			has_global_flag = East_Berlin_1953
+		}
+		OR = {
+			tag = FRA
+			tag = ENG
+			tag = HOL
+			tag = BEL
+			tag = LUX
+			tag = ITA
+			tag = DEN
+			tag = NOR
+			tag = POL
+			tag = CZE
+			tag = YUG
+			tag = GRE
+			tag = ALB
+			tag = CAN
+			tag = ROM
+		}
+	}
+	option = {
+		name = usatext.5.a
+			add_political_power = -20
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.01
+			}
+	}
+}
+news_event = {
+	id = ger.72
+	title = ger.72.t
+	desc = ger.72.d
+	picture = GFX_Bundesgrenzschutz
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		has_country_flag = Bundeswehr_flag
+		has_global_flag = East_Berlin_1953
+		tag = WDR
+		NOT = {
+			has_global_flag = ger72
+		}
+	}
+	option = {
+		name = usatext.5.a
+		set_global_flag = ger72
+		if = {
+			limit = { tag = WDR }
+			army_experience = 250
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+	}
+}
+news_event = {
+	id = ger.73
+	title = ger.73.t
+	desc = ger.73.d
+	picture = GFX_AdenauerEisenhower
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		has_global_flag = WDR_try_nato
+		is_in_faction_with = USA
+		WDR = { is_in_faction = no }
+		is_subject = no
+		NOT = {
+			has_country_flag = ger73
+		}
+	}
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				OR = {
+					has_country_leader_with_trait = pro_america
+					has_country_leader_with_trait = anti_communist
+				}
+			}
+		}
+		set_country_flag = ger73
+		set_country_flag = ger73_accept
+		WDR = { add_to_variable = { wdr_nato_vote = 1 } }
+		news_event = { id = ger.74 }
+	}
+	option = {
+		name = usatext.5.a
+		set_country_flag = ger73
+		WDR = { add_to_variable = { wdr_nato_vote = -1 } }
+		news_event = { id = ger.75 }
+	}
+}
+news_event = {
+	id = ger.74
+	title = ger.74.t
+	desc = ger.74.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.75
+	title = ger.75.t
+	desc = ger.75.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.84
+	title = ger.84.t
+	desc = ger.84.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.89
+	title = ger.89.t
+	desc = ger.89.d
+	picture = GFX_AdenauerEisenhower
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		has_global_flag = SAR_vote_ready
+		tag = SAR
+		NOT = { has_global_flag = ger89 }
+		is_guaranteed_by = FRA
+	}
+	option = {
+		name = usatext.5.a
+		trigger = { NOT = { tag = SAR } }
+	}
+	option = {
+		name = usatext.5.a
+		trigger = { tag = SAR }
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = ger89
+		if = {
+			limit = { tag = SAR }
+			set_global_flag = SAR_independent
+			news_event = { id = ger.90 days = 3 }
+		}
+	}
+	option = {
+		name = usatext.5.a
+		trigger = { tag = SAR }
+		ai_chance = {
+			factor = 10
+		}
+		set_global_flag = ger89
+		if = {
+			limit = { tag = SAR }
+			set_global_flag = SAR_unificate
+			news_event = { id = ger.91 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = ger.90
+	title = ger.90.t
+	desc = ger.90.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.91
+	title = ger.91.t
+	desc = ger.91.d
+	picture = GFX_AdenauerEisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.92
+	title = ger.92.t
+	desc = ger.92.d
+	picture = GFX_AdenauerEisenhower
+	major = yes
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		has_global_flag = SAR_unificate
+		tag = SAR
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = WDR }
+			transfer_state = 854
+			add_political_power = 300
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = ger.93
+	title = ger.93.t
+	desc = ger.93.d
+	picture = GFX_AdenauerEisenhower
+	major = yes
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		has_global_flag = SAR_inde
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = SAR }
+			add_political_power = 300
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+			remove_ideas = isolated
+			create_country_leader = {
+				name = "Johannes Hoffmann"
+				picture = "gfx/leaders/SAR/Portrait_Saarland_Johannes_Hoffmann.tga"
+				expire = "1965.1.1"
+				ideology = socialism
+				traits = {
+					#
+				}
+			}
+		}
+		if = {
+			limit = { tag = WDR }
+			add_political_power = -300
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = ger.100
+	title = ger.100.t
+	desc = ger.100.d
+	picture = GFX_Paulus
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = WDR
+		date > 1957.1.10
+		date < 1957.3.20
+		NOT = { has_global_flag = ger100 }
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = ger100
+	}
+}
+news_event = {
+	id = ger.101
+	title = ger.101.t
+	desc = ger.101.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = WDR
+			tag = ENG
+		}
+		USA = { has_idea = Marshall }
+		date < 1952.3.20
+		NOT = { has_country_flag = ger101 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger101
+	}
+}
+news_event = {
+	id = ger.102
+	title = ger.102.t
+	desc = ger.102.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = FRA
+			tag = SOV
+			tag = ENG
+		}
+		USA = { has_idea = Marshall }
+		date > 1947.3.20
+		date < 1949.3.20
+		NOT = { has_country_flag = ger102 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger102
+	}
+}
+news_event = {
+	id = ger.103
+	title = ger.103.t
+	desc = ger.103.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = FRA
+			tag = SOV
+			tag = ENG
+		}
+		USA = { has_idea = Marshall }
+		date > 1947.5.20
+		date < 1949.3.20
+		NOT = { has_country_flag = ger103 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger103
+	}
+}
+news_event = {
+	id = ger.104
+	title = ger.104.t
+	desc = ger.104.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_VolksvagenBeats
+	option = {
+		name = ger.1.a
+	}
+}
+news_event = {
+	id = ger.105
+	title = ger.105.t
+	desc = ger.105.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_VolksvagenProducts
+	option = {
+		name = ger.1.a
+		if = {
+			limit = { tag = WDR }
+			add_political_power = 120
+		}
+	}
+}
+news_event = {
+	id = ger.106
+	title = ger.106.t
+	desc = ger.106.d
+	picture = GFX_VolksvagenPoster
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = WDR
+		has_tech = auto_industry
+		date > 1951.5.20
+		date < 1954.3.20
+		NOT = { has_country_flag = ger106 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger106
+		if = {
+			limit = { tag = WDR }
+			add_political_power = 300
+		}
+	}
+}
+news_event = {
+	id = ger.110
+	title = ger.110.t
+	desc = ger.110.d
+	picture = GFX_MainauDeclaration
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1955.7.11
+		date < 1955.8.20
+		NOT = { has_country_flag = ger103 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger103
+	}
+}
+news_event = {
+	id = ger.111
+	title = ger.111.t
+	desc = ger.111.d
+	picture = GFX_Guderian
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1954.5.11
+		date < 1954.6.20
+		NOT = { has_country_flag = ger111 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger111
+	}
+}
+news_event = {
+	id = ger.112
+	title = ger.112.t
+	desc = ger.112.d
+	picture = GFX_OswaldPohl
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1951.6.1
+		date < 1951.6.20
+		NOT = { has_country_flag = ger112 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger112
+	}
+}
+news_event = {
+	id = ger.113
+	title = ger.113.t
+	desc = ger.113.d
+	picture = GFX_KopenickFilm
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1956.8.11
+		date < 1956.10.20
+		NOT = { has_country_flag = ger113 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger113
+	}
+}
+news_event = {
+	id = ger.114
+	title = ger.114.t
+	desc = ger.114.d
+	picture = GFX_EarlyGermanFarmine
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+###彼得斯堡协议
+news_event = {
+	id = ger.120
+	title = ger.120.t
+	desc = ger.120.d
+	picture = GFX_PetersbergAgreement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			news_event = { id = ger.121 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = ger.121
+	title = ger.121.t
+	desc = ger.121.d
+	picture = GFX_PetersbergAgreement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = FRA }
+			news_event = { id = ger.122 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = ger.122
+	title = ger.122.t
+	desc = ger.122.d
+	picture = GFX_PetersbergAgreement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+##战俘问题
+news_event = {
+	id = ger.125
+	title = ger.125.t
+	desc = ger.125.d
+	picture = GFX_AdenauerVisitUSSR
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1955.8.11
+		date < 1955.10.20
+		SOV = { has_completed_focus = SOV_Ottepel }
+		has_completed_focus = WDR_diplomatic
+		NOT = { has_global_flag = ger125 }
+	}
+	option = {
+		name = ger.101.a
+		set_global_flag = ger125
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = ger.101.a
+		trigger = { tag = SOV }
+		news_event = { id = ger.126 days = 3 }
+	}
+	option = {
+		name = ger.101.a
+		trigger = { tag = SOV }
+		news_event = { id = ger.128 days = 3 }
+	}
+}
+news_event = {
+	id = ger.126
+	title = ger.126.t
+	desc = ger.126.d
+	picture = GFX_AdenauerVisitUSSR
+	is_triggered_only = yes
+	major = yes
+	option = {
+		set_global_flag = ger126
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.127
+	title = ger.127.t
+	desc = ger.127.d
+	picture = GFX_GermanPow
+	major = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = WDR
+		date < 1956.10.20
+		has_global_flag = ger126
+		NOT = { has_global_flag = ger127 }
+	}
+	option = {
+		set_global_flag = ger127
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.128
+	title = ger.128.t
+	desc = ger.128.d
+	picture = GFX_AdenauerVisitUSSR
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+##伯尔尼奇迹
+news_event = {
+	id = ger.130
+	title = ger.130.t
+	desc = ger.130.d
+	picture = GFX_FIFA1954
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1954.6.11
+		date < 1954.8.20
+		NOT = { has_country_flag = ger130 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger130
+	}
+}
+news_event = {
+	id = ger.131
+	title = ger.131.t
+	desc = ger.131.d
+	picture = GFX_FIFA1954Fight
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1954.6.11
+		date < 1954.8.20
+		has_country_flag = ger130
+		NOT = { has_country_flag = ger131 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger131
+	}
+}
+news_event = {
+	id = ger.132
+	title = ger.132.t
+	desc = ger.132.d
+	picture = GFX_FIFA1954Miracle
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1954.6.11
+		date < 1954.8.20
+		has_country_flag = ger131
+		NOT = { has_country_flag = ger132 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger132
+	}
+}
+news_event = {
+	id = ger.133
+	title = ger.133.t
+	desc = ger.133.d
+	picture = GFX_FIFA1954Back
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1954.6.11
+		date < 1954.8.20
+		has_country_flag = ger132
+		NOT = { has_country_flag = ger133 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger133
+		if = {
+			limit = { tag = WDR }
+			add_political_power = 300
+			add_stability = 0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.04
+			}
+		}
+		if = {
+			limit = { tag = HUN }
+			add_political_power = -200
+			add_stability = -0.1
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.02
+			}
+		}
+	}
+}
+##巴克自沙
+news_event = {
+	id = ger.140
+	title = ger.140.t
+	desc = ger.140.d
+	picture = GFX_HerbertWilhelmBacke
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1947.6.11
+		date < 1947.8.20
+		NOT = { has_country_flag = ger140 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger140
+	}
+}
+##赔偿以色列
+news_event = {
+	id = ger.141
+	title = ger.141.t
+	desc = ger.141.d
+	picture = GFX_AdenauerIsrael
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = ger.145
+	title = ger.145.t
+	desc = ger.145.d
+	picture = GFX_AdenauerIsrael
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = WDR
+		date > 1952.3.20
+		date < 1955.5.20
+		has_completed_focus = WDR_relation_isr
+		NOT = { has_country_flag = ger145 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger145
+	}
+}
+##史内资部队
+news_event = {
+	id = ger.150
+	title = ger.150.t
+	desc = ger.150.d
+	picture = GFX_Bundesgrenzschutz
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1950.6.11
+		date < 1955.8.20
+		NOT = { has_country_flag = ger151 }
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger151
+		recruit_character = GER_Gerhard_von_Schwerin
+	}
+}
+news_event = {
+	id = ger.151
+	title = ger.151.t
+	desc = ger.151.d
+	picture = GFX_Bundesgrenzschutz
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = WDR
+		date > 1950.6.11
+		date < 1955.8.20
+		NOT = { has_country_flag = ger151 }
+		has_character = GER_Gerhard_von_Schwerin
+	}
+	option = {
+		name = ger.101.a
+		set_country_flag = ger151
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 8000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 5000
+				producer = GER
+			}
+			add_war_support = 0.4
+	}
+}
+##和平谈判
+country_event = {
+	id = ger.160
+	title = ger.160.t
+	desc = ger.160.d
+	picture = GFX_MolotovSmall
+	is_triggered_only = yes
+	option = {
+		name = ger.101.a
+		trigger = { tag = SOV }
+	}
+	option = {
+		name = ger.101.a
+		trigger = { tag = WDR }
+		SOV = { country_event = { id = ger.161 days = 2 } }
+	}
+	option = {
+		name = ger.101.a
+		trigger = { tag = WDR }
+		SOV = { country_event = { id = ger.162 days = 2 } }
+	}
+}
+country_event = {
+	id = ger.161
+	title = ger.161.t
+	desc = ger.161.d
+	picture = GFX_MolotovSmall
+	is_triggered_only = yes
+	option = {
+		name = ger.101.a
+		set_global_flag = ger161
+		news_event = { id = ger.163 days = 10 }
+	}
+}
+country_event = {
+	id = ger.162
+	title = ger.162.t
+	desc = ger.162.d
+	picture = GFX_MolotovSmall
+	is_triggered_only = yes
+	option = {
+		name = ger.101.a
+		set_global_flag = ger162
+	}
+}
+news_event = {
+	id = ger.163
+	title = ger.163.t
+	desc = ger.163.d
+	picture = GFX_SovietInvadePrague
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = SOV }
+			add_political_power = 300
+		}
+		if = {
+			limit = { tag = DDR }
+			diplomatic_relation = {
+				country = SOV
+				relation = military_access
+				active = no
+			}
+		}
+	}
+}

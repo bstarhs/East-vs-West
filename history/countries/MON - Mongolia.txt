@@ -1,0 +1,171 @@
+﻿capital = 330
+
+oob = "MON_1936"
+
+set_country_flag = has_monarchs
+	set_country_flag = female_finished
+set_country_flag = eastasia
+# Starting tech
+	activate_decision = create_radio_station
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_training = 1
+		radio_detection = 1
+	basic_militia = 1
+	tech_military_police = 1
+		medical1 = 1
+		motorize_doctrine = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+}
+
+add_ideas = {
+		hight_welfare
+	limited_conscription
+		war_economy
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	complete_national_focus = common_support_comparty
+	complete_national_focus = common_comparty_strike
+	complete_national_focus = common_people_army
+	complete_national_focus = common_70
+	complete_national_focus = common_71
+	complete_national_focus = common_72
+	complete_national_focus = common_28
+	complete_national_focus = common_37
+	complete_national_focus = common_39
+	complete_national_focus = common_40
+	complete_national_focus = common_41
+	complete_national_focus = common_42
+	complete_national_focus = common_strike_religion
+	complete_national_focus = common_43
+	complete_national_focus = common_commuist_nationalized
+
+
+
+create_country_leader = {
+	name = "Anandyn Amar"
+	desc = "POLITICS_ANANDYN_AMAR_DESC"
+	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_communism.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+set_country_flag = SovietAdvisorAllow
+	set_popularities = {
+		democratic = 5
+		communism = 88
+		neutrality = 7
+	}
+1939.1.1 = {
+
+	add_ideas = {
+	limited_conscription
+	}	
+
+	set_politics = {
+		ruling_party = communism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+	create_country_leader = {
+		name = "Horloogiyn Choybalsan"
+		desc = "POLITICS_KHORLOOGIIN_CHOIBALSAN_DESC"
+		picture = "gfx/leaders/MON/Portrait_Mongolia_Choybalsan.tga"
+		expire = "1965.1.1"
+		ideology = stalinism
+		traits = {
+			pro_soviet
+		}
+	}
+}
+1949.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	set_country_flag = china_diplomacy
+}
+1958.1.20 = {
+	complete_national_focus = steel_produc
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	create_country_leader = {
+		name = "Yumjaagiin Tsedenbal"
+		
+		picture = "gfx/leaders/MON/Portrait_Mongolia_Tsedenbal.tga"
+		expire = "1997.1.1"
+		ideology = marxism
+		
+		traits = {
+		pro_soviet
+		}
+	}
+}
+1961.1.1 = {
+	complete_national_focus = common_73
+	add_ideas = {
+		UNmember
+	}
+}
+1984.1.20 = {
+	set_popularities = {
+		democratic = 12
+		communism = 78
+		neutrality = 10
+	}
+	create_country_leader = {
+		name = "Jambyn Batmönkh"
+		
+		picture = "gfx/leaders/MON/Portrait_Mongolia_Batmonkh.tga"
+		expire = "1997.1.1"
+		ideology = marxism
+		
+		traits = {
+		
+		}
+	}
+}
+1990.3.29 = {
+	remove_ideas = {
+		warsawpact
+		comecon
+	}
+	create_country_leader = {
+		name = "Punsalmaagiin Ochirbat"
+		picture = "gfx/leaders/MON/Portrait_Mongolia_Punsalmaagiin_Ochirbat.tga"
+		expire = "2050.1.1"
+		ideology = conservatism
+		
+		traits = {
+		}
+	}
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}

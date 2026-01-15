@@ -1,0 +1,57 @@
+﻿add_namespace = njp
+#旧金山和约
+
+news_event = {
+	id = njp.1
+	title = njp.1.t
+	desc = njp.1.d
+	picture = GFX_TokyoTrail
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+	name = njp.1.a
+		NJP = {
+			transfer_state = 536
+			transfer_state = 533
+			transfer_state = 534
+			transfer_state = 282
+			transfer_state = 881
+			
+			add_state_core = 536
+			add_state_core = 533
+			add_state_core = 534
+			add_state_core = 282
+			add_state_core = 881
+			set_capital = { state = 282 }
+			load_oob = "NJP"
+			inherit_technology = JAP
+			change_tag_from = JAP
+		}
+		JAP = {
+			set_capital = { state = 531 }
+		}
+	}
+}
+news_event = {
+	id = njp.2
+	title = njp.1.t
+	desc = njp.1.d
+	picture = GFX_TokyoTrail
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+	name = njp.1.a
+	
+	create_country_leader = {
+		name = "Fuwa Tetsuzo"
+		picture = "gfx/leaders/NJP/Portrait_njp_Fuwa_Tetsuzo.tga"
+		expire = "2050.1.1"
+	ideology = leninism
+		
+		traits = {
+		}
+	}
+	}
+}

@@ -1,0 +1,195 @@
+﻿capital = 461
+
+# Starting tech
+set_country_flag = has_monarchs
+set_country_flag = arabs_state
+set_country_flag = islam_state
+set_country_flag = third_world
+set_country_flag = maghrib_state
+set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+	machine_gun1 = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+		medical1 = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+		motorised_infantry = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+
+add_ideas = {
+	france_colony
+	Sunni
+}
+set_convoys = 20
+
+	set_cosmetic_tag = FRA_MOR
+1939.1.1 = {
+
+	add_political_power = 1198
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+		tech_support = 1
+		tech_recon = 1
+		
+		gw_artillery = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+	set_popularities = {
+		democratic = 5
+		communism = 2
+		neutrality = 8
+		fascism = 15
+		monarchism = 70
+	}
+
+set_politics = {
+	
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Bashir es Sadawi"
+	desc = ""
+	picture = "gfx/leaders/LBA/Portrait_Arabia_Generic_democratic1.dds"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Mohammed V"
+	desc = ""
+	picture = "gfx/leaders/MOR/Portrait_Morocco_Mohammed_V.tga"
+	ideology = monarchism
+	traits = {
+		#
+	}
+}
+1955.12.1 = {
+	set_country_flag = MoroccoIndependent
+}
+1957.1.1 = {
+	oob = "MOR"
+	remove_ideas = france_colony
+	set_cosmetic_tag = MOR
+	set_country_flag = china_diplomacy
+	add_to_array = { global.UNmember_list = FROM }
+	oob = "MOR"
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_64
+	complete_national_focus = common_67
+	add_ideas = {
+	arabs_league
+		UNmember
+		muslim_protest
+	}
+}
+1961.1.20 = {
+	add_ideas = {
+	closed_economy
+		Secularism
+	}
+	complete_national_focus = common_75
+	complete_national_focus = common_medic
+	complete_national_focus = steel_produc
+	complete_national_focus = common_24
+	activate_decision = female_equality
+	set_technology = {
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		dispersed_industry4 = 1
+	}
+	create_country_leader = {
+		name = "Hassan II"
+		
+		picture = "gfx/leaders/MOR/Portrait_Morocco_Hassan_II.tga"
+		expire = "1979.1.1"
+		ideology = monarchism
+		
+		traits = {
+			dictator pro_third_world silent_workhorse pro_america
+		}
+	}
+}
+1964.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_65
+}
+1969.1.1 = {
+	set_country_flag = female_finished
+	add_ideas = {
+		IslamOrg
+	}
+}

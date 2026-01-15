@@ -1,0 +1,83 @@
+ideas = {
+	# MILITARY
+	country = {
+		UN_congo_actions = {
+			allowed = {
+				always = yes
+			}
+			picture = UN_congo_actions
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				send_volunteer_divisions_required = -0.99
+				send_volunteer_size = 4
+				send_volunteers_tension = -1
+			}
+		}
+		HutuTutsi_ideas = {
+			allowed = {
+				always = yes
+			}
+			picture = HutuTutsi_ideas
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				stability_factor = -0.3
+				political_power_gain = -0.14
+			}
+		}
+		Congo_crisis_idea = {
+			allowed = {
+				always = yes
+			}
+			picture = Congo_crisis_idea
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				stability_factor = -0.3
+				political_power_gain = -0.14
+				resistance_target = 0.3
+			}
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		Gecamines = {
+			picture = Gecamines
+
+			
+			allowed = {
+				original_tag = CGO
+			}
+			traits = { mineral_concern }
+			available = {
+				OR = {
+					controls_state = 792
+				}
+			}
+			modifier = {
+				country_resource_copper = 30
+				country_resource_tungsten = 15
+				country_resource_chromium = 8
+			}
+		}
+	}
+
+	air_chief = {
+	}
+
+	navy_chief = {
+	}
+
+	high_command = {
+	}	
+
+	theorist = {
+	}
+}

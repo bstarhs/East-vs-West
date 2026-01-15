@@ -1,0 +1,66 @@
+
+state={
+	id=54
+	name="STATE_54"
+	manpower = 2508159
+
+	state_category = city
+	local_supplies=0.0
+	resources={
+		coal = 14
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Barvarian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 35 }
+		add_to_array = { this.state_ethnics_list = 63 }
+                               
+		set_state_flag = sugar_production
+		owner = USA
+		buildings = {
+			school = 1
+			hospital = 1
+			power_plant = 2
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 1
+			farm_building = 4
+		}
+		victory_points = {
+			11544 8 
+		}
+		victory_points = {
+			6594 3
+		}
+		victory_points = {
+			9572 3
+		}
+		victory_points = {
+			3474 3
+		}
+		victory_points = {
+			11417 4
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		add_core_of = BAV
+		1949.5.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = WDR
+			add_core_of = DDR
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+			}
+		}
+
+	}
+
+	provinces={
+		561 3474 6421 6594 9416 9557 9572 11404 11417 11529 11544 13116 
+	}
+}

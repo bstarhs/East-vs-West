@@ -1,0 +1,167 @@
+﻿add_namespace = cos
+#哥斯达黎加大选在即
+news_event = {
+	id = cos.1
+	title = cos.1.t
+	desc = cos.1.d
+	picture = GFX_CostaRicaMichalski
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = COS
+		date > 1948.6.1
+		date < 1949.1.1
+		has_government = authoritarianism
+	}
+	
+	option = {	
+		name = can.1.a
+		ai_chance = {
+			factor = 20	
+		}
+		news_event = { id = cos.2 }
+		set_global_flag = CosMichalski
+	}
+	option = {	
+		name = can.1.b
+		ai_chance = {
+			factor = 0	
+		}
+		news_event = { id = can.4 }
+		set_global_flag = CosBlanco
+		set_politics = { ruling_party = democratic }
+	}
+}
+#国家共和党赢得哥斯达黎加大选
+news_event = {
+	id = cos.2
+	title = cos.2.t
+	desc = cos.2.d
+	picture = GFX_CostaRicaMichalski
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.1.a
+	}
+}
+#民族解放党拒绝承认选举
+news_event = {
+	id = cos.3
+	title = cos.3.t
+	desc = cos.3.d
+	picture = GFX_CostaRica1948
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.1.a
+	}
+}
+#哥斯达黎加政党轮替
+news_event = {
+	id = cos.4
+	title = cos.4.t
+	desc = cos.4.d
+	picture = GFX_CostaRica1948
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.1.a
+	}
+}
+#哥斯达黎加政治危机
+news_event = {
+	id = cos.5
+	title = cos.5.t
+	desc = cos.5.d
+	picture = GFX_CostaRica1948
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = COS
+		NOT = { has_global_flag = CostaRicaRiot }
+		has_global_flag = CosMichalski
+	}
+	option = {
+		name = jap.1.a
+		if = {
+			limit = { tag = COS }
+			add_stability = -0.12
+			set_global_flag = CostaRicaRiot
+		}
+	}
+}
+#北部的自由派动乱
+news_event = {
+	id = cos.6
+	title = cos.6.t
+	desc = cos.6.d
+	picture = GFX_CostaRicaWar
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = COS
+		has_global_flag = CostaRicaRiot
+		has_government = authoritarianism
+	}
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = COS }
+			966 = {
+				add_resistance = 20
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			add_stability = -0.02
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
+		
+	}
+}
+#哥斯达黎加内战爆发
+news_event = {
+	id = cos.7
+	title = cos.7.t
+	desc = cos.7.d
+	picture = GFX_CostaRicaWar
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = COS
+		has_global_flag = CostaRicaRiot
+		has_government = authoritarianism
+			democratic > 0.4
+		OR = {
+			democratic > 0.8
+			has_stability < 0.3
+			966 = { resistance > 80 }
+		}
+		has_war = no
+	}
+	option = {
+		name = roc.20.a
+		if = {
+			limit = { tag = COS }
+				start_civil_war = {
+					ideology = democratic
+						states = { 966 }
+				}
+		}
+		
+	}
+}
+#民族解放党夺取哥斯达黎加政权
+news_event = {
+	id = cos.9
+	title = cos.9.t
+	desc = cos.9.d
+	picture = GFX_CostaRicaWar
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.1.a
+	}
+}

@@ -1,0 +1,163 @@
+political_actions = {
+	
+	IRQ_tanker = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = IRQ
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+			has_war_with = PER
+		}
+		days_remove = 30
+		complete_effect = {
+			PER = {
+				country_event = { id = irq.23 }
+			}
+		}
+	}
+	
+	
+	Iraq_peace = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = IRQ
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				has_war_support < 0.4
+			}
+		}
+		days_remove = 30
+		visible = {
+			has_war_with = PER
+		}
+
+		complete_effect = {
+			PER = { news_event = { id = irq.25 } }
+		}
+
+	
+	}
+	Iran_peace = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = PER
+		}
+		days_remove = 30
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				has_war_support < 0.6
+			}
+		}
+		visible = {
+			has_war_with = IRQ 
+		}
+
+		complete_effect = {
+			IRQ = { news_event = { id = irq.25 } }
+		}
+
+	
+	}
+	
+	IRQ_Iran_war = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = IRQ
+		}
+		fire_only_once = yes
+		cost = 50
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 1
+				PER = { NOT = { has_government = monarchism } }
+			}
+			modifier = { 
+				add = 1
+				PER = { has_stability < 0.6 }
+			}
+		}
+
+		visible = {
+			NOT = { has_war_with = PER }
+			date > 1979.1.1
+			date < 1983.1.1
+		}
+		complete_effect = {
+			add_war_support = 0.4
+			add_named_threat = { threat = 10 name = Iran-Iraq-War }
+	
+			declare_war_on = {
+				target = PER
+				type = take_state_focus
+				generator = { 656 }
+			}
+			PER = { add_war_support = -0.3 }
+		}
+	}
+	IRQ_Kuwait_war = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1990.8.1
+			}
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+			date > 1989.1.1
+			date < 1991.12.1
+			tag = IRQ
+		}
+
+		complete_effect = {
+			news_event = { id = irq.27 }
+			SAU = { news_event = { id = irq.28 } }
+			USA = { news_event = { id = irq.30 } }
+			ENG = { news_event = { id = irq.30 } }
+			FRA = { news_event = { id = irq.30 } }
+			AST = { news_event = { id = irq.30 } }
+			CAN = { news_event = { id = irq.30 } }
+			add_named_threat = { threat = 10 name = GulfWar }
+			add_war_support = 0.6
+			declare_war_on = {
+				target = KWT
+				type = puppet_wargoal_focus 
+			}
+		}
+	}
+}

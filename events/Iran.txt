@@ -1,0 +1,1456 @@
+﻿add_namespace = per
+#波斯帝国建立阅兵
+news_event = {
+	id = per.1
+	title = per.1.t
+	desc = per.1.d
+	picture = GFX_PersianMemorial
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = per.1.a
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.02
+		}
+		add_to_variable = { influences = 20 }
+	}
+}
+#摩萨台当选首相
+news_event = {
+	id = per.2
+	title = per.2.t
+	desc = per.2.d
+	picture = GFX_Mosaddegh
+	fire_only_once = yes
+	trigger = {
+		tag = PER
+		date > 1951.2.24
+		date < 1951.2.24
+		has_government = monarchism
+	}
+	option = {	#反对
+		name = per.2.a
+	}
+	option = {	#支持
+		name = per.2.b
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_country_flag = mosaddegh
+	}
+}#摩萨台石油国有化
+news_event = {
+	id = per.3
+	title = per.3.t
+	desc = per.3.d
+	picture = GFX_Mosaddegh
+	major = yes
+	is_triggered_only = yes
+	option = {	#反对
+		name = per.3.a
+	}
+}
+#推翻摩萨台
+news_event = {
+	id = per.4
+	title = per.4.t
+	desc = per.4.d
+	picture = GFX_Mosaddegh
+	is_triggered_only = yes
+	option = {
+		name = per.4.b
+		PER = { news_event = { id = per.51 } }
+	}
+}
+#摩萨台被推翻
+news_event = {
+	id = per.5
+	title = per.5.t
+	desc = per.5.d
+	picture = GFX_Mosaddegh
+	is_triggered_only = yes
+	option = {
+		name = per.4.a
+	}
+}
+#伊朗革命
+news_event = {
+	id = per.6
+	title = per.6.t
+	desc = per.6.d
+	picture = GFX_IranianRevolution
+	is_triggered_only = yes
+	major = yes
+	option = {
+		play_song = PER_4
+		name = per.6.a
+	}
+}
+#伊朗内战
+news_event = {
+	id = per.7
+	title = per.7.t
+	desc = per.7.d
+	picture = GFX_IranianCvilWar
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = per.7.a
+	}
+}
+
+#爆发游行示威
+news_event = {
+	id = per.8
+	title = per.8.t
+	desc = per.8.d
+	picture = GFX_IranianRevolution
+	fire_only_once = yes
+	trigger = {
+		original_tag = PER
+		has_government = monarchism
+		monarchism < 0.6
+		date > 1979.1.1
+		date < 1980.1.1
+	}
+	option = {
+		ai_chance = {
+			factor = 100	
+		}
+		name = per.8.a
+		USA = {
+			diplomatic_relation = {
+				country = PER
+				relation = guarantee
+				active = no
+			}
+		}
+		add_popularity = { ideology = monarchism popularity = -0.5 }
+		add_popularity = { ideology = communism popularity = 0.15 }
+		add_popularity = { ideology = fascism popularity = 0.2 }
+		add_to_variable = { influences = -60 }
+		news_event = { id = per.11 }
+		news_event = { id = per.12 days = 2 }
+	}
+	option = {
+		ai_chance = {
+			factor = 10	
+		}
+		add_to_variable = { influences = -60 }
+		name = per.8.b
+		add_stability = -0.1
+			start_civil_war = {
+				ideology = democratic
+				capital = 266
+				states = { 266 417 420 418 416 419 }
+			}
+			set_country_flag = iranian_civil_war
+			news_event = { id = per.7 }
+	}
+}
+#伊朗实行宪政改革
+news_event = {
+	id = per.9
+	title = per.9.t
+	desc = per.9.d
+	picture = GFX_PahlaviSpeeching
+	is_triggered_only = yes
+	option = {
+		name = per.9.a
+		hidden_effect = {
+			news_event = { id = per.10 days = 20 }
+			add_to_variable = { influences = 100 }
+		}
+	}
+}
+#伊朗宪法出台
+news_event = {
+	id = per.10
+	title = per.10.t
+	desc = per.10.d
+	picture = GFX_PahlaviSpeeching
+	is_triggered_only = yes
+	option = {
+		name = per.10.a
+		set_politics = { ruling_party = democratic }
+		create_country_leader = {
+			name = "Shapour Bakhtiar"
+			desc = "POLITICS_FRANKLIN_DELANO_ROOSEVELT_DESC"
+			picture = "gfx/leaders/PER/Portrait_Iran_Shapour_Bakhtiar.tga"
+			expire = "1947.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+	}
+}
+#巴列维国王出逃
+news_event = {
+	id = per.11
+	title = per.11.t
+	desc = per.8.d
+	picture = GFX_PahlaviSpeeching
+	is_triggered_only = yes
+	option = { 
+		name = per.8.a
+		set_country_flag = oilcrisis1979
+	}
+}
+#伊朗未来的路线
+news_event = {
+	id = per.12
+	title = per.12.t
+	desc = per.12.d
+	picture = GFX_KhomeiniBack
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			factor = 100	
+		}
+		name = per.12.a
+		USA = { news_event = { id = per.14 days = 2 } }
+		complete_national_focus = PER_islam_republic
+	}
+	option = { 
+		ai_chance = {
+			factor = 1	
+		}
+		name = per.12.b
+		create_country_leader = {
+			name = "Abolhassan Banisadr"
+			picture = "gfx/leaders/PER/Portrait_Iran_Abolhassan_Banisadr.tga"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {  }
+		}
+		news_event = { id = per.28 }
+		play_song = PER_4
+		add_to_variable = { influences = 100 }
+		set_politics = { ruling_party = democratic }
+		add_popularity = { ideology = democratic popularity = 0.05 }
+	}
+}
+#石油危机
+news_event = {
+	id = per.13
+	title = per.13.t
+	desc = per.11.d
+	picture = GFX_oilcrisis
+	fire_only_once = yes
+	trigger = {
+		AND = {
+			PER = { has_war_with = IRQ }
+		}
+		OR = {
+		tag = USA
+		tag = JAP
+		tag = WDR
+		tag = FRA
+		tag = ITA
+		tag = ENG
+		}
+	}
+	option = { 
+		name = per.11.a
+		add_ideas = OilCrisis
+	}
+}
+#学生围攻美国使馆
+news_event = {
+	id = per.14
+	title = per.14.t
+	desc = per.11.d
+	picture = GFX_IranHostageCrisis
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		PER = { 
+		news_event = { id = per.15 }
+		add_named_threat = { threat = 10 name = HostagesCrisis } 
+		}
+	}
+	option = { 
+		name = per.11.a
+		PER = { 
+		add_named_threat = { threat = 10 name = HostagesCrisis } 
+		}
+		USA = {
+			random_list = {
+				50 = {
+				news_event = { id = per.21 }
+				}
+				50 = {
+				news_event = { id = per.21 }
+				}
+			}
+		}
+	}
+}
+#伊朗回应
+news_event = {
+	id = per.15
+	title = per.15.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		PER = { 
+		add_named_threat = { threat = -10 name = ReleaseHostages } 
+		USA = { news_event = { id = per.18 } }
+		}
+	}
+	option = {
+		name = per.11.a
+		USA = { news_event = { id = per.16 } }
+	}
+	option = { 
+		name = per.11.a
+		PER = { 
+		add_named_threat = { threat = 20 name = KillHostages } 
+		USA = { news_event = { id = per.20 } }
+		}
+		ai_chance = {
+			factor = 0	
+		}
+	}
+}
+#向美国讨价还价
+news_event = {
+	id = per.16
+	title = per.16.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		PER = { news_event = { id = per.17 } }
+		USA = { news_event = { id = per.18 } }
+	}
+	option = { 
+		name = per.11.a
+		PER = { news_event = { id = per.19 } }
+	}
+}
+#伊朗得到赎金
+news_event = {
+	id = per.17
+	title = per.17.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		add_political_power = 500
+	}
+}
+#伊朗释放人质
+news_event = {
+	id = per.18
+	title = per.18.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		add_to_variable = { influences = 40 }
+		name = per.11.a
+		add_political_power = -500
+		add_named_threat = { threat = -3 name = ReleaseHostages }
+	}
+}
+#美国拒绝
+news_event = {
+	id = per.19
+	title = per.19.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		PER = { 
+		add_named_threat = { threat = -10 name = ReleaseHostages } 
+		}
+	}
+	option = { 
+		name = per.11.a
+		PER = { 
+		add_named_threat = { threat = 20 name = KillHostages }
+		USA = { news_event = { id = per.20 } } 
+		}
+		ai_chance = {
+			factor = 0	
+		}
+	}
+}
+#人质遇难
+news_event = {
+	id = per.20
+	title = per.20.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		add_to_variable = { influences = -80 }
+		declare_war_on = {
+			target = PER
+			type = puppet_wargoal_focus 
+		}
+	}
+}
+#救援成功
+news_event = {
+	id = per.21
+	title = per.21.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		add_to_variable = { influences = 40 }
+		add_political_power = 200
+		add_stability = 0.2
+		PER = { add_to_variable = { influences = -50 } }
+	}
+}
+#救援失败
+news_event = {
+	id = per.22
+	title = per.22.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		USA = { news_event = { id = per.20 } } 
+	}
+}
+#伊朗交易
+news_event = {
+	id = per.23
+	title = per.23.t
+	desc = per.11.d
+	picture = GFX_report_event_spain_civil_war_soldiers
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		USA = { news_event = { id = per.24 } } 
+	}
+	option = { 
+		name = per.11.a
+		news_event = { id = per.25 }
+	}
+}
+#伊朗同意交易
+news_event = {
+	id = per.24
+	title = per.24.t
+	desc = per.11.d
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		USA = { 
+		add_political_power = 500
+		} 
+		PER = { 
+		set_country_flag = iran_gate
+		add_political_power = 500
+		add_war_support = 0.4
+		} 
+	}
+}
+#伊朗门
+news_event = {
+	id = per.25
+	title = per.25.t
+	desc = per.11.d
+	major = yes
+	picture = GFX_hostage
+	is_triggered_only = yes
+	option = { 
+		name = per.11.a
+		USA = { add_to_variable = { influences = -80 } }
+	}
+}
+#655号班机空难
+news_event = {
+	id = per.26
+	title = per.26.t
+	desc = kor.3.d
+	picture = GFX_KAL007
+
+	fire_only_once = yes
+
+	trigger = {
+			date > 1988.1.1
+			date < 1988.10.1
+			PER  = { has_war_with = USA }
+			}
+	option = {
+		name = kor.3.a
+			PER = {
+				add_opinion_modifier = {
+				target = USA
+				modifier = hostile_status
+				}
+			}
+			USA = {
+				add_named_threat = { threat = 10 name = IR655-crash }
+			}
+	}
+}
+#阿明
+news_event = {
+	id = per.27
+	title = per.27.t
+	desc = per.27.d
+	picture = GFX_KhomeiniBack
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = per.24.a
+	}
+}
+#阿明
+news_event = {
+	id = per.28
+	title = per.28.t
+	desc = per.28.d
+	picture = GFX_IranianRevolution
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = per.24.a
+	}
+}
+#霍梅尼去世
+news_event = {
+	id = per.30
+	title = per.30.t
+	desc = per.11.d
+	picture = GFX_KhomeiniDead
+	fire_only_once = yes
+	trigger = {
+		tag = PER
+		date > 1989.6.1
+	}
+	option = {
+		name = jap.80.a
+		
+		create_country_leader = {
+			name = "Ayatollah Khamenei"
+			desc = "POLITICIAN_KAIFU_TOSHIKI_DESC"
+			picture = "gfx/leaders/PER/Portrait_Iran_Khamenei.tga"
+			expire = "1994.1.1"
+			ideology = fascism_ideology
+			traits = {
+			}
+		}
+	}
+}
+#阿塞拜疆人民政府沦亡
+news_event = {
+	id = per.40
+	title = per.40.t
+	desc = per.40.d
+	picture = GFX_Azerbaijan1946
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = per.40.a
+		if = {
+			limit = { tag = PER }
+			set_global_flag = GandhiDeath
+			add_stability = 0.12
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+}
+#来自英美的抗议
+news_event = {
+	id = per.51
+	title = per.51.t
+	desc = per.51.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	option = {
+		name = per.40.a
+		news_event = { id = per.52 }
+		
+	}
+	option = {
+		name = per.40.a
+		FROM = { news_event = { id = per.53 } }
+		set_country_flag = PerRejectWarning
+	}
+}
+#来自英美的抗议
+news_event = {
+	id = per.52
+	title = per.52.t
+	desc = per.52.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+#来自英美的抗议
+news_event = {
+	id = per.53
+	title = per.53.t
+	desc = per.53.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+#暴徒袭击总理府
+news_event = {
+	id = per.54
+	title = per.54.t
+	desc = per.54.d
+	picture = GFX_Mosaddegh
+	fire_only_once = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = PER
+		has_country_flag = usa_coup
+		has_idea = Mosaddegh 
+	}
+	option = {
+		name = per.40.a
+		retire_character = PER_Mosaddegh
+			news_event = { id = per.5 }
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+	}
+	option = {
+		name = per.4.b
+		random_list = {
+			70 = {
+				news_event = { id = per.5 }
+			}
+			130 = {
+			set_politics = { ruling_party = authoritarianism }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.3
+			}
+			create_country_leader = {
+				name = "Mohammad Mosaddegh"
+				picture = "gfx/leaders/PER/Portrait_Iran_Mosaddegh.tga"
+				expire = "1965.1.1"
+				ideology = authoritarianism
+				traits = {  }
+				}
+				news_event = { id = per.6 }
+			}
+		}
+	}
+}
+#来自英美的抗议
+news_event = {
+	id = per.100
+	title = per.100.t
+	desc = per.100.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.101
+	title = per.101.t
+	desc = per.101.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.102
+	title = per.102.t
+	desc = per.102.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.103
+	title = per.103.t
+	desc = per.103.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.104
+	title = per.104.t
+	desc = per.104.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.105
+	title = per.105.t
+	desc = per.105.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.106
+	title = per.106.t
+	desc = per.106.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.107
+	title = per.107.t
+	desc = per.107.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.108
+	title = per.108.t
+	desc = per.108.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.109
+	title = per.109.t
+	desc = per.109.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.110
+	title = per.110.t
+	desc = per.110.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.111
+	title = per.111.t
+	desc = per.111.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.112
+	title = per.112.t
+	desc = per.112.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.113
+	title = per.113.t
+	desc = per.113.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.114
+	title = per.114.t
+	desc = per.114.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.115
+	title = per.115.t
+	desc = per.115.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.116
+	title = per.116.t
+	desc = per.116.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.117
+	title = per.117.t
+	desc = per.117.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.118
+	title = per.118.t
+	desc = per.118.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.119
+	title = per.119.t
+	desc = per.119.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.120
+	title = per.120.t
+	desc = per.120.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.121
+	title = per.121.t
+	desc = per.121.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.122
+	title = per.122.t
+	desc = per.122.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.123
+	title = per.123.t
+	desc = per.123.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.124
+	title = per.124.t
+	desc = per.124.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.125
+	title = per.125.t
+	desc = per.125.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.126
+	title = per.126.t
+	desc = per.126.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.127
+	title = per.127.t
+	desc = per.127.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.128
+	title = per.128.t
+	desc = per.128.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.129
+	title = per.129.t
+	desc = per.129.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.130
+	title = per.130.t
+	desc = per.130.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.131
+	title = per.131.t
+	desc = per.131.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.132
+	title = per.132.t
+	desc = per.132.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.134
+	title = per.134.t
+	desc = per.134.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.135
+	title = per.135.t
+	desc = per.135.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.136
+	title = per.136.t
+	desc = per.136.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.137
+	title = per.137.t
+	desc = per.137.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.138
+	title = per.138.t
+	desc = per.138.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.139
+	title = per.139.t
+	desc = per.139.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.140
+	title = per.140.t
+	desc = per.140.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.141
+	title = per.141.t
+	desc = per.141.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.142
+	title = per.142.t
+	desc = per.142.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.143
+	title = per.143.t
+	desc = per.143.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.144
+	title = per.144.t
+	desc = per.144.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.145
+	title = per.145.t
+	desc = per.145.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.146
+	title = per.146.t
+	desc = per.146.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.147
+	title = per.147.t
+	desc = per.147.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.148
+	title = per.148.t
+	desc = per.148.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.149
+	title = per.149.t
+	desc = per.149.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.150
+	title = per.150.t
+	desc = per.150.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.151
+	title = per.151.t
+	desc = per.151.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.152
+	title = per.152.t
+	desc = per.152.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.153
+	title = per.153.t
+	desc = per.153.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.154
+	title = per.154.t
+	desc = per.154.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.155
+	title = per.155.t
+	desc = per.155.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.156
+	title = per.156.t
+	desc = per.156.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.157
+	title = per.157.t
+	desc = per.157.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.158
+	title = per.158.t
+	desc = per.158.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.159
+	title = per.159.t
+	desc = per.159.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.160
+	title = per.160.t
+	desc = per.160.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.161
+	title = per.161.t
+	desc = per.161.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.162
+	title = per.162.t
+	desc = per.162.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.163
+	title = per.163.t
+	desc = per.163.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.164
+	title = per.164.t
+	desc = per.164.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.165
+	title = per.165.t
+	desc = per.165.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}
+news_event = {
+	id = per.166
+	title = per.166.t
+	desc = per.166.d
+	picture = GFX_Azerbaijan1946
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = per.40.a
+		
+	}
+}

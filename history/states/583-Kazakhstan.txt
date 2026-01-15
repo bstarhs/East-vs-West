@@ -1,0 +1,44 @@
+
+state={
+	id=583
+	name="STATE_583" # Kustanay
+	manpower = 315450
+	
+	state_category = rural
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Khazakhs
+		set_state_flag = SOV_corn_states
+		add_to_array = { this.state_ethnics_list = 11 }
+                               
+		owner = SOV
+		buildings = {
+			hospital = 1
+			infrastructure = 4
+		}
+		victory_points = {
+			1363 6
+		}
+		victory_points = {
+			4337 3
+		}
+		add_core_of = SOV
+		
+		add_core_of = KAZ
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		1272 1276 1303 1331 1360 1363 4337 4340 4369 7233 7357 7429 10140 10168 10196 10284 10295 10312 12115 12139 12143 12170 12185 12198 12229 12257 12266 12285 
+	}
+}

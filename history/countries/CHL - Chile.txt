@@ -1,0 +1,295 @@
+﻿capital = 279
+
+oob = "CHL_1936"
+
+	set_variable = { this.education = 77 }
+set_country_flag = main_country
+set_country_flag = language_spannish
+set_country_flag = developmented
+set_country_flag = latin_america
+	set_country_flag = female_finished
+# Starting tech
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = create_radio_station
+	complete_national_focus = steel_produc
+	complete_national_focus = common_61
+	set_country_flag = gen230
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+set_country_flag = monroe_doctrine
+
+set_convoys = 20
+add_ideas = {
+	miner
+	service_by_requirement
+	Catholicism
+	low_economic_mobilisation
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "CHL_1947"
+	complete_national_focus = common_63
+}
+
+set_convoys = 5
+	set_popularities = {
+		democratic = 74
+		communism = 16
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1932.10.30"
+	election_frequency = 72  #but 4 years after this one in 1938.
+	elections_allowed = yes
+}
+
+	add_ideas = {
+		UNmember
+	}
+
+create_country_leader = {
+	name = "González Videl"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "gfx/leaders/CHL/Portrait_Chile_Gonzalez_Videl.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+recruit_character = CHL_Jorge_Alessandri
+recruit_character = CHL_Eduardo_Montalva
+	complete_national_focus = commons_5
+1948.1.1 = {
+	set_country_flag = israel_diplomacy
+	activate_decision = female_equality
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	complete_national_focus = common_1
+}
+1952.1.20 = {
+	complete_national_focus = common_3
+	create_country_leader = {
+		name = "Carlos Del Campo"
+		
+		picture = "gfx/leaders/CHL/Portrait_Chile_Carlos_Campo.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1958.1.20 = {
+	promote_character = CHL_Jorge_Alessandri
+}
+1964.1.20 = {
+	oob = "CHL_1960"
+	complete_national_focus = common_medic
+	complete_national_focus = common_63
+	complete_national_focus = common_64
+	add_ideas = {
+		APLA
+	}
+	promote_character = CHL_Eduardo_Montalva
+}
+1967.1.1 = {
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+}
+1970.1.1 = {
+	set_country_flag = china_diplomacy
+	set_popularities = {
+		democratic = 33
+		communism = 47
+		neutrality = 20
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	create_country_leader = {
+			name = "Salvador Allende"
+			desc = "POLITICS_FEDERICO_LAREDO_BRU_DESC"
+			picture = "gfx/leaders/CHL/Portrait_Chile_Allende.tga"
+			expire = "1973.1.1"
+			ideology = leninism
+			traits = {
+			pro_soviet pro_socialism socialist_reformism resolute_social_democrat
+		}
+	}
+	create_country_leader = {
+		name = "Agusto Pinochet"
+		desc = "POLITICS_FEDERICO_LAREDO_BRU_DESC"
+		picture = "gfx/leaders/CHL/Portrait_Chile_Pinochet.tga"
+		expire = "2017.1.1"
+		ideology = despotism
+		traits = { dictator anti_communist pro_america neoliberal }
+	}
+}
+1973.9.11 = {
+	complete_national_focus = common_24
+	add_ideas = {
+		closed_economy
+	}
+	complete_national_focus = common_4
+	complete_national_focus = common_10
+	complete_national_focus = common_9
+	complete_national_focus = common_11
+	set_popularities = {
+		democratic = 9
+		communism = 4
+		neutrality = 87
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1935.9.8"
+		election_frequency = 36
+		elections_allowed = no
+	}
+}
+1982.1.1 = {	
+	add_ideas = {
+		civilian_economy
+		debt_crisis
+	}
+}
+1986.3.12 = {
+	retire_character = CHL_Jorge_Alessandri
+	retire_character = CHL_Eduardo_Montalva
+	set_popularities = {
+		democratic = 50
+		communism = 7
+		neutrality = 43
+	}
+}
+1990.3.12 = {
+	create_country_leader = {
+		name = "Patricio Aylwin"
+		picture = "gfx/leaders/CHL/Portrait_Chile_Patricio_Aylwin.tga"
+		ideology = socialism
+		traits = {
+		}
+	}
+	set_politics = {
+		ruling_party = democratic
+	}
+	set_popularities = {
+		democratic = 70
+		communism = 18
+		neutrality =12
+	}
+}

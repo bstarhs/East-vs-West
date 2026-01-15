@@ -1,0 +1,976 @@
+
+
+CUB_revolucion_decis = {
+	CUB_revolucion_supporting = {
+		icon = GFX_decision_generic_protection
+		cost = 50
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 120
+				date > 1959.6.1
+				FROM = { tag = DOM }
+			}
+				
+		}
+		visible = {
+			tag = CUB
+			NOT = { has_government = neutrality }
+			date > 1955.1.1
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = VEN
+					tag = COL
+					tag = PAN
+					tag = DOM
+					tag = HAI
+				}
+				NOT = { has_country_flag = CUB_revolucion_supporting }
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_country_flag = CUB_revolucion_supporting
+				add_stability = -0.04
+				add_popularity = {
+					ideology = ROOT
+					popularity = -0.05
+				}
+			}
+		}
+	}
+	CUB_revolucion_diplomatic = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			date < 1960.12.1
+			NOT = { has_government = neutrality }
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = SOV
+					tag = PRC
+					tag = IND
+					tag = MEX
+					tag = BRA
+					tag = VEN
+					tag = EGY
+				}
+				NOT = { has_country_flag = CUB_diplomatic }
+			}
+		}
+		available = {
+			NOT = { has_government = neutrality }
+			has_stability > 0.6
+			if = {
+				limit = { has_government = democratic }
+				democratic > 0.4
+			}
+			if = {
+				limit = { has_government = authoritarianism }
+				authoritarianism > 0.4
+			}
+			if = {
+				limit = { has_government = communism }
+				communism > 0.4
+			}
+		}
+		cost = 80
+		complete_effect = {
+			FROM = { country_event = cub.127 }
+			add_stability = 0.12
+		}
+	}
+	CUB_revolucion_visit_us = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1959.4.1
+			}
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			NOT = { has_government = neutrality }
+			has_stability > 0.6
+			if = {
+				limit = { has_government = democratic }
+				democratic > 0.4
+			}
+			if = {
+				limit = { has_government = authoritarianism }
+				authoritarianism > 0.4
+			}
+			if = {
+				limit = { has_government = communism }
+				communism > 0.4
+			}
+		}
+		cost = 80
+		complete_effect = {
+			news_event = cub.110
+			add_stability = 0.12
+		}
+	}
+	CUB_revolucion_finished = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1959.4.1
+			}
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			NOT = { has_government = neutrality }
+			has_stability > 0.8
+			if = {
+				limit = { has_government = democratic }
+				democratic > 0.8
+			}
+			if = {
+				limit = { has_government = authoritarianism }
+				OR = {
+					authoritarianism > 0.8
+					is_ai = yes
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				communism > 0.8
+			}
+			NOT = {
+				has_idea = CUB_casino
+				has_idea = CUB_mafia_ideas
+				has_idea = FruitCompany
+				has_idea = corrupt
+				has_idea = Latin_Hacienda
+			}
+			all_owned_state = {
+				resistance < 5
+			}
+		}
+		cost = 120
+		complete_effect = {
+			set_country_flag = CUB_revolucion_finished
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+			add_stability = 0.12
+			add_political_power = 500
+			news_event = cub.150
+			every_owned_state = {
+				limit = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+	CUB_revolucion_nationalized_sugar_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1959.4.1
+			}
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			NOT = { has_government = neutrality }
+			has_stability > 0.7
+			NOT = { has_idea = Latin_Hacienda }
+		}
+		cost = 120
+		complete_effect = {
+			set_country_flag = CUB_revolucion_nationalized_sugar_decis
+			news_event = { id = cub.145 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_political_power = 200
+		}
+	}
+	CUB_revolucion_nationalized_cigar_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1959.4.1
+			}
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			NOT = { has_government = neutrality }
+			has_stability > 0.7
+			NOT = { has_idea = Latin_Hacienda }
+		}
+		cost = 120
+		complete_effect = {
+			news_event = { id = cub.146 }
+			set_country_flag = CUB_revolucion_nationalized_cigar_decis
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_political_power = 200
+		}
+	}
+	CUB_revolucion_social_help_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 60
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1958.4.1
+			}
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+			NOT = { has_country_flag = CUB_revolucion_finished }
+		}
+		available = {
+			has_stability > 0.7
+		}
+		cost = 90
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+		}
+	}
+	CUB_revolucion_rlease_criminal_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+			NOT = { has_country_flag = CUB_revolucion_finished }
+		}
+		available = {
+			has_stability > 0.7
+		}
+		cost = 60
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_stability = 0.05
+		}
+	}
+	CUB_revolucion_execute_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1959.1.1
+			}
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_country_flag = CUB_revolucion_finished }
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			has_stability > 0.65
+		}
+		cost = 60
+		complete_effect = {
+			news_event = { id = cub.144 }
+			USA = { news_event = { id = cub.144 } }
+			remove_ideas = corrupt
+			add_stability = -0.04
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+		}
+	}
+	CUB_revolucion_propaganda_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_country_flag = CUB_revolucion_finished }
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			has_stability > 0.7
+		}
+		cost = 60
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			every_owned_state = {
+				add_compliance = 10
+			}
+		}
+	}
+	CUB_revolucion_rural_militia_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_country_flag = CUB_revolucion_finished }
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			if = {
+				limit = { has_government = democratic }
+				democratic > 0.6
+			}
+			if = {
+				limit = { has_government = authoritarianism }
+				authoritarianism > 0.6
+			}
+			if = {
+				limit = { has_government = communism }
+				communism > 0.6
+			}
+			has_stability > 0.65
+		}
+		cost = 60
+		complete_effect = {
+			add_stability = 0.01
+			every_owned_state = {
+				add_compliance = 20
+			}
+		}
+	}
+	CUB_deportation_plantation_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			has_idea = Latin_Hacienda
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			has_completed_focus = common_61
+			has_stability > 0.65
+		}
+		cost = 60
+		complete_effect = {
+			remove_ideas = Latin_Hacienda
+			remove_ideas = FruitCompany
+			add_political_power = 300
+			country_event = { id = cub.105 }
+		}
+	}
+	CUB_deportation_hotel_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			has_stability > 0.65
+		}
+		cost = 60
+		complete_effect = {
+			country_event = { id = cub.102 }
+		}
+	}
+	CUB_deportation_mafia_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			has_idea = CUB_mafia_ideas
+			NOT = { has_government = neutrality }
+		}
+		available = {
+			has_stability > 0.65
+		}
+		cost = 60
+		complete_effect = {
+			remove_ideas = CUB_mafia_ideas
+			news_event = { id = cub.101 }
+		}
+	}
+	CUB_deportation_casino_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			tag = CUB
+			date > 1955.1.1
+			NOT = { has_government = neutrality }
+			has_idea = CUB_casino
+		}
+		available = {
+			tag = CUB
+			has_stability > 0.65
+		}
+		cost = 60
+		complete_effect = {
+			remove_ideas = CUB_casino
+			news_event = { id = cub.100 }
+		}
+	}
+	CUB_bride_conflict_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		days_remove = 120
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200 
+				any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			}
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		available = {
+			has_stability > 0.65
+			neutrality > 0.6
+			any_owned_state = { resistance > 5 }
+		}
+		cost = 40
+		complete_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = CUB
+					resistance > 5
+				}
+				add_resistance = -4
+			}
+		}
+	}
+	CUB_guardian_rural = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		days_remove = 120
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				resistance > 10
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_compliance = 20
+			}
+		}
+	}
+	CUB_bombing_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		days_remove = 120
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200 
+				any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			}
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				resistance > 10
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_resistance = -10
+			}
+		}
+	}
+	CUB_construct_slum = {
+		icon = GFX_decision_generic_merge_plant_materiel
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		days_remove = 120
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+			}
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			FROM = {
+				add_resistance = -6
+				set_state_flag = CUB_construct_slum
+			}
+		}
+	}
+	CUB_pushed_slum = {
+		icon = GFX_decision_generic_construction
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		days_re_enable = 30
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 100
+				date > 1954.1.1
+			}
+			modifier = { 
+				add = 100
+				communism < 0.3
+			}
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+			}
+		}
+		complete_effect = {
+			FROM = {
+			add_resistance = -12
+			}
+		}
+	}
+	CUB_surrender_revo = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 20
+		complete_effect = {
+			news_event = cub.71
+		}
+	}
+	CUB_CubanGrandPrix_revo = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		available = {
+			NOT = { has_government = communism }
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			date > 1958.1.1
+			date < 1959.1.1
+		}
+		cost = 20
+		complete_effect = {
+			set_global_flag = cub52
+			news_event = cub.52
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
+	}
+	
+	CUB_bride_us_decis = {
+		icon = GFX_decision_ger_mefo_bills
+		allowed = {
+			always = yes
+		}
+		available = {
+			NOT = { has_government = communism }
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			tag = CUB
+			date > 1952.1.1
+			date < 1959.1.1
+		}
+		cost = 60
+		complete_effect = {
+			add_to_variable = { CUB.US_gov_aid_opinion = 1 }
+			custom_effect_tooltip = CUB_bride_us_decis_tool
+		}
+	}
+	CUB_bride_media_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		available = {
+			NOT = { has_government = communism }
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			tag = CUB
+			date > 1952.1.1
+			date < 1959.1.1
+		}
+		cost = 60
+		complete_effect = {
+			add_to_variable = { CUB.US_public_aid_opinion = 1 }
+		}
+	}
+	CUB_bride_people_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_government = neutrality
+		}
+		days_re_enable = 200
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 60
+		visible = {
+			tag = CUB
+		}
+		complete_effect = {
+			add_stability = 0.02
+			random_owned_state = {
+				limit = { is_core_of = CUB }
+				add_resistance = -6
+			}
+			random_owned_state = {
+				limit = { is_core_of = CUB }
+				add_resistance = -6
+			}
+		}
+	}
+	CUB_propaghanda_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200 
+				any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			}
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		days_re_enable = 200
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 60
+		visible = {
+			tag = CUB
+		}
+		complete_effect = {
+			add_stability = 0.02
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
+	}
+	CUB_helpping_casino_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		visible = {
+			tag = CUB
+			has_government = neutrality
+		}
+		available = {
+			NOT = { has_government = communism }
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			date > 1952.1.1
+			date < 1959.1.1
+			check_variable = { CUB.gambling_loosing > 1 }
+		}
+		cost = 60
+		complete_effect = {
+			add_to_variable = { CUB.gambling_loosing = -1 }
+		}
+	}
+	CUB_helpping_tourist_decis = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_government = neutrality
+		}
+		available = {
+			NOT = { has_government = communism }
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			tag = CUB
+			date > 1952.1.1
+			date < 1959.1.1
+			check_variable = { CUB.tourism_loosing > 1 }
+		}
+		cost = 60
+		complete_effect = {
+			add_to_variable = { CUB.tourism_loosing = -1 }
+		}
+	}
+
+}
+political_actions = {
+	VAT_liberation_theology = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = VAT
+		}
+
+		cost = 20
+
+		available = {
+			NOT = { has_government = communism }
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1968.1.1
+						date < 1968.5.1
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+				CUB = { news_event = { id = vat.5 } }
+				HAI = { news_event = { id = vat.5 } }
+				HON = { news_event = { id = vat.5 } }
+				PHI = { news_event = { id = vat.5 } }
+				MEX = { news_event = { id = vat.5 } }
+				GUA = { news_event = { id = vat.5 } }
+				HON = { news_event = { id = vat.5 } }
+				ELS = { news_event = { id = vat.5 } }
+				NIC = { news_event = { id = vat.5 } }
+				COS = { news_event = { id = vat.5 } }
+				ARG = { news_event = { id = vat.5 } }
+				CHL = { news_event = { id = vat.5 } }
+				PAR = { news_event = { id = vat.5 } }
+				BOL = { news_event = { id = vat.5 } }
+		}
+
+	
+	}
+	
+	CUB_Soviet = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = CUB
+		}
+
+		cost = 50
+
+		available = {
+			date > 1960.1.1
+			date < 1962.1.1
+			has_government = communism
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+			add = 100 
+			date > 1961.6.1 
+			}
+		}
+		complete_effect = {
+				SOV = { country_event = { id = cub.5 } }
+		}
+
+	
+	}
+}

@@ -1,0 +1,104 @@
+ideas = {
+
+	country = {
+		Finlandization = {
+			
+			allowed = {
+				always = yes
+			}
+			picture = finlandization
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				communism_drift = 0.1
+				communism_acceptance = 50
+			}
+		}
+	}
+
+	political_advisor = {
+		Kalevi_Sorsa = {
+			allowed = {
+				tag = FIN
+			}
+			visible = {
+				date > 1980.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		mauno_koivisto = {
+			allowed = {
+				tag = FIN
+			}
+			visible = {
+				date > 1980.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Karl_Fagerholm = {
+			allowed = {
+				tag = FIN
+			}
+			visible = {
+				date < 1960.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		
+		crichton = {
+			
+			picture = generic_naval_manufacturer_1
+
+			
+			allowed = {
+				original_tag = FIN
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			# submarine and defence ship production
+			
+			traits = { naval_manufacturer }
+		}
+		
+		valtion_lentokonetehdas = {
+			
+			picture = generic_air_manufacturer_3
+
+			
+			allowed = {
+				original_tag = FIN
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			# assembled Junkers, fast bombers
+		
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

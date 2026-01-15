@@ -1,0 +1,200 @@
+﻿capital = 301
+
+set_country_flag = language_spannish
+set_country_flag = third_world
+set_country_flag = latin_america
+set_country_flag = developmented
+recruit_character = PAR_rafael_franco
+# Starting tech
+add_ideas = {
+	militarist_politician
+}
+	add_to_array = { global.UNmember_list = FROM }
+set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+	basic_train = 1
+		helmet = 1
+	infantry_weapons = 1
+	gw_artillery = 1
+	early_fighter = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+		medical1 = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+}
+	complete_national_focus = commons_5
+set_country_flag = monroe_doctrine
+add_ideas = {
+
+	Catholicism
+	partial_economic_mobilisation
+		UNmember
+	}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "PAR_1947"
+	set_technology = {
+		CAS1 = 1
+		interwar_artillery = 1
+		interwar_antiair = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+#create_country_leader = {
+#	name = "Eusebio Ayala"
+#	desc = "POLITICS_EUSEBIO_AYALA_DESC"
+#	picture = "gfx/leaders/South America/Portrait_South_America_Generic_2.dds"
+#	expire = "1965.1.1"
+#	ideology = liberalism
+#	traits = {
+#		#
+#	}
+#}
+
+# Rafael Franco technically comes to and loses power slightly after/before the bookmarks, but is the go-to choice for a socialist leader
+
+1939.1.1 = {
+	set_popularities = {
+		democratic = 15
+		neutrality = 60
+		communism = 10
+		authoritarianism = 15
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1938.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+
+	create_country_leader = {
+		name = "Higinio Morínigo Martínez "
+		desc = "POLITICS_HIGINIO_MORINIGO_DESC"
+		picture = "gfx/leaders/PAR/Portrait_Paraguay_Martinez.tga"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = {
+			anti_communist pro_america
+		}
+	}
+}
+1949.1.20 = {
+	create_country_leader = {
+		name = "Federico Chaves"
+		
+		picture = "gfx/leaders/PAR/Portrait_Paraguay_Federico_Chaves.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+	set_country_flag = israel_diplomacy
+}
+1958.1.20 = {
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		democratic = 13
+		neutrality = 85
+		communism = 2
+	}
+	create_country_leader = {
+		name = "Alfredo Stroessner"
+		
+		picture = "gfx/leaders/PAR/Portrait_Paraguay_Stroessner_1958.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1961.1.1 = {
+	complete_national_focus = steel_produc
+	add_ideas = {
+		APLA
+	}
+}
+1970.1.20 = {
+	create_country_leader = {
+		name = "Alfredo Stroessner"
+		
+		picture = "gfx/leaders/PAR/Portrait_Paraguay_Alfredo_Stroessner_Matiauda.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1989.2.2 = {
+	set_country_flag = female_finished
+	set_popularities = {
+		democratic = 23
+		neutrality = 70
+		communism = 5
+		fascism = 2
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1938.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Andrés Rodríguez Pedotti"
+		desc = "POLITICS_HIGINIO_MORINIGO_DESC"
+		picture = "gfx/leaders/PAR/Portrait_Paraguay_Andres_Rodriguez_Pedotti.tga"
+		expire = "1965.1.1"
+		ideology = socialism
+
+		traits = {
+			#
+		}
+	}
+}

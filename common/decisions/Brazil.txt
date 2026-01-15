@@ -1,0 +1,31 @@
+political_actions = {
+	
+	BRA_brasilia = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = BRA
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		cost = 300
+		days_remove = 300
+		visible = {
+			886 = { is_capital = no }
+			has_country_leader_with_trait = Developmentalism
+		}
+		remove_effect = {
+			886 = { set_state_category = city }
+			set_capital = { state = 886 }
+			add_political_power = 100
+			add_victory_points = {
+				province = 13296
+				value = 10
+			}
+		}
+	}
+}

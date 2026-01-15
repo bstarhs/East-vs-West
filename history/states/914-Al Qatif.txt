@@ -1,0 +1,49 @@
+
+state={
+	id=914
+	name="STATE_914"
+	manpower = 14400
+	
+	state_category = rural
+	resources={
+		oil=80
+	}
+	history={
+		set_state_flag = ethnics_Arabs
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = SAU
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			oilfield = 2
+			synthetic_refinery = 1
+			12702 = {
+				naval_base = 6
+			}
+		}
+		victory_points = { 12702 6 }
+		victory_points = { 14076 4 }
+		victory_points = { 5024 3 }
+		add_core_of = SAU
+		1954.8.17 = {
+			set_state_category = town
+			buildings = {
+			infrastructure = 2
+				oilfield = 2
+				power_plant = 3
+			}
+		}
+		1960.8.17 = {
+			buildings = {
+				infrastructure = 5
+				air_base = 3
+			}
+		}
+	}
+
+	provinces={
+		 1955 12702 13429 13430 10850 7995 5024 10791 14075 14076 14078
+	}
+}

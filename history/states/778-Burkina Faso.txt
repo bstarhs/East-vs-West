@@ -1,0 +1,39 @@
+
+state={
+	id=778
+	name="STATE_778" # French West Africa
+	manpower = 4284000
+	
+	state_category = rural
+
+	history={
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		owner = MLI
+		set_state_flag = cutton_production
+		set_state_flag = ethnics_Mossi
+		add_to_array = { this.state_ethnics_list = 33 }
+		add_to_array = { this.state_ethnics_list = 178 }
+		add_to_array = { this.state_ethnics_list = 179 }
+		add_core_of = BKF
+		1960.8.23 = {
+			owner = BKF
+		}
+		victory_points = {
+			10836 6
+		}
+		victory_points = {
+			13339 2
+		}
+		buildings = {
+			farm_building = 1
+			plantation = 3
+			industrial_complex = 1
+			infrastructure = 2
+		}
+	}
+
+	provinces={
+		7983 12851 7950 2001 8071 10836 13339 13340 13341 13342
+	}
+}

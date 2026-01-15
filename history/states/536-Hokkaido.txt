@@ -1,0 +1,55 @@
+
+state={
+	id=536
+	name="STATE_536"
+	manpower = 2812000
+	
+	state_category = large_town
+	resources={
+		coal=4
+		iron=3
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 15 }
+		add_to_array = { this.state_ethnics_list = 17 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Japanese
+		add_dynamic_modifier = { modifier = fish_production }
+		add_core_of = HOK
+		 
+		owner = JAP
+		add_core_of = JAP
+		buildings = {
+			power_plant = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 1
+		}
+		victory_points = {
+			10444 8
+		}
+		victory_points = {
+			12421 3
+		}
+		victory_points = {
+			3962 3
+		}
+		1954.8.17 = {
+			buildings = {
+				farm_building = 4
+				anti_air_building = 2
+				radar_station = 2
+				industrial_complex = 5
+			}
+		}
+
+	}
+
+	provinces={
+		1512 1642 3962 4576 4646 7532 7595 10444 10512 12352 12421 12493 
+	}
+}

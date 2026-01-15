@@ -1,0 +1,494 @@
+MAL_emergency_decis = {
+	MAL_indians_labour_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_generic_merge_plant_materiel
+		cost = 150
+		visible = {
+			tag = MAL
+		}
+		fire_only_once = yes
+		complete_effect = {
+			news_event = mal.28
+			set_country_flag = MAL_indians_labour_decis
+			ENG = { news_event = mal.28 }
+			custom_effect_tooltip = MAL_lost_muslim_warning
+			add_to_variable = { MAL.malays_support = -1 }
+			add_to_variable = { MAL.indians_support = 1 }
+			add_to_variable = { MAL.labour_support = 1 }
+		}
+	}
+	MAL_chinese_labour_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_generic_merge_plant_materiel
+		cost = 150
+		visible = {
+			tag = MAL
+		}
+		fire_only_once = yes
+		complete_effect = {
+			news_event = mal.28
+			ENG = { news_event = mal.28 }
+			custom_effect_tooltip = MAL_lost_muslim_warning
+			set_country_flag = MAL_chinese_labour_decis
+			add_to_variable = { MAL.malays_support = -1 }
+			add_to_variable = { MAL.chinese_support = 1 }
+			add_to_variable = { MAL.labour_support = 1 }
+		}
+	}
+	MAL_emergency_propaganda_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		days_re_enable = 200
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 30
+		visible = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+		}
+		complete_effect = {
+			news_event = mal.26
+			random_owned_state = {
+				limit = { is_core_of = MAL }
+				add_resistance = -6
+			}
+			random_owned_state = {
+				limit = { is_core_of = MAL }
+				add_resistance = -6
+			}
+			random_owned_state = {
+				limit = { is_core_of = MAL }
+				add_resistance = -6
+			}
+		}
+	}
+	supress_rebels_MAL = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+		cost = 10
+		days_re_enable = 100
+		visible = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+		}
+		available = {
+			OR = {
+				is_ai = yes
+				divisions_in_state = {
+					size > 1
+					state = FROM
+				}
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {	
+				is_owned_by = MAL
+				has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		complete_effect = {
+			army_experience = -40
+			random_list = {
+				10 = {
+					owner = { country_event = { id = gen.5 } }
+					FROM = { add_resistance = 8 }
+					modifier = {
+						add = -2
+						has_stability > 0.7
+					}
+				}
+				10 = {
+					owner = {
+						country_event = { id = gen.4 }
+						add_popularity = {
+							ideology = ROOT
+							popularity = 0.03
+						}
+					}
+					FROM = { add_resistance = -20 }
+					modifier = {
+						add = 5
+						has_stability > 0.5
+					}
+					modifier = {
+						add = 3
+						has_army_experience > 100
+					}
+					modifier = {
+						add = 3
+						num_divisions > 8
+					}
+					modifier = {
+						add = 3
+						num_divisions > 12
+					}
+				}
+			}
+		}
+	}
+	MAL_newtown_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 80
+		visible = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+		}
+		days_re_enable = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = MAL
+			}
+		}
+		complete_effect = {
+				FROM = {
+					state_event = {
+						id = mal.46
+						trigger_for = ROOT
+					}
+					state_event = {
+						id = mal.46
+						trigger_for = MAL
+					}
+					add_resistance = -5
+					set_state_flag = MAL_newtown
+				}
+		}
+	}
+	MAL_emergency_indians_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+		}
+		days_re_enable = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = MAL
+			}
+		}
+		complete_effect = {
+			random_list = {
+				30 = {
+					modifier = {
+						add = 15
+						has_country_flag = MAL_indians_labour_decis
+					}
+					FROM = {
+						state_event = {
+							id = mal.24
+							trigger_for = ROOT
+						}
+						add_to_variable = { MAL_local_cooperate = 1 }
+						add_to_variable = { MAL.indians_support = 1 }
+						add_resistance = -6
+					}
+					custom_effect_tooltip = MAL_lost_muslim_warning
+				}
+				40 = {
+					FROM = {
+						state_event = {
+							id = mal.25
+							trigger_for = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	MAL_emergency_chinese_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+		}
+		days_re_enable = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = MAL
+			}
+		}
+		complete_effect = {
+			random_list = {
+				30 = {
+					modifier = {
+						add = 15
+						has_country_flag = MAL_chinese_labour_decis
+					}
+					FROM = {
+						state_event = {
+							id = mal.24
+							trigger_for = ROOT
+						}
+						add_to_variable = { MAL_local_cooperate = 1 }
+						add_to_variable = { MAL.chinese_support = 1 }
+						add_resistance = -6
+					}
+					custom_effect_tooltip = MAL_lost_muslim_warning
+				}
+				40 = {
+					FROM = {
+						state_event = {
+							id = mal.25
+							trigger_for = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	MAL_emergency_muslim_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			OR = {
+				tag = ENG
+				tag = MAL
+			}
+		}
+		days_re_enable = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = MAL
+			}
+		}
+		complete_effect = {
+			random_list = {
+				40 = {
+					FROM = {
+						state_event = {
+							id = mal.24
+							trigger_for = ROOT
+						}
+						add_to_variable = { MAL_local_cooperate = 1 }
+						add_to_variable = { MAL.malays_support = 1 }
+						add_resistance = -6
+					}
+					custom_effect_tooltip = MAL_lost_chinese_warning
+				}
+				40 = {
+					FROM = {
+						state_event = {
+							id = mal.25
+							trigger_for = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+political_actions = {
+	
+	INS_support_Sarawak = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 200
+
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				date > 1961.1.1
+			}
+		}
+		visible = {
+			tag = INS
+			has_global_flag = sarawak_malaysia
+			333 = { is_controlled_by = MAL }
+			communism > 0.34
+		}
+		days_re_enable = 100
+
+		complete_effect = {
+			MAL = { set_country_flag = BoernoConflict  }
+			333 = { add_resistance = 15 }
+		}
+	}
+	Annex_Sarawak = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 200
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				date > 1961.1.1
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = sarawak_malaysia
+			333 = { is_controlled_by = SRW }
+		}
+
+		complete_effect = {
+			annex_country = {
+				target = SRW
+				transfer_troops = no
+			}
+			news_event = { id = mal.16 }
+		}
+	}
+	Bri_given_Sarawak = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 200
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				date > 1961.1.1
+			}
+		}
+		visible = {
+			tag = ENG
+			MAL = { is_subject = no }
+			333 = { is_controlled_by = ENG }
+			BRU = { is_subject_of = ENG }
+		}
+
+		complete_effect = {
+			SRW = { transfer_state = 333 }
+			news_event = { id = mal.11 }
+		}
+	}
+	Malaysia_federation = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 200
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				date > 1961.1.1
+			}
+		}
+		visible = {
+			tag = MAL
+			is_subject = no
+			855 = { is_controlled_by = ENG }
+		}
+
+		complete_effect = {
+			add_stability = 0.2
+			news_event = { id = mal.11 }
+			ENG = { country_event = { id = mal.12 } }
+			BRU = { country_event = { id = mal.12 } }
+			PHI = { country_event = { id = mal.12 } }
+			INS = { country_event = { id = mal.12 } }
+		}
+
+	
+	}
+	New_village = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 400
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_idea = southeast_revolution
+				date > 1949.1.1
+			}
+		}
+		visible = {
+			tag = MAL
+			has_idea = southeast_revolution
+		}
+
+		complete_effect = {
+			add_stability = 0.18
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			every_owned_state = { add_resistance = -10 }
+		}
+
+	
+	}
+	
+}

@@ -1,0 +1,1049 @@
+﻿add_namespace = cze
+																																			  
+#1948捷克剧变
+country_event = {
+	id = cze.1
+	title = cze.1.t
+	desc = cze.1.d
+	fire_only_once = yes
+	picture = GFX_CzechCommunismSmall
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = SOV
+		date > 1948.2.1
+		date < 1948.3.1
+		has_completed_focus = SOV_CommunistPartyAndWorkersIntelligenceBureau
+		CZE = { NOT = { has_government = communism } }
+	}
+	option = {	#֯
+		name = cze.1.b1
+		ai_chance = { factor = 0 }
+		add_political_power = -50
+	}
+	option = {	#ݹ̨
+		name = cze.1.b2
+		ai_chance = { factor = 10 }
+		set_global_flag = cze1
+		CZE = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+	}
+}		
+news_event = {
+	id = cze.2
+	title = cze.2.t
+	desc = cze.2.d
+	picture = GFX_CzechElection1948
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CZE
+		date > 1948.2.1
+		date < 1948.3.1
+		OR = {
+			has_global_flag = cze1
+			has_completed_focus = common_support_comparty
+		}
+		NOT = { has_global_flag = cze2 }
+	}
+	option = {	#֯
+		name = cze.1.b1
+		set_global_flag = cze2
+		if = {
+			limit = { tag = CZE }
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+}	
+news_event = {
+	id = cze.3
+	title = cze.3.t
+	desc = cze.3.d
+	picture = GFX_CzechElection1948
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CZE
+		date > 1948.2.1
+		date < 1948.6.1
+		OR = {
+			has_global_flag = cze2
+		}
+		NOT = { has_global_flag = cze3 }
+	}
+	option = {	#֯
+		name = cze.1.b1
+		set_global_flag = cze3
+		if = {
+			limit = { tag = CZE }
+			add_political_power = -50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+	}
+}
+news_event = {
+	id = cze.4
+	title = cze.4.t
+	desc = cze.4.d
+	picture = GFX_CzechElection1948
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CZE
+		date > 1948.2.1
+		date < 1948.5.1
+		has_global_flag = cze3
+		NOT = { has_global_flag = cze4 }
+	}
+	option = {	#֯
+		name = cze.1.b1
+		trigger = { NOT = { tag = CZE } }
+	}
+	option = {	#֯接受
+		name = cze.1.b1
+		set_global_flag = cze4
+		trigger = { tag = CZE }
+		if = {
+			limit = { tag = CZE }
+			add_ideas = CZE_unificate_gov
+			news_event = { id = cze.9 days = 3 }
+			add_political_power = -150
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+	option = {	#֯拒绝
+		name = cze.1.b1
+		set_global_flag = cze4
+		trigger = { tag = CZE }
+		if = {
+			limit = { tag = CZE }
+			add_ideas = CZE_unificate_gov
+			news_event = { id = cze.5 days = 3 }
+			add_political_power = -150
+			add_stability = -0.06
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+	}
+}	
+news_event = {
+	id = cze.5
+	title = cze.5.t
+	desc = cze.5.d
+	picture = GFX_EdwardBenes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cze.13.a
+		set_global_flag = cze5
+	}
+}
+news_event = {
+	id = cze.6
+	title = cze.6.t
+	desc = cze.6.d
+	picture = GFX_CzechElection1948
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = CZE
+		date > 1948.5.1
+		date < 1948.6.1
+		has_global_flag = cze5
+		NOT = { has_global_flag = cze6 }
+	}
+	option = {	#֯拒绝
+		name = cze.1.b1
+		set_global_flag = cze6
+	}
+}
+news_event = {
+	id = cze.7
+	title = cze.7.t
+	desc = cze.7.d
+	picture = GFX_CzechElection1948
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CZE
+		date > 1948.5.1
+		date < 1948.6.1
+		has_global_flag = cze6
+		communism > 0.6
+		NOT = { has_global_flag = cze7 }
+		NOT = { has_global_flag = cze8 }
+	}
+	option = {	#֯拒绝
+		name = cze.1.b1
+		set_global_flag = cze7
+		if = {
+			limit = { tag = CZE }
+			add_political_power = 500
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = cze.8
+	title = cze.8.t
+	desc = cze.8.d
+	picture = GFX_CzechElection1948
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CZE
+		date > 1948.5.1
+		date < 1948.6.1
+		has_global_flag = cze6
+		communism < 0.6
+		NOT = { has_global_flag = cze7 }
+		NOT = { has_global_flag = cze8 }
+	}
+	option = {	#֯拒绝
+		name = cze.1.b1
+		set_global_flag = cze8
+		if = {
+			limit = { tag = CZE }
+			add_political_power = 500
+			add_stability = -0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = cze.9
+	title = cze.9.t
+	desc = cze.9.d
+	picture = GFX_CzechElection1948
+	major = yes
+	is_triggered_only = yes
+	option = {	#֯拒绝
+		name = cze.1.b1
+		set_global_flag = cze7
+		if = {
+			limit = { tag = CZE }
+			add_political_power = 500
+			add_stability = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = cze.10
+	title = cze.10.t
+	desc = cze.10.d
+	picture = GFX_CzechCommunismCelebrate
+	major = yes	
+	is_triggered_only = yes
+	immediate = {
+		play_song = CZE_7
+	}
+	option = {
+		name = cze.13.a
+		if = {
+			add_named_threat = {
+				threat = 8
+				name = CzechCoup1948
+			}
+		}
+	}
+}	
+news_event = {
+	id = cze.11
+	title = cze.11.t
+	desc = cze.11.d
+	picture = GFX_CzechCommunismCelebrate
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CZE
+		date < 1949.1.1
+		has_government = communism
+		NOT = { has_global_flag = cze11 }
+	}
+	option = {	#֯拒绝
+		name = cze.1.b1
+		set_global_flag = cze11
+		if = {
+			limit = { has_government = communism }
+			add_political_power = 100
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = west_euro_state
+				NOT = { has_government = communism }
+			} 
+			add_political_power = -20
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+}	
+
+
+
+					
+#捷共1968年会议
+country_event = {
+	id = cze.12
+	title = cze.12.t
+	desc = cze.12.d
+	picture = GFX_Czech_election
+	fire_only_once = yes	
+	trigger = {
+			tag = CZE
+			has_government = communism
+			date > 1968.10.1
+			date < 1968.12.21
+	}
+	option = {	#ɼ
+		name = cze.12.a
+		ai_chance = {
+			factor = 1
+		}
+		CZE = {
+		create_country_leader = {
+				name = "Alexander Dubček"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/CZE/Portrait_Czech_Dubcek.tga"
+				expire = "2050.1.1"
+				ideology = marxism 
+				traits = {
+					liberal_reformism
+				}
+			}
+			hidden_effect = {
+				every_country = { news_event = { id = cze.13 } }
+				SOV = { news_event = { id = cze.14 } }
+				add_popularity = {
+				ideology = communism
+				popularity = 0.05
+				}
+				add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+				}
+			}
+		}
+	}
+}
+#布拉格之春
+news_event = {
+	id = cze.13
+	title = cze.13.t
+	desc = cze.13.d
+	picture = GFX_Dubcek
+	fire_only_once = yes	
+	is_triggered_only = yes
+	option = {
+		name = cze.13.a
+	}
+}																														 
+#捷克试图进行自由化改革
+news_event = {
+	id = cze.14
+	title = cze.14.t
+	desc = cze.14.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Dubcek
+	option = {	#Լ
+		name = cze.14.b
+		ai_chance = { factor = 0 }
+		CZE = {
+			add_popularity = {
+			ideology = communism
+			popularity = -0.05
+			}
+		}
+	}
+	option = {	#Ҫѹ
+		name = cze.14.a
+		ai_chance = { factor = 1 }
+		CZE = { news_event = { id = cze.15 } }
+	}
+}
+#莫斯科要求我们停止改革
+news_event = {
+	id = cze.15
+	title = cze.15.t
+	desc = cze.15.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_BrezhnevCameToPower
+	option = {
+		name = cze.15.a
+		ai_chance = {
+			factor = 5
+		}
+		SOV = { news_event = { id = cze.16 } }
+	}
+	option = {
+		name = cze.15.b
+		ai_chance = {
+			factor = 0
+		}
+		news_event = { id = cze.18 }
+	}
+}
+#布拉格拒绝了我们的要求！
+news_event = {
+	id = cze.16
+	title = cze.16.t
+	desc = cze.16.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Dubcek
+	option = {
+		name = cze.16.a
+		SOV = {
+			remove_from_faction = CZE
+			declare_war_on = { target = CZE type = puppet_wargoal_focus } 
+			}
+			CZE = { add_war_support = -0.3 }
+			add_named_threat = {
+				threat = 10
+				name = INVADE_CZECH
+			}
+		every_country = { news_event = { id = cze.20 } }
+	}
+}
+#ݿ˹工
+news_event = {
+	id = cze.18
+	title = cze.18.t
+	desc = cze.5.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_SovietInvadePrague
+	option = {
+		name = cze.16.b1
+		CZE = {
+			start_civil_war = {
+				ideology = democratic
+				capital = 70
+				states = { 70 }
+			}
+		}
+		add_named_threat = {
+			threat = 10
+			name = threat_name
+		}
+	}
+}
+#ŵʲ̨
+news_event = {
+	id = cze.19
+	title = cze.19.t
+	desc = cze.5.d	fire_only_once = yes
+	picture = GFX_SovietInvadePrague
+	trigger = {
+		tag = CZE
+		CZE = { is_puppet_of = SOV }
+		date > 1968.10.1
+		date < 1970.12.21
+	}
+	
+	option = {
+		name = cze.16.b1
+		SOV = {
+			end_puppet = CZE
+			add_to_faction = CZE
+			}
+		CZE = {
+			create_country_leader = {
+				name = "Gustáv Husák"
+				picture = "gfx/leaders/CZE/Portrait_Czech_Husak.tga"
+				expire = "2050.1.1"
+				ideology = marxism 
+				traits = {
+				}
+			}
+		}
+	}
+}
+
+
+#捷克遭到俄国入侵！
+news_event = {
+	id = cze.20
+	title = cze.20.t
+	desc = cze.20.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_SovietInvadePrague
+	option = {
+		name = cze.20.b1
+	}
+}
+#宇宙塑料人
+news_event = {
+	id = cze.22
+	title = cze.22.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_PPU
+	trigger = {
+			tag = CZE
+			CZE = { has_government = communism }
+			date > 1977.1.1
+			date < 1977.12.21
+	}
+	option = {
+		name = cze.20.b2
+			CZE = { news_event = { id = cze.23 } }
+	}
+}
+#七七宪章
+news_event = {
+	id = cze.23
+	title = cze.23.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_Charta77
+	is_triggered_only = yes
+	option = {
+		name = cze.20.b2
+			CZE = { 
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.3
+				}
+			} 
+	}
+}
+#天鹅绒革命
+news_event = {
+	id = cze.25
+	title = cze.25.t
+	desc = cze.20.d
+	fire_only_once = yes
+	picture = GFX_VelvetRevolution
+	trigger = {
+			tag = CZE
+			CZE = { has_government = communism }
+			democratic > 0.4
+			date > 1989.10.1
+	}
+	option = {
+		name = cze.20.b2
+			CZE = { add_ideas = velvet }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.5
+			}
+			SOV = { remove_from_faction = CZE }
+	}
+}
+#天鹅绒革命
+news_event = {
+	id = cze.26
+	title = cze.26.t
+	desc = cze.26.d
+	picture = GFX_VelvetRevolution
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = CZE_1
+	}
+	option = {
+		name = sud.1.a
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+	}
+}
+
+#天鹅绒破裂
+news_event = {
+	id = cze.27
+	title = cze.27.t
+	desc = cze.27.d
+	fire_only_once = yes
+	picture = GFX_VelvetRevolution
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+			tag = CZE
+			date > 1968.1.1
+			has_government = democratic
+			70 = { is_owned_and_controlled_by = CZE }
+	}
+	option = {
+		name = cze.20.b2
+		SLO = {
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+				name = "Vladimír Mečiar"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/CZE/Portrait_Slovenia_Vladimir_Meciar.tga"
+				expire = "2050.1.1"
+				ideology = liberalism
+				traits = {
+				}
+			}
+			transfer_state = 70
+			transfer_state = 71
+		}
+	}
+}
+
+
+
+#铁托事件
+country_event = {
+	id = cze.40
+	title = bultext.30.t
+	desc = cze.40.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	picture = GFX_PolElection
+	trigger = {
+		tag = CZE
+		YUG = { has_idea = SovietChinaConflit }
+		date < 1951.12.1
+	}
+	option = {
+		name = cze.40.a
+			ai_chance = {
+				factor = 60
+			}
+		set_country_flag = BulTitoNo
+		news_event = { id = cze.41 }
+		retire_character = CZE_Rudolf_Slansky
+	}
+	option = {
+		name = cze.40.b
+			ai_chance = {
+				factor = 10
+			}
+		set_country_flag = BulTitoYes
+		set_country_flag = TitoYes
+		retire_character = CZE_Antonin_Novotny
+		news_event = { id = cze.42 }
+	}
+}
+news_event = {
+	id = cze.41
+	title = cze.41.t
+	desc = cze.41.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bul.21.b1
+		if = {
+			limit = { tag = CZE }
+			set_global_flag = cze41
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+			add_stability = -0.08
+		}
+		
+	}
+}
+news_event = {
+	id = cze.42
+	title = cze.42.t
+	desc = cze.42.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bul.21.b1
+		if = {
+			limit = { tag = CZE }
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+			add_stability = 0.08
+		}
+		if = {
+			limit = {
+				is_neighbor_of = CZE
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+#斯兰斯基审判
+news_event = {
+	id = cze.43
+	title = cze.43.t
+	desc = cze.43.d
+	fire_only_once = yes
+	picture = GFX_SlanskyTrial
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CZE
+		has_government = communism
+		has_global_flag = cze41
+		NOT = { has_global_flag = cze43 }
+		date > 1952.10.1
+		date < 1953.2.1
+		has_completed_focus = common_41
+	}
+	option = {
+		name = cze.20.b2
+		set_global_flag = cze43
+		trigger = { NOT = { tag = CZE } }
+	}
+	option = {
+		name = cze.20.b2  #监禁
+		trigger = { tag = CZE }
+		retire_character = CZE_Rudolf_Slansky
+		retire_character = CZE_Rudolf_Margolius
+		retire_character = CZE_Vladimir_Clementis
+		retire_character = CZE_Bedrich_Reicin
+		retire_character = CZE_Alois_Vicherek
+		news_event = { id = cze.44 days = 5 }
+		add_political_power = -100
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = cze.20.b2  #绞死
+		trigger = { tag = CZE }
+		news_event = { id = cze.45 days = 5 }
+		retire_character = CZE_Rudolf_Slansky
+		retire_character = CZE_Rudolf_Margolius
+		retire_character = CZE_Vladimir_Clementis
+		retire_character = CZE_Bedrich_Reicin
+		retire_character = CZE_Alois_Vicherek
+		add_political_power = -130
+		add_stability = -0.12
+		add_popularity = {
+			ideology = communism
+			popularity = 0.12
+		}
+	}
+}
+
+
+news_event = {
+	id = cze.44
+	title = cze.44.t
+	desc = cze.44.d
+	picture = GFX_SlanskyTrial
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cze.44.a
+	}
+}	
+news_event = {
+	id = cze.45
+	title = cze.45.t
+	desc = cze.45.d
+	picture = GFX_SlanskyTrial
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cze.44.a
+	}
+}	
+#马萨里克坠亡
+news_event = {
+	id = cze.47
+	title = cze.47.t
+	desc = cze.47.d
+	major = yes
+	picture = GFX_JanMasarykDeath
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CZE
+		has_government = communism
+		date > 1948.2.5
+		date < 1948.12.20
+		has_character = CZE_Jan_Masaryk
+	}
+	option = {
+		name = cze.40.b
+		set_global_flag = cze60
+		if = {
+			limit = { tag = CZE }
+			retire_character = CZE_Jan_Masaryk
+			add_stability = -0.02
+		}
+	}
+}
+
+news_event = {
+	id = cze.53
+	title = cze.53.t
+	desc = cze.53.d
+	picture = GFX_JanZizka
+	major = yes
+	immediate = {
+		play_song = CZE_11
+	}
+	is_triggered_only = yes
+	option = {
+		name = cze.53.a
+	}
+
+}	
+#贝奈斯去世
+news_event = {
+	id = cze.55
+	title = cze.55.t
+	desc = cze.55.d
+	major = yes
+	mean_time_to_happen = { days = 80 }
+	picture = GFX_BenesFuneral
+	trigger = {
+		tag = CZE
+		NOT = { has_global_flag = cze55 }
+		date > 1948.9.1
+		date < 1948.11.1
+	}
+	option = {
+		name = cze.40.b
+			ai_chance = {
+				factor = 10
+			}
+		set_global_flag = cze55
+	}
+}		
+
+
+#哥特瓦尔德去世
+news_event = {
+	id = cze.60
+	title = cze.60.t
+	desc = cze.60.d
+	major = yes
+	picture = GFX_KlementGottwaldFuneral
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CZE
+		has_government = communism
+		date > 1953.3.10
+		date < 1953.6.20
+		NOT = { has_global_flag = cze60 }
+		has_country_leader = { name = "Klement Gottwald" }
+	}
+	option = {
+		name = cze.40.b
+		set_global_flag = cze60
+		if = {
+			limit = { tag = CZE }
+			country_event = cze.61
+		}
+	}
+}	
+#捷克领导人选举
+country_event = {
+	id = cze.61
+	title = cze.61.t
+	desc = cze.61.d
+	picture = GFX_Czech_election
+	is_triggered_only = yes
+	option = {
+		name = bul.9.b
+		ai_chance = {
+			factor = 20
+		}
+		trigger = { has_character = CZE_Antonin_Novotny }
+		promote_character = {
+			character = CZE_Antonin_Novotny
+			ideology = marxism
+		} 
+		news_event = { id = cze.62 days = 3 }
+	}
+	option = {
+		name = bul.9.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_country_flag = titoist_rise
+			}
+		}
+		if = {
+			limit = { has_country_flag = titoist_rise }
+			add_political_power = 200
+		}
+		trigger = { has_character = CZE_Rudolf_Slansky }
+		promote_character = {
+			character = CZE_Rudolf_Slansky
+			ideology = marxism
+		} 
+		news_event = { id = cze.62 days = 3 }
+	}
+}
+news_event = {
+	id = cze.62
+	title = cze.62.t
+	desc = cze.62.d
+	picture = GFX_AntononNovotny
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cze.2.a
+	}
+
+}	
+#比尔森事件
+news_event = {
+	id = cze.72
+	title = cze.72.t
+	desc = cze.72.d
+	major = yes
+	mean_time_to_happen = { days = 12 }
+	picture = GFX_PlzenProtest
+	trigger = {
+		tag = CZE
+		NOT = { has_global_flag = cze72 }
+		date > 1953.5.20
+		date < 1953.7.1
+		has_completed_focus = common_commuist_nationalized
+	}
+	option = {
+		name = cze.40.b
+		set_global_flag = cze72
+		if = {
+			limit = { tag = CZE }
+			add_political_power = -120
+			add_stability = -0.02
+		}
+	}
+}
+#霍拉科娃审判
+news_event = {
+	id = cze.80
+	title = cze.80.t
+	desc = cze.80.d
+	major = yes
+	picture = GFX_MiladaHorakova
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CZE
+		has_government = communism
+		NOT = { has_global_flag = cze80 }
+		date > 1950.5.10
+		date < 1950.7.1
+		has_completed_focus = common_40
+	}
+	option = {
+		name = cze.20.b2
+		set_global_flag = cze80
+		trigger = { NOT = { tag = CZE } }
+	}
+	option = {
+		name = cze.20.b2  #监禁
+		trigger = { tag = CZE }
+		retire_character = CZE_Milada_Horakova
+		news_event = { id = cze.84 days = 5 }
+		add_political_power = -40
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+	}
+	option = {
+		name = cze.20.b2  #绞死
+		trigger = { tag = CZE }
+		news_event = { id = cze.83 days = 5 }
+		retire_character = CZE_Milada_Horakova
+		add_political_power = -100
+		add_stability = -0.02
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+}
+news_event = {
+	id = cze.83
+	title = cze.83.t
+	desc = cze.83.d
+	picture = GFX_MiladaHorakovaTrial
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cze.2.a
+	}
+}	
+news_event = {
+	id = cze.84
+	title = cze.84.t
+	desc = cze.84.d
+	picture = GFX_MiladaHorakovaTrial
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cze.2.a
+	}
+}	

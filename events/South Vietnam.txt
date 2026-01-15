@@ -1,0 +1,731 @@
+add_namespace = svn
+#足球战争
+news_event = {
+	id = svn.1
+	title = svn.1.t
+	desc = svn.1.d
+	picture = GFX_OperationFreePath
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		news_event = { id = svn.2 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		SVN = { news_event = { id = svn.3 } }
+	}
+}
+news_event = {
+	id = svn.2
+	title = svn.2.t
+	desc = svn.2.d
+	picture = GFX_OperationFreePath
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		if = {
+			limit = { tag = VIN }
+			add_stability = -0.2
+			add_manpower = -12000
+			add_political_power = -200 
+		}
+		if = {
+			limit = { tag = SVN }
+			add_stability = 0.15
+			add_manpower = 12000
+			add_political_power = 300 
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = svn.3
+	title = svn.3.t
+	desc = svn.3.d
+	picture = GFX_OperationFreePath
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+#南方公投
+news_event = {
+	id = svn.4
+	title = svn.4.t
+	desc = svn.4.d
+	picture = GFX_NehruDeath
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		tag = SVN
+		has_global_flag = VinGenevaNegoSucces
+		date > 1955.4.1
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		news_event = { id = svn.5 }
+		add_popularity = {
+			ideology = monarchism
+			popularity = 0.25
+		}
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		news_event = { id = svn.6 }
+		set_politics = { ruling_party = authoritarianism }
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.25
+		}
+	}
+}
+news_event = {
+	id = svn.5
+	title = svn.5.t
+	desc = svn.5.d
+	picture = GFX_NehruDeath
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.6
+	title = svn.6.t
+	desc = svn.6.d
+	picture = GFX_NgoDinhDiemVote
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.19
+	title = svn.19.t
+	desc = svn.19.d
+	picture = GFX_NgoDinhDiemVote
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+##难民安置
+news_event = {
+	id = svn.7
+	title = svn.7.t
+	desc = svn.7.d
+	picture = GFX_OperationFreePath
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SVN
+		has_completed_focus = SVN_freeway
+		NOT = { has_idea = SVN_Immigration }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		add_ideas = SVN_Immigration
+		add_political_power = -100
+		
+	}
+}
+news_event = {
+	id = svn.8
+	title = svn.8.t
+	desc = svn.8.d
+	picture = GFX_OperationFreePath
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = SVN
+		has_idea = SVN_Immigration
+		has_completed_focus = SVN_refugee_settlement
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		trigger = { has_political_power > 60 }
+		add_political_power = -50
+		add_to_variable = { SVN_Immigration_score = 1 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		add_to_variable = { SVN_Immigration_score = -1 }
+	}
+}
+news_event = {
+	id = svn.9
+	title = svn.9.t
+	desc = svn.9.d
+	picture = GFX_NgoDinhDiemVote
+	mean_time_to_happen = { days = 120 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_idea = SVN_Immigration
+		check_variable = { this.SVN_Immigration_score > 8 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		if = {
+			limit = { tag = SVN }
+			remove_ideas = SVN_Immigration
+			add_political_power = 600
+			add_stability = 0.2
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+		}
+	}
+}
+#消灭平川派
+news_event = {
+	id = svn.11
+	title = svn.11.t
+	desc = svn.11.d
+	picture = GFX_BinhXuyenBattle
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		set_global_flag = svn11
+	}
+}
+news_event = {
+	id = svn.12
+	title = svn.12.t
+	desc = svn.12.d
+	picture = GFX_BinhXuyenBattle
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_global_flag = svn11
+		NOT = { has_global_flag = svn12 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		if = {
+			limit = { tag = SVN }
+			set_global_flag = svn12
+			remove_ideas = SVN_BinhXuyenRevolt
+			add_political_power = 300
+			add_stability = 0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+		}
+	}
+}
+#土地改革
+news_event = {
+	id = svn.20
+	title = svn.20.t
+	desc = svn.20.d
+	picture = GFX_NgoDinhDiemVote
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SVN
+		has_country_flag = land_reform
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		trigger = { has_political_power > 80 }
+		add_political_power = -60
+		add_to_variable = { land_reform_score = 1 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		add_to_variable = { land_reform_score = -1 }
+	}
+}
+news_event = {
+	id = svn.21
+	title = svn.21.t
+	desc = svn.21.d
+	picture = GFX_NgoDinhDiemVote
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_country_flag = land_reform
+		check_variable = { this.land_reform_score > 6 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		if = {
+			clr_country_flag = land_reform
+			limit = { tag = SVN }
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.12
+			}
+			add_political_power = 300
+			add_stability = 0.15
+			every_owned_state = {
+				limit = { is_in_home_area = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_to_variable = { influences = 120 }
+		}
+	}
+}
+news_event = {
+	id = svn.22
+	title = svn.22.t
+	desc = svn.22.d
+	picture = GFX_NgoDinhDiemVote
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_country_flag = land_reform
+		check_variable = { this.land_reform_score < -4 }
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+		if = {
+			limit = { tag = SVN }
+			clr_country_flag = land_reform
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.15
+			}
+			add_political_power = -200
+			add_stability = -0.2
+			add_to_variable = { influences = -10 }
+		}
+	}
+}
+news_event = {
+	id = svn.31
+	title = svn.31.t
+	desc = svn.31.d
+	picture = GFX_Kennedy
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		country_exists = SVN
+			has_completed_focus = Interfering_Vietnam
+		SVN = {
+			is_puppet = no
+			is_subject = no
+			has_government = authoritarianism
+		}
+		NOT = { has_global_flag = svn31 }
+		date > 1956.4.1
+		date < 1956.10.1
+	}
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		set_global_flag = svn31
+	}
+}
+news_event = {
+	id = svn.32
+	title = svn.32.t
+	desc = svn.32.d
+	picture = GFX_ThomasDooley
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		country_exists = SVN
+		has_completed_focus = Interfering_Vietnam
+		SVN = {
+			is_puppet = no
+			is_subject = no
+			has_government = authoritarianism
+		}
+		NOT = { has_global_flag = svn32 }
+		date > 1956.3.1
+		date < 1956.5.1
+	}
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		set_global_flag = svn32
+	}
+}
+news_event = {
+	id = svn.33
+	title = svn.33.t
+	desc = svn.33.d
+	picture = GFX_NgoDinhDiemVote
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		country_exists = SVN
+		has_completed_focus = pro_SVN
+		SVN = {
+			is_puppet = no
+			is_subject = no
+			has_government = authoritarianism
+		}
+		NOT = { has_global_flag = svn32 }
+		date > 1956.1.1
+		date < 1957.1.1
+	}
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		set_global_flag = svn32
+	}
+}
+news_event = {
+	id = svn.40
+	title = svn.40.t
+	desc = svn.40.d
+	picture = GFX_UStroopVietnam
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.41
+	title = svn.41.t
+	desc = svn.41.d
+	picture = GFX_USinVietnam
+	major = yes
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.50
+	title = svn.50.t
+	desc = svn.50.d
+	picture = GFX_F4Vietnam
+	major = yes
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.51
+	title = svn.51.t
+	desc = svn.51.d
+	picture = GFX_MigVietnam
+	major = yes
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.52
+	title = svn.52.t
+	desc = svn.52.d
+	picture = GFX_F4Vietnam
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.53
+	title = svn.53.t
+	desc = svn.53.d
+	picture = GFX_MigVietnam
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+
+news_event = {
+	id = svn.57
+	title = svn.57.t
+	desc = svn.57.d
+	picture = GFX_VietCongPow
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+		if = {
+			limit = { tag = ROOT }
+			random_owned_state = {
+				limit = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+				remove_dynamic_modifier = { modifier = HCMTrail_modifier }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = svn.60
+	title = svn.60.t
+	desc = svn.60.d
+	picture = GFX_UStroopVietnam
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = svn.60.a
+	}
+	option = {	#夏斯特里
+		name = svn.60.b
+	}
+}
+news_event = {
+	id = svn.61
+	title = svn.61.t
+	desc = svn.61.d
+	picture = GFX_BinhXuyenBattle
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = SVN
+		has_completed_focus = SVN_supress_binh_xuyen
+		date > 1957.5.1
+		date < 1959.5.1
+	}
+	option = {
+		name = raj.87.a
+		add_stability = 0.05
+	}
+}
+news_event = {
+	id = svn.63
+	title = svn.63.t
+	desc = svn.63.d
+	picture = GFX_MaoSpeech
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_country_flag = usa_army_advisor
+		PRC = { controls_state = 594 }
+		date > 1958.5.1
+		date < 1959.5.1
+		NOT = { has_global_flag = svn63 }
+	}
+	option = {
+		name = raj.87.a
+		set_global_flag = svn63
+	}
+}
+news_event = {
+	id = svn.64
+	title = svn.64.t
+	desc = svn.64.d
+	picture = GFX_UglyAmerican
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_country_flag = usa_army_advisor
+		date > 1958.2.1
+		date < 1959.5.1
+		NOT = { has_global_flag = svn64 }
+	}
+	option = {
+		name = raj.87.a
+		set_global_flag = svn64
+	}
+}
+news_event = {
+	id = svn.65
+	title = svn.65.t
+	desc = svn.65.d
+	picture = GFX_StrategicVally
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = raj.87.a
+		set_global_flag = svn63
+	}
+}
+news_event = {
+	id = svn.66
+	title = svn.66.t
+	desc = svn.66.d
+	picture = GFX_VietWar1950
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_country_flag = usa_army_advisor
+		has_idea = VietCongRevolt
+		date > 1959.7.1
+		date < 1959.9.1
+		NOT = { has_global_flag = svn66 }
+	}
+	option = {
+		name = raj.87.a
+		set_global_flag = svn66
+		if = {
+			limit = { tag = SVN }
+			add_stability = -0.03
+			1020 = { add_resistance = 12 }
+			1019 = { add_resistance = 12 }
+		}
+	}
+}
+news_event = {
+	id = svn.67
+	title = svn.67.t
+	desc = svn.67.d
+	picture = GFX_CaravelleManifesto
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = SVN
+		has_completed_focus = SVN_supress_commie
+		has_completed_focus = SVN_ngo_family
+		date > 1960.4.1
+		date < 1960.9.1
+		NOT = { has_global_flag = svn67 }
+	}
+	option = {
+		name = raj.87.a
+		set_global_flag = svn67
+		if = {
+			limit = { tag = SVN }
+			add_stability = -0.06
+			add_political_power = -200
+		}
+	}
+}
+news_event = {
+	id = svn.68
+	title = svn.68.t
+	desc = svn.68.d
+	picture = GFX_VietCong
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = VIN
+		SVN = { has_idea = VietCongRevolt }
+		date > 1959.7.1
+		date < 1959.9.1
+		NOT = { has_global_flag = svn68 }
+	}
+	option = {
+		name = raj.87.a
+		set_global_flag = svn68
+		SVN = {
+			add_stability = -0.06
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+			1020 = { add_resistance = 12 }
+			1019 = { add_resistance = 12 }
+		}
+	}
+}
+
+
+
+
+
+news_event = {
+	id = svn.101
+	title = svn.101.t
+	desc = svn.101.d
+	picture = GFX_NgoDinhDiemVote
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.102
+	title = svn.102.t
+	desc = svn.102.d
+	picture = GFX_NgoDinhDiemVote
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = HUN_4
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.103
+	title = svn.103.t
+	desc = svn.103.d
+	picture = GFX_NgoColored
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = HUN_4
+	}
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.108
+	title = svn.108.t
+	desc = svn.108.d
+	picture = GFX_NgoWorship
+	is_triggered_only = yes
+	major = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.110
+	title = svn.110.t
+	desc = svn.110.d
+	picture = GFX_NgoDinhDiemVote
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}
+news_event = {
+	id = svn.120
+	title = svn.120.t
+	desc = svn.120.d
+	picture = GFX_KheSanh
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = mor.1.a
+		if = {
+			limit = { tag = SVN }
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 779
+					num_provinces = 4
+				}
+				defender = {
+					state = 1021
+					num_provinces = 4
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = svn.121
+	title = svn.121.t
+	desc = svn.121.d
+	picture = GFX_KheSanh
+	is_triggered_only = yes
+	option = {	#夏斯特里
+		name = raj.87.a
+	}
+}

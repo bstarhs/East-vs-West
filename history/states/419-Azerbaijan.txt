@@ -1,0 +1,49 @@
+
+state={
+	id=419
+	name="STATE_419"
+	manpower = 1431714
+	state_category = city
+	resources={
+		copper=13
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = AZR
+		add_dynamic_modifier = { modifier = state_modifier_kanr }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 134 }
+		set_state_flag = ethnics_Azerbaijan
+		add_to_array = { this.state_ethnics_list = 73 }
+		add_to_array = { this.state_ethnics_list = 97 }
+		buildings = {
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 2
+			farm_building = 3
+			power_plant = 1
+			1896 = {
+				bunker = 2
+			}
+		}
+		victory_points = {
+			1896 8
+		}
+		victory_points = {
+			7604 3
+		}
+		victory_points = {
+			12861 4
+		}
+		add_core_of = AZR
+		1949.8.23 = {
+			remove_core_of = AZR
+			owner = PER
+		}
+		add_core_of = PER
+	}
+
+	provinces={
+		1896 2071 4755 4825 12793 12861 13120 1822 1636 7604
+	}
+}

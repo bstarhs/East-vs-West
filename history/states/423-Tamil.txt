@@ -1,0 +1,42 @@
+
+state={
+	id=423
+	name="STATE_423" # Madurai
+	manpower = 29147500
+	
+	state_category = town
+	
+	resources={
+		rubber=11
+		coal = 12
+		salt=17
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_to_array = { this.state_ethnics_list = 161 }
+		set_state_flag = ethnics_Tamils
+		owner = ENG
+		add_core_of = LTE
+		add_core_of = IND
+		1949.10.25 = {
+		owner = IND
+		}
+		buildings = {
+			farm_building = 3
+			infrastructure = 4
+			industrial_complex = 2
+			power_plant = 1
+		}
+		victory_points = { 12247 6 }
+		victory_points = { 4327 3 }
+
+	}
+
+	provinces={
+		1381 1409 4327 4416 7265 7363 10130 10274 12247 12275 7402 7288 
+	}
+}

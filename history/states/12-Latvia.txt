@@ -1,0 +1,60 @@
+
+state={
+	id=12
+	name="STATE_12"
+	manpower = 1520500
+	state_category = town
+	local_supplies=0.0
+	
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Latvian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		add_to_array = { this.state_ethnics_list = 99 }
+		owner = SOV
+		victory_points = {
+			9340 8
+		}
+		victory_points = {
+			310 3
+		}
+		victory_points = {
+			3298 2
+		}
+		buildings = {
+			farm_building = 2
+			school = 1
+			power_plant = 1
+			hospital = 1
+			infrastructure = 3
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 3
+			9340 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = LAT
+		add_core_of = SOV
+		1954.1.1 = {
+			set_state_category = city
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			buildings = {
+				power_plant = 2
+				farm_building = 3
+				infrastructure = 5
+				arms_factory = 3
+				industrial_complex = 5
+			}
+		}
+		1990.1.1 = {
+			owner = LAT
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		222 310 319 341 3255 3298 3388 6459 7482 9240 9275 9317 9340 9501 10323 10493 11222 11302 11358 
+	}
+}

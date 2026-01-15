@@ -1,0 +1,403 @@
+﻿capital = 49
+set_country_flag = has_monarchs
+oob = "TUR_1936"
+set_country_flag = main_country
+set_research_slots = 1
+set_country_flag = islam_state
+	set_country_flag = developmented
+	set_country_flag = female_finished
+
+	set_variable = { this.education = 60 }
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+add_ideas = {
+	TurArmyIdea
+	service_by_requirement
+	Secularism
+	TUR_kemal_legacy_ideas
+	governed_economic
+	assimilated
+}
+	complete_national_focus = common_61
+	complete_national_focus = common_weman_right
+	set_country_flag = gen230
+
+complete_national_focus = Focus_Goverment_reform
+activate_decision = female_equality
+complete_national_focus = common_1
+activate_decision = create_radio_station
+set_technology = {
+	gwtank = 1
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+set_variable = {
+	var = influences
+	value = 123
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "TUR_1947"
+}
+
+add_ideas = { UNmember }
+
+	add_to_array = { global.UNmember_list = FROM }
+set_convoys = 20
+set_stability = 0.55
+
+1939.1.1 = {
+	set_popularities = {
+		democratic = 38
+		communism = 10
+		authoritarianism = 52
+	}
+	set_politics = {
+	
+	ruling_party = authoritarianism
+		last_election = "1939.2.8"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	complete_national_focus = common_63
+
+}
+
+create_country_leader = {
+	name = "Sefik Husnu"
+	desc = "POLITICS_SEFIK_HUSNU_DESC"
+	picture = "gfx/leaders/TUR/Portrait_Turkey_Sefik_Husnu.tga"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+recruit_character = TUR_Cemal_Madanoglu
+recruit_character = TUR_Cemal_Gursel
+recruit_character = TUR_Adnan_Menderes
+recruit_character = TUR_Ismet_Inonu
+
+			promote_character = {
+				character = TUR_Ismet_Inonu
+				ideology = authoritarianism
+			}
+1949.1.20 = {
+	complete_national_focus = commons_5
+}
+1950.1.20 = {
+	recruit_character = TUR_Fatin_Rustu_Zorlu
+	recruit_character = TUR_Hasan_Polatkan
+	promote_character = TUR_Adnan_Menderes
+	set_country_flag = israel_diplomacy
+	complete_national_focus = common_3
+	complete_national_focus = common_diplomacy
+	complete_national_focus = common_75
+	set_technology = {
+		can_foods = 1
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1934.7.1"
+		election_frequency = 72
+		elections_allowed = yes
+	}
+	complete_national_focus = Focus_Goverment_reform
+}
+1955.1.1 = {
+	add_ideas = YUG_balkan_treaty_ideas
+	complete_national_focus = common_medic
+	complete_national_focus = common_14
+	complete_national_focus = common_13
+	complete_national_focus = common_14
+	add_ideas = nato_spirit
+	set_technology = {
+		landing_craft = 1
+		laundry = 1
+		frozen_food = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		decimetric_radar = 1
+		construction2 = 1
+		rocket_engines = 1
+		telegraph = 1
+		machine_gun2 = 1
+		spaa1 = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+	}
+	set_popularities = {
+		democratic = 72
+		communism = 20
+		neutrality = 8
+	}
+	add_ideas = {
+		CENTO
+	}
+}
+1960.1.20 = {
+	set_party_name = {
+		ideology = democratic
+		long_name = TUR_conservatism_party
+		name = TUR_conservatism_party
+	}
+	retire_character = TUR_Fatin_Rustu_Zorlu
+	retire_character = TUR_Hasan_Polatkan
+		retire_character = TUR_Adnan_Menderes
+	set_country_flag = US_missile_base_employment
+	complete_national_focus = common_64
+	complete_national_focus = common_67
+	complete_national_focus = common_23
+	complete_national_focus = common_20
+	complete_national_focus = common_77
+	complete_national_focus = steel_produc
+	set_technology = {
+		spaa1 = 1
+		sp_artillery1 = 1
+		
+		vaccum_tube = 1
+		basic_heavy_tank = 1
+		napalm = 1
+		rubber_processing = 1
+		improved_medium_tank = 1
+		fuel_refining = 1
+	}
+	oob = "TUR_1960"
+	set_politics = { ruling_party = neutrality }
+	promote_character = TUR_Cemal_Gursel
+}
+1964.1.20 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = WDR
+	}
+		retire_character = TUR_Cemal_Gursel
+		retire_character = TUR_Cemal_Madanoglu
+			promote_character = {
+				character = TUR_Ismet_Inonu
+				ideology = conservatism
+			}
+	set_politics = { ruling_party = democratic }
+	clr_country_flag = US_missile_base_employment
+	remove_ideas = YUG_balkan_treaty_ideas
+	complete_national_focus = common_medic
+	complete_national_focus = common_61
+	complete_national_focus = common_10
+	set_technology = {
+		CAS3 = 1
+		fighter2 = 1
+		improved_decimetric_radar = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		excavation3 = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		power_generation2 = 1
+		cable_television = 1
+		construction3 = 1
+		auto_industry = 1
+	}
+}
+1971.1.20 = {
+		retire_character = TUR_Ismet_Inonu
+	set_country_flag = china_diplomacy
+	complete_national_focus = common_76
+	complete_national_focus = common_65
+	set_technology = {
+		machine_gun2 = 1
+		fuel_refining2 = 1
+		fighter3 = 1
+		improved_rubber_processing = 1
+		improved_heavy_tank = 1
+		improved_infantry_weapons = 1
+	}
+	create_country_leader = {
+		name = "Nihat Erim"
+		
+		picture = "gfx/leaders/TUR/Portrait_Turkey_Nihat_Erim.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+			silent_workhorse democratic_reformer social_reformer
+		}
+	}
+}
+1974.1.20 = {
+	set_variable = { this.education = 72 }
+	add_ideas = {
+		Red_Brigade
+		muslim_protest
+	}
+	set_technology = {
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+	}
+	set_popularities = {
+		democratic = 66
+		communism = 14
+		neutrality = 20
+	}
+	give_guarantee = NCY
+	create_country_leader = {
+		name = "Bülent Ecevit"
+		
+		picture = "gfx/leaders/TUR/Portrait_Turkey_Bulent_Ecevit.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+			interventionism the_gentleman_president
+		}
+	}
+}
+1980.1.20 = {
+	complete_national_focus = common_66
+	complete_national_focus = common_68
+	add_ideas = {
+		KurdishRevolt
+	}
+	set_technology = {
+		infantry_at2 = 1
+		CAS4 = 1
+		advanced_medium_tank = 1
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+	}
+	remove_ideas = CENTO
+	create_country_leader = {
+		name = "Kenan Evren"
+		
+		picture = "gfx/leaders/TUR/Portrait_Turkey_Kenan_Evren.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	create_country_leader = {
+		name = "Turgut Özal"
+		
+		picture = "gfx/leaders/TUR/Portrait_Turkey_Turgut_Ozal.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+			smooth_talking_charmer
+		}
+	}
+}
+1988.1.1 = {
+	set_technology = {
+		advanced_heavy_tank = 1
+		fighter4 = 1
+	}
+}

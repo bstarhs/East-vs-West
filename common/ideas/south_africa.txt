@@ -1,0 +1,176 @@
+ideas = {
+	# MILITARY
+
+	country = {
+		SAF_goodhope_line = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = SAF_goodhope_line
+
+			modifier = {
+			}
+
+		}
+		SAF_history_of_segregation = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = saf_history_of_segregation_2
+
+			modifier = {
+				conscription_factor = -0.55
+			}
+
+		}
+		bantustan = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = bantustan
+
+			modifier = {
+				conscription_factor = -0.55
+			}
+
+		}
+
+		SAF_abandon_westminster = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				 NOT = { has_government = democratic }
+			}
+
+			removal_cost = -1
+
+			picture = ast_abandon_the_westminster_system
+
+			modifier = {
+				autonomy_gain = 0.5
+				democratic_drift = -0.03
+			}
+
+		}
+
+
+		SAF_voortrekker_monument = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				 has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = triumphant_will
+
+			modifier = {
+				stability_factor = 0.07
+				autonomy_gain = 0.5
+			}
+		}
+
+		SAF_black_volunteers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				 has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = generic_infantry_bonus
+
+			modifier = {
+				conscription = 0.01
+			}
+		}
+
+		SAF_soviet_advisers = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				 has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = saf_soviet_advisers
+
+			modifier = {
+				army_org_Factor = 0.05
+				planning_speed = 0.05
+			}
+		}
+
+	}
+
+	political_advisor = {
+	}
+
+	air_chief = {
+	}
+
+	navy_chief = {
+	}
+
+	high_command = {
+	}	
+
+	theorist = {
+	}
+
+	industrial_concern = {
+		iscor = {
+			
+			picture = generic_tank_manufacturer_3
+
+			allowed = {
+				original_TAG = SAF
+				has_dlc = "Together for Victory"
+			}
+			
+
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { medium_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+
+}

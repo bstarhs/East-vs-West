@@ -1,0 +1,44 @@
+state= {
+	id=939
+	name="STATE_939"
+	manpower = 216860
+	resources={
+		rubber=13
+	}
+	
+	state_category = town
+
+	history= {
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Dayak
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		owner = HOL
+		add_core_of = INS
+		1949.10.14 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			owner = INS
+		}
+		victory_points = {
+			12110 6
+		}
+		victory_points = {
+			7296 6
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 1
+		}
+		1959.1.1 = {
+			buildings = {
+				industrial_complex = 4
+			}
+
+		}
+	}
+	provinces={
+		12110 7296 10178 1225 1416 10310 8221 2184 10266 12252 7355 12225 12280 10138 5176 
+	}
+}

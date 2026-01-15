@@ -1,0 +1,261 @@
+#reloadtechnologies
+technologies = {
+	basic_helicopter = {
+		dependencies = {
+			electronic_mechanical_engineering = 1
+			basic_machine_tools = 1
+			radio = 1
+		}
+		enable_equipments = {
+			trans_helicopter_0
+		}
+		enable_subunits = {
+			helicopter_logistics
+		}
+        on_research_complete = {
+			country_event = { id = units.7 }
+        }
+		research_cost = 2
+		start_year = 1950
+		folder = {
+			name = helicopter_folder
+			position = { x = 0 y = -2 }
+		}
+	
+		path = {
+			leads_to_tech = trans_helicopter_1
+			research_cost_coeff = 1
+		}
+		categories = {
+			helicopter
+		}
+	}
+	basic_heavy_tank = {
+		enable_subunits = {
+			heavy_armor
+		}
+		enable_equipments = {
+			heavy_tank_equipment_1 
+		}
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+		path = {
+			leads_to_tech = improved_heavy_tank
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1965
+		folder = {
+			name = helicopter_folder
+			position = { x = -4 y = 2 }
+		}
+		categories = {
+			helicopter
+		}
+	}
+	trans_helicopter_1 = {
+		enable_equipments = {
+			trans_helicopter_1
+		}
+		enable_subunits = {
+			air_assult
+		}
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			country_event = { id = units.4 }
+		}
+		path = {
+			leads_to_tech = trans_helicopter_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = basic_heavy_tank
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = halicopter_machinegun
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1960
+		folder = {
+			name = helicopter_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			helicopter
+		}
+	}
+	halicopter_rocket_net = {
+		research_cost = 0.5
+		start_year = 1960
+		heavy_armor = {
+			breakthrough = 0.12
+		}
+		air_assult = {
+			breakthrough = 0.12
+		}
+		folder = {
+			name = helicopter_folder
+			position = { x = -3 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			helicopter
+		}
+	}
+	halicopter_at_missile = {
+		heavy_armor = {
+			hard_attack = 0.15
+		}
+		research_cost = 0.5
+		start_year = 1960
+		folder = {
+			name = helicopter_folder
+			position = { x = -5 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			helicopter
+		}
+	}
+	turboshaft = {
+		research_cost = 0.5
+		start_year = 1960
+		folder = {
+			name = helicopter_folder
+			position = { x = 0 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			helicopter
+		}
+	}
+	halicopter_machinegun = {
+		research_cost = 0.5
+		start_year = 1960
+		heavy_armor = {
+			soft_attack = 0.15
+		}
+		air_assult = {
+			soft_attack = 0.15
+		}
+		folder = {
+			name = helicopter_folder
+			position = { x = 0 y = 2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			helicopter
+		}
+	}
+	improved_heavy_tank = { #Tiger
+
+		enable_equipments = {
+			heavy_tank_equipment_2 
+		}
+		
+		path = {
+			leads_to_tech = halicopter_at_missile
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = halicopter_rocket_net
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = advanced_heavy_tank 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = turboshaft 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		start_year = 1970
+		
+		folder = {
+			name = helicopter_folder
+			position = { x = -4	y = 4 }
+		}
+		categories = {
+			helicopter
+		}
+	}
+	
+	trans_helicopter_2 = { #Tiger
+
+		enable_equipments = {
+			trans_helicopter_2
+		}
+		path = {
+			leads_to_tech = turboshaft 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		start_year = 1970
+		
+		path = {
+			leads_to_tech = trans_helicopter_3
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = helicopter_folder
+			position = { x = 4 y = 4 }
+		}
+		
+		categories = {
+			helicopter
+		}
+	}
+	trans_helicopter_3 = { #Tiger
+
+		enable_equipments = {
+			trans_helicopter_3
+		}
+		
+		research_cost = 2.5
+		start_year = 1980
+		
+		folder = {
+			name = helicopter_folder
+			position = { x = 4 y = 8 }
+		}
+		categories = {
+			helicopter
+		}
+	}
+	
+	advanced_heavy_tank = { #King Tiger
+
+		enable_equipments = {
+			heavy_tank_equipment_3 
+		}
+		
+		research_cost = 2.5
+		start_year = 1980
+		
+		folder = {
+			name = helicopter_folder
+			position = { x = -4 y = 8 }
+		}
+		categories = {
+			helicopter
+		}
+	}
+}

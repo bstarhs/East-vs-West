@@ -1,0 +1,58 @@
+state={
+	id=717
+	name="STATE_717"
+	
+	state_category = rural
+	resources={
+		coal = 23
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 7 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_claim_by = MAN
+		set_state_flag = ethnics_manchu
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			school = 1
+			infrastructure = 3
+		}
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = PRC
+		victory_points = {
+			10463 6
+		}
+		victory_points = {
+			3791 5
+		}
+		victory_points = {
+			10521 2
+		}
+		victory_points = {
+			12500 2
+		}
+		victory_points = {
+			5427 4
+		}
+		1958.8.17 = {
+			set_state_category = city
+			buildings = {
+				farm_building = 4
+				anti_air_building = 2
+				infrastructure = 5
+				industrial_complex = 3
+			}
+		}
+
+	}
+
+	provinces={
+		783 810 1571 3791 3815 3843 4551 5427 6811 6863 7569 7670 9623 9766 9798 10215 10376 10463 10503 10519 10521 11893 11906 12342 12355 12443 12482 12500 
+	}
+	manpower=5224174
+	buildings_max_level_factor=1.000
+}

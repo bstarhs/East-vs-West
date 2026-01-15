@@ -1,0 +1,52 @@
+
+state={
+	id=594
+	name="STATE_594"
+	manpower = 6550000
+	state_category = town
+	resources={
+		tungsten=14
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 2 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_to_array = { this.state_ethnics_list = 4 }
+		add_to_array = { this.state_ethnics_list = 13 }
+		add_to_array = { this.state_ethnics_list = 12 }
+		add_to_array = { this.state_ethnics_list = 18 }
+		set_state_flag = ethnics_Zhuang
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_core_of = GXC
+		set_state_flag = sugar_production
+		owner = GXC
+		add_core_of = CHI
+		add_core_of = PRC
+		victory_points = { 10004 4 }
+		victory_points = { 7192 3 }
+		1949.8.23 = {
+		owner = CHI
+		}
+		1950.8.23 = {
+		owner = PRC
+		}
+		buildings = {
+			power_plant = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 2
+		}
+		victory_points = { 
+			7137 10 
+		}
+	}
+
+	provinces={
+		1018 4023 4121 4177 7044 7137 7192 10004 10050 10105 11926 11983 12023 
+	}
+}

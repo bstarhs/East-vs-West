@@ -1,0 +1,358 @@
+add_namespace = pri
+#丹吉尔宣言
+news_event = {
+	id = pri.1
+	title = pri.1.t
+	desc = pri.1.d
+	picture = GFX_PedroAlbizuCampos
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date < 1949.4.1
+		date < 1950.1.1
+		tag = USA
+		NOT = { has_global_flag = pri1 }
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri1
+	}
+}
+news_event = {
+	id = pri.2
+	title = pri.2.t
+	desc = pri.2.d
+	picture = GFX_TrumenSign
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = pri.1.a
+	}
+}
+news_event = {
+	id = pri.3
+	title = pri.3.t
+	desc = pri.3.d
+	picture = GFX_TrumenSign
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1950.2.1
+		date < 1950.6.1
+		tag = USA
+		has_subject = PRI
+		NOT = { has_global_flag = pri3 }
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri3
+		ai_chance = { factor = 50 }
+		news_event = pri.4
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri3
+		ai_chance = { factor = 0 }
+		news_event = pri.6
+	}
+}
+news_event = {
+	id = pri.4
+	title = pri.4.t
+	desc = pri.4.d
+	picture = GFX_JoseLouisMarin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = pri.1.a
+		set_global_flag = pri4
+	}
+}
+news_event = {
+	id = pri.6
+	title = pri.6.t
+	desc = pri.6.d
+	picture = GFX_PedroAlbizuCampos
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = pri.1.a
+		set_global_flag = pri6
+	}
+}
+news_event = {
+	id = pri.7
+	title = pri.7.t
+	desc = pri.7.d
+	picture = GFX_PedroAlbizuCampos
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri6
+		NOT = { has_global_flag = pri7 }
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri7
+		if = {
+			limit = { tag = PRI }
+			promote_character = PRI_Pedro_Albizu_Campos
+			set_politics = { ruling_party = authoritarianism }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = pri.8
+	title = pri.8.t
+	desc = pri.8.d
+	picture = GFX_PUertoRicoFree
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		has_subject = PRI
+		PRI = { has_government = authoritarianism }
+		NOT = { has_global_flag = pri8 }
+		date > 1952.5.1
+		date < 1952.8.1
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri8
+		
+	}
+}
+news_event = {
+	id = pri.9
+	title = pri.9.t
+	desc = pri.9.d
+	picture = GFX_PUertoRicoFree
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = pri.1.a
+	}
+}
+news_event = {
+	id = pri.10
+	title = pri.10.t
+	desc = pri.10.d
+	picture = GFX_PuertoRicoIndependent
+	mean_time_to_happen = { days = 15 }
+	immediate = {
+		play_song = PRI_1
+	}
+	trigger = {
+		tag = USA
+		has_subject = PRI
+		PRI = { has_government = authoritarianism }
+		NOT = { has_global_flag = pri9 }
+		has_global_flag = pri8
+		date > 1952.10.1
+		date < 1952.12.1
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri8
+		if = {
+			limit = { tag = USA }
+			end_puppet = PRI
+		}
+		if = {
+			limit = { tag = PRI }
+			leave_faction = yes
+		}
+	}
+}
+
+
+news_event = {
+	id = pri.11
+	title = pri.11.t
+	desc = pri.11.d
+	picture = GFX_PedroAlbizuCampos
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		date > 1950.8.1
+		date < 1950.9.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri4
+		NOT = { has_global_flag = pri11 }
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri11
+	}
+}
+news_event = {
+	id = pri.12
+	title = pri.12.t
+	desc = pri.12.d
+	picture = GFX_PuertoRicoRevolt
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		date > 1950.10.15
+		date < 1950.12.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri11
+		NOT = { has_global_flag = pri12 }
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri12
+		if = {
+			limit = { tag = USA }
+			686 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 30
+			}
+		}
+	}
+}
+news_event = {
+	id = pri.13
+	title = pri.13.t
+	desc = pri.13.d
+	picture = GFX_PuertoRicoRevolt
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		date > 1950.10.15
+		date < 1951.2.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri12
+		NOT = { has_global_flag = pri14 }
+		686 = {
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance > 60
+		}
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri13
+	}
+}
+news_event = {
+	id = pri.14
+	title = pri.14.t
+	desc = pri.14.d
+	picture = GFX_PuertoRicoRevolt
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		date > 1950.10.15
+		date < 1951.2.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri12
+		NOT = { has_global_flag = pri14 }
+		686 = {
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance > 90
+		}
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri14
+		if = {
+			limit = { tag = USA }
+			end_puppet = PRI
+			686 = {
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = -70
+			}
+		}
+		if = {
+			limit = { tag = PRI }
+			leave_faction = yes
+		}
+	}
+}
+news_event = {
+	id = pri.15
+	title = pri.15.t
+	desc = pri.15.d
+	picture = GFX_PuertoRicoRevolt
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		date > 1950.10.15
+		date < 1951.2.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri12
+		NOT = { has_global_flag = pri13 }
+		686 = {
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 15
+		}
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri13
+	}
+}
+news_event = {
+	id = pri.16
+	title = pri.16.t
+	desc = pri.16.d
+	picture = GFX_PuertoRicoRevolt
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		date > 1950.10.15
+		date < 1951.2.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri12
+		NOT = { has_global_flag = pri14 }
+		686 = {
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			resistance < 12
+		}
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri16
+		if = {
+			limit = { tag = USA }
+			686 = {
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = -70
+			}
+		}
+	}
+}
+news_event = {
+	id = pri.17
+	title = pri.17.t
+	desc = pri.17.d
+	picture = GFX_TrumenAssassin
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		date > 1950.10.15
+		date < 1951.2.1
+		tag = USA
+		has_subject = PRI
+		has_global_flag = pri16
+		NOT = { has_global_flag = pri17 }
+	}
+	option = {
+		name = pri.1.a
+		set_global_flag = pri17
+		if = {
+			limit = { tag = USA }
+			add_political_power = -30
+		}
+	}
+}

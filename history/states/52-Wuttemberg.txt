@@ -1,0 +1,60 @@
+
+state={
+	id=52
+	name="STATE_52"
+	manpower = 2679413
+	resources={
+		aluminium=11
+		salt=3
+	}
+	state_category = city
+	local_supplies=0.0
+
+	history={
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = USA
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 35 }
+		add_to_array = { this.state_ethnics_list = 63 }
+		controller = USA
+		victory_points = { 692 15 }
+		victory_points = { 708 6 }
+		victory_points = { 6540 4 }
+		victory_points = { 11638 3 }
+		buildings = {
+			school = 1
+			hospital = 1
+			farm_building = 3
+			power_plant = 2
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 5
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		1949.5.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = WDR
+			add_core_of = DDR
+		}
+		set_state_flag = ethnics_Barvarian
+		add_core_of = BAV
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+			}
+		}
+		1963.5.23 = {
+		add_to_variable = { state_tourist = 20 }
+			buildings = {
+				synthetic_refinery = 3
+			}
+		}
+
+	}
+
+	provinces={
+		692 707 708 3688 3705 6540 6693 9652 9666 11620 11638 11653 
+	}
+}

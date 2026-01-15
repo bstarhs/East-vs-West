@@ -1,0 +1,62 @@
+
+Wonder_Tokyo_Tower = {
+	Wonder_Tokyo_Tower1 = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 250
+		days_re_enable = 120
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			tag = JAP
+			has_completed_focus = JAP_Tokyo_construction
+			NOT = { has_global_flag = jap241 }
+		}
+		complete_effect = {
+			news_event = { id = jap.241 }
+			set_global_flag = jap241
+		}
+		days_remove = 150
+		remove_effect = {
+			news_event = { id = jap.242 }
+			set_global_flag = jap242
+		}
+
+	}
+}
+Diplomatic_actions = {
+	JAP_diplo_nego = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 60
+		days_re_enable = 120
+		visible = {
+			tag = JAP
+			has_global_flag = jap242
+			NOT = { has_global_flag = jap243 }
+		}
+		target_trigger = {
+			FROM = {
+				has_country_flag = japan_invade_victims
+				NOT = {
+					has_country_flag = japan_diplomatic
+				}
+			}
+		}
+		complete_effect = {
+			set_global_flag = jap243
+			news_event = { id = jap.243 }
+		}
+		remove_effect = {
+			set_global_flag = jap244
+			news_event = { id = jap.244 }
+		}
+
+	
+	}
+}

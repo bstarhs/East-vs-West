@@ -1,0 +1,6793 @@
+﻿add_namespace = sov
+
+#共产党和工人情报局的建立
+news_event = {
+	id = sov.1
+	title = sov.1.t
+	desc = sov.1.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+country_event = {
+	id = sov.2
+	title = sov.2.t
+	desc = sov.2.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		ai_chance = {
+			factor = 0
+			modifier = {
+				add = 50
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 50
+				has_government = monarchism
+			}
+		}
+		SOV = { country_event = sov.3 }
+	}
+	option = {
+		name = sov.1.a
+		ai_chance = {
+			factor = 5
+			
+		}
+		add_to_variable = { influences = 10 }
+		set_country_flag = SovietAdvisorAllow
+		custom_effect_tooltip = total_from_aid_80
+		add_to_variable = { this.total_from_aid = 80 }
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = 0.08
+		}
+		SOV = { add_to_variable = { influences = 10 } }
+		news_event = sov.4
+	}
+}
+country_event = {
+	id = sov.3
+	title = sov.3.t
+	desc = sov.3.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.4
+	title = sov.4.t
+	desc = sov.4.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.5
+	title = sov.5.t
+	desc = sov.5.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.6
+	title = sov.6.t
+	desc = sov.6.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.7
+	title = sov.7.t
+	desc = sov.7.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+#经互会
+country_event = {
+	id = sov.8
+	title = sov.8.t
+	desc = sov.8.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.12.a
+		add_to_variable = { influences = 10 }
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = 0.08
+		}
+		add_ideas = comecon
+		SOV = { add_to_variable = { influences = 10 } }
+	}
+}
+
+#斯大林去世
+news_event = {
+	id = sov.9
+	title = sov.9.t
+	desc = sov.9.d
+	picture = GFX_StalinDead
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	immediate = {
+		play_song = SOV_14
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = stalin_death_video
+	}
+	trigger = {
+		tag = SOV
+		date > 1953.3.1
+		date < 1953.4.14
+		SOV_iosif_stalin = { is_country_leader = yes }
+	}
+	option = {
+		name = sov.9.a
+		if = {
+			limit = {
+				tag = SOV
+			}
+			set_global_flag = sov9
+			add_political_power = -60 
+			add_stability = -0.15
+			retire_character = SOV_iosif_stalin
+			recruit_character = SOV_Malenkov
+			promote_character = {
+				character = SOV_Malenkov
+				ideology = marxism
+			}
+			add_to_variable = { influences = -50 }
+			add_ideas = Death_Stalin
+		}
+	}
+}
+news_event = {
+	id = sov.10
+	title = sov.10.t
+	desc = sov.10.d
+	picture = GFX_Malenkov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.11
+	title = sov.11.t
+	desc = sov.11.d
+	picture = GFX_MaoKhrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.6.a
+	}
+}
+country_event = {
+	id = sov.12
+	title = sov.12.t
+	desc = sov.12.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {	#安德罗波夫
+		name = sov.12.a
+		trigger = { NOT = { has_idea = SovietChinaConflit } }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				has_country_leader_with_trait = independent
+				factor = -50
+			}
+		}
+		news_event = { id = sov.250 }
+		SOV = { 
+			add_to_faction = ROOT
+			add_to_variable = { influences = 20 }
+		}
+	}
+	option = {	#安德罗波夫
+		name = sov.12.a
+		ai_chance = {
+			factor = 0
+			modifier = {
+				has_country_leader_with_trait = independent
+				factor = 50
+			}
+		}
+		news_event = { id = sov.251 }
+	}
+}
+news_event = {
+	id = sov.13
+	title = sov.13.t
+	desc = sov.13.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.13.a
+	}
+	option = {
+		name = sov.13.b
+	}
+}
+#击落U2侦察机
+news_event = {
+	id = sov.14
+	title = sov.14.t
+	desc = sov.14.d
+	picture = GFX_U2
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SOV
+		date > 1960.5.1
+		date < 1960.12.14
+		NOT = { has_global_flag = U2_shotdown }
+	}
+	immediate = {
+		USA = { news_event = { id = sov.15 } }
+	}
+	option = {
+		name = sov.14.a
+		add_to_variable = { influences = 80 }
+		set_global_flag = U2_shotdown
+			news_event = { id = sov.17 }
+		USA = {
+			add_to_variable = { influences = -120 }
+			add_named_threat = { threat = 10 name = U2-Incident }
+		}
+	}
+}
+#击落U2侦察机
+news_event = {
+	id = sov.15
+	title = sov.15.t
+	desc = sov.15.d
+	picture = GFX_U2
+	is_triggered_only = yes
+	option = {
+		name = sov.17.a
+	}
+}
+news_event = {
+	id = sov.17
+	title = sov.17.t
+	desc = sov.17.d
+	picture = GFX_U2
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.17.a
+	}
+}
+#城市改名
+news_event = {
+	id = sov.18
+	title = sov.18.t
+	desc = sov.18.d
+	picture = GFX_Khrushchev
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.18.a
+	}
+}
+#勃列日涅夫政变
+news_event = {
+	id = sov.20
+	title = sov.20.t
+	desc = sov.20.d
+	picture = GFX_BrezhnevCameToPower
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+		date > 1964.10.14
+		date < 1964.12.14
+
+ }
+	option = {	#反对政变
+		name =sov.20.a
+		add_political_power = -60 
+		add_stability = 1
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {	#支持政变
+		name = sov.20.b
+		ai_chance = {
+			factor = 40
+		}
+		add_to_variable = { influences = -80 }
+		news_event = { id = sov.21 }
+	}
+
+}
+#政变之后
+news_event = {
+	id = sov.21
+	title = sov.21.t
+	desc = sov.21.d
+	picture = GFX_BrezhnevCameToPower
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {#反对政变
+		name = sov.21.a
+		create_country_leader = {
+			name = "Mikhail andreyevich Suslov"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Suslov.tga"
+			expire = "2020.1.1"
+			ideology = stalinism		
+			traits = {
+			}
+		}
+		news_event = { id = sov.63 }
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {	#支持政变
+		name = sov.21.b
+		ai_chance = {
+			factor = 40
+		}
+		retire_character = SOV_nikita_khrushchyov
+		promote_character = SOV_Brezhnev
+		news_event = { id = sov.63 }
+	}
+
+}
+
+#贝利亚
+news_event = {
+	id = sov.22
+	title = sov.22.t
+	desc = sov.22.d
+	picture = GFX_Beria
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.22.a
+		if = {
+			limit = { tag = SOV }
+			retire_character = SOV_lavrenty_beriya
+			retire_character = SOV_vsevolod_merkulov
+		}
+	}
+}
+news_event = {
+	id = sov.23
+	title = sov.23.t
+	desc = sov.23.d
+	picture = GFX_Beria
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.22.a
+	}
+}
+#个人崇拜
+news_event = {
+	id = sov.27
+	title = sov.27.t
+	desc = sov.27.d
+	picture = GFX_BrezhnevCameToPower
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.27.a
+	}
+}
+#勃列日涅夫去世
+news_event = {
+	id = sov.28
+	title = sov.28.t
+	desc = sov.28.d
+	picture = GFX_BrezhnevDead
+	fire_only_once = yes
+	immediate = {
+		play_song = SOV_14
+	}
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SOV
+		date > 1982.10.14
+		date < 1982.12.14
+		SOV_Brezhnev = { is_country_leader = yes }
+	}
+	option = {	#安德罗波夫
+		name = sov.28.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {	#安德罗波夫
+		name = sov.28.b
+		trigger = { tag = SOV }
+		ai_chance = {
+			factor = 60
+		}
+		news_event = { id = sov.189 }
+		set_global_flag = Andropov
+		retire_character = SOV_Brezhnev
+		promote_character = SOV_Andropov
+	}
+	option = {#马林科夫
+		name = sov.28.c
+		trigger = { tag = SOV }
+		set_global_flag = Chernenko
+		create_country_leader = {
+			name = "Konstantin Ustinovich Chernenko"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Chernenko.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+				
+				traits = {
+				
+				}
+		}
+	}
+}
+#阿尔德里希·阿姆斯
+news_event = {
+	id = sov.29
+	title = sov.29.t
+	desc = sov.8.d
+	picture = GFX_Ames
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		date > 1985.5.1
+		date < 1985.12.14
+ }
+	option = {
+		name = sov.8.a
+		set_country_flag = ames
+	}
+}
+#萨曼莎
+news_event = {
+	id = sov.30
+	title = sov.30.t
+	desc = sov.30.d
+	picture = GFX_Samantha
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = Andropov
+		date < 1984.1.1
+ }
+	option = {
+		name = sov.30.a
+		news_event = { id = sov.31 }
+		SOV = { 
+		add_named_threat = {	threat = -20 name = Samantha-Visit-Russia }
+		add_to_variable = { influences = 80 }
+		}
+	}
+}
+#萨曼莎
+news_event = {
+	id = sov.31
+	title = sov.31.t
+	desc = sov.31.d
+	picture = GFX_Samantha
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.31.a
+	}
+}
+
+#安德罗波夫去世
+news_event = {
+	id = sov.32
+	title = sov.32.t
+	desc = sov.32.d
+	picture = GFX_AndropovDeath
+	fire_only_once = yes
+	immediate = {
+		play_song = SOV_14
+	}
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SOV
+		SOV = {
+			has_country_leader = {
+			name = "Yuri Andropov"
+			ruling_only = yes
+			}
+		}
+		date > 1984.2.14
+		date < 1984.5.14
+	}
+	option = {	#契尔年科
+		name = sov.32.A
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {	#契尔年科
+		name = sov.32.b
+		ai_chance = {
+			factor = 60
+		}
+		trigger = { tag = SOV }
+		news_event = { id = sov.188 }
+		set_global_flag = Chernenko
+		create_country_leader = {
+			name = "Konstantin Chernenko"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Chernenko.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+				
+				traits = {
+				
+				}
+		}
+	}
+	option = {#马林科夫
+		name = sov.32.c
+		ai_chance = {
+			factor = 0
+		}
+		trigger = { tag = SOV }
+		set_global_flag = Ryzhkov
+		news_event = { id = sov.62 }
+		create_country_leader = {
+			name = "Nikolai Ryzhkov"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Ryzhkov.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+			traits = {
+			}
+		}
+	}
+}
+# 核灾难 (HIDDEN)
+news_event = {
+	id = sov.33
+	hidden = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		date > 1986.2.5
+		date < 1987.6.5
+		country_exists = USA
+		country_exists = SOV
+		USA = { has_government = democratic }
+		SOV = { has_government = communism }
+	}
+	immediate = {
+		random_list = {
+			60 = { SOV = { news_event = {	id = sov.34 } } }
+			40 = { USA = { news_event = {	id = sov.34 } } }
+		}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+# 切尔诺贝利
+news_event = {
+	id = sov.34
+	title = sov.34.t
+	desc = sov.34.d
+	picture = GFX_Chernobyl
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		add_political_power = -500
+		add_stability = -0.30
+	}
+	
+	option = {
+		name = news.51.a
+		201 = {
+			add_extra_state_shared_building_slots = -5
+			remove_building = {
+				type = nuclear_reactor
+				level = 5
+			}
+		}
+		194 = {
+			add_extra_state_shared_building_slots = -5
+			set_demilitarized_zone = yes
+		}
+		202 = {
+			add_extra_state_shared_building_slots = -3
+			remove_building = {
+				type = nuclear_reactor
+				level = 5
+			}
+		}
+		random_list = {
+			70 = { 
+				add_popularity = {
+					ideology = communism
+					popularity = 0.10
+				}
+				add_stability = -0.1
+				news_event = {	id = sov.35 } 
+				add_to_variable = { influences = -80 }
+			}
+			300 = { 
+				add_popularity = {
+					ideology = communism
+					popularity = 0.3
+				}
+				add_stability = -0.3
+				news_event = {	id = sov.36 }
+				add_to_variable = { influences = -300 }
+				launch_nuke = { state = 202 use_nuke = no }
+				194 = {
+					set_state_category = wasteland
+					add_extra_state_shared_building_slots = -30
+					set_demilitarized_zone = yes
+				}
+				202 = {
+					set_state_category = wasteland
+					add_extra_state_shared_building_slots = -30
+					set_demilitarized_zone = yes
+				}
+				203 = {
+					set_state_category = wasteland
+					add_extra_state_shared_building_slots = -30
+					set_demilitarized_zone = yes
+				}
+				201 = {
+					set_state_category = wasteland
+					add_extra_state_shared_building_slots = -30
+					set_demilitarized_zone = yes
+				}
+				193 = {
+					set_state_category = wasteland
+					add_extra_state_shared_building_slots = -30
+					set_demilitarized_zone = yes
+				}
+			}
+		}
+	}
+}
+# 切尔诺贝利抢救
+news_event = {
+	id = sov.35
+	title = sov.35.t
+	desc = sov.12.d
+	picture = GFX_Chernobyl
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = news.51.a
+	}
+}
+# 切尔诺贝利毁灭
+news_event = {
+	id = sov.36
+	title = sov.36.t
+	desc = sov.12.d
+	picture = GFX_Chernobyl
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = news.51.a
+	}
+}
+#契尔年科去世
+news_event = {
+	id = sov.37
+	title = sov.37.t
+	desc = sov.37.d
+	picture = GFX_Chernenko
+	fire_only_once = yes
+	immediate = {
+		play_song = SOV_14
+	}
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+			has_country_leader = {
+			name = "Konstantin Chernenko"
+			ruling_only = yes
+			}
+		has_global_flag = Chernenko
+		tag = SOV
+		date > 1985.2.14
+		date < 1985.5.14
+	}
+	option = {	#契尔年科
+		name = sov.37.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {	#契尔年科
+		name = sov.37.b
+		ai_chance = {
+			factor = 60
+		}
+		set_global_flag = Gorbachev
+		recruit_character = SOV_Gorbachev
+		promote_character = SOV_Gorbachev
+		news_event = { id = sov.179 }
+		add_popularity = {
+			ideology =	democratic
+			popularity = 0.08
+		}
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology =	democratic
+				popularity = 0.02
+			}
+		}
+	}
+	option = {#马林科夫
+		name = sov.37.c
+		ai_chance = {
+			factor = 20
+		}
+		set_global_flag = Ryzhkov
+		create_country_leader = {
+			name = "Nikolai Ryzhkov"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Ryzhkov.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.38
+	title = sov.38.t
+	desc = sov.38.d
+	picture = GFX_MoscowCoup
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.38.a
+	}
+}
+news_event = {
+	id = sov.39
+	title = sov.39.t
+	desc = sov.39.d
+	picture = GFX_YeltsinGrobachev
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.38.a
+	}
+}
+# 八一九
+news_event = {
+	id = sov.40
+	title = sov.40.t
+	desc = sov.40.d
+	picture = GFX_MoscowCoup
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		date > 1990.1.1
+		communism < 0.7
+		has_government = communism
+		NOT = { has_country_flag = moscowcoup }
+		OR = {
+			date > 1991.8.1
+			democratic > 0.4
+			communism < 0.5
+			has_stability < 0.4
+		}
+	}
+	option = {
+		name = sov.40.a
+		add_named_threat = { threat = 20 name = MoscowCoup }
+		add_stability = -0.3
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+		create_country_leader = {
+			name = "Gennady Ivanovic Yanayev"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Gennady_Yanayev.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+				
+			traits = {
+			
+			}
+		}
+		news_event = { id = sov.41 days = 3 } 
+		news_event = { id = sov.42 } 
+		set_country_flag = moscowcoup
+	}
+	option = {
+		name = sov.40.b
+		news_event = { id = sov.38 } 
+		add_stability = -0.3
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+	}
+}
+#叶利钦拒绝妥协
+news_event = {
+	id = sov.41
+	title = sov.41.t
+	desc = sov.41.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Yeltsin
+	option = {
+		name = sov.41.a
+		add_stability = -0.1
+		add_popularity = {
+			ideology = communism
+			popularity = -0.5
+		}
+		create_country_leader = {
+			name = "Mikhail Sergeyevich Gorbachev"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Gorbachev.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+				
+			traits = {
+			
+			}
+		}
+	}
+	option = {
+		name = sov.41.b
+		news_event = { id = sov.38 } 
+		add_stability = -0.3
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+	}
+}
+#塞族叛乱新闻
+news_event = {
+	id = sov.42
+	title = sov.42.t
+	desc = sov.42.d
+	picture = GFX_1991CivilWar
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = SOV_15
+	}
+	option = {
+		name = sov.42.a
+		if = {
+			limit = { is_subject_of = SOV }
+			add_stability = -0.15
+			add_popularity = {
+				ideology =	communism
+				popularity = -0.4
+			}
+		}
+	}
+}
+
+#戈尔巴乔夫下台
+news_event = {
+	id = sov.43
+	title = sov.43.t
+	desc = sov.43.d
+	picture = GFX_GorbachevResigns
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	immediate = {
+		play_song = SOV_14
+	}
+	trigger = {
+		date > 1990.1.1
+		SOV = {
+			has_government = communism 
+			communism < 0.3
+			has_country_flag = moscowcoup
+		}
+	}
+	option = {
+		name = sov.43.a
+		if = {
+			limit = { tag = SOV }
+	create_country_leader = {
+		name = "Boris Yeltsin"
+		
+		picture = "gfx/leaders/SOV/Portrait_Soviet_Yeltsin.tga"
+		expire = "2020.1.1"
+		ideology = conservatism
+		
+		traits = {
+			liberal_reformism
+		}
+	}
+			add_stability = 0.3
+			add_popularity = {
+				ideology =	democratic
+				popularity = 0.4
+			}
+			remove_ideas = KGB
+			set_politics = { ruling_party =	democratic }
+		}
+	}
+}
+#阿拉木图宣言
+news_event = {
+	id = sov.44
+	title = sov.44
+	desc = sov.44.d
+	picture = GFX_SovietUnionLose
+	fire_only_once = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {	
+		tag = SOV
+		SOV = { has_government = democratic }
+		has_cosmetic_tag = SOV
+	}
+	option = {
+		name = sov.44.a
+			SOV = {
+				set_cosmetic_tag = RUS
+			}
+			BLR = {
+				transfer_state = 207
+				transfer_state = 241
+				transfer_state = 206
+				transfer_state = 204
+				transfer_state = 194
+				transfer_state = 94
+				transfer_state = 95
+				transfer_state = 96
+				set_politics = { ruling_party =	democratic }
+			}
+			UKR = {
+				transfer_state = 228
+				transfer_state = 221
+				transfer_state = 227
+				transfer_state = 137
+				transfer_state = 200
+				transfer_state = 196
+				transfer_state = 197
+				transfer_state = 192
+				transfer_state = 259
+				transfer_state = 193
+				transfer_state = 202
+				transfer_state = 203
+				transfer_state = 201
+				transfer_state = 198
+				transfer_state = 199
+				transfer_state = 91
+				transfer_state = 89
+				transfer_state = 73
+				transfer_state = 73
+				transfer_state = 74
+				transfer_state = 93
+				transfer_state = 80
+				transfer_state = 226
+				transfer_state = 225
+				set_politics = { ruling_party =	democratic }
+			}
+			MOL = {
+				transfer_state = 78
+				set_politics = { ruling_party =	democratic }
+			}
+			GEO = {
+				transfer_state = 231
+				transfer_state = 919
+				set_politics = { ruling_party =	democratic }
+			}
+			TAJ = {
+				transfer_state = 742
+				transfer_state = 916
+				set_politics = { ruling_party =	democratic }
+			}
+			KAZ = {
+				transfer_state = 586
+				transfer_state = 407
+				transfer_state = 406
+				transfer_state = 587
+				transfer_state = 402
+				transfer_state = 583
+				transfer_state = 404
+				transfer_state = 590
+				transfer_state = 588
+				transfer_state = 589
+				create_country_leader = {
+					name = "Nursultan Abishevic Nazarbayev"
+					desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+					picture = "gfx/leaders/SOV/Portrait_Kazakhstan_Nazarbayev.tga"
+					expire = "1997.1.1"
+					ideology = conservatism
+		
+					traits = {
+		
+					}
+				}
+				set_politics = { ruling_party =	democratic }
+			}
+			KYR = {
+				transfer_state = 732
+				set_politics = { ruling_party =	democratic }
+			}
+			TRM = {
+				transfer_state = 584
+				set_politics = { ruling_party = neutrality }
+			}
+			UZB = {
+				transfer_state = 585
+				transfer_state = 405
+				transfer_state = 915
+				set_politics = { ruling_party = neutrality }
+			}
+			news_event = { id = sov.45 }
+		}
+}
+#阿拉木图宣言新闻
+news_event = {
+	id = sov.45
+	title = sov.45.t
+	desc = sov.45.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.51.a
+	}
+}
+#苏联顾问
+country_event = {
+	id = sov.46
+	title = sov.46.t
+	desc = sov.46.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = sov.51.a
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				FROM = { has_government = communism }
+			}
+		}
+		FROM = {
+			country_event = { id = sov.47 }
+			set_country_flag = soviet_industry_advisitor_idea
+			add_ideas = SovietAdviser
+			add_intel = {
+				target = FROM
+				civilian_intel = 12
+				army_intel = 8
+				navy_intel = 8
+				airforce_intel = 8
+			}
+		}
+	}
+	option = { 
+		name = sov.51.a
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			country_event = { id = sov.48 }
+		}
+	}
+}
+country_event = {
+	id = sov.47
+	title = sov.47.t
+	desc = sov.47.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = sov.51.a
+	}
+}
+country_event = {
+	id = sov.48
+	title = sov.48.t
+	desc = sov.48.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = sov.51.a
+	}
+}
+news_event = {
+	id = sov.49
+	title = sov.49.t
+	desc = sov.49.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = sov.51.a
+	}
+}
+#协议
+country_event = {
+	id = sov.50
+	title = sov.50.t
+	desc = sov.50.d
+	picture = GFX_WP_Join
+	is_triggered_only = yes
+	option = { 
+		name = sov.50.a
+		SOV = { give_guarantee = ROOT }
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = sov.6 }
+		}
+	}
+	option = { 
+		name = sov.50.b
+		SOV = { country_event = { id = sov.51 } }
+	}
+}
+#拒绝
+country_event = {
+	id = sov.51
+	title = sov.51.t
+	desc = sov.51.d
+	picture = GFX_WP_Join
+	is_triggered_only = yes
+	option = { 
+		name = sov.51.a
+	}
+}
+#加入华悦
+country_event = {
+	id = sov.52
+	title = sov.52.t
+	desc = sov.52.d
+	picture = GFX_WP_Join
+	is_triggered_only = yes
+	option = { 
+		name = sov.50.a
+		SOV = { add_to_faction  = ROOT }
+	}
+	option = { 
+		name = sov.50.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 0
+			}
+		}
+		SOV = { country_event = { id = sov.51 } }
+	}
+}
+#核导弹误爆
+country_event = {
+	id = sov.53
+	title = sov.53.t
+	desc = sov.53.d
+	picture = GFX_missile
+	fire_only_once = yes
+	trigger = {	
+		tag = SOV
+		date > 1983.1.1
+		date < 1984.5.1
+	}
+	option = {
+		ai_chance = {
+			factor = 1
+		}
+		name = sov.53.a
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = sov.53.b
+		play_song = "SOV_11"
+		SOV = {
+			add_named_threat = {
+				threat = 80
+				name =	threat_name
+			}
+			declare_war_on = {
+				target = USA
+				type =	take_state_focus
+				generator = { 747 }
+			}
+			declare_war_on = {
+				target = FRA
+				type =	take_state_focus
+				generator = { 747 }
+			}
+			declare_war_on = {
+				target = WDR
+				type =	take_state_focus
+				generator = { 747 }
+			}
+			declare_war_on = {
+				target = ENG
+				type =	take_state_focus
+				generator = { 747 }
+			}
+		}
+	}
+}
+#加州独立
+news_event = {
+	id = sov.54
+	title = usatext.91.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = SOV
+		has_stability < 0.2
+		owns_state = 202
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		UKR = {
+			transfer_state = 202
+			transfer_state = 137
+			transfer_state = 201
+			transfer_state = 193
+			load_oob = "UKR"
+		}
+		SOV = {
+			declare_war_on = {	target = UKR	type = annex_everything }
+		}
+		
+	}
+}
+#加州独立
+news_event = {
+	id = sov.55
+	title = usatext.91.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = SOV
+		has_stability < 0.2
+		owns_state = 814
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		CCH = {
+			transfer_state = 814
+			load_oob = "CCH"
+		}
+		SOV = {
+			declare_war_on = {	target = CCH	type = annex_everything }
+		}
+		
+	}
+}
+#加州独立
+news_event = {
+	id = sov.56
+	title = usatext.91.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = SOV
+		has_stability < 0.2
+		owns_state = 404
+		owns_state = 586
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		KAZ = {
+			transfer_state = 404
+			transfer_state = 586
+			transfer_state = 589
+			load_oob = "KAZ"
+		}
+		SOV = {
+			declare_war_on = {	target = KAZ	type = annex_everything }
+		}
+		
+	}
+}
+#加州独立
+news_event = {
+	id = sov.57
+	title = usatext.91.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = SOV
+		has_stability < 0.2
+		owns_state = 206
+	}
+	option = {
+		name = usatext.8.a
+		add_stability = -0.1
+		BLR = {
+			transfer_state = 206
+			transfer_state = 204
+			load_oob = "BLR"
+		}
+		SOV = {
+			declare_war_on = {	target = BLR	type = annex_everything }
+		}
+		
+	}
+}
+#征服欧洲
+news_event = {
+	id = sov.58
+	title = sov.58.t
+	desc = sov.58.d
+	picture = GFX_Yugowarnews
+	trigger = {
+		tag = SOV
+		has_war_with = USA
+		ENG = { has_capitulated = yes }
+		FRA = { has_capitulated = yes }
+		WDR = { has_capitulated = yes }
+		ITA = { has_capitulated = yes }
+	}
+	mean_time_to_happen = { days = 5 }
+	option = {
+		name = sov.58.a
+		USA = {
+			dismantle_faction = yes
+			add_stability = -0.3
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+		white_peace = USA
+			add_stability = 0.3
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			every_country = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.2
+				}
+			}
+			every_occupied_country = {
+				set_politics = { ruling_party = communism }
+			}
+		
+	}
+	option = {
+		name = sov.58.b
+		add_stability = -0.2
+		add_war_support = -0.3
+	}
+}
+#警戒号
+news_event = {
+	id = sov.59
+	title = sov.59.t
+	desc = sov.59.d
+	picture = GFX_Storozevoy
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		tag = SOV
+		date > 1975.1.1
+		date < 1976.1.1
+		has_idea = corrupt
+	}
+	option = {
+		name = sov.59.a
+		add_stability = -0.2
+		add_political_power = -80
+		news_event = { id = sov.60 }
+	}
+	option = {
+		name = sov.59.b
+		news_event = { id = sov.61 }
+		add_stability = -0.2
+		create_country_leader = {
+			name = "Nikolai Tikhonov"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Tikhonov.tga"
+			expire = "1997.1.1"
+			ideology = stalinism
+			traits = {
+			}
+		}
+		add_political_power = 200
+	}
+}
+news_event = {
+	id = sov.60
+	title = sov.60.t
+	desc = sov.60.d
+	picture = GFX_Storozevoy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.60.a
+	}
+}
+news_event = {
+	id = sov.61
+	title = sov.61.t
+	desc = sov.61.d
+	picture = GFX_Chernenko
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.61.a
+	}
+}
+news_event = {
+	id = sov.62
+	title = sov.62.t
+	desc = sov.62.d
+	picture = GFX_AndropovDeath
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.62.a
+	}
+}
+news_event = {
+	id = sov.63
+	title = sov.63.t
+	desc = sov.63.d
+	picture = GFX_BrezhnevCameToPower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+
+news_event = {
+	id = sov.64
+	title = sov.64.t
+	desc = sov.64.d
+	picture = GFX_corn
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.64.a
+	}
+}
+
+news_event = {
+	id = sov.65
+	title = sov.65.t
+	desc = sov.65.d
+	picture = GFX_BrezhnevCameToPower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.66
+	title = sov.66.t
+	desc = sov.66.d
+	picture = GFX_tsar_bomb
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		scoped_sound_effect = nuke_hit
+	}
+	option = {
+		name = sov.66.a
+	}
+}
+news_event = {
+	id = sov.67
+	title = sov.67.t
+	desc = sov.67.d
+	picture = GFX_Gorbachev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.68
+	title = sov.68.t
+	desc = sov.68.d
+	picture = GFX_Gorbachev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.69
+	title = sov.69.t
+	desc = sov.69.d
+	picture = GFX_KennedyWithKhrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.70
+	title = sov.70.t
+	desc = sov.70.d
+	picture = GFX_VietChinaWar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.71
+	title = sov.71.t
+	desc = sov.71.d
+	picture = GFX_Soviet28thMeeting
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.72
+	title = sov.72.t
+	desc = sov.72.d
+	picture = GFX_Soviet28thMeeting
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+		if = {
+			limit = {
+				tag = ROOT
+				NOT = {
+					has_government = communism
+					has_country_leader_with_trait = anti_communist
+				}
+			}
+			SOV = { country_event = sov.550 }
+		}
+	}
+}
+news_event = {
+	id = sov.73
+	title = sov.73.t
+	desc = sov.73.d
+	picture = GFX_AfricanTroopsEarly
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.74
+	title = sov.74.t
+	desc = sov.74.d
+	picture = GFX_Gorbachev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.65.a
+	}
+}
+news_event = {
+	id = sov.75
+	title = sov.75.t
+	desc = sov.75.d
+	picture = GFX_Denikin
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1947.8.1
+		date < 1947.12.1
+		NOT = { has_global_flag = DenikinDeath }
+		tag = SOV
+	}
+	option = {
+		name = sov.75.a
+		set_global_flag = DenikinDeath
+		if = {
+			limit = { tag = SOV }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+	}
+
+}
+news_event = {
+	id = sov.76
+	title = sov.76.t
+	desc = sov.76.d
+	picture = GFX_BelarusRebels
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1950.1.1
+		243 = { resistance < 12 }
+		224 = { resistance < 12 }
+		224 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		241 = { resistance < 12 }
+		tag = SOV
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = SOV }
+			243 = { add_resistance = -30 remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			224 = { add_resistance = -30 remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			241 = { add_resistance = -30 remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = 0.12
+		}
+	}
+
+}
+news_event = {
+	id = sov.77
+	title = sov.77.t
+	desc = sov.77.d
+	picture = GFX_BelarusRebels
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1950.1.1
+		11 = { resistance < 12 }
+		12 = { resistance < 12 }
+		191 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		191 = { resistance < 12 }
+		tag = SOV
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = SOV }
+			every_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = more_rebel_modifiers }
+					OR = {
+						is_core_of = EST
+						is_core_of = LIT
+						is_core_of = LAT
+					}
+				}
+				add_resistance = -30 remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = 0.12
+		}
+	}
+
+}
+news_event = {
+	id = sov.78
+	title = sov.78.t
+	desc = sov.78.d
+	picture = GFX_BelarusRebels
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1948.1.1
+		91 = { resistance < 12 }
+		89 = { resistance < 12 }
+		572 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		572 = { resistance < 12 }
+		tag = SOV
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = SOV }
+			every_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = more_rebel_modifiers }
+					is_core_of = UKR
+				}
+				add_resistance = -30 remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = 0.12
+		}
+	}
+
+}
+#接受马歇尔
+news_event = {
+	id = sov.79
+	title = sov.79.t
+	desc = sov.79.d
+	picture = GFX_molotov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.79.a
+	}
+}
+#接受马歇尔
+news_event = {
+	id = sov.80
+	title = sov.80.t
+	desc = sov.80.d
+	picture = GFX_molotov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.79.a
+	}
+}
+#接受马歇尔
+news_event = {
+	id = sov.81
+	title = sov.81.t
+	desc = sov.81.d
+	picture = GFX_MarshallPlan
+	is_triggered_only = yes
+	option = {
+		name = sov.79.a
+		add_ideas = Marshall
+			ai_chance = {
+				factor = 0
+			}
+		news_event = { id = sov.79 }
+		add_political_power = 800
+		custom_effect_tooltip = total_from_aid_80
+		add_to_variable = { this.total_from_aid = 80 }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.09
+			}
+	}
+	option = {
+		name = sov.79.b
+			ai_chance = {
+				factor = 100
+			}
+		news_event = { id = sov.80 }
+		add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		add_named_threat = { threat = 3 name = RejectMarshallPlan }
+	}
+}
+#列宁格勒派的崛起
+news_event = {
+	id = sov.90
+	title = sov.90.t
+	desc = sov.90.d
+	picture = GFX_Voznesenskiy
+	fire_only_once = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1948.1.1
+		date < 1948.12.1
+		tag = SOV
+		has_character = SOV_andrey_zhdanov
+	}
+	option = {
+		name = sov.94.a
+	}
+}
+#列宁格勒事件
+news_event = {
+	id = sov.91
+	title = sov.91.t
+	desc = sov.91.d
+	picture = GFX_Voznesenskiy
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1949.6.1
+		date < 1949.12.1
+		tag = SOV
+		NOT = { has_country_flag = LeningradIncident }
+		NOT = { has_character = SOV_andrey_zhdanov }
+	}
+	option = {
+		name = sov.94.a
+		retire_character = SOV_nikolay_voznesensky
+		set_country_flag = LeningradIncident
+		news_event = { id = sov.93 }
+	}
+	option = {
+		name = sov.94.b
+		news_event = { id = sov.92 }
+		set_country_flag = LeningradIncident
+		retire_character = SOV_Malenkov
+		retire_character = SOV_lavrenty_beriya
+		
+	}
+}
+news_event = {
+	id = sov.92
+	title = sov.92.t
+	desc = sov.92.d
+	picture = GFX_Voznesenskiy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.93
+	title = sov.93.t
+	desc = sov.93.d
+	picture = GFX_Malenkov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+#日丹诺夫去世
+news_event = {
+	id = sov.94
+	title = sov.94.t
+	desc = sov.94.d
+	picture = GFX_Zhdanov
+	major = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1948.8.1
+		date < 1948.12.1
+		tag = SOV
+		has_character = SOV_andrey_zhdanov
+	}
+	option = {
+		name = sov.94.a
+		if = {
+			limit = { tag = SOV }
+			retire_character = SOV_andrey_zhdanov
+		}
+	}
+}
+#党内高层密谋反对贝利亚
+news_event = {
+	id = sov.95
+	title = sov.95.t
+	desc = sov.95.d
+	picture = GFX_MalenkovSpeech
+	fire_only_once = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1953.4.1
+		date < 1954.6.1
+		tag = SOV
+		SOV_Malenkov = { is_country_leader = yes }
+		has_character = SOV_lavrenty_beriya
+	}
+	option = {
+		name = sov.95.a
+		ai_chance = { factor = 50 }
+		set_country_flag = BanBeria
+	}
+	option = {
+		name = sov.95.b
+		ai_chance = { factor = 0 }
+		set_country_flag = BeriaCame
+	}
+}
+#关于处理贝利亚问题的高级会议
+news_event = {
+	id = sov.96
+	title = sov.96.t
+	desc = sov.96.d
+	picture = GFX_MalenkovSpeech
+	fire_only_once = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		has_country_flag = BanBeria
+		has_character = SOV_lavrenty_beriya
+	}
+	option = {
+		name = sov.96.a
+		remove_ideas = Death_Stalin
+		news_event = { id = sov.97 }
+	}
+	option = {
+		name = sov.96.b
+		recruit_character = SOV_lavrenty_beriya
+		set_country_flag = BeriaCame
+			promote_character = {
+				character = SOV_lavrenty_beriya
+				ideology = marxism
+			}
+		add_ideas = SOV_Beria_struggle_idea
+		play_song = SOV_31
+		add_to_variable = { Beiria_influence = 5 }
+		add_to_variable = { Beria_supporting = 8 }
+		news_event = { id = sov.23 }
+	}
+}
+news_event = {
+	id = sov.97
+	title = sov.97.t
+	desc = sov.97.d
+	picture = GFX_MalenkovSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.22.a
+	}
+}
+news_event = {
+	id = sov.98
+	title = sov.98.t
+	desc = sov.98.d
+	picture = GFX_Beria
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.99
+	title = sov.99.t
+	desc = sov.99.d
+	picture = GFX_Beria
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_country_flag = BeriaCame
+		has_character = SOV_lavrenty_beriya
+		NOT = { has_country_flag = sov99 }
+	}
+	option = {
+		name = sov.22.a
+		if = {
+			limit = { tag = SOV }
+			set_country_flag = sov99
+			recruit_character = SOV_lavrenty_beriya
+			promote_character = {
+				character = SOV_lavrenty_beriya
+				ideology = marxism
+			}
+			remove_ideas = Death_Stalin
+			add_to_variable = { influences = -50 }
+		}
+	}
+}
+
+#赫鲁晓夫退休
+news_event = {
+	id = sov.110
+	title = sov.110.t
+	desc = sov.110.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	option = {	#安德罗波夫
+		name = sov.110.a
+		ai_chance = {
+			factor = 60
+		}
+		set_global_flag = Shelepin
+		retire_character = SOV_nikita_khrushchyov
+		promote_character = SOV_alexander_shelepin
+		news_event = { id = sov.111 }
+	}
+}
+news_event = {
+	id = sov.111
+	title = sov.111.t
+	desc = sov.111.d
+	picture = GFX_Shelepin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.112
+	title = sov.112.t
+	desc = sov.112.d
+	picture = GFX_Bodgorny
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.115
+	title = sov.115.t
+	desc = sov.115.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	option = {
+		name = sov.115.a
+		
+	}
+	option = {
+		name = sov.115.b
+		
+	}
+}
+news_event = {
+	id = sov.116
+	title = sov.116.t
+	desc = sov.116.d
+	picture = GFX_Khrushchev
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_RemovingStalinization
+		date < 1958.1.1
+		NOT = { has_idea = Remove_stalin }
+	}
+	major = yes
+	option = {
+		name = sov.116.a
+		if = {
+			limit = { tag = SOV }
+			add_timed_idea = {
+				idea = Remove_stalin
+				days = 500
+			}
+		}
+		if = {
+			limit = { has_government = communism }
+			add_stability = -0.12
+			add_political_power = -80
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.117
+	title = sov.117.t
+	desc = sov.117.d
+	picture = GFX_Khrushchev
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		has_government = communism
+		date < 1956.1.1
+		SOV = { has_idea = Remove_stalin }
+		NOT = { has_country_flag = answer_destalin }
+	}
+	option = {
+		name = sov.117.a
+		set_country_flag = answer_destalin
+		news_event = { id = sov.118 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_political_power = 100
+	}
+	option = {
+		name = sov.117.b
+		set_country_flag = answer_destalin
+		news_event = { id = sov.119 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+	}
+}
+news_event = {
+	id = sov.118
+	title = sov.118.t
+	desc = sov.118.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.119
+	title = sov.119.t
+	desc = sov.119.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.120
+	title = sov.120.t
+	desc = sov.120.d
+	picture = GFX_SpartakMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.121
+	title = sov.121.t
+	desc = sov.121.d
+	picture = GFX_ChaikovskiyFestival
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+#索尔仁尼琴
+news_event = {
+	id = sov.122
+	title = sov.122.t
+	desc = sov.122.d
+	picture = GFX_Solzhenitsyn
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_country_flag = Solzhenitsyn
+		NOT = { has_country_flag = SolzhenitsynBook }
+		date > 1962.1.1
+		date < 1965.1.1
+	}
+	option = {
+		name = sov.10.a
+		if = {
+			limit = {
+				tag = SOV
+			}
+			add_political_power = 120
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.06
+				}
+		}
+	}
+}
+news_event = {
+	id = sov.123
+	title = sov.123.t
+	desc = sov.123.d
+	picture = GFX_Solzhenitsyn
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_Ottepel
+		NOT = { has_global_flag = Solzhenitsyn }
+	}
+	option = {
+		name = sov.10.a
+	}
+	option = {
+		name = sov.10.a
+		set_global_flag = Solzhenitsyn
+		add_political_power = 100
+		news_event = { id = sov.124 }
+	}
+}
+news_event = {
+	id = sov.124
+	title = sov.124.t
+	desc = sov.124.d
+	picture = GFX_Solzhenitsyn
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.125
+	title = sov.125.t
+	desc = sov.125.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.126
+	title = sov.126.t
+	desc = sov.126.d
+	picture = GFX_Malenkov
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = SOV
+		has_country_leader = {
+			character = SOV_Malenkov
+			ruling_only = yes
+		}
+		NOT = {
+			has_country_flag = ban_malinkov
+			has_character = SOV_lavrenty_beriya
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.127 }
+		set_country_flag = ban_malinkov
+	}
+}
+news_event = {
+	id = sov.127
+	title = sov.127.t
+	desc = sov.127.d
+	picture = GFX_Malenkov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.128
+	title = sov.128.t
+	desc = sov.128.d
+	picture = GFX_Malenkov
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = SOV
+		has_country_flag = ban_malinkov
+		has_country_leader = {
+			character = SOV_Malenkov
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.129 }
+		set_global_flag = khrushchyov
+		retire_character = SOV_Malenkov
+		set_country_flag = Khrushchev
+		promote_character = {
+			character = SOV_nikita_khrushchyov
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = sov.129
+	title = sov.129.t
+	desc = sov.129.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.130
+	title = sov.130.t
+	desc = sov.30.d
+	picture = GFX_molotov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+#扳倒赫鲁晓夫
+news_event = {
+	id = sov.131
+	title = sov.131.t
+	desc = sov.131.d
+	picture = GFX_Khrushchev
+	mean_time_to_happen = { days = 20 }
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		has_country_leader = {
+			character = SOV_nikita_khrushchyov
+			ruling_only = yes
+		}
+		has_completed_focus = SOV_RemovingStalinization
+		OR = {
+			has_completed_focus = SOV_Peaceful_coexistence
+			has_completed_focus = SOV_VirginLand
+		}
+		date > 1957.6.1
+		date < 1957.11.1
+	}
+	option = {
+		name = sov.10.a
+		ai_chance = {
+			factor = 60
+		}
+		news_event = { id = sov.136 }
+		retire_character = SOV_nikolay_bulganin
+		retire_character = SOV_lazar_kaganovich
+	}
+	option = {
+		name = sov.10.a
+		ai_chance = {
+			factor = 0
+		}
+		news_event = { id = sov.132 }
+		set_country_flag = ban_khrushchyov
+	}
+}
+news_event = {
+	id = sov.132
+	title = sov.132.t
+	desc = sov.132.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.132.a
+	}
+}
+news_event = {
+	id = sov.133
+	title = sov.133.t
+	desc = sov.133.d
+	picture = GFX_Khrushchev
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = SOV
+		has_country_flag = ban_khrushchyov
+		has_country_leader = {
+			character = SOV_nikita_khrushchyov
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.134 }
+		retire_character = SOV_nikita_khrushchyov
+		set_country_flag = bulganin
+		promote_character = {
+			character = SOV_nikolay_bulganin
+			ideology = marxism
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.135 }
+		retire_character = SOV_nikita_khrushchyov
+		set_country_flag = kaganovich
+		promote_character = {
+			character = SOV_lazar_kaganovich
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = sov.134
+	title = sov.134.t
+	desc = sov.134.d
+	picture = GFX_Bulganin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.135
+	title = sov.135.t
+	desc = sov.135.d
+	picture = GFX_Kaganovich
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.136
+	title = sov.136.t
+	desc = sov.136.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.140
+	title = sov.140.t
+	desc = sov.140.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.141
+	title = sov.141.t
+	desc = sov.141.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.142
+	title = sov.142.t
+	desc = sov.142.d
+	picture = GFX_Khrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.143
+	title = sov.143.t
+	desc = sov.143.d
+	picture = GFX_AlexanderMen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.144
+	title = sov.144.t
+	desc = sov.144.d
+	picture = GFX_Yakovlev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.145
+	title = sov.145.t
+	desc = sov.45.d
+	picture = GFX_Andropov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.146
+	title = sov.146.t
+	desc = sov.146.d
+	picture = GFX_Andropov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+#战争与和平
+news_event = {
+	id = sov.150
+	title = sov.150.t
+	desc = sov.150.d
+	picture = GFX_VoinaMir1957
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_Ottepel
+		NOT = { has_global_flag = voina_mir_1956 }
+		date > 1957.4.1
+		date < 1960.4.1
+	}
+	major = yes
+	option = {
+		name = sov.10.a
+		set_global_flag = voina_mir_1956
+	}
+}
+news_event = {
+	id = sov.151
+	title = sov.151.t
+	desc = sov.151.d
+	picture = GFX_Fursteva
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.152
+	title = sov.152.t
+	desc = sov.152.d
+	picture = GFX_VoinaMir
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.153
+	title = sov.153.t
+	desc = sov.153.d
+	picture = GFX_VoinaMir
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.154
+	title = sov.154.t
+	desc = sov.154.d
+	picture = GFX_VoinaMir
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.155
+	title = sov.155.t
+	desc = sov.155.d
+	picture = GFX_VoinaMir
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.156
+	title = sov.156.t
+	desc = sov.156.d
+	picture = GFX_VoinaMir
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+#谢列平退休
+news_event = {
+	id = sov.160
+	title = sov.160.t
+	desc = sov.160.d
+	picture = GFX_Shelepin
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SOV
+		date > 1982.1.1
+		date < 1983.1.1
+		has_country_leader = {
+			character = SOV_alexander_shelepin
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.184 }
+		retire_character = SOV_alexander_shelepin
+		set_country_flag = SOV_Vladimir_Sherbitskiy
+		promote_character = {
+			character = SOV_Vladimir_Sherbitskiy
+			ideology = marxism
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.180 }
+		trigger = {
+				has_completed_focus = SOV_OpenArts
+		}
+		retire_character = SOV_alexander_shelepin
+		set_country_flag = Furtseva
+		promote_character = {
+			character = SOV_Furtseva
+			ideology = marxism
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.188 }
+		trigger = {
+				has_completed_focus = SOV_Silent_Stalinization
+		}
+		retire_character = SOV_alexander_shelepin
+		set_country_flag = Chernenko
+		create_country_leader = {
+			name = "Konstantin Ustinovich Chernenko"
+			picture = "gfx/leaders/SOV/Portrait_Soviet_Chernenko.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+				
+				traits = {
+				
+				}
+		}
+	}
+}
+#烏斯季諾夫退休
+news_event = {
+	id = sov.161
+	title = sov.161.t
+	desc = sov.161.d
+	picture = GFX_Ustinov
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SOV
+		date > 1982.1.1
+		date < 1983.1.1
+		has_country_leader = {
+			character = SOV_Ustinov
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.189 }
+		retire_character = SOV_Ustinov
+		set_country_flag = SOV_Andropov
+		promote_character = {
+			character = SOV_Andropov
+			ideology = marxism
+		}
+	}
+	option = {
+		name = sov.10.a
+		news_event = { id = sov.111 }
+		retire_character = SOV_Ustinov
+		set_country_flag = SOV_alexander_shelepin
+		promote_character = {
+			character = SOV_alexander_shelepin
+			ideology = marxism
+		}
+	}
+}
+news_event = {
+	id = sov.179
+	title = sov.179.t
+	desc = sov.179.d
+	picture = GFX_Gorbachev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.180
+	title = sov.180.t
+	desc = sov.180.d
+	picture = GFX_Fursteva
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.184
+	title = sov.184.t
+	desc = sov.184.d
+	picture = GFX_Shcherbitskiy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.189
+	title = sov.189.t
+	desc = sov.189.d
+	picture = GFX_Andropov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.10.a
+	}
+}
+news_event = {
+	id = sov.191
+	title = sov.191.t
+	desc = sov.191.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		FROM = { news_event = { id = sov.200 } }
+	}
+}
+news_event = {
+	id = sov.192
+	title = sov.192.t
+	desc = sov.192.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		FROM = { news_event = { id = sov.200 } }
+	}
+}
+news_event = {
+	id = sov.193
+	title = sov.193.t
+	desc = sov.193.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		FROM = { news_event = { id = sov.200 } }
+	}
+}
+news_event = {
+	id = sov.200
+	title = sov.200.t
+	desc = sov.200.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		SOV = { news_event = { id = sov.201 } }
+	}
+}
+news_event = {
+	id = sov.201
+	title = sov.201.t
+	desc = sov.201.d
+	picture = GFX_Comecon
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		trigger = {
+			FROM = { 
+				NOT = { has_completed_focus = common_32 }
+			}
+		}
+		FROM = {
+			news_event = { id = sov.202 }
+			add_political_power = -300
+			add_stability = -0.12
+			clr_country_flag = SovietAdvisorAllow
+		}
+	}
+	option = {
+		name = sov.1.a
+		trigger = {
+			FROM = { 
+				has_completed_focus = common_32
+			}
+		}
+		declare_war_on = {
+			target = FROM
+			type = puppet_wargoal_focus 
+		}
+	}
+}
+news_event = {
+	id = sov.202
+	title = sov.202.t
+	desc = sov.202.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.251
+	title = sov.251.t
+	desc = sov.251.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.250
+	title = sov.250.t
+	desc = sov.250.d
+	picture = GFX_Comecon
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+##来自苏联的军事援助
+country_event = {
+	id = sov.260
+	title = sov.260.t
+	desc = sov.260.d
+	picture = GFX_SovietAdvisorSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		ai_chance = {
+			factor = 10
+		}
+	}
+	option = {
+		name = sov.1.a
+		ai_chance = {
+			factor = 0
+		} 
+		SOV = { country_event = { id = sov.262 } }
+			add_war_support = 0.08
+			army_experience = 120
+			set_country_flag = sov_army_advisor
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 8000
+				target = THIS
+			}
+			if = {
+				limit = {
+					is_neighbor_of = SOV
+				}
+				custom_effect_tooltip = trans_tool_neighbour
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 8000
+					producer = SOV
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						is_in_faction_with = SOV
+					}
+				}
+				custom_effect_tooltip = trans_tool_ally
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = SOV
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						all_owned_state = { is_coastal = no }
+						NOT = { is_neighbor_of = SOV }
+					}
+				}
+				custom_effect_tooltip = trans_tool_no_port
+			}
+			SOV = {
+				if = {
+					limit = { has_tech = motorised_infantry
+						OR = {
+							is_neighbor_of = THIS
+							is_in_faction_with = THIS
+							THIS = { any_owned_state = { is_coastal = yes } }
+						}
+					}
+					send_equipment = {
+						equipment = motorized_equipment
+						amount = 300
+						target = THIS
+					}
+				}
+				if = {
+					limit = { has_tech = mechanised_infantry
+						OR = {
+							is_neighbor_of = THIS
+							is_in_faction_with = THIS
+							THIS = { any_owned_state = { is_coastal = yes } }
+						}
+					}
+					send_equipment = {
+						equipment = mechanized_equipment
+						amount = 180
+						target = THIS
+					}
+				}
+				if = {
+					limit = { has_tech = gwtank
+						OR = {
+							is_neighbor_of = THIS
+							is_in_faction_with = THIS
+							THIS = { any_owned_state = { is_coastal = yes } }
+						}
+					}
+					send_equipment = {
+						equipment = gw_tank_equipment
+						amount = 120
+						target = THIS
+					}
+				}
+			}
+	}
+}
+news_event = {
+	id = sov.261
+	title = sov.261.t
+	desc = sov.261.d
+	picture = GFX_SovietAdvisor
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+country_event = {
+	id = sov.262
+	title = sov.262.t
+	desc = sov.262.d
+	picture = GFX_SovietAdvisorSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+#请求援助
+country_event = {
+	id = sov.263
+	title = sov.263.t
+	desc = sov.263.d
+	picture = GFX_PPSh45Event
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		ai_chance = {
+			base = 25	
+			modifier = {
+				add = -100
+				FROM = { has_government = monarchism }
+			}
+			modifier = {
+				add = -100
+				FROM = { has_country_leader_with_trait = anti_communist }
+			}
+		}
+		FROM = { country_event = { id = sov.264 } }
+	}
+	option = {
+		name = sov.1.a
+		ai_chance = {
+			base = 0
+		}
+		FROM = { country_event = { id = sov.265 } }
+	}
+}
+country_event = {
+	id = sov.264
+	title = sov.264.t
+	desc = sov.264.d
+	picture = GFX_PPSh45Event
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+			add_war_support = 0.08
+			army_experience = 120
+			set_country_flag = sov_army_advisor
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 8000
+				target = THIS
+			}
+			if = {
+				limit = {
+					is_neighbor_of = SOV
+				}
+				custom_effect_tooltip = trans_tool_neighbour
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 8000
+					producer = SOV
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						is_in_faction_with = SOV
+					}
+				}
+				custom_effect_tooltip = trans_tool_ally
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = SOV
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						all_owned_state = { is_coastal = no }
+						NOT = { is_neighbor_of = SOV }
+					}
+				}
+				custom_effect_tooltip = trans_tool_no_port
+			}
+			SOV = {
+				if = {
+					limit = { has_tech = motorised_infantry
+						OR = {
+							is_neighbor_of = THIS
+							is_in_faction_with = THIS
+							THIS = { any_owned_state = { is_coastal = yes } }
+						}
+					}
+					send_equipment = {
+						equipment = motorized_equipment
+						amount = 300
+						target = THIS
+					}
+				}
+				if = {
+					limit = { has_tech = mechanised_infantry
+						OR = {
+							is_neighbor_of = THIS
+							is_in_faction_with = THIS
+							THIS = { any_owned_state = { is_coastal = yes } }
+						}
+					}
+					send_equipment = {
+						equipment = mechanized_equipment
+						amount = 180
+						target = THIS
+					}
+				}
+				if = {
+					limit = { has_tech = gwtank
+						OR = {
+							is_neighbor_of = THIS
+							is_in_faction_with = THIS
+							THIS = { any_owned_state = { is_coastal = yes } }
+						}
+					}
+					send_equipment = {
+						equipment = gw_tank_equipment
+						amount = 120
+						target = THIS
+					}
+				}
+			}
+	}
+}
+country_event = {
+	id = sov.265
+	title = sov.265.t
+	desc = sov.265.d
+	picture = GFX_PPSh45Event
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+
+#明格利亚案
+news_event = {
+	id = sov.270
+	title = sov.270.t
+	desc = sov.270.d
+	picture = GFX_MingelianCase
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov270 }
+		date > 1952.10.1
+		date < 1925.12.1
+	}
+	major = yes
+	option = {
+		name = sov.10.a
+		set_global_flag = sov270
+		news_event = { id = sov.271 days = 5 }
+	}
+}
+news_event = {
+	id = sov.271
+	title = sov.271.t
+	desc = sov.271.d
+	picture = GFX_MingelianCase
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		set_global_flag = sov271
+	}
+}
+#卡进别克回国
+news_event = {
+	id = sov.300
+	title = sov.300.t
+	desc = sov.300.d
+	picture = GFX_Qazimbek
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SOV
+		date > 1956.5.1
+		date < 1970.1.1
+		NOT = { has_character = SOV_Qazimbek }
+	}
+	option = {
+		name = sov.300.a
+		if = {
+			limit = { tag = SOV }
+			recruit_character = SOV_Qazimbek
+		}
+	}
+}
+news_event = {
+	id = sov.301
+	title = sov.301.t
+	desc = sov.301.d
+	picture = GFX_Qazimbek
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SOV
+		date > 1977.2.1
+		has_character = SOV_Qazimbek
+	}
+	option = {
+		name = sov.301.a
+		if = {
+			limit = { tag = SOV }
+			retire_character = SOV_Qazimbek
+		}
+	}
+}
+news_event = {
+	id = sov.302
+	title = sov.302.t
+	desc = sov.302.d
+	picture = GFX_Yemelyanov
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SOV
+		date > 1979.2.1
+		has_character = SOV_Yemelyanov
+	}
+	option = {
+		name = sov.302.a
+		if = {
+			limit = { tag = SOV }
+			retire_character = SOV_Yemelyanov
+		}
+	}
+}
+news_event = {
+	id = sov.310
+	title = sov.310.t
+	desc = sov.310.d
+	picture = GFX_TurkmenEarthquake
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		date > 1948.10.1
+		date < 1948.12.1
+		tag = SOV
+		NOT = { has_global_flag = TurkmeniEarthquake }
+	}
+	option = {
+		name = sov.310.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = sov.310.b
+		trigger = {
+			NOT = { tag = SOV }
+			has_idea = UNmember
+			has_country_flag = main_country
+		}
+		add_political_power = -20
+		SOV = { news_event = { id = sov.312 days = 6 } }
+		SOV = { add_political_power = 10 }
+		add_to_variable = { influences = 60 }
+		custom_effect_tooltip = focus_tooltip_influence_60
+	}
+	option = {
+		name = sov.310.c
+		trigger = { tag = SOV }
+		news_event = { id = sov.311 days = 2}
+		set_global_flag = TurkmeniEarthquake
+		add_political_power = -400
+		add_stability = -0.02
+		584 = {
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			damage_building = {
+				type = power_plant
+				damage = 2
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 2
+			}
+				damage_building = {
+				type = farm_building
+				damage = 2
+			}
+		}
+	}
+	option = {
+		name = sov.310.e
+		set_global_flag = TurkmeniEarthquake
+		trigger = { tag = SOV }
+		add_political_power = -100
+		add_stability = -0.1
+		add_to_variable = { influences = -60 }
+		custom_effect_tooltip = focus_tooltip_influence_-60
+		584 = {
+			damage_building = {
+				type = power_plant
+				damage = 2
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 4
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 4
+			}
+				damage_building = {
+				type = farm_building
+				damage = 4
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.311
+	title = sov.311.t
+	desc = sov.311.d
+	picture = GFX_TurkmenEarthquake
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.310.a
+	}
+}
+news_event = {
+	id = sov.312
+	title = sov.312.t
+	desc = sov.312.d
+	picture = GFX_TurkmenEarthquake
+	is_triggered_only = yes
+	option = {
+		name = sov.310.a
+	}
+}
+news_event = {
+	id = sov.320
+	title = sov.320.t
+	desc = sov.320.d
+	picture = GFX_AngryKhrushchev
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = SOV
+		date > 1956.11.1
+		date < 1956.12.1
+		has_war = no
+		SOV_nikita_khrushchyov = { is_country_leader = yes }
+		POL = { POL_WladyslawGomulka = { is_country_leader = yes } }
+		NOT = { has_global_flag = sov320 }
+	}
+	option = {
+		name = egy.27.a
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = sov320
+			add_named_threat = { threat = 10 name = MyVashPokhoronim }
+		}
+	}
+}
+news_event = {
+	id = sov.321
+	title = sov.321.t
+	desc = sov.321.d
+	picture = GFX_AngryKhrushchev
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = SOV
+		date > 1956.11.1
+		date < 1956.12.30
+		has_war = no
+		has_global_flag = sov320
+		NOT = { has_global_flag = sov321 }
+	}
+	option = {
+		name = egy.27.a
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = sov321
+		}
+	}
+}
+country_event = {
+	id = sov.330
+	title = sov.330.t
+	desc = sov.330.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.64.a
+	}
+}
+country_event = {
+	id = sov.331
+	title = sov.331.t
+	desc = sov.331.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.331.a
+		event_target:STATES_need_invest = {
+			add_to_variable = { corn_invest_var = -1 }
+		}
+	}
+	option = {
+		name = sov.331.b
+		add_political_power = -30
+		event_target:STATES_need_invest = {
+			add_to_variable = { corn_invest_var = 1 }
+		}
+	}
+}
+country_event = {
+	id = sov.332
+	title = sov.332.t
+	desc = sov.332.d
+	picture = GFX_evet_corn_gain
+	is_triggered_only = yes
+	option = {
+		name = sov.64.a
+		add_political_power = 60
+		add_to_variable = { corn_succes = 1 }
+	}
+}
+country_event = {
+	id = sov.333
+	title = sov.333.t
+	desc = sov.333.d
+	picture = GFX_evet_corn_gain
+	is_triggered_only = yes
+	option = {
+		name = sov.64.a
+		add_political_power = 80
+		add_to_variable = { corn_succes = 2 }
+	}
+}
+country_event = {
+	id = sov.334
+	title = sov.334.t
+	desc = sov.334.d
+	picture = GFX_evet_corn_lose
+	is_triggered_only = yes
+	option = {
+		name = sov.335.a
+		add_political_power = -20
+		add_to_variable = { corn_succes = -1 }
+	}
+}
+country_event = {
+	id = sov.335
+	title = sov.335.t
+	desc = sov.335.d
+	picture = GFX_evet_corn_lose
+	is_triggered_only = yes
+	option = {
+		name = sov.335.a
+		add_political_power = -40
+		add_to_variable = { corn_succes = -2 }
+	}
+}
+country_event = {
+	id = sov.336
+	title = sov.336.t
+	desc = sov.336.d
+	picture = GFX_evet_corn_gain
+	is_triggered_only = yes
+	option = {
+		name = sov.331.b
+	}
+}
+news_event = {
+	id = sov.339
+	title = sov.339.t
+	desc = sov.339.d
+	picture = GFX_molotov
+	mean_time_to_happen = { days = 120 }
+	trigger = {
+		tag = SOV
+		has_idea = SOV_corn_movement
+		check_variable = { corn_succes < -2 }
+	}
+	option = {
+		name = sov.339.a
+		add_political_power = -10
+	}
+}
+news_event = {
+	id = sov.341
+	title = sov.341.t
+	desc = sov.341.d
+	picture = GFX_corn
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.64.a
+	}
+}
+country_event = {
+	id = sov.342
+	title = sov.342.t
+	desc = sov.342.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.342.a
+	}
+}
+country_event = {
+	id = sov.343
+	title = sov.343.t
+	desc = sov.343.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.342.a
+	}
+}
+news_event = {
+	id = sov.344
+	title = sov.344.t
+	desc = sov.344.d
+	picture = GFX_KhrushchevCorn
+	mean_time_to_happen = { days = 200 }
+	trigger = {
+		tag = SOV
+		has_idea = SOV_corn_movement
+		check_variable = { corn_succes > 6 }
+	}
+	major = yes
+	option = {
+		name = sov.344.a
+	}
+	option = {
+		name = sov.344.b
+			trigger = { tag = SOV }
+			add_political_power = -300
+			random_owned_controlled_state = {
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } }
+					has_state_flag = SOV_corn_states
+				}
+				add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				add_to_variable = { corn_invest_needs = 10 }
+				if = {
+					limit = { FROM = { is_core_of = UKR } }
+					add_to_variable = { corn_invest_needs = -5 }
+					add_to_variable = { corn_invest_var = 4 }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } }
+					has_state_flag = SOV_corn_states
+				}
+				add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				add_to_variable = { corn_invest_needs = 10 }
+				if = {
+					limit = { FROM = { is_core_of = UKR } }
+					add_to_variable = { corn_invest_needs = -5 }
+					add_to_variable = { corn_invest_var = 4 }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } }
+					has_state_flag = SOV_corn_states
+				}
+				add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				add_to_variable = { corn_invest_needs = 10 }
+				if = {
+					limit = { FROM = { is_core_of = UKR } }
+					add_to_variable = { corn_invest_needs = -5 }
+					add_to_variable = { corn_invest_var = 4 }
+				}
+			}
+	}
+}
+country_event = {
+	id = sov.345
+	title = sov.345.t
+	desc = sov.345.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.342.a
+		SOV = { country_event = { id = sov.346 } }
+	}
+	option = {
+		name = sov.342.a
+		SOV = { country_event = { id = sov.347 } }
+	}
+}
+country_event = {
+	id = sov.346
+	title = sov.346.t
+	desc = sov.346.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.346.a
+			random_owned_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				add_to_variable = { corn_invest_var = 2 }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				add_to_variable = { corn_invest_var = 2 }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				add_to_variable = { corn_invest_var = 2 }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				add_to_variable = { corn_invest_var = 2 }
+			}
+	}
+}
+country_event = {
+	id = sov.347
+	title = sov.347.t
+	desc = sov.347.d
+	picture = GFX_evet_corn_field
+	is_triggered_only = yes
+	option = {
+		name = sov.347.a
+		add_political_power = 120
+	}
+}
+news_event = {
+	id = sov.348
+	title = sov.348.t
+	desc = sov.348.d
+	picture = GFX_CornMovie
+	is_triggered_only = yes
+	option = {
+		name = sov.348.a
+	}
+}
+news_event = {
+	id = sov.349
+	title = sov.349.t
+	desc = sov.349.d
+	picture = GFX_corn
+	is_triggered_only = yes
+	option = {
+		name = sov.349.a
+	}
+	option = {
+		name = sov.349.b
+	}
+}
+news_event = {
+	id = sov.350
+	title = sov.350.t
+	desc = sov.350.d
+	picture = GFX_corn
+	is_triggered_only = yes
+	option = {
+		name = sov.349.a
+	}
+}
+news_event = {
+	id = sov.351
+	title = sov.351.t
+	desc = sov.351.d
+	picture = GFX_ArmeniaStalin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.352
+	title = sov.352.t
+	desc = sov.352.d
+	picture = GFX_Tartaris
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.353
+	title = sov.353.t
+	desc = sov.353.d
+	picture = GFX_KhrushchevCorn
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = SOV_45
+	}
+	option = {
+		name = sov.344.a
+	}
+}
+news_event = {
+	id = sov.354
+	title = sov.354.t
+	desc = sov.354.d
+	picture = GFX_SovietShop
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.344.a
+	}
+}
+#车里雅宾斯克核事故
+news_event = {
+	id = sov.355
+	title = sov.355.t
+	desc = sov.355.d
+	picture = GFX_Kyshtym
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.10
+		date < 1957.10.20
+		NOT = { has_global_flag = sov355 }
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov355
+		if = {
+			limit = { tag = SWI }
+			random_list = {
+				90 = { SOV = { news_event = { id = sov.356 days = 5 } } }
+				10 = { news_event = { id = sov.360 days = 8 } }
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.356
+	title = sov.356.t
+	desc = sov.356.d
+	picture = GFX_Kyshtym
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+		set_global_flag = Kyshtym
+		add_political_power = -120
+		add_stability = -0.05
+	}
+}
+news_event = {
+	id = sov.357
+	title = sov.357.t
+	desc = sov.357.d
+	picture = GFX_KyshtymDisaster
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		date < 1957.12.20
+		has_global_flag = Kyshtym
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov357
+		add_political_power = -120
+		add_stability = -0.05
+	}
+}
+news_event = {
+	id = sov.358
+	title = sov.358.t
+	desc = sov.358.d
+	picture = GFX_KyshtymDisaster
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		date < 1957.12.20
+		has_global_flag = Kyshtym
+		has_global_flag = sov357
+	}
+	option = {
+		name = sov.350.a
+		add_political_power = -120
+		add_stability = -0.05
+	}
+}
+news_event = {
+	id = sov.359
+	title = sov.359.t
+	desc = sov.359.d
+	picture = GFX_KyshtymDisaster
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		date < 1957.12.20
+		has_global_flag = sov357
+		has_global_flag = Kyshtym
+	}
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.360
+	title = sov.360.t
+	desc = sov.360.d
+	picture = GFX_KyshtymDisaster
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.370
+	title = sov.370.t
+	desc = sov.370.d
+	picture = GFX_Tu104
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1956.9.20
+		date < 1956.11.20
+		NOT = { has_global_flag = sov370 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov370
+	}
+}
+#取消流放
+news_event = {
+	id = sov.371
+	title = sov.371.t
+	desc = sov.371.d
+	picture = GFX_Tartaris
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.372
+	title = sov.372.t
+	desc = sov.372.d
+	picture = GFX_Tartaris
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.373
+	title = sov.373.t
+	desc = sov.373.d
+	picture = GFX_Tartaris
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.374
+	title = sov.374.t
+	desc = sov.374.d
+	picture = GFX_Tartaris
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+#平反
+news_event = {
+	id = sov.375
+	title = sov.375.t
+	desc = sov.375.d
+	picture = GFX_Bukharin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.376
+	title = sov.376.t
+	desc = sov.376.d
+	picture = GFX_Zinovyev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.377
+	title = sov.377.t
+	desc = sov.377.d
+	picture = GFX_Kamenev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.378
+	title = sov.378.t
+	desc = sov.378.d
+	picture = GFX_Rykov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.379
+	title = sov.379.t
+	desc = sov.379.d
+	picture = GFX_Tukhachevsky
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.380
+	title = sov.380.t
+	desc = sov.380.d
+	picture = GFX_Mandelshtam
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.381
+	title = sov.381.t
+	desc = sov.381.d
+	picture = GFX_Akhmatova
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.382
+	title = sov.382.t
+	desc = sov.382.d
+	picture = GFX_Ottopel
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.383
+	title = sov.383.t
+	desc = sov.383.d
+	picture = GFX_DimitryPavlov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+
+#共产党和工人党国际会议
+news_event = {
+	id = sov.390
+	title = sov.390.t
+	desc = sov.390.d
+	picture = GFX_KhrushchevAbuseStalin
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		has_government = communism
+		date > 1957.9.1
+		date < 1957.12.1
+		NOT = { has_country_flag = sov390 }
+	}
+	option = {
+		name = sov.350.a
+		set_country_flag = sov390
+		set_country_flag = sov390A
+	}
+}
+news_event = {
+	id = sov.391
+	title = sov.391.t
+	desc = sov.391.d
+	picture = GFX_KhrushchevAbuseStalin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.392
+	title = sov.392.t
+	desc = sov.392.d
+	picture = GFX_KhrushchevAbuseStalin
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		has_government = communism
+		date > 1957.9.1
+		date < 1957.12.1
+		PRC = { has_country_flag = sov390A }
+		SOV = { has_country_flag = sov390A }
+		YUG = { has_country_flag = sov390A }
+		ALB = { has_country_flag = sov390A }
+		NOT = { has_global_flag = sov392 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov392
+	}
+}
+news_event = {
+	id = sov.393
+	title = sov.393.t
+	desc = sov.393.d
+	picture = GFX_KhrushchevKadar
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.20
+		date < 1957.11.20
+		has_global_flag = sov392
+		NOT = { has_global_flag = sov393 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov393
+	}
+}
+news_event = {
+	id = sov.394
+	title = sov.394.t
+	desc = sov.394.d
+	picture = GFX_MaoSpeech
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.20
+		date < 1957.12.20
+		has_global_flag = sov393
+		NOT = { has_global_flag = sov394 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov394
+	}
+}
+news_event = {
+	id = sov.395
+	title = sov.395.t
+	desc = sov.395.d
+	picture = GFX_MaoKhrushchev
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.20
+		date < 1957.12.20
+		has_global_flag = sov394
+		NOT = { has_global_flag = sov395 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov395
+	}
+}
+news_event = {
+	id = sov.396
+	title = sov.396.t
+	desc = sov.396.d
+	picture = GFX_MaoKhrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.397
+	title = sov.397.t
+	desc = sov.397.d
+	picture = GFX_MaoKhrushchev
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.398
+	title = sov.398.t
+	desc = sov.398.d
+	picture = GFX_KhrushchevKadar
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.20
+		date < 1958.1.20
+		has_global_flag = sov395
+		NOT = { has_global_flag = sov398 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov398
+	}
+}
+news_event = {
+	id = sov.399
+	title = sov.399.t
+	desc = sov.399.d
+	picture = GFX_Hoxha
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.20
+		date < 1958.1.20
+		has_global_flag = sov398
+		NOT = { has_global_flag = sov399 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov399
+	}
+}
+news_event = {
+	id = sov.400
+	title = sov.400.t
+	desc = sov.400.d
+	picture = GFX_KhrushchevKadar
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1957.9.20
+		date < 1958.1.20
+		has_global_flag = sov399
+		NOT = { has_global_flag = sov400 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov400
+	}
+}
+news_event = {
+	id = sov.410
+	title = sov.410.t
+	desc = sov.410.d
+	picture = GFX_Obninskaya
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov410 }
+		is_ai = yes
+		date > 1954.10.1
+		date < 1954.11.2
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov410
+		if = {
+			limit = { tag = SOV }
+			add_stability = 0.03
+		}
+	}
+}
+news_event = {
+	id = sov.420
+	title = sov.420.t
+	desc = sov.420.d
+	picture = GFX_StalinWriting
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov420 }
+		date > 1949.10.1
+		date < 1950.1.2
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov420
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 100
+				tag = PRC
+			}
+		}
+		if = {
+			limit = { has_government = communism }
+			SOV = { news_event = { id = sov.422 } }
+			set_country_flag = AttendStalinBirthday
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				tag = YUG
+			}
+		}
+		if = {
+			limit = { has_government = communism }
+			SOV = { news_event = { id = sov.423 } }
+		}
+	}
+}
+news_event = {
+	id = sov.421
+	title = sov.421.t
+	desc = sov.421.d
+	picture = GFX_StalinWorship
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = sov420
+		NOT = { has_global_flag = sov421 }
+		date > 1949.10.1
+		date < 1950.1.2
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov421
+		set_global_flag = StalinBirthday
+	}
+}
+news_event = {
+	id = sov.422
+	title = sov.422.t
+	desc = sov.422.d
+	picture = GFX_StalinWriting
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.423
+	title = sov.423.t
+	desc = sov.423.d
+	picture = GFX_StalinWriting
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.424
+	title = sov.424.t
+	desc = sov.424.d
+	picture = GFX_StalinWorship
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = sov420
+		NOT = { has_global_flag = sov424 }
+		PRC = { has_country_flag = AttendStalinBirthday }
+		date > 1949.11.1
+		date < 1950.1.2
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov424
+	}
+}
+news_event = {
+	id = sov.425
+	title = sov.425.t
+	desc = sov.425.d
+	picture = GFX_MaoKhrushchev
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = sov424
+		NOT = { has_global_flag = sov425 }
+		date > 1949.11.1
+		date < 1950.1.2
+	}
+	option = {
+		name = prc.19.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = prc.19.a
+		#苏联拒绝
+		ai_chance = {
+			base = 60
+		}
+		trigger = { tag = SOV }
+		set_global_flag = sov425
+		PRC = { news_event = { id = sov.427 days = 1 } }
+	}
+	option = {
+		name = prc.19.a
+		#苏联让步
+		ai_chance = {
+			base = 5
+		}
+		trigger = { tag = SOV }
+		set_global_flag = sov425
+		set_global_flag = SOVgiveupAthur
+		PRC = { news_event = { id = sov.430 days = 1 } }
+	}
+}
+news_event = {
+	id = sov.426
+	title = sov.426.t
+	desc = sov.426.d
+	picture = GFX_StalinBirthday
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = sov420
+		NOT = { has_global_flag = sov426 }
+		date > 1949.12.1
+		date < 1950.1.2
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov426
+	}
+}
+news_event = {
+	id = sov.427
+	title = sov.427.t
+	desc = sov.427.d
+	picture = GFX_StalinWriting
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+		#中国拒绝
+		ai_chance = {
+			base = 50
+		}
+		SOV = { news_event = { id = sov.429 days = 1 } }
+	}
+	option = {
+		name = sov.350.a
+		#中国让步
+		ai_chance = {
+			base = 0
+		}
+		SOV = { news_event = { id = sov.428 days = 1 } }
+	}
+}
+news_event = {
+	id = sov.428
+	title = sov.428.t
+	desc = sov.428.d
+	picture = GFX_StalinBirthday
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.429
+	title = sov.429.t
+	desc = sov.429.d
+	picture = GFX_MaoWriting
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+		#苏联拒绝
+		ai_chance = {
+			base = 2
+		}
+		set_global_flag = SOVclaimeAthur
+	}
+	option = {
+		name = prc.19.a
+		#苏联让步
+		ai_chance = {
+			base = 50
+		}
+		set_global_flag = SOVgiveupAthur
+		PRC = { news_event = { id = sov.430 days = 1 } }
+	}
+}
+news_event = {
+	id = sov.430
+	title = sov.430.t
+	desc = sov.430.d
+	picture = GFX_StalinWriting
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+	}
+}
+news_event = {
+	id = sov.431
+	title = sov.431.t
+	desc = sov.431.d
+	picture = GFX_StalinWorship
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = SOVgiveupAthur
+		NOT = { has_global_flag = sov431 }
+		date > 1950.1.1
+		date < 1952.1.2
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = sov431
+	}
+}
+news_event = {
+	id = sov.432
+	title = sov.432.t
+	desc = sov.432.d
+	picture = GFX_StalinWriting
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1950.2.20
+		date < 1950.3.20
+		has_idea = SOV_4th_plan_idea
+	}
+	option = {
+		name = sov.350.a
+		if = {
+			limit = { tag = SOV }
+			remove_ideas = SOV_4th_plan_idea
+		}
+	}
+}
+news_event = {
+	id = sov.433
+	title = sov.433.t
+	desc = sov.433.d
+	picture = GFX_JewsProtest
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1948.1.20
+		date < 1948.3.20
+		NOT = { has_global_flag = sov433 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov433
+	}
+}
+news_event = {
+	id = sov.434
+	title = sov.434.t
+	desc = sov.434.d
+	picture = GFX_StalinWriting
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1948.11.20
+		date < 1948.12.20
+		NOT = { has_global_flag = sov434 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov434
+	}
+}
+news_event = {
+	id = sov.436
+	title = sov.436.t
+	desc = sov.436.d
+	picture = GFX_Zhdanov
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+		set_global_flag = sov436
+	}
+}
+news_event = {
+	id = sov.437
+	title = sov.437.t
+	desc = sov.437.d
+	picture = GFX_DeloVrachey
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1953.1.20
+		date < 1953.12.20
+		has_global_flag = sov436
+		NOT = { has_global_flag = sov437 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov437
+	}
+}
+news_event = {
+	id = sov.438
+	title = sov.438.t
+	desc = sov.438.d
+	picture = GFX_DeloVrachey
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1953.1.20
+		date < 1953.12.20
+		has_global_flag = sov437
+		NOT = { has_global_flag = sov438 }
+	}
+	option = {
+		name = sov.350.a
+		set_global_flag = sov437
+	}
+}
+
+news_event = {
+	id = sov.439
+	title = sov.439.t
+	desc = sov.439.d
+	picture = GFX_khrushchevkainside
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = SOV
+		date < 1957.12.20
+		has_idea = khrushchevka_idea
+		NOT = { has_global_flag = sov439 }
+	}
+	option = {
+		name = sov.439.a
+		set_global_flag = sov439
+	}
+}
+news_event = {
+	id = sov.440
+	title = sov.440.t
+	desc = sov.440.d
+	picture = GFX_Kremlin
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = SOV
+		date > 1953.2.1
+		date < 1953.3.1
+		
+		NOT = { has_global_flag = sov440 }
+	}
+	option = {
+		name = sov.440.a
+		set_global_flag = sov440
+		custom_effect_tooltip = 439tool
+	}
+}
+
+news_event = {
+	id = sov.441
+	title = sov.441.t
+	desc = sov.441.d
+	picture = GFX_StalinDead
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = SOV
+		date > 1953.2.1
+		date < 1953.12.1
+		has_global_flag = sov9
+		NOT = { has_global_flag = sov441 }
+	}
+	option = {
+		name = sov.440.a
+		set_global_flag = sov441
+	}
+}
+news_event = {
+	id = sov.442
+	title = sov.442.t
+	desc = sov.442.d
+	picture = GFX_AlexeyDobrovolsky
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = SOV
+		date > 1956.2.1
+		date < 1957.1.1
+		has_idea = Remove_stalin
+		NOT = { has_global_flag = sov442 }
+	}
+	option = {
+		name = sov.442.a
+		set_global_flag = sov442
+	}
+}
+country_event = {
+	id = sov.443
+	title = sov.443.t
+	desc = sov.443.d
+	picture = GFX_Baikonur
+	is_triggered_only = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.450
+	title = sov.450.t
+	desc = sov.450.d
+	picture = GFX_BorisPasternak
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1958.10.1
+		date < 1958.12.1
+		has_idea = Remove_stalin
+		NOT = { has_global_flag = sov451 }
+	}
+	option = {
+		name = sov.442.a
+		trigger = { NOT = { tag = SOV } }
+		set_global_flag = sov451
+	}
+	option = {
+		name = sov.442.a
+		trigger = { tag = SOV }
+		set_global_flag = sov451
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.03
+		}
+		add_political_power = -50
+		news_event = { id = sov.451 days = 3 }
+	}
+	option = {
+		name = sov.442.a
+		trigger = { tag = SOV }
+		set_global_flag = sov451
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.08
+		}
+		add_stability = 0.03
+		add_political_power = -120
+		news_event = { id = sov.452 days = 3 }
+	}
+}
+news_event = {
+	id = sov.451
+	title = sov.451.t
+	desc = sov.451.d
+	picture = GFX_BorisPasternak
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.452
+	title = sov.452.t
+	desc = sov.452.d
+	picture = GFX_BorisPasternak
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.455
+	title = sov.455.t
+	desc = sov.455.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.442.a
+		trigger = { NOT = { tag = USA } }
+	}
+	option = {
+		name = sov.442.a
+		ai_chance = {
+			factor = 0
+		}
+		trigger = { tag =  USA }
+		news_event = { id = sov.456 days = 2 }
+	}
+	option = {
+		name = sov.442.a
+		ai_chance = {
+			factor = 10
+		}
+		trigger = { tag = USA }
+		news_event = { id = sov.457 days = 2 }
+	}
+}
+news_event = {
+	id = sov.456
+	title = sov.456.t
+	desc = sov.456.d
+	picture = GFX_JohnDulles
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.457
+	title = sov.457.t
+	desc = sov.457.d
+	picture = GFX_UN1955
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.442.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = sov.442.a
+		ai_chance = {
+			factor = 0
+		}
+		trigger = { tag =  SOV }
+		news_event = { id = sov.458 days = 2 }
+	}
+	option = {
+		name = sov.442.a
+		ai_chance = {
+			factor = 10
+		}
+		trigger = { tag = SOV }
+		news_event = { id = sov.459 days = 2 }
+	}
+}
+news_event = {
+	id = sov.458
+	title = sov.458.t
+	desc = sov.458.d
+	picture = GFX_JohnDulles
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.459
+	title = sov.459.t
+	desc = sov.459.d
+	picture = GFX_UN1955
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+		if = {
+			limit = { has_idea = Axis_problem_ideas }
+			remove_ideas = Axis_problem_ideas
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = FIN
+					tag = HUN
+					tag = ROM
+					tag = SPR
+				}
+			}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+				add_stability = 0.05
+				add_political_power = 200
+		}
+	}
+}
+
+
+news_event = {
+	id = sov.470
+	title = sov.470.t
+	desc = sov.470.d
+	picture = GFX_StrelaComputer
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.471
+	title = sov.471.t
+	desc = sov.471.d
+	picture = GFX_K3LeninskyKomsomol
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.472
+	title = sov.472.t
+	desc = sov.472.d
+	picture = GFX_BalladaSoldate
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1959.10.1
+		date < 1959.12.1
+		NOT = { has_global_flag = sov472 }
+	}
+	option = {
+		name = sov.443.a
+		set_global_flag = sov472
+	}
+}
+news_event = {
+	id = sov.473
+	title = sov.473.t
+	desc = sov.473.d
+	picture = GFX_KVN49
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.474
+	title = sov.474.t
+	desc = sov.474.d
+	picture = GFX_Rekord52
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.475
+	title = sov.475.t
+	desc = sov.475.d
+	picture = GFX_GAZ21
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.480
+	title = sov.480.t
+	desc = sov.480.d
+	picture = GFX_KitchenDebateNews
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SOV
+		date > 1959.7.1
+		date < 1959.9.1
+		USA = { has_completed_focus = New_Oriental_Policy }
+		NOT = { has_global_flag = sov480 }
+	}
+	option = {
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = sov.481 days = 5 }
+		}
+		set_global_flag = sov480
+		name = sov.443.a
+	}
+}
+news_event = {
+	id = sov.481
+	title = sov.481.t
+	desc = sov.481.d
+	picture = GFX_KitchenDebateNews
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.443.a
+		if = {
+			limit = { tag = USA }
+			country_event = { id = sov.482 days = 5 }
+		}
+	}
+}
+
+country_event = {
+	id = sov.482
+	title = sov.482.t
+	desc = sov.482.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.484.a
+		trigger = { tag = USA }
+		SOV = { country_event = { id = sov.482 } }
+		add_to_variable = { KitchenDebate_score = 2 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			has_global_flag = space52
+			NOT = { has_global_flag = sov483 }
+		}
+		set_global_flag = sov483
+		ai_chance = { factor = 10 }
+		name = sov.483.a
+		country_event = { id = sov.483 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov484 }
+		}
+		set_global_flag = sov484
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.484 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov485 }
+			USA = { has_idea = jimmClound_ideas }
+		}
+		set_global_flag = sov485
+		name = sov.485.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.485 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov486 }
+			has_tech = thermonuclear
+		}
+		set_global_flag = sov486
+		name = sov.486.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.486 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov488 }
+			has_idea = khrushchevka_idea
+		}
+		set_global_flag = sov488
+		name = sov.488.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.488 }
+	}
+}
+country_event = {
+	id = sov.483
+	title = sov.483.t
+	desc = sov.483.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		trigger = { tag = SOV }
+		USA = { country_event = { id = sov.483 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		name = sov.489.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov489 }
+		}
+		set_global_flag = sov489
+		country_event = { id = sov.489 }
+	}
+	option = {
+		name = sov.490.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov490 }
+		}
+		set_global_flag = sov490
+		country_event = { id = sov.490 }
+	}
+	option = {
+		name = sov.491.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			has_tech = CRT
+			NOT = { has_global_flag = sov491 }
+		}
+		set_global_flag = sov491
+		country_event = { id = sov.491 }
+	}
+	option = {
+		name = sov.492.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			country_exists = WDR
+			WDR = { is_in_faction_with = USA }
+			NOT = { has_global_flag = sov492 }
+		}
+		set_global_flag = sov492
+		country_event = { id = sov.492 }
+	}
+	option = {
+		name = sov.495.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			WDR = { has_tech = thermonuclear }
+			NOT = { has_global_flag = sov495 }
+		}
+		set_global_flag = sov495
+		country_event = { id = sov.495 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.484
+	title = sov.483.t
+	desc = sov.484.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = SOV }
+		USA = { country_event = { id = sov.484 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		name = sov.489.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov489 }
+		}
+		set_global_flag = sov489
+		country_event = { id = sov.489 }
+	}
+	option = {
+		name = sov.490.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov490 }
+		}
+		set_global_flag = sov490
+		country_event = { id = sov.490 }
+	}
+	option = {
+		name = sov.491.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			has_tech = CRT
+			NOT = { has_global_flag = sov491 }
+		}
+		set_global_flag = sov491
+		country_event = { id = sov.491 }
+	}
+	option = {
+		name = sov.492.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			country_exists = WDR
+			WDR = { is_in_faction_with = USA }
+			NOT = { has_global_flag = sov492 }
+		}
+		set_global_flag = sov492
+		country_event = { id = sov.492 }
+	}
+	option = {
+		name = sov.495.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			WDR = { has_tech = thermonuclear }
+			NOT = { has_global_flag = sov495 }
+		}
+		set_global_flag = sov495
+		country_event = { id = sov.495 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.485
+	title = sov.483.t
+	desc = sov.485.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = SOV }
+		add_to_variable = { KitchenDebate_score = 1 }
+		USA = { country_event = { id = sov.485 } }
+	}
+	option = {
+		name = sov.489.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov489 }
+		}
+		set_global_flag = sov489
+		country_event = { id = sov.489 }
+	}
+	option = {
+		name = sov.490.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov490 }
+		}
+		set_global_flag = sov490
+		country_event = { id = sov.490 }
+	}
+	option = {
+		name = sov.491.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			has_tech = CRT
+			NOT = { has_global_flag = sov491 }
+		}
+		set_global_flag = sov491
+		country_event = { id = sov.491 }
+	}
+	option = {
+		name = sov.492.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			country_exists = WDR
+			WDR = { is_in_faction_with = USA }
+			NOT = { has_global_flag = sov492 }
+		}
+		set_global_flag = sov492
+		country_event = { id = sov.492 }
+	}
+	option = {
+		name = sov.495.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			WDR = { has_tech = thermonuclear }
+			NOT = { has_global_flag = sov495 }
+		}
+		set_global_flag = sov495
+		country_event = { id = sov.495 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.486
+	title = sov.483.t
+	desc = sov.486.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = SOV }
+		USA = { country_event = { id = sov.486 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		name = sov.489.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov489 }
+		}
+		set_global_flag = sov489
+		country_event = { id = sov.489 }
+	}
+	option = {
+		name = sov.490.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov490 }
+		}
+		set_global_flag = sov490
+		country_event = { id = sov.490 }
+	}
+	option = {
+		name = sov.491.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			has_tech = CRT
+			NOT = { has_global_flag = sov491 }
+		}
+		set_global_flag = sov491
+		country_event = { id = sov.491 }
+	}
+	option = {
+		name = sov.492.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			country_exists = WDR
+			WDR = { is_in_faction_with = USA }
+			NOT = { has_global_flag = sov492 }
+		}
+		set_global_flag = sov492
+		country_event = { id = sov.492 }
+	}
+	option = {
+		name = sov.495.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			WDR = { has_tech = thermonuclear }
+			NOT = { has_global_flag = sov495 }
+		}
+		set_global_flag = sov495
+		country_event = { id = sov.495 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.488
+	title = sov.483.t
+	desc = sov.488.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = SOV }
+		USA = { country_event = { id = sov.488 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		name = sov.489.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov489 }
+		}
+		set_global_flag = sov489
+		country_event = { id = sov.489 }
+	}
+	option = {
+		name = sov.490.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov490 }
+		}
+		set_global_flag = sov490
+		country_event = { id = sov.490 }
+	}
+	option = {
+		name = sov.491.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			has_tech = CRT
+			NOT = { has_global_flag = sov491 }
+		}
+		set_global_flag = sov491
+		country_event = { id = sov.491 }
+	}
+	option = {
+		name = sov.492.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			country_exists = WDR
+			WDR = { is_in_faction_with = USA }
+			NOT = { has_global_flag = sov492 }
+		}
+		set_global_flag = sov492
+		country_event = { id = sov.492 }
+	}
+	option = {
+		name = sov.495.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			tag = USA
+			WDR = { has_tech = thermonuclear }
+			NOT = { has_global_flag = sov495 }
+		}
+		set_global_flag = sov495
+		country_event = { id = sov.495 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = USA
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+###尼克松回合
+country_event = {
+	id = sov.489
+	title = sov.489.t
+	desc = sov.489.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = USA }
+		SOV = { country_event = { id = sov.489 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			has_global_flag = space52
+			NOT = { has_global_flag = sov483 }
+		}
+		set_global_flag = sov483
+		ai_chance = { factor = 10 }
+		name = sov.483.a
+		country_event = { id = sov.483 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov484 }
+		}
+		set_global_flag = sov484
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.484 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov485 }
+			USA = { has_idea = jimmClound_ideas }
+		}
+		set_global_flag = sov485
+		name = sov.485.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.485 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov486 }
+			has_tech = thermonuclear
+		}
+		set_global_flag = sov486
+		name = sov.486.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.486 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov488 }
+			has_idea = khrushchevka_idea
+		}
+		set_global_flag = sov488
+		name = sov.488.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.488 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.490
+	title = sov.489.t
+	desc = sov.490.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = USA }
+		SOV = { country_event = { id = sov.490 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			has_global_flag = space52
+			NOT = { has_global_flag = sov483 }
+		}
+		set_global_flag = sov483
+		ai_chance = { factor = 10 }
+		name = sov.483.a
+		country_event = { id = sov.483 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov484 }
+		}
+		set_global_flag = sov484
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.484 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov485 }
+			USA = { has_idea = jimmClound_ideas }
+		}
+		set_global_flag = sov485
+		name = sov.485.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.485 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov486 }
+			has_tech = thermonuclear
+		}
+		set_global_flag = sov486
+		name = sov.486.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.486 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov488 }
+			has_idea = khrushchevka_idea
+		}
+		set_global_flag = sov488
+		name = sov.488.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.488 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.491
+	title = sov.489.t
+	desc = sov.491.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = USA }
+		SOV = { country_event = { id = sov.491 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			has_global_flag = space52
+			NOT = { has_global_flag = sov483 }
+		}
+		set_global_flag = sov483
+		ai_chance = { factor = 10 }
+		name = sov.483.a
+		country_event = { id = sov.483 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov484 }
+		}
+		set_global_flag = sov484
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.484 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov485 }
+			USA = { has_idea = jimmClound_ideas }
+		}
+		set_global_flag = sov485
+		name = sov.485.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.485 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov486 }
+			has_tech = thermonuclear
+		}
+		set_global_flag = sov486
+		name = sov.486.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.486 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov488 }
+			has_idea = khrushchevka_idea
+		}
+		set_global_flag = sov488
+		name = sov.488.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.488 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov500 }
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.492
+	title = sov.489.t
+	desc = sov.492.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = USA }
+		SOV = { country_event = { id = sov.492 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			has_global_flag = space52
+			NOT = { has_global_flag = sov483 }
+		}
+		set_global_flag = sov483
+		ai_chance = { factor = 10 }
+		name = sov.483.a
+		country_event = { id = sov.483 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov484 }
+		}
+		set_global_flag = sov484
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.484 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov485 }
+			USA = { has_idea = jimmClound_ideas }
+		}
+		set_global_flag = sov485
+		name = sov.485.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.485 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov486 }
+			has_tech = thermonuclear
+		}
+		set_global_flag = sov486
+		name = sov.486.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.486 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov488 }
+			has_idea = khrushchevka_idea
+		}
+		set_global_flag = sov488
+		name = sov.488.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.488 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = SOV
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+country_event = {
+	id = sov.495
+	title = sov.489.t
+	desc = sov.495.d
+	picture = GFX_KitchenDebate
+	is_triggered_only = yes
+	option = {
+		name = sov.482.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = USA }
+		SOV = { country_event = { id = sov.495 } }
+		add_to_variable = { KitchenDebate_score = 1 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			has_global_flag = space52
+			NOT = { has_global_flag = sov483 }
+		}
+		set_global_flag = sov483
+		ai_chance = { factor = 10 }
+		name = sov.483.a
+		country_event = { id = sov.483 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov484 }
+		}
+		set_global_flag = sov484
+		name = sov.484.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.484 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov485 }
+			USA = { has_idea = jimmClound_ideas }
+		}
+		set_global_flag = sov485
+		name = sov.485.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.485 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov486 }
+			has_tech = thermonuclear
+		}
+		set_global_flag = sov486
+		name = sov.486.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.486 }
+	}
+	option = {
+		trigger = {
+			tag = SOV
+			NOT = { has_global_flag = sov488 }
+			has_idea = khrushchevka_idea
+		}
+		set_global_flag = sov488
+		name = sov.488.a
+		ai_chance = { factor = 10 }
+		country_event = { id = sov.488 }
+	}
+	option = {
+		name = sov.484.b
+		trigger = {
+			tag = SOV
+		}
+		set_global_flag = sov500
+		add_to_variable = { KitchenDebate_score = -1 }
+		ai_chance = { factor = 3 }
+		if = {
+			limit = { check_variable = { SOV.KitchenDebate_score > USA.KitchenDebate_score } }
+			SOV = { news_event = { id = sov.500 } }
+		}
+		if = {
+			limit = { check_variable = { USA.KitchenDebate_score > SOV.KitchenDebate_score } }
+			USA = { news_event = { id = sov.500 } }
+		}
+	}
+}
+######辩论结束
+news_event = {
+	id = sov.500
+	title = sov.500.t
+	desc = sov.500.d
+	picture = GFX_KitchenDebateNews
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.350.a
+		if = {
+			limit = { tag = FROM }
+			add_political_power = 400
+			add_stability = 0.15
+		}
+	}
+}
+######铁米尔套骚乱
+news_event = {
+	id = sov.501
+	title = sov.501.t
+	desc = sov.501.d
+	picture = GFX_Temirtau1959
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov501 }
+		date > 1959.8.1
+		date < 1960.2.1
+	}
+	option = {
+		name = sov.510.a
+		ai_chance = { base = 0 }
+		set_global_flag = sov501
+		add_political_power = -20
+		add_stability = 0.02
+	}
+	option = {
+		name = sov.510.b
+		ai_chance = { base = 20 }
+		set_global_flag = sov501
+		set_global_flag = sov501b
+	}
+}
+news_event = {
+	id = sov.502
+	title = sov.502.t
+	desc = sov.502.d
+	picture = GFX_Temirtau1959
+	major = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		has_global_flag = sov501b
+		NOT = { has_global_flag = sov502 }
+		date > 1959.8.1
+		date < 1960.2.1
+	}
+	option = {
+		name = sov.510.a
+		ai_chance = { base = 0 }
+		set_global_flag = sov502
+		if = {
+			limit = { tag = SOV }
+			add_political_power = -100
+			add_stability = -0.04
+		}
+	}
+}
+######莫斯科天花
+news_event = {
+	id = sov.503
+	title = sov.503.t
+	desc = sov.503.d
+	picture = GFX_MoscowDesease
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov503 }
+		date > 1959.11.1
+		date < 1960.3.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov503
+		if = {
+			limit = { tag = SOV }
+			add_political_power = -40
+		}
+	}
+}
+news_event = {
+	id = sov.504
+	title = sov.504.t
+	desc = sov.504.d
+	picture = GFX_MoscowDesease
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = sov503
+		NOT = { has_global_flag = sov504 }
+		date > 1959.11.1
+		date < 1960.3.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov504
+		if = {
+			limit = { tag = SOV }
+			add_political_power = -100
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = sov.505
+	title = sov.505.t
+	desc = sov.505.d
+	picture = GFX_MoscowDesease
+	mean_time_to_happen = { days = 40 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_global_flag = sov504
+		NOT = { has_global_flag = sov505 }
+		date > 1959.11.1
+		date < 1960.3.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov505
+		if = {
+			limit = { tag = SOV }
+			add_political_power = 100
+			add_stability = 0.15
+		}
+	}
+}
+######梁赞奇迹
+news_event = {
+	id = sov.510
+	title = sov.510.t
+	desc = sov.510.d
+	picture = GFX_Agriculture_news
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		has_idea = SOV_corn_movement
+		NOT = { has_global_flag = sov510 }
+		date > 1959.2.1
+		date < 1959.6.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov510
+		set_global_flag = sov510a
+		add_political_power = 100
+	}
+	option = {
+		name = sov.510.b
+		set_global_flag = sov510
+		set_global_flag = sov510b
+		add_political_power = -50
+	}
+}
+news_event = {
+	id = sov.511
+	title = sov.511.t
+	desc = sov.511.d
+	picture = GFX_Agriculture_news
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		has_idea = SOV_corn_movement
+		has_global_flag = sov510a
+		NOT = { has_global_flag = sov511 }
+		date > 1959.8.1
+		date < 1959.11.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov511
+		add_political_power = 300
+		254 = {
+			add_resource = {
+				type = food
+				amount = 20
+			}			
+		}
+	}
+}
+news_event = {
+	id = sov.512
+	title = sov.512.t
+	desc = sov.512.d
+	picture = GFX_AlexeyLarionov
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_idea = SOV_corn_movement
+		has_global_flag = sov511
+		NOT = { has_global_flag = sov512 }
+		date > 1959.8.1
+		date < 1959.11.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov512
+		if = {
+			limit = { tag = SOV }
+			add_political_power = -500
+			254 = {
+				add_resource = {
+					type = food
+					amount = -20
+				}			
+			}
+			add_to_variable = { corn_succes = -6 }
+		}
+	}
+}
+##苏南和解
+
+news_event = {
+	id = sov.515
+	title = sov.515.t
+	desc = sov.515.d
+	picture = GFX_molotov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		trigger = { NOT = { tag = YUG } }
+	}
+	option = {
+		trigger = { tag = YUG }
+		name = sov.1.a
+		ai_chance = { factor = 20 }
+		news_event = { id = sov.516 }
+		remove_ideas = PRC_SOV_conflict
+		add_political_power = 200
+	}
+	option = {
+		trigger = { tag = YUG }
+		ai_chance = { factor = 0 }
+		news_event = { id = sov.517 }
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.516
+	title = sov.516.t
+	desc = sov.516.d
+	picture = GFX_TitoNews
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.517
+	title = sov.517.t
+	desc = sov.517.d
+	picture = GFX_TitoNews
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.520
+	title = sov.520.t
+	desc = sov.520.d
+	picture = GFX_WorldCongressPeace
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		custom_effect_tooltip = sov520tool
+	}
+}
+news_event = {
+	id = sov.521
+	title = sov.521.t
+	desc = sov.521.d
+	picture = GFX_World_Peace_Council
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		custom_effect_tooltip = sov520tool
+	}
+}
+news_event = {
+	id = sov.522
+	title = sov.522.t
+	desc = sov.522.d
+	picture = GFX_StockholmAppeal
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_World_Peace_Council
+		NOT = { has_global_flag = sov522 }
+		date > 1950.3.1
+		date < 1954.11.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov522
+		
+	}
+}
+##移交克里米亚
+country_event = {
+	id = sov.525
+	title = sov.525.t
+	desc = sov.525.d
+	picture = GFX_StockholmAppeal
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_Ukrain_Zones
+		NOT = { has_global_flag = sov525 }
+		SOV_nikita_khrushchyov = { is_country_leader = yes }
+		date > 1954.2.1
+		date < 1954.12.1
+	}
+	option = {
+		name = sov.510.a
+		set_global_flag = sov525
+		news_event = sov.526
+	}
+}
+news_event = {
+	id = sov.5276
+	title = sov.526.t
+	desc = sov.526.d
+	picture = GFX_CrimeaMap
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+country_event = {
+	id = sov.527
+	title = sov.527.t
+	desc = sov.527.d
+	picture = GFX_NedzelinSmall
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov527 }
+		date > 1960.9.1
+		date < 1960.12.1
+	}
+	immediate = {
+		scoped_sound_effect = nuke_hit
+	}
+	option = {
+		name = sov.530.a
+		set_global_flag = sov527
+		retire_character = SOV_Mitrofan_Nedzelin
+		news_event = sov.528
+		if = {
+			limit = { tag = SOV }
+			add_tech_bonus = {
+				bonus = -0.3
+				category = missile
+			}
+		}
+	}
+}
+
+news_event = {
+	id = sov.528
+	title = sov.528.t
+	desc = sov.528.d
+	picture = GFX_MunichAircrash
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.530
+	title = sov.530.t
+	desc = sov.530.d
+	picture = GFX_AngryKhrushchev
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		SOV_nikita_khrushchyov = { is_country_leader = yes }
+		PHI = { has_government = democratic }
+		NOT = { has_global_flag = sov530 }
+		date > 1960.10.1
+		date < 1960.12.1
+	}
+	option = {
+		name = sov.530.a
+		set_global_flag = sov530
+		if = {
+			limit = { tag = SOV }
+			add_threat = 6
+			add_to_variable = { influences = -40 }
+			custom_effect_tooltip = focus_tooltip_influence_-40
+			add_political_power = -50
+		}
+	}
+}
+#苏共二十一大
+news_event = {
+	id = sov.531
+	title = sov.531.t
+	desc = sov.531.d
+	picture = GFX_Kremlin
+	major = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		SOV_nikita_khrushchyov = { is_country_leader = yes }
+		NOT = { has_global_flag = sov531 }
+		date > 1958.11.20
+		date < 1958.12.20
+	}
+	option = {
+		name = sov.530.a
+		set_global_flag = sov531
+	}
+}
+news_event = {
+	id = sov.532
+	title = sov.532.t
+	desc = sov.532.d
+	major = yes
+	picture = GFX_Soviet20thMeeting
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		SOV_nikita_khrushchyov = { is_country_leader = yes }
+		has_global_flag = sov531
+		NOT = { has_global_flag = sov532 }
+		date > 1959.1.20
+		date < 1959.2.20
+	}
+	option = {
+		name = sov.530.a
+		set_global_flag = sov532
+	}
+}
+
+#外交政策
+country_event = {
+	id = sov.550
+	title = sov.550.t
+	desc = sov.550.d
+	picture = GFX_GromykoSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.550.a
+		FROM = { news_event = sov.551 }
+	}
+	option = {
+		name = sov.550.b
+		FROM = { news_event = sov.552 }
+	}
+	option = {
+		name = sov.550.c
+		FROM = { news_event = sov.553 }
+	}
+}
+news_event = {
+	id = sov.551
+	title = sov.551.t
+	desc = sov.551.d
+	picture = GFX_GromykoVisit
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		if = {
+			limit = { tag = ROOT }
+			add_political_power = 120
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.552
+	title = sov.552.t
+	desc = sov.552.d
+	picture = GFX_GromykoVisit
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		if = {
+			limit = { tag = ROOT }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.553
+	title = sov.553.t
+	desc = sov.553.d
+	picture = GFX_Khrushchev
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		if = {
+			limit = { tag = ROOT }
+			add_political_power = -40
+			add_stability = -0.04
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+	}
+}
+news_event = {
+	id = sov.554
+	title = sov.554.t
+	desc = sov.554.d
+	picture = GFX_Khrushchev
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.555
+	title = sov.555.t
+	desc = sov.555.d
+	picture = GFX_OilPipes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.556
+	title = sov.556.t
+	desc = sov.556.d
+	picture = GFX_OilPipes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.557
+	title = sov.557.t
+	desc = sov.557.d
+	picture = GFX_OilPipes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.558
+	title = sov.558.t
+	desc = sov.558.d
+	picture = GFX_LeninIcenreaker
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+#处死基尔皮奇尼科夫
+news_event = {
+	id = sov.559
+	title = sov.559.t
+	desc = sov.559.d
+	picture = GFX_VladimirKirpichnikov
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov559 }
+		date > 1950.10.2
+		date < 1950.11.2
+	}
+	option = {
+		name = sov.530.a
+		set_global_flag = sov559
+		news_event = { id = sov.560 days = 2 }
+	}
+}
+news_event = {
+	id = sov.560
+	title = sov.560.t
+	desc = sov.560.d
+	picture = GFX_VladimirKirpichnikov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+#帕夫连克被捕
+news_event = {
+	id = sov.562
+	title = sov.562.t
+	desc = sov.562.d
+	picture = GFX_NicolaiPavlenko
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SOV
+		NOT = { has_global_flag = sov562 }
+		date > 1952.11.2
+		date < 1952.12.20
+	}
+	option = {
+		name = sov.530.a
+		set_global_flag = sov562
+	}
+}
+
+
+
+news_event = {
+	id = sov.600
+	title = sov.600.t
+	desc = sov.600.d
+	picture = GFX_Beria
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_country_flag = BeriaCame
+		has_character = SOV_lavrenty_beriya
+		has_character = SOV_nikita_khrushchyov
+		has_character = SOV_nikolay_bulganin
+		has_country_flag = sov99
+	}
+	option = {
+		name = sov.22.a
+		if = {
+			limit = { tag = SOV }
+			add_stability = -0.2
+			retire_character = SOV_nikita_khrushchyov
+			retire_character = SOV_vyacheslav_molotov
+			retire_character = SOV_nikolay_bulganin
+		}
+	}
+}
+##贝利亚平反
+news_event = {
+	id = sov.601
+	title = sov.601.t
+	desc = sov.601.d
+	picture = GFX_MingelianCase
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.602
+	title = sov.602.t
+	desc = sov.602.d
+	picture = GFX_PolinaZhemchuzhina
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.603
+	title = sov.603.t
+	desc = sov.603.d
+	picture = GFX_AleksandrNovikov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+news_event = {
+	id = sov.604
+	title = sov.604.t
+	desc = sov.604.d
+	picture = GFX_ViktorAbakumov
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+	}
+}
+#朱可夫辞职
+news_event = {
+	id = sov.606
+	title = sov.606.t
+	desc = sov.606.d
+	picture = GFX_ZhukovEvent
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = SOV
+		has_country_flag = BeriaCame
+		has_character = SOV_georgy_zhukov
+		has_country_flag = sov606
+		SOV_lavrenty_beriya = { is_country_leader = yes }
+	}
+	option = {
+		name = sov.22.a
+		if = {
+			limit = { tag = SOV }
+			retire_character = SOV_georgy_zhukov
+			add_political_power = -200
+			add_to_variable = { Beiria_influence = -3 }
+			add_to_variable = { Beria_supporting = -3 }
+			add_stability = -0.2
+			set_country_flag = sov606
+		}
+	}
+}
+#争取支持
+country_event = {
+	id = sov.611
+	title = sov.611.t
+	desc = sov.611.d
+	picture = GFX_KosyginSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = sov.612
+	title = sov.612.t
+	desc = sov.612.d
+	picture = GFX_KosyginSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = 100
+		set_global_flag = decision_Beria_strive_korsigyn_support
+		custom_effect_tooltip = decision_Beria_add_support
+		add_to_variable = { Beria_supporting = 3 }
+	}
+}
+country_event = {
+	id = sov.613
+	title = sov.613.t
+	desc = sov.613.d
+	picture = GFX_VoroshirovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = sov.614
+	title = sov.614.t
+	desc = sov.614.d
+	picture = GFX_VoroshirovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = 100
+		set_global_flag = decision_Beria_strive_voroshirov_support
+		custom_effect_tooltip = decision_Beria_add_support
+		add_to_variable = { Beria_supporting = 5 }
+	}
+}
+country_event = {
+	id = sov.615
+	title = sov.615.t
+	desc = sov.615.d
+	picture = GFX_RokossovskySmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = sov.616
+	title = sov.616.t
+	desc = sov.616.d
+	picture = GFX_RokossovskySmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = 100
+		set_global_flag = decision_Beria_strive_rokossovsky_support
+		custom_effect_tooltip = decision_Beria_add_support
+		add_to_variable = { Beria_supporting = 4 }
+	}
+}
+country_event = {
+	id = sov.617
+	title = sov.617.t
+	desc = sov.617.d
+	picture = GFX_SuslovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = sov.618
+	title = sov.618.t
+	desc = sov.618.d
+	picture = GFX_SuslovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = 100
+		set_global_flag = decision_Beria_strive_suslov_support
+		custom_effect_tooltip = decision_Beria_add_support
+		add_to_variable = { Beria_supporting = 3 }
+	}
+}
+country_event = {
+	id = sov.619
+	title = sov.619.t
+	desc = sov.619.d
+	picture = GFX_MalenkovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = sov.620
+	title = sov.620.t
+	desc = sov.620.d
+	picture = GFX_MalenkovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = 100
+		set_global_flag = decision_Beria_strive_malenkov_support
+		custom_effect_tooltip = decision_Beria_add_support
+		add_to_variable = { Beria_supporting = 4 }
+	}
+}
+country_event = {
+	id = sov.621
+	title = sov.621.t
+	desc = sov.621.d
+	picture = GFX_MalenkovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = sov.622
+	title = sov.622.t
+	desc = sov.622.d
+	picture = GFX_MalenkovSmall
+	is_triggered_only = yes
+	option = {
+		name = sov.1.a
+		add_political_power = 100
+		set_global_flag = decision_Beria_strive_mikoyan_support
+		custom_effect_tooltip = decision_Beria_add_support
+		add_to_variable = { Beria_supporting = 5 }
+	}
+}
+#解除紧急状态
+news_event = {
+	id = sov.630
+	title = sov.630.t
+	desc = sov.630.d
+	picture = GFX_BeriaSpeech
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SOV
+		SOV_lavrenty_beriya = { is_country_leader = yes }
+		has_idea = SOV_Beria_struggle_idea
+		check_variable = { Beria_supporting > 15 }
+	}
+	option = {
+		name = sov.22.a
+		if = {
+			limit = { tag = SOV }
+			remove_ideas = SOV_Beria_struggle_idea
+			add_political_power = 200
+			add_stability = 0.2
+		}
+	}
+}
+#访英
+news_event = {
+	id = sov.640
+	title = sov.640.t
+	desc = sov.640.d
+	picture = GFX_BeriaVisit
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = SOV
+		SOV_lavrenty_beriya = { is_country_leader = yes }
+		has_completed_focus = SOV_Peaceful_coexistence
+		NOT = { has_global_flag = sov640 }
+	}
+	option = {
+		name = sov.22.a
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = sov640
+			add_political_power = 200
+		}
+	}
+}

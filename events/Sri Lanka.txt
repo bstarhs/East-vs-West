@@ -1,0 +1,30 @@
+add_namespace = sri
+#Ãåµé¶ÀÁ¢
+news_event = {
+	id = sri.1
+	title = sri.1.t
+	desc = sri.1.d
+	picture = GFX_IndiaIndependent
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		play_song = SRI_1
+	}
+	trigger = {	
+		date > 1948.2.1
+		date < 1948.8.30
+		tag = ENG
+		controls_state = 422
+	}
+	option = {
+		name = sri.1.a
+		if = {
+			limit = { tag = ENG }
+			SRI = {
+				transfer_state = 422
+				transfer_state = 769
+			}
+		}
+}

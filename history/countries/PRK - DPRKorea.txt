@@ -1,0 +1,240 @@
+﻿capital = 527 
+set_country_flag = main_country
+set_country_flag = eastasia
+oob = "PRK_1950"
+add_political_power = 1198
+set_country_flag = third_world
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+add_ideas = {
+	harmonious
+	mid_welfare
+	scraping_the_barrel
+	Anti_religious
+	war_economy
+}
+recruit_character = PRK_Choe_Hyeong
+recruit_character = PRK_Kim_Chaek
+recruit_character = PRK_Choe_Yonggon
+recruit_character = PRK_Kim_MuJeong
+	set_cosmetic_tag = NKR
+	set_variable = { this.education = 38 }
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+	activate_decision = create_radio_station
+	set_technology = {
+		medical1 = 1
+		excavation1 = 1
+		telegraph = 1
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	gwtank = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	CAS1 = 1
+	
+	infantry_training = 1
+	basic_militia = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	infantry_weapons = 1
+	radio = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	interwar_antiair = 1
+	delay = 1
+	depth_defense = 1
+	forward_observers = 1
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+
+	recruit_character = PRK_Nam_Il
+set_convoys = 5
+
+
+	set_popularities = {
+		democratic = 5
+		
+		communism = 92
+
+		neutrality = 3
+	}
+set_politics = {
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = PRC
+	active = yes
+}
+set_country_flag = china_diplomacy
+
+create_country_leader = {
+	name = "Kim Il-Sung"
+	desc = "POLITICIAN_KOR_KIM_ILSONG_DESC"
+	picture = "gfx/leaders/PRK/Portrait_Korea_Kim_Ilsung.tga"
+	expire = "1965.1.1"
+	ideology = stalinism
+	traits = {
+		independent pro_soviet staunch_stalinist
+	}
+}
+1948.1.1 = {
+	set_country_flag = female_finished
+	complete_national_focus = PRK_DemocraticRepublic
+	complete_national_focus = PRK_Nodongdang
+	complete_national_focus = PRK_KOR_pla
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 14000
+    producer = SOV
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 1200
+    producer = SOV
+}
+	set_technology = {
+	motorized_transport = 1
+		motorize_doctrine = 1
+		army_aviation = 1
+	machine_gun1 = 1
+	infantry_weapons2 = 1
+	helmet = 1
+	}
+}
+1953.1.1 = {
+	add_opinion_modifier = {
+		target = KOR
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = CHI
+		modifier = disappinion
+	}
+	set_technology = {
+	basic_train = 1
+		helmet = 1
+		mechanised_infantry = 1
+		infantry_weapons1 = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	}
+}
+1956.1.1 = {
+	complete_national_focus = PRK_chonlima
+	set_technology = {
+		basic_light_tank = 1
+		dispersed_industry4 = 1
+		basic_battery = 1
+		radio_detection = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	}
+	complete_national_focus = common_73
+}
+1960.1.1 = {
+	complete_national_focus = PRK_seongun
+	complete_national_focus = PRK_strike_yanan
+	add_ideas = PRK_escaping
+	set_variable = { this.education = 45 }
+	complete_national_focus = common_75
+}
+1965.1.1 = {
+	complete_national_focus = PRK_cheongsanri
+	complete_national_focus = PRK_daean
+	complete_national_focus = PRK_manufacture1
+	activate_decision = Establishment_of_National_Museum
+	oob = "PRK_1965"
+	set_technology = {
+		oil_processing = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		basic_medium_tank = 1
+		mechanised_infantry2 = 1
+		infantry_weapons2 = 1
+		basic_heavy_tank = 1
+	}
+}
+1970.1.20 = {
+	complete_national_focus = PRK_juche
+	complete_national_focus = PRK_kim_2
+	remove_ideas = PRK_chonlima_idea
+	set_country_leader_portrait = {
+		portrait = "gfx/leaders/PRK/Portrait_Korea_Kim_Ilsung_2.tga"
+	}
+}
+1975.1.1 = {
+	set_technology = {
+		infantry_at2 = 1
+		sp_artillery2 = 1
+		mechanised_infantry3 = 1
+	}
+}
+1980.1.1 = {
+	set_variable = { this.education = 56 }
+	set_technology = {
+		improved_heavy_tank = 1
+		spaa2 = 1
+		improved_medium_tank = 1
+		advanced_medium_tank = 1
+		advanced_infantry_weapons = 1
+	}
+}
+1988.1.1 = {
+	set_variable = { this.education = 61 }
+	set_technology = {
+		advanced_heavy_tank = 1
+	}
+}
+1991.1.1 = {
+	add_ideas = PRK_farmine
+}

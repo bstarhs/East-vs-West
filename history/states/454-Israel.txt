@@ -1,0 +1,50 @@
+
+state={
+	id=454
+	name="STATE_454" #Palestine
+	manpower = 154263
+	
+	state_category = rural
+
+	history={
+		owner = ENG
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Israeli
+		add_to_array = { this.state_ethnics_list = 86 }
+		add_to_array = { this.state_ethnics_list = 24 }
+		buildings = {
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 2
+			air_base = 4
+			4206 = {
+				bunker = 5
+			}
+		}
+		victory_points = {
+			4206 15
+		}
+		victory_points = { 1201 6 }
+		victory_points = { 13613 5 }
+		victory_points = { 13251 4 }
+		victory_points = { 13614 8 }
+		add_core_of = PAL
+		add_core_of = ISR
+		1948.5.14 = {
+			owner = ISR
+			add_core_of = PAL
+		}
+		1960.1.1 = {
+			set_state_category = city
+			buildings = {
+				hospital = 2
+				industrial_complex = 8
+				arms_factory = 6
+			}
+		}
+	}
+
+	provinces={
+		1065 1201 4206 13251 13613 13614
+	}
+}

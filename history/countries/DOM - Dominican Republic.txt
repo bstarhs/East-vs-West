@@ -1,0 +1,194 @@
+﻿capital = 319
+
+oob = "DOM_1936"
+
+set_country_flag = language_spannish
+# Starting tech
+set_country_flag = latin_america
+set_country_flag = carribean_states
+set_country_flag = third_world
+set_technology = {
+	infantry_weapons = 1
+	gw_artillery = 1
+}
+	add_to_array = { global.UNmember_list = FROM }
+set_country_flag = monroe_doctrine
+	complete_national_focus = commons_5
+set_war_support = 0.1
+set_convoys = 5
+add_ideas = {
+	low_education
+	FruitCompany
+	Catholicism
+	tropico
+	closed_economy
+	geonocide
+	UNmember
+}
+1939.1.1 = {
+	
+	add_political_power = 1198
+
+	
+	oob = "DOM_1947"
+	set_technology = {
+		medical1 = 1
+		infantry_weapons1 = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		fuel_silos = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+
+	set_popularities = {
+		democratic = 4
+		neutrality = 96
+	}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1934.5.16"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+	complete_national_focus = common_garrison
+create_country_leader = {
+	name = "Rafael Trujillo"
+	desc = "POLITICS_RAFAEL_TRUJILLO_DESC"
+	picture = "gfx/leaders/DOM/Portrait_Dominican_Trujillo.tga"
+	expire = "1965.1.1"
+	ideology = centrism
+	traits = {
+		anti_communist dictator corrupt_leader personal_worship
+	}
+}
+set_province_name = { id = 7660 name = VICTORY_POINTS_7660_Trujillo }
+1949.1.1 = {
+	set_country_flag = israel_diplomacy
+}
+1952.1.1 = {
+	create_intelligence_agency = yes
+}
+1960.1.1 = {
+	add_ideas = {
+		APLA
+	}
+	create_country_leader = {
+		name = "Joaquín Antonio Balaguer"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Balaguer.tga"
+		expire = "1965.1.1"
+		ideology = centrism
+		traits = {
+			anti_communist dictator
+		}
+	}
+	create_country_leader = {
+		name = "Juan Emilio Bosch Gaviño"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Juan_Bosch.tga"
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			#
+		}
+	}
+}
+1964.1.1 = {
+	set_province_name = { id = 7660 name = VICTORY_POINTS_7660 }
+	create_country_leader = {
+		name = "Regent Committee"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Regent_Committee.tga"
+		expire = "1965.1.1"
+		ideology = centrism
+		traits = {
+			#
+		}
+	}
+}
+1966.1.1 = {
+	remove_ideas = APLA
+	create_country_leader = {
+		name = "Joaquín Antonio Balaguer"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Balaguer.tga"
+		expire = "1965.1.1"
+		ideology = centrism
+		traits = {
+			anti_communist dictator
+		}
+	}
+}
+1978.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_popularities = {
+		democratic = 65
+		communism = 5
+		neutrality = 30
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Silvestre Antonio Guzmán Fernández"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Fernandez.tga"
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			#
+		}
+	}
+}
+1982.1.1 = {
+	create_country_leader = {
+		name = "Salvador Jorge Blanco"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Salvador_Blanco.tga"
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			#
+		}
+	}
+}
+1986.1.1 = {
+	create_country_leader = {
+		name = "Joaquín Antonio Balaguer"
+		desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+		picture = "gfx/leaders/DOM/Portrait_Dominican_Balaguer.tga"
+		expire = "1965.1.1"
+		ideology = socialism
+		traits = {
+			anti_communist dictator
+		}
+	}
+}

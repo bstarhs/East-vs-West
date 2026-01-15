@@ -1,0 +1,269 @@
+﻿capital = 302
+
+oob = "BOL_1936"
+
+# Starting tech
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+set_country_flag = andes_states
+set_country_flag = latin_america
+set_country_flag = language_spannish
+set_technology = {
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+		radio_detection = 1
+	tech_logistics_company = 1
+		medical1 = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+set_country_flag = monroe_doctrine
+
+add_ideas = {
+	Catholicism
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "BOL_1947"
+	set_technology = {
+		interwar_artillery = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+	set_popularities = {
+		democratic = 63
+		communism = 7
+		neutrality = 30
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1934.11.11"
+	election_frequency = 72
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Enrique Hertzog"
+	desc = "POLITICS_JOSE_LUIS_TEJADA_SORZANO_DESC"
+	picture = "gfx/leaders/BOL/Portrait_Bolivia_Enrique_Hertzog.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Óscar Únzaga de la Vega"
+	desc = "POLITICS_OSCAR_UNZAGA_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_3.dds"
+	expire = "1965.1.1"
+	ideology = falangism
+	traits = {
+		#
+	}
+}
+	add_ideas = {
+		UNmember
+	}
+	complete_national_focus = common_63
+	complete_national_focus = commons_5
+1949.1.1 = {
+	create_country_leader = {
+		name = "Mamerto Urriolagoitía"
+		
+		picture = "gfx/leaders/BOL/Portrait_Bolivia_Mamerto_Urriolagoitia.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1952.8.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		democratic = 66
+		communism = 14
+		neutrality = 20
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Victor Paz Estenssoro"
+		
+		picture = "gfx/leaders/BOL/Portrait_Bolivia_Victor_Paz_Estenssoro.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1964.1.20 = {
+	complete_national_focus = common_61
+	add_ideas = {
+		APLA
+	}
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	create_country_leader = {
+		name = "René Barrientos"
+		
+		picture = "gfx/leaders/BOL/Portrait_Bolivia_Rene_Barrientos.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1967.1.1 = {
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+	set_popularities = {
+		democratic = 20
+		communism = 14
+		neutrality = 66
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1971.1.20 = {
+	create_country_leader = {
+		name = "Hugo Banzer Suárez"
+		
+		picture = "gfx/leaders/BOL/Portrait_Bolivia_Hugo_Banzer.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1975.1.20 = {
+	remove_ideas = APLA
+}
+1982.3.31 = {
+	complete_national_focus = common_24
+	set_popularities = {
+		democratic = 66
+		communism = 14
+		neutrality = 20
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Hernán Siles"
+		
+		picture = "gfx/leaders/BOL/Portrait_Bolivia_Hernan_Siles_Zuazo.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1985.8.1 = {
+	set_country_flag = china_diplomacy
+	create_country_leader = {
+		name = "Victor Paz Estenssoro"
+		
+		picture = "gfx/leaders/BOL/Portrait_Bolivia_Victor_Paz_Estenssoro_old.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}

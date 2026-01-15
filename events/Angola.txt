@@ -1,0 +1,346 @@
+﻿add_namespace = ang
+
+#安哥拉起义
+news_event = {
+	id = ang.1
+	title = ang.1.t
+	desc = ang.1.d
+	picture = GFX_AfricanTroopsEarly
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = POR
+		date > 1960.1.1
+		controls_state = 790
+		OR = {
+			has_global_flag = has_non_aliged
+			SOV = { has_completed_focus = SOV_SupportAntiColonal }
+		}
+	}
+	
+	option = {	
+		name = ang.1.a
+		if = {
+			limit = { NOT = { has_global_flag = angola_war } } 
+			set_global_flag = angola_war
+			news_event = { id = ang.10 }
+		}
+		add_stability = -0.12
+		add_political_power = -80
+		790 = { add_resistance = 20 }
+		807 = { add_resistance = 20 }
+		540 = { add_resistance = 20 }
+		808 = { add_resistance = 20 }
+	}
+}
+#安人运起义
+news_event = {
+	id = ang.2
+	title = ang.2.t
+	desc = ang.2.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		AND = {
+			tag = POR  
+			controls_state = 790
+			has_global_flag = angola_war
+			NOT = { country_exists = ANG }
+			date > 1960.1.1
+		}
+		OR = {
+			790 = { resistance > 80 }
+			date > 1965.1.1
+		}
+	}
+	
+	option = {	
+		name = ang.2.a
+		790 = { add_resistance = -50 }
+		ANG = { 
+			set_politics = { ruling_party = communism }
+			transfer_state = 790
+			load_oob = "ANG_1965"
+		}
+		POR = {
+			add_ideas = colonist_war
+			declare_war_on = { target = ANG type = annex_everything }
+			add_political_power = -100
+		}
+	}
+}
+#安盟起义
+news_event = {
+	id = ang.3
+	title = ang.2.t
+	desc = ang.2.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		AND = {
+			tag = POR  
+			controls_state = 540
+			has_global_flag = angola_war
+			NOT = { country_exists = UTA }
+			date > 1960.1.1
+		}
+		OR = {
+			540 = { resistance > 80 }
+			date > 1965.1.1
+		}
+	}
+	
+	option = {	
+		name = ang.2.a
+		540 = { add_resistance = -50 }
+		UTA = { 
+			set_politics = { ruling_party = communism }
+			transfer_state = 540
+			load_oob = "ANG_1965"
+		}
+		POR = {
+			add_ideas = colonist_war
+			declare_war_on = { target = UTA type = annex_everything }
+			add_political_power = -100
+		}
+	}
+}
+#解放阵线起义
+news_event = {
+	id = ang.4
+	title = ang.2.t
+	desc = ang.2.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 80
+	}
+	trigger = {
+		AND = {
+			tag = POR  
+			controls_state = 808
+			has_global_flag = angola_war
+			NOT = { country_exists = FNA }
+			date > 1960.1.1
+		}
+		OR = {
+			808 = { resistance > 80 }
+			date > 1965.1.1
+		}
+	}
+	
+	option = {	
+		name = ang.2.a
+		808 = { add_resistance = -50 }
+		FNA = { 
+			set_politics = { ruling_party = communism }
+			transfer_state = 808
+			load_oob = "ANG_1965"
+		}
+		POR = {
+			add_ideas = colonist_war
+			declare_war_on = { target = FNA type = annex_everything }
+			add_political_power = -100
+		}
+	}
+}
+#内战安解阵叛乱
+news_event = {
+	id = ang.5
+	title = ang.5.t
+	desc = ang.5.d
+	picture = GFX_AfricanTroopsMid
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		AND = {
+			tag = ANG
+			has_global_flag = angola_war
+			controls_state = 808
+			has_stability < 0.6
+		}
+		OR = {
+			neutrality > 0.2
+			808 = { resistance > 80 }
+		}
+	}
+	
+	option = {	
+		name = ang.3.a
+		if = {
+			limit = { NOT = { has_global_flag = angola_civil_war } } 
+			set_global_flag = angola_civil_war
+			news_event = { id = ang.11 }
+		}
+		ANG = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.2
+				}
+		}
+		FNA = {
+			transfer_state = 808
+			declare_war_on = { target = ANG type = annex_everything }
+		}
+	}
+}
+#安盟叛乱
+news_event = {
+	id = ang.6
+	title = ang.6.t
+	desc = ang.6.d
+	picture = GFX_AfricanTroopsMid
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		AND = {
+			tag = ANG
+			controls_state = 808
+			has_global_flag = angola_war
+			has_stability < 0.6
+		}
+		OR = {
+			neutrality > 0.2
+			808 = { resistance > 80 }
+		}
+	}
+	
+	option = {	
+		name = ang.3.a
+		if = {
+			limit = { NOT = { has_global_flag = angola_civil_war } } 
+			set_global_flag = angola_civil_war
+			news_event = { id = ang.11 }
+		}
+		ANG = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.2
+				}
+		}
+		FNA = {
+			transfer_state = 808
+			declare_war_on = { target = ANG type = annex_everything }
+		}
+	}
+}
+
+#安哥拉-南非冲突
+news_event = {
+	id = ang.7
+	title = ang.7.t
+	desc = ang.7.d
+	picture = GFX_SAFarmy
+	trigger = {
+		AND = {
+			tag = ANG 
+			controls_state = 807
+			has_global_flag = angola_war
+			has_government = communism
+			SAF = {
+				has_government = neutrality
+				controls_state = 822
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	option = {	
+		name = ang.4.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 541
+				on_lose = saf.2
+				num_provinces = 4
+			}
+				
+			defender = {
+				state = 807
+				on_lose = saf.4
+				num_provinces = 4
+			}
+		}
+	}
+}
+
+#桑托斯
+news_event = {
+	id = ang.8
+	title = ang.8.t
+	desc = ang.8.d
+	picture = GFX_AfricanTroopsMid
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ANG
+		date > 1979.8.1
+		date < 1980.5.1
+	}
+	
+	option = {	#夏斯特里
+		name = raj.87.a
+		create_country_leader = {
+		name = "Jose Eduardo Santos"
+		picture = "Portrait_Angola_Eduardo_Santos.tga"
+		expire = "2015.1.1"
+		ideology = marxism
+		traits = {
+			independent
+			}
+		}
+	}
+}
+#越盟被击败
+news_event = {
+	id = ang.9
+	title = ang.9.t
+	desc = ang.9.d
+	picture = GFX_ColoneyTroops
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ang.7.a
+	}
+}
+
+#越盟被击败
+news_event = {
+	id = ang.10
+	title = ang.10.t
+	desc = ang.10.d
+	picture = GFX_PortugueseInAngola
+	immediate = {
+		play_song = POR_3
+	}
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ang.7.a
+	}
+}
+
+
+#越盟被击败
+news_event = {
+	id = ang.11
+	title = ang.11.t
+	desc = ang.11.d
+	picture = GFX_AfricanTroopsMid
+	immediate = {
+		play_song = ANG_2
+	}
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ang.7.a
+	}
+}

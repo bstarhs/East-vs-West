@@ -1,0 +1,44 @@
+
+state={
+	id=290
+	name="STATE_290"
+	manpower = 744000
+	
+	
+	state_category = town
+	
+	resources={
+		iron=20
+	}
+
+	history={
+		set_state_flag = ethnics_Maghreb
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 105 }
+		owner = SPR
+		add_to_array = { this.state_ethnics_list = 22 }
+		victory_points = {
+			12087 4
+		}
+		victory_points = {
+			13853 5
+		}
+		victory_points = {
+			13852 5
+		}
+		buildings = {
+			infrastructure = 3
+			air_base = 3
+			farm_building = 1
+		}
+		add_core_of = MOR
+		add_core_of = RIF
+		1956.12.24 = {
+		owner = MOR
+		}
+	}
+
+	provinces={
+		4199 7215 10113 12087 13852 13853
+	}
+}

@@ -1,0 +1,48 @@
+state=
+{
+	id=603
+	name="STATE_603" # Guizhou
+	manpower = 9043200
+	
+	state_category = town
+	resources={
+		iron = 3
+		coal = 6
+	}
+	
+	history=
+	{
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 13 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Yizu
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = tobacco_production
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			farm_building = 2
+			power_plant = 1
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = { 1474 3 }
+		victory_points = { 10763 3 }
+		victory_points = { 4192 3 }
+		victory_points = { 1010 5 }
+		victory_points = { 4504 4 }
+		victory_points = { 4532 4 }
+		victory_points = { 10616 8 }
+		1949.10.25 = {
+		owner = PRC
+		}
+		1960.10.25 = {
+		set_variable = { plant_num = 2 }
+		}
+	}
+	provinces={
+		1010 1474 1884 4192 4325 4504 4532 7521 7549 7577 8095 9939 10616 10763 10819 4141 
+	}
+}

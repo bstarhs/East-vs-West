@@ -1,0 +1,194 @@
+
+add_namespace = spyaction
+country_event = { 
+	id = spyaction.1 
+	hidden = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		any_country = {
+			network_national_coverage = {
+				target = ROOT
+				value > 10
+			}
+		}
+		OR = {
+			has_tech = atomic_research
+			is_researching_technology = atomic_research
+			is_researching_technology = nukes
+		}
+	}
+	immediate = {
+		random_country = {
+			limit = {
+				network_national_coverage = {
+					target = ROOT
+					value > 10
+				}
+			}
+			country_event = { id = spyaction.2  }
+		}
+	}
+	option = {
+		name = news.51.a
+	}
+}
+country_event = { 
+	id = spyaction.2 
+	title = spyaction.2.t
+	desc = spyaction.2.d 
+	picture = GFX_nuclear_research
+	is_triggered_only = yes 
+	option = {
+		name = spyaction.2.a
+	}
+}
+country_event = { 
+	id = spyaction.3 
+	hidden = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		any_country = {
+			network_national_coverage = {
+				target = ROOT
+				value > 10
+			}
+		}
+		OR = {
+			is_researching_technology = fighter2
+			has_tech = fighter2
+		}
+	}
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { has_tech = fighter2 }
+				network_national_coverage = {
+					target = ROOT
+					value > 10
+				}
+			}
+			country_event = { id = spyaction.4  }
+		}
+	}
+	option = {
+		name = news.51.a
+	}
+}
+country_event = { 
+	id = spyaction.4
+	title = spyaction.4.t
+	desc = spyaction.4.d 
+	picture = GFX_mig23
+	is_triggered_only = yes 
+	option = {
+		name = spyaction.2.a
+	}
+}
+country_event = { 
+	id = spyaction.5 
+	hidden = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		any_country = {
+			network_national_coverage = {
+				target = ROOT
+				value > 10
+			}
+		}
+		OR = {
+			focus_progress = {
+				focus = common_48
+				progress > 0.2
+			}
+			focus_progress = {
+				focus = common_2
+				progress > 0.2
+			}
+		}
+		NOT = {
+			tag = SOV
+		}
+	}
+	immediate = {
+		random_country = {
+			limit = {
+				network_national_coverage = {
+					target = ROOT
+					value > 10
+				}
+			}
+			country_event = { id = spyaction.6  }
+		}
+	}
+	option = {
+		name = news.51.a
+	}
+}
+country_event = { 
+	id = spyaction.6
+	title = spyaction.6.t
+	desc = spyaction.6.d 
+	picture = GFX_mig23
+	is_triggered_only = yes 
+	option = {
+		name = spyaction.2.a
+	}
+}
+country_event = { 
+	id = spyaction.7 
+	hidden = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 100 }
+	trigger = {
+		any_country = {
+			network_national_coverage = {
+				target = ROOT
+				value > 10
+			}
+		}
+		OR = {
+			ANG = {
+				has_volunteers_amount_from = {
+					tag = ROOT
+					count > 1
+				}
+			}
+			UTA = {
+				has_volunteers_amount_from = {
+					tag = ROOT
+					count > 1
+				}
+			}
+		}
+		NOT = {
+			tag = SOV
+		}
+	}
+	immediate = {
+		random_country = {
+			limit = {
+				network_national_coverage = {
+					target = ROOT
+					value > 10
+				}
+			}
+			country_event = { id = spyaction.8  }
+		}
+	}
+	option = {
+		name = news.51.a
+	}
+}
+country_event = { 
+	id = spyaction.8
+	title = spyaction.8.t
+	desc = spyaction.8.d 
+	picture = GFX_mig23
+	is_triggered_only = yes 
+	option = {
+		name = spyaction.2.a
+	}
+}

@@ -1,0 +1,319 @@
+﻿capital = 327
+
+set_research_slots = 1
+set_country_flag = third_world
+set_country_flag = southeastasia
+recruit_character = PHI_Ramon_Magsaysay
+recruit_character = PHI_Elpidio_Quirino
+recruit_character = PHI_Lorenzo_Sumulong
+recruit_character = PHI_Manuel_Manahan
+
+set_country_flag = japan_invade_victims
+add_ideas = {
+	Catholicism
+	partial_economic_mobilisation
+}
+	activate_decision = Establishment_of_National_Museum
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+# Starting tech
+	activate_decision = create_radio_station
+	activate_decision = female_equality
+	set_technology = {
+		excavation1 = 1
+		excavation2 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		medical1 = 1
+		basic_light_battery = 1
+		motorize_doctrine = 1
+		basic_light_shell = 1
+		radio_detection = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		motorised_infantry = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	early_fighter = 1
+	early_bomber = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+
+set_convoys = 5
+
+
+	set_popularities = {
+		democratic = 55
+		authoritarianism = 10
+		communism = 35
+	}
+	oob = "PHI_1947"
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.9.15"
+	election_frequency = 72
+	elections_allowed = yes
+}
+add_ideas = {
+	southeast_revolution
+	UNmember
+	corrupt
+	Marshall
+}
+create_country_leader = {
+	name = "Manuel Roxas"
+	picture = "gfx/leaders/PHI/Portrait_Philippines_Manuel_Roxas.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		pro_america anti_communist
+	}
+}
+
+create_country_leader = {
+	name = "Pedro P. Baguisa"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_2.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+	complete_national_focus = commons_5
+set_stability = 0.5
+1948.1.20 = {
+	set_popularities = {
+		democratic = 60
+		authoritarianism = 10
+		communism = 30
+	}
+	add_to_array = { global.UNmember_list = FROM }
+			promote_character = PHI_Elpidio_Quirino
+	add_ideas = Ramon_Magsaysay
+}
+1953.1.20 = {
+	complete_national_focus = common_diplomacy
+	remove_ideas = southeast_revolution
+	remove_ideas = Ramon_Magsaysay
+		promote_character = PHI_Ramon_Magsaysay
+}
+1955.1.1 = {
+	set_country_flag = japan_diplomatic
+	set_country_flag = female_finished
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_popularities = {
+		democratic = 75
+		authoritarianism = 10
+		communism = 15
+	}
+	complete_national_focus = common_20
+	set_country_flag = developmented
+	complete_national_focus = common_63
+	complete_national_focus = common_64
+	complete_national_focus = common_13
+	complete_national_focus = common_10
+	complete_national_focus = common_15
+	complete_national_focus = common_21
+	set_popularities = {
+		democratic = 80
+		authoritarianism = 15
+		communism = 5
+	}
+	add_ideas = {
+		SEATO
+	}
+}
+
+1957.1.20 = {
+	complete_national_focus = common_diplomacy_asia
+	complete_national_focus = common_75
+	complete_national_focus = common_23
+	complete_national_focus = steel_produc
+	add_opinion_modifier = {
+		target = KOR
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = JAP
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = CHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = SVN
+		modifier = ally_asia
+	}
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	create_country_leader = {
+		name = "Carlos Garcia"
+		
+		picture = "gfx/leaders/PHI/Portrait_Philippines_Carlos_Garcia.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		pro_america
+		}
+	}
+}
+1961.1.20 = {
+	retire_character = PHI_Manuel_Manahan
+	oob = "PHI_1960"
+	complete_national_focus = common_61
+	create_country_leader = {
+		name = "Diosdado Macapagal"
+		
+		picture = "gfx/leaders/PHI/Portrait_Philippines_Diosdado_Macapagal.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		pro_america
+		}
+	}
+}
+1966.1.20 = {
+	complete_national_focus = common_9
+	complete_national_focus = common_medic
+	complete_national_focus = common_74
+	create_country_leader = {
+		name = "Ferdinand Marcos"
+		
+		picture = "gfx/leaders/PHI/Portrait_Philippines_Ferdinand_Marcos.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+			anti_communist pro_america corrupt_leader popular_figurehead
+		}
+	}
+}	
+1967.1.1 = {
+	add_ideas = {
+		ASEAN
+	}
+}
+1971.1.20 = {
+	remove_ideas =Marshall
+	complete_national_focus = common_56
+	complete_national_focus = common_65
+	set_popularities = {
+		democratic = 20
+		authoritarianism = 65
+		communism = 15
+	}
+	add_ideas = southeast_revolution
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Ferdinand Marcos"
+		
+		picture = "gfx/leaders/PHI/Portrait_Philippines_Ferdinand_Marcos.tga"
+		expire = "1988.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+			anti_communist pro_america corrupt_leader popular_figurehead
+		}
+	}
+	create_country_leader = {
+		name = "Benigno Aquino"
+		
+		picture = "gfx/leaders/PHI/Portrait_Philippines_Benigno_Aquino.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1977.1.20 = {
+	set_country_flag = china_diplomacy
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_pro_west
+	}
+	remove_ideas = SEATO
+}
+1983.1.20 = {
+	add_ideas = AquinoDead
+	set_popularities = {
+		democratic = 40
+		authoritarianism = 45
+		communism = 15
+	}
+}
+1986.1.20 = {
+	remove_ideas = AquinoDead
+	set_popularities = {
+		democratic = 75
+		authoritarianism = 20
+		communism = 5
+	}
+	set_politics = {
+	
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Corazon Aquino"
+		
+		picture = "gfx/leaders/PHI/Portrait_Philippines_Corazon_Aquino.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}	

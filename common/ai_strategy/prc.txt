@@ -1,0 +1,527 @@
+
+Dewey_KMT = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = USA
+		has_country_leader = { name = "Thomas Dewey" }
+		has_completed_focus = Taiwan_Agreement
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI			
+		value = 200
+	}
+}
+ROC_retreat = {
+	enable = {
+		tag = CHI
+		PRC = { controls_province = 11913 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			756
+			524
+			830
+			691
+		}
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PRC
+
+		ratio = 0.1
+
+		priority = 500
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+ENG_guard_hongkong = {
+	enable = {
+		OR = {
+			tag = ENG
+			has_idea = Commonwealth
+		}
+		has_country_flag = guard_hongkong
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			326
+		}
+	}
+}
+GXC_guard = {
+	enable = {
+		tag = GXC
+		CHI = { controls_province = 7191 }
+		has_war = yes
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			598
+			606
+			607
+		}
+	}
+}
+PRC_liberate = {
+	enable = {
+		date > 1949.1.1
+		tag = PRC
+		NOT = { controls_province = 4619 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = conquer
+		id = "CHI"
+		value = 999
+	}
+	ai_strategy = {
+		type = conquer
+		id = "SHX"
+		value = 800
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "SHX"
+		value = 800
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "CHI"
+		value = 900
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "DOB"
+		value = 900
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 597
+		state = 607
+		state = 606
+		state = 620
+		state = 598
+		state = 400
+		ratio = 0.8
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = CHI
+
+		ratio = 0.7
+
+		priority = 500
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+USA_chiang = {
+	enable = {
+		tag = USA
+		CHI = {
+			has_war_with = PRC
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = "GXC"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "SHX"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "DOB"
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = "CHI"
+		value = 200
+	}
+}
+USA_PRC_volunteers = {
+	enable = {
+		date > 1976.1.1
+		OR = {
+			tag = USA
+			is_in_faction_with = USA
+		}
+		PRC = { has_war_with = SOV }
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		NOT = {
+			PRC = { has_idea = SovietChinaConflit }
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = PRC
+		value = 900
+	}
+}
+ROC_yanan = {
+	allowed = {
+		tag = CHI
+	}
+	enable = {
+		NOT = { controls_province = 1590 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+
+		tag = PRC
+
+		ratio = 0.8
+
+		priority = 800
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		ratio = 0.8
+		state = 615
+		state = 622
+		state = 597
+		state = 607
+		state = 598
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "PRC"
+		value = 900
+	}
+	ai_strategy = {
+		type = conquer
+		id = "PRC"
+		value = 900
+	}
+}
+PLA_dongbei = {
+	allowed = {
+		tag = PRC
+	}
+	enable = {
+		date > 1948.5.1
+		NOT = { controls_province = 3783 }
+		NOT = { controls_province = 11771 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request
+		state = 716
+		ratio = 0.6
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 715
+		state = 716
+		ratio = 0.3
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "DOB"
+		value = 900
+	}
+	ai_strategy = {
+		type = conquer
+		id = "DOB"
+		value = 999
+	}
+	ai_strategy = {
+		type = invade
+		id = "DOB"
+		value = 900
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = DOB
+
+		ratio = 0.7
+
+		priority = 800
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+support_PRC = {
+	enable = {
+		tag = SOV
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		PRC = { has_war_with = CHI }
+	}
+	ai_strategy = {
+		type = support
+		id = PRC
+		value = 500
+	}
+}
+PRC_SOV_defence = {
+	enable = {
+		tag = PRC
+		date > 1969.1.1
+		has_idea = SovietChinaConflit
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		NOT = {
+			PRC = { has_idea = SovietChinaConflit }
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			714
+			717
+			328
+			617
+			618
+		}
+	}
+}
+SHX_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = SHX
+		has_war_with = PRC
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			608
+			614
+			615
+		}
+	}
+}
+DOB_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = DOB
+		has_war_with = PRC
+		controls_province = 11771
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			716
+			610
+		}
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = SHX
+		value = 10
+	}
+}
+CHI_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = CHI
+		has_war_with = PRC
+		controls_province = 12055
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.5
+		states = { 
+			598
+			613
+			606
+			607
+		}
+	}
+}
+PLA_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PRC
+		has_war_with = CHI
+		date < 1948.6.1
+	}
+	abort = {
+		date > 1948.6.1
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 1
+		states = { 
+			597
+			614
+			621
+			611
+			715
+		}
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.0
+		states = { 
+			622
+			716
+			608
+		}
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 622
+		state = 716
+		state = 608
+		ratio = 0.0
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = SHX
+
+		ratio = 0.1
+
+		priority = 800
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = DOB
+
+		ratio = 0.9
+
+		priority = 800
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+PRC_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PRC
+		has_war = no
+		date > 1955.1.1
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.6
+		states = { 
+			608
+			597
+			613
+			596
+			595
+			593
+			599
+			620
+		}
+	}
+}
+tiananmen = {
+	abort_when_not_enabled = yes
+	enable = {
+		date > 1989.6.4
+		NOT = { has_government = communism }
+		NOT = { tag = JAP }
+	}
+	ai_strategy = {
+		type = antagonize
+		id = PRC	
+		value = 200
+	}
+}
+PRC_SOV_conflict = {
+	enable = {
+		tag = PRC
+		PRC = { has_idea = SovietChinaConflit }
+	}
+	abort = {
+		NOT = {
+			PRC = { has_idea = SovietChinaConflit }
+		}
+	}
+	ai_strategy = {
+		type = contain
+		id = SOV	
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = SOV	
+		value = 200
+	}
+}
+PRC_ALB = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PRC
+		PRC = { has_idea = SovietChinaConflit }
+	}
+	ai_strategy = {
+		type = support
+		id = ALB	
+		value = 200
+	}
+}
+PRC_Taiwan = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PRC
+		date > 1950.6.4
+		has_government = communism
+		has_war_with = CHI
+	}
+	ai_strategy = {
+		type = invade
+		id = "CHI"
+		value = 500
+	}
+	ai_strategy = {
+		type = conquer
+		id = "CHI"
+		value = 500
+	}
+}

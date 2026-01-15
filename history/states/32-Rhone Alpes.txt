@@ -1,0 +1,51 @@
+
+state={
+	id=32
+	name="STATE_32" 
+	manpower = 1007500
+	
+	state_category = large_town
+	
+	local_supplies=0.0
+	resources={
+		iron=56
+		aluminium=58
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+                              
+		add_core_of = BGD
+		owner = FRA
+		add_to_array = { this.state_ethnics_list = 70 }
+		add_to_array = { this.state_ethnics_list = 128 }
+		set_state_flag = ethnics_Octavian
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			school = 1
+			power_plant = 2
+			infrastructure = 5
+			arms_factory = 3
+			industrial_complex = 2
+		}
+		victory_points = {
+			3589 4 
+		}
+		victory_points = {
+			3768 4 
+		}
+		victory_points = {
+			762 3 
+		}
+		victory_points = {
+			6784 3 
+		}
+		add_core_of = FRA
+		add_core_of = OCC
+	}
+
+	provinces={
+		762 780 3589 3768 6784 11713 
+	}
+}

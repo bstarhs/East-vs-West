@@ -1,0 +1,738 @@
+
+decision_UN_construct = {
+	decision_UN_build_1 = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			NOT = { has_country_flag = decision_UN_build_1 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1948.2.1
+			}
+		}
+		days_remove = 220
+		remove_effect = { 
+			set_country_flag = decision_UN_build_1
+			add_political_power = 200
+			add_to_variable = { influences = 120 }
+			custom_effect_tooltip = focus_tooltip_influence_120
+		}
+	}
+	decision_UN_build_2 = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_country_flag = decision_UN_build_1
+			NOT = { has_country_flag = decision_UN_build_2 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1952.2.1
+			}
+		}
+		days_remove = 220
+		remove_effect = {
+			news_event = usa.50
+			set_country_flag = decision_UN_build_2
+			add_political_power = 200
+			add_to_variable = { influences = 120 }
+			custom_effect_tooltip = focus_tooltip_influence_120
+		}
+	}
+}
+Space_decis = {
+	USA_WhiteSandsMissileRange = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_tech = nukes
+			NOT = { has_global_flag = USA_CapeCanaveralSpaceCenter }
+		}
+		days_remove = 220
+		remove_effect = {    
+			set_global_flag = USA_CapeCanaveralSpaceCenter
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = space
+			}
+		}
+    
+	}
+	USA_CapeCanaveralSpaceCenter = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_tech = nukes
+		}
+		days_remove = 220
+		remove_effect = {    
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = space
+			}
+		}
+    
+	}
+}
+Diplomatic_actions = {
+}
+USA_duck_and_cover_decis = {
+	USA_duck_and_cover_films = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_tech = nukes
+			has_completed_focus = us_civil_defence_focus
+		}
+		complete_effect = { 
+			news_event = { id = usa.131 }
+			add_stability = 0.02
+		}
+    
+	}
+	USA_duck_and_cover_book = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_tech = nukes
+			has_completed_focus = us_civil_defence_focus
+		}
+		complete_effect = { 
+			news_event = { id = usa.289 }
+			add_stability = 0.02
+		}
+    
+	}
+}
+nuclear_decitions = {
+	USA_NS_Savannah_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 80
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			NOT = { has_country_flag = USA_NS_Savannah_decis }
+		}
+		available = {
+			num_of_naval_factories > 8
+			chromium > 5
+			steel > 5
+			tungsten > 3
+			oil > 2
+			has_tech = Enriched_Uranium
+			has_tech = naval_nuclear_engine
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 100
+				date > 1958.2.1
+			}
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 220
+			set_country_flag = USA_NS_Savannah_decis
+			news_event = { id = usa.367 }
+			add_dynamic_modifier = {
+				modifier = nuclear_convoy_modifiers
+				days = 1400
+			}
+		}
+	}
+	USA_Operation_Redwing = {
+		icon = GFX_deci_nuclear 
+		cost = 30
+		visible = {
+			tag = USA
+			has_tech = nukes
+			date < 1968.1.1
+			check_variable = { USA.Operation_Redwing < 9 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 500
+			}
+		}
+		available = {
+			has_air_experience > 20
+			has_tech = strategic_bomber1
+		}
+		days_re_enable = 200
+		complete_effect = {
+			add_to_variable = { USA.Operation_Redwing = 1 }
+			custom_effect_tooltip = USA_Operation_Redwing_tool
+			random_list = {
+				80 = { country_event = { id = usa.346 } }
+				20 = { country_event = { id = usa.347 } }
+			}
+		}
+    
+	}
+	USA_Operation_Gnome_decis = {
+		icon = GFX_deci_nuclear 
+		cost = 30
+		visible = {
+			tag = USA
+			has_tech = nukes
+			date < 1968.1.1
+			check_variable = { USA.Operation_Gnome < 9 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 500
+			}
+		}
+		available = {
+			has_air_experience > 20
+			has_tech = strategic_bomber1
+		}
+		days_re_enable = 200
+		complete_effect = {
+			add_to_variable = { USA.Operation_Gnome = 1 }
+			custom_effect_tooltip = USA_Operation_DesertRock_tool
+			random_list = {
+				80 = { country_event = { id = usa.344 } }
+				20 = { country_event = { id = usa.345 } }
+			}
+		}
+    
+	}
+	USA_Operation_DesertRock = {
+		icon = GFX_deci_nuclear 
+		cost = 30
+		visible = {
+			tag = USA
+			has_tech = nukes
+			date < 1968.1.1
+			check_variable = { USA.Operation_DesertRock < 9 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 500
+			}
+		}
+		available = {
+			has_air_experience > 20
+			has_tech = strategic_bomber1
+		}
+		days_re_enable = 200
+		complete_effect = {
+			add_to_variable = { USA.Operation_DesertRock = 1 }
+			custom_effect_tooltip = USA_Operation_DesertRock_tool
+			random_list = {
+				80 = { country_event = { id = usa.344 } }
+				20 = { country_event = { id = usa.345 } }
+			}
+		}
+    
+	}
+	USA_Operation_Castle = {
+		icon = GFX_deci_nuclear 
+		cost = 30
+		visible = {
+			tag = USA
+			has_tech = nukes
+			date < 1968.1.1
+			check_variable = { USA.Operation_Castle < 9 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 500
+			}
+		}
+		available = {
+			has_air_experience > 20
+			has_tech = strategic_bomber1
+		}
+		days_re_enable = 200
+		complete_effect = {
+			add_to_variable = { USA.Operation_Castle = 1 }
+			custom_effect_tooltip = USA_Operation_Ivy_tool
+			random_list = {
+				80 = { country_event = { id = usa.342 } }
+				20 = { country_event = { id = usa.343 } }
+			}
+		}
+    
+	}
+	USA_Operation_Ivy = {
+		icon = GFX_deci_nuclear 
+		cost = 30
+		visible = {
+			tag = USA
+			has_tech = nukes
+			date < 1968.1.1
+			check_variable = { USA.Operation_Ivy < 9 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 500
+			}
+		}
+		available = {
+			has_air_experience > 20
+			has_tech = strategic_bomber1
+		}
+		days_re_enable = 200
+		complete_effect = {
+			add_to_variable = { USA.Operation_Ivy = 1 }
+			custom_effect_tooltip = USA_Operation_Ivy_tool
+			random_list = {
+				80 = { country_event = { id = usa.342 } }
+				20 = { country_event = { id = usa.343 } }
+			}
+		}
+    
+	}
+	USA_Operation_Buster_Jangle = {
+		icon = GFX_deci_nuclear 
+		cost = 30
+		visible = {
+			tag = USA
+			has_tech = nukes
+			date < 1968.1.1
+			check_variable = { USA.Operation_Buster_Jangle < 9 }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 500
+			}
+		}
+		available = {
+			has_air_experience > 20
+			has_tech = strategic_bomber1
+		}
+		days_re_enable = 200
+		complete_effect = {
+			add_to_variable = { USA.Operation_Buster_Jangle = 1 }
+			custom_effect_tooltip = USA_Operation_Buster_Jangle_tool
+			random_list = {
+				80 = { country_event = { id = usa.340 } }
+				20 = { country_event = { id = usa.341 } }
+			}
+		}
+    
+	}
+	USA_BikiniTestfield = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_tech = nukes
+			NOT = { has_global_flag = USA_BikiniTestfield }
+		}
+		days_remove = 220
+		remove_effect = {   
+			set_global_flag = USA_BikiniTestfield
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = nuke_techs
+			}
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = hydro_bomb_tech
+			}
+		}
+    
+	}
+	USA_NevadaTestfield = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = USA
+			has_tech = nukes
+			NOT = { has_global_flag = USA_NevadaTestfield }
+		}
+		days_remove = 220
+		remove_effect = {   
+			set_global_flag = USA_NevadaTestfield
+			add_tech_bonus = {
+				bonus = 0.15
+				uses = 1
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = nuke_techs
+			}
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = hydro_bomb_tech
+			}
+		}
+    
+	}
+}
+supress_actions = {
+}
+military_action = {
+	threat_kinmen_decis = {
+		icon = decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				date > 1965.1.1
+			}
+		}
+		visible = {
+			has_global_flag = Kinmen_bombs_start
+			tag = USA
+		}
+		cost = 120
+		days_re_enable = 120
+		available = {
+			num_planes_stationed_in_regions = {
+				value > 10
+				regions = { 76 }
+			}
+			divisions_in_state = {
+				size > 2
+				state = 524
+			}		
+		}
+		complete_effect = {
+			news_event = { id = roc.68 }
+			set_global_flag = Kinmen_US_airforces
+		}
+	}
+	supress_vietcong = {
+		icon = decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				date > 1965.1.1
+			}
+		}
+		visible = {
+			tag = USA
+			SVN  = {
+				has_volunteers_amount_from = {
+					tag = USA
+					count > 1
+				}
+			}
+		}
+		cost = 120
+		days_re_enable = 120
+		available = {
+			SVN  = {
+				has_volunteers_amount_from = {
+					tag = USA
+					count > 1
+				}
+			}
+		}
+		complete_effect = {
+			random_list = {
+				10 = { country_event = { id = vin.68 } }
+				num_divisions = { country_event = { id = vin.69 } }
+			}
+		}
+	}
+}
+political_actions = {
+	USA_pardon_deserter = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = USA
+			date > 1975.1.1
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+					AND = {
+						date > 1979.1.1
+					}
+				}
+			}
+		}
+
+		cost = 100
+
+		complete_effect = {
+			news_event = { id = usa.105 }
+			add_stability = 0.06
+		}
+	
+	}
+	USA_1979_oil_crisis = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = USA
+			date > 1979.1.1
+			has_idea = OilCrisis
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+
+		cost = 200
+
+		complete_effect = {
+			remove_ideas = OilCrisis
+			add_stability = 0.2
+			MEX = { news_event = { id = mex.20 } }
+			BRA = { news_event = { id = mex.20 } }
+			BOL = { news_event = { id = mex.20 } }
+			ARG = { news_event = { id = mex.20 } }
+			PRU = { news_event = { id = mex.20 } }
+			HON = { news_event = { id = mex.20 } }
+			CHL = { news_event = { id = mex.20 } }
+		}
+	
+	}
+	USA_Nguyen = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = USA
+			SVN = {
+				has_government = neutrality
+				has_stability < 0.6
+			}
+			date < 1963.12.1
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				SVN = {
+					has_stability < 0.4
+				}
+			}
+		}
+
+		cost = 10
+
+		complete_effect = {
+			SVN = { news_event = { id = vin.31 } }
+		}
+	
+	}
+	USA_meeting = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = USA
+			threat > 50
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1985.12.1
+					}
+				}
+			}
+		}
+
+		cost = 100
+
+		complete_effect = {
+			add_named_threat = { threat = -10 name = Leaders_meeting }
+		}
+	
+	}
+	USA_iran_deal = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = USA
+			has_country_flag = lebanon_hostage
+		}
+		ai_will_do = {
+			factor = 200
+		}
+
+		cost = 100
+
+		complete_effect = {
+			PER = { news_event = { id = per.23 } }
+		}
+	
+	}
+	USA_Tonkin_Gulf = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+			tag = USA
+		}
+
+		visible = {
+			date > 1963.1.1
+			VIN = {
+			NOT = { has_war_with = SVN }
+			}
+			has_guaranteed = SVN
+			country_exists = SVN
+			country_exists = VIN
+		}
+
+		cost = 80
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				SVN = {
+					OR = {
+						has_stability < 0.5
+						communism > 0.3
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			USA = { news_event = { id = vin.37 } }
+		}
+	
+	}
+}
+war_measures = {
+	USA_homeland_defense = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			any_state = {
+				is_core_of = USA
+				NOT = {
+					is_controlled_by = USA
+				}
+			}
+			has_civil_war = no
+		}
+
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 200
+		}
+
+		visible = {
+			has_defensive_war = yes
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = { has_war_support > 0.89 }
+				}
+				set_war_support = 0.9
+			}
+			if = {
+				limit = {
+					has_idea = great_depression
+				}
+				remove_ideas = great_depression
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = extensive_conscription
+							has_idea = scraping_the_barrel
+							has_idea = service_by_requirement
+							has_idea = all_adults_serve
+						}
+					}
+				}
+				add_ideas = extensive_conscription
+			}
+			if = {
+				limit = {
+					OR = {
+						has_idea = undisturbed_isolation
+						has_idea = isolation
+						has_idea = civilian_economy
+						has_idea = low_economic_mobilisation
+					}
+				}
+				add_ideas = war_economy
+			}
+			add_ideas = USA_homeland_defense
+		}
+	}
+}

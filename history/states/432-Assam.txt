@@ -1,0 +1,39 @@
+
+state={
+	id=432
+	name="STATE_432"
+	manpower = 8977100
+	
+	state_category = town
+	
+	resources={
+		coal=12
+	}
+
+	history={
+		set_state_flag = ethnics_Assamese
+		add_to_array = { this.state_ethnics_list = 28 }
+		add_to_array = { this.state_ethnics_list = 34 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+                              
+		owner = ENG
+		add_core_of = IND
+		add_core_of = ASM
+		victory_points = { 12366 5 }
+		victory_points = { 12338 4 }
+		victory_points = { 12395 2 }
+		victory_points = { 10514 2 }
+		1949.10.25 = {
+		owner = IND
+		}
+		buildings = {
+			farm_building = 3
+			infrastructure = 3
+		}
+
+	}
+
+	provinces={
+		1497 1525 1553 7455 10090 10349 10514 12366 12395 12322 12338 7634 1075 997 14081 
+	}
+}

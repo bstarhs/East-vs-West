@@ -1,0 +1,1034 @@
+ideas = {
+	hidden_ideas = {
+		us_762mm_modifier = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			research_bonus = {
+				infantry_weapons = -0.3
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.12 instant = yes
+					soft_attack = 0.12
+				}
+			}
+			modifier = {
+				supply_factor = 0.12
+			}
+		}
+	}
+	country = {
+		USA_national_hightway = {
+			picture = USA_national_hightway
+			allowed = {
+				original_tag = USA
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.08
+				political_power_factor = 0.02
+			}
+		}
+		civilian_nuclear_idea = {
+			picture = civilian_nuclear_idea
+			allowed = {
+				original_tag = USA
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				country_resource_cost_chromium = -5
+				production_speed_nuclear_reactor_factor = 0.12
+				production_speed_buildings_factor = 0.1
+				local_resources_factor = 0.02
+				political_power_factor = 0.03
+			}
+		}
+		civilian_nuclear2_idea = {
+			picture = civilian_nuclear_idea
+			allowed = {
+				original_tag = USA
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			research_bonus = {
+				electronics = -0.4
+			}
+			modifier = {
+				country_resource_cost_chromium = -8
+				production_speed_nuclear_reactor_factor = 0.15
+				production_speed_buildings_factor = 0.12
+				local_resources_factor = 0.04
+				political_power_factor = 0.05
+				custom_modifier_tooltip = civilian_nuclear_tool
+			}
+		}
+		privitate_nuclear_idea = {
+			picture = civilian_nuclear2_idea
+			allowed = {
+				original_tag = USA
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			research_bonus = {
+				electronics = -0.6
+			}
+			modifier = {
+				country_resource_cost_chromium = -12
+				production_speed_nuclear_reactor_factor = 0.2
+				production_speed_buildings_factor = 0.2
+				local_resources_factor = 0.08
+				political_power_factor = 0.12
+				custom_modifier_tooltip = civilian_nuclear_tool
+			}
+		}
+		CSA_shounting = {
+			picture = KKK_Revolt
+			allowed = {
+				original_tag = CSA
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				training_time_army_factor = -0.3
+				army_org_factor = 0.4
+				war_support_factor = 0.2
+				join_faction_tension = 10
+				stability_factor = 0.3
+				ai_get_ally_desire_factor = -500
+				army_core_defence_factor = 0.8
+				army_core_attack_factor = 0.15
+			}
+		}
+		Blakcs_Revolution = {
+			picture = Blakcs_Revolution
+			allowed = {
+				original_tag = USA
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.35
+				resistance_target = 0.25
+				political_power_cost = 0.15
+			}
+		}
+		KKK_ideas = {
+			picture = KKK_Revolt
+			allowed = {
+				original_tag = USA
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.12
+				resistance_target = 0.05
+				political_power_cost = 0.05
+				authoritarianism_drift = 0.01
+			}
+		}
+		KKK_Revolt = {
+			picture = KKK_Revolt
+			allowed = {
+				original_tag = USA
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.35
+				resistance_target = 0.25
+				political_power_cost = 0.15
+			}
+		}
+		jimmClound_ideas = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = jimmClound
+
+			modifier = {
+				drift_defence_factor = -0.12
+				political_power_factor = -0.05
+				political_power_cost = 0.12
+				war_stability_factor = -0.3
+				conscription = 0.8
+			}
+
+		}
+		UN_troops = {
+			allowed = { always = yes }
+
+			picture = UNSC_83
+
+			removal_cost = -1
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 7
+				send_volunteers_tension = -1
+				army_org_factor = 0.12
+				supply_consumption_factor = -0.25
+				army_defence_factor = 0.25
+				pocket_penalty = -0.2
+			}
+		}
+		SDI_idea = {
+			allowed = { always = yes }
+
+			picture = SDI
+
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = SDI_idea_tool
+			}
+			research_bonus = {
+				electronics = 0.25
+			}
+			research_bonus = {
+				space = 0.3
+			}
+		}
+		Appolo_idea = {
+			allowed = { always = yes }
+
+			picture = NewDealCoalition
+
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = Appolo_idea_tool
+			}
+			research_bonus = {
+				electronics = 0.25
+			}
+			research_bonus = {
+				space = 0.3
+			}
+		}
+		NewDealCoalition = {
+			allowed = { always = yes }
+
+			picture = NewDealCoalition
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.2
+				stability_factor = 0.15
+			}
+		}
+		
+		McCarthyism_idea = {
+			allowed = { always = yes }
+
+			picture = mccarthism
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = -0.2
+				stability_factor = -0.05
+				communism_drift = -0.01
+				drift_defence_factor = 0.25
+				encryption_factor = 0.3
+				foreign_subversive_activites = -0.3
+				decryption_power_factor = 0.3
+				defense_impact_on_blueprint_stealing = 0.5
+			}
+		}
+		UNCKorea = {
+			allowed = { always = yes }
+
+			picture = M14
+
+			removal_cost = -1
+			
+			modifier = {
+				send_volunteer_size = 7
+				land_reinforce_rate = 0.2
+			}
+		}
+		NORAD = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				has_government = communism
+			}
+			picture = NORAD
+			
+			modifier = {
+				ai_focus_aviation_factor = 0.5
+				air_interception_detect_factor = 0.1
+				air_superiority_efficiency = 0.1
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		SALT = {
+			allowed = {
+				always = yes
+			}
+			picture = no_nuke
+			
+			modifier = {
+				production_speed_nuclear_reactor_factor = -0.25
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		NegroMovement = {
+			cancel = {
+				has_government = communism
+			}
+			removal_cost = -1
+			
+			allowed = {
+				always = yes
+			}
+			picture = black_right
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			modifier = {
+				political_power_cost = 0.12
+				stability_factor = -0.12
+				drift_defence_factor = -0.2
+				resistance_target = 0.08
+				custom_modifier_tooltip = NegroMovement_tool
+			}
+		}
+		Calvert = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+
+			picture = nuke
+			
+			modifier = {
+					democratic_drift = -0.08
+					political_power_cost = 0.8
+					stability_weekly = -0.03
+					
+			}
+		}
+		CIA = {
+			allowed = {
+				always = yes
+			}
+
+			picture = CIA
+			cancel = {
+				has_government = communism
+			}
+			modifier = {
+				drift_defence_factor = 0.4
+				stability_factor = 0.12
+				operative_slot = 10
+				intel_network_gain_factor = 0.5
+				operation_outcome = 0.5
+				boost_ideology_mission_factor = 0.5
+				operation_make_resistance_contacts_cost = -0.5
+				operation_make_resistance_contacts_outcome = 0.5
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		Vietnam_War_idea = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+			OR = {
+				SVN = { has_government = communism }
+				VIN = { controls_state = 286 }
+				has_idea = Total_Vietnam_War
+				}
+			}
+			picture = M14
+			modifier = {
+				send_volunteer_size = 2
+				political_power_cost = 0.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Total_Vietnam_War = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+			OR = {
+				SVN = { has_government = communism }
+				VIN = { controls_state = 286 }
+				}
+			}
+			picture = M14
+			modifier = {
+				send_volunteer_size = 6
+				political_power_cost = 0.3
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		anti_vietnam_war = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				OR = {
+				SVN = { has_government = communism }
+				VIN = { controls_state = 286 }
+				}
+			}
+			picture = protest
+			modifier = {
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Marshall = {
+			allowed = {
+				always = yes
+			}
+			picture = MashPlan
+			cancel = {
+				has_government = communism
+			}
+			modifier = {
+				political_power_cost = -0.2
+				political_power_factor = 0.25
+				stability_factor = 0.12
+				war_support_factor = 0.05
+				conscription_factor = 0.5
+				communism_drift = -0.08
+				drift_defence_factor = 0.12
+			}
+		}
+		war_bonds_focus = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			removal_cost = -1
+			picture = generic_goods_red_bonus
+		}
+		USA_world_police = {
+			allowed = { always = no	}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = generic_volunteer_expedition_bonus
+			modifier = {			
+				justify_war_goal_time = -0.25
+			}			
+		}
+	
+	}
+	political_advisor = {
+		CyrusVance = {
+			
+			allowed = {
+				tag = USA
+			}
+			visible = {
+				date < 1980.1.1
+				date > 1961.1.1
+			}
+			
+			traits = { compassionate_gentleman }
+		}
+		RuskDean = {
+			
+			allowed = {
+				tag = USA
+			}
+			visible = {
+				date < 1970.1.1
+			}
+			
+			traits = { compassionate_gentleman }
+		}
+		McNamara = {
+			
+			allowed = {
+				tag = USA
+			}
+		}
+		George_Shultz = {
+			
+			allowed = {
+				tag = USA
+			}
+			visible = {
+				date > 1980.1.1
+			}
+			
+			traits = { compassionate_gentleman }
+		}
+		Caspar_Weinberger = {
+			
+			allowed = {
+				tag = USA
+			}
+			visible = {
+				date > 1980.1.1
+			}
+			
+			traits = { compassionate_gentleman }
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		USA_pepsi = {
+			picture = USA_pepsi
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				drink_concern
+			}
+		}
+		USA_coca = {
+			picture = USA_coca
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				drink_concern
+			}
+		}
+		chevron = {
+						
+			picture = chevron
+			
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				synth_resources = 0.12
+			}
+			
+			traits = { refinery_concern }
+		}
+		USA_SavannahRiverNationalLaboratory = {
+			picture = USA_SavannahRiverNationalLaboratory
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				nuclear = 0.08
+			}
+		}
+		InternationalAtomic = {
+			picture = ENG_AVRE_ideas
+			allowed = {
+				always = yes
+			}
+			research_bonus = {
+				nuclear = 0.06
+			}
+			visible = {
+				has_country_flag = InternationalAtomic
+			}
+			modifier = {
+				political_power_cost = 0.01
+				production_speed_nuclear_reactor_factor = 0.12
+			}
+		}
+		standard_oil_california = {
+			picture = standard_oils
+			allowed = {
+				tag = USA
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			
+			traits = { refinery_concern }
+		}
+		ford = {
+			
+			picture = ford
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		marmon_herrington = {
+			
+			
+			allowed = {
+				tag = USA
+			}			
+
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { fast_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+		USA_LosAlamos_idea = {
+			allowed = {
+				tag = USA
+			}
+			research_bonus = {
+				nuclear = 0.2
+			}
+			traits = { nucelar_concern }
+			modifier = {
+			}
+		}
+		USA_AEC_idea = {
+			allowed = {
+				tag = USA
+			}
+			research_bonus = {
+				nuclear = 0.2
+			}
+			traits = { nucelar_concern }
+			modifier = {
+			}
+		}
+		chrysler = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { medium_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		army_ordnance_department = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { heavy_tank_manufacturer }
+			
+			modifier = {
+			}
+		}	
+		norfolk_naval_yard = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { coastal_defence_naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		electric_boat_company = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { raiding_fleet_naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		brooklyn_naval_yard = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { atlantic_fleet_naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		newport_news_shipbuilding = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			traits = { pacific_fleet_naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		north_american_aviation = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		bell = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+		
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { heavy_tank_manufacturer }	#TODO, make different from north american
+			
+			modifier = {
+			}
+		}	
+		
+		lockheed = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		douglas_aircraft_company = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { CAS_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		GD_EB = {
+			allowed = {
+				tag = USA
+			}
+			research_bonus = {
+				ship_modules_tech = 0.12
+				nuke_sub_tech = 0.03
+			}
+			visible = {
+				has_completed_focus = USA_navy_focus
+			}
+		}
+
+		
+		boeing = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { heavy_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		consolidated_aircraft = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+		
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { heavy_aircraft_manufacturer } #TODO remove?
+			
+			modifier = {
+			}
+		}
+		grumman = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { naval_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}		
+		Colt = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		FMCCorporation = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+	
+		
+		rock_island_arsenal = {
+			
+			
+			allowed = {
+				tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+			}
+		}	
+		
+		Fairchild = {
+			allowed = {
+				tag = USA
+			}
+			visible = {
+				has_completed_focus = USA_SIA_Association
+			}
+			research_bonus = {
+				electronics = 0.12
+			}
+			
+			traits = { electronics_concern }
+			research_bonus = {
+				synth_resources = 0.1
+			}
+		}
+		Intel = {
+			allowed = {
+				tag = USA
+			}
+			research_bonus = {
+				electronics = 0.12
+			}
+			visible = {
+				has_completed_focus = USA_SIA_Association
+			}
+			traits = { electronics_concern }
+			
+			modifier = {
+			}
+		}
+		IBM = {
+			allowed = {
+				tag = USA
+			}
+			research_bonus = {
+				electronics = 0.2
+			}
+			visible = {
+				has_completed_focus = USA_Hight_tech_economic
+			}
+			traits = { electronics_concern }
+			
+			modifier = {
+			}
+		}
+	}
+	
+	
+	theorist = {
+		strangelove = {
+			allowed = {
+				tag = USA
+			}
+			visible = {
+				date < 1965.1.1
+			}
+			research_bonus = {
+				rocketry = 0.30
+			}
+			
+			traits = { nuclear_scientist }
+		}
+	}
+	
+}

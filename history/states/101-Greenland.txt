@@ -1,0 +1,33 @@
+state=
+{
+	id=101
+	name="STATE_101"
+	manpower = 18000
+	
+	state_category = wasteland
+	
+	history=
+	{
+		set_state_flag = ethnics_Greenland
+		owner = DEN
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_cold_modifier }
+		add_to_array = { this.state_ethnics_list = 84 }
+		add_to_array = { this.state_ethnics_list = 62 }
+		buildings = {
+			hospital = 1
+			infrastructure = 1
+			12512 ={
+				naval_base = 1
+			}
+		}
+		add_core_of = DEN
+		add_core_of = GRL
+		1979.8.23 = {
+			owner = GRL
+		}
+	}
+	provinces=
+	{
+10245 10636 12512 13058 13066 	}
+}

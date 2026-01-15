@@ -1,0 +1,607 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Air cavalary Division"  
+	division_names_group = USA_MOT_01
+	regiments = {
+		air_assult = { x = 0 y = 0 }
+		air_assult = { x = 0 y = 1 }
+		air_assult = { x = 0 y = 2 }
+		air_assult = { x = 1 y = 0 }
+		air_assult = { x = 1 y = 1 }
+		air_assult = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Infantry Division"  
+	division_names_group = USA_MOT_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		air_assult = { x = 2 y = 0 }
+		air_assult = { x = 2 y = 1 }
+		air_assult = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
+		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
+		helicopter_logistics = { x = 0 y = 2 }
+		helicopter_recon = { x = 0 y = 3 }
+		signal_company = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "National Guard Division" 
+	division_names_group = USA_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		air_assult = { x = 2 y = 0 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  # US Hvy Field Arty consisted of 2 Bns, 155mm howitzers
+		engineer = { x = 0 y = 1 }   # US Eng Rgt consisted of 2 Bns
+	}
+}
+division_template = {
+	name = "Armor Division"  	
+	division_names_group = USA_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		air_assult = { x = 2 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+		maintenance_company = { x = 0 y = 2 } 
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Marine Brigade" 	
+	division_names_group = USA_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+	priority = 2
+}
+division_template = {
+	name = "Garrison Brigade"  
+	division_names_group = USA_GAR_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+	priority = 0
+}
+division_template = {
+	name = "Marine Brigade"	
+	division_names_group = USA_MOT_02
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+	priority = 2
+}
+
+
+###### OOB ######
+units = {
+	### Vietnam Forces ###
+	division = {			
+		name = "1st Calavary Division"
+		location = 4401
+		division_template = "Air cavalary Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division = {			
+		name = "4th Infantry Division"
+		location = 4401
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division = {			
+		name = "25th Infantry Division"
+		location = 4401
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division = {			
+		name = "1st Infantry Division"
+		location = 10309
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division = {			
+		name = "9th Infantry Division"
+		location = 4363
+		division_template = "Air cavalary Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division = {			
+		name = "195th Infantry Division"
+		location = 1285
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+	division = {			
+		name = "196th Infantry Division"
+		location = 1285
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+
+	}
+
+	
+	####### CONUS Theater (CO: Marshall) #######
+	division = {			
+		name = "3rd Marine Brigade"
+		location = 12068
+		division_template = "Marine Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}		
+	### Carribean Forces ###
+	division = {			
+		name = "Puerto Rico Department"
+		location = 1440
+		division_template = "Infantry Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.15
+
+	}			
+	division = {			
+		name = "Panama Canal Force"				# CO: Stone
+		location = 7617
+		division_template = "Infantry Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.15
+
+	}
+
+	### 1st Army (CO: Drum)  -- note: Armies only paper organizations in 1939 ###
+	division= {			
+		name = "7th Cavalry (Mech.) Brigade"		
+		location = 6696
+		division_template = "Armor Division"
+		start_experience_factor = 0.3
+	}			
+	# I Army Corps (CO: Woodruff) #
+	division= {			
+		name = "26th 'Yankee' Division"		
+		location = 6732
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "43rd 'Winged Victory' Division"		
+		location = 6732
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	# II Army Corps (CO: Drum) #
+	division= {			
+		name = "1st 'Big Red One' Division"		
+		location = 3878
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}			
+	division= {			
+		name = "27th 'New York' Division"		
+		location = 3878
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "44th Infantry Division"		
+		location = 3878
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	# III Army Corps (CO: Parsons) #
+	division= {			
+		name = "28th 'Keystone' Division"		
+		location = 6984
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "29th 'Blue and Gray' Division"		
+		location = 6984
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+
+
+	### 2nd Army (CO: Ford)  -- note: Armies only paper organizations in 1939 ###
+	# V Army Corps (CO: van Voorhis) #
+	division= {			
+		name = "5th 'Red Devils' Division"		
+		location = 6855
+		division_template = "Infantry Division"		# forming, Oct-39
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}			
+	division= {			
+		name = "37th 'Buckeye' Division"		
+		location = 6855
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "38th 'Cyclone' Division"		
+		location = 6855
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	# VI Army Corps (CO: Ford) #
+	division= {			
+		name = "6th 'Sightseeing Sixth' Div."		
+		location = 9450
+		division_template = "Infantry Division"		# forming, Oct-39
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}			
+	division= {			
+		name = "32nd 'Red Arrow' Division"		
+		location = 9450
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "33rd 'Golden Cross' Division"		
+		location = 9450
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+
+
+	### 3rd Army (CO: Brees)  -- note: Armies only paper organizations in 1939 ###
+	# IV Army Corps (CO: Embick) #
+	division = {			
+		name = "30th 'Old Hickory' Division"		
+		location = 12384
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "31st 'Dixie' Division"		
+		location = 12384
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	# VIII Army Corps (CO: Brees) #
+	division= {			
+		name = "25th Infantry Division"		
+		location = 12133
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division= {			
+		name = "2nd 'Indianhead' Division"		
+		location = 12782
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}			
+	division= {			
+		name = "36th 'Texas' Division"		
+		location = 12782
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "45th 'Thunderbird' Division"		
+		location = 12782
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "1st Armor Division"		
+		location = 10214
+		division_template = "Armor Division"
+		start_experience_factor = 0.3
+	}			
+					
+	### 4th Army (CO: DeWitt)  -- note: Armies only paper organizations in 1939 ###
+	# VII Army Corps (CO: Bishop) #
+	division= {			
+		name = "34th 'Red Bull' Division"		
+		location = 12586
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "35th 'Santa Fe' Division"		
+		location = 12586
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	# IX Army Corps (CO: DeWitt) #
+	division= {			
+		name = "3rd 'Rock of the Marne' Division"		
+		location = 9671
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}			
+	division = {			
+		name = "40th 'Sunshine' Division"		
+		location = 9671
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+	division= {			
+		name = "41st 'Sunset' Division"		
+		location = 9671
+		division_template = "National Guard Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+					
+	### Fleet Marine Force (CO: Holcomb)  ###
+	division= {			
+		name = "1st Marine Brigade"		
+		location = 6846
+		division_template = "Marine Brigade"
+		start_experience_factor = 0.3
+	}			
+	division= {			
+		name = "2nd Marine Brigade"		
+		location = 1562
+		division_template = "Marine Brigade"
+		start_experience_factor = 0.3
+	}			
+
+	####### Pacific Theater	#######
+	### Alaska Defense Command ###
+	division = {			
+		name = "Alaska Defense Command"		
+		location = 13091
+		division_template = "Infantry Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.15
+
+	}			
+	division= {			
+		name = "Attu Island Garrison"		
+		location = 13067
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}
+			
+	### Hawaiian Department	(CO: Herron) ###
+	division = {			
+		name = "Hawaiian Division"		
+		location = 4180
+		division_template = "National Guard Division"		# older equipment, less training than NG division
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+
+	# North Pacific Defenses #
+	division= {				
+		name = "Midway Island Garrison"			
+		location = 13052
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}				
+	division= {				
+		name = "Wake Island Garrison"			
+		location = 13047
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}				
+	division= {				
+		name = "Guam Garrison"			
+		location = 12140
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}				
+	
+	# South Pacific Defenses #
+	division= {			
+		name = "Christmas Island Garrison"		
+		location = 13048
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}			
+	division= {			
+		name = "Jarvis Island Garrison"		
+		location = 13049
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}			
+	division= {			
+		name = "Palmyra Garrison"		
+		location = 13050
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}			
+	division= {			
+		name = "Phoenix Island Garrison"		
+		location = 13053
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}			
+	division= {			
+		name = "Johnston Island Garrison"		
+		location = 13051
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}				
+	division= {			
+		name = "24th Armored Battalion"		
+		location = 6521
+		division_template = "Garrison Brigade"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.15
+
+	}		
+
+	### U.S. Army Forces in the Far East ###	
+	fleet = {
+		name = "United States 4th Fleet"
+		naval_base = 1572 #Jacksonville
+		task_force = {				
+			name = "United States 4th Fleet"
+			location = 1572 #Jacksonville
+			ship = { name = "USS Spruance" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Kinkaid" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Caron" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Charles F Adams-class" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+		}	
+	}
+	fleet = {
+		name = "United States 7th Fleet"
+		naval_base = 13223 #Okinawa
+		task_force = {				
+			name = "United States 7th Fleet"
+			location = 13223 #Okinawa
+			ship = { name = "USS Ticonderoga" definition = carrier equipment = { ship_hull_carrier_1 = { amount = 1 owner = USA version_name = "Essex Class V.0" } } }
+			ship = { name = "USS Hewitt" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS O'Brien" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Harry W Hill" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Fife" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Merrill" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Spruance-class" } } }
+			ship = { name = "USS Henry B wilson" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Towers" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Robison" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Buchanan" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Berkeley" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Waddell" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Preble" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Worden" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Halsey" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+			ship = { name = "USS Reeves" definition = destroyer equipment = { ship_hull_light_3 = { amount = 1 owner = USA version_name = "Charles F. Adams-class" } } }
+		}	
+	}
+
+}
+			
+air_wings = {
+	##### U.S. Army Air Force (USAAF) (CO: Emmo) #####
+	378 = {																# California
+		### 1st USAAF Wing (CO: Fickel) ###
+		fighter_equipment_1 =  { owner = "USA" amount = 72 }			# 20th Pursuit Group -- P-36As
+		strat_bomber_equipment_1 = { owner = "USA" amount = 36 }		# 7th Bombardment Group -- B-17s
+		### USN Patrol Wings ###
+	}
+	362 = { 															# Virginia
+		### 2nd USAAF Wing (CO: Krogstad) ###
+		fighter_equipment_2 =  { owner = "USA" amount = 168 }		# 1st Pursuit Group -- P-35s
+				# 8th Pursuit Group -- P-35s
+		strat_bomber_equipment_2 = { owner = "USA" amount = 56 }
+		strat_bomber_equipment_1 = { owner = "USA" amount = 120 }		# 9th Bombardment Group -- B-17s
+		### USN Patrol Wings ###
+	}
+	371 = { 															# Louisiana
+		### 3rd USAAF Wing (CO: Martin) ###
+		CAS_equipment_2 = { owner = "USA" amount = 63 }					# 3rd Attack Group -- A-20s
+	}
+	526 = { 															# Louisiana
+		### 7th USAAF Air Force (Saigon) ###
+		cv_CAS_equipment_1 = { owner = "USA" amount = 63 }	
+		CAS_equipment_2 = { owner = "USA" amount = 63 }	
+		fighter_equipment_3 =  { owner = "USA" amount = 72 }	
+	}
+
+	629 = { 															# Hawaii
+		### 18th Composite Wing (CO: Frank) ###
+		fighter_equipment_2 =  { owner = "USA" amount = 72 }			# 18th Pursuit Group -- P-36As
+	}
+}

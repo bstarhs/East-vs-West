@@ -1,0 +1,38 @@
+state={
+	id=750
+	name="STATE_750"
+
+	resources={
+		coal = 8
+		iron = 8
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Korean
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = USA
+		add_to_array = { this.state_ethnics_list = 14 }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_core_of = KOR
+		add_claim_by = PRK
+		1948.8.23 = {
+			owner = KOR
+		}
+		buildings = {
+			air_base = 1
+			infrastructure = 4
+			farm_building = 1
+			industrial_complex = 1
+		}
+		victory_points = { 7021 4 }
+		victory_points = { 12011 3 }
+
+	}
+	provinces={
+		1148 7021 9936 12011 
+	}
+	manpower=8493000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

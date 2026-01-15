@@ -1,0 +1,51 @@
+
+state={
+	id=671
+	name="STATE_671"
+	manpower = 11528000
+	state_category = large_town
+	local_supplies=0.0
+	resources={
+		coal=8
+	}
+	history={
+		add_to_array = { this.state_ethnics_list = 18 }
+		set_state_flag = banana_production
+		set_state_flag = ethnics_Vietnamese
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 13 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_core_of = VIN       
+		owner = FRA
+		victory_points = { 4075 8 }
+		victory_points = { 11936 3 }
+		victory_points = { 1185 2 }
+		buildings = {
+			hospital = 1
+			arms_factory = 1
+			infrastructure = 4
+			farm_building = 4
+			school = 1
+			power_plant = 2
+			industrial_complex = 2
+			air_base = 1
+			4075 = {
+				bunker = 3	
+			}
+		}
+		1954.8.23 = {
+			owner = VIN
+		}
+		1964.8.23 = {
+			buildings = {
+				steel_making = 1
+				synthetic_refinery = 1
+				rubber_factory = 1
+			}
+		}
+	}
+	provinces={
+		1185 4075 4119 10129 11909 11936 12048 
+	}
+}

@@ -1,0 +1,425 @@
+﻿capital = 51
+
+set_country_flag = main_country
+# Starting tech
+set_country_flag = language_German
+	set_country_flag = developmented
+	set_country_flag = female_finished
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	can_foods = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	machine_gun1 = 1
+	infantry_weapons = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+	aluminum_tech = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		medical1 = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		radio_detection = 1
+		motorize_doctrine = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	early_fighter = 1
+	fighter1 = 1
+	early_bomber = 1
+
+	strategic_bomber1 = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_destroyer = 1
+	
+	
+	early_ship_hull_cruiser = 1
+	
+	
+	infantry_training = 1
+	formation_flying = 1
+	synth_oil_experiments = 1
+	transport = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	decimetric_radar = 1
+	
+	power_generation1 = 1
+}
+
+recruit_character = WDR_James_Conant
+
+add_ideas = {
+		hight_welfare
+	service_by_requirement
+	Lutheranism
+	low_economic_mobilisation
+	GER_punishment
+}
+set_autonomy = {
+		target = WBL
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.2
+	}
+set_research_slots = 3
+set_convoys = 50
+
+1939.1.1 = {
+
+	add_political_power = 1197
+
+	#BUILDINGS
+
+	set_technology = {
+		basic_medium_tank = 1 
+		CAS2 = 1
+		heavy_fighter1 = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		infantry_weapons2 = 1
+		
+		
+		paratroopers = 1
+		basic_heavy_cruiser = 1
+		improved_heavy_cruiser = 1
+		basic_battleship = 1
+		improved_battleship = 1
+
+		#doctrines
+		basic_militia = 1
+		depth_defense = 1
+		
+		
+		
+		
+		unrestricted_submarine_warfare = 1
+		
+		#air
+		formation_flying = 1		
+		dive_bombing = 1
+		direct_ground_support = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		decimetric_radar = 1
+		
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		construction4 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		dispersed_industry3 = 1
+		dispersed_industry4 = 1
+
+	}
+}
+
+	set_popularities = {
+		democratic = 77
+
+		neutrality = 10
+		
+		communism = 13
+	}
+
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+
+}
+	recruit_character = WDR_Theodor_Blank
+	recruit_character = WDR_Hans_Globke
+	recruit_character = WDR_Konrad_Adenauer
+	recruit_character = WDR_Kurt_Schumacher
+			add_to_variable = { CUB.US_gov_aid_opinion = 30 }
+			add_to_variable = { CUB.US_public_aid_opinion = 15 }
+
+	promote_character = WDR_Konrad_Adenauer
+	set_variable = { this.education = 69 }
+1949.1.1 = {
+	add_ideas =Marshall
+	set_technology = {
+		marines = 1
+		auto_industry = 1
+		dispersed_industry4 = 1
+		frozen_food = 1
+		machine_gun2 = 1
+	}
+			set_variable = { this.auto_factory = 8 }
+			set_variable = { this.civil_factory_use = 8 }
+	recruit_character = WDR_ludwig_erhard
+	recruit_character = WDR_Walter_Hallstein
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	complete_national_focus = WDR_basic_construction
+	complete_national_focus = WDR_USA_aid
+	complete_national_focus = WDR_Petersberg_Agreement
+	oob = "WGR_1950"
+	add_ideas = {
+		BFV
+	}
+}
+1955.1.1 = {
+			set_global_flag = WDR_Wolfsburg_Plant_decis
+			set_global_flag = WDR_Bundeshaus_decis
+			set_global_flag = WDR_Volkswagen_T1_decis
+			set_variable = { this.auto_factory = 14 }
+			set_variable = { this.electronic_factory = 6 }
+			set_variable = { this.civil_factory_use = 20 }
+	retire_character = WDR_Kurt_Schumacher
+	complete_national_focus = WDR_ECSC
+	complete_national_focus = WDR_Soziale_Marktwirtschaft
+	complete_national_focus = WDR_Hallstein
+	complete_national_focus = WDR_Industry
+	complete_national_focus = WDR_Bundes_polizeit
+	complete_national_focus = WDR_Bundeswehr
+	complete_national_focus = WDR_Luftwaffe
+	complete_national_focus = WDR_old_armies
+	complete_national_focus = WDR_economic
+	complete_national_focus = WDR_NATO
+	complete_national_focus = WDR_relation_isr
+	complete_national_focus = WDR_volkswagen_auto
+	complete_national_focus = WDR_manufacture_1
+	clr_global_flag = Bundeswehr_flag
+	set_technology = {
+		marines2 = 1
+		spaa1 = 1
+		mechanised_infantry = 1
+		laundry = 1
+		infantry_weapons1 = 1
+		supersonic_engine = 1
+		basic_light_tank = 1
+	}
+	remove_ideas = GER_punishment
+	add_ideas = nato_spirit
+	add_ideas = WDR_Nato_command
+	add_ideas = WDR_Hallstein_idea
+				set_country_flag = {
+					flag = AntiNatoProtest
+					days = 100
+					value = 1
+				}
+}
+1958.12.2 = {
+			set_global_flag = WDR_Interbau_decis
+			set_global_flag = WDR_KaDeVe_decis
+	complete_national_focus = WDR_bavaria_auto
+	retire_character = WDR_Hans_Globke
+	clr_country_flag = AntiNatoProtest
+	create_country_leader = {
+		name = "Louis Ferdinand I"
+		picture = "gfx/leaders/WDR/Portrait_Germany_Louis_Ferdinand.tga"
+		expire = "1988.1.1"
+		ideology = monarchism
+		traits = {
+		}
+	}
+	complete_national_focus = WDR_Military_company
+	create_country_leader = {
+		name = "Karl Dönitz"
+		picture = "gfx/leaders/WDR/Portrait_Germany_Donitz.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		traits = {
+		}
+	}
+	set_technology = {
+		excavation3 = 1
+		spaa1 = 1
+		vaccum_tube = 1
+		mechanised_infantry = 1
+		infantry_weapons1 = 1
+		spaa2 = 1
+	}
+}
+1964.1.20 = {
+			set_global_flag = WDR_Nordweststadt_decis
+	set_variable = { this.education = 85 }
+	complete_national_focus = WDR_Rhineland_Industry
+	complete_national_focus = WDR_Atlanticism
+	set_technology = {
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		medium_computer = 1
+		computer_consol = 1
+		trans_helicopter_1 = 1
+		aa_missile_2 = 1
+		fighter2 = 1
+		sp_artillery2 = 1
+		improved_medium_tank = 1
+		mechanised_infantry = 1
+	}
+	remove_ideas = WDR_ludwig_erhard
+	add_ideas = {
+		ECSC
+	}
+	promote_character = WDR_ludwig_erhard
+}
+1968.12.2 = {
+	retire_character = WDR_Konrad_Adenauer
+	recruit_character = WDR_Reinhard_Gehlen
+	remove_ideas = Marshall
+	create_country_leader = {
+		name = "Martin Mussgnug"
+		picture = "gfx/leaders/WDR/Portrait_Germany_Martin_Mussgnug.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		traits = {
+		}
+	}
+	set_country_flag = Satellite_succes
+	set_technology = {
+		improved_light_tank = 1
+		husbandry_feed = 1
+		tech_Satellite = 1
+		mechanized_aa_missile_1 = 1
+		spaa2 = 1
+		improved_heavy_tank = 1
+		mechanised_infantry2 = 1
+		improved_infantry_weapons = 1
+		fighter3 = 1
+		power_cable = 1
+		infantry_at2 = 1
+	machine_gun3 = 1
+	}
+		create_country_leader = {
+			name = "Willy Brandt"
+			picture = "gfx/leaders/WDR/Portrait_Germany_Willy_Brandt.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+				compassionate_gentleman ideological_crusader
+			}
+		}
+}
+1974.1.20 = {
+	add_ideas = DDR_Grundlagenvertrag
+	set_country_flag = china_diplomacy
+	add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 20000
+    producer = WDR
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 18000
+    producer = WDR
+}
+	add_ideas = {
+		Red_Brigade
+	}
+	remove_ideas = WDR_Hallstein_idea
+	add_to_array = { global.UNmember_list = FROM }
+	set_technology = {
+		sp_artillery2 = 1
+		at_missile_2 = 1
+	}
+	oob = "WGR_1970"
+	create_country_leader = {
+		name = "Helmut Schmidt"
+		
+		picture = "gfx/leaders/WDR/Portrait_Germany_Schmidt.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+			ideological_crusader nuclear_enthusiast pro_third_world
+		}
+	}
+}
+1977.1.20 = {
+	set_technology = {
+	machine_gun4 = 1
+		integrated_circuit = 1
+		fighter4 = 1
+		spaa3 = 1
+		marines3 = 1
+		advanced_medium_tank = 1
+		mechanised_infantry3 = 1
+		advanced_infantry_weapons = 1
+	}
+}
+1982.1.20 = {
+	set_country_flag = US_missile_base_employment
+	remove_ideas = {
+		Red_Brigade
+	}
+	set_technology = {
+		aa_missile_3 = 1
+		sp_artillery2 = 1
+	}
+	create_country_leader = {
+		name = "Helmut Kohl"
+		
+		picture = "gfx/leaders/WDR/Portrait_Germany_Kohl.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	set_province_name = { id = 9471 name = VICTORY_POINTS_9471_WDR }
+}
+

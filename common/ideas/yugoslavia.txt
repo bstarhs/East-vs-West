@@ -1,0 +1,376 @@
+ideas = {
+
+	country = {
+		YUG_TO_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_TO_ideas
+			modifier = {
+			}
+		}
+		YUG_federate_2_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_federate_2_ideas
+			modifier = {
+			}
+		}
+		YUG_balkan_treaty_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_balkan_treaty_ideas
+			modifier = {
+			}
+		}
+		YUG_federate_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_federate_ideas
+			modifier = {
+			}
+		}
+		YUG_balkan_commonwealth = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_balkan_commonwealth
+			modifier = {
+			}
+		}
+		YUG_uz_tita_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_uz_tita_ideas
+			modifier = {
+				political_power_cost = -0.15
+				drift_defence_factor = 0.15
+				stability_factor = 0.2
+			}
+		}
+		YUG_enteprises_autonomy_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = partial_economic_mobilisation
+			modifier = {
+				political_power_cost = -0.12
+				drift_defence_factor = -0.05
+			}
+		}
+		YUG_brother_peace = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_brother_peace
+			modifier = {
+				stability_factor = 0.25
+				drift_defence_factor = 0.12
+				political_power_cost = 0.12
+			}
+		}
+		YUG_serbian_strong_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_serbian_strong_ideas
+			modifier = {
+				political_power_cost = 0.12
+			}
+		}
+		YUG_kosovo_revolt = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_kosovo_revolt
+			modifier = {
+				stability_factor = -0.25
+				political_power_gain = -0.12
+			}
+		}
+		YUG_croatians_strong = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_croatians_strong
+			modifier = {
+				political_power_cost = 0.12
+			}
+		}
+		YUG_croatian_spring_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_croatian_spring_ideas
+			modifier = {
+			}
+		}
+		YUG_tito_death = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = YUG_tito_death
+			modifier = {
+				communism_drift = -0.02
+				stability_factor = -0.25
+				drift_defence_factor = -0.3
+				political_power_cost = 0.2
+			}
+		}
+		yugoslavia_collape_ideas = {
+		
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = yugoslavia_collape_ideas
+			
+			modifier = {
+					communism_drift = -0.02
+					political_power_cost = 0.5
+					stability_factor = -0.15
+			}
+		}
+		NonAligned = {
+			removal_cost = -1
+			picture = NonAligned
+			allowed = {
+				always = no # Unlocked via focus
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				join_faction_tension = 0.2
+				ai_get_ally_desire_factor = -50
+			}
+	
+		}
+		yugoslavia_crisis = {
+			picture = yugoslavia_crisis
+			removal_cost = -1
+			allowed = {
+				always = no # Unlocked via focus
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				communism_drift = -0.05
+				stability_weekly = -0.05
+			}
+	
+		}
+	}
+	# MILITARY
+	# TECHNOLOGY
+	industrial_concern = {
+		EiNis = {
+			picture = EiNis
+			allowed = {
+				original_tag = YUG
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			visible = {
+				has_completed_focus = YUG_develop_electronic
+			}
+			
+			traits = { electronics_concern }
+		}
+		Mahajlo_pupin = {
+			picture = Mahajlo_pupin
+			allowed = {
+				original_tag = YUG
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			visible = {
+				has_completed_focus = YUG_develop_electronic
+			}
+			
+			traits = { electronics_concern }
+		}
+		Naftagas = {
+			
+			picture = Naftagas
+			allowed = {
+				original_TAG = YUG
+			}
+			visible = {
+				has_completed_focus = YUG_refinery
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			
+			traits = { refinery_concern }
+		}
+		DuroDakovic = {
+			picture = DuroDakovic
+			allowed = {
+				original_tag = YUG
+			}
+				
+			research_bonus = {
+				armor = 0.10
+			}
+			visible = {
+				has_completed_focus = YUG_military_industry_2
+			}
+			
+			traits = { medium_tank_manufacturer }
+		}	
+		TAM_autos = {
+			picture = TAM_autos
+			allowed = {
+				original_tag = YUG
+			}
+			visible = {
+				has_completed_focus = YUG_army_industry
+			}
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+		yug_Sloboda = {
+			picture = yug_Sloboda
+			allowed = {
+				original_tag = YUG
+			}
+			visible = {
+				has_completed_focus = YUG_manufacture_2
+			}
+			research_bonus = {
+				industry = 0.05
+			}
+			traits = { steel_making_concern }
+			
+			modifier = {
+			}
+		}
+		Smedereva_steel = {
+			picture = Smedereva_steel
+			allowed = {
+				original_tag = YUG
+			}
+			visible = {
+				has_completed_focus = YUG_Smederevo_steel
+			}
+			research_bonus = {
+				industry = 0.05
+			}
+			traits = { steel_making_concern }
+			
+			modifier = {
+			}
+		}
+		designer = yes
+		
+		jadransko_brodogradiliste = {
+			
+			picture = generic_naval_manufacturer_2
+
+			
+			allowed = {
+				original_tag = YUG
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			equipment_bonus = {
+				# generic shipyard?
+			}
+			
+			traits = { naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		ikarus = {
+			
+			picture = ikarus
+
+			allowed = {
+				original_tag = YUG
+				NOT = { has_dlc = "Death or Dishonor" }		
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# produced under licence: Hawker Fury, Potez 25, Avia BH-33, own flying boats and recon aircrafts
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		zastava_arms = {
+			
+			picture = zastava
+
+			
+			allowed = {
+				original_tag = YUG
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		zastava_auto = {
+			
+			picture = YugoAuto
+
+			
+			visible = {
+				has_completed_focus = YUG_autos_focus
+			}
+			allowed = {
+				original_tag = YUG
+			}
+			
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

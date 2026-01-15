@@ -1,0 +1,43 @@
+state={
+	id=679
+	name="STATE_679"
+	manpower = 1511000
+	
+	state_category = pastoral
+	resources={
+		copper=14
+	}
+	history={
+		set_state_flag = ethnics_Arabs
+		add_dynamic_modifier = { modifier = husbandry_production }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = SAU
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_variable = { state_tourist = 30 }
+		add_core_of = HEJ
+		add_to_array = { this.state_ethnics_list = 24 }
+		victory_points = {
+			12883 8
+		}
+		victory_points = {
+			5037 10
+		}
+		buildings = {
+			infrastructure = 3
+			12883 = {
+				naval_base = 5
+			}
+		}
+		add_core_of = SAU
+		1960.8.17 = {
+			buildings = {
+				infrastructure = 5
+				air_base = 3
+			}
+		}
+	}
+
+	provinces={
+		2090 5037 10748 12883 14071 14072 
+	}
+}

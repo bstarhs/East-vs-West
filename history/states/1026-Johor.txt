@@ -1,0 +1,38 @@
+state={
+	id=1026
+	name="STATE_1026"
+	manpower = 1893200
+	state_category = large_town
+	resources={
+		rubber=13
+		iron=4
+		tungsten=5
+	}
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 106 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		set_state_flag = ethnics_Malayan
+		owner = MAL
+		victory_points = { 7427 5 }
+		victory_points = { 4424 8 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 2
+			dockyard = 1
+			4424 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = MAL
+	}
+
+	provinces={
+		12271 7427 4424 4367 10313 
+	}
+}

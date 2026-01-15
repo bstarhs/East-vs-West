@@ -1,0 +1,85 @@
+state={
+	id=592
+	name="STATE_592"
+	manpower = 17835200
+	state_category = city
+	resources={
+		tungsten=10
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 2 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_to_array = { this.state_ethnics_list = 4 }
+		add_to_array = { this.state_ethnics_list = 12 }
+		add_to_array = { this.state_ethnics_list = 13 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Canton
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = sugar_production
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		
+		victory_points = { 11941 4 }
+		victory_points = { 11938 3 }
+		victory_points = { 4092 3 }
+		victory_points = { 7039 2 }
+		victory_points = { 7152 5 }
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		add_claim_by = CTN
+		1949.10.14 = {
+			owner = PRC
+		}
+		buildings = {
+			hospital = 1
+			rubber_factory = 1
+			farm_building = 3
+			power_plant = 2
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 3
+			air_base = 3
+			1047 = {
+				naval_base = 5
+				coastal_bunker = 1
+				bunker = 3
+			}
+			11981 = {
+				naval_base = 5
+			}
+
+		}
+		victory_points = { 1047 15 }
+		victory_points = { 11981 5 }
+		victory_points = { 4160 2 }
+		victory_points = { 14248 3 }
+		1956.10.14 = {
+			buildings = {
+				oilfield = 1
+			}
+		}
+		1960.10.25 = {
+			buildings = {
+				power_plant = 5
+				fuel_silo = 1
+				oilfield = 1
+				synthetic_refinery = 1
+			}
+		}
+		1970.10.25 = {
+			buildings = {
+				hospital = 2
+			}
+		}
+
+	}
+
+	provinces={
+		1047 1087 1131 1187 4092 7039 7152 9963 11938 11941 12077 10121 11981 4160 7135 14248
+	}
+}
+

@@ -1,0 +1,117 @@
+﻿capital = 543
+oob = "MAD"
+set_country_flag = french_colonies
+set_research_slots = 1
+set_country_flag = has_monarchs
+set_country_flag = indian_ocean_states
+set_convoys = 500
+set_country_flag = african_state
+set_stability = 0.75
+set_cosmetic_tag = MAD_FRA
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 8000
+    producer = FRA
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 500
+    producer = FRA
+}
+set_technology = {
+	machine_gun1 = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	motorised_infantry = 1
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+		tech_military_police = 1
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+		medical1 = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+		army_aviation = 1
+}
+set_country_flag = third_world
+set_popularities = {
+		democratic = 70
+		communism = 10
+		neutrality = 20
+}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "French Madagascar Governeor"
+	desc = ""
+	picture = "gfx/leaders/MAD/Portrait_French_Madagascar_Governeor.tga"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+1954.1.1 = {
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+}
+1960.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	set_popularities = {
+		democratic = 13
+		communism = 12
+		neutrality = 75
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+	
+		name = "Philibert Tsiranana"
+		picture = "gfx/leaders/MAD/Portrait_Madagascar_Philibert_Tsiranana.tga"
+		expire = "1990.1.1"
+		ideology = despotism
+		traits = {
+			pro_france
+		}
+	}
+	set_cosmetic_tag = MAD
+}
+1975.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_24
+	create_country_leader = {
+		name = "Didier Ratsiraka"
+		
+		picture = "gfx/leaders/MAD/Portrait_Madagascar_Didier_Ratsiraka.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+			pro_socialism pro_third_world
+		}
+	}
+}

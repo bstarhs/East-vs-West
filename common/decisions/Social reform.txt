@@ -1,0 +1,1216 @@
+Social_reform_decis = {
+	high_ension_modifiers = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = middle_ension_modifiers
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.04
+			}
+		}
+	}
+	middle_ension_modifiers = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = middle_ension_modifiers
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+		}
+	}
+	high_healthcare_modifiers = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = middle_healthcare_modifiers
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = high_healthcare_modifiers }
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.04
+			}
+			add_dynamic_modifier = { modifier = high_healthcare_modifiers }
+		}
+	}
+	middle_healthcare_modifiers = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = middle_healthcare_modifiers }
+			}
+		}
+		complete_effect = {
+			set_country_flag = middle_healthcare_modifiers
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_dynamic_modifier = { modifier = middle_healthcare_modifiers }
+		}
+	}
+	abortion_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			has_country_flag = female_alliance_decis
+			has_country_flag = social_reform
+			NOT = {
+				has_idea = Catholicism
+				has_government = fascism
+				has_dynamic_modifier = { modifier = abortion_modifiers }
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.06
+			}
+			add_to_variable = { influences = 200 }
+			custom_effect_tooltip = focus_tooltip_influence_200
+			add_dynamic_modifier = { modifier = abortion_modifiers }
+		}
+	}
+	middle_salary_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = middle_salary_modifiers }
+			}
+		}
+		complete_effect = {
+			set_country_flag = middle_salary_decis
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_dynamic_modifier = { modifier = middle_salary_modifiers }
+		}
+	}
+	hight_salary_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = middle_salary_decis
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = hight_salary_modifiers }
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_dynamic_modifier = { modifier = hight_salary_modifiers }
+		}
+	}
+	retire_age_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			set_country_flag = middle_salary_decis
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = retire_age_modifiers }
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_dynamic_modifier = { modifier = retire_age_modifiers }
+		}
+	}
+	work_injurd_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			set_country_flag = middle_salary_decis
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = work_injurd_modifiers }
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.03
+			}
+			add_dynamic_modifier = { modifier = work_injurd_modifiers }
+		}
+	}
+	middle_unemployee_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+				has_dynamic_modifier = { modifier = middle_unemployee_modifiers }
+			}
+		}
+		complete_effect = {
+			set_country_flag = middle_unemployee_decis
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_dynamic_modifier = { modifier = middle_unemployee_modifiers }
+		}
+	}
+	allow_labour_union_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+			}
+		}
+		complete_effect = {
+		}
+	}
+	hight_unemployee_decis = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = middle_unemployee_decis
+			has_country_flag = social_reform
+			NOT = {
+				has_government = fascism
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+		}
+	}
+	female_given_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = developmented
+				has_country_flag = female_given_decis
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = female_given_decis
+			country_event = { id = gen.209 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_labour_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_capital_decis
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = developmented
+				has_country_flag = female_labour_decis
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = female_labour_decis
+			set_country_flag = females_right_event
+			country_event = { id = gen.208 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_devided_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			has_country_flag = female_alliance_decis
+			NOT = {
+				has_country_flag = developmented
+				has_country_flag = female_devided_decis
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = female_devided_decis
+			set_country_flag = females_right_event
+			country_event = { id = gen.207 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_violence_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = developmented
+				has_country_flag = female_violence_decis
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = female_violence_decis
+			country_event = { id = gen.206 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_response_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 100
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			has_country_flag = female_alliance_decis
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		complete_effect = {
+			set_country_flag = females_right_event
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.01
+			}
+			add_stability = 0.01
+			country_event = { id = gen.205 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_alliance_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = female_alliance_decis
+			}
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = females_right_event
+			set_country_flag = female_alliance_decis
+			country_event = { id = gen.204 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_given_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = developmented
+				has_country_flag = female_given_decis
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = females_right_event
+			set_country_flag = female_given_decis
+			country_event = { id = gen.209 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_vote_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			has_country_flag = female_alliance_decis
+			NOT = {
+				has_country_flag = female_voted_modifiers
+			}
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		complete_effect = {
+			has_country_flag = female_educate_decis
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = females_right_event
+			set_country_flag = female_voted_modifiers
+			country_event = { id = gen.203 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_strike_conven_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.02
+			}
+			add_stability = 0.01
+			set_country_flag = females_right_event
+			country_event = { id = gen.203 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_capital_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = { has_idea = low_education }
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_alliance_decis
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = developmented
+				has_country_flag = female_capital_decis
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_stability = 0.01
+			set_country_flag = females_right_event
+			set_country_flag = female_capital_decis
+			country_event = { id = gen.202 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -60
+				add_stability = -0.01
+			}
+		}
+	}
+	female_educate_decis = {
+		icon = GFX_decision_book
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = female_finished }
+			has_country_flag = female_refrom
+			NOT = {
+				has_country_flag = developmented
+				has_dynamic_modifier = { modifier = female_educate_modifiers }
+			}
+		}
+		complete_effect = {
+			set_country_flag = females_right_event
+			set_country_flag = female_educate_decis
+			add_stability = 0.01
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			country_event = { id = gen.211 }
+			add_dynamic_modifier = { modifier = female_educate_modifiers }
+		}
+	}
+	secular_education_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 1 
+				has_government = communism
+			}
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_completed_focus = common_74
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			news_event = { id = gen.52 }
+			add_to_variable = { female_failed = 5 }
+			if = {
+				limit = {
+					NOT = {
+						or = {
+							has_idea = Secularism
+						}
+					}
+				}
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -100
+				add_stability = -0.12
+			}
+		}
+	}
+	education_more_schools_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = secular_education_decis
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			add_to_variable = { female_failed = 2 }
+		}
+	}
+	education_cloese_madrasa_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = secular_education_decis
+		}
+		complete_effect = {
+			news_event = { id = gen.261 }
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			set_country_flag = education_cloese_madrasa_decis
+			add_to_variable = { female_failed = 3 }
+			if = {
+				limit = { NOT = { OR = { has_idea = Secularism } } }
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -50
+				add_stability = -0.03
+			}
+		}
+	}
+	education_cloese_swear_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = secular_education_decis
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			add_to_variable = { female_failed = 1 }
+			if = {
+				limit = { NOT = { OR = { has_idea = Secularism } } }
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -50
+				add_stability = -0.02
+			}
+		}
+	}
+	education_teachers_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = secular_education_decis
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			add_to_variable = { female_failed = 4 }
+			if = {
+				limit = { NOT = { OR = { has_idea = Secularism } } }
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -50
+				add_stability = -0.02
+			}
+		}
+	}
+	education_science_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = secular_education_decis
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			add_to_variable = { female_failed = 3 }
+			if = {
+				limit = { NOT = { OR = { has_idea = Secularism } } }
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -50
+				add_stability = -0.02
+			}
+		}
+	}
+	education_modernized_clothes_decis = {
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = secular_education_decis
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			set_country_flag = secular_education_decis
+			add_to_variable = { female_failed = 3 }
+			if = {
+				limit = { NOT = { OR = { has_idea = Secularism } } }
+				custom_effect_tooltip = female_religion_warning_tool
+				add_political_power = -100
+				add_stability = -0.05
+			}
+		}
+	}
+	female_equality = {#司法平等
+		icon = GFX_decision_education_science
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 1 
+				has_government = communism
+			}
+		}
+		fire_only_once = yes
+		available = {
+			has_stability > 0.5
+		}
+		visible = {
+			has_country_flag = female_refrom
+		}
+		complete_effect = {
+			set_country_flag = muslim_reform
+			news_event = { id = gen.54 }
+			add_stability = 0.21
+		}
+	}
+	childes_labour_ban = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_government = communism }
+			NOT = { has_government = democratic }
+			has_dynamic_modifier = { modifier = childes_labour_modifiers }
+		}
+		complete_effect = {
+			remove_dynamic_modifier = { modifier = childes_labour_modifiers }
+			add_stability = -0.1
+		}
+	}
+	childes_labour_decision = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		visible = {
+			has_country_flag = social_reform_allow
+			NOT = { has_dynamic_modifier = { modifier = childes_labour_modifiers } }
+		}
+		complete_effect = {
+			add_political_power = 250
+			add_dynamic_modifier = { modifier = childes_labour_modifiers }
+			add_stability = 0.08
+		}
+	}
+	twelve_hour_work_ban = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_dynamic_modifier = { modifier = worktime_12_modifiers }
+			NOT = {
+				has_government = democratic
+				has_government = communism
+			}
+			has_country_flag = social_reform_allow
+		}
+		complete_effect = {
+			remove_dynamic_modifier = { modifier = worktime_12_modifiers }
+			add_stability = -0.1
+		}
+	}
+	twelve_hour_work_decision = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_flag = social_reform_allow
+			NOT = { has_dynamic_modifier = { modifier = worktime_12_modifiers } }
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+		complete_effect = {
+			add_political_power = 250
+			add_dynamic_modifier = { modifier = worktime_12_modifiers }
+			add_stability = 0.08
+		}
+	}
+	eight_hour_work_ban = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_dynamic_modifier = { modifier = eight_hour_work_modifiers }
+			NOT = {
+				has_government = democratic
+				has_government = communism
+			}
+			has_country_flag = social_reform_allow
+		}
+		complete_effect = {
+			remove_dynamic_modifier = { modifier = eight_hour_work_modifiers }
+			add_stability = -0.1
+		}
+	}
+	eight_hour_work_decision = {
+		icon = GFX_decision_generic_factory
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_dynamic_modifier = { modifier = worktime_12_modifiers }
+			has_country_flag = social_reform_allow
+			NOT = { has_dynamic_modifier = { modifier = eight_hour_work_modifiers } }
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+		complete_effect = {
+			add_political_power = 250
+			add_dynamic_modifier = { modifier = eight_hour_work_modifiers }
+			add_stability = 0.08
+		}
+	}
+	Abolish_the_death_penalty = {
+		icon = GFX_decision_bul_ban_media_nsm
+		visible = {
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+			has_idea = free_trade
+			has_country_flag = social_reform_allow
+		}
+        cost = 150
+		ai_will_do = {
+			factor = -10
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+			add_stability = -0.05
+
+		}
+		days_remove = -1
+		modifier = {
+			drift_defence_factor = -0.1
+		}
+		fire_only_once = no
+	}
+}
+Catholics_decis = {
+	bible_educate_decis = {
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			has_idea = patria_familia_ideas
+		}
+		cost = 120
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			add_stability = 0.12
+			news_event = { id = gen.150 }
+		}
+	}
+	ban_humanized_decis = {
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			has_idea = patria_familia_ideas
+		}
+		cost = 120
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			add_stability = 0.12
+			news_event = { id = gen.151 }
+		}
+	}
+	ban_globe_decis = {
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			has_idea = patria_familia_ideas
+		}
+		cost = 120
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			add_stability = 0.12
+			news_event = { id = gen.152 }
+		}
+	}
+	ban_alcohol_decis = {
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			has_idea = patria_familia_ideas
+		}
+		cost = 120
+		ai_will_do = { factor = 0 }
+		complete_effect = {
+			add_stability = 0.12
+			news_event = { id = gen.155 }
+		}
+	}
+}

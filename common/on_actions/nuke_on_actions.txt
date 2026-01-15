@@ -1,0 +1,26 @@
+on_actions = {
+	##生产##
+	on_nuke_drop = {
+		effect = {
+			FROM = {
+				add_to_variable = { this.nuke_times = 1 }
+			}
+			if = {
+				limit = {
+					FROM = {
+						check_variable = { nuke_times > 0 }
+					}
+				}
+				FROM = {
+					add_to_variable = { this.nuke_times = 1 }
+				}
+				ROOT = {
+					add_to_variable = { this.nuke_times = 1 }
+				}
+				PREV = {
+					add_to_variable = { this.nuke_times = 1 }
+				}
+			}
+		}
+	}
+}

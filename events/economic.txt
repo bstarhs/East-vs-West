@@ -1,0 +1,253 @@
+﻿add_namespace = eco
+#来自中国的支援
+country_event = {
+	id = eco.1
+	title = eco.1.t
+	desc = eco.1.d
+	picture = GFX_oil_events
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		check_variable = { this.total_expenditure > total_revenue }
+		NOT = { has_dynamic_modifier = { modifier = financial_deficit_modifier } }
+	}
+	option = {
+		name = eco.1.a
+		add_dynamic_modifier = { modifier = financial_deficit_modifier }
+	}
+}
+
+country_event = {
+	id = eco.2
+	title = eco.2.t
+	desc = eco.2.d
+	picture = GFX_oil_events
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		check_variable = { this.total_expenditure < total_revenue }
+		has_dynamic_modifier = { modifier = financial_deficit_modifier }
+	}
+	option = {
+		name = eco.2.a
+		remove_dynamic_modifier = { modifier = financial_deficit_modifier }
+	}
+}
+country_event = {
+	id = eco.3
+	title = eco.3.t
+	desc = eco.3.d
+	picture = GFX_Mines_events
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+			check_variable = { resource@oil < 0 }
+		}
+		NOT = { has_dynamic_modifier = { modifier = fuel_crisis } }
+	}
+	option = {
+		name = eco.2.a
+		add_dynamic_modifier = { modifier = fuel_crisis }
+	}
+}
+country_event = {
+	id = eco.4
+	title = eco.4.t
+	desc = eco.4.d
+	picture = GFX_Mines_events
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		check_variable = { nation_iron_free < 0 }
+		has_dynamic_modifier = { modifier = iron_lack_modifiers }
+	}
+	option = {
+		name = eco.2.a
+		add_dynamic_modifier = { modifier = iron_lack_modifiers }
+	}
+}
+country_event = {
+	id = eco.5
+	title = eco.5.t
+	desc = eco.5.d
+	picture = GFX_Mines_events
+	is_triggered_only = yes
+	option = {
+		name = eco.5.b
+		add_stability = -0.12
+		random_owned_state = {
+			limit = {
+				check_variable = { this.state_food_production < this.state_food_low_limit }
+				NOT = { has_dynamic_modifier = { modifier = no_foods_modifiers } }
+			}
+			add_dynamic_modifier = { modifier = no_foods_modifiers }
+		}
+	}
+	option = {
+		name = eco.5.a
+		add_stability = -0.12
+		random_owned_state = {
+			limit = { check_variable = { this.state_food_production < this.state_food_low_limit } }
+			add_dynamic_modifier = { modifier = no_foods_modifiers }
+			root = { goto_state = prev }
+		}
+	}
+}
+country_event = {
+	id = eco.7
+	title = eco.7.t
+	desc = eco.7.d
+	picture = GFX_Mines_events
+	is_triggered_only = yes
+	option = {
+		name = eco.7.a
+	}
+}
+country_event = {
+	id = eco.8
+	title = eco.8.t
+	desc = eco.8.d
+	picture = GFX_Mines_events
+	is_triggered_only = yes
+	option = {
+		name = eco.7.a
+	}
+}
+country_event = {
+	id = eco.9
+	title = eco.9.t
+	desc = eco.9.d
+	picture = GFX_Mines_events
+	is_triggered_only = yes
+	option = {
+		name = eco.7.a
+	}
+}
+country_event = {
+	id = eco.10
+	title = eco.10.t
+	desc = eco.10.d
+	picture = GFX_Mines_events
+	is_triggered_only = yes
+	option = {
+		name = eco.7.a
+	}
+}
+news_event = {
+	id = eco.11
+	title = eco.11.t
+	desc = eco.11.d
+	picture = GFX_education
+	is_triggered_only = yes
+	option = {
+		name = eco.11.a
+	}
+}
+news_event = {  #识字率
+	id = eco.12
+	title = eco.12.t
+	desc = eco.12.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		NOT = {
+			OR = {
+			has_idea = low_education
+			has_idea = mid_education
+			}
+		}
+		check_variable = { this.education < 60 }
+	}
+	option = {
+		name = eco.11.a
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.04
+			}
+		if = {
+			limit = {
+				check_variable = { this.education < 25 }
+			}
+			add_ideas = low_education
+		}
+		if = {
+			limit = {
+				check_variable = { this.education > 25 }
+				check_variable = { this.education < 60 }
+			}
+			add_ideas = mid_education
+		}
+	}
+}
+news_event = {
+	id = eco.13
+	title = eco.13.t
+	desc = eco.13.d
+	picture = GFX_education
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		OR = {
+			AND = {
+				has_idea = low_education
+				check_variable = { this.education > 25 }
+			}
+			AND = {
+				has_idea = mid_education
+				check_variable = { this.education > 60 }
+			}
+		}
+	}
+	option = {
+		name = eco.11.a
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+		if = {
+			limit = {
+				check_variable = { this.education > 60 }
+			}
+			remove_ideas = low_education
+			remove_ideas = mid_education
+		}
+		if = {
+			limit = {
+				check_variable = { this.education > 25 }
+				check_variable = { this.education < 60 }
+			}
+			remove_ideas = low_education
+			add_ideas = mid_education
+		}
+	}
+}
+news_event = {
+	id = eco.14
+	title = eco.14.t
+	desc = eco.14.d
+	picture = GFX_Mines_events
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			check_variable = { resource@oil > 0 }
+		}
+		has_dynamic_modifier = { modifier = fuel_crisis }
+	}
+	option = {
+		name = eco.2.a
+		remove_dynamic_modifier = { modifier = fuel_crisis }
+	}
+}
+news_event = {
+	id = eco.15
+	title = eco.15.t
+	desc = eco.15.d
+	picture = GFX_Textile
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			check_variable = { civil_factory_use < 2 }
+		}
+		NOT = { has_country_flag = industry_admire }
+	}
+	option = {
+		name = eco.15.a
+		set_country_flag = industry_admire
+	}
+}

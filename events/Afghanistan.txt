@@ -1,0 +1,365 @@
+﻿add_namespace = afg
+#达乌德政变
+country_event = {
+	id = afg.5
+	title = afg.5.t
+	desc = afg.5.d
+	picture = GFX_Daoud
+	fire_only_once = yes
+	trigger = {
+		tag = AFG
+		date > 1973.1.1
+		date < 1973.12.1
+	}
+	
+	
+	option = {	#支持政变
+		name = afg.5.b
+		ai_chance = {
+			factor = 75	
+		}
+			set_politics = { ruling_party = authoritarianism }
+		create_country_leader = {
+			name = "Mohammed Daoud Khan"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/AFG/Portrait_Afghanistan_Daoud_Khan.tga"
+			expire = "1988.1.1"
+			ideology = authoritarianism
+			traits = {
+			}
+		}
+	}
+}
+#四月革命
+country_event = {
+	id = afg.10
+	title = afg.10.t
+	desc = afg.10.d
+	picture = GFX_AFG1978
+	fire_only_once = yes
+	trigger = {
+		tag = AFG
+		date > 1978.4.1
+		date < 1978.5.1
+		has_government = authoritarianism
+	}
+	option = {	#支持政变
+		name = afg.10.a
+		ai_chance = {
+			factor = 1	
+		}
+		AFG = {
+			complete_national_focus = common_2
+			complete_national_focus = common_26
+			set_politics = { ruling_party = communism }
+		}
+	}
+	
+	option = {	#反对政变
+		name = afg.10.b
+		ai_chance = {
+			factor = 0
+		}
+		start_civil_war = {
+			ideology = communism
+			states = { 267 }
+		}
+	}
+}
+#阿明政变
+news_event = {
+	id = afg.13
+	title = afg.13.t
+	desc = afg.13.d
+	picture = GFX_Afghan_Amin
+	fire_only_once = yes
+	trigger = {
+		tag = AFG
+		date > 1979.9.1
+		date < 1979.11.1
+		has_government = communism
+	}
+	option = {	#支持政变
+		name = afg.10.b
+		AFG = {
+			news_event = { id = afg.27 }
+			set_country_flag = AFG_amin
+			add_stability = -0.4
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			create_country_leader = {
+				name = "Hafizullah Amin"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "gfx/leaders/AFG/Portrait_Afghanistan_Hafizullah_Amin.tga"
+				expire = "1988.1.1"
+				ideology = stalinism
+				traits = {
+					anti_religion_trait
+				}
+			}
+		}
+		SOV = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AFG
+			}
+		}
+	}
+}
+#苏联抗议
+news_event = {
+	id = afg.18
+	title = afg.18.t
+	desc = afg.18.d
+	picture = GFX_Afghan_Amin
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = afg.18.a	#接受
+		ai_chance = {
+			factor = 1
+		}
+		SOV = { news_event = { id = afg.19 } }
+	}
+	option = {
+		name = afg.18.b	#拒绝
+		AFG = {
+			set_cosmetic_tag = AFG_1980
+			create_country_leader = {
+				name = "Babrak Karmal"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "gfx/leaders/AFG/Portrait_Afghanistan_Babrak_Karmal.tga"
+				expire = "1988.1.1"
+				ideology = stalinism
+				traits = {
+				}
+			}
+		}
+	}
+}
+#阿富汗拒绝
+news_event = {
+	id = afg.19
+	title = afg.19.t
+	desc = afg.19.d
+	picture = GFX_Afghan_Amin
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			base = 10
+		}
+		name = afg.19.a	#攻击
+		declare_war_on = {
+			target = AFG
+			type = puppet_wargoal_focus 
+		}
+		news_event = { id = afg.20 }
+		add_to_variable = { influences = -200 } 
+	}
+	option = {
+		ai_chance = {
+			base = 1
+		}
+		name = afg.19.b	#放弃
+		add_stability = -0.10
+	}
+}
+#入侵阿富汗新闻
+news_event = {
+	id = afg.20
+	title = afg.20.t
+	desc = afg.20.d
+	picture = GFX_SovietAfghanistan
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = SOV_8
+	}
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+
+#傀儡阿富汗领导人
+news_event = {
+	id = afg.21
+	title = afg.21.t
+	desc = afg.21.d
+	picture = GFX_SovietAfghanistan
+	is_triggered_only = yes
+	major = yes
+	option = {	#巴卜拉克·喀马尔
+		name = afg.21.b
+		ai_chance = {
+			factor = 75	
+		}
+		if = {
+			limit = { tag = SOV }
+			add_ideas = Invade_afghanistan
+			end_puppet = AFG
+			give_guarantee = AFG
+		}
+		if = {
+			limit = { tag = AFG }
+			set_cosmetic_tag = AFG_1980
+ 			transfer_state = 267
+ 			transfer_state = 415
+			white_peace = SOV
+			create_country_leader = {
+				name = "Babrak Karmal"
+				picture = "gfx/leaders/AFG/Portrait_Afghanistan_Babrak_Karmal.tga"
+				expire = "1988.1.1"
+				ideology = stalinism
+				traits = {
+				}
+			}
+		}
+	}
+}
+#阿富汗伊斯兰党起义
+news_event = {
+	id = afg.23
+	title = afg.23.t
+	desc = afg.23.d
+	picture = GFX_Taliban
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = AFG
+		has_government = communism
+		has_stability < 0.4
+		has_war = no
+		OR = { 
+			any_owned_state = { resistance > 70 }
+			neutrality > 0.2
+			fascism > 0.2
+		}
+	}
+	option = {
+		name = afg.23.a	#攻击
+		AFG = {
+			set_cosmetic_tag = AFG_1987
+			start_civil_war = {
+				set_cosmetic_tag = AFG_1987
+				ideology = neutrality
+				capital = 415
+				states = { 415 }
+			}
+			create_country_leader = {
+				name = "Sibghatullah Mojaddedi"
+				picture = "gfx/leaders/AFG/Portrait_Afghanistan_Sibghatullah_Mojaddedi.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+		}
+		SOV = { news_event = { id = afg.24 } }
+	}
+}
+#阿富汗求助
+news_event = {
+	id = afg.24
+	title = afg.24.t
+	desc = afg.24.d
+	picture = GFX_Taliban
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.24.a	#帮助
+		add_war_support = 0.02
+		add_political_power = -100
+	}
+	
+	option = {
+		name = afg.24.b	#拒绝
+		add_political_power = -100
+		add_war_support = -0.1
+	}
+}
+#阿富汗伊斯兰党夺权
+news_event = {
+	id = afg.25
+	title = afg.25.t
+	desc = afg.25.d
+	picture = GFX_IslamAghanistan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = afg.24.a	#帮助
+	}
+}
+#泛穆斯林起义
+news_event = {
+	id = afg.26
+	title = afg.26.t
+	desc = afg.26.d
+	picture = GFX_Taliban
+	mean_time_to_happen = {
+		days = 60
+	}
+	trigger = {
+		AND = { 
+			date > 1970.1.1
+			fascism > 0.15
+			has_war = no
+			has_stability < 0.5
+			has_country_flag = islam_state
+			NOT = { has_government = fascism }
+			any_owned_state = { resistance > 50 }
+		}
+		OR = { 
+			fascism > 0.3	
+			has_stability < 0.3
+			
+		}
+	}
+	option = {
+		name = afg.16.a	#攻击
+			start_civil_war = {
+				ideology = fascism
+			}
+	}
+}
+#阿明
+news_event = {
+	id = afg.27
+	title = afg.27.t
+	desc = afg.27.d
+	picture = GFX_Afghan_Amin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.24.a
+	}
+}
+
+news_event = {
+	id = afg.110
+	title = afg.110.t
+	desc = afg.110.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+news_event = {
+	id = afg.111
+	title = afg.111.t
+	desc = afg.111.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}

@@ -1,0 +1,216 @@
+on_actions = {
+	##玉米投资##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					has_idea = SOV_corn_movement
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_owned_by = SOV
+						has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+						check_variable = { corn_invest_var < 5 }
+					}
+					save_event_target_as = STATES_need_invest
+					state_event = {
+						id = sov.331
+						trigger_for = controller
+					}	
+				}
+			}
+		}
+	}
+	##玉米收获##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					has_idea = SOV_corn_movement
+					is_in_altum_SOV = no
+					any_owned_state = { has_state_flag = SOV_corn_reported }
+				}
+			}
+			every_controlled_state = { clr_state_flag = SOV_corn_reported }
+		}
+	}
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					has_idea = SOV_corn_movement
+					is_in_altum_SOV = yes
+					NOT = { has_state_flag = SOV_corn_reported }
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_owned_by = SOV
+						has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+					}
+					save_event_target_as = STATES_need_invest
+					set_state_flag = SOV_corn_reported
+					random_list = {
+						THIS.corn_invest_var = {
+							modifier = {
+								add = 2
+								is_core_of = KAZ
+							}
+							modifier = {
+								add = 5
+								is_core_of = UKR
+							}
+							state_event = { id = sov.332 trigger_for = controller }
+							add_to_variable = { corn_succes = 1 }
+							
+						}
+						THIS.corn_invest_var = {
+							modifier = {
+								factor = 0.6
+							}
+							modifier = {
+								factor = 1.5
+								is_core_of = UKR
+							}
+							state_event = { id = sov.333 trigger_for = controller }
+							add_to_variable = { corn_succes = 2 }
+							
+						}
+						7 = {
+							state_event = { id = sov.334 trigger_for = controller }	
+						}
+						2 = {
+							state_event = { id = sov.335 trigger_for = controller }	
+							add_to_variable = { corn_succes = -1 }
+						}
+					}
+				}
+			}
+		}
+	}
+	##生产##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = { has_global_flag = ISR_diploped }
+				clr_global_flag = ISR_diploped
+			}
+		}
+	}
+	##加成##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = { has_tech = dispersed_industry2 }
+				multiply_variable = { sugar_num = 1.5 }
+				multiply_variable = { tobacco_num = 1.5 }
+				multiply_variable = { food_num = 1.4 }
+			}
+		}
+	}
+	##消耗##
+	on_weekly = {
+		effect = {
+			set_variable = { nation_steel_coast = 0 }
+			set_variable = { total_state_food_neighber = 0 }
+			#汽车需求#	
+			#电子需求#		
+			set_variable = { electronic_request = 0 }
+			set_variable = { electronic_request_60 = 0 }
+			if = {
+				limit = { has_tech = electronic_mechanical_engineering }
+				every_core_state = {
+					if = {
+						add_to_variable = { PREV.electronic_request = 6 }
+					}
+					if = {
+						limit = { has_state_category = large_city }
+						add_to_variable = { PREV.electronic_request = 6 }
+					}
+					if = {
+						limit = { has_state_category = large_town }
+						add_to_variable = { PREV.electronic_request = 4 }
+					}
+					if = {
+						limit = { has_state_category = megalopolis }
+						add_to_variable = { PREV.electronic_request = 8 }
+					}
+					if = {
+						limit = { has_state_category = metropolis }
+						add_to_variable = { PREV.electronic_request = 8 }
+					}
+					if = {
+						limit = { has_state_category = town }
+						add_to_variable = { PREV.electronic_request = 4 }
+					}
+				}
+			}
+			multiply_variable = { electronic_request = 0.5 }
+			add_to_variable = { electronic_request_60 = electronic_request }
+			multiply_variable = { electronic_request_60 = 0.6 }
+			#糖需求#		
+			set_variable = { nation_sugar_cost = 0 }
+			set_variable = { nation_sugar_cost_60 = 0 }	
+			every_core_state = {
+				if = {
+					limit = { has_state_category = city }
+					add_to_variable = { PREV.nation_sugar_cost = 1 }
+				}
+				if = {
+					limit = { has_state_category = large_city }
+					add_to_variable = { PREV.nation_sugar_cost = 1 }
+				}
+				if = {
+					limit = { has_state_category = large_town }
+					add_to_variable = { PREV.nation_sugar_cost = 2 }
+				}
+				if = {
+					limit = { has_state_category = megalopolis }
+					add_to_variable = { PREV.nation_sugar_cost = 2 }
+				}
+				if = {
+					limit = { has_state_category = metropolis }
+					add_to_variable = { PREV.nation_sugar_cost = 2 }
+				}
+				if = {
+					limit = { has_state_category = town }
+					add_to_variable = { PREV.nation_sugar_cost = 2 }
+				}
+			}
+			add_to_variable = { nation_sugar_cost = factory_sugar_cost }
+			add_to_variable = { nation_sugar_cost_60 = nation_sugar_cost }
+			multiply_variable = { nation_sugar_cost_60 = 0.6 }
+			#总的#	
+			add_to_variable = { nation_steel_coast = complex_steel_coast }
+			add_to_variable = { nation_aluminium_coast = complex_aluminium_coast }
+		}
+	}
+	#加成#
+	on_weekly = {
+		effect = {
+		}
+	}
+	##盈余##
+	on_weekly = {
+		effect = {
+			set_variable = { nation_coffee_free = 0 }
+			add_to_variable = { nation_coffee_free = coffee_num }
+			subtract_from_variable = { nation_coffee_free = nation_coffee_cost }
+		}
+		effect = {
+			if = {
+				limit = { has_idea_with_trait = auto_manufacturer }
+				set_variable = { auto_output_production = 0 }
+				add_to_variable = { auto_output_production = auto_request }
+				multiply_variable = { auto_output_production = 1.6 }
+			}
+		}
+		effect = {
+			set_variable = { electronic_free = 0 }
+			add_to_variable = { electronic_free = consumer_electronic }
+			subtract_from_variable = { electronic_free = electronic_request }
+		}
+	}
+}

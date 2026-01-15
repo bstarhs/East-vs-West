@@ -1,0 +1,236 @@
+ideas = {
+
+	country = {
+
+		polish_catholics = {
+			
+			removal_cost = -1
+		
+			allowed = {
+				always = no
+				tag = POL
+			}
+		
+			removal_cost = -1
+
+			picture = polish_catholics
+			modifier = {
+				democratic_drift = 0.02
+				war_support_factor = -0.15
+				drift_defence_factor = -0.1
+				custom_modifier_tooltip = polish_catholics_tool
+			}
+		}
+		Solidarnosc = {
+			
+			removal_cost = -1
+		
+			allowed = {
+				always = no
+				tag = POL
+			}
+		
+			removal_cost = -1
+
+			picture = Solidarnosc_ideas
+			cancel = {
+				NOT = { has_government = communism }
+				
+			}
+			modifier = {
+				democratic_drift = 0.02
+				stability_factor = -0.3
+				war_support_factor = -0.3
+				drift_defence_factor = -0.1
+				political_power_gain = -0.05
+			}
+		}
+	
+		three_hight = {
+			
+			allowed = {
+				tag = POL
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			removal_cost = -1
+	
+			picture = generic_manpower_bonus
+		
+			modifier = {
+				democratic_drift = 0.02
+				production_speed_infrastructure_factor = 0.2
+				consumer_goods_factor = 0.1
+			}
+		}	
+	
+	}
+
+
+	political_advisor = {
+		Stanislaw_Radkiewicz = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date < 1955.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Jozef_Cyrankiewicz = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1950.1.1
+				date < 1980.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Gomulka = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1953.1.1
+				date < 1956.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Hilary_Minc = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date < 1956.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Wlodzimierz_Sokorski = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date < 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Jozef_Swiatlo = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date < 1953.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Jacek_Kuron = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1960.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Mieczyslaw_Moczar = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1956.1.1
+				date < 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		gielek = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1968.1.1
+				date < 1975.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Ceslaw_Kiszczak = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Tadeusz_Mazowiecki = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		albin_siwak = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Leszek_Balcerowicz = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date > 1990.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+	army_chief = {
+		Rokossovsky = {
+			allowed = {
+				tag = POL
+			}
+			visible = {
+				date < 1968.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+}

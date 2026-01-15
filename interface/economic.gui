@@ -1,0 +1,701 @@
+guiTypes = {
+	containerWindowType = {
+		name = "economic_button_container"
+		position = { x=255 y=37 }
+		buttonType = {
+			name = "economic_button"
+			spriteType = "GFX_economic_button"
+				position = { x = 61 y = 0 }
+				Orientation = "UPPER_LEFT"
+				clicksound = click_close
+				oversound = ui_menu_over
+					shortcut = "r"
+			pdx_tooltip = "finance_button"
+		}
+	}
+
+	containerWindowType = {
+		name = "economic_background_container"
+		position = {x = 400 y = 200 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		instantTextboxType = {
+			name = "revenue_time_tips"
+			position = { x = 100 y = 60 }
+			textureFile = ""
+			font = "hoi_18mbs"
+			text = "revenue_time_tips"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		buttonType = {
+			name = "close_button"
+			position = {x= 1050 y = -0 }
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+			clicksound = click_close
+		}	
+		background = {
+			name = "Background"
+			spriteType = "GFX_economic_background"
+		}
+		buttonType = {
+			name = "revenue_button"
+			position = {x= 450 y = 200 }
+			spriteType = "GFX_economic_revenue"
+			clicksound = click_close
+		}
+		buttonType = {
+			name = "tax_button"
+			position = {x= 510 y = 200 }
+			spriteType = "GFX_economic_tax"
+			clicksound = click_close
+		}
+		buttonType = {
+			name = "tourism_button"
+			position = {x= 570 y = 200 }
+			spriteType = "GFX_economic_tourism"
+			clicksound = click_close
+		}
+		iconType = {
+			name = "economic_in_war"
+			spriteType = "GFX_idea_AK47" 
+			pdx_tooltip = "economic_in_war"
+			position = {x= 270 y = 250 }
+			scale = 1.4
+		}
+		iconType = {
+			name = "economic_sanctions"
+			spriteType = "GFX_idea_sanctions" 
+			pdx_tooltip = "sanctions_in_war"
+			position = {x= 380 y = 250 }
+			scale = 1.2
+		}
+	}
+
+	containerWindowType = {
+		name = "economic_tourism_container"
+		position = {x = 0 y = 0 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		instantTextboxType = {
+			name = "tourism_title"
+			position = { x = 100 y = 320 }
+			textureFile = ""
+			font = "hoi_36header"
+			text = "tourism_title"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		iconType = {
+			name = "GFX_PRC_tourism"
+			spriteType = "GFX_PRC_tourism" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_Africa"
+			spriteType = "GFX_tourism_Africa" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_ARG"
+			spriteType = "GFX_tourism_ARG" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_AST"
+			spriteType = "GFX_tourism_AST" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_BRA"
+			spriteType = "GFX_tourism_BRA" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_CAN"
+			spriteType = "GFX_tourism_CAN" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_EGY"
+			spriteType = "GFX_tourism_EGY" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_ENG"
+			spriteType = "GFX_tourism_ENG" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_FIN"
+			spriteType = "GFX_tourism_FIN" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_FRA"
+			spriteType = "GFX_tourism_FRA" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_GRE"
+			spriteType = "GFX_tourism_GRE" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_HOL"
+			spriteType = "GFX_tourism_HOL" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_HUN"
+			spriteType = "GFX_tourism_HUN" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_INS"
+			spriteType = "GFX_tourism_INS" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_IRQ"
+			spriteType = "GFX_tourism_IRQ" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_ITA"
+			spriteType = "GFX_tourism_ITA" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_JAP"
+			spriteType = "GFX_tourism_JAP" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_KOR"
+			spriteType = "GFX_tourism_KOR" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_Magrib"
+			spriteType = "GFX_tourism_Magrib" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_MALI"
+			spriteType = "GFX_tourism_MALI" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_NOR"
+			spriteType = "GFX_tourism_NOR" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_PER"
+			spriteType = "GFX_tourism_PER" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_PHI"
+			spriteType = "GFX_tourism_PHI" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_POL"
+			spriteType = "GFX_tourism_POL" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_RAJ"
+			spriteType = "GFX_tourism_RAJ" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_ROM"
+			spriteType = "GFX_tourism_ROM" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_SAF"
+			spriteType = "GFX_tourism_SAF" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_SIA"
+			spriteType = "GFX_tourism_SIA" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "tourism_POL"
+			spriteType = "GFX_tourism_POL" 
+			position = { x = 530 y = 300 }
+		}
+	}
+	containerWindowType = {
+		name = "economic_system_container"
+		position = {x = 0 y = 0 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		instantTextboxType = {
+			name = "buissness_title"
+			position = { x = 100 y = 250 }
+			textureFile = ""
+			font = "hoi_36header"
+			text = "buissness_title"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		instantTextboxType = {
+			name = "revenue_title"
+			position = { x = 100 y = 360 }
+			textureFile = ""
+			font = "hoi_36header"
+			text = "revenue_title"
+			pdx_tooltip = "building_revenue_detail"
+			maxWidth = 800
+			maxHeight = 30
+			format = left
+		}
+		instantTextboxType = {
+			name = "revenue_detail"
+			position = { x = 100 y = 400 }
+			textureFile = ""
+			font = "hoi_18mbs"
+			text = "revenue_detail"
+			pdx_tooltip = "building_revenue_detail"
+			maxWidth = 200
+			maxHeight = 200
+			format = left
+		}
+		instantTextboxType = {
+			name = "expenditure_title"
+			position = { x = 400 y = 360 }
+			textureFile = ""
+			font = "hoi_36header"
+			pdx_tooltip = "buildingcost_detail"
+			text = "expenditure_title"
+			maxWidth = 800
+			maxHeight = 30
+			format = left
+		}
+		instantTextboxType = {
+			name = "expenditure_detail"
+			position = { x = 400 y = 400 }
+			textureFile = ""
+			font = "hoi_18mbs"
+			text = "expenditure_detail"
+			pdx_tooltip = "buildingcost_detail"
+			maxWidth = 200
+			maxHeight = 200
+			format = left
+		}
+		
+		iconType = {
+			name = "economic_NZL"
+			spriteType = "GFX_economic_NZL" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CUB"
+			spriteType = "GFX_economic_CUB" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_AST"
+			spriteType = "GFX_economic_AST" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_MON"
+			spriteType = "GFX_economic_MON" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_LBA"
+			spriteType = "GFX_economic_LBA" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SML"
+			spriteType = "GFX_economic_SML" 
+			position = { x = 530 y = 400 }
+		}
+		
+		iconType = {
+			name = "economic_INDOCHINA"
+			spriteType = "GFX_economic_INDOCHINA" 
+			position = { x = 530 y = 300 }
+		}
+		iconType = {
+			name = "economic_BUR"
+			spriteType = "GFX_economic_BUR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_JOR"
+			spriteType = "GFX_economic_JOR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_MOR"
+			spriteType = "GFX_economic_MOR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_MAL"
+			spriteType = "GFX_economic_MAL" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_AFG"
+			spriteType = "GFX_economic_AFG" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_ALB"
+			spriteType = "GFX_economic_ALB" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PLN"
+			spriteType = "GFX_economic_PLN" 
+			position = { x = 530 y = 400 }
+		}
+		
+		iconType = {
+			name = "economic_USD"
+			spriteType = "GFX_economic_USD" 
+			position = { x = 530 y = 400 }
+		}
+		
+		iconType = {
+			name = "economic_RHO"
+			spriteType = "GFX_economic_RHO" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_YUG"
+			spriteType = "GFX_economic_YUG" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_FRA" 
+			spriteType = "GFX_economic_FRA" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_APR"
+			spriteType = "GFX_economic_APR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_BRL"
+			spriteType = "GFX_economic_BRL" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_BGN"
+			spriteType = "GFX_economic_BGN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_FIN"
+			spriteType = "GFX_economic_FIN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_VIN"
+			spriteType = "GFX_economic_VIN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PRK"
+			spriteType = "GFX_economic_PRK" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_DDR"
+			spriteType = "GFX_economic_DDR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PHI"
+			spriteType = "GFX_economic_PHI" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_KOR"
+			spriteType = "GFX_economic_KOR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_HOL"
+			spriteType = "GFX_economic_HOL" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CAN"
+			spriteType = "GFX_economic_CAN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CZE"
+			spriteType = "GFX_economic_CZE" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_ROM"
+			spriteType = "GFX_economic_ROM" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_MEX"
+			spriteType = "GFX_economic_MEX" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SAF"
+			spriteType = "GFX_economic_SAF" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_JAP"
+			spriteType = "GFX_economic_JAP" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CHI"
+			spriteType = "GFX_economic_CHI" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CCP"
+			spriteType = "GFX_economic_CCP" 
+			pdx_tooltip = "currencies_RMB"
+			pdx_tooltip_delayed = "currencies_inflation"
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_RMB80"
+			spriteType = "GFX_economic_RMB80" 
+			pdx_tooltip = "currencies_RMB"
+			pdx_tooltip_delayed = "currencies_inflation"
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_RMB50"
+			spriteType = "GFX_economic_RMB50" 
+			pdx_tooltip = "currencies_RMB"
+			pdx_tooltip_delayed = "currencies_inflation"
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_RMB"
+			spriteType = "GFX_economic_RMB" 
+			pdx_tooltip = "currencies_RMB"
+			pdx_tooltip_delayed = "currencies_inflation"
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SUR"
+			spriteType = "GFX_economic_SUR" 
+			position = { x = 530 y = 400 }
+		}
+
+		iconType = {
+			name = "economic_TUR"
+			spriteType = "GFX_economic_TUR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PAK"
+			spriteType = "GFX_economic_PAK" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_WDR"
+			spriteType = "GFX_economic_WDR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_RAJ"
+			spriteType = "GFX_economic_RAJ" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_DEN"
+			spriteType = "GFX_economic_DEN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CAM"
+			spriteType = "GFX_economic_CAM" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_QAT"
+			spriteType = "GFX_economic_QAT" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_LAO_mornach"
+			spriteType = "GFX_economic_LAO_mornach" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_LEB"
+			spriteType = "GFX_economic_LEB" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_IRE"
+			spriteType = "GFX_economic_IRE" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_ANG"
+			spriteType = "GFX_economic_ANG" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_OMA"
+			spriteType = "GFX_economic_OMA" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_EGY"
+			spriteType = "GFX_economic_EGY" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_ETH"
+			spriteType = "GFX_economic_ETH" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PAR"
+			spriteType = "GFX_economic_PAR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_BRA"
+			spriteType = "GFX_economic_BRA" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_BOL"
+			spriteType = "GFX_economic_BOL" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_AUS"
+			spriteType = "GFX_economic_AUS" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_CHL"
+			spriteType = "GFX_economic_CHL" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_ENG"
+			spriteType = "GFX_economic_ENG" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_INS"
+			spriteType = "GFX_economic_INS" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_ITA"
+			spriteType = "GFX_economic_ITA" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PER_islam"
+			spriteType = "GFX_economic_PER_islam" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_PER"
+			spriteType = "GFX_economic_PER" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_IRQ"
+			spriteType = "GFX_economic_IRQ" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_GEO"
+			spriteType = "GFX_economic_GEO" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SYR"
+			spriteType = "GFX_economic_SYR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_HUN"
+			spriteType = "GFX_economic_HUN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SIG"
+			spriteType = "GFX_economic_SIG" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_GRE"
+			spriteType = "GFX_economic_GRE" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SPR"
+			spriteType = "GFX_economic_SPR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_VEN"
+			spriteType = "GFX_economic_VEN" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SIA"
+			spriteType = "GFX_economic_SIA" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SAU"
+			spriteType = "GFX_economic_SAU" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SWE"
+			spriteType = "GFX_economic_SWE" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_POR"
+			spriteType = "GFX_economic_POR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_NOR"
+			spriteType = "GFX_economic_NOR" 
+			position = { x = 530 y = 400 }
+		}
+		iconType = {
+			name = "economic_SVN"
+			spriteType = "GFX_economic_SVN" 
+			position = { x = 530 y = 400 }
+		}
+	}
+}

@@ -1,0 +1,36 @@
+
+state={
+	id=243
+	name="STATE_243"
+	manpower = 576210
+	
+	state_category = town
+
+	history={
+		owner = SOV
+		victory_points = { 11336 3 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		set_state_flag = ethnics_Russian
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 5
+			air_base = 2
+		}
+		add_core_of = SOV
+		1955.1.1 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			buildings = {
+				farm_building = 3
+				power_plant = 1
+				industrial_complex = 2
+			}
+		}
+	}
+
+	provinces={
+		223 236 3210 3278 3297 6243 9253 9351 11336 
+	}
+}

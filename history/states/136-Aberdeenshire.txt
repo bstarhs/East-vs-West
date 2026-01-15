@@ -1,0 +1,56 @@
+
+state={
+	id=136
+	name="STATE_136"
+	manpower = 745466
+	
+	state_category = town
+	resources={
+		tungsten=6
+		aluminium=4
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Scottish
+		add_to_array = { this.state_ethnics_list = 146 }
+		owner = ENG
+		victory_points = {
+			200 3
+		}
+		victory_points = {
+			11136 8
+		}
+		victory_points = {
+			13593 2
+		}
+		victory_points = {
+			11207 2
+		}
+		victory_points = {
+			3150 5
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 6
+			dockyard = 1
+		}
+		1975.12.24 = {
+			buildings = {
+				oilfield = 3
+				synthetic_refinery = 3
+			}
+		}
+		add_core_of = ENG
+		add_core_of = SCO
+		
+	}
+
+	provinces={
+		200 3150 9161 11055 11136 11207 11306 13593
+	}
+}

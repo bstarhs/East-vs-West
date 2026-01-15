@@ -1,0 +1,45 @@
+﻿add_namespace = europe
+#红色旅
+news_event = {
+	id = europe.2
+	title = europe.2.t
+	desc = europe.2.d
+	picture = GFX_Deutscher_Herbst
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		AND = {
+			date > 1968.1.1
+			NOT = { has_government = communism }
+			has_stability < 0.5
+			communism > 0.3
+		}
+		AND = {
+			OR = {
+				PRC = { has_idea = Cultrue_Revolution }
+				VIN = { has_war_with = SVN }
+			}
+		}
+		OR = {
+			tag = NOR 
+			tag = SWE
+			tag = FIN
+			tag = WDR
+			tag = ITA
+			tag = IRE
+			tag = FRA
+			tag = BEL
+			tag = HOL
+			tag = SPR
+			tag = POR
+			tag = AUS
+			tag = DEN
+		}
+	}
+	option = {
+		name = europe.2.a
+		add_ideas = Red_Brigade
+		add_stability = -0.15
+	}
+}

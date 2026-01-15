@@ -1,0 +1,41 @@
+
+state={
+	id=35
+	name="STATE_35" # Brabant
+	manpower = 1449000
+	
+	state_category = city
+
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Dutch
+                              
+		owner = HOL
+		add_to_array = { this.state_ethnics_list = 64 }
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 7
+			industrial_complex = 3
+			school = 1
+			power_plant = 1
+		}
+		1952.1.1 = {
+			buildings = {
+				power_plant = 3
+			}
+		}
+		victory_points = {
+			6496 5
+		}
+		victory_points = {
+			11562 8
+		}
+
+	}
+
+	provinces={
+		3262 6496 6500 11456 11562 
+	}
+}

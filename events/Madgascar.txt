@@ -1,0 +1,96 @@
+﻿add_namespace = mad
+
+#安哥拉起义
+news_event = {
+	id = mad.1
+	title = mad.1.t
+	desc = mad.1.d
+	picture = GFX_AfricanTroopsEarly
+	mean_time_to_happen = {
+		days = 50
+	}
+	major = yes
+	trigger = {
+		tag = FRA
+		date > 1947.1.1
+		date < 1950.1.1
+		OR = {
+			controls_state = 543
+			has_subject = MAD
+		}
+		924 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+	}
+	option = {	
+		name = mad.1.a
+		if = {
+			limit = { tag = FRA }
+			add_political_power = -80
+			543 = {
+				add_resistance = 12
+			}
+			923 = {
+				add_resistance = 12
+			}
+			924 = {
+				add_resistance = 12
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			925 = {
+				add_resistance = 12
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+	}
+}
+#安人运起义
+news_event = {
+	id = mad.2
+	title = mad.2.t
+	desc = mad.2.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 150
+	}
+	trigger = {
+		tag = FRA  
+		OR = {
+			controls_state = 543
+			has_subject = MAD
+		}
+		543 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	
+	option = {	
+		name = mad.2.a
+		924 = { add_resistance = 8 }
+		925 = { add_resistance = 8 }
+	}
+}
+#越盟被击败
+news_event = {
+	id = mad.9
+	title = mad.9.t
+	desc = mad.9.d
+	picture = GFX_ColoneyTroops
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	trigger = {
+		tag = FRA
+		date > 1949.1.1
+		OR = {
+			controls_state = 543
+			has_subject = MAD
+		}
+		543 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		543 = { resistance < 10 }
+	}
+	option = {
+		name = mad.7.a
+		543 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		923 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		924 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		925 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+}

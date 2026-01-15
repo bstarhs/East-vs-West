@@ -1,0 +1,75 @@
+characters={
+	BUL_Zhivkov={
+		name=BUL_Zhivkov
+		portraits={
+			civilian={
+				large="gfx/leaders/BUL/Portrait_Bulgaria_Zhivkov.tga"
+				small="gfx/interface/ideas/idea_Zhivkov.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { pro_soviet }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Zhivkov
+			allowed  = {
+				original_tag  = BUL
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	BUL_Chelvenkov={
+		name=BUL_Chelvenkov
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Chelvenkov.dds"
+				large="gfx/leaders/BUL/Portrait_Bulgaria_Chelvenkov.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { pro_soviet staunch_stalinist stalins_puppet }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Chelvenkov
+			allowed  = {
+				original_tag  = BUL
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	BUL_Traycho_Kostov={
+		name=BUL_Traycho_Kostov
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Traycho_Kostov.dds"
+				large="gfx/leaders/BUL/Portrait_Traycho_Kostov.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { socialist_reformism independent_red pro_third_world }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Traycho_Kostov
+			allowed  = {
+				original_tag  = BUL
+				has_government  = communism 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+	}
+}

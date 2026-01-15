@@ -1,0 +1,46 @@
+state={
+	id=960
+	name="STATE_960"
+	resources={
+		iron=6
+	}
+
+	state_category = town
+
+
+	history={
+		set_state_flag = ethnics_Yankee
+		add_claim_by = VMT
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 174 }
+		add_to_array = { this.state_ethnics_list = 175 }
+		add_to_array = { this.state_ethnics_list = 85 }
+		add_to_array = { this.state_ethnics_list = 140 }
+                               
+		owner = USA
+		buildings = {
+			power_plant = 1
+			hospital = 1
+			infrastructure = 4
+			farm_building = 2
+			arms_factory = 1
+			industrial_complex = 2
+
+		}
+		victory_points = { 4445 6 }
+		victory_points = { 7629 3 }
+		add_core_of = USA
+		add_core_of = NEN
+		1982.5.23 = {
+			add_dynamic_modifier = { modifier = RustBelt_modifiers }
+		}
+
+	}
+
+	provinces={
+		13158 7629 4445 9675 14263 14264 
+	}
+	manpower=8404713
+	buildings_max_level_factor=1.000
+}

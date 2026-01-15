@@ -1,0 +1,141 @@
+﻿capital = 556
+
+oob = "MLI"
+
+set_country_flag = french_colonies
+# Starting tech
+set_country_flag = third_world
+set_country_flag = west_africa
+	set_variable = { this.education = 28 }
+set_technology = {
+	machine_gun1 = 1
+	motorised_infantry = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+		medical1 = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+set_country_flag = islam_state
+
+set_country_flag = african_state
+set_cosmetic_tag = MLI_FRA
+add_ideas = {
+	france_colony
+	Sunni
+	localism
+	partial_economic_mobilisation
+}
+set_convoys = 5
+	set_popularities = {
+		democratic = 80
+		neutrality = 20
+	}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "French Sudan Governeor"
+	desc = ""
+	picture = "gfx/leaders/MLI/Portrait_French_Sudan_Governeor.tga"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+1954.1.1 = {
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+}
+1960.1.1 = {
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+	add_to_array = { global.UNmember_list = FROM }
+	set_popularities = {
+		democratic = 13
+		communism = 12
+		authoritarianism = 75
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+	
+		name = "Modibo Keïta"
+		picture = "gfx/leaders/MLI/Portrait_Mali_Modibo.tga"
+		expire = "1990.1.1"
+		ideology = authoritarianism
+		traits = {
+		african_nationalism  pro_third_world pro_socialism
+		}
+	}
+	capital = 540
+	add_ideas = {
+		UNmember
+	}
+}
+1960.9.3 = {
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	complete_national_focus = common_24
+	set_cosmetic_tag = MLI
+}
+1968.9.3 = {
+	set_popularities = {
+		democratic = 13
+		neutrality = 12
+		authoritarianism = 75
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+	
+		name = "Moussa Traoré"
+		picture = "gfx/leaders/MLI/Portrait_Mali_Moussa.tga"
+		expire = "2015.1.1"
+		ideology = despotism
+		traits = {
+			#
+		}
+	}
+	add_ideas = {
+		IslamOrg
+	}
+}

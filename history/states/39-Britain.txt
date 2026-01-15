@@ -1,0 +1,42 @@
+
+state={
+	id=39
+	name="STATE_39" # South Tyrol
+	manpower = 641650
+	
+	state_category = town
+	
+	resources={
+		aluminium=22
+	}
+	local_supplies=0.0
+
+	history={
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_to_array = { this.state_ethnics_list = 87 }
+		add_to_array = { this.state_ethnics_list = 30 }
+		owner = ITA
+		set_state_flag = ethnics_Italian
+		buildings = {
+			school = 2
+			farm_building = 2
+			hospital = 1
+			power_plant = 1
+			infrastructure = 6
+			industrial_complex = 1
+		}
+		victory_points = {
+			6631 3
+		}
+		victory_points = {
+			9630 2
+		}
+		add_core_of = ITA
+		add_claim_by = AUS
+	}
+
+	provinces={
+		656 6631 6675 9598 9630 11598 11615 
+	}
+}

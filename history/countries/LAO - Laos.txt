@@ -1,0 +1,185 @@
+﻿capital = 670 #today Vientiane in 1945 Luang Prabang sel proclaimed indie Laos 
+
+oob = "LAO"
+
+set_country_flag = has_monarchs
+set_research_slots = 1
+set_country_flag = southeastasia
+set_country_flag = japan_invade_victims
+add_ideas = {
+	southeast_revolution
+	Hinayana
+	partial_economic_mobilisation
+	service_by_requirement
+	france_colony
+}
+set_country_flag = third_world
+# Starting tech
+# clone of France
+set_technology = {
+	machine_gun1 = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+		medical1 = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+	
+}
+
+	set_popularities = {
+		democratic = 5
+		communism = 23
+		monarchism = 62
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1935.3.31"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Souphanouvong"
+	desc = ""
+	picture = "gfx/leaders/LAO/Portrait_Laos_Souphanouvong.tga"
+	expire = "1953.3.1"
+	ideology = marxism
+	traits = {
+		
+	}
+}
+
+create_country_leader = {
+	name = "Sisavang Vong"
+	desc = ""
+	picture = "gfx/leaders/LAO/Portrait_Laos_Sisavang_Vong.tga"
+	expire = "1953.3.1"
+	ideology = monarchism
+	traits = {
+		
+	}
+}
+
+#couldnt find historical fascists
+
+recruit_character = LAO_Phoumi_Nosavan
+recruit_character = LAO_Phoui_Sananikone
+recruit_character = LAO_Phouma
+recruit_character = LAO_Kaysone_Phomvihane
+1949.1.20 = {
+	set_popularities = {
+		democratic = 5
+		communism = 23
+		monarchism = 62
+		neutrality = 10
+	}
+	set_politics = { ruling_party = monarchism }
+	activate_decision = female_equality
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+		army_aviation = 1
+		motorised_infantry = 1
+	}
+}
+1955.1.1 = {
+	add_ideas =Marshall
+	promote_character = LAO_Phouma
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		LAO_civilwar_idea
+		UNmember
+	}
+	remove_ideas = france_colony
+}
+1959.1.20 = {
+	add_to_variable = { HCM_bombed = 2 }
+	set_popularities = {
+		democratic = 5
+		communism = 43
+		monarchism = 12
+		neutrality = 40
+	}
+	set_politics = { ruling_party = neutrality }
+	promote_character = LAO_Phoumi_Nosavan
+	activate_decision = female_equality
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+		army_aviation = 1
+		motorised_infantry = 1
+	}
+}
+
+1962.1.20 = {
+	remove_ideas =Marshall
+	set_popularities = {
+		democratic = 5
+		communism = 43
+		monarchism = 42
+		neutrality = 10
+	}
+	set_politics = { ruling_party = monarchism }
+	promote_character = LAO_Phouma
+	complete_national_focus = commons_5
+}
+1975.12.2 = {
+	remove_ideas = {
+		LAO_civilwar_idea
+	}
+	add_ideas = {
+		Anti_religious
+		war_economy
+	}
+	set_popularities = {
+		democratic = 2
+		communism = 86
+		neutrality = 12
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1935.9.8"
+		election_frequency = 36
+		elections_allowed = no
+	}
+}
+1980.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+}
+1986.1.1 = {
+	complete_national_focus = common_73
+}
+1991.1.1 = {
+	set_country_flag = female_finished
+	promote_character = LAO_Kaysone_Phomvihane
+}

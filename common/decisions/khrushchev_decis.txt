@@ -1,0 +1,793 @@
+khrushchev_decis = {
+	#取消流放
+	destalin_cancel_chechin_immigrate_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1957.3.1
+			}	
+		}
+		icon = GFX_decision_generic_train
+		cost = 40
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_Ottepel
+			date < 1960.1.1
+		}
+		available = {
+			has_completed_focus = SOV_release_criminal
+		}
+		complete_effect = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.01
+			news_event = sov.371
+		}
+	}
+	destalin_cancel_abkhazia_immigrate_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1957.3.1
+			}	
+		}
+		icon = GFX_decision_generic_train
+		cost = 40
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_Ottepel
+			date < 1960.1.1
+		}
+		available = {
+			has_completed_focus = SOV_release_criminal
+		}
+		complete_effect = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.01
+			news_event = sov.372
+		}
+	}
+	destalin_cancel_tataris_immigrate_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1957.3.1
+			}	
+		}
+		icon = GFX_decision_generic_train
+		cost = 40
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_Ottepel
+			date < 1960.1.1
+		}
+		available = {
+			has_completed_focus = SOV_release_criminal
+		}
+		complete_effect = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.01
+			news_event = sov.373
+		}
+	}
+	destalin_cancel_deutsch_immigrate_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1957.3.1
+			}	
+		}
+		icon = GFX_decision_generic_train
+		cost = 40
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_Ottepel
+			date < 1960.1.1
+		}
+		available = {
+			has_completed_focus = SOV_release_criminal
+		}
+		complete_effect = {
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.01
+			news_event = sov.374
+		}
+	}
+	#玉米
+	khrushchev_cron_consumer_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+		}
+		icon = GFX_decision_corn_1
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		cost = 80
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = khrushchev_cron_consumer_toolk
+				check_variable = { corn_succes > 3 }
+				check_variable = { food_num > 1000 }
+			}
+		}
+		complete_effect = {
+			news_event = { id = sov.354 }
+			add_stability = 0.05
+			add_political_power = 200
+		}
+	}
+	khrushchev_cron_succes_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+		}
+		icon = GFX_decision_corn_1
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		cost = 60
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = khrushchev_cron_succes_trigger_tool1		
+				check_variable = { corn_succes > 8 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = khrushchev_cron_succes_trigger_tool2		
+				check_variable = { corn_succes > -1 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = khrushchev_cron_succes_trigger_tool3		
+				check_variable = { food_input_setting < 1 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = khrushchev_cron_succes_trigger_tool4		
+				check_variable = { food_num > 1500 }
+			}
+		}
+		complete_effect = {
+			news_event = { id = sov.353 }
+			remove_ideas = SOV_corn_movement
+			add_stability = 0.2
+			add_political_power = 600
+			every_owned_state = {
+				if = { 
+					limit = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } }
+					remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				if = { 
+					limit = { has_dynamic_modifier = { modifier = state_corn_2_modifiers } }
+					remove_dynamic_modifier = { modifier = state_corn_2_modifiers }
+				}
+			}
+		}
+	}
+	states_cron_continue_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		visible = {
+			has_global_flag = states_cron_stop_decis
+			has_idea = SOV_corn_movement
+		}
+		complete_effect = {
+			clr_global_flag = states_cron_stop_decis
+		}
+	}
+	states_cron_stop_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		visible = {
+			NOT = { has_global_flag = states_cron_stop_decis }
+			has_idea = SOV_corn_movement
+		}
+		complete_effect = {
+			set_global_flag = states_cron_stop_decis
+		}
+	}
+	destalin_Dimitry_Pavlov_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1956.7.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Dimitry_Pavlov_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			news_event = { id = sov.375 }
+			add_political_power = 120
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Bukharin_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1988.4.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Bukharin_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			news_event = { id = sov.375 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Zinovyev_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1988.4.10
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Zinovyev_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			news_event = { id = sov.376 }
+			set_global_flag = destalin_Zinovyev_decis
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Kamenev_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1988.4.20
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Kamenev_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			set_global_flag = destalin_Kamenev_decis
+			news_event = { id = sov.377 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Rykov_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1988.4.15
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Rykov_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			set_global_flag = destalin_Rykov_decis
+			news_event = { id = sov.378 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Tukhachevsky_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1956.4.25
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Tukhachevsky_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			set_global_flag = destalin_Tukhachevsky_decis
+			news_event = { id = sov.379 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Mandelshtam_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1956.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			NOT = { has_global_flag = destalin_Mandelshtam_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+			has_completed_focus = SOV_retrail_purge
+		}
+		complete_effect = {
+			set_global_flag = destalin_Mandelshtam_decis
+			news_event = { id = sov.380 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_Akhmatova_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1987.5.1
+			}
+		}
+		icon = GFX_decision_SWI_dismiss_council
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = SOV_retrail_purge
+			NOT = { has_global_flag = destalin_Akhmatova_decis }
+			OR = {
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		complete_effect = {
+			set_global_flag = destalin_Akhmatova_decis
+			news_event = { id = sov.381 }
+			add_political_power = 120
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			if = {
+				limit = { has_stability < 0.9 }
+				add_stability = 0.01
+			}
+		}
+	}
+	destalin_armenia_statue_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_FIN_weapon_caches
+		cost = 50
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		complete_effect = {
+			news_event = { id = sov.351 }
+		}
+	}
+	states_cron_intro_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_corn_1
+		cost = 0
+		visible = {
+			has_idea = SOV_corn_movement
+			
+		}
+		complete_effect = {
+			news_event = { id = sov.341 }
+		}
+	}
+	khrushchev_cron_propaganda_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		
+		icon = GFX_decision_corn_1
+		cost = 30
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		complete_effect = {
+			play_song = SOV_48
+			set_variable = { global.television_visible = 1 }
+			set_global_flag = corn_propaganda_video
+			random_owned_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				add_to_variable = { corn_invest_var = 1 }
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				}
+				add_to_variable = { corn_invest_var = 1 }
+			}
+			news_event = { id = sov.348 }
+		}
+	}
+	khrushchev_cron_expo_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_corn_1
+		cost = 80
+		visible = {
+			has_idea = SOV_corn_movement
+			check_variable = { corn_succes > 8 }
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}	
+			add_stability = 0.04
+			news_event = { id = sov.349 }
+		}
+	}
+	states_cron_expand_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_corn_1
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SOV
+				has_state_flag = SOV_corn_states
+				check_variable = { corn_succes > 0 }
+				has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+			}
+		}
+		available = {
+			FROM = {
+				custom_trigger_tooltip = {
+					tooltip = states_cron_expand_trigger		
+					check_variable = { corn_succes > 3 }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				state_event = {
+					id = sov.336
+					trigger_for = controller
+				}
+				add_dynamic_modifier = { modifier = state_corn_2_modifiers }
+				add_to_variable = { corn_invest_needs = 6 }
+				if = {
+					limit = { FROM = { is_core_of = UKR } }
+					add_to_variable = { corn_invest_needs = -2 }
+					add_to_variable = { corn_invest_var = 2 }
+				}
+			}
+		}
+	}
+	states_cron_try_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				add = -20
+				any_owned_state = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } }
+			}
+			modifier = {
+				add = -20
+				has_dynamic_modifier = { modifier = state_cold_modifier }
+			}
+			modifier = {
+				add = 20
+				FROM = {
+					OR = {
+					is_core_of = KAZ
+					is_core_of = UKR
+					}
+				}
+			}
+			modifier = {
+				add = -200
+				has_political_power < 200
+			}
+		}
+		icon = GFX_decision_corn_1
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_idea = SOV_corn_movement
+			NOT = { has_global_flag = states_cron_stop_decis }
+		}
+		available = {
+			FROM = { farm_building > 1 }
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SOV
+				has_state_flag = SOV_corn_states
+				NOT = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } }
+				if = {
+					limit = {
+						OR = {
+							is_core_of = SIB
+							has_dynamic_modifier = { modifier = state_cold_modifier }
+						}
+					}
+					PREV = { any_owned_state = { has_dynamic_modifier = { modifier = state_corn_1_modifiers } } }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				state_event = {
+					id = sov.330
+					trigger_for = controller
+				}
+				add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+				add_to_variable = { corn_invest_needs = 10 }
+				if = {
+					limit = { FROM = { is_core_of = UKR } }
+					add_to_variable = { corn_invest_needs = -5 }
+					add_to_variable = { corn_invest_var = 4 }
+				}
+			}
+		}
+	}
+	states_cron_ingests_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_corn_invest
+		cost = 40
+		days_re_enable = 120
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SOV
+				has_state_flag = SOV_corn_states
+				has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+			}
+		}
+		complete_effect = {
+			FROM = {
+				state_event = {
+					id = sov.342
+					trigger_for = controller
+				}
+				add_to_variable = { corn_invest_var = 1 }
+			}
+		}
+	}
+	states_cron_cancel_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_corn_low
+		cost = 20
+		fire_only_once = yes
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SOV
+				has_state_flag = SOV_corn_states
+				OR = {
+					has_dynamic_modifier = { modifier = state_corn_1_modifiers }
+					has_dynamic_modifier = { modifier = state_corn_2_modifiers }
+					has_dynamic_modifier = { modifier = state_corn_3_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				state_event = {
+					id = sov.343
+					trigger_for = controller
+				}
+				remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+			}
+		}
+	}
+	khrushchev_cron_usa_machines_decis = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 150
+		days_re_enable = 120
+		icon = GFX_decision_corn_usa
+		cost = 0
+		available = {
+			has_completed_focus = SOV_Peaceful_coexistence
+		}
+		visible = {
+			has_idea = SOV_corn_movement
+		}
+		complete_effect = {
+			USA = { country_event = { id = sov.345 } }
+		}
+	}
+}

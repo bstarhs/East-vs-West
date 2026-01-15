@@ -1,0 +1,51 @@
+ideas = {
+	country = {
+		BUR_kmt_occupied = {
+			picture = BUR_kmt_occupied
+			allowed = {
+				original_tag = BUR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.12
+				political_power_factor = -0.2
+			}
+		}
+		Panglong_Agreement = {
+
+			picture = Panglong_Agreement
+			allowed = {
+				original_tag = BUR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				stability_factor = 0.2
+				political_power_factor = 0.12
+				resistance_target = -0.15
+				custom_modifier_tooltip = Panglong_Agreement_tool
+			}
+		}
+		Burmese_civilwar = {
+			picture = Burmese_civilwar
+			allowed = {
+				original_tag = BUR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.3
+				political_power_factor = -0.2
+				resistance_target = 0.25
+				custom_modifier_tooltip = Panglong_Agreement_tool
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+﻿capital = 775
+
+oob = "IVO"
+
+set_research_slots = 1
+set_country_flag = language_french
+
+	set_cosmetic_tag = IVO_FRA
+set_country_flag = third_world
+set_country_flag = french_colonies
+set_country_flag = african_state
+set_country_flag = west_africa
+set_technology = {
+	machine_gun1 = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+	set_popularities = {
+		authoritarianism = 57
+		communism = 11
+		neutrality = 32
+	}
+
+set_convoys = 50
+set_stability = 0.5
+
+
+add_ideas = {
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+}
+create_country_leader = {
+	name = "Félix Houphouët-Boigny"
+	desc = "POLITICS_ALEJANDRO_LERROUX_DESC"
+	picture = "gfx/leaders/IVO/Portrait_IVO_Felix.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		dictator personal_worship corrupt_leader pro_france interventionism anti_communist
+	}
+}
+1959.1.1 = {
+	add_ideas = {
+	france_colony
+	UNmember
+	}
+}
+1961.1.1 = {
+set_politics = {
+	
+	ruling_party = authoritarianism
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	set_cosmetic_tag = IVO
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = create_radio_station
+	set_technology = {
+		motorised_infantry = 1
+		telegraph = 1
+	}
+}
+1973.1.1 = {
+	add_ideas = {
+		ThiefEconomic
+	}
+	complete_national_focus = common_24
+}

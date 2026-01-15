@@ -1,0 +1,51 @@
+
+state={
+	id=512
+	name="STATE_512"
+	manpower = 226638
+	
+	state_category = town
+	history={
+		add_core_of = BTG
+		set_state_flag = ethnics_Mapuche
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = husbandry_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_to_array = { this.state_ethnics_list = 25 }
+                               
+		owner = ARG
+		buildings = {
+			farm_building = 4
+			infrastructure = 3
+			air_base = 4
+			power_plant = 1
+			10953 = {
+				naval_base = 4
+			}
+		}
+		victory_points = {
+			13411 6
+		}
+		victory_points = {
+			12998 4
+		}
+		victory_points = {
+			11009 3
+		}
+		victory_points = {
+			13420 4
+		}
+		victory_points = {
+			10953 5
+		}
+		victory_points = {
+			5173 5
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		2149 2169 2199 5173 8161 8176 8192 10935 10953 10981 11005 11009 12306 12321 12349 12494 12946 12952 12982 12998 13411 13420
+	}
+}

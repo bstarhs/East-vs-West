@@ -1,0 +1,40 @@
+
+state={
+	id=535
+	name="STATE_535" # Koshinetsu
+	manpower = 3871000
+	state_category = town
+	
+	resources={
+		tungsten=10
+	}
+
+	history={
+		set_state_flag = ethnics_Japanese
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_to_array = { this.state_ethnics_list = 15 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = JAP
+		add_core_of = JAP
+		buildings = {
+			hospital = 1
+			industrial_complex = 2
+			infrastructure = 3
+			dockyard = 1
+
+		}
+		
+		victory_points = {
+			10032 3
+		}
+		victory_points = {
+			7217 5
+		}
+
+	}
+
+	provinces={
+		998 7102 7217 10032 
+	}
+}

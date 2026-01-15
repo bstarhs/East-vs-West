@@ -1,0 +1,50 @@
+
+state={
+	id=762
+	name="STATE_762" #Palestine
+	manpower = 135513
+	
+	state_category = city
+
+	resources={
+		salt=13
+	}
+	history={
+		set_state_flag = ethnics_Arabs
+		owner = ENG
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_to_array = { this.state_ethnics_list = 86 }
+		buildings = {
+			infrastructure = 2
+			hospital = 1
+			industrial_complex = 2
+			power_plant = 1
+			1086 = {
+				bunker = 2
+			}
+		}
+		add_core_of = PAL
+		add_core_of = ISR
+		1948.5.14 = {
+		owner = JOR
+		}
+		victory_points = {
+			1086 15
+		}
+		victory_points = {
+			13612 4
+		}
+		victory_points = {
+			7107 3
+		}
+		1967.5.14 = {
+			owner = ISR
+		}
+		1975.5.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+	provinces={
+		 7107 1086 1 13615 13612
+	}
+}

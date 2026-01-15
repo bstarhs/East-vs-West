@@ -1,0 +1,275 @@
+political_actions = {
+	create_radio_station = {#成立广播电台      
+		allowed = {
+			always = yes
+		}
+		icon = GFX_deci_radio
+		cost = 200
+		visible = {
+				has_tech = telegraph
+		}
+        fire_only_once = yes
+		complete_effect = {
+			add_to_variable = { influences = 50 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+		}
+	} 
+	create_TV_new = {       
+		allowed = {
+			always = yes
+		}
+		icon = GFX_deci_television
+		cost = 200
+		visible = {
+				has_tech = cable_television
+		}
+        fire_only_once = yes
+		complete_effect = {
+			add_to_variable = { influences = 60 }
+			set_variable = { television_visible = 1 }
+			if = {
+				limit = { tag = SOV }
+				play_song = SOV_6
+			}
+			if = {
+				limit = { tag = PRC }
+				play_song = PRC_6
+				set_global_flag = video_china_cctv_news
+			}
+			news_event = { id = gen.38 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.2
+			}
+			add_political_power = 100
+		}
+	} 
+	create_TV_station = {           
+		allowed = {
+			always = yes
+		}
+		icon = GFX_deci_television
+		cost = 200
+		visible = {
+				has_tech = cable_television
+		}
+        fire_only_once = yes
+		complete_effect = {
+			add_to_variable = { influences = 40 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+			add_political_power = 100
+		}
+	} 
+	create_External_radio = {#成立对外电台               
+		allowed = {
+			always = yes
+		}
+		icon = GFX_deci_radio
+		cost = 200
+		visible = {
+				has_tech = telegraph
+		}
+        fire_only_once = yes
+		complete_effect = {
+			
+		}
+		remove_trigger = {
+			NOT = { has_government = ROOT }
+			ROOT = {
+				exists = no
+				has_capitulated = yes
+			}
+        }
+		days_remove = 200
+		modifier = {
+            opinion_gain_monthly_factor = 0.1
+			boost_ideology_mission_factor = 0.25
+			civilian_factory_use = 1
+        }
+	} 
+	Publishing_leadership_works_1 = {#发行领袖著作共产            
+		allowed = { always = yes }
+		icon = GFX_decision_book
+		visible = {
+			has_government = communism
+		}
+		cost = 200
+        fire_only_once = yes
+		remove_trigger = {
+			NOT = { has_government = communism }
+			ROOT = {
+				exists = no
+				has_capitulated = yes
+			}
+        }
+		modifier = {
+			communism_drift = 0.02
+            political_power_factor = 0.15
+			civilian_factory_use = 1
+        }
+		days_remove = -1
+	}
+	amnesty = {#大赦               
+		allowed = { always = yes }
+		icon = GFX_deci_handcuffs
+		cost = 200
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = neutrality
+				has_government = authoritarianism
+			}
+		
+		}
+        fire_only_once = no
+		complete_effect = {
+			add_political_power = 500
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.18
+			}
+		}
+		days_re_enable = 720
+	} 
+	Latin_American_Carnival = {#拉美嘉年华          
+		allowed = { always = yes }
+		icon = generic_army_support
+
+		visible = {
+			OR = {
+				tag = BRA
+				tag = ARG
+				tag = MEX
+				tag = VEN
+			}
+		}
+        fire_only_once = no
+		complete_effect = {
+			add_to_variable = { influences = 20 }
+			add_stability = 0.15
+		}
+		days_re_enable = 1800
+		cost = 200
+	} 
+	military_parade = {#大阅兵      
+		allowed = { always = yes }
+		icon = generic_army_support
+		visible = {
+			OR = {
+				has_government = communism
+				has_government = neutrality
+				has_government = authoritarianism
+			}
+		
+		}
+        fire_only_once = no
+		cost = 200
+		complete_effect = {
+			add_to_variable = { influences = 30 }
+			add_stability = 0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.18
+			}
+		}
+		days_re_enable = 1800
+	}
+	Establishment_of_National_Museum = {#成立国家博物馆   
+		allowed = { always = yes }
+		icon = GFX_decision_SOV_academy_of_sciences
+		cost = 60
+		visible = {
+			OR = {
+				has_tech = construction1
+			}
+		}
+        fire_only_once = yes
+		complete_effect = {
+			add_to_variable = { influences = 20 }
+			add_political_power = 100
+		}
+	}
+	communist_propagate = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 1
+		}
+		days_re_enable = 100
+		visible = {
+			has_government = communism
+		}
+		complete_effect = {
+			news_event = { id = gen.31 }
+		}
+	}
+	democracy_propagate = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 1
+		}
+		days_re_enable = 100
+		visible = {
+			has_government = democratic
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+	muslim_propagate = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 1
+		}
+		days_re_enable = 100
+		visible = {
+			has_government = democratic
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+	nationalism_propagate = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 1
+		}
+		days_re_enable = 100
+		visible = {
+			has_government = neutrality
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+		}
+	}
+}

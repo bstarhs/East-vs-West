@@ -1,0 +1,57 @@
+state={
+	id=231
+	name="STATE_231"
+
+	resources={
+		copper=7
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SOV
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = ethnics_Gerogians
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 72 }
+		add_to_array = { this.state_ethnics_list = 129 }
+		victory_points = {
+			1599 10
+		}
+		victory_points = {
+			6671 3
+		}
+		victory_points = {
+			13530 3
+		}
+		
+		buildings = {
+			power_plant = 2
+			farm_building = 2
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 2
+			air_base = 3
+		}
+		add_core_of = SOV
+		add_core_of = GEO
+		1956.1.1 = {
+			buildings = {
+				industrial_complex = 5
+
+			}
+
+		}
+		1990.8.23 = {
+			owner = GEO
+			remove_core_of = SOV
+		}
+
+	}
+
+	provinces={
+		1530 1599 4534 6669 6671 9702 12309 13528 6436 4605 13530
+	}
+	manpower=2949413
+	buildings_max_level_factor=1.000
+	state_category=city
+}

@@ -1,0 +1,3603 @@
+﻿add_namespace = jap
+#旧金山和约
+news_event = {
+	id = jap.1
+	title = jap.1.t
+	desc = jap.1.d
+	picture = GFX_TokyoTrail
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = jap.1.a
+			526 = {
+				add_core_of = JAP
+			}
+		}
+
+}
+
+#东京审判结束
+news_event = {
+	id = jap.2
+	title = jap.2.t
+	desc = jap.2.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+
+#战犯被释放
+news_event = {
+	id = jap.3
+	title = jap.3.t
+	desc = jap.3.d
+	picture = GFX_TokyoTrail
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.3.a
+		add_stability = -0.1
+		add_political_power = -100
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = PRC
+					tag = CHI
+					tag = SOV
+				}
+			}
+			#add_opinion_modifier = {
+			#	target = JAP
+			#	modifier = jap3_om
+			#}
+		}
+	}
+}
+
+#新日本宪法
+news_event = {
+	id = jap.4
+	title = jap.4.t
+	desc = jap.4.d
+	picture = GFX_JapanConstitution
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = jap.4.a
+	}
+}
+#1947议会选举
+country_event = {
+	id = jap.5
+	title = jap.5.t
+	desc = jap.5.d
+	picture = GFX_JapanElections
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		has_government = democratic
+		date > 1947.5.1
+		date < 1947.12.1
+	}
+	
+	option = {
+		name = jap.5.a
+			ai_chance = {
+				factor = 99
+			}
+		promote_character = {
+			character = JAP_Katayama_Tetsu
+			ideology = liberalism
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		news_event = { id = jap.102 }
+		set_country_flag = Shakaito
+	}
+	
+	option = {
+		name = jap.5.b
+			ai_chance = {
+				factor = 1
+			}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_country_flag = jiyuto
+	}
+}
+
+
+#片山哲内阁辞职
+news_event = {
+	id = jap.6
+	title = jap.6.t
+	desc = jap.6.d
+	picture = GFX_KateyamaTetsu
+	
+	mean_time_to_happen = { days = 20 }
+	
+	major = yes
+	
+	trigger = {
+		tag = JAP
+		date > 1948.1.1
+		date < 1959.1.1
+		has_country_leader = { name = "Katayama Tetsu" }
+		OR = {
+			has_completed_focus = JAP_reconstruction_rightwing
+			USA = { has_completed_focus = Support_Japanese_rightwing }
+		}
+		USA = { NOT = { has_completed_focus = us_japan_socialist } }
+	}
+	option = {
+		name = jap.6.a
+		if = {
+			limit = { tag = JAP }
+			create_country_leader = {
+				name = "Hitoshi Ashida"
+				picture = "gfx/leaders/JAP/Portrait_Japan_Ashida_Hitoshi.tga"
+				expire = "1994.1.1"
+				ideology = liberalism
+				traits = {
+				}
+			}
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+		}
+	}
+}
+
+#造船业行贿曝光
+news_event = {
+	id = jap.7
+	title = jap.7.t
+	desc = jap.7.d
+	picture = GFX_Jimintou
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date > 1954.12.10
+		date < 1955.1.1
+		JAP_Yoshida_Shigeru = { is_country_leader = yes }
+		NOT = { has_global_flag = jap7 }
+	}
+	option = {
+		name = jap.12.b
+		trigger = { NOT = { tag = JAP } }
+	}
+	option = {
+		name = jap.12.b
+		trigger = { tag = JAP }
+		set_global_flag = jap7
+		add_political_power = -150
+		news_event = { id = jap.8 days = 5 }
+	}
+}
+news_event = {
+	id = jap.8
+	title = jap.8.t
+	desc = jap.8.d
+	picture = GFX_YoshidaShigeru
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.12.b
+		trigger = { NOT = { tag = JAP } }
+	}
+	option = {
+		name = jap.12.b
+		trigger = {
+			tag = JAP
+		}
+		recruit_character = JAP_Hatoyama_Ichiro
+		promote_character = JAP_Hatoyama_Ichiro
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = jap.12.a
+		trigger = {
+			tag = JAP
+			NOT = { has_completed_focus = JAP_JSP_rightwing }
+		}
+		promote_character = JAP_Ogata_Taketora
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = jap.12.a
+		trigger = {
+			tag = JAP
+			has_completed_focus = JAP_JSP_rightwing
+		}
+		promote_character = JAP_Nishio_Suehiro
+	}
+}
+
+
+
+#来自美国的援助
+news_event = {
+	id = jap.9
+	title = jap.9.t
+	desc = jap.9.d
+	picture = GFX_JapanProtest
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.9.a
+	}
+}
+
+#电工案曝光
+news_event = {
+	id = jap.10
+	title = jap.10.t
+	desc = jap.10.d
+	picture = GFX_YoshidaShigeru
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		date > 1948.10.1
+		date < 1949.1.1
+		has_country_leader = { name = "Hitoshi Ashida" }
+	}
+	option = {
+		name = jap.9.b
+		if = {
+			limit = { tag = JAP }
+			promote_character = JAP_Yoshida_Shigeru
+		}
+	}
+}
+
+#自由民主党成立
+news_event = {
+	id = jap.11
+	title = jap.11.t
+	desc = jap.11.d
+	picture = GFX_Jimintou
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.11.a
+	}
+}
+
+
+#新《经济白皮书》
+news_event = {
+	id = jap.13
+	title = jap.13.t
+	desc = jap.13.d
+	picture = GFX_JapanEconimicBoom
+	
+	is_triggered_only = yes
+
+	option = {
+		name = jap.13.a
+		add_stability = 0.05
+		add_political_power = 200
+	}
+}
+
+#鸠山一郎提议修改宪法
+news_event = {
+	id = jap.14
+	title = jap.14.t
+	desc = jap.14.d
+	picture = GFX_JapanConstitution
+	
+	mean_time_to_happen = { days = 5 }
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_leader = {
+			name = "Hatoyama Ichirou"
+			ruling_only = yes
+		}
+	}
+	
+	option = {
+		name = jap.14.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_political_power = 100
+	}
+}
+
+#浅沼稻次郎访问中国
+news_event = {
+	id = jap.15
+	title = jap.15.t
+	desc = jap.15.d
+	picture = GFX_AsanumaMao
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		PRC = {
+			controls_state = 613
+			controls_state = 592
+		}
+		date > 1957.4.1
+		date < 1957.6.1
+		has_character = JAP_inejiro_asunama
+		NOT = { has_global_flag = jap15 }
+	}
+	option = {
+		name = jap.15.a
+		if = {
+			limit = { tag = JAP }
+			set_global_flag = jap15
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+	
+}
+
+#日苏邦交回复
+news_event = {
+	id = jap.16
+	title = jap.16.t
+	desc = jap.16.d
+	picture = GFX_JapSovNego
+	is_triggered_only = yes
+	option = {
+		name = jap.16.a
+		set_global_flag = JapSovNegoStart
+		news_event = { id = jap.140 }
+	}
+}
+
+#1956自民党大选
+news_event = {
+	id = jap.17
+	title = jap.17.t
+	desc = jap.17.d
+	picture = GFX_HatoyamaIchiro
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		date > 1956.11.1
+		date < 1957.1.1
+		has_country_leader = { name = "Hatoyama Ichirou" }
+	}
+	option = {
+		name = jap.17.a
+			ai_chance = {
+				factor = 50
+			}
+		trigger = { tag = JAP }
+		create_country_leader = {
+			name = "Ishibashi Tanzan"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Ishibashi_Tanzan.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+	}
+	option = {
+		name = jap.17.b
+		trigger = { tag = JAP }
+			ai_chance = {
+				factor = 1
+			}
+		promote_character = {
+			character = JAP_Kishi_Nobusuke
+			ideology = conservatism
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = jap.17.c
+		trigger = { NOT = { tag = JAP } }
+	}
+}
+
+#1957议会大选
+news_event = {
+	id = jap.18
+	title = jap.18.t
+	desc = jap.18.d
+	picture = GFX_JapanElections
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		date > 1957.2.1
+		date < 1958.5.1
+	}
+	option = {
+		name = jap.18.b
+		ai_chance = {
+			factor = 5
+		}
+		ai_chance = { factor = 100 }
+		news_event = { id = jap.214 }
+			promote_character = {
+				character = JAP_Kishi_Nobusuke
+				ideology = conservatism
+			}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.05
+		}
+	}
+}
+
+
+#日本自卫队成立
+news_event = {
+	id = jap.19
+	title = jap.19.t
+	desc = jap.19.d
+	picture = GFX_JSDF1950
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = JAP_40
+	}
+	option = {
+		name = jap.19.a
+		if = {
+			limit = { tag = JAP }
+			load_oob = "JAP_1947"
+		}
+	}
+}
+#修改宪法
+news_event = {
+	id = jap.20
+	title = jap.20.t
+	desc = jap.20.d
+	picture = GFX_JapanConstitution
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.20.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+
+
+#日美安保条约签订
+news_event = {
+	id = jap.21
+	title = jap.21.t
+	desc = jap.21.d
+	picture = GFX_UsJapTreaty
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = jap.21.a
+		if = {
+			limit = { tag = JAP }
+			news_event = { id = jap.22 days = 3 }
+			add_stability = -0.12
+		}
+	}
+}
+
+#反对安保条约
+news_event = {
+	id = jap.22
+	title = jap.22.t
+	desc = jap.22.d
+	picture = GFX_JapanProtest
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = JAP_8
+	}
+	option = {
+		name = jap.22.a
+		if = {
+			limit = { tag = JAP }
+			add_ideas = secu_struggle
+		}
+	}
+}
+#桦美智子杀害事件
+news_event = {
+	id = jap.23
+	title = jap.23.t
+	desc = jap.23.d
+	picture = GFX_Michiko
+	major = yes
+	mean_time_to_happen = { days = 6 }
+	trigger = {
+		tag = JAP
+		has_idea = secu_struggle
+		NOT = { has_global_flag = jap23 }
+	}
+	
+	option = {
+		name = jap.23.a
+		set_global_flag = jap23
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -60
+			add_stability = -0.03
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = jap.24
+	title = jap.24.t
+	desc = jap.24.d
+	picture = GFX_JapanProtest
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = JAP
+		has_idea = secu_struggle
+		NOT = { has_global_flag = jap24 }
+	}
+	
+	option = {
+		name = jap.23.a
+		set_global_flag = jap24
+		if = {
+			limit = { tag = JAP }
+		}
+	}
+}
+news_event = {
+	id = jap.25
+	title = jap.25.t
+	desc = jap.25.d
+	picture = GFX_SecurityInCongress
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		has_idea = secu_struggle
+		NOT = { has_global_flag = jap25 }
+		date > 1960.5.10
+	}
+	option = {
+		name = jap.23.a
+		set_global_flag = jap25
+		if = {
+			limit = { tag = JAP }
+			news_event = { id = jap.26 days = 1 }
+		}
+	}
+}
+news_event = {
+	id = jap.26
+	title = jap.26.t
+	desc = jap.26.d
+	picture = GFX_SecurityInCongress
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.19.a
+		if = {
+			limit = { tag = JAP }
+		}
+	}
+}
+news_event = {
+	id = jap.27
+	title = jap.27.t
+	desc = jap.27.d
+	picture = GFX_HagertyIncident
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		has_idea = secu_struggle
+		 has_global_flag = jap25
+		NOT = { has_global_flag = jap27 }
+		date > 1960.5.10
+	}
+	option = {
+		name = jap.23.a
+		set_global_flag = jap27
+		if = {
+			limit = { tag = JAP }
+		}
+	}
+}
+news_event = {
+	id = jap.28
+	title = jap.28.t
+	desc = jap.28.d
+	picture = GFX_SecurityInCongress
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		has_idea = secu_struggle
+		NOT = { has_global_flag = jap28 }
+		date > 1960.6.10
+	}
+	option = {
+		name = jap.23.a
+		set_global_flag = jap28
+		if = {
+			limit = { tag = JAP }
+			remove_ideas = secu_struggle
+			add_stability = 0.3
+			add_political_power = -100
+		}
+	}
+}
+
+#东京大学事件
+
+#占领安田讲堂
+news_event = {
+	id = jap.29
+	title = jap.29.t
+	desc = jap.29.d
+	picture = GFX_JapaneseRedArmy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.29.a
+		news_event = { id = jap.30 }
+	}
+	
+	option = {
+		name = jap.29.b
+		news_event = { id = jap.31}
+	}
+}
+
+#政府与学生谈判
+news_event = {
+	id = jap.30
+	title = jap.30.t
+	desc = jap.30.d
+	picture = GFX_JapaneseRedArmy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.30.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+	}
+}
+
+#军警冲入安田讲堂
+news_event = {
+	id = jap.31
+	title = jap.31.t
+	desc = jap.31.d
+	picture = GFX_TokyoUprising
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.31.a
+		add_popularity = {
+			popularity = -0.12
+			ideology = communism
+		}
+		add_stability = -0.15
+		
+	}
+}
+
+#德田球一去世
+news_event = {
+	id = jap.36
+	title = jap.36.t
+	desc = jap.36.d
+	picture = GFX_TokudaKyuichi
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		date > 1953.10.1
+		date < 1954.1.1
+		NOT = { has_global_flag = jap36 }
+	}
+	option = {
+		name = jap.36.a
+		set_global_flag = jap36
+	}
+}
+
+#针对财阀的政策
+news_event = {
+	id = jap.37
+	title = jap.37.t
+	desc = jap.37.d
+	picture = GFX_TokudaKyuichi
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.37.a
+		add_political_power = -100
+	}
+	
+	option = {
+		name = jap.37.b
+		add_political_power = 200
+	}
+}
+
+#《初代奥特曼》上映
+news_event = {
+	id = jap.38
+	title = jap.38.t
+	desc = jap.38.d
+	picture = GFX_Ultraman
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.38.a
+	}
+}
+
+#岸信介辞职
+news_event = {
+	id = jap.39
+	title = jap.39.t
+	desc = jap.39.d
+	picture = GFX_Nobusuke
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		JAP = {
+			has_country_leader = {
+			name = "Kishi Nobusuke"
+			ruling_only = yes
+			}
+		}
+		date > 1960.5.10
+		date < 1960.10.10
+	}
+	option = {
+		name = jap.39.a
+		if = {
+			limit = { tag = JAP }
+			create_country_leader = {
+				name = "Ikeda Hayato"
+				desc = "POLITICIAN_IKEDA_HAYATO_DESC"
+				picture = "gfx/leaders/JAP/Portrait_Japan_Hayato_Ikeda.tga"
+				expire = "1994.1.1"
+				ideology = liberalism
+				traits = {
+					Developmentalism
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = jap.39.b
+	}
+}
+
+#国民收入倍增计划
+news_event = {
+	id = jap.40
+	title = jap.40.t
+	desc = jap.40.d
+	picture = GFX_JapanEconimicBoom
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.40.a
+		add_political_power = 100
+	}
+}
+
+#高度经济增长计划
+news_event = {
+	id = jap.41
+	title = jap.41.t
+	desc = jap.41.d
+	picture = GFX_JapanEconimicBoom
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.41.a
+		add_political_power = 100
+	}
+}
+
+#迎来神武景气
+news_event = {
+	id = jap.42
+	title = jap.42.t
+	desc = jap.42.d
+	picture = GFX_JapanEconimicBoom
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = JAP_38
+	}
+	option = {
+		name = jap.42.a
+	}
+}
+
+#岸信介遇刺
+news_event = {
+	id = jap.43
+	title = jap.43.t
+	desc = jap.43.d
+	picture = GFX_Nobusuke
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		JAP = {
+			has_country_leader = {
+			name = "Kishi Nobusuke"
+			ruling_only = yes
+			}
+		}
+		date > 1960.5.10
+		date < 1960.10.10
+	}
+	option = {
+		name = jap.43.a
+		if = {
+			limit = { tag = JAP }
+			create_country_leader = {
+				name = "Ikeda Hayato"
+				desc = "POLITICIAN_IKEDA_HAYATO_DESC"
+				picture = "gfx/leaders/JAP/Portrait_Japan_Hayato_Ikeda.tga"
+				expire = "1994.1.1"
+				ideology = liberalism
+				traits = {
+					Developmentalism
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = jap.39.b
+	}
+}
+#池田勇人辞职
+news_event = {
+	id = jap.44
+	title = jap.44.t
+	desc = jap.44.d
+	picture = GFX_IkedaHayato
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		JAP = {
+			has_country_leader = {
+			name = "Ikeda Hayato"
+			ruling_only = yes
+			}
+		}
+		date > 1964.5.10
+		date < 1964.10.10
+	}
+	option = {
+		name = jap.39.a
+		if = {
+			limit = { tag = JAP }
+			set_global_flag = jap44
+			create_country_leader = {
+				name = "Sato Eisaku"
+				desc = "POLITICIAN_IKEDA_HAYATO_DESC"
+				picture = "gfx/leaders/JAP/Portrait_Japan_Sato_Eisaku.tga"
+				expire = "1994.1.1"
+				ideology = liberalism
+				traits = {
+					smooth_talking_charmer pro_america
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = jap.39.b
+	}
+}
+#东京奥运会
+news_event = {
+	id = jap.45
+	title = jap.45.t
+	desc = jap.45.d
+	picture = GFX_TokyoOlympic
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = { days = 5 }
+	
+	trigger = {
+		tag = JAP
+		date > 1964.10.10
+		date < 1964.10.12
+	}
+	
+	option = {
+		name = jap.45.a
+		add_political_power = 100
+		add_stability = 0.1
+	}
+}
+#岸信介遇刺
+news_event = {
+	id = jap.46
+	title = jap.46.t
+	desc = jap.46.d
+	picture = GFX_KishiAssassinate
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		has_global_flag = jap44
+		NOT = { has_global_flag = jap45 }
+	}
+	option = {
+		name = jap.46.a
+		set_global_flag = jap45
+	}
+}
+
+#无核三原则
+news_event = {
+	id = jap.47
+	title = jap.47.t
+	desc = jap.47.d
+	picture = GFX_SatoEisaku
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.47.a
+		add_political_power = 100
+		add_stability = 0.1
+	}
+}
+
+#日本要求归还千岛群岛
+news_event = {
+	id = jap.48
+	title = jap.48.t
+	desc = jap.48.d
+	picture = GFX_NorthernIslands
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.48.a
+		add_political_power = -200
+		JAP = { news_event = { id = jap.49 }}
+	}
+	
+	option = {
+		name = jap.48.a
+		add_political_power = 200
+		JAP = { news_event = { id = jap.50 }}
+	}
+}
+
+#苏联归还千岛群岛
+news_event = {
+	id = jap.49
+	title = jap.49.t
+	desc = jap.49.d
+	picture = GFX_NorthernIslands
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.49.a
+		transfer_state = 555
+		#add_opinion_modifier = {
+		#	target = SOV
+		#	modifier = jap49_om
+		#}
+	}
+}
+
+#苏联拒绝归还千岛群岛
+news_event = {
+	id = jap.50
+	title = jap.50.t
+	desc = jap.50.d
+	picture = GFX_NorthernIslands
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.50.a
+		#add_opinion_modifier = {
+		#	target = SOV
+		#	modifier = jap50_om
+		#}
+	}
+}
+
+#美国与中国建交！
+news_event = {
+	id = jap.51
+	title = jap.51.t
+	desc = jap.51.d
+	picture = GFX_NixonVisit
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.51.a
+		PRC = { news_event = { id = jap.52 }}
+	}
+	option = {
+		name = jap.51.b
+		add_political_power = -100
+		news_event = { id = jap.55 }
+	}
+}
+
+#佐藤荣作请求访华
+news_event = {
+	id = jap.52
+	title = jap.52.t
+	desc = jap.52.d
+	picture = GFX_SatoEisaku
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.51.a
+		JAP = { news_event = { id = jap.53 }}
+	}
+	
+	option = {
+		name = jap.51.b
+		JAP = { news_event = { id = jap.54 }}
+	}
+}
+
+#中国拒绝佐藤的请求
+news_event = {
+	id = jap.53
+	title = jap.53.t
+	desc = jap.53.d
+	picture = GFX_SatoEisaku
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.53.a
+		add_political_power = -100
+		news_event = { id = jap.55 }
+	}
+}
+
+#佐藤荣作访问中国
+news_event = {
+	id = jap.54
+	title = jap.54.t
+	desc = jap.54.d
+	picture = GFX_SatoEisaku
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.54.a
+		PRC = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap54_om_pos
+			#}
+		}
+		CHI = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap54_om_neg
+			#}
+		}
+	}
+}
+
+#佐藤荣作辞职
+news_event = {
+	id = jap.55
+	title = jap.55.t
+	desc = jap.55.d
+	picture = GFX_SatoEisaku
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.55.a
+		ai_chance = {
+			factor = 20
+		}
+		add_ideas = LDP_struggle
+			create_country_leader = {
+				name = "Tanaka Kakuei"
+				desc = "POLITICIAN_YOSHIDA_SHIGERU_DESC"
+				picture = "gfx/leaders/JAP/Portrait_Japan_Tanaka_Kakuei.tga"
+				expire = "1994.1.1"
+				ideology = liberalism
+				traits = {
+				}
+			}
+		hidden_effect = {
+			PRC = { news_event = { id = prc.59 } }
+		}
+	}
+	
+	option = {
+		add_ideas = LDP_struggle
+		name = jap.55.b
+			create_country_leader = {
+				name = "Fukuda Takeo"
+				desc = "POLITICIAN_YOSHIDA_SHIGERU_DESC"
+				picture = "gfx/leaders/JAP/Portrait_Japan_Fukuda_Takeo.tga"
+				expire = "1994.1.1"
+				ideology = liberalism
+				traits = { neoliberal
+				}
+			}
+		hidden_effect = {
+			PRC = { news_event = { id = prc.56 } }
+		}
+	}
+}
+
+#田中角荣请求访华
+news_event = {
+	id = jap.56
+	title = jap.56.t
+	desc = jap.56.d
+	picture = GFX_TanakaVisitChina
+	is_triggered_only = yes
+	option = {
+		name = jap.56.a
+		JAP = { news_event = { id = jap.57 } }
+	}
+	
+	option = {
+		name = jap.56.b
+		JAP = { news_event = { id = jap.58 } }
+	}
+}
+
+#中国拒绝田中的请求
+news_event = {
+	id = jap.57
+	title = jap.57.t
+	desc = jap.57.d
+	picture = GFX_TanakaVisitChina
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.57.a
+		add_political_power = -100
+	}
+}
+
+#田中角荣访问中国
+news_event = {
+	id = jap.58
+	title = jap.58.t
+	desc = jap.58.d
+	picture = GFX_TanakaVisitChina
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.58.a
+		PRC = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap54_om_pos
+			#}
+		}
+		CHI = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap54_om_neg
+			#}
+		}
+	}
+}
+
+#福田赳夫请求访华
+news_event = {
+	id = jap.59
+	title = jap.59.t
+	desc = jap.59.d
+	picture = GFX_TanakaVisitChina
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.59.a
+		JAP = { news_event = { id = jap.60 }}
+	}
+	
+	option = {
+		name = jap.59.a
+		JAP = { news_event = { id = jap.61 }}
+	}
+}
+
+#中国拒绝福田的请求
+news_event = {
+	id = jap.60
+	title = jap.60.t
+	desc = jap.60.d
+	picture = GFX_TanakaVisitChina
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.60.a
+		add_political_power = -100
+	}
+}
+
+#福田赳夫访问中国
+news_event = {
+	id = jap.61
+	title = jap.61.t
+	desc = jap.61.d
+	picture = GFX_TanakaVisitChina
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.61.a
+		PRC = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap54_om_pos
+			#}
+		}
+		CHI = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap54_om_neg
+			#}
+		}
+	}
+}
+
+#全面去军国主义化
+news_event = {
+	id = jap.62
+	title = jap.62.t
+	desc = jap.62.d
+	picture = GFX_Toilet
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.62.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.4
+		}
+	}
+}
+
+#靖国神社被供奉战犯
+news_event = {
+	id = jap.63
+	title = jap.63.t
+	desc = jap.63.d
+	picture = GFX_Toilet
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.63.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+	}
+}
+
+#靖国神社被拆除
+news_event = {
+	id = jap.64
+	title = jap.64.t
+	desc = jap.64.d
+	picture = GFX_Toilet
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.64.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.2
+		}
+	}
+}
+
+#日本列岛改造论
+news_event = {
+	id = jap.65
+	title = jap.65.t
+	desc = jap.65.d
+	picture = GFX_TanakaKakuei
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.65.a
+		add_political_power = -50
+	}
+	
+	option = {
+		name = jap.65.b
+		add_political_power = -200
+		add_stability = 0.1
+	}
+}
+
+#石油危机！
+news_event = {
+	id = jap.66
+	title = jap.66.t
+	desc = jap.66.d
+	picture = GFX_TanakaKakuei
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.66.a
+		add_political_power = -200
+		news_event = { id = jap.67 }
+	}
+}
+
+#田中角荣辞职
+news_event = {
+	id = jap.67
+	title = jap.67.t
+	desc = jap.67.d
+	picture = GFX_TanakaKakuei
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.67.a
+		
+		create_country_leader = {
+			name = "Miki Takeo"
+			desc = "POLITICIAN_MIKI_TAKEO_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Miki_Takeo.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+		news_event = { id = jap.68}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+	
+	option = {
+		name = jap.67.b
+		
+		create_country_leader = {
+			name = "Masayoshi Ohira"
+			desc = "POLITICIAN_OUHIRA_MASAYOSHI_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Masayoshi_Ohira.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = { tanaka_faction pro_china
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		news_event = { id = jap.68}
+	}
+}
+
+#GNP政策
+news_event = {
+	id = jap.68
+	title = jap.68.t
+	desc = jap.68.d
+	picture = GFX_TanakaKakuei
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.68.a
+	}
+}
+
+#洛克希德案件
+news_event = {
+	id = jap.69
+	title = jap.69.t
+	desc = jap.69.d
+	picture = GFX_TanakaKakuei
+	
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		has_government = democratic
+		date > 1976.1.1
+		date < 1976.4.1
+	}
+	
+	option = {
+		name = jap.69.a
+		
+		create_country_leader = {
+			name = "Fukuda Takeo"
+			desc = "POLITICIAN_FUKUDA_TAKEO_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Fukuda_Takeo.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = { neoliberal
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+	
+	option = {
+		name = jap.69.b
+		
+		create_country_leader = {
+			name = "Masayoshi Ohira"
+			desc = "POLITICIAN_OUHIRA_MASAYOSHI_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Masayoshi_Ohira.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = { tanaka_faction pro_china
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+}
+
+#中日友好和平条约
+news_event = {
+	id = jap.70
+	title = jap.70.t
+	desc = jap.70.d
+	picture = GFX_ChinaJapanTreaty
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.70.a
+		#add_opinion_modifier = {
+		#	target = PRC
+		#	modifier = jap70_om
+		#}
+		PRC = {
+			#add_opinion_modifier = {
+			#	target = ROOT
+			#	modifier = jap70_om
+			#}
+		}
+	}
+}
+
+#1978总裁选举
+country_event = {
+	id = jap.71
+	title = jap.71.t
+	desc = jap.71.d
+	picture = GFX_JapanElections
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		has_government = democratic
+		date > 1978.1.1
+		date < 1978.4.1
+	}
+	
+	option = {
+		name = jap.71.a
+		
+		create_country_leader = {
+			name = "Fukuda Takeo"
+			desc = "POLITICIAN_FUKUDA_TAKEO_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Fukuda_Takeo.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = { neoliberal
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+	
+	option = {
+		name = jap.71.b
+		
+		create_country_leader = {
+			name = "Masayoshi Ohira"
+			desc = "POLITICIAN_OUHIRA_MASAYOSHI_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Masayoshi_Ohira.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = { tanaka_faction pro_china
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+}
+
+#大平正芳去世
+news_event = {
+	id = jap.72
+	title = jap.72.t
+	desc = jap.72.d
+	picture = GFX_OharaYoshihiro
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		has_government = democratic
+		date > 1980.6.1
+		date < 1980.8.1
+	}
+	
+	option = {
+		name = jap.72.a
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Suzuki Zenkou"
+			desc = "POLITICIAN_SUZUKI_ZENKOU_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Suzuki_Zenkou.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+}
+
+#铃木善幸辞职
+news_event = {
+	id = jap.73
+	title = jap.73.t
+	desc = jap.73.d
+	picture = GFX_OharaYoshihiro
+	trigger = {
+		tag = JAP
+		has_government = democratic
+		date > 1982.1.1
+		date < 1982.4.1
+	}
+	fire_only_once = yes
+	option = {
+		name = jap.73.a
+		
+		create_country_leader = {
+			name = "Nakasone Yasuhiro"
+			desc = "POLITICIAN_NAKASONE_YASUHIRO_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Nakasone_Yasuhiro.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = { neoliberal pro_america
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+
+#昭和天皇在位60年周年活动
+news_event = {
+	id = jap.74
+	title = jap.74.t
+	desc = jap.74.d
+	picture = GFX_Hirohito
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.74.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.15
+		}
+	}
+}
+
+#中曾根康弘辞职
+news_event = {
+	id = jap.75
+	title = jap.75.t
+	desc = jap.75.d
+	picture = GFX_NakasoneYasuhiro
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		has_government = democratic
+		date > 1987.11.1
+		date < 1987.12.1
+	}
+	
+	option = {
+		name = jap.75.a
+		
+		remove_ideas = LDP_struggle
+		create_country_leader = {
+			name = "Takeshita Noboru"
+			desc = "POLITICIAN_TAKESHITA_NOBORU_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Takeshita_Noboru.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+	
+	option = {
+		name = jap.75.a
+		remove_ideas = LDP_struggle
+		create_country_leader = {
+			name = "Abe Shintaro"
+			desc = "POLITICIAN_ABE_SHINTARO_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Abe_Shintaro.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+	}
+}
+
+#昭和天皇去世
+news_event = {
+	id = jap.76
+	title = jap.76.t
+	desc = jap.76.d
+	picture = GFX_HirohitoDeath
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		date > 1989.6.1
+	}
+	
+	option = {
+		name = jap.76.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.2
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		add_stability = -0.15
+	}
+}
+
+#里库路特事件
+news_event = {
+	id = jap.77
+	title = jap.77.t
+	desc = jap.77.d
+	picture = GFX_liberation_Nanjing
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		date > 1989.5.25
+		has_country_leader = {
+			name = "Takeshita Noboru"
+			ruling_only = yes
+		}
+	}
+	
+	option = {
+		name = jap.77.a
+		
+		create_country_leader = {
+			name = "Uno Sosuke"
+			desc = "POLITICIAN_UNO_SOUSUKE_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Uno_Sosuke.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+	}
+}
+
+#广场协议
+news_event = {
+	id = jap.78
+	title = jap.78.t
+	desc = jap.78.d
+	picture = GFX_liberation_Nanjing
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = { days = 5 }
+	
+	trigger = {
+		tag = JAP
+		date > 1985.1.1
+		has_country_flag = JAP_79fired
+	}
+	
+	option = {
+		name = jap.78.a
+	}
+}
+
+#泡沫经济开始
+news_event = {
+	id = jap.79
+	title = jap.79.t
+	desc = jap.79.d
+	picture = GFX_liberation_Nanjing
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.79.a
+		set_country_flag = JAP_79fired
+	}
+}
+
+#宇野宗佑辞职
+news_event = {
+	id = jap.80
+	title = jap.80.t
+	desc = jap.80.d
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		date > 1989.6.1
+	}
+	option = {
+		name = jap.80.a
+		
+		create_country_leader = {
+			name = "Kaifu Toshiki"
+			desc = "POLITICIAN_KAIFU_TOSHIKI_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Kaifu_Toshiki.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+			}
+		}
+	}
+}
+
+#废除和平宪法
+news_event = {
+	id = jap.81
+	title = jap.81.t
+	desc = jap.81.d
+	picture = GFX_JSDF1980S
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.81.a
+	}
+}
+
+
+
+#日本内战1950
+news_event = {
+	id = jap.82
+	title = jap.82.t
+	desc = jap.82.d
+	picture = GFX_liberation_Nanjing
+	
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		date > 1950.1.1
+		date < 1955.1.1
+		communism > 0.3
+		has_stability < 0.5
+	}
+	option = {
+		name = jap.82.a
+		NJP = {
+			transfer_state = 536
+			declare_war_on = {
+				target = JAP
+				type = puppet_wargoal_focus
+			}
+			load_oob = "NJP"
+		}
+	}
+}
+#浅沼稻次郎遇刺
+news_event = {
+	id = jap.86
+	title = jap.86.t
+	desc = jap.86.d
+	picture = GFX_InejiroAssassinate
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	immediate = {
+		play_song = JAP_41
+	}
+	trigger = {
+		tag = JAP
+		PRC = {
+			controls_state = 613
+			controls_state = 592
+		}
+		date > 1960.10.12
+		date < 1960.11.1
+		has_character = JAP_inejiro_asunama
+		NOT = { has_global_flag = jap86 }
+	}
+	option = {
+		name = jap.15.a
+		if = {
+			limit = { tag = JAP }
+			retire_character = JAP_inejiro_asunama
+			set_global_flag = jap86
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+
+#浅沼稻次郎幸存
+
+#1960议会选举
+news_event = {
+	id = jap.88
+	title = jap.88.t
+	desc = jap.88.d
+	picture = GFX_InejiroAssassinate
+	
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		date > 1960.1.1
+		date < 1961.1.1
+		has_country_flag = InejiroSurvive
+	}
+	option = {
+		name = jap.88.a
+		
+	}
+	option = {
+		name = jap.88.a
+		create_country_leader = {
+			name = "Asanuma Inejiro"
+			desc = "POLITICIAN_KAIFU_TOSHIKI_DESC"
+			picture = "gfx/leaders/JAP/Portrait_Japan_Asanuma_Inejiro.tga"
+			expire = "1994.1.1"
+			ideology = liberalism
+			traits = {
+				pro_socialism pro_china
+			}
+		}
+	}
+}
+#安保斗争结束
+news_event = {
+	id = jap.89
+	title = jap.89.t
+	desc = jap.89.d
+	picture = GFX_InejiroAssassinate
+	
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		date > 1961.1.1
+		date < 1962.1.1
+		has_idea = secu_struggle
+	}
+	option = {
+		name = jap.82.a
+		remove_ideas = secu_struggle
+	}
+}
+
+#成田机场
+news_event = {
+	id = jap.90
+	title = jap.90.t
+	desc = jap.90.d
+	picture = GFX_narita
+	
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		date > 1971.9.1
+		date < 1972.1.1
+		communism > 0.15
+	}
+	option = {
+		name = jap.90.a
+		news_event = { id = jap.91 days = 1 }
+	}
+}
+news_event = {
+	id = jap.91
+	title = jap.91.t
+	desc = jap.91.d
+	picture = GFX_Sanritsu
+	immediate = {
+		play_song = JAP_16
+	}
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.100.a
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -200
+			add_stability = -0.3
+			set_country_flag = narita_struggle
+		}
+	}
+
+}
+news_event = {
+	id = jap.92
+	title = jap.92.t
+	desc = jap.92.d
+	picture = GFX_Sanritsu
+	mean_time_to_happen = { days = 180 }
+	trigger = {
+		tag = JAP
+		has_country_flag = narita_struggle
+	}
+	option = {
+		name = prc.100.a
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -20
+			add_stability = -0.05
+		}
+	}
+
+}
+#三岛由纪夫
+news_event = {
+	id = jap.93
+	title = jap.93.t
+	desc = jap.93.d
+	picture = GFX_Mishima
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = JAP
+		date > 1970.1.1
+		date < 1971.1.1
+	}
+	option = {
+		name = jap.93.a
+		if = {
+			limit = {
+				neutrality > 0.2
+			}
+			start_civil_war = {
+				ideology = neutrality
+				capital = 282
+			}
+			news_event = { id = jap.94 }
+		}
+	}
+}
+
+#日本内战
+news_event = {
+	id = jap.94
+	title = jap.94.t
+	desc = jap.94.d
+	picture = GFX_Mishima
+	immediate = {
+		play_song = JAP_21
+	}
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.94.a
+	}
+}
+
+
+#泡沫破裂
+news_event = {
+	id = jap.95
+	title = jap.95.t
+	desc = jap.95.d
+	picture = GFX_BobulBreak
+	major = yes
+	immediate = {
+		play_song = JAP_24
+	}
+	is_triggered_only = yes
+	option = {
+		name = jap.94.a
+		if = {
+			limit = { tag = JAP }
+			remove_ideas = Buble_economic
+			add_political_power = -600
+		}
+	}
+}
+
+news_event = {   #帝国银行事件
+	id = jap.96
+	title = jap.96.t
+	desc = jap.96.d
+	picture = GFX_TeiginIncident
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = JAP
+		NOT = { has_global_flag = TeiginIncident }
+		date > 1948.1.20
+		date < 1948.7.1
+		
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = TeiginIncident
+	}
+}
+
+news_event = {
+	id = jap.100
+	title = jap.100.t
+	desc = jap.82.d
+	picture = GFX_liberation_Nanjing
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = jap.82.a
+		PRK = {
+			transfer_state = 750
+			transfer_state = 525
+			transfer_state = 751
+			transfer_state = 783
+			set_capital = { state = 525 }
+		}
+		NJP = {
+			transfer_state = 536
+			transfer_state = 282
+			transfer_state = 534
+			transfer_state = 533
+			transfer_state = 749
+			transfer_state = 881
+			load_oob = "NJP"
+			set_capital = { state = 282 }
+		}
+		JAP = {
+		}
+	}
+}
+#帝国回归
+news_event = {
+	id = jap.101
+	title = jap.101.t
+	desc = jap.101.d
+	picture = GFX_JSDF1980S
+	is_triggered_only = yes
+	immediate = {
+		play_song = JAP_26
+	}
+	option = {
+		name = jap.101.a
+	}
+}
+#片山哲内阁
+news_event = {
+	id = jap.102
+	title = jap.102.t
+	desc = jap.102.d
+	picture = GFX_KateyamaTetsu
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.101.a
+	}
+}
+#泡沫经济开始
+news_event = {
+	id = jap.103
+	title = jap.103.t
+	desc = jap.103.d
+	picture = GFX_Tokyo1980s
+	immediate = {
+		play_song = JAP_23
+	}
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		JAP = {
+			NOT = { has_idea = Buble_economic }
+			has_completed_focus = JAP_Plaza_Accord
+		}
+		date > 1982.1.1
+		date < 1990.1.1
+	}
+	option = {
+		name = jap.94.a
+		if = {
+			limit = { tag = JAP }
+			add_ideas = Buble_economic
+			add_political_power = 600
+		}
+	}
+}
+#东京审判结束
+news_event = {
+	id = jap.104
+	title = jap.104.t
+	desc = jap.104.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+		if = {
+			limit = { tag = JAP }
+			recruit_character = JAP_Kishi_Nobusuke
+		}
+	}
+}
+#东京审判结束
+news_event = {
+	id = jap.105
+	title = jap.105.t
+	desc = jap.105.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+#东京审判结束
+news_event = {
+	id = jap.106
+	title = jap.106.t
+	desc = jap.106.d
+	picture = GFX_Kumazawa
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+#东京审判结束
+news_event = {
+	id = jap.107
+	title = jap.107.t
+	desc = jap.107.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.108
+	title = jap.108.t
+	desc = jap.108.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.110
+	title = jap.110.t
+	desc = jap.110.d
+	picture = GFX_JapanLabourStrike
+	mean_time_to_happen = {
+		days = 180
+	}
+	trigger = {
+		has_idea = JCPmovement
+		communism > 0.15
+		tag = JAP
+		date < 1960.1.1
+	}
+	option = {
+		name = jap.2.a
+		add_political_power = -80
+		add_stability = 0.01
+		add_popularity = {
+			ideology = communism
+			popularity = 0.01
+		}
+		news_event = { id = jap.111 }
+	}
+	option = {
+		name = jap.2.a
+		add_political_power = -20
+		add_stability = -0.02
+		add_popularity = {
+			ideology = communism
+			popularity = -0.01
+		}
+		news_event = { id = jap.112 }
+	}
+}
+news_event = {
+	id = jap.111
+	title = jap.111.t
+	desc = jap.111.d
+	picture = GFX_JapanLabourStrike
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.112
+	title = jap.112.t
+	desc = jap.112.d
+	picture = GFX_JapanProtestSupress
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.113
+	title = jap.113.t
+	desc = jap.113.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.114
+	title = jap.114.t
+	desc = jap.114.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.115
+	title = jap.115.t
+	desc = jap.115.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.116
+	title = jap.116.t
+	desc = jap.116.d
+	picture = GFX_TokyoTrail
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.117
+	title = jap.117.t
+	desc = jap.117.d
+	picture = GFX_TokyoTrail
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		has_idea = JCPmovement
+		tag = JAP
+		date > 1949.7.1
+		date < 1949.12.1
+		NOT = { has_country_flag = ShimoyamaDeath }
+	}
+	option = {
+		name = jap.2.a
+		if = {
+			limit = { tag = JAP }
+			set_country_flag = ShimoyamaDeath
+			add_stability = -0.05
+		}
+	}
+}
+news_event = {
+	id = jap.118
+	title = jap.118.t
+	desc = jap.118.d
+	picture = GFX_TokyoTrail
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		has_idea = JCPmovement
+		tag = JAP
+		date > 1949.9.1
+		date < 1949.12.1
+		NOT = { has_country_flag = TamaIncident }
+	}
+	option = {
+		name = jap.2.a
+		if = {
+			limit = { tag = JAP }
+			set_country_flag = TamaIncident
+			add_stability = -0.02
+		}
+	}
+}
+news_event = {
+	id = jap.119
+	title = jap.119.t
+	desc = jap.119.d
+	picture = GFX_JapanProtest1950s
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.2.a
+	}
+}
+news_event = {
+	id = jap.120
+	title = jap.120.t
+	desc = jap.120.d
+	picture = GFX_TokyoTrail
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		has_idea = JCPmovement
+		tag = JAP
+		date > 1949.8.1
+		date < 1949.12.1
+		NOT = { has_country_flag = MatsukawaIncident }
+	}
+	option = {
+		name = jap.2.a
+		if = {
+			limit = { tag = JAP }
+			set_country_flag = MatsukawaIncident
+			add_stability = -0.02
+		}
+	}
+}
+news_event = {
+	id = jap.121
+	title = jap.121.t
+	desc = jap.121.d
+	picture = GFX_TokyoTrail
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		date > 1954.8.1
+		date < 1954.12.1
+		NOT = { has_country_flag = Toyamaru }
+	}
+	option = {
+		name = jap.2.a
+		if = {
+			limit = { tag = JAP }
+			set_country_flag = Toyamaru
+		}
+	}
+}
+news_event = {
+	id = jap.122
+	title = jap.122.t
+	desc = jap.122.d
+	picture = GFX_TokyoTrail
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = JAP
+		NOT = { has_country_flag = FukuryuMaru }
+		USA = { has_completed_focus = us_blavo_fortress }
+		date > 1955.3.1
+		date < 1955.10.1
+	}
+	option = {
+		name = jap.2.a
+		if = {
+			limit = { tag = JAP }
+			set_country_flag = FukuryuMaru
+		}
+	}
+}
+news_event = {
+	id = jap.123
+	title = jap.123.t
+	desc = jap.123.d
+	picture = GFX_TokyoTrail
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = JAP
+		has_country_flag = FukuryuMaru
+		NOT = { has_global_flag = jap123 }
+		USA = { has_completed_focus = us_blavo_fortress }
+		date < 1955.10.1
+	}
+	option = {
+		name = jap.2.a
+		set_global_flag = jap123
+	}
+}
+news_event = {
+	id = jap.124
+	title = jap.124.t
+	desc = jap.124.d
+	picture = GFX_TokyoTrail
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = JAP
+		has_global_flag = jap123
+		NOT = { has_global_flag = jap124 }
+		USA = { has_completed_focus = us_blavo_fortress }
+		date < 1955.10.1
+	}
+	option = {
+		name = jap.2.a
+		set_global_flag = jap124
+		if = {
+			limit = { has_tech = thermonuclear }
+			add_political_power = -100
+		}
+	}
+}
+news_event = {   #帝国银行事件
+	id = jap.125
+	title = jap.125.t
+	desc = jap.125.d
+	picture = GFX_KinkakuFire
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = JAP
+		NOT = { has_global_flag = KinkakuFire }
+		date > 1950.7.20
+		date < 1950.10.1
+		
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = KinkakuFire
+	}
+}
+#日苏邦交回复
+news_event = {
+	id = jap.140
+	title = jap.140.t
+	desc = jap.140.d
+	picture = GFX_JapSovNego
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+		set_global_flag = JapSovNegoStart
+	}
+}
+news_event = {   #帝国银行事件
+	id = jap.141
+	title = jap.141.t
+	desc = jap.141.d
+	picture = GFX_JapSovNego
+	mean_time_to_happen = { days = 10 }
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		has_global_flag = JapSovNegoStart
+		
+	}
+	option = {
+		name = jap.96.a
+		news_event = { id = jap.142 }
+	}
+}
+news_event = {
+	id = jap.142
+	title = jap.142.t
+	desc = jap.142.d
+	picture = GFX_JapSovNego
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+		set_global_flag = JapSovNegoDone
+	}
+}
+news_event = {   #帝国银行事件
+	id = jap.147
+	title = jap.147.t
+	desc = jap.147.d
+	picture = GFX_JapSovNego
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = JAP
+		has_global_flag = JapSovNegoDone
+		
+	}
+	option = {
+		name = jap.96.a
+		clr_global_flag = JapSovNegoDone
+		set_global_flag = JapSovNegoFinish
+	}
+}
+news_event = {   #帝国银行事件
+	id = jap.148
+	title = jap.148.t
+	desc = jap.148.d
+	picture = GFX_JapSovNego
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = JAP
+		has_global_flag = JapSovNegoFinish
+		
+	}
+	option = {
+		name = jap.96.a
+		if = {
+			limit = { tag = JAP }
+			clr_global_flag = JapSovNegoFinish
+			clr_global_flag = JapSovNegoStart
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+		if = {
+			limit = { tag = SOV }
+			add_opinion_modifier = {
+				target = JAP
+				modifier = USA_special_relationship
+			}
+		}
+	}
+}
+news_event = {
+	id = jap.150
+	title = jap.150.t
+	desc = jap.150.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.150.a
+			ai_chance = {
+				factor = 99
+			}
+		set_country_flag = JAP50voteYes
+	}
+	option = {
+		name = jap.150.b
+			ai_chance = {
+				factor = 0
+			}
+		set_country_flag = JAP50voteNo
+	}
+}
+news_event = {   #帝国银行事件
+	id = jap.151
+	title = jap.151.t
+	desc = jap.151.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		SOV = { has_country_flag = JAP50voteYes }
+		USA = { has_country_flag = JAP50voteYes }
+	}
+	option = {
+		name = jap.96.a
+		clr_country_flag = JAP50voteYes
+		if = {
+			limit = { tag = JAP }
+			add_to_array = { global.UNmember_list = FROM }
+			add_ideas = UNmember
+			add_political_power = 600
+			add_stability = 0.25
+		}
+	}
+}
+news_event = {   #帝国银行事件
+	id = jap.152
+	title = jap.152.t
+	desc = jap.152.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		OR = {
+		SOV = { has_country_flag = JAP50voteNo }
+		USA = { has_country_flag = JAP50voteNo }
+		}
+	}
+	option = {
+		name = jap.96.a
+		clr_country_flag = JAP50voteNo
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -50
+		}
+	}
+}
+news_event = {   #日共分裂
+	id = jap.157
+	title = jap.157.t
+	desc = jap.157.d
+	picture = GFX_JCPLeaders
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		NOT = { has_global_flag = jap157 }
+		date > 1950.1.1
+		date < 1950.6.1
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap157
+	}
+}
+news_event = {   
+	id = jap.158
+	title = jap.158.t
+	desc = jap.158.d
+	picture = GFX_TokudaSpeeching
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		NOT = { has_global_flag = jap158 }
+		date > 1950.1.1
+		date < 1950.6.1
+		has_global_flag = jap157
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap158
+	}
+}
+news_event = {   
+	id = jap.159
+	title = jap.159.t
+	desc = jap.159.d
+	picture = GFX_TokudaSpeeching
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		NOT = { has_global_flag = jap159 }
+		has_global_flag = jap158
+		date > 1950.1.1
+		date < 1950.6.1
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap159
+		if = {
+			limit = { tag = JAP }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = jap.160
+	title = jap.160.t
+	desc = jap.160.d
+	picture = GFX_TokudaKyuichi
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+#人民广场事件
+news_event = {
+	id = jap.161
+	title = jap.161.t
+	desc = jap.161.d
+	picture = GFX_MacarthurWar
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1950.5.10
+		date < 1951.1.1
+		has_completed_focus = us_spuress_cjp
+		NOT = { has_global_flag = jap161 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap161
+	}
+}
+news_event = {
+	id = jap.163
+	title = jap.163.t
+	desc = jap.163.d
+	picture = GFX_TokyoProtest1950
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date < 1953.1.1
+		has_global_flag = jap161
+		NOT = { has_global_flag = jap163 }
+	}
+	option = {
+		name = jap.96.a
+		news_event = { id = jap.164 days = 1 }
+		set_global_flag = jap163
+	}
+}
+news_event = {
+	id = jap.164
+	title = jap.164.t
+	desc = jap.164.d
+	picture = GFX_JapanProtestSupress
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {   #熊泽宽道
+	id = jap.165
+	title = jap.165.t
+	desc = jap.165.d
+	picture = GFX_TokudaKyuichi
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date > 1950.10.15
+		date < 1951.1.1
+		has_global_flag = jap163
+		NOT = { has_global_flag = jap165 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap165
+	}
+}
+news_event = {   #熊泽宽道
+	id = jap.166
+	title = jap.166.t
+	desc = jap.166.d
+	picture = GFX_TokudaKyuichi
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date > 1951.2.10
+		date < 1951.5.1
+		has_global_flag = jap165
+		NOT = { has_global_flag = jap166 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap166
+	}
+}
+#日共六大放弃武斗
+news_event = {
+	id = jap.170
+	title = jap.166.t
+	desc = jap.166.d
+	picture = GFX_JCPCongress50s
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date > 1955.7.20
+		date < 1955.8.10
+		has_war = no
+		has_government = democratic
+		country_exists = KOR
+		KOR = { has_war = no }
+		has_global_flag = jap166
+		NOT = { has_global_flag = jap170 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap170
+		if = {
+			limit = { tag = JAP }
+			add_stability = 0.12
+		}
+	}
+}
+
+
+news_event = {
+	id = jap.174
+	title = jap.174.t
+	desc = jap.174.d
+	picture = GFX_KateyamaTetsu
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.175
+	title = jap.175.t
+	desc = jap.175.d
+	picture = GFX_KateyamaTetsu
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+		if = {
+			limit = { tag = JAP }
+			set_politics = { ruling_party = authoritarianism }
+			promote_character = {
+				character = JAP_Kishi_Nobusuke
+				ideology = authoritarianism
+			}
+		}
+	}
+}
+news_event = {
+	id = jap.179
+	title = jap.179.t
+	desc = jap.179.d
+	picture = GFX_JSDF1950
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = jap.25.a
+		promote_character = {
+			character = JAP_Miyamoto_kenji
+			ideology = marxism
+		}
+		promote_character = {
+			character = JAP_inejiro_asunama
+			ideology = liberalism
+		}
+		play_song = JAP_8
+		if = {
+			limit = {
+				communism > 0.3
+			}
+			start_civil_war = {
+				ideology = communism
+				size = 0.3
+			}
+		}
+		if = {
+			limit = {
+				communism < 0.3
+			}
+			start_civil_war = {
+				ideology = democratic
+				size = 0.3
+			}
+		}
+		news_event = { id = jap.180 }
+	}
+}
+news_event = {
+	id = jap.180
+	title = jap.180.t
+	desc = jap.180.d
+	picture = GFX_JSDF1950
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {   #熊泽宽道
+	id = jap.199
+	title = jap.199.t
+	desc = jap.199.d
+	picture = GFX_Kumazawa
+	mean_time_to_happen = { days = 15 }
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date < 1950.1.1
+	}
+	option = {
+		name = jap.96.a
+			news_event = { id = jap.106 }
+	}
+}
+news_event = {
+	id = jap.200
+	title = jap.200.t
+	desc = jap.200.d
+	picture = GFX_Kumazawa
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+#安纳塔汉岛
+news_event = {
+	id = jap.210
+	title = jap.210.t
+	desc = jap.210.d
+	picture = GFX_AnatahanIslands
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date > 1950.8.10
+		date < 1950.9.1
+		NOT = { has_global_flag = jap210 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap210
+	}
+}
+news_event = {
+	id = jap.211
+	title = jap.211.t
+	desc = jap.211.d
+	picture = GFX_HigaKazuko
+	mean_time_to_happen = { days = 45 }
+	major = yes
+	trigger = {
+		tag = JAP
+		has_global_flag = jap210
+		NOT = { has_global_flag = jap211 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap211
+	}
+}
+news_event = {
+	id = jap.213
+	title = jap.213.t
+	desc = jap.213.d
+	picture = GFX_AnatahanIslands
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = JAP
+		date > 1951.6.10
+		date < 1951.9.1
+		has_global_flag = jap211
+		NOT = { has_global_flag = jap213 }
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = jap213
+	}
+}
+
+
+
+
+news_event = {
+	id = jap.214
+	title = jap.214.t
+	desc = jap.214.d
+	picture = GFX_KishiNobusuke
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+country_event = {
+	id = jap.220
+	title = jap.220.t
+	desc = jap.220.d
+	picture = GFX_JapanElections
+	is_triggered_only = yes
+	option = {
+		name = jap.16.a
+			ai_chance = {
+				factor = 0
+			}
+		JAP = { country_event = { id = jap.221 } }
+	}
+	option = {
+			ai_chance = {
+				factor = 99
+			}
+		name = jap.16.a
+		JAP = { country_event = { id = jap.222 } }
+	}
+}
+country_event = {
+	id = jap.221
+	title = jap.221.t
+	desc = jap.221.d
+	picture = GFX_JapanElections
+	is_triggered_only = yes
+	option = {
+		name = jap.16.a
+	}
+}
+country_event = {
+	id = jap.222
+	title = jap.222.t
+	desc = jap.222.d
+	picture = GFX_JapanElections
+	is_triggered_only = yes
+	option = {
+		name = jap.16.a
+			ai_chance = {
+				factor = 0
+			}
+		FROM = { country_event = { id = jap.224 } }
+	}
+	option = {
+			ai_chance = {
+				factor = 99
+			}
+		name = jap.16.a
+		add_political_power = -200
+		FROM = { country_event = { id = jap.223 } }
+	}
+}
+country_event = {
+	id = jap.223
+	title = jap.223.t
+	desc = jap.223.d
+	picture = GFX_JapanElections
+	is_triggered_only = yes
+	option = {
+		name = jap.16.a
+		add_political_power = 500
+		country_event = { id = jap.225 }
+		set_country_flag = japan_diplomatic
+	}
+}
+country_event = {
+	id = jap.224
+	title = jap.224.t
+	desc = jap.224.d
+	picture = GFX_JapanElections
+	is_triggered_only = yes
+	option = {
+		name = jap.16.a
+	}
+}
+country_event = {
+	id = jap.225
+	title = jap.225.t
+	desc = jap.225.d
+	picture = GFX_JapanElections
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+country_event = {
+	id = jap.230
+	title = jap.230.t
+	desc = jap.230.d
+	picture = GFX_JapanElections
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		PHI = { has_country_flag = japan_diplomatic }
+		NOT = { has_country_flag = jap230 }
+	}
+	option = {
+		name = jap.16.a
+		set_country_flag = jap230
+	}
+}
+country_event = {
+	id = jap.231
+	title = jap.231.t
+	desc = jap.231.d
+	picture = GFX_JapanElections
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		MAL = { has_country_flag = japan_diplomatic }
+		NOT = { has_country_flag = jap231 }
+	}
+	option = {
+		name = jap.16.a
+		set_country_flag = jap231
+	}
+}
+country_event = {
+	id = jap.232
+	title = jap.232.t
+	desc = jap.232.d
+	picture = GFX_JapanElections
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		INS = { has_country_flag = japan_diplomatic }
+		NOT = { has_country_flag = jap232 }
+	}
+	option = {
+		name = jap.16.a
+		set_country_flag = jap232
+	}
+}
+
+
+
+news_event = {
+	id = jap.235
+	title = jap.235.t
+	desc = jap.235.d
+	picture = GFX_JapanElectronics
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.236
+	title = jap.236.t
+	desc = jap.236.d
+	picture = GFX_JapanElectronics
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.237
+	title = jap.237.t
+	desc = jap.237.d
+	picture = GFX_TR55Radio
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.238
+	title = jap.238.t
+	desc = jap.238.d
+	picture = GFX_ToyotaCrown
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+
+
+news_event = {
+	id = jap.241
+	title = jap.241.t
+	desc = jap.241.d
+	picture = GFX_TokyoTowerConstruct
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.242
+	title = jap.242.t
+	desc = jap.242.d
+	picture = GFX_TokyoTowerConstruct
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.243
+	title = jap.243.t
+	desc = jap.243.d
+	picture = GFX_TokyoTowerConstruct
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.244
+	title = jap.244.t
+	desc = jap.244.d
+	picture = GFX_TokyoTower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+
+
+
+
+
+news_event = {
+	id = jap.1000
+	title = jap.1000.t
+	desc = jap.1000.d
+	picture = GFX_JSDF1950
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = JAP_INT
+	}
+	option = {
+		name = jap.16.a
+		if = {
+			limit = {
+				has_war_with = JAP
+				has_government = communism
+				NOT = {
+					tag = PRC
+					tag = CHI
+					tag = PRK
+					tag = KOR
+					tag = SOV
+					tag = USA
+				}
+			}
+			NJP = {
+				transfer_state = 533
+				change_tag_from = ROOT
+				load_focus_tree = JAPAN_focus
+			}
+			every_state = {
+				limit = {
+					is_core_of = JAP
+					NOT = { is_core_of = RYU }
+				}
+				transfer_state_to = NJP
+				add_core_of = NJP
+			}
+		}
+	}
+}
+news_event = {
+	id = jap.250
+	title = jap.250.t
+	desc = jap.250.d
+	picture = GFX_KateyamaTetsu
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = JAP
+		date > 1951.10.1
+		date < 1955.1.1
+		has_completed_focus = JAP_SanFrancisco_treaty
+		NOT = { has_global_flag = jap250 }
+	}
+	option = {
+		name = jap.9.b
+		if = {
+			limit = { tag = JAP }
+			set_global_flag = jap250
+			add_ideas = JSPsepataris
+		}
+	}
+}
+news_event = {
+	id = jap.251
+	title = jap.251.t
+	desc = jap.251.d
+	picture = GFX_AsanumaInejiro
+	major = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = JAP
+		date > 1951.10.1
+		date < 1955.1.1
+		has_idea = JSPsepataris
+		NOT = { has_global_flag = jap251 }
+	}
+	option = {
+		name = jap.9.b
+		if = {
+			limit = { tag = JAP }
+			recruit_character = JAP_inejiro_asunama
+			set_global_flag = jap251
+			add_ideas = JSPsepataris
+		}
+	}
+}
+news_event = {
+	id = jap.252
+	title = jap.252.t
+	desc = jap.252.d
+	picture = GFX_SPJunited
+	major = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = JAP
+		date > 1955.10.1
+		date < 1956.1.1
+		has_idea = JSPsepataris
+		NOT = { has_global_flag = jap252 }
+	}
+	option = {
+		name = jap.9.b
+		if = {
+			limit = { tag = JAP }
+			set_global_flag = jap252
+			remove_ideas = JSPsepataris
+		}
+	}
+}
+news_event = {
+	id = jap.253
+	title = jap.253.t
+	desc = jap.253.d
+	picture = GFX_JSPrightwing
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.254
+	title = jap.254.t
+	desc = jap.254.d
+	picture = GFX_NishioSuehiro
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.16.a
+	}
+}
+news_event = {
+	id = jap.258
+	title = jap.258.t
+	desc = jap.258.d
+	picture = GFX_YuejinShip
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		date > 1956.2.10
+		date < 1956.3.1
+		country_exists = PRC
+		country_exists = CHI
+		NOT = { has_global_flag = jap258 }
+	}
+	option = {
+		name = jap.9.b
+		set_global_flag = jap258
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -80
+		}
+	}
+}
+##水俣病
+news_event = {
+	id = jap.300
+	title = jap.300.t
+	desc = jap.300.d
+	picture = GFX_FishingPhoto
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		date > 1950.5.10
+		date < 1950.7.1
+		NOT = { has_global_flag = jap300 }
+	}
+	option = {
+		name = jap.9.b
+		set_global_flag = jap300
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = jap.301
+	title = jap.301.t
+	desc = jap.301.d
+	picture = GFX_Minamata2
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		date > 1956.4.20
+		date < 1956.7.1
+		NOT = { has_global_flag = jap301 }
+	}
+	option = {
+		name = jap.9.b
+		set_global_flag = jap301
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -100
+		}
+	}
+}
+news_event = {
+	id = jap.302
+	title = jap.302.t
+	desc = jap.302.d
+	picture = GFX_Minamata3
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = JAP
+		date > 1956.4.20
+		date < 1956.7.1
+		has_global_flag = jap301
+		NOT = { has_global_flag = jap302 }
+	}
+	option = {
+		name = jap.9.b
+		set_global_flag = jap302
+		if = {
+			limit = { tag = JAP }
+			add_political_power = -100
+		}
+	}
+}

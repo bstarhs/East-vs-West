@@ -1,0 +1,307 @@
+
+ENG_fleet_in_norway = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = ENG
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 45
+		value = 70
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = 45
+		value = 70
+	}
+}
+ITA_civil_war_volunteers = {
+	abort_when_not_enabled = yes
+	enable = {
+		OR = {
+			tag = SPR
+			tag = POR
+			tag = FRA
+			tag = IRE
+		}
+		NOT = { has_government = communism }
+		ITA = { has_government = communism }
+	}
+	abort = {
+		NOT = { ITA = { has_government = communism } }
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = NAP			
+		value = 100
+	}
+	ai_strategy = {
+		type = antagonize
+		id = ITA
+		value = 500
+	}
+}
+italy_anti_com_coup = {
+	allowed = {
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = FRA
+		}
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		ITA = { NOT = { has_government = communism } }
+	}
+	enable = {
+		num_of_operatives > 1
+		ITA = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = ITA
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = propaganda
+		value = 600
+		mission_target = ITA
+		state = 2
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = ITA
+		num_operatives = 1
+	}
+}
+NATO_faction = {
+	enable = {
+		AND = {
+			is_in_faction_with = USA
+		}
+		OR = {
+			tag = SPR
+			tag = JAP
+			tag = POR
+			tag = ITA
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = spare_unit_factor
+		value = -600
+	}
+    ai_strategy = {
+		type = garrison
+		value = 50
+	}
+}
+NATO_help_norway = {
+	enable = {
+		NOR = {
+			has_country_flag = rejected_sov_treaty
+		}
+		OR = {
+			tag = USA
+			tag = ENG
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = NOR
+		value = 200
+	}
+	ai_strategy = {
+		type = befriend
+		id = NOR
+		value = 200
+	}
+}
+USA_invade_CUB = {
+	enable = {
+		tag = USA
+		has_war_with = SOV
+		CUB = { has_government = communism }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invade
+		id = "CUB"			
+		value = 200
+	}
+}
+USA_WDR_garrison = {
+	enable = {
+		tag = USA
+		is_in_faction_with = WDR
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			58
+			59
+			55
+			54
+			53
+		}
+		area = europe
+	}
+}
+FRA_WDR_garrison = {
+	enable = {
+		tag = FRA
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			42
+			50
+		}
+	}
+}
+ENG_WDR_garrison = {
+	enable = {
+		tag = ENG
+		is_in_faction_with = WDR
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			58
+			59
+			55
+			54
+			53
+		}
+	}
+}
+Suez_war_garrison = {
+	enable = {
+		OR = {
+			tag = ENG
+			tag = FRA
+		}
+		has_war_with = EGY
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			860
+		}
+	}
+}
+ENG_SUEZ_garrison = {
+	enable = {
+		tag = ENG
+		owns_state = 860
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			860
+		}
+	}
+}
+ENG_CYP_garrison = {
+	enable = {
+		tag = ENG
+		owns_state = 183
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			183
+		}
+	}
+}
+ENG_HK_garrison = {
+	enable = {
+		tag = ENG
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			326
+		}
+	}
+}
+USA_KOR_garrison = {
+	enable = {
+		tag = USA
+		PRK = { has_government = communism }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			750
+			525
+		}
+	}
+}
+USA_TAIWAN_garrison = {
+	abort = {
+		has_completed_focus = one_China
+	}
+	enable = {
+		tag = USA
+		CHI = {
+			controls_province = 7186
+		}
+		PRC = {
+			controls_province = 4196
+			controls_province = 7071
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			756
+			524
+		}
+	}
+}
+USA_JAP_garrison = {
+	enable = {
+		tag = USA
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			526
+		}
+	}
+}

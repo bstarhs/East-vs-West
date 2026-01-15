@@ -1,0 +1,114 @@
+guiTypes = {
+	containerWindowType = {
+		name = "culture_button_container"
+		position = { x=620 y=37 }
+		buttonType = {
+			name = "culture_button"
+			spriteType = "GFX_culture_button"
+				position = { x = 32 y = 0 }
+				Orientation = "UPPER_LEFT"
+				clicksound = click_close
+				oversound = ui_menu_over
+			pdx_tooltip = "culture_button"
+		}
+	}
+	containerWindowType = {
+		name = "culture_background_container"
+		position = {x = 400 y = 200 }
+		size = { width = 1108 height = 702 }
+		moveable = yes
+		buttonType = {
+			name = "close_button"
+			position = {x= 1050 y = -0 }
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+			clicksound = click_close
+		}	
+
+		background = {
+			name = "Background"
+			spriteType = "GFX_economic_background"
+		}
+		instantTextboxType = {
+			name = "cilture_main"
+			position = { x = 160 y = 360 }
+			textureFile = ""
+			font = "hoi_36header"
+			text = "cilture_main"
+			maxWidth = 260
+			maxHeight = 30
+			format = left
+		}
+		iconType = {
+			name = "state_ethnics_flag"
+			position = { x = 135 y = 205 }
+			spriteType = GFX_state_ethnics_flag
+			scale = 1.2
+		}
+		iconType = {
+			name = "main_Czech"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Czech
+			pdx_tooltip = "ETHNIC_CZECH_INFO"
+			pdx_tooltip_delayed = "Czech_introduce"
+		}
+		iconType = {
+			name = "main_Yankee"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Yankee
+			pdx_tooltip = "ETHNIC_Yankee_INFO"
+		}
+		iconType = {
+			name = "main_Portuguese"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Portuguese
+			pdx_tooltip = "ETHNIC_Portuguese_INFO"
+		}
+		iconType = {
+			name = "main_Castile"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Castile
+			pdx_tooltip = "ETHNIC_CASTILE_INFO"
+			pdx_tooltip_delayed = "Castile_introduce"
+		}
+		iconType = {
+			name = "main_Georgians"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Gerogians
+			pdx_tooltip = "ETHNIC_Gerogians_INFO"
+			pdx_tooltip_delayed = "Gerogians_introduce"
+		}
+		iconType = {
+			name = "main_Polish"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Polish
+			pdx_tooltip = "ETHNIC_Polish_INFO"
+		}
+		iconType = {
+			name = "main_Romanian"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Romanian
+			pdx_tooltip = "ETHNIC_Romanian_INFO"
+		}
+		iconType = {
+			name = "main_Afrikaaners"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Afrikaaners
+			pdx_tooltip = "ETHNIC_AFRIKAANERS_INFO"
+			pdx_tooltip_delayed = "afrikaans_introduce"
+		}
+		iconType = {
+			name = "mains_Han"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Han
+			pdx_tooltip = "ETHNIC_Han_INFO"
+			pdx_tooltip_delayed = "Han_introduce"
+		}
+		iconType = {
+			name = "main_Russian"
+			position = { x = 160 y = 220 }
+			spriteType = GFX_ethnics_Russian
+			pdx_tooltip = "ETHNIC_Russian_INFO"
+		}
+	}
+}

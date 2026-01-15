@@ -1,0 +1,132 @@
+﻿capital = 790
+
+set_country_flag = african_state
+set_country_flag = third_world
+
+set_country_flag = language_portuguese
+# Starting tech
+set_technology = {
+		excavation1 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+}
+
+	add_ideas = {
+	Anti_religious
+		service_by_requirement
+		war_economy
+	}
+set_convoys = 5
+	set_popularities = {
+		democratic = 12
+		communism = 72
+		neutrality = 16
+	}
+set_politics = {
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	
+	name = "Agostinho Neto"
+	picture = "gfx/leaders/ANG/Portrait_Angola_Agostinho_Neto.tga"
+	expire = "1990.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	
+	name = "Holden Roberto"
+	picture = "gfx/leaders/ANG/Portrait_Angola_Holden_Roberto.tga"
+	expire = "2002.1.1"
+	ideology = centrism
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	
+	name = "Jonas Savimbi"
+	picture = "gfx/leaders/ANG/Portrait_Angola_Jonas_Savimbi.tga"
+	expire = "2002.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+1964.1.1 = {
+	complete_national_focus = common_24
+	add_ideas = {
+		ColonyWar
+	}
+	oob = "ANG_1965"
+}
+1976.1.1 = {
+	complete_national_focus = common_61
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_73
+	set_popularities = {
+		democratic = 22
+		communism = 52
+		neutrality = 26
+	}
+	add_ideas = {
+		UNmember
+	}
+	oob = "ANG_1978"
+}
+
+1979.9.3 = {
+	set_global_flag = angola_civil_war
+	create_country_leader = {
+	
+		name = "Jose Eduardo Santos"
+		picture = "gfx/leaders/ANG/Portrait_Angola_Eduardo_Santos.tga"
+		expire = "2015.1.1"
+		ideology = marxism
+		traits = {
+			independent
+		}
+	}
+}

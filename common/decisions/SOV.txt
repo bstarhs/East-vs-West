@@ -1,0 +1,1044 @@
+
+economy_decisions = {
+	SOV_NS_Lenin_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 80
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			NOT = { has_country_flag = SOV_NS_Lenin_decis }
+			has_tech = nukes
+		}
+		available = {
+			num_of_naval_factories > 8
+			chromium > 5
+			steel > 5
+			tungsten > 3
+			oil > 2
+			has_tech = Enriched_Uranium
+			has_tech = naval_nuclear_engine
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 100
+				date > 1957.2.1
+			}
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_NS_Lenin_decis
+			news_event = { id = sov.538 }
+			add_dynamic_modifier = {
+				modifier = nuclear_convoy_modifiers
+				days = 1400
+			}
+		}
+	}
+	SOV_Dryzhpa_oilpipes_desc = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 120
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_EconomicSupport
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_political_power > 200
+			}
+		}
+		days_remove = 90
+		target_trigger = {
+			FROM = {
+				is_in_faction_with = SOV
+				any_neighbor_country = {
+					OR = {
+						has_idea = Dryzhpa_oilpipes
+						tag = SOV
+					}
+				}
+				NOT = { has_idea = Dryzhpa_oilpipes }
+			}
+		}
+		complete_effect = {
+			FROM = { news_event = { id = sov.556 } }
+		}
+		remove_effect = { 
+			add_political_power = 120
+			FROM = {
+				news_event = { id = sov.557 }
+				add_political_power = 200
+				add_ideas = Dryzhpa_oilpipes
+				add_stability = 0.04
+			}
+		}
+	}
+}
+SOV_communism_great_project_decis = {
+	SOV_Kuybyshev_dam_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_Kuybyshev_dam_decis }
+		}
+		available = {
+			has_tech = construction2
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_Kuybyshev_dam_decis
+			251 = {
+				set_state_category = city
+				add_building_construction = {
+					type = dam_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_stalingrad_dam_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_stalingrad_dam_decis }
+		}
+		available = {
+			has_tech = construction2
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_stalingrad_dam_decis
+			217 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_Kakhovka_dam_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_Kakhovka_dam_decis }
+		}
+		available = {
+			has_tech = construction2
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_Kakhovka_dam_decis
+			196 = {
+				set_state_category = large_town
+				add_building_construction = {
+					type = dam_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_krem_canal_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_krem_canal_decis }
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_krem_canal_decis
+			196 = {
+				set_state_category = city
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_turkmen_canal_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_turkmen_canal_decis }
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_turkmen_canal_decis
+			1014 = {
+				set_state_category = town
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			1015 = {
+				set_state_category = town
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_volga_don_canal_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_volga_don_canal_decis }
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_volga_don_canal_decis
+			217 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			245 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			265 = {
+				set_state_category = town
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_Tsimlyansk_dam_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_Tsimlyansk_dam_decis }
+		}
+		available = {
+			has_tech = construction2
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_Tsimlyansk_dam_decis
+			196 = {
+				set_state_category = large_town
+				add_building_construction = {
+					type = dam_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_baltic_belaya_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_baltic_belaya_decis }
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_baltic_belaya_decis
+			146 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			216 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			215 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_Bratsk_dam_decis = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_completed_focus = SOV_GreatProject
+			NOT = { has_country_flag = SOV_Bratsk_dam_decis }
+		}
+		available = {
+			has_tech = construction2
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 120
+			set_country_flag = SOV_Bratsk_dam_decis
+			567 = {
+				set_state_category = town
+				add_building_construction = {
+					type = dam_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			566 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_construction_Mingachevir = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1952.1.1
+			}
+		}
+		visible = {
+			tag = SOV
+			NOT = { has_global_flag = SOV_construction_Mingachevir }
+			has_completed_focus = SOV_GreatProject
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+			has_tech = construction2
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = SOV_construction_Mingachevir
+			419 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+SOV_moscow_construction = {
+	SOV_construction_Moskva_university = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_idea = khrushchevka_idea
+		}
+		days_remove = 220
+		remove_effect = { 
+			add_political_power = 200
+			random_owned_state = {
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+			219 = {
+				add_building_construction = {
+					type = school
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SOV_construction_Moskva_exhibition = {
+		icon = GFX_decision_hol_draw_up_staff_plans 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_idea = khrushchevka_idea
+		}
+		days_remove = 220
+		remove_effect = {  
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+		}
+	}
+	SOV_construction_Hotel_ukraina = {
+		icon = GFX_decision_hol_draw_up_staff_plans 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_idea = khrushchevka_idea
+		}
+		days_remove = 220
+		remove_effect = {   
+			add_political_power = 200 
+		}
+	}
+	SOV_construction_Stadium_Ruzhniki = {
+		icon = GFX_decision_hol_draw_up_staff_plans 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_idea = khrushchevka_idea
+		}
+		days_remove = 220
+		remove_effect = {    
+			add_stability = 0.05
+		}
+	}
+	SOV_construction_Grand_Kremlin = {
+		icon = GFX_decision_hol_draw_up_staff_plans 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_idea = khrushchevka_idea
+		}
+		days_remove = 220
+		remove_effect = {   
+			add_political_power = 400
+		}
+	}
+	SOV_construction_Novy_Arabt = {
+		icon = GFX_decision_hol_draw_up_staff_plans 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_idea = khrushchevka_idea
+		}
+		days_remove = 220
+		remove_effect = {    
+			219 = {
+				add_extra_state_shared_building_slots = 3
+			}
+		}
+	}
+}
+Space_decis = {
+	USA_KosmodromPresetsk = {
+		icon = GFX_deci_nuclear 
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			tag = SOV
+			has_tech = nukes
+		}
+		days_remove = 220
+		remove_effect = {    
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = space
+			}
+			add_victory_points = {
+				province = 6051
+				value = 6
+			}
+		}
+    
+	}
+}
+SOV_kultulnost = {
+	SOV_voina_i_mir_1 = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 80
+				date > 1963.1.1
+			}
+		}
+		fire_only_once = yes
+		cost = 300
+		days_remove = 100
+		visible = {
+		}
+		available = {
+			communism > 0.7
+			has_army_experience > 300
+		}
+		remove_effect = {
+			add_political_power = 200
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			news_event = { id = sov.152 }
+			if = {
+				limit = { has_idea = Furtseva }
+				custom_effect_tooltip = SOV_Furceva_tool
+				add_political_power = 100
+			}
+		}
+	}
+	SOV_voina_i_mir_2 = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 80
+				date > 1963.1.1
+			}
+		}
+		fire_only_once = yes
+		cost = 300
+		days_remove = 100
+		visible = {
+		}
+		available = {
+			communism > 0.7
+			has_army_experience > 300
+			has_decision = SOV_voina_i_mir_1
+		}
+		remove_effect = {
+			add_political_power = 200
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			news_event = { id = sov.153 }
+			if = {
+				limit = { has_idea = Furtseva }
+				custom_effect_tooltip = SOV_Furceva_tool
+				add_political_power = 100
+			}
+		}
+	}
+	SOV_voina_i_mir_3 = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 80
+				date > 1963.1.1
+			}
+		}
+		fire_only_once = yes
+		cost = 300
+		days_remove = 100
+		visible = {
+		}
+		available = {
+			communism > 0.7
+			has_army_experience > 300
+			has_decision = SOV_voina_i_mir_2
+		}
+		remove_effect = {
+			add_political_power = 200
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			news_event = { id = sov.154 }
+			if = {
+				limit = { has_idea = Furtseva }
+				custom_effect_tooltip = SOV_Furceva_tool
+				add_political_power = 100
+			}
+		}
+	}
+	SOV_voina_i_mir_4 = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 80
+				date > 1963.1.1
+			}
+		}
+		fire_only_once = yes
+		cost = 300
+		days_remove = 100
+		visible = {
+		}
+		available = {
+			communism > 0.7
+			has_army_experience > 300
+			has_decision = SOV_voina_i_mir_3
+		}
+		remove_effect = {
+			add_political_power = 200
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			news_event = { id = sov.155 }
+			if = {
+				limit = { has_idea = Furtseva }
+				custom_effect_tooltip = SOV_Furceva_tool
+				add_political_power = 100
+			}
+		}
+	}
+	SOV_spartak_sport = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 200
+				date > 1956.3.1
+			}
+		}
+		fire_only_once = yes
+		cost = 120
+		days_remove = 20
+		visible = {
+			has_completed_focus = SOV_OpenArts
+		}
+		available = {
+			communism > 0.7
+		}
+		remove_effect = {
+			add_stability = 0.8
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			news_event = { id = sov.120 }
+			if = {
+				limit = { has_idea = Furtseva }
+				custom_effect_tooltip = SOV_Furceva_tool
+				add_political_power = 100
+			}
+		}
+	}
+	SOV_musicians = {
+		icon = GFX_deci_nuclear
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 80
+				date > 1958.1.1
+			}
+		}
+		fire_only_once = yes
+		cost = 120
+		days_remove = 20
+		visible = {
+			has_completed_focus = SOV_OpenArts
+		}
+		available = {
+			communism > 0.7
+		}
+		remove_effect = {
+			add_stability = 0.8
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+			news_event = { id = sov.121 }
+			if = {
+				limit = { has_idea = Furtseva }
+				custom_effect_tooltip = SOV_Furceva_tool
+				add_political_power = 100
+			}
+		}
+	}
+}
+military_action = {
+	SOV_puppet_MAN = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = SOV
+			has_war_with = prc
+			controls_province = 11771
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 100
+		complete_effect = {
+			MAN = {
+				transfer_state = 610
+				transfer_state = 716
+				transfer_state = 715
+				transfer_state = 328
+				transfer_state = 714
+				transfer_state = 717
+				transfer_state = 609
+				set_politics = { ruling_party = communism }
+			}
+			add_to_faction = MAN
+		}
+	}
+	SOV_puppet_SIK = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = SOV
+			has_war_with = PRC
+			controls_province = 4709
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 100
+		complete_effect = {
+			SIK = {
+				transfer_state = 618
+				transfer_state = 617
+				transfer_state = 619
+				transfer_state = 287
+				set_politics = { ruling_party = communism }
+			}
+			add_to_faction = SIK
+		}
+	}
+	SOV_strike_china = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = SOV
+			has_global_flag = China_invade_Vietnam
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		complete_effect = {
+			news_event = { id = prc.110 }
+			add_stability = -0.15
+			declare_war_on = { target = PRC type = annex_everything  }
+			every_other_country = {
+				limit = { is_in_faction_with = SOV }
+				news_event = { id = prc.111 }
+			}
+		}
+	}
+}
+SOV_destalinization = {
+	SOV_change_name = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = SOV_RemovingStalinization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		complete_effect = {
+			news_event = { id = sov.18 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			add_political_power = 400
+			add_stability = -0.05
+			217 = { set_state_name = STATE_VOLGARAD }
+			set_province_name = { id = 3529 name = VICTORY_POINTS_VOLDGAGROD }
+			set_province_name = { id = 12250 name = VICTORY_POINTS_DUSHANBE }
+			set_province_name = { id = 1685 name = VICTORY_POINTS_NOVOKUTZNECK }
+			set_province_name = { id = 6474 name = VICTORY_POINTS_DONETSK }
+		}
+	}
+}
+political_actions = {
+	RUS_change_name = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = SOV
+			NOT= { has_government = communism }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 60
+		complete_effect = {
+			251 = { set_state_name = STATE_251_RUS }
+			252 = { set_state_name = STATE_252_RUS }
+			247 = { set_state_name = STATE_247_RUS }
+			228 = { set_state_name = STATE_228_RUS }
+			set_province_name = { id = 11225 name = VICTORY_POINTS_11225_RUS }
+			set_province_name = { id = 3151 name = VICTORY_POINTS_3151_RUS }
+			set_province_name = { id = 11375 name = VICTORY_POINTS_11375_RUS }
+			set_province_name = { id = 9461 name = VICTORY_POINTS_9461_RUS }
+			set_province_name = { id = 6245 name = VICTORY_POINTS_6245_RUS }
+			set_province_name = { id = 1821 name = VICTORY_POINTS_RUS_1821 }
+		}
+	}
+	MAN_change_name = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			tag = MAN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 60
+		complete_effect = {
+			328 = { set_state_name = STATE_328_manchu }
+			set_province_name = { id = 11771 name = VICTORY_POINTS_11771_mongol }
+			set_province_name = { id = 9831 name = VICTORY_POINTS_9831_manchu }
+			set_province_name = { id = 7633 name = VICTORY_POINTS_7633_manchu }
+			set_province_name = { id = 944 name = VICTORY_POINTS_944_manchu }
+			set_province_name = { id = 3791 name = VICTORY_POINTS_3791_manchu }
+			set_province_name = { id = 5427 name = VICTORY_POINTS_5427_manchu }
+			set_province_name = { id = 7767 name = VICTORY_POINTS_7767_manchu }
+			set_province_name = { id = 10521 name = VICTORY_POINTS_10521_manchu }
+			set_province_name = { id = 7832 name = VICTORY_POINTS_7832_manchu }
+		}
+	}
+	SOV_invade_afghanistan = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			always = yes
+			tag = SOV
+			AFG = { has_government = communism }
+			date < 1982.1.1
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				OR = {
+					AND = {
+						date > 1979.4.1
+					}
+				}
+			}
+		}
+
+		cost = 100
+
+		complete_effect = {
+			AFG = { news_event = { id = afg.18 } }
+		}
+	
+	}
+	SOV_SALT = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			always = yes
+			tag = SOV
+			threat > 50
+			has_idea = hasnuke
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						threat > 60
+					}
+				}
+			}
+		}
+
+		cost = 100
+
+		complete_effect = {
+			USA = { news_event = { id = nuke.5 } }
+		}
+	
+	}
+	
+	SOV_meeting = {
+
+		icon = generic_industry
+
+		visible = {
+			always = yes
+			tag = SOV
+			threat > 50
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1985.12.1
+					}
+				}
+			}
+		}
+
+		cost = 100
+
+		complete_effect = {
+			add_named_threat = { threat = -10 name = Ê×ÄÔ»áÎî }
+		}
+	
+	}
+	
+	SOV_Cuban_missle = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = SOV
+		}
+
+		cost = 20
+
+		visible = {
+			CUB = { has_government = communism }
+			date > 1962.1.1
+			date < 1970.1.1
+		}
+
+		complete_effect = {
+				CUB = { 
+					diplomatic_relation = {
+					relation = military_access
+					country = SOV
+					active = yes
+					}
+				}
+				SOV = { 
+					transfer_state = 790
+					load_oob = "CubaMsissil"
+				}
+		}
+
+	}
+}

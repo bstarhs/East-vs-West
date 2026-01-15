@@ -1,0 +1,42 @@
+state={
+	id=919
+	name="STATE_919"
+
+	resources={
+		copper=2
+	}
+	history={
+		owner = SOV
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		set_state_flag = ethnics_Abkhazian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 72 }
+		add_to_array = { this.state_ethnics_list = 129 }
+		victory_points = {
+			11647 4
+		}
+		buildings = {
+			farm_building = 1
+			infrastructure = 2
+			industrial_complex = 1
+
+		}
+		add_core_of = SOV
+		add_core_of = GEO
+		add_claim_by = ABK
+		1990.8.23 = {
+			remove_claim_by = ABK
+			remove_core_of = SOV
+			add_core_of = ABK
+			owner = ABK
+		}
+
+	}
+
+	provinces={
+		11647 11617 672 
+	}
+	manpower=2949413
+	buildings_max_level_factor=1.000
+	state_category=town
+}

@@ -1,0 +1,138 @@
+﻿capital = 660
+
+oob = "GAB"
+
+set_country_flag = language_french
+set_country_flag = african_state
+set_country_flag = equatorial_africa
+set_country_flag = third_world
+set_country_flag = french_colonies
+set_research_slots = 1
+set_convoys = 60
+set_stability = 0.75
+	set_cosmetic_tag = GAB_FRA
+
+add_ideas = {
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+}
+set_technology = {
+		oil_processing = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+		medical1 = 1
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+
+	set_popularities = {
+		democratic = 30
+		communism = 8
+		authoritarianism = 62
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1997.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+create_country_leader = {
+	name = "French Equatoria Africa governor"
+	picture = "gfx/leaders/CAF/Portrait_Equatoria_governor.tga"
+	expire = "1976.1.1"
+	ideology = conservatism
+	traits = {
+	}
+}
+	
+1960.1.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	create_country_leader = {
+		name = "Gabriel Léon M'ba"
+		picture = "gfx/leaders/GAB/Portrait_Gabon_Léon_Mba.tga"
+		expire = "2020.1.1"
+		ideology = authoritarianism
+	
+		traits = {
+			dictator personal_worship corrupt_leader
+		}
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1945.12.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	set_cosmetic_tag = GAB
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+	france_colony UNmember
+	}
+}
+
+1967.3.12 = {
+	complete_national_focus = common_24
+	create_country_leader = {
+		name = "Omar Ondimba Bongo"
+		
+		picture = "gfx/leaders/GAB/Portrait_Gabon_Ondimba.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+			dictator pro_third_world ideological_crusader silent_workhorse pro_france
+		}
+	}
+}
+1973.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_country_flag = china_diplomacy
+	add_ideas = {
+		NonAligned
+		IslamOrg
+	}
+}
+1975.1.1 = {
+	set_country_flag = female_finished
+	add_ideas = {
+		OPEC
+	}
+}

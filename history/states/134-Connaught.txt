@@ -1,0 +1,36 @@
+
+state=
+{
+	id=134
+	name="STATE_134"
+	manpower = 667100
+	
+	state_category = town
+
+	history=
+	{
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = IRE
+		set_state_flag = ethnics_Irish
+		add_to_array = { this.state_ethnics_list = 85 }
+		buildings = {
+			farm_building = 3
+			power_plant = 1
+			school = 1
+			hospital = 1
+			infrastructure = 6
+		}
+		victory_points = {
+			9303 6
+		}
+		victory_points = {
+			337 3
+		}
+		add_core_of = IRE
+	}
+
+	provinces=
+	{
+337 3396 9255 9303 9321 9369 11238 11287 11371 	}
+}

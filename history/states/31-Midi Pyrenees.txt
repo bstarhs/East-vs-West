@@ -1,0 +1,66 @@
+
+state={
+	id=31
+	name="STATE_31"
+	manpower = 1825000
+	
+	state_category = city
+	local_supplies=0.0
+	resources={
+		coal=18
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+                              
+		owner = FRA
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 70 }
+		add_core_of = OCC
+		set_state_flag = wine_production
+		set_state_flag = ethnics_Octavian
+		victory_points = {
+			6766 8
+		}
+		victory_points = {
+			6759 3
+		}
+		victory_points = {
+			11699 5
+		}
+		victory_points = {
+			11702 5
+		}
+		victory_points = {
+			9853 5
+		}
+		victory_points = {
+			12169 4
+		}
+		victory_points = {
+			6917 4
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			school = 1
+			power_plant = 2
+			infrastructure = 6
+			arms_factory = 1
+			industrial_complex = 1
+			air_base = 2
+
+		}
+		add_core_of = FRA
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces={
+		929 943 3740 3749 3915 3946 3948 6759 6766 6915 6917 6931 9853 9882 9884 11697 11699 11702 12169 
+	}
+}

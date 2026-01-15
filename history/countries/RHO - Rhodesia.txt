@@ -1,0 +1,241 @@
+﻿capital = 770
+
+# Starting tech
+set_country_flag = developmented
+set_country_flag = african_state
+set_country_flag = language_english
+set_country_flag = commonwealth
+set_country_flag = british_colonies
+	activate_decision = create_radio_station
+	activate_decision = female_equality
+set_technology = {
+		excavation1 = 1
+		excavation2 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		medical1 = 1
+		basic_depth_charges = 1
+		motorize_doctrine = 1
+		improved_depth_charges = 1
+		oil_processing = 1
+		radio_detection = 1
+		army_aviation = 1
+	machine_gun1 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	transport = 1
+	
+	
+	CAS1 = 1
+	motorised_infantry = 1
+	tech_mountaineers = 1
+	
+	basic_medium_tank = 1
+	
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	
+}
+	set_popularities = {
+		democratic = 24
+		communism = 11
+		neutrality = 65
+	}
+
+add_ideas = {
+	service_by_requirement
+	Anglicanism
+	biritish_colony
+	partial_economic_mobilisation
+	apartheid
+}
+set_convoys = 5
+
+1939.1.1 = {
+	#generic focuses
+	
+	set_technology = {
+
+		#doctrines
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+	motorized_transport = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	
+	fighter1 = 1
+	
+	}
+}
+	set_cosmetic_tag = RHO_ENG
+
+create_country_leader = {
+	
+	name = "Godfrey Huggins"
+	picture = "gfx/leaders/RHO/Portrait_Rhodesia_Godfrey_Huggins.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = { 
+		}
+}
+	recruit_character = RHO_Donald_MacIntyre 
+	recruit_character = RHO_Clifford_Dupont
+	recruit_character = RHO_Ian_Smith 	
+	recruit_character = RHO_Roy_Welensky 
+	recruit_character = RHO_Peter_Walls
+	recruit_character = RHO_Garfield_Todd
+
+#Now a colony of Italy  However, if independent it would have
+1939.1.1 = {
+	set_popularities = {
+		democratic = 75
+		communism = 5
+		neutrality = 20
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1953.1.1 = {
+	set_cosmetic_tag = RHO_NYA
+	set_technology = {
+		infantry_weapons2 = 1
+	}
+}
+1956.9.29 = {
+	set_technology = {
+		machine_gun2 = 1
+		concentrated_industry = 1
+		improved_machine_tools = 1
+		
+		radio_detection = 1
+		infantry_weapons1 = 1
+		mechanised_infantry = 1
+		basic_medium_tank = 1
+		dispersed_industry2 = 1
+		paratroopers = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	oob = "RHO_1970"
+	promote_character = RHO_Roy_Welensky
+	create_field_marshal = {
+		name = "Peter Walls"
+		portrait_path = "gfx/leaders/RHO/Portrait_Rhodesia_Walls.tga"
+		traits = {  }
+		skill = 4
+	}
+}
+1964.3.29 = {
+	set_country_flag = female_finished
+	complete_national_focus = common_medic
+	complete_national_focus = steel_produc
+	set_cosmetic_tag = RHO
+	set_technology = {
+		basic_heavy_tank = 1
+		tech_spacemanned = 1
+		aa_missile_2 = 1
+		spaa2 = 1
+	basic_light_tank = 1
+		tech_engineers3 = 1
+		concentrated_industry2 = 1
+		game = 1
+		fighter2 = 1
+		improved_medium_tank = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines2 = 1
+		Strategic_Hamlet = 1
+	}
+	remove_ideas = biritish_colony
+	add_ideas = {
+		jungle_war
+		isolated
+	}
+	set_stability = 0.61
+	promote_character = RHO_Ian_Smith
+	set_technology = {
+	concentrated_industry2 = 1
+	construction2 = 1
+	fighter2 = 1
+	}
+	add_ideas = {
+		sanctions
+	}
+	add_to_array = { global.sanctioned_countries_list = FROM }
+}
+1972.1.20 = {
+		retire_character = RHO_Clifford_Dupont
+		retire_character = RHO_Roy_Welensky
+	set_technology = {
+		machine_gun3 = 1
+	}
+}
+1975.1.20 = {
+	set_technology = {
+		improved_heavy_tank = 1
+		paratroopers2 = 1
+	}
+	set_popularities = {
+		democratic = 60
+		communism = 5
+		neutrality = 35
+	}
+	add_ideas = {
+		jungle_war
+	}
+}

@@ -1,0 +1,124 @@
+USA_mujahedeen = {
+	enable = {
+		tag = USA
+		AFG = { has_government = communism }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = "AFG"	
+		value = 200
+	}
+}
+Soviet_invade_amin_1979 = {
+	allowed = {
+		tag = SOV
+	}
+	enable = {
+		date > 1978.1.1
+		date < 1981.1.1
+		AFG = { has_country_flag = AFG_amin }
+	}
+	abort = {
+		AFG = {
+			NOT = { has_country_flag = AFG_amin }
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "AFG"
+		value = 9999
+	}
+	ai_strategy = {
+		type = declare_war
+		id = "AFG"
+		value = 9999
+	}
+	ai_strategy = {
+		type = conquer
+		id = "AFG"
+		value = 9999
+	}
+	ai_strategy = {
+		type = invade
+		id = "AFG"
+		value = 9999
+	}
+}
+SOV_help_AFG = {
+	enable = {
+		tag = SOV
+		AFG = {
+			has_government = communism
+			has_war = yes
+		}
+	}
+	abort = {
+		AFG = {
+			has_country_flag = AFG_amin
+		}
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "AFG"
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = "AFG"	
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = AFG
+		value = 200
+	}
+}
+USA_support_mujahedeen = {
+	
+	enable = {
+		tag = USA
+		SOV = { has_idea = Invade_afghanistan }
+		AFG = { has_government = communism }
+		num_of_operatives > 2
+	}
+	abort = {
+		SOV = {
+			NOT = { has_idea = Invade_afghanistan }
+		}
+	}
+
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = AFG
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = AFG
+		num_operatives = 2
+		state = 267
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = AFG
+		state = 267
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_make_resistance_contacts
+		value = 1200
+		operation_target = AFG
+	}
+}

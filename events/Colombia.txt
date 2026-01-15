@@ -1,0 +1,348 @@
+﻿add_namespace = col
+#哥伦比亚总统选举即将开始
+news_event = {
+	id = col.1
+	title = col.1.t
+	desc = col.1.d
+	picture = GFX_JorgeGaitan
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = ColombiaElect1948 }
+		date > 1948.1.20
+		date < 1948.5.1
+		has_government = authoritarianism
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = ColombiaElect1948
+	}
+}
+#盖坦遭到刺杀
+news_event = {
+	id = col.2
+	title = col.2.t
+	desc = col.2.d
+	picture = GFX_GaitanAssassin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = col.2.a
+		if = {
+			limit = { tag = COL }
+			set_global_flag = GaitanDeath
+			add_political_power = -20
+			add_stability = -0.3
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.2
+			}
+		}
+	}
+}
+#盖坦躲过刺杀
+news_event = {
+	id = col.3
+	title = col.3.t
+	desc = col.3.d
+	picture = GFX_GaitanAssassin
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = col.2.a
+		if = {
+			limit = { tag = COL }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.35
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+	}
+}
+#盖坦赢得大选
+news_event = {
+	id = col.4
+	title = col.4.t
+	desc = col.4.d
+	picture = GFX_JorgeGaitan
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = GaitanDeath }
+		NOT = { has_global_flag = GaitanWin }
+		date > 1948.8.20
+		NOT = { has_idea = LaVolencia }
+		has_government = authoritarianism
+	}
+	major = yes
+	option = {
+		name = col.2.a
+		if = {
+			limit = { tag = COL }
+			set_global_flag = GaitanWin
+		set_politics = { ruling_party = democratic }
+			add_stability = 0.3
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+}
+#保守赢得大选
+news_event = {
+	id = col.5
+	title = col.5.t
+	desc = col.5.d
+	picture = GFX_LaVolencia
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = COL
+		has_global_flag = GaitanDeath
+		NOT = {
+			has_idea = LaVolencia
+			has_global_flag = col5
+		}
+		date > 1948.8.20
+		has_government = authoritarianism
+	}
+	major = yes
+	option = {
+		name = col.2.a
+		if = {
+			set_global_flag = col5
+			limit = { tag = COL }
+			add_stability = 0.12
+			add_ideas = LaVolencia
+		}
+	}
+}
+#自由派暴动
+news_event = {
+	id = col.11
+	title = col.11.t
+	desc = col.11.d
+	picture = GFX_ColombiaGuerrillas
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = COL
+		has_idea = LaVolencia
+		has_government = authoritarianism
+	}
+	option = {
+		name = kor.36.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.02
+		}
+	}
+}
+#共产党暴动
+news_event = {
+	id = col.12
+	title = col.12.t
+	desc = col.12.d
+	picture = GFX_ColombiaGuerrillas
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = COL
+		has_idea = LaVolencia
+	}
+	option = {
+		name = kor.36.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		if = {
+			limit = {
+				907 = {
+				NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+			}
+			907 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			486 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#对军政府的日益不满
+news_event = {
+	id = col.30
+	title = col.30.t
+	desc = col.30.d
+	picture = GFX_Colombia1957
+	mean_time_to_happen = {
+		days = 100
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = col37 }
+		NOT = { has_global_flag = col32 }
+		date > 1957.1.20
+		date < 1957.12.1
+		has_government = neutrality
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = col30
+	}
+}
+news_event = {
+	id = col.31
+	title = col.31.t
+	desc = col.31.d
+	picture = GFX_GuillermoLeonValencia
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = col37 }
+		NOT = { has_global_flag = col32 }
+		has_global_flag = col30
+		date > 1957.5.20
+		date < 1957.12.1
+		has_government = neutrality
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = col31
+		news_event = { id = col.32 }
+	}
+}
+news_event = {
+	id = col.32
+	title = col.32.t
+	desc = col.32.d
+	picture = GFX_GuillermoLeonValencia
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = col.5.a
+		set_global_flag = col32
+	}
+}
+news_event = {
+	id = col.33
+	title = col.33.t
+	desc = col.33.d
+	picture = GFX_Colombia1957
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = col37 }
+		NOT = { has_global_flag = col33 }
+		has_global_flag = col32
+		date > 1957.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = col33
+	}
+}
+news_event = {
+	id = col.34
+	title = col.34.t
+	desc = col.34.d
+	picture = GFX_Colombia1957
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = col37 }
+		has_global_flag = col32
+		date > 1957.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = col.1.a
+	}
+}
+news_event = {
+	id = col.35
+	title = col.35.t
+	desc = col.35.d
+	picture = GFX_JorgeGaitan
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = col37 }
+		has_global_flag = col32
+		date > 1957.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = col.1.a
+	}
+}
+news_event = {
+	id = col.36
+	title = col.36.t
+	desc = col.36.d
+	picture = GFX_GustavoPinniala
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = COL
+		NOT = { has_global_flag = col37 }
+		has_global_flag = col32
+		date > 1957.1.20
+		has_government = neutrality
+	}
+	option = {
+		name = col.1.a
+		create_country_leader = {
+			name = "Militarist Junta"
+			picture = "gfx/leaders/COL/Portrait_Colombia_Militarist_Junta.tga"
+			expire = "1949.1.1"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+		set_global_flag = col37
+		news_event = { id = col.37 }
+	}
+}
+news_event = {
+	id = col.37
+	title = col.37.t
+	desc = col.37.d
+	picture = GFX_GustavoPinniala
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = col.5.a
+		set_global_flag = col37
+	}
+}

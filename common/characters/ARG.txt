@@ -1,0 +1,57 @@
+characters={
+	ARG_Arturo_Frondizi={
+		name=ARG_Arturo_Frondizi
+		portraits={
+			civilian={
+				large="gfx/leaders/ARG/Portrait_Argentina_Arturo_Frondizi.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				 Developmentalism smooth_talking_charmer
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	ARG_Pedro_Eugenio_Aramburu={
+		name=ARG_Pedro_Eugenio_Aramburu
+		portraits={
+			civilian={
+				large="gfx/leaders/ARG/Portrait_Argentina_Pedro_Eugenio_Aramburu.tga"
+				small="gfx/interface/ideas/idea_Pedro_Eugenio_Aramburu.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				anti_communist
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	ARG_eva_peron={
+		name=ARG_eva_peron
+		portraits={
+			civilian={
+				large="gfx/leaders/ARG/Portrait_Argentina_Eva_Peron.tga"
+				small="gfx/interface/ideas/idea_eva_peron.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = political_advisor
+			idea_token = eva_peron
+			visible={
+				date < 1953.1.1
+			}
+			ledger = army
+				allowed = {
+					original_tag = ARG
+				}
+				traits = {
+					mobile_warfare_expert
+				}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+
+state={
+	id=942
+	name="STATE_942" # Morava
+	manpower = 15330
+	
+	state_category = rural
+	resources={
+		coal=5
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = ethnics_Serbian
+		add_to_array = { this.state_ethnics_list = 39 }
+		add_to_array = { this.state_ethnics_list = 57 }
+		add_to_array = { this.state_ethnics_list = 147 }
+		owner = YUG
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = YUG
+		add_core_of = BOS
+		1990.8.23 = {
+			owner = BOS
+		}
+	}
+
+	provinces={
+		11741 953 11845 982 
+}

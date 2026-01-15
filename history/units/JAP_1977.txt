@@ -1,0 +1,167 @@
+﻿division_template = {
+	name = "Futsuka Shitan" 
+	division_names_group = JAP_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Sensha Shidan"		
+	division_names_group = JAP_ARM_01	
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+
+units = {
+	division = {
+		name = "Dai-Ichi Shidan"
+		location = 1182 #Tokyo
+		division_template = "Futsuka Shitan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Dai-Ni Shidan"
+		location = 12421
+		division_template = "Futsuka Shitan" 			# Imperial Guards, elite division (later split into mixed and infantry brigades)
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "Dai-San Shidan"
+		location = 12031
+		division_template = "Futsuka Shitan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Dai-Yon Shidan"
+		location = 7110
+		division_template = "Futsuka Shitan"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Dai-Go Shidan"
+		location = 12493
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Dai-Roku Shidan"
+		location = 4067
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Dai-Nana Shidan"
+		location = 10444
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-Hachi Shidan"
+		location = 11925
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-Kyu Shidan"
+		location = 6994
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-Jyu Shidan"
+		location = 10125
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-Ichi Ryodan"
+		location = 4184
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-JyuIchi Ryodan"
+		location = 10444
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-JyuNi Ryodan"
+		location = 11908
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-JyuSan Ryodan"
+		location = 1092
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-JyuYon Ryodan"
+		location = 4094
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-JyuGo Ryodan"
+		location = 1051
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Dai-Ichi Kūtei Dan"
+		location = 4188
+		division_template = "Futsuka Shitan" 
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+
+	##### NAVAL UNITS #####
+}	
+
+
+
+### No BHU air forces ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "JAP"
+		}
+		requested_factories = 1
+		progress = 0.71
+		efficiency = 100
+	}
+}

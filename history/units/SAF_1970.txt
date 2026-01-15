@@ -1,0 +1,187 @@
+﻿division_template = {
+	name = "Motorised Brigade"	
+	division_names_group = SAF_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "District Brigade"	
+	division_names_group = SAF_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Armored Brigade"
+	division_names_group = SAF_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Artillery Regiment"	
+	division_names_group = SAF_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 	
+	}
+}
+
+division_template = {
+	name = "Koevoet"
+	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+	}
+}
+
+##### OOB #####
+units = {
+	division= {	
+		#name = "71 Motorised Brigade"
+		location = 12589
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "72 Motorised Brigade"
+		location = 10400
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "73 Motorised Brigade"
+		location = 12648
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "Johannesburg Light Horse Regiment"
+		location = 10400
+		division_template = "Armored Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "Cape Field Artillery"
+		location = 12589
+		division_template = "Artillery Regiment"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "14th Field Artillery"
+		location = 2213
+		division_template = "Artillery Regiment"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "81 Armored Brigade"
+		location = 10400
+		division_template = "Armored Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "82 Mechanized Brigade"
+		location = 2213
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "74 Motorised Brigade"
+		location = 1468
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "Transvaal Horse Artillery"
+		location = 10400
+		division_template = "Artillery Regiment"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "7 South African Infantry Division"
+		location = 1468
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "8 South African Infantry Division"
+		location = 1509
+		division_template = "Motorised Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "South West African Police"
+		location = 1688
+		division_template = "District Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "32 Battalion"
+		location = 1688
+		division_template = "Koevoet"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+	division= {	
+		#name = "44 Parachute Brigade"
+		location = 12648
+		division_template = "Koevoet"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+
+	}
+}
+
+air_wings = {
+	###South African Air Force (SAAF) (CO: ) ###
+	275 = {
+		fighter_equipment_0 =  { owner = "SAF" amount = 45 }		# I/SAAF Fighter Group -- Hawker Furys, Hartbeets
+		fighter_equipment_1 =  { owner = "SAF" creator = "ENG" amount = 30 }		# II/SAAF Fighter Group -- Hurricane I's
+		CAS_equipment_1 = { owner = "SAF" creator = "SAF" amount = 30 }
+	}
+}
+

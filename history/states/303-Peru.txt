@@ -1,0 +1,47 @@
+
+state={
+	id=303
+	name="STATE_303" # Lima
+	manpower = 3563249
+	resources={
+		copper=18
+
+	}
+	
+	state_category = large_town
+
+	history={
+                                
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = PRU
+		set_state_flag = ethnics_Chilenos
+		add_to_array = { this.state_ethnics_list = 24 }
+		buildings = {
+			farm_building = 3
+			infrastructure = 3
+			arms_factory = 1
+			power_plant = 2
+			industrial_complex = 3
+			air_base = 3
+			12997 = {
+				naval_base = 5
+			}
+		}
+		add_core_of = PRU
+		victory_points = {
+			12997 10 
+		}
+		victory_points = {
+			8199 5 
+		}
+		victory_points = {
+			2162 3
+		}
+
+	}
+
+	provinces={
+		2156 2162 5190 8199 12969 12983 12997 13402
+	}
+}

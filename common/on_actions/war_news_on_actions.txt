@@ -1,0 +1,795 @@
+on_actions = {
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = GRE
+					FROM = { tag = TUR }
+					has_country_flag = gre_invade_tur
+				}
+				news_event = { id = gre.41 }
+				play_song = "GRE_9"
+				TUR = { add_dynamic_modifier = { modifier = suprise_attack_modifier } }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			#伊拉克保皇党战败
+			if = {
+				limit = {
+					date < 1962.1.1
+					date > 1957.1.1
+					tag = IRQ
+					has_government = neutrality
+					any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+					all_owned_state = { resistance < 10 }
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.35
+				}
+				news_event = { id = irq.62 }
+			}
+			#伊拉克保皇党反攻
+			if = {
+				limit = {
+					date < 1962.1.1
+					date > 1957.1.1
+					has_war_with = IRQ
+					IRQ = { has_government = neutrality }
+					controls_province = 13437
+					FROM = { 
+						has_government = democratic
+					}
+				}
+				FROM = {
+					IRQ_Ali_Jawdat_Al_Ayyubi = {
+						set_nationality = IRQ
+					}
+				}
+				IRQ = {
+					promote_character = {
+						character = IRQ_Ali_Jawdat_Al_Ayyubi
+						ideology = socialism
+					}
+					news_event = { id = irq.61 }
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.5
+					}
+					set_politics = { ruling_party = democratic }
+					annex_country = {
+						target = FROM
+						transfer_troops = yes
+					}
+				}
+			}
+			#埃塞政变
+			if = {
+				limit = {
+					date < 1961.1.1
+					has_war_with = ETH
+					controls_province = 5010
+					FROM = { 
+						has_government = monarchism
+					}
+				}
+				FROM = {
+					ETH_Haile_Selassie = {
+						set_nationality = ETH
+					}
+				}
+				ETH = {
+					promote_character = {
+						character = ETH_Haile_Selassie
+						ideology = monarchism
+					}
+					news_event = { id = eth.13 }
+					add_popularity = {
+						ideology = monarchism
+						popularity = 0.5
+					}
+					set_politics = { ruling_party = monarchism }
+					annex_country = {
+						target = FROM
+						transfer_troops = yes
+					}
+				}
+			}
+			#古巴革命
+			if = {
+				limit = {
+					date < 1962.1.1
+					date > 1957.1.1
+					has_war_with = CUB
+					controls_province = 13320
+					FROM = { 
+						has_government = authoritarianism
+					}
+				}
+				FROM = {
+					CUB_Fidel_Castro = {
+					set_nationality = CUB
+					}
+				}
+			}
+			if = {
+				limit = {
+					date < 1962.1.1
+					date > 1957.1.1
+					has_war_with = CUB
+					controls_province = 7622
+					FROM = { 
+						has_government = authoritarianism
+					}
+				}
+				CUB = {
+					news_event = { id = cub.2 days = 1 }
+					annex_country = {
+						target = FROM
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					date < 1952.1.1
+					tag = ISR
+					has_war = yes
+					NOT = { controls_province = 4206 }
+				}
+				news_event = { id = isr.30 }
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					tag = USA
+					date > 1951.1.1
+					PRK = { has_war_with = KOR }
+					NOT = { has_global_flag = USA_Korea_war_2 }
+					KOR = {
+						has_volunteers_amount_from = {
+						tag = USA
+						count < 4
+						}
+					}
+				}
+				set_global_flag = USA_Korea_war_2
+			}
+			if = {
+				limit = {
+					tag = USA
+					date > 1951.1.1
+					PRK = { has_war_with = KOR }
+					NOT = { has_global_flag = USA_Korea_war_3 }
+					KOR = {
+						has_volunteers_amount_from = {
+						tag = USA
+						count < 4
+						}
+					}
+				}
+				set_global_flag = USA_Korea_war_3
+			}
+			if = {
+				limit = {
+					tag = PRC
+					date > 1951.1.1
+					PRK = { has_war_with = KOR }
+					NOT = { has_global_flag = PRC_Korea_war_1 }
+					PRK = {
+						has_volunteers_amount_from = {
+						tag = PRC
+						count < 4
+						}
+					}
+				}
+				set_global_flag = PRC_Korea_war_1
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					tag = PRC
+					PRK = {
+						has_war_with = KOR
+						NOT = { controls_province = 10065 }
+						NOT = { controls_province = 848 }
+					}
+					date > 1950.1.1
+					date < 1955.1.1
+					has_idea = SupportKorea
+				}
+				add_dynamic_modifier = { modifier = korea_war_agress_modifiers }
+			}
+			if = {
+				limit = {
+					tag = PRC
+					PRK = {
+						has_war_with = KOR
+						controls_province = 4052
+						controls_province = 848
+					}
+					date > 1950.1.1
+					date < 1955.1.1
+					has_idea = SupportKorea
+				}
+				if = {
+					limit = { has_dynamic_modifier = { modifier = korea_war_agress_modifiers } }
+					remove_dynamic_modifier = { modifier = korea_war_agress_modifiers }
+				}
+				add_dynamic_modifier = { modifier = korea_war_not_agress_modifiers }
+			}
+			if = {
+				limit = {
+					tag = USA
+					KOR = {
+						has_war_with = PRK
+						controls_province = 7125
+					}
+					date > 1950.1.1
+					date < 1955.1.1
+					has_idea = UN_troops
+				}
+				add_dynamic_modifier = { modifier = korea_war_not_agress_modifiers }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = PRC
+					has_global_flag = AnYingGo
+					NOT = { has_global_flag = AnYingFATE }
+				}
+				set_global_flag = AnYingFATE
+				random_list = {
+					100 = {
+						if = {
+							limit = {
+								PRC = { is_ai = no }
+							}
+							play_song = PRC_7
+						}
+						news_event = { id = prk.19 }
+					} 
+					10 = { news_event = { id = prk.20 } } 
+				}
+			}
+		}
+		effect = {
+			#苏丹独立战争
+			if = {
+				limit = {
+					has_war_with = ENG
+					tag = SUD
+					ENG = {
+						NOT = {
+					controls_province = 4138
+					controls_province = 4963
+					controls_province = 12725
+					controls_province = 2046
+					controls_province = 12806
+					controls_province = 12862
+					controls_province = 10739
+					controls_province = 2096
+					}
+					}
+				}
+				news_event = { id = sud.17 }
+				ENG = {
+					white_peace = SUD
+					white_peace = EGY
+				}
+				SUD = {
+					transfer_state = 551
+					transfer_state = 760
+					transfer_state = 549
+					transfer_state = 812
+					transfer_state = 813
+				}
+			}
+			if = {
+				limit = {
+					date < 1952.1.1
+					tag = KKE
+					controls_province = 11965
+					controls_province = 4109
+					controls_province = 7127
+					controls_province = 3973
+				}
+				news_event = { id = gre.1 }
+			}
+		}
+	}
+	on_monthly = {
+		#仁川登陆
+		effect = {
+			if = {
+				limit = {
+					USA = { is_ai = yes }
+					NOT = { has_global_flag = IncheonLanding }
+					PRK  = {
+						controls_province = 7125
+						controls_province = 7211
+						controls_province = 13372
+					}
+					PRK  = { has_war_with = KOR }
+					date < 1955.1.1
+					KOR = {
+						has_volunteers_amount_from = {
+							tag = USA
+							count > 2
+						}
+					}
+				}
+				set_global_flag = IncheonLanding
+				news_event = { id = prk.122 }
+			}
+		}
+		effect = {
+			clr_global_flag = ISR_diploped
+			if = {
+				limit = {
+					has_idea = PER_week_army
+				}
+				remove_ideas = PER_week_army
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			#法国彻底剿灭越盟
+			if = {
+				limit = {
+					has_global_flag = VinGenevaNegoFailed
+					tag = VIN
+					FROM = { 
+						tag = FRA
+					}
+				}
+				news_event = { id = vin.81 }
+				671 = { add_resistance = -50 }
+				779 = { add_resistance = -50 }
+				792 = { add_resistance = -50 }
+				286 = { add_resistance = -50 }
+				753 = { add_resistance = -50 }
+				SVN = {
+					annex_country = {
+						target = VIN
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = VAT
+					FROM = { 
+						tag = ITA
+						has_government = communism
+					}
+				}
+				ITA = {
+					annex_country = {
+						target = VAT
+						transfer_troops = yes
+					}
+				}
+				random_list = {
+					60 = { news_event = { id = vat.10 } } 
+					40 = { news_event = { id = vat.11 } } 
+				}
+			}
+			if = {
+				limit = {
+					date < 1952.1.1
+					tag = PRC
+					FROM = { 
+						tag = CHI
+					}
+				}
+				news_event = { id = rocc.8 }
+				DOB = {
+					transfer_state = 717
+					transfer_state = 714
+				}
+				CHI = {
+					play_song = CHI_1
+					annex_country = {
+						target = PRC
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = KKE
+					FROM = { 
+						tag = GRE
+					}
+				}
+				news_event = { id = gre.4 }
+				GRE = {
+					annex_country = {
+						target = KKE
+						transfer_troops = no
+					}
+					add_popularity = {
+						ideology = communism
+						popularity = -0.08
+					}
+				}
+					185 = {
+						remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+					}
+					184 = {
+						remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+					}
+				if = {
+					limit = { GRE = { has_idea = Red_Brigade } }
+					185 = {
+						add_resistance = 30
+						add_dynamic_modifier = { modifier = more_rebel_modifiers }
+					}
+					184 = {
+						add_resistance = 30
+						add_dynamic_modifier = { modifier = more_rebel_modifiers }
+					}
+				}
+			}
+			if = {
+				limit = {
+					date > 1966.1.1
+					tag = SSD
+					FROM = { 
+						tag = SUD
+					}
+				}
+				news_event = { id = sud.6 }
+				SUD = {
+					annex_country = {
+						target = SSD
+						transfer_troops = yes
+					}
+				}
+			}
+			#西藏平叛
+			if = {
+				limit = {
+					date > 1959.1.1
+					date < 1960.1.1
+					tag = TIB
+					has_global_flag = tib61
+					FROM = { 
+						tag = PRC
+					}
+				}
+				news_event = { id = tib.65 }
+				PRC = {
+					annex_country = {
+						target = TIB
+						transfer_troops = no
+					}
+				}
+			}
+			#伊朗吞并南阿塞拜疆
+			if = {
+				limit = {
+					date < 1950.1.1
+					tag = AZR
+					FROM = { 
+						tag = PER
+					}
+				}
+				news_event = { id = per.40 }
+				419 = { remove_core_of = AZR }
+				PER = {
+					annex_country = {
+						target = AZR
+						transfer_troops = no
+					}
+				}
+			}
+			#克罗地亚吞并塞尔维亚
+			if = {
+				limit = {
+					date > 1988.1.1
+					tag = SEB
+					FROM = { 
+						tag = CRO
+					}
+				}
+				news_event = { id = yug.15 }
+				CRO = {
+					annex_country = {
+						target = SEB
+						transfer_troops = yes
+					}
+				}
+			}
+			#荷兰吞并印尼
+			if = {
+				limit = {
+					date < 1951.1.1
+					tag = INS
+					FROM = { 
+						tag = HOL
+					}
+				}
+				news_event = { id = ind.30 }
+				HOL = {
+					annex_country = {
+						target = INS
+						transfer_troops = yes
+					}
+					every_controlled_state = {
+						limit = { is_core_of = INS }
+						add_resistance = -20
+					}
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			#克什米尔战争停火
+			if = {
+				limit = {
+					PAK = {
+						OR = {
+							controls_province = 13723
+						}
+						
+					}
+				}
+				IND = { add_war_support = -0.3 }
+			}
+			if = {
+				limit = {
+					PAK = {
+						has_war_with = KAS
+						KAS = { controls_province = 1910 }
+					}
+				}
+				PAK = { add_war_support = -0.01 }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = IND
+					has_war_with = PAK
+					has_war_support < 0.4
+					OR = {
+						PAK = { controls_province = 13723 }
+						KAS = { controls_province = 13723 }
+					}
+					PAK = {
+						has_war_support < 0.4
+					}
+				}
+				IND = { add_war_support = 0.6 }
+				news_event = { id = raj.25 }
+			}
+		}
+		effect = {
+			#第一次中东战争停火
+			if = {
+				limit = {
+					tag = JOR
+					has_war_with = ISR
+					OR = {
+						controls_province = 1086
+						controls_province = 13612
+					}
+					date < 1950.1.1
+					NOT = { has_global_flag = jerusalem_jor }
+				}
+				news_event = { id = isr.3 }
+				set_global_flag = jerusalem_jor
+				ISR = {
+					add_war_support = -0.2
+				}
+				JOR = {
+					transfer_state = 762
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = JOR
+					has_war_with = ISR
+					NOT = { country_exists = PAL }
+					has_war_support < 0.5
+					OR = {
+						controls_province = 1086
+						has_war_support < 0.1
+					}
+				}
+				news_event = { id = isr.20 }
+				JOR = {
+					white_peace = ISR
+				}
+			}
+			if = {
+				limit = {
+					tag = EGY
+					has_war_with = ISR
+					has_war_support < 0.3
+					date < 1950.1.1
+					NOT = { country_exists = PAL }
+					OR = {
+						controls_province = 13265
+						has_war_support < 0.1
+					}
+				}
+				news_event = { id = isr.20 }
+				if = {
+					limit = { controls_province = 13265 }
+					transfer_state = 761
+				}
+				EGY = {
+					white_peace = ISR
+				}
+			}
+			if = {
+				limit = {
+					tag = SYR
+					has_war_with = ISR
+					has_war_support < 0.4
+					date < 1950.1.1
+				}
+				news_event = { id = isr.20 }
+				SYR = {
+					white_peace = ISR
+				}
+			}
+			#安哥拉
+			if = {
+				limit = {
+					is_puppet_of = POR
+					OR = { 
+						tag = ANG
+						tag = FNA
+						tag = UTA
+						tag = MZB
+					}
+				}
+				POR = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = no
+					}
+				}
+			}
+			#克罗地亚吞并塞尔维亚
+			if = {
+				limit = {
+					tag = CRO
+					SEB = { is_puppet_of = CRO }
+				}
+				CRO = {
+		news_event = { id = yug.15 }
+					annex_country = {
+						target = SEB
+						transfer_troops = no
+					}
+				}
+			}
+			#哥斯达黎加内战
+			if = {
+				limit = {
+					has_government = democratic
+					controls_province = 13087
+					NOT = { has_global_flag = CostaRicaCivilWar }
+					has_war_with = COS
+					date < 1951.1.1
+				}
+				news_event = { id = cos.9 }
+				set_global_flag = CostaRicaCivilWar
+			}
+			#越共胜利
+			if = {
+				limit = {
+					has_government = communism
+					controls_province = 4401
+					NOT = { has_global_flag = vietnam_united }
+					country_exists = SVN
+					date > 1955.1.1
+				}
+				news_event = { id = vin.48 }
+				set_global_flag = vietnam_united
+			}
+			#香港
+			if = {
+				limit = {
+					tag = PRC
+					has_war_with = HKN
+					PRC = { controls_province = 10062 }
+				}
+				PRC = {
+					white_peace = HKN
+					white_peace = ENG
+					white_peace = AST
+					white_peace = CAN
+					transfer_state = 326
+				}
+				news_event = { id = prc.60 }
+			}
+			#两伊-哈马丹
+			if = {
+				limit = {
+					tag = PER
+					NOT = { has_global_flag = iraq_occupied_hamadan }
+					has_war_with = IRQ
+					NOT = { controls_province = 8040 }
+				}
+				set_global_flag = iraq_occupied_hamadan
+				add_war_support = -0.4
+				IRQ = { add_war_support = 0.2 }
+				news_event = { id = irq.24 }
+			}
+			#欧加登战争结束#
+			if = {
+				limit = {
+					SML = {
+						has_war_support < 0.4
+						has_war_with = ETH
+					}
+					ETH = {
+						has_war_support < 0.4
+					}
+				}
+				SML = {
+					white_peace = ETH
+				}
+				news_event = { id = som.15 }
+			}
+			#富尔达山谷
+			if = {
+				limit = {
+					tag = SOV
+					NOT = { has_global_flag = sov_occupied_fulda }
+					SOV = { has_war_with = WDR }
+					SOV = { has_war_with = USA }
+					SOV = { controls_province = 11913 }
+				}
+				set_global_flag = sov_occupied_fulda
+				news_event = { id = city.1 }
+			}
+			#法兰克福
+			if = {
+				limit = {
+					tag = SOV
+					NOT = { has_global_flag = sov_occupied_flankfurt }
+					SOV = { has_war_with = WDR }
+					SOV = { has_war_with = USA }
+					SOV = { controls_province = 11913 }
+				}
+				news_event = { id = city.2 }
+				set_global_flag = sov_occupied_flankfurt
+			}
+			#首都沦陷
+			if = {
+				limit = {
+					NOT = { has_country_flag = capital_fall }
+					is_puppet = no
+					is_subject = no
+					has_civil_war = no
+					has_war = yes
+					capital_scope = {
+						NOT = { is_controlled_by = ROOT }
+					}
+				}
+				news_event = { id = city.3 }
+				set_country_flag = capital_fall
+			}
+		}
+	}
+}

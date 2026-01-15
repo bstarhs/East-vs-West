@@ -1,0 +1,972 @@
+﻿add_namespace = space
+#数值计算
+news_event = {
+	id = space.100
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		is_ai = yes
+		has_tech = space_research
+	}
+	option = {
+		name = news.51.a
+			if = {
+				limit = {
+					check_variable = { this.space_power < this.max_space_power }
+					check_variable = { this.pp_add_space_power > 0 }
+				}
+				add_to_variable = { this.space_power = this.pp_add_space_power }
+			}
+			if = {
+				limit = { has_idea_with_trait = rocket_scientist }
+				add_to_variable = { this.space_power = 20 }
+			}
+			if = {
+				limit= {
+					has_tech = space_research
+					NOT = { has_country_flag = space_research_tech_effect }
+				}
+				set_variable = { max_space_power = 50 }
+				add_to_variable = { max_pp_add_sp = 30 }
+				add_to_variable = { this.space_power = 30 }
+				set_country_flag = space_research_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = rocket_vehicle
+					NOT = { has_country_flag = rocket_vehicle_tech_effect }
+				}
+				set_variable = { max_space_power = 100 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = rocket_vehicle_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = tech_Satellite
+					NOT = { has_country_flag = tech_Satellite_tech_effect }
+				}
+				set_variable = { max_space_power = 150 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = tech_Satellite_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = land_center
+					NOT = { has_country_flag = land_center_tech_effect }
+				}
+				add_to_variable = { max_pp_add_sp = 50 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = land_center_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = transistor
+					NOT = { has_country_flag = transistor_tech_effect }
+				}
+				add_to_variable = { this.max_pp_add_sp = 30 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = transistor_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = transistor
+					NOT = { has_country_flag = transistor_tech_effect }
+				}
+				add_to_variable = { this.max_pp_add_sp = 10 }
+				set_country_flag = transistor_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = medium_computer
+					NOT = { has_country_flag = medium_computer_tech_effect }
+				}
+				add_to_variable = { this.max_pp_add_sp = 20 }
+				set_country_flag = medium_computer_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = integrated_circuit
+					NOT = { has_country_flag = integrated_circuit_tech_effect }
+				}
+				add_to_variable = { this.max_pp_add_sp = 10 }
+				set_country_flag = integrated_circuit_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = telegraph
+					NOT = { has_country_flag = telegraph_tech_effect }
+				}
+				add_to_variable = { this.max_pp_add_sp = 10 }
+				set_country_flag = telegraph_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = tech_spacemanned
+					NOT = { has_country_flag = tech_spacemanned_tech_effect }
+				}
+				set_variable = { max_space_power = 230 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = tech_spacemanned_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = adv_cockpit
+					NOT = { has_country_flag = adv_cockpit_tech_effect }
+				}
+				set_variable = { max_space_power = 250 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = adv_cockpit_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = capsule_recover
+					NOT = { has_country_flag = capsule_recover_tech_effect }
+				}
+				set_variable = { max_space_power = 280 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = capsule_recover_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = moon_landing
+					NOT = { has_country_flag = moon_landing_tech_effect }
+				}
+				set_variable = { max_space_power = 350 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = moon_landing_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = modularization
+					NOT = { has_country_flag = modularization_tech_effect }
+				}
+				set_variable = { max_space_power = 380 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = modularization_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = space_station
+					NOT = { has_country_flag = space_station_tech_effect }
+				}
+				set_variable = { max_space_power = 400 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = space_station_tech_effect
+			}
+			if = {
+				limit= {
+					has_tech = space_shuttle
+					NOT = { has_country_flag = space_shuttle_tech_effect }
+				}
+				set_variable = { max_space_power = 420 }
+				add_to_variable = { this.space_power = 60 }
+				set_country_flag = space_shuttle_tech_effect
+			}
+	}
+}
+#运载火箭是否
+country_event = {
+	id = space.1
+	title = space.1.t
+	desc = space.1.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_political_power = -60
+		add_to_variable = { space_power = -60 } 
+		random_list = {
+			space_power = { news_event = { id = space.2 } } 
+			60 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.2
+	title = space.2.t
+	desc = space.2.d
+	picture = GFX_space_lauch_vehicle
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.2.a
+		set_country_flag = launch_vehicle_succes
+		add_to_variable = { influences = 20 } 
+	}
+}
+
+news_event = {
+	id = space.3
+	title = space.3.t
+	desc = space.3.d
+	picture = GFX_space_lauch_fail
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.3.a
+		add_to_variable = { space_power = -10 } 
+		add_to_variable = { influences = -10 } 
+	}
+}
+
+#人造卫星是否
+country_event = {
+	id = space.4
+	title = space.4.t
+	desc = space.4.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		ai_chance = {
+			factor = 50
+		}
+		add_to_variable = { space_power = -90 } 
+		random_list = {
+			space_power = {
+				news_event = { id = space.5 }
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = Satellite_succes } } }
+					news_event = { id = space.6 }
+					add_to_variable = { influences = 90 } 
+				}
+				set_country_flag = Satellite_succes
+			} 
+			90 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		ai_chance = {
+			factor = 0
+		}
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.5
+	title = space.5.t
+	desc = space.5.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.5.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+news_event = {
+	id = space.6
+	title = space.6.t
+	desc = space.6.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.6.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+
+#太空狗是否
+country_event = {
+	id = space.7
+	title = space.7.t
+	desc = space.7.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -180 } 
+		random_list = {
+			space_power = {
+				news_event = { id = space.8 }
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = space_dog_succes } } }
+					news_event = { id = space.9 }
+					add_to_variable = { influences = 100 } 
+				}
+				set_country_flag = space_dog_succes
+			} 
+			180 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.8
+	title = space.8.t
+	desc = space.8.d
+	picture = GFX_Laika
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.8.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+news_event = {
+	id = space.9
+	title = space.9.t
+	desc = space.9.d
+	picture = GFX_Laika
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.6.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+
+#载人航天是否
+country_event = {
+	id = space.10
+	title = space.10.t
+	desc = space.10.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		ai_chance = {
+			factor = 50
+		}
+		add_to_variable = { space_power = -200 } 
+		random_list = {
+			space_power = {
+				news_event = { id = space.11 }
+				if = {
+					limit = {
+						NOT = { tag = SOV }
+						all_country = { NOT = { has_country_flag = manned_space_succes } }
+					}
+					news_event = { id = space.12 }
+					add_to_variable = { influences = 300 } 
+				}
+				if = {
+					limit = {
+						tag = SOV
+						all_country = { NOT = { has_country_flag = manned_space_succes } }
+					}
+					news_event = { id = space.12 }
+					add_to_variable = { influences = 300 } 
+					USA = { add_to_variable = { influences = -100 } }
+					play_song = SOV_19
+				}
+				if = {
+					limit = {
+						tag = USA
+						all_country = { NOT = { has_country_flag = manned_space_succes } }
+					}
+					news_event = { id = space.12 }
+					add_to_variable = { influences = 300 } 
+					SOV = { add_to_variable = { influences = -100 } }
+					play_song = USA_33
+				}
+				set_country_flag = manned_space_succes
+			} 
+			200 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.11
+	title = space.11.t
+	desc = space.11.d
+	picture = GFX_Vostok1
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.11.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+news_event = {
+	id = space.12
+	title = space.12.t
+	desc = space.12.d
+	picture = GFX_Vostok1
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.12.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+#通讯卫星
+country_event = {
+	id = space.13
+	title = space.13.t
+	desc = space.13.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -80 } 
+		random_list = {
+			90 = {
+				news_event = { id = space.14 }
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = signal_Satellite_succes } } }
+					news_event = { id = space.15 }
+					add_to_variable = { influences = 100 } 
+				}
+				set_country_flag = signal_Satellite_succes
+			} 
+			10 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.14
+	title = space.14.t
+	desc = space.14.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.11.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+news_event = {
+	id = space.15
+	title = space.15.t
+	desc = space.15.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.12.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+#登月
+country_event = {
+	id = space.16
+	title = space.16.t
+	desc = space.16.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -320 } 
+		random_list = {
+			space_power = {
+				news_event = { id = space.17 }
+				set_country_flag = moon_landing_succes
+				add_to_variable = { influences = 150 }
+				add_political_power = 200
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.15
+				}
+				if = {
+					limit = { has_idea = Appolo_idea }
+					add_political_power = 200
+					remove_ideas = Appolo_idea
+				}
+			} 
+			320 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.17
+	title = space.17.t
+	desc = space.17.d
+	picture = GFX_moon
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+	}
+}
+#太空站
+country_event = {
+	id = space.18
+	title = space.18.t
+	desc = space.18.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -300 } 
+		random_list = {
+			space_power = {
+				news_event = { id = space.19 }
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = space_station_succes } } }
+					add_to_variable = { influences = 100 }
+					play_song = CreationandBeyond
+				}
+				set_country_flag = space_station_succes
+				add_to_variable = { influences = 150 }
+			} 
+			260 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.19
+	title = space.19.t
+	desc = space.19.d
+	picture = GFX_space_mir
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+					play_song = CreationandBeyond
+	}
+}
+#火星探测
+country_event = {
+	id = space.20
+	title = space.20.t
+	desc = space.20.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -180 } 
+		random_list = {
+			space_power = {
+				news_event = { id = space.21 }
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = mars_space_probe_succes } } }
+					add_to_variable = { influences = 100 }
+				}
+				set_country_flag = mars_space_probe_succes
+				add_to_variable = { influences = 150 }
+			} 
+			260 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.21
+	title = space.21.t
+	desc = space.21.d
+	picture = GFX_Exploration
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+	}
+}
+#间谍卫星
+country_event = {
+	id = space.22
+	title = space.22.t
+	desc = space.22.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -80 } 
+		random_list = {
+			90 = {
+				news_event = { id = space.23 }
+				set_country_flag = spy_Satellite_succes
+				add_dynamic_modifier = { modifier = spy_Satellite_modifiers } 
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = spy_Satellite_succes } } }
+					news_event = { id = space.24 }
+					add_to_variable = { influences = 100 } 
+				}
+				add_intel = {
+					target = USA
+					civilian_intel = 12
+					army_intel = 12
+				}
+				add_intel = {
+					target = PRC
+					civilian_intel = 12
+					army_intel = 12
+				}
+				add_intel = {
+					target = SOV
+					civilian_intel = 12
+					army_intel = 12
+				}
+				add_intel = {
+					target = ENG
+					civilian_intel = 12
+					army_intel = 12
+				}
+				add_intel = {
+					target = FRA
+					civilian_intel = 12
+					army_intel = 12
+				}
+				add_to_variable = { spy_satellite_date = 5 } 
+			} 
+			10 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.23
+	title = space.23.t
+	desc = space.23.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	
+	option = {	
+		name = space.11.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+news_event = {
+	id = space.24
+	title = space.24.t
+	desc = space.24.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.12.a
+		add_to_variable = { influences = 20 } 
+	}
+}
+news_event = {
+	id = space.50
+	title = space.50.t
+	desc = space.50.d
+	picture = GFX_event_Satellite
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = space50 }
+		date > 1955.2.1
+		date < 1956.2.1
+	}
+	option = {	
+		name = space.12.a
+		set_global_flag = space50
+		custom_effect_tooltip = space50_tool
+	}
+}
+news_event = {
+	id = space.51
+	title = space.51.t
+	desc = space.51.d
+	picture = GFX_event_Satellite
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = sputnik_video
+	}
+	option = {	
+		name = space.11.a
+	}
+}
+news_event = {
+	id = space.52
+	title = space.52.t
+	desc = space.52.d
+	picture = GFX_SputnikCrisis
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = space52 }
+		NOT = { has_country_flag = Satellite_succes }
+		SOV = { has_country_flag = Satellite_succes }
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space52
+	}
+}
+news_event = {
+	id = space.53
+	title = space.53.t
+	desc = space.53.d
+	picture = GFX_HaroldMacmillian
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_global_flag = space52
+		NOT = { has_global_flag = space53 }
+		NOT = { has_country_flag = Satellite_succes }
+		SOV = { has_country_flag = Satellite_succes }
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space53
+	}
+}
+news_event = {
+	id = space.54
+	title = space.54.t
+	desc = space.54.d
+	picture = GFX_LyndenJohnson
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_global_flag = space53
+		NOT = { has_global_flag = space54 }
+		NOT = { has_country_flag = Satellite_succes }
+		SOV = { has_country_flag = Satellite_succes }
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space54
+	}
+}
+news_event = {
+	id = space.55
+	title = space.55.t
+	desc = space.55.d
+	picture = GFX_ThomasPower
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_global_flag = space55
+		NOT = { has_global_flag = space54 }
+		NOT = { has_country_flag = Satellite_succes }
+		SOV = { has_country_flag = Satellite_succes }
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space55
+	}
+}
+news_event = {
+	id = space.56
+	title = space.56.t
+	desc = space.56.d
+	picture = GFX_event_Satellite
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_global_flag = space55
+		NOT = { has_global_flag = space56 }
+		NOT = { has_country_flag = Satellite_succes }
+		SOV = { has_country_flag = Satellite_succes }
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space56
+	}
+}
+news_event = {
+	id = space.57
+	title = space.57.t
+	desc = space.57.d
+	picture = GFX_Exploration
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+	}
+}
+news_event = {
+	id = space.60
+	title = space.60.t
+	desc = space.60.d
+	picture = GFX_Vostok1
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.60.a
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = space.61 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = space.61
+	title = space.61.t
+	desc = space.61.d
+	picture = GFX_GagarinReturn
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.60.a
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = space.62 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = space.62
+	title = space.62.t
+	desc = space.62.d
+	picture = GFX_GagarinReturn
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.60.a
+		if = {
+			limit = { tag = USA }
+			add_political_power = -200
+		}
+	}
+}
+
+#月球探测
+country_event = {
+	id = space.70
+	title = space.70.t
+	desc = space.70.d
+	picture = GFX_space_lauch
+	is_triggered_only = yes
+	option = {
+		name = space.1.a
+		add_to_variable = { space_power = -180 } 
+		random_list = {
+			space_power = {
+				modifier = {
+					date < 1959.10.1
+					add = -50
+				}
+				modifier = {
+					tag = SOV
+					add = 30
+				}
+				news_event = { id = space.71 }
+				if = {
+					limit = { all_country = { NOT = { has_country_flag = moon_space_probe_succes } } }
+					add_to_variable = { moon_probe_days = 4 }
+					news_event = { id = space.72 }
+				}
+				set_country_flag = moon_space_probe_succes
+				add_to_variable = { influences = 150 }
+			} 
+			100 = { news_event = { id = space.3 } } 
+		}
+	}
+	option = {	
+		name = space.1.b
+	}
+}
+
+news_event = {
+	id = space.71
+	title = space.71.t
+	desc = space.71.d
+	picture = GFX_Lunar2
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+	}
+}
+news_event = {
+	id = space.72
+	title = space.72.t
+	desc = space.72.d
+	picture = GFX_Lunar2
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+	}
+}
+news_event = {
+	id = space.73
+	title = space.73.t
+	desc = space.73.d
+	picture = GFX_MoonExplore
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		has_country_flag = moon_space_probe_succes
+		NOT = { has_global_flag = space73 }
+		date > 1959.2.1
+		date < 1960.2.1
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space73
+		if = {
+			limit = { tag = FROM }
+			add_political_power = 120
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+}
+news_event = {
+	id = space.74
+	title = space.74.t
+	desc = space.74.d
+	picture = GFX_MoonExplore
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		has_country_flag = moon_space_probe_succes
+		NOT = { has_global_flag = space74 }
+		date > 1959.2.1
+		date < 1960.8.1
+	}
+	option = {	
+		name = space.11.a
+		set_global_flag = space74
+		if = {
+			limit = { tag = FROM }
+			add_political_power = 120
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+}
+news_event = { #月球探测器报废
+	id = space.78
+	title = space.78.t
+	desc = space.78.d
+	picture = GFX_Lunar2
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		has_country_flag = moon_space_probe_succes
+		check_variable = { moon_probe_days < 1 }
+	}
+	option = {	
+		name = space.11.a
+		clr_country_flag = moon_space_probe_succes
+		set_variable = { moon_probe_days = 0 }
+	}
+}

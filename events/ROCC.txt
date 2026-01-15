@@ -1,0 +1,416 @@
+﻿add_namespace = rocc
+news_event = {   #攻占中原
+	id = rocc.1
+	title = rocc.1.t
+	desc = rocc.1.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		PRC = {
+			NOT = {
+			controls_province = 1069
+			controls_province = 4071
+			controls_province = 11962
+			controls_province = 11996
+			controls_province = 10072
+			controls_province = 7089
+			}
+		}
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_shandong }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_shandong
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.12
+			add_war_support = 0.-15
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #攻占陕北
+	id = rocc.2
+	title = rocc.2.t
+	desc = rocc.2.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		PRC = {
+			NOT = {
+		controls_province = 7659
+		controls_province = 10507
+		controls_province = 10880
+		controls_province = 1458
+		controls_province = 1531
+		controls_province = 556
+		}
+		}
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_shanbei }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_shanbei
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.12
+			add_war_support = 0.-15
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #攻占察哈尔
+	id = rocc.3
+	title = rocc.3.t
+	desc = rocc.3.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		PRC = {
+			NOT = {
+		controls_province = 1590
+		controls_province = 10424
+		controls_province = 7545
+		controls_province = 12448
+		controls_province = 1608
+		}
+		}
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_chahar }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_chahar
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.12
+			add_war_support = 0.-15
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = SHX }
+			transfer_state = 611
+			transfer_state = 612
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #攻占哈尔滨
+	id = rocc.4
+	title = rocc.4.t
+	desc = rocc.4.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		controls_province = 10433
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_harbin }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_harbin
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.4
+			add_war_support = 0.-4
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = DOB }
+			transfer_state = 328
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #攻占满洲里
+	id = rocc.5
+	title = rocc.5.t
+	desc = rocc.5.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		controls_province = 7743
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_manchuri }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_manchuri
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.4
+			add_war_support = 0.-4
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = DOB }
+			transfer_state = 714
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #攻占齐齐哈尔
+	id = rocc.6
+	title = rocc.6.t
+	desc = rocc.6.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		controls_province = 4506
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_chichiar }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_chichiar
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.4
+			add_war_support = 0.-4
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = DOB }
+			transfer_state = 715
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+news_event = {   #绥远
+	id = rocc.7
+	title = rocc.7.t
+	desc = rocc.7.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		controls_province = 10521
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_fuyuan }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = occupied_fuyuan
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.4
+			add_war_support = 0.-4
+		}
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+		if = {
+			limit = { tag = DOB }
+			transfer_state = 717
+			add_stability = 0.12
+			add_war_support = 0.12
+		}
+	}
+}
+#缴费结束
+news_event = {
+	id = rocc.8
+	title = rocc.8.t
+	desc = rocc.8.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.12
+			add_war_support = 0.12
+			load_focus_tree = ROCC_focus
+		}
+	}
+}
+news_event = {   #阎锡山复职
+	id = rocc.9
+	title = rocc.9.t
+	desc = rocc.9.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = SHX
+		controls_province = 12432
+		controls_province = 1519
+		controls_province = 1590
+		controls_province = 10424
+		NOT = { has_global_flag = YANXISHAN }
+		
+	}
+	option = {
+		name = rocc.3.a
+		set_global_flag = YANXISHAN
+		if = {
+			limit = { tag = SHX }
+			set_capital = {state = 615 }
+		}
+	}
+}
+#宣布收编
+news_event = {
+	id = rocc.10
+	title = rocc.10.t
+	desc = rocc.10.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+	}
+}
+#要求收编
+news_event = {
+	id = rocc.20
+	title = rocc.20.t
+	desc = rocc.20.d
+	is_triggered_only = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+		news_event = { id = rocc.21 }
+		CHI = {
+			annex_country = {
+				target = root
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = ger.1.a
+		CHI = {
+			news_event = { id = rocc.22 }
+		}
+	}
+}
+news_event = {
+	id = rocc.21
+	title = rocc.21.t
+	desc = rocc.21.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+	}
+}
+news_event = {
+	id = rocc.22
+	title = rocc.22.t
+	desc = rocc.22.d
+	is_triggered_only = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+		news_event = { id = rocc.23 }
+		end_puppet = FROM
+		declare_war_on = {
+			target = FROM
+			type = puppet_wargoal_focus 
+		}
+	}
+}
+news_event = {
+	id = rocc.23
+	title = rocc.23.t
+	desc = rocc.23.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+	}
+}
+news_event = {
+	id = rocc.30
+	title = rocc.30.t
+	desc = rocc.30.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+	}
+}
+news_event = {
+	id = rocc.31
+	title = rocc.31.t
+	desc = rocc.31.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ChiangKaiShek
+	option = {
+		name = ger.1.a
+	}
+}

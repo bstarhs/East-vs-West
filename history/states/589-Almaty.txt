@@ -1,0 +1,43 @@
+state={
+	id=589
+	name="STATE_589"
+	
+	state_category = large_town
+
+	history={
+		add_to_array = { this.state_ethnics_list = 11 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Khazakhs
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = SOV
+		buildings = {
+			power_plant = 2
+			farm_building = 2
+			infrastructure = 3
+			industrial_complex = 2
+			school = 1
+			hospital = 1
+
+		}
+		victory_points = {
+			10547 10
+		}
+		victory_points = {
+			10619 4
+		}
+		add_core_of = SOV
+		
+		add_core_of = KAZ
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+
+	}
+
+	provinces={
+		1840 4651 4773 4845 7711 7795 7856 10146 10547 10550 10619 12529 13148 13149 13197 1591 
+	}
+	manpower=535191
+	buildings_max_level_factor=1.000
+}

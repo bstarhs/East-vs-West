@@ -1,0 +1,45 @@
+
+state={
+	id=420
+	name="STATE_420"
+	manpower = 1314948
+	
+	state_category = rural
+
+	history={
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Persian
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 134 }
+		owner = PER
+		add_dynamic_modifier = { modifier = state_modifier_kanr }
+		victory_points = {
+			4901 6
+		}
+		victory_points = {
+			10523 5
+		}
+		victory_points = {
+			7969 4
+		}
+		victory_points = {
+			4553 4
+		}
+		victory_points = {
+			4609 4
+		}
+		buildings = {
+			school = 1
+			farm_building = 1
+			hospital = 1
+			industrial_complex = 2
+			infrastructure = 3
+		}
+		add_core_of = PER
+	}
+
+	provinces={
+		4553 4609 4637 4901 7969 10454 10523 
+	}
+}

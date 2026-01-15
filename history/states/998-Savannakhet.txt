@@ -1,0 +1,37 @@
+state={
+	id=998
+	name="STATE_998"
+	manpower = 694023
+	
+	state_category = rural
+
+	history={
+                               
+		set_state_flag = ethnics_Laos
+		add_to_array = { this.state_ethnics_list = 102 }
+		add_to_array = { this.state_ethnics_list = 94 }
+		owner = FRA
+		add_core_of = LAO
+		1947.8.23 = {
+			owner = LAO
+		}
+		buildings = {
+			infrastructure = 1
+			farm_building = 2
+		}
+		victory_points = { 1520 3 }
+		victory_points = { 12332 2 }
+		victory_points = { 4539 5 }
+		1960.5.23 = {
+			add_dynamic_modifier = { modifier = HCMTrail_modifier }
+		}
+		1975.5.23 = {
+			remove_dynamic_modifier = { modifier = HCMTrail_modifier }
+		}
+
+	}
+
+	provinces={
+		12332 1362 1390 10326 1520 4539 10195 4260 
+	}
+}

@@ -1,0 +1,64 @@
+
+state={
+	id=109
+	name="STATE_109" # Croatia
+	manpower = 2224400
+	
+	state_category = large_town
+	resources={
+		iron=36
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Croatia
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		add_to_array = { this.state_ethnics_list = 57 }
+		owner = YUG
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			school = 1
+			infrastructure = 6
+			industrial_complex = 3
+			power_plant = 1
+		}
+		1949.8.23 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1954.8.23 = {
+			set_state_category = city
+			buildings = {
+				farm_building = 3
+				power_plant = 3
+				steel_making = 1
+				rubber_factory = 2
+			}
+		}
+		victory_points = {
+			11581 10
+		}
+		victory_points = {
+			6647 5
+		}
+		victory_points = {
+			9608 6
+		}
+		victory_points = {
+			9595 4
+		}
+		victory_points = {
+			3592 4
+		}
+		add_core_of = YUG
+		add_core_of = CRO
+		1990.8.23 = {
+			owner = CRO
+		}
+	}
+
+	provinces={
+		624 3592 3596 3627 6647 9595 9611 11581 11594 9608 6953 
+	}
+}

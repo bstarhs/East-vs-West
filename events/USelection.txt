@@ -1,0 +1,1144 @@
+﻿add_namespace = USelection
+
+#1948
+news_event = {
+	id = USelection.1948
+	title = USelection.1948.t
+	desc = USelection.1948.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1948.8.1
+		date < 1949.1.1
+		has_government = democratic
+	}
+	
+	option = {	#杜鲁门
+		name = USelection.1948.a
+		ai_chance = {
+			factor = 30
+		}
+		create_country_leader = {
+			name = "Harry Truman"
+			picture = "gfx/leaders/USA/Portrait_USA_Truman.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+		news_event = { id = USelection.1 }
+	}
+	
+	option = {	#Thomas Dewey
+		name = USelection.1948.b
+		ai_chance = {
+			factor = 20
+		}
+		create_country_leader = {
+			name = "Thomas Dewey"
+			picture = "gfx/leaders/USA/Portrait_USA_Dewey.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+				ideological_crusader anti_communist propaganda_bungler hawk
+			}
+		}
+		news_event = { id = USelection.2 }
+	}
+} 
+#1964
+news_event = {
+	id = USelection.1964
+	title = USelection.1964.t
+	desc = USelection.1964.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1964.1.1
+		date < 1965.1.1
+		has_government = democratic
+	}
+	
+	option = {	#约翰逊
+		name = USelection.1964.a
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "Lyndon Baines Johnson"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Lyndon_Johnson.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#Barry Morris Goldwater
+		name = USelection.1964.b
+		ai_chance = {
+			factor = 0	
+		}
+		create_country_leader = {
+			name = "Barry Morris Goldwater"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Barry_Goldwater.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1968
+news_event = {
+	id = USelection.1968
+	title = USelection.1968.t
+	desc = USelection.1968.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1968.1.1
+		date < 1969.1.1
+		has_government = democratic
+	}
+	
+	option = {	#尼克松
+		name = USelection.1968.a
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "Richard Milhous Nixon"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Milhous_Nixon.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = { interventionism political_dancer 
+			}
+		}
+		news_event = { id = USelection.4 }
+	}
+	
+	option = {	#Hubert Horatio Humphrey
+		name = USelection.1968.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Hubert Horatio Humphrey"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Hubert_Humphrey.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1972
+news_event = {
+	id = USelection.1972
+	title = USelection.1972.t
+	desc = USelection.1972.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1972.1.1
+		date < 1973.1.1
+		has_government = democratic
+	}
+	
+	option = {	#尼克松
+		name = USelection.1972.a
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "Richard Milhous Nixon"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Milhous_Nixon.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = { interventionism political_dancer 
+			} 
+		}
+	}
+	
+	option = {	#George Stanley McGovern
+		name = USelection.1972.b
+		ai_chance = {
+			factor = 0	
+		}
+		create_country_leader = {
+			name = "George Stanley McGovern"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_George_McGovern.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1976
+news_event = {
+	id = USelection.1976
+	title = USelection.1976.t
+	desc = USelection.1976.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1976.1.1
+		date < 1977.1.1
+		has_government = democratic
+	}
+	
+	option = {	#卡特
+		name = USelection.1976.a
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "James Earl Carter"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Jimmy_Carter.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#福特
+		name = USelection.1976.b
+		ai_chance = {
+			factor = 0	
+		}
+		create_country_leader = {
+			name = "Gerald Rudolph Ford"
+			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Ford.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1980
+news_event = {
+	id = USelection.1980
+	title = USelection.1980.t
+	desc = USelection.1980.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1980.1.1
+		date < 1981.1.1
+		has_government = democratic
+	}
+	
+	option = {	#里根
+		name = USelection.1980.a
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "Ronald Wilson Reagan"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Reagan.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#卡特
+		name = USelection.1980.b
+		ai_chance = {
+			factor = 0	
+		}
+		create_country_leader = {
+			name = "James Earl Carter"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Jimmy_Carter.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1984
+news_event = {
+	id = USelection.1984
+	title = USelection.1984.t
+	desc = USelection.1984.d
+	picture = GFX_USelection
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1984.1.1
+		date < 1985.1.1
+		has_government = democratic
+	}
+	
+	option = {	#里根
+		name = USelection.1984.a
+		ai_chance = {
+			factor = 1	
+		}
+		create_country_leader = {
+			name = "Ronald Wilson Reagan"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Reagan.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#Walter Frederick  Mondale
+		name = USelection.1984.b
+		ai_chance = {
+			factor = 0	
+		}
+		create_country_leader = {
+			name = "Walter Frederick Mondale"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Walter_Mondale.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1988
+news_event = {
+	id = USelection.1988
+	title = USelection.1988.t
+	desc = USelection.1988.d
+	picture = GFX_USelection
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1988.9.1
+		date < 1989.3.1
+		has_government = democratic
+	}
+	
+	option = {	#里根
+		name = USelection.1984.a
+		ai_chance = {
+			factor = 1
+		}
+		create_country_leader = {
+			name = "George Herbert Walker Bush"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Walker_Bush.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+	
+	option = {	#Walter Frederick  Mondale
+		name = USelection.1984.b
+		ai_chance = {
+			factor = 0
+		}
+		create_country_leader = {
+			name = "Michael Stanley Dukakis"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/USA/Portrait_USA_Michael_Dukakis.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#杜鲁门
+news_event = {
+	id = USelection.1
+	title = USelection.1.t
+	desc = USelection.1.d
+	picture = GFX_Trumen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+#杜威
+news_event = {
+	id = USelection.2
+	title = USelection.2.t
+	desc = USelection.2.d
+	picture = GFX_Dewey
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.3
+	title = USelection.1.t
+	desc = USelection.1.d
+	picture = GFX_Eisenhower
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+
+news_event = {
+	id = USelection.4
+	title = USelection.4.t
+	desc = USelection.4.d
+	picture = GFX_KennedyAsPresident
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.1952
+	title = USelection.1952.t
+	desc = USelection.1952.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1952.2.1
+		date < 1952.5.1
+		NOT = { has_global_flag = USelection1952 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection1952
+		}
+	}
+}
+news_event = {
+	id = USelection.19521
+	title = USelection.19521.t
+	desc = USelection.19521.d
+	picture = GFX_EisenhowerWin
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1952.2.1
+		date < 1952.5.1
+		has_global_flag = USelection1952
+		NOT = { has_global_flag = Republican1952vote }
+	}
+	option = {
+		name = usatext.1.a
+		set_global_flag = Republican1952vote
+		news_event = { id = USelection.19522 }
+	}
+}
+news_event = {
+	id = USelection.19522
+	title = USelection.19522.t
+	desc = USelection.19522.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19523
+	title = USelection.19523.t
+	desc = USelection.19523.d
+	picture = GFX_RoberTaft
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19524
+	title = USelection.19524.t
+	desc = USelection.19524.d
+	picture = GFX_EisenhowerWin
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1952.3.1
+		date < 1952.6.1
+		has_global_flag = USelection1952
+		NOT = { has_global_flag = Democrat1952vote }
+	}
+	option = {
+		name = usatext.1.a
+		set_global_flag = Democrat1952vote
+		news_event = { id = USelection.19526 }
+		recruit_character = USA_Adlai_Stevenson
+	}
+}
+news_event = {
+	id = USelection.19525
+	title = USelection.19525.t
+	desc = USelection.19525.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19526
+	title = USelection.19526.t
+	desc = USelection.19526.d
+	picture = GFX_AdlaiStevenson
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19527
+	title = USelection.19527.t
+	desc = USelection.19527.d
+	picture = GFX_EisenhowerWin
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1952.10.1
+		date < 1952.12.1
+		has_global_flag = USelection1952
+		NOT = { has_global_flag = USelection1952voted }
+	}
+	option = {
+		name = usatext.1.a
+		set_global_flag = USelection1952voted
+		news_event = { id = USelection.19529 days = 2 }
+		promote_character = USA_dwight_d_eisenhower
+	}
+	option = {
+		name = usatext.1.a
+		set_global_flag = USelection1952voted
+		clr_global_flag = USelection1952
+		news_event = { id = USelection.19528 days = 2 }
+		promote_character = USA_Adlai_Stevenson
+		play_song = USA_52
+	}
+}
+
+news_event = {
+	id = USelection.19528
+	title = USelection.19528.t
+	desc = USelection.19528.d
+	picture = GFX_AdlaiStevenson
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19529
+	title = USelection.19529.t
+	desc = USelection.19529.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = USA_50
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = eisenhower_win_video
+	}
+	option = {
+		name = usatext.1.a
+	}
+}
+#######1956#########
+news_event = {
+	id = USelection.19560
+	title = USelection.19560.t
+	desc = USelection.19560.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1956.2.1
+		date < 1956.5.1
+		NOT = { has_global_flag = USelection1956 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection1956
+		}
+	}
+}
+news_event = {
+	id = USelection.19561
+	title = USelection.19561.t
+	desc = USelection.19561.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1956.2.1
+		date < 1956.5.1
+		has_global_flag = USelection1956
+		NOT = { has_global_flag = USelection19561 }
+	}
+	option = {
+		name = usatext.1.a
+		trigger = { NOT = { tag = USA } }
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = { base = 0 }
+		trigger = { tag = USA }
+		set_global_flag = USelection19561
+		set_global_flag = USelection1956Nixon
+		news_event = { id = USelection.19562 days = 4 }
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = { base = 50 }
+		trigger = { tag = USA }
+		set_global_flag = USelection19561
+		set_global_flag = USelection1956Eisenhower
+		news_event = { id = USelection.19563 days = 4 }
+	}
+}
+news_event = {
+	id = USelection.19562
+	title = USelection.19562.t
+	desc = USelection.19562.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19563
+	title = USelection.19563.t
+	desc = USelection.19563.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19564
+	title = USelection.19564.t
+	desc = USelection.19564.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1956.2.1
+		date < 1956.10.1
+		has_global_flag = USelection1956Nixon
+		NOT = { has_global_flag = USelection19564 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19564
+		}
+	}
+}
+news_event = {
+	id = USelection.19566
+	title = USelection.19566.t
+	desc = USelection.19566.d
+	picture = GFX_EisenhowerWin
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1956.10.1
+		date < 1957.1.1
+		has_global_flag = USelection1956
+		NOT = { has_global_flag = USelection1956voted }
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = { base = 10 }
+		trigger = { has_global_flag = USelection1956Nixon }
+		set_global_flag = USelection1956voted
+		news_event = { id = USelection.19569 }
+		promote_character = USA_Nixon
+		play_song = USA_50
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = { base = 10 }
+		trigger = { NOT = { has_global_flag = USelection1956Nixon } }
+		set_global_flag = USelection1956voted
+		news_event = { id = USelection.19568 }
+		promote_character = USA_dwight_d_eisenhower
+		play_song = USA_50
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = { base = 0 }
+		set_global_flag = USelection1956voted
+		clr_global_flag = USelection1956
+		news_event = { id = USelection.19567 }
+		promote_character = USA_Adlai_Stevenson
+		play_song = USA_52
+	}
+}
+news_event = {
+	id = USelection.19567
+	title = USelection.19567.t
+	desc = USelection.19567.d
+	picture = GFX_AdlaiStevenson
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19568
+	title = USelection.19568.t
+	desc = USelection.19568.d
+	picture = GFX_EisenhowerWin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19569
+	title = USelection.19569.t
+	desc = USelection.19569.d
+	picture = GFX_NixonAsPresident
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+#######1960#########
+news_event = {
+	id = USelection.19600
+	title = USelection.19600.t
+	desc = USelection.19600.d
+	picture = GFX_HubertHumphrey
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1960.2.1
+		date < 1960.5.1
+		NOT = { has_global_flag = USelection19600 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19600
+		}
+	}
+}
+news_event = {
+	id = USelection.19601
+	title = USelection.19601.t
+	desc = USelection.19601.d
+	picture = GFX_Kennedy
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = USA
+		date > 1960.2.1
+		date < 1960.5.1
+		has_global_flag = USelection19600
+		NOT = { has_global_flag = USelection19601 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19601
+		}
+	}
+}
+news_event = {
+	id = USelection.19602
+	title = USelection.19602.t
+	desc = USelection.19602.d
+	picture = GFX_Kennedy
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = USA
+		date > 1960.2.1
+		date < 1960.5.1
+		has_global_flag = USelection19601
+		NOT = { has_global_flag = USelection19602 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = USelection.19603 }
+			set_global_flag = USelection19602
+			set_global_flag = USelection19603
+		}
+	}
+}
+news_event = {
+	id = USelection.19603
+	title = USelection.19603.t
+	desc = USelection.19603.d
+	picture = GFX_KennedyElection
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = USelection.19605
+	title = USelection.19605.t
+	desc = USelection.19605.d
+	picture = GFX_KennedyElection
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = USA
+		date > 1960.4.1
+		date < 1960.7.1
+		has_global_flag = USelection19603
+		NOT = { has_global_flag = USelection19605 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19605
+		}
+	}
+}
+news_event = {
+	id = USelection.19607
+	title = USelection.19607.t
+	desc = USelection.19607.d
+	picture = GFX_KennedyElection
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = USA
+		date > 1960.4.1
+		date < 1960.7.1
+		has_global_flag = USelection19606
+		NOT = { has_global_flag = USelection19607 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19607
+		}
+	}
+}
+news_event = {
+	id = USelection.19608
+	title = USelection.19608.t
+	desc = USelection.19608.d
+	picture = GFX_Kennedy
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		date > 1960.4.1
+		date < 1960.7.1
+		has_global_flag = USelection19607
+		NOT = { has_global_flag = USelection19608 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19608
+		}
+	}
+}
+news_event = {
+	id = USelection.19609
+	title = USelection.19609.t
+	desc = USelection.19609.d
+	picture = GFX_HarryFByrd
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = USA
+		date > 1960.4.1
+		date < 1960.8.1
+		has_global_flag = USelection19607
+		authoritarianism > 0.4
+		has_completed_focus = us_dixemocratic
+		NOT = { has_global_flag = USelection19609 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection19609
+		}
+	}
+}
+news_event = {
+	id = USelection.196010
+	title = USelection.196010.t
+	desc = USelection.196010.d
+	picture = GFX_KennedyNixon
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		play_song = USA_60
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = video_nixon_kennedy
+	}
+	trigger = {
+		tag = USA
+		date > 1960.9.1
+		date < 1960.10.1
+		has_global_flag = USelection19603
+		NOT = { has_global_flag = USelection196010 }
+	}
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = USelection196010
+		}
+	}
+}
+country_event = {
+	id = USelection.196011
+	title = USelection.196011.t
+	desc = USelection.196011.d
+	picture = GFX_KennedyNixon
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = USA
+		date > 1960.10.1
+		date < 1960.11.1
+		has_global_flag = USelection19603
+		NOT = { has_global_flag = USelection196011 }
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			news_event = { id = USelection.196012 }
+			limit = { tag = USA }
+			set_global_flag = USelection196011
+		}
+	}
+	option = {
+		name = usatext.1.a
+		ai_chance = {
+			factor = 5
+		}
+		if = {
+			news_event = { id = USelection.196013 }
+			limit = { tag = USA }
+			set_global_flag = USelection196011
+		}
+	}
+	option = {
+		name = usatext.1.a
+		trigger = { has_global_flag = USelection19609 }
+		ai_chance = {
+			factor = 20
+		}
+		if = {
+			news_event = { id = USelection.196014 }
+			limit = { tag = USA }
+			set_global_flag = USelection196011
+		}
+	}
+}
+news_event = {
+	id = USelection.196012
+	title = USelection.196012.t
+	desc = USelection.196012.d
+	picture = GFX_KennedyElection
+	major = yes
+	immediate = {
+		play_song = USA_18
+	}
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			set_party_name = {
+				ideology = democratic
+				long_name = USA_democratic_party
+				name = USA_democratic_party
+			}
+			retire_character = USA_dwight_d_eisenhower
+			recruit_character = USA_Jacqueline_Kennedy
+			promote_character = {
+				character = USA_Kennedy
+				ideology = liberalism
+			}
+			remove_ideas = {
+				Nixon
+			}
+			add_ideas = {
+				Jacqueline_Kennedy
+			}
+			add_stability = 0.05
+			add_political_power = 300
+		}
+	}
+}
+news_event = {
+	id = USelection.196013
+	title = USelection.196013.t
+	desc = USelection.196013.d
+	picture = GFX_NixonAsPresident
+	major = yes
+	immediate = {
+		play_song = USA_18
+	}
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			retire_character = USA_dwight_d_eisenhower
+			promote_character = {
+				character = USA_Nixon
+				ideology = liberalism
+			}
+			remove_ideas = {
+				Nixon
+			}
+			add_stability = 0.08
+			add_political_power = 100
+		}
+	}
+}
+news_event = {
+	id = USelection.196014
+	title = USelection.196014.t
+	desc = USelection.196014.d
+	picture = GFX_HarryFByrd
+	major = yes
+	immediate = {
+		play_song = CSA_3
+	}
+	is_triggered_only = yes
+	option = {
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			retire_character = USA_dwight_d_eisenhower
+			recruit_character = USA_HarryFByrd
+			promote_character = {
+				character = USA_HarryFByrd
+				ideology = authoritarianism
+			}
+			set_politics = { ruling_party = authoritarianism }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.2
+			}
+			remove_ideas = {
+				Nixon
+			}
+			add_stability = 0.08
+			add_political_power = 100
+		}
+	}
+}

@@ -1,0 +1,43 @@
+ideas = {
+	industrial_concern = {
+		designer = yes
+		CAM_Ankor_auto = {
+			picture = CAM_Ankor_auto
+			allowed = {
+				original_tag = CAM
+			}
+			visible = {
+				date > 1955.1.1
+			}
+			available = {
+				NOT = { has_government = communism }
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	country = {
+		redkhmer = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = communism
+			}
+			picture = RedKhmer
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 10
+				political_power_cost = 0.5
+				land_reinforce_rate = -0.5
+				supply_consumption_factor = 0.8
+				war_support_factor = -0.2
+				ai_get_ally_desire_factor = -50
+				join_faction_tension = 0.5
+			}
+		}
+	}
+}

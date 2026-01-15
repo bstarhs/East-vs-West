@@ -1,0 +1,48 @@
+
+state={
+	id=792
+	name="STATE_792" # Leopoldville
+	manpower = 3540948
+	
+	state_category = town
+	resources={
+		copper = 27
+		chromium=11
+	}
+
+	history={
+		set_state_flag = ethnics_Katangese
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 92 }
+		owner = BEL
+		buildings = {
+			air_base = 1
+			infrastructure = 3
+			industrial_complex = 1
+			farm_building = 3
+			plantation = 3
+			191 = {
+				supply_node = 1
+				bunker = 5
+			}
+		}
+		add_core_of = COG
+		add_core_of = KTG
+		1960.6.30 = {
+			owner = KTG
+		}
+		victory_points = { 191 8 }
+		victory_points = { 4515 4 }
+		victory_points = { 1516 2 }
+		victory_points = { 13983 2 }
+		victory_points = { 13923 2 }
+		victory_points = { 1968 3 }
+		1963.6.30 = {
+			owner = COG
+		}
+	}
+
+	provinces={
+		1929 12907 1817 12795 1516 1968 4515 191 13328 13981 13982 13983 13984 13985 13986 13987 13988 13989 13990 13991 13992 13993 13994 13922 13923 
+	}
+}

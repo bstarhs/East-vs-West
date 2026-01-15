@@ -1,0 +1,55 @@
+state={
+	id=621
+	name="STATE_621" # Suiyuan
+	manpower = 2083700
+	
+	state_category = town
+	resources={
+		iron = 25
+		coal = 22
+		copper = 11
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 8 }
+		set_state_flag = ethnics_Mongols
+		victory_points = { 10424 6 }
+		victory_points = { 4960 6 }
+		add_core_of = MEN
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = SHX
+		controller = PRC
+		add_core_of = PRC
+		buildings = {
+			farm_building = 1
+			power_plant = 1
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		1938.10.25 = {		
+			SHX = {
+				set_province_controller = 12880
+				set_province_controller = 7631
+				set_province_controller = 10451
+				set_province_controller = 4960
+				set_province_controller = 1959
+				set_province_controller = 3427
+				set_province_controller = 12706
+				set_province_controller = 10854
+				set_province_controller = 4986
+				set_province_controller = 2087
+				set_province_controller = 12609
+			} 			
+		}
+		1949.10.14 = {
+		owner = PRC
+		add_core_of = CHI
+		}
+	}
+
+	provinces={
+		1959 2087 3427 4525 4960 4986 7048 7631 10424 10451 10629 10854 12331 12403 12609 12706 12880 
+	}
+}

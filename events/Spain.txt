@@ -1,0 +1,83 @@
+﻿add_namespace = spr
+#弗朗哥去世
+country_event = {
+	id = spr.1
+	title = spr.1.t
+	desc = spr.1.d
+	picture = GFX_liberation_Guangzhou
+	fire_only_once = yes
+	trigger = {
+		tag = SPR
+		has_government = neutrality
+		date > 1975.11.1
+		date < 1976.1.1
+	}
+	option = {	#胡安·卡洛斯
+		name = spr.1.a
+		SPR = {
+			set_global_flag = Caros
+		create_country_leader = {
+				name = "Juan Carlos I"
+				desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+				picture = "gfx/leaders/SPR/Portrait_Spain_Juan_Caros.tga"
+				expire = "1992.1.1"
+				ideology = despotism
+				
+				traits = {
+				
+				}
+			}
+
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+			}
+		}
+	}
+}
+#加泰罗尼亚独立
+news_event = {
+	id = spr.92
+	title = spr.92.t
+	desc = spr.92.d
+	picture = GFX_Kent_Shootings
+	fire_only_once = yes
+	trigger = {
+		tag = SPR
+		has_stability < 0.3
+	}
+	option = { 
+		name = spr.92.a
+		add_stability = -0.1
+		CAT = {
+			transfer_state = 165
+		}
+		SPR = {
+			declare_war_on = { target = CAT type = annex_everything }
+		}
+		
+	}
+}
+#奈温政变
+country_event = {
+	id = spr.20
+	title = bur.12.t
+	desc = bur.12.d
+	picture = GFX_IndiaIndependent
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bur.3.a
+		}
+}

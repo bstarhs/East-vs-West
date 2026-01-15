@@ -1,0 +1,53 @@
+
+state={
+	id=335
+	name="STATE_335" # Java
+	manpower = 41718200
+	
+	state_category = city
+	
+	resources={
+		rubber=20
+		oil=16
+		iron=12
+	}
+
+	history={
+		set_state_flag = ethnics_Java
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_to_array = { this.state_ethnics_list = 1 }
+		owner = HOL
+		set_state_flag = banana_production
+		add_core_of = INS
+		1949.10.25 = {
+			owner = INS
+		}
+		victory_points = { 7381 12 }
+		victory_points = { 421 6 }
+		victory_points = { 1386 3 }
+		victory_points = { 10279 3 }
+		victory_points = { 7421 8 }
+		buildings = {
+			arms_factory =1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 3
+			dockyard = 2
+			power_plant = 1
+			air_base = 3
+			7381 = {
+				naval_base = 6
+			}
+		}
+		1975.8.23 = {
+			buildings = {
+				steel_making = 2
+			}
+		}
+	}
+
+	provinces={
+		1386 1398 1425 4406 4621 7381 7421 10279 10307 12249 
+	}
+}

@@ -1,0 +1,2081 @@
+﻿add_namespace = bri
+#伊丽莎白二世
+news_event = {
+	id = bri.1
+	title = bri.1.t
+	desc = bri.1.d
+	picture = GFX_ElizabethII
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		NOT = { has_idea = Elizabeth_young }
+		date > 1953.6.1
+		date < 1953.8.1
+	}
+	immediate = {
+		play_song = ENG_1
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = elizabeth_crowned_video
+	}
+	option = {
+		name = prc.87.a
+		if = {
+			limit = { has_idea = ENG_george_vi }
+			remove_ideas = ENG_george_vi
+			add_ideas = Elizabeth_young
+		}
+	}
+}
+news_event = {
+	id = bri.2
+	title = bri.2.t
+	desc = bri.2.d
+	picture = GFX_ElizabethII
+	immediate = {
+		play_song = ENG_1
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.87.a
+		
+	}
+}
+news_event = {
+	id = bri.3
+	title = bri.3.t
+	desc = bri.3.d
+	picture = GFX_CharlesWedding
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = ENG_19
+	}
+	option = {
+		name = prc.87.a
+		
+	}
+}
+#乔治六世去世
+news_event = {
+	id = bri.4
+	title = bri.4.t
+	desc = bri.4.d
+	picture = GFX_ElizabethII
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		has_idea = ENG_george_vi
+		date > 1952.2.1
+		date < 1952.2.1
+	}
+	option = {
+		name = prc.87.a
+		if = {
+			limit = { tag = ENG }
+			remove_ideas = ENG_george_vi
+		}
+	}
+}
+news_event = {
+	id = bri.5
+	title = bri.5.t
+	desc = bri.5.d
+	picture = GFX_ClementAttlee
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+	}
+}
+#披头士乐队成立
+news_event = {
+	id = bri.10
+	title = bri.10.t
+	desc = bri.10.d
+	picture = GFX_Beatles
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#披头士访美
+news_event = {
+	id = bri.11
+	title = bri.11.t
+	desc = bri.11.d
+	picture = GFX_BeatlesNewYork
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#披头士乐队获颁大英帝国勋章
+news_event = {
+	id = bri.12
+	title = bri.12.t
+	desc = bri.12.d
+	picture = GFX_Beatles
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#列侬接受伦敦晚报采访
+news_event = {
+	id = bri.13
+	title = bri.13.t
+	desc = bri.13.d
+	major = yes
+	picture = GFX_BeatlesNewYork
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#披头士解散
+news_event = {
+	id = bri.14
+	title = bri.14.t
+	desc = bri.14.d
+	major = yes
+	picture = GFX_BeatlesNewYork
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#安东尼·艾登新闻
+news_event = {
+	id = bri.15
+	title = bri.15.t
+	desc = bri.15.d
+	picture = GFX_AntonyEden
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = ENG
+		has_global_flag = egy_suez
+		date < 1958.1.1
+		NOT = { has_global_flag = AntonyResign }
+	}
+	option = {
+		name = fra.10.a
+		ai_chance = { factor = 80 }
+		set_global_flag = AntonyResign
+		create_country_leader = {
+			name = "Harold Macmillan"
+			picture = "gfx/leaders/ENG/Portrait_British_Harold_Macmillan.tga"
+			expire = "1956.1.1"
+			ideology = labourparty
+			traits = {
+				social_reformer pro_america silent_workhorse
+			}
+		}
+		news_event = { id = bri.16 }
+	}
+	option = {
+		name = fra.10.a
+		ai_chance = { factor = 5 }
+		set_global_flag = AntonyResign
+		create_country_leader = {
+			name = "Rab Butler"
+			picture = "gfx/leaders/ENG/Portrait_British_Rab_Buttler.tga"
+			expire = "1956.1.1"
+			ideology = conservatism
+			traits = {
+				euroism
+			}
+		}
+		news_event = { id =  bri.16 }
+	}
+}
+
+#安东尼·艾登辞职
+news_event = {
+	id = bri.16
+	title = bri.16.t
+	desc = bri.16.d
+	picture = GFX_AntonyEden
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+	}
+}
+#普罗富莫事件
+news_event = {
+	id = bri.17
+	title = bri.17.t
+	desc = bri.17.d
+	picture = GFX_AntonyEden
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		set_global_flag = JohnProfumo
+	}
+}
+#麦克米伦辞职
+news_event = {
+	id = bri.18
+	title = bri.18.t
+	desc = bri.18.d
+	major = yes
+	picture = GFX_AntonyEden
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = ENG
+		has_global_flag = JohnProfumo
+		date < 1958.1.1
+		NOT = { has_global_flag = MacmillanResign }
+	}
+	option = {
+		name = fra.10.a
+		set_global_flag = MacmillanResign
+		create_country_leader = {
+			name = "Alec Douglas-Home"
+			picture = "gfx/leaders/ENG/Portrait_British_Harold_Macmillan.tga"
+			expire = "1956.1.1"
+			ideology = labourparty
+			traits = {
+				pro_america silent_workhorse
+			}
+		}
+		news_event = { id =  bri.16 }
+	}
+	option = {
+		name = fra.10.a
+		set_global_flag = MacmillanResign
+		create_country_leader = {
+			name = "Rab Butler"
+			picture = "gfx/leaders/ENG/Portrait_British_Harold_Macmillan.tga"
+			expire = "1956.1.1"
+			ideology = conservatism
+			traits = {
+			}
+		}
+		news_event = { id =  bri.16 }
+	}
+}
+#爱尔兰共和军出现
+news_event = {
+	id = bri.19
+	title = bri.19.t
+	desc = bri.19.d
+	picture = GFX_IrelishPublicanArmy
+	major = yes
+	mean_time_to_happen = {
+		days = 40
+	}
+	immediate = {
+		play_song = IRE_3
+	}
+	trigger = {
+		119 = { is_controlled_by = ENG }
+		ENG = {
+			NOT = { has_idea = IRA_revolt }
+		}
+		date > 1976.1.1
+	}
+	option = {
+		name = bri.20.a
+		if = {
+			limit = { tag = ENG }
+			add_ideas = IRA_revolt
+			add_stability = -0.05
+			119 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#爱尔兰共和军袭击
+news_event = {
+	id = bri.20
+	title = bri.20.t
+	desc = bri.20.d
+	picture = GFX_IrelishPublicanArmy
+	mean_time_to_happen = { days = 120 }
+	trigger = {
+		tag = ENG
+		has_idea = IRA_revolt
+	}
+	option = {
+		name = bri.20.a
+		add_stability = -0.05
+	}
+}
+#1986罢工
+news_event = {
+	id = bri.21
+	title = bri.21.t
+	desc = bri.21.d
+	picture = GFX_1986Strike
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		date > 1984.6.1
+		date < 1984.10.1
+		NOT = { has_government = communism }
+		has_global_flag = Thatcher
+	}
+	option = {
+		name = bri.21.a
+		ENG = { news_event = { id = bri.22 } }
+		add_stability = -0.05
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.02
+		}
+	}
+	option = {
+		name = bri.21.b
+		add_stability = 0.05
+		add_political_power = -100
+		
+	}
+}
+#进军伦敦
+news_event = {
+	id = bri.22
+	title = bri.22.t
+	desc = bri.22.d
+	picture = GFX_1986Strike
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.22.a
+		ENG = { add_ideas = strike1984 }
+		every_country = { news_event = { id = bri.23 } }
+		add_stability = -0.1
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.01
+		}
+	}
+	option = {
+		name = bri.22.b
+		add_stability = 0.05
+		add_political_power = -100
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+		
+	}
+}
+#进军伦敦
+news_event = {
+	id = bri.23
+	title = bri.23.t
+	desc = bri.23.d
+	picture = GFX_MarchToLondon
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = bri.23.a
+	}
+}
+#罢工谈判
+news_event = {
+	id = bri.24
+	title = bri.24.t
+	desc = bri.24.d
+	picture = GFX_MarchToLondon
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = bri.24.a
+	}
+}
+#伦敦坦克人
+news_event = {
+	id = bri.25
+	title = bri.25.t
+	desc = bri.25.d
+	picture = GFX_Roit
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		add_stability = -2
+		every_country = { news_event = { id = bri.26 } }
+		name = bri.25.a
+	}
+}
+#伦敦坦克人
+news_event = {
+	id = bri.26
+	title = bri.26.t
+	desc = bri.26.d
+	picture = GFX_Chieftain
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = bri.26.a
+	}
+}
+#是否接受法国保护
+country_event = {
+	id  = bri.33
+	title  = bri.33.t
+	desc  = bri.33.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = {
+		name = fra.4.a
+		FRA = { 
+			add_to_variable = { influences = 20 }
+			add_to_faction = ROOT
+		}
+		news_event = { id  = bri.34 }
+		give_military_access = FRA
+	}
+	option = {
+		name = fra.4.b
+		news_event = { id  = bri.36 }
+		FRA = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROOT
+			}
+		}
+	}
+}
+#接受法国保护
+news_event = {
+	id  = bri.34
+	title  = bri.34.t
+	desc  = bri.34.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#拒绝法国保护
+news_event = {
+	id  = bri.35
+	title  = bri.35.t
+	desc  = bri.35.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#英国顾问
+country_event = {
+	id = bri.46
+	title = bri.46.t
+	desc = bri.46.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = bri.51.a
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				FROM = { has_government = communism }
+			}
+		}
+		FROM = {
+			country_event = { id = bri.47 }
+			set_country_flag = EngAdvisorAllow
+			add_intel = {
+				target = FROM
+				civilian_intel = 12
+				army_intel = 8
+				navy_intel = 8
+				airforce_intel = 8
+			}
+		}
+	}
+	option = { 
+		name = bri.51.a
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			country_event = { id = bri.48 }
+		}
+	}
+}
+country_event = {
+	id = bri.47
+	title = bri.47.t
+	desc = bri.47.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = bri.51.a
+	}
+}
+country_event = {
+	id = bri.48
+	title = bri.48.t
+	desc = bri.48.d
+	picture = GFX_SovietUnionLose
+	is_triggered_only = yes
+	option = { 
+		name = bri.51.a
+	}
+}
+#苏格兰独立
+news_event = {
+	id = bri.50
+	title = bri.50.t
+	desc = bri.50.d
+	picture = GFX_FreeScotland
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		has_stability < 0.4
+	}
+	option = {
+		name = bri.50.a
+		SCO = {
+			transfer_state = 120
+			transfer_state = 136
+			transfer_state = 133
+			transfer_state = 121
+		}
+		ENG = {
+			declare_war_on = { target = SCO type = annex_everything }
+		}
+	}
+}
+#北爱尔兰独立
+news_event = {
+	id = bri.51
+	title = bri.51.t
+	desc = bri.51.d
+	picture = GFX_FreeScotland
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		has_stability < 0.4
+	}
+	option = {
+		name = bri.51.a
+		IRA = {
+			transfer_state = 119
+		}
+		ENG = {
+			declare_war_on = { target = IRA type = annex_everything }
+		}
+	}
+}
+#英联邦参战
+news_event = {
+	id = bri.52
+	title = bri.52.t
+	desc = bri.52.d
+	picture = GFX_Chieftain
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		has_idea = Commonwealth
+		date > 1970.1.1
+		ENG = { has_war = yes }
+	}
+	option = {
+		name = bri.50.a
+		add_to_war = { 
+			targeted_alliance = ENG
+			enemy = SOV
+		}		
+	}
+}
+country_event = {
+	id = bri.55
+	title = bri.55.t
+	desc = bri.55.d
+	picture = GFX_Chieftain
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.55.a	#是
+		trigger = { tag = USA }
+		ai_chance = { factor = 100 }
+		add_threat = 5
+		news_event = { id = bri.56 }
+		custom_effect_tooltip = "此处应有添加民族精神和外交关系"
+	}
+	option = {
+		name = bri.55.b	#否
+		#trigger = { tag = USA }
+		custom_effect_tooltip = "此处应有添加外交关系"
+		ENG = {
+			set_country_flag = {
+				flag = USA_refuse
+				days = 365
+				value = 1
+			}
+		}
+	
+	}
+}
+news_event = {
+	id = bri.56
+	title = bri.56.t
+	desc = bri.56.d
+	picture = GFX_Chieftain
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.56.a
+		
+	}
+}
+#中部条约组织
+news_event = {
+	id = bri.57
+	title = bri.57.t
+	desc = bri.57.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.57.a
+		if = {
+			limit = { tag =  ENG }
+			add_ideas = CENTO
+		}
+	}
+}
+news_event = {
+	id = bri.58
+	title = bri.58.t
+	desc = bri.58.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = {
+		name = bri.58.a
+		add_ideas = CENTO
+		news_event = { id = bri.59 }
+	}
+}
+news_event = {
+	id = bri.59
+	title = bri.59.t
+	desc = bri.59.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.59.a
+		
+	}
+}
+news_event = {
+	id = bri.60
+	title = bri.60.t
+	desc = bri.60.d
+	picture = GFX_Join_Nato
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		OR = {
+			ENG = { NOT = { has_government = democratic } }
+			IRQ = { NOT = { has_government = monarchism } }
+			PER = { NOT = { has_government = monarchism } }
+		}
+		AND = {
+			ENG = { has_idea = CENTO }
+		}
+	}
+	option = {
+		name = bri.60.a
+		remove_ideas = CENTO
+	}
+}
+
+#中部条约组织
+news_event = {
+	id = bri.61
+	title = bri.61.t
+	desc = bri.61.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.61.a
+		
+	}
+}
+news_event = {
+	id = bri.62
+	title = bri.62.t
+	desc = bri.62.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = {
+		name = bri.62.a
+		add_ideas = CENTO
+		news_event = { id = bri.63 }
+		ENG = { 
+			give_guarantee = ROOT
+		}
+	}
+}
+news_event = {
+	id = bri.63
+	title = bri.63.t
+	desc = bri.63.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.63.a
+		
+	}
+}
+#欧洲关系
+news_event = {
+	id = bri.64
+	title = bri.64.t
+	desc = bri.64.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		add_opinion_modifier = {
+			target = FRA
+			modifier = euro_union
+		}
+	}
+}
+news_event = {
+	id = bri.65
+	title = bri.65.t
+	desc = bri.65.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		add_opinion_modifier = {
+			target = WDR
+			modifier = euro_union
+		}
+	}
+}
+news_event = {
+	id = bri.66
+	title = bri.66.t
+	desc = bri.66.d
+	picture = GFX_DeGaulle
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		add_opinion_modifier = {
+			target = CAN
+			modifier = euro_union
+		}
+		add_opinion_modifier = {
+			target = AST
+			modifier = euro_union
+		}
+		add_opinion_modifier = {
+			target = NZL
+			modifier = euro_union
+		}
+	}
+}
+news_event = {
+	id = bri.67
+	title = bri.67.t
+	desc = bri.67.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = {
+		name = bri.62.a
+		add_ideas = CENTO
+		news_event = { id = bri.63 }
+		ENG = { 
+			give_guarantee = ROOT
+		}
+	}
+}
+news_event = {
+	id = bri.68
+	title = bri.68.t
+	desc = bri.68.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.63.a
+		
+	}
+}
+#英联邦
+news_event = {
+	id = bri.69
+	title = bri.69.t
+	desc = bri.69.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.69.a
+		
+	}
+}
+#五国联防
+news_event = {
+	id = bri.70
+	title = bri.70.t
+	desc = bri.70.d
+	picture = GFX_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.61.a
+		
+	}
+}
+
+#阿拉伯自治
+news_event = {
+	id = bri.71
+	title = bri.71.t
+	desc = bri.71.d
+	picture = GF1_Join_Nato
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.61.a
+	}
+}
+
+#丛林战争镇压成功
+country_event = {
+	id = bri.72
+	title = bri.72.t
+	desc = bri.72.d
+	picture = GFX_IrelandAction
+	is_triggered_only = yes
+	option = {
+		name = isr.18.a
+		add_stability = 0.05
+		119 = { add_resistance = -15 }
+	}
+
+}
+#丛林战争镇压失败
+country_event = {
+	id = bri.73
+	title = bri.73.t
+	desc = bri.73.d
+	picture = GFX_IrelandAction
+	is_triggered_only = yes
+	option = {
+		name = isr.19.a
+		add_stability = -0.04
+		119 = { add_resistance = 10 }
+	}
+
+}
+news_event = {
+	id = bri.74
+	title =bri.74.t
+	desc = bri.74.d
+	picture = GFX_Churchill
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.74.a
+		
+	}
+}
+news_event = {
+	id = bri.75
+	title = bri.75.t
+	desc = bri.75.d
+	picture = GFX_NHS_event
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		
+	}
+}
+
+news_event = {
+	id = bri.76
+	title = bri.76.t
+	desc = bri.76.d
+	picture = GFX_NHS_event
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		
+	}
+}
+news_event = {
+	id = bri.77
+	title = bri.77.t
+	desc = bri.77.d
+	picture = GFX_NHS_event
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		
+	}
+}
+news_event = {   #帝国银行事件
+	id = bri.78
+	title = bri.78.t
+	desc = bri.78.d
+	picture = GFX_NeneEngine
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_global_flag = NeneEngine }
+		ENG_Stafford_Cripps = { is_hired_as_advisor = yes }
+		date > 1948.4.20
+		date < 1948.7.1
+		
+	}
+	option = {
+		name = jap.96.a
+		if = {
+			limit = { tag = SOV }
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = air_equipment
+			}
+		}
+		set_global_flag = NeneEngine
+	}
+}
+news_event = {
+	id = bri.80
+	title = bri.80.t
+	desc = bri.80.d
+	picture = GFX_LondonFog
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = ENG
+		date > 1952.12.1
+		date < 1953.1.1
+		
+	}
+	option = {
+		name = bri.77.a
+		news_event = { id = bri.81 }
+	}
+	option = {
+		name = bri.77.a
+		add_political_power = -100
+		news_event = { id = bri.82 }
+	}
+}
+news_event = {
+	id = bri.81
+	title = bri.81.t
+	desc = bri.81.d
+	picture = GFX_LondonFog
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		if = {
+			limit = { tag = ENG }
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.03
+			}
+			add_stability = -0.05
+			add_political_power = -100
+			add_manpower = -2200
+		}
+		
+	}
+}
+news_event = {
+	id = bri.82
+	title = bri.82.t
+	desc = bri.82.d
+	picture = GFX_LondonFog
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		
+	}
+}
+#艾德里访华
+news_event = {
+	id = bri.90
+	title = bri.90.t
+	desc = bri.90.d
+	picture = GFX_AttleeMao
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		date > 1954.8.1
+		date < 1954.10.1
+		PRC = {
+			controls_province = 111
+			has_war = no
+		}
+		PRK = { has_war = no }
+		NOT = { has_global_flag = bri90 }
+	}
+	option = {
+		name = bri.77.a
+		set_global_flag = bri90
+	}
+}
+#中英接触
+news_event = {
+	id = bri.91
+	title = bri.91.t
+	desc = bri.91.d
+	picture = GFX_BritishChinaNego1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		if = {
+			limit = { tag = PRC }
+			country_event = { id = bri.92 days = 3 }
+		}
+	}
+}
+country_event = {
+	id = bri.92
+	title = bri.92.t
+	desc = bri.92.d
+	picture = GFX_ZhouSmall
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		ENG = { country_event = { id = bri.93 days = 1 } }
+	}
+}
+country_event = {
+	id = bri.93
+	title = bri.93.t
+	desc = bri.93.d
+	picture = GFX_ZhouSmall
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a #同意
+		PRC = { country_event = { id = bri.94 days = 1 } }
+	}
+	option = {
+		name = bri.77.a#拒绝
+		PRC = { country_event = { id = bri.95 days = 1 } }
+	}
+}
+country_event = {
+	id = bri.94
+	title = bri.94.t
+	desc = bri.94.d
+	picture = GFX_ZhouSmall
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		news_event = { id = bri.96 days = 2 }
+	}
+}
+country_event = {
+	id = bri.95
+	title = bri.95.t
+	desc = bri.95.d
+	picture = GFX_ZhouSmall
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		news_event = { id = bri.97 days = 2 }
+	}
+}
+news_event = {
+	id = bri.96
+	title = bri.96.t
+	desc = bri.96.d
+	picture = GFX_BritishChinaNego1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 150
+			add_stability = 0.02
+		}
+		if = {
+			limit = { tag = ENG }
+			add_political_power = 150
+			HKN = {
+				add_political_power = 150
+				add_stability = 0.12
+				add_popularity = {
+					ideology = communism
+					popularity = 0.12
+				}
+			}
+		}
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -120
+			news_event = { id = bri.98 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = bri.97
+	title = bri.97.t
+	desc = bri.97.d
+	picture = GFX_ZhouEnLai
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+	}
+}
+news_event = {
+	id = bri.98
+	title = bri.98.t
+	desc = bri.98.d
+	picture = GFX_ChiangKaiShek
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+	}
+}
+
+
+
+
+news_event = {
+	id = bri.100
+	title = bri.100.t
+	desc = bri.100.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		
+	}
+}
+news_event = {
+	id = bri.101
+	title = bri.101.t
+	desc = bri.101.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		
+	}
+}
+news_event = {
+	id = bri.102
+	title = bri.102.t
+	desc = bri.102.d
+	picture = GFX_EBR
+	is_triggered_only = yes
+	option = {
+		name = fra.10.a
+		ENG = { news_event = { id = bri.103 } }
+	}
+}
+news_event = {
+	id = bri.103
+	title = bri.103.t
+	desc = bri.103.d
+	picture = GFX_EBR
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		add_war_support = 0.4
+		play_song = happymarch
+		USA = {
+			declare_war_on = {
+			target = ENG
+			type = puppet_wargoal_focus
+			}
+		}
+			131 = { set_state_controller_to = USA }
+			123 = { set_state_controller_to = USA }
+			136 = { set_state_controller_to = USA }
+			set_global_flag = UkUsaNatoWar
+		news_event = { id = bri.104 }
+	}
+}
+news_event = {
+	id = bri.104
+	title = bri.104.t
+	desc = bri.104.d
+	picture = GFX_EBR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		if = {
+			limit = {
+				is_in_faction_with = USA
+			}
+			leave_faction = yes
+		}
+	}
+}
+news_event = {
+	id = bri.105
+	title = bri.105.t
+	desc = bri.105.d
+	picture = GFX_EBR
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ENG
+		has_global_flag = UkUsaNatoWar
+		has_war_with = USA
+		controls_province = 351
+		controls_province = 540
+		controls_province = 11406
+		controls_province = 11332
+		controls_province = 11336
+	}
+	option = {
+		name = bri.77.a
+		if = {
+		limit = { tag =ENG }
+		clr_global_flag = UkUsaNatoWar
+		white_peace = USA
+		add_stability = 0.5
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.3
+		}
+		transfer_state = 131
+		transfer_state = 123
+		transfer_state = 136
+		}
+		if = {
+			limit = {
+				is_in_faction_with = USA
+				has_war_with = ENG
+			}
+			white_peace = ENG
+			add_political_power = -200
+			add_stability = -0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.1
+			}
+		}
+	}
+}
+
+news_event = {
+	id = bri.115
+	title = bri.115.t
+	desc = bri.115.d
+	picture = GFX_DH106
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		OR = {
+			tag = USA
+			tag = SOV
+		}
+		NOT = { has_country_flag = bri115 }
+		date > 1954.10.1
+		date < 1956.1.1
+		
+	}
+	option = {
+		name = bri.77.a
+		set_country_flag = bri115
+	}
+	option = {
+		name = bri.77.a
+		add_political_power = -100
+		custom_effect_tooltip = bri115tool
+		set_country_flag = bri115
+	}
+}
+news_event = {
+	id = bri.120
+	title = bri.120.t
+	desc = bri.120.d
+	picture = GFX_NukeDesign
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		ENG = { news_event = bri.121 }
+	}
+	option = {
+		name = bri.77.a
+		ENG = { news_event = bri.122 }
+	}
+}
+news_event = {
+	id = bri.121
+	title = bri.121.t
+	desc = bri.121.d
+	picture = GFX_NukeDesign
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+	}
+}
+news_event = {
+	id = bri.122
+	title = bri.122.t
+	desc = bri.122.d
+	picture = GFX_NukeDesign
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		set_country_flag = ENG_nuketest_place
+	}
+}
+news_event = {
+	id = bri.123
+	title = bri.123.t
+	desc = bri.123.d
+	picture = GFX_NukeDesign
+	is_triggered_only = yes
+	option = {
+		name = bri.77.a
+		set_country_flag = ENG_nuketest_place
+	}
+}
+
+#1950选举
+news_event = {
+	id = bri.140
+	title = bri.140.t
+	desc = bri.140.d
+	picture = GFX_UKLabourElection
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_country_flag = bri140 }
+		date > 1950.2.1
+		date < 1950.4.1
+		has_country_leader_ideology = socialism
+		
+	}
+	option = {
+		name = bri.77.a
+		set_country_flag = bri140
+	}
+}
+news_event = {
+	id = bri.141
+	title = bri.141.t
+	desc = bri.141.d
+	picture = GFX_ClementAttlee
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		has_country_flag = bri140
+		NOT = { has_country_flag = bri141 }
+		date > 1950.2.1
+		date < 1950.4.1
+		has_country_leader_ideology = socialism
+		
+	}
+	option = {
+		name = bri.77.a
+		set_country_flag = bri141
+	}
+}
+#1951选举
+news_event = {
+	id = bri.142
+	title = bri.142.t
+	desc = bri.142.d
+	picture = GFX_AneurinBevan
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_country_flag = bri142 }
+		date > 1951.8.1
+		date < 1951.10.1
+		has_country_leader_ideology = socialism
+		KOR = {
+			has_volunteers_amount_from = {
+				tag = ENG
+				count > 0
+			}
+		}
+		
+	}
+	option = {
+		name = bri.77.a
+		set_country_flag = bri142
+		if = {
+			limit = { tag = ENG }
+			retire_character = ENG_Hugh_Dalton
+		}
+	}
+}
+news_event = {
+	id = bri.143
+	title = bri.143.t
+	desc = bri.143.d
+	picture = GFX_UKLabourElection
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_country_flag = bri143 }
+		has_country_flag = bri142
+		date > 1951.8.1
+		date < 1951.10.1
+		has_country_leader_ideology = socialism
+		
+	}
+	option = {
+		name = bri.77.a
+		set_country_flag = bri143
+		trigger = { NOT = { tag = ENG } }
+	}
+	option = {
+		name = bri.77.a#保守党
+		trigger = { tag = ENG }
+		news_event = { id = bri.144 days = 3 }
+	}
+	option = {
+		name = bri.77.a#工党
+		trigger = { tag = ENG }
+		news_event = { id = bri.146 days = 3 }
+	}
+}
+news_event = {
+	id = bri.144
+	title = bri.144.t
+	desc = bri.144.d
+	picture = GFX_WinstonChurchill
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bri.77.a
+		if = {
+			limit = { tag = ENG }
+			promote_character = ENG_winston_churchill
+			recruit_character = ENG_Anthony_Eden
+			recruit_character = ENG_Harold_Macmillan
+		}
+	}
+}
+#丘吉尔辞职
+news_event = {
+	id = bri.145
+	title = bri.145.t
+	desc = bri.145.d
+	picture = GFX_AntonyEden
+	major = yes
+	mean_time_to_happen = {
+		days = 4
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_country_flag = bri142 }
+		date > 1955.4.1
+		date < 1955.5.1
+		has_country_leader_ideology = socialism
+		
+	}
+	option = {
+		name = bri.77.a
+		set_country_flag = bri143
+		trigger = { NOT = { tag = ENG } }
+	}
+	option = {
+		name = bri.77.a#保守党
+		trigger = { tag = ENG }
+		news_event = { id = bri.144 days = 3 }
+	}
+	option = {
+		name = bri.77.a#工党
+		trigger = { tag = ENG }
+		news_event = { id = bri.146 days = 3 }
+	}
+}
+#工党惨胜
+news_event = {
+	id = bri.146
+	title = bri.146.t
+	desc = bri.146.d
+	picture = GFX_ClementAttlee
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bri.77.a
+		trigger = { NOT = { tag = ENG } }
+	}
+	option = {
+		name = bri.77.a#保守党
+		trigger = { tag = ENG }
+		news_event = { id = bri.147 days = 3 }
+		promote_character = ENG_Aneurin_Bevan
+	}
+	option = {
+		name = bri.77.a#工党
+		trigger = { tag = ENG }
+		news_event = { id = bri.147 days = 3 }
+		promote_character = ENG_Hugh_Gaitskell
+	}
+}
+news_event = {
+	id = bri.147
+	title = bri.147.t
+	desc = bri.147.d
+	picture = GFX_UKLabourElection
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bri.77.a
+	}
+}
+
+
+
+news_event = {
+	id = bri.200
+	title = bri.200.t
+	desc = bri.200.d
+	picture = GFX_QueenDiana
+	immediate = {
+		play_song = ENG_17
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.200.a
+		remove_ideas = Elizabeth_young
+		recruit_character = ENG_Diana
+		set_politics = { ruling_party = monarchism }
+		promote_character = {
+			character = ENG_Diana
+			ideology = monarchism
+		}
+		set_party_name = {
+			ideology = monarchism
+			long_name = ENG_monarchism_Spencer
+			name = ENG_monarchism_Spencer
+		}
+	}
+}
+
+
+
+
+
+country_event = {
+	id = bri.210
+	title = bri.210.t
+	desc = bri.210.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = ENG
+		has_country_flag = ENG_Windscale_reactors
+		date > 1957.10.1
+		date < 1958.1.1
+		
+	}
+	option = {
+		name = bri.210.a
+		set_global_flag = bri210
+	}
+}
+country_event = {
+	id = bri.211
+	title = bri.211.t
+	desc = bri.211.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = ENG
+		has_global_flag = bri210
+		
+	}
+	option = {
+		name = bri.211.a
+		set_global_flag = bri211
+	}
+}
+country_event = {
+	id = bri.212
+	title = bri.212.t
+	desc = bri.212.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = ENG
+		has_global_flag = bri211
+		
+	}
+	option = {
+		name = bri.212.a
+		set_global_flag = bri212
+		random_list = {
+			50 = { news_event = { id = bri.213 hours = 4 } } 
+			30 = { news_event = { id = bri.214 hours = 4 } } 
+		}
+	}
+}
+country_event = {
+	id = bri.213
+	title = bri.213.t
+	desc = bri.213.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.213.a
+	}
+}
+country_event = {
+	id = bri.214
+	title = bri.214.t
+	desc = bri.214.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.214.a
+		random_list = {
+			60 = { news_event = { id = bri.215 hours = 4 } } 
+			10 = { news_event = { id = bri.220 hours = 4 } } 
+		}
+	}
+}
+country_event = {
+	id = bri.215
+	title = bri.215.t
+	desc = bri.215.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.215.a
+		set_global_flag = bri215
+	}
+}
+country_event = {
+	id = bri.216
+	title = bri.216.t
+	desc = bri.216.d
+	picture = GFX_Windscale
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = ENG
+		has_global_flag = bri215
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri216
+		add_political_power = -120
+	}
+}
+
+
+
+news_event = {
+	id = bri.220
+	title = bri.220.t
+	desc = bri.220.d
+	picture = GFX_WindscaleExplosion
+	immediate = {
+		play_song = ENG_29
+		goto_state = 131
+		launch_nuke = {
+			province = 11332
+		}
+	}
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bri.220.a
+		if = {
+			limit = { tag = ENG }
+			add_stability = -0.6
+			add_ideas = Windscale_disaster
+			add_political_power = -250
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.25
+			}
+		}
+	}
+}
+news_event = {
+	id = bri.250
+	title = bri.250.t
+	desc = bri.250.d
+	picture = GFX_ManchesterUnited1958
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.2.1
+		date < 1958.5.1
+		NOT = { has_global_flag = bri250 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri250
+	}
+}
+
+news_event = {
+	id = bri.251
+	title = bri.251.t
+	desc = bri.251.d
+	picture = GFX_MunichAircrash
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		if = {
+			limit = { ENG = { is_ai = no } }
+			scoped_sound_effect = airplane_crash
+			play_song = SCO_1
+		}
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.2.1
+		date < 1958.5.1
+		has_global_flag = bri250
+		NOT = { has_global_flag = bri251 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri251
+	}
+	
+}
+news_event = {
+	id = bri.252
+	title = bri.252.t
+	desc = bri.252.d
+	picture = GFX_DuncanEdwards
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.2.1
+		date < 1958.5.1
+		has_global_flag = bri251
+		NOT = { has_global_flag = bri252 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri252
+	}
+}
+news_event = {
+	id = bri.253
+	title = bri.253.t
+	desc = bri.253.d
+	picture = GFX_MunichAircrash
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.2.1
+		date < 1958.6.1
+		has_global_flag = bri252
+		NOT = { has_global_flag = bri253 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri253
+	}
+}
+news_event = {
+	id = bri.254
+	title = bri.254.t
+	desc = bri.254.d
+	picture = GFX_BertrandRussell
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.2.1
+		date < 1959.6.1
+		has_tech = thermonuclear
+		NOT = { has_global_flag = bri254 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri254
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -60
+		}
+	}
+}
+news_event = {
+	id = bri.255
+	title = bri.255.t
+	desc = bri.255.d
+	picture = GFX_CardiffGames1958
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.6.1
+		date < 1959.8.1
+		NOT = { has_global_flag = bri255 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri255
+		if = {
+			limit = { tag = ENG }
+			add_political_power = 120
+		}
+	}
+}
+news_event = {
+	id = bri.256
+	title = bri.256.t
+	desc = bri.256.d
+	picture = GFX_BrojenDas
+	major = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.6.1
+		date < 1958.8.1
+		has_global_flag = bri255
+		NOT = { has_global_flag = bri256 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri256
+	}
+}
+news_event = {
+	id = bri.270
+	title = bri.270.t
+	desc = bri.270.d
+	picture = GFX_NortingHill
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		NOT = { has_global_flag = bri270 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri270
+	}
+}
+news_event = {
+	id = bri.271
+	title = bri.271.t
+	desc = bri.271.d
+	picture = GFX_NortingHill
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.8.1
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		NOT = { has_global_flag = bri271 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri271
+	}
+}
+news_event = {
+	id = bri.272
+	title = bri.272.t
+	desc = bri.272.d
+	picture = GFX_NortingHillRiot
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.8.1
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		has_global_flag = bri271
+		NOT = { has_global_flag = bri272 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri272
+	}
+}
+news_event = {
+	id = bri.273
+	title = bri.273.t
+	desc = bri.273.d
+	picture = GFX_NortingHillRiot
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.8.1
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		has_global_flag = bri272
+		NOT = { has_global_flag = bri273 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri273
+	}
+}
+news_event = {
+	id = bri.274
+	title = bri.274.t
+	desc = bri.274.d
+	picture = GFX_NortingHillRiot
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.8.1
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		has_global_flag = bri273
+		NOT = { has_global_flag = bri274 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri274
+	}
+}
+news_event = {
+	id = bri.275
+	title = bri.275.t
+	desc = bri.275.d
+	picture = GFX_NortingHillRiot
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.8.1
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		has_global_flag = bri274
+		NOT = { has_global_flag = bri275 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri275
+	}
+}
+news_event = {
+	id = bri.276
+	title = bri.276.t
+	desc = bri.276.d
+	picture = GFX_OswaldMosley
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = ENG
+		date > 1958.8.1
+		date < 1958.10.1
+		has_idea = ENG_immigrate_ideas
+		has_global_flag = bri275
+		NOT = { has_global_flag = bri276 }
+		
+	}
+	option = {
+		name = bri.216.a
+		set_global_flag = bri276
+	}
+}

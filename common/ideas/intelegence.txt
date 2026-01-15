@@ -1,0 +1,98 @@
+ideas = {
+	country = {
+		MOSSAD = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = MOSSAD
+			
+			modifier = {
+				drift_defence_factor = 0.12
+				
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+			
+		BFV = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = BFV
+			
+			modifier = {
+				drift_defence_factor = 0.12
+				democratic_drift = 0.01
+				communism_drift = -0.01
+				
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+			
+		DGSE = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = DGSE
+			
+			modifier = {
+				operative_slot = 6
+				drift_defence_factor = 0.12
+				democratic_drift = 0.01
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+			
+		SAVAK = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = SAVAK
+			cancel = { 
+				NOT = { has_government = monarchism }
+			}
+			modifier = {
+				drift_defence_factor = 0.12
+				monarchism_drift = 0.01
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		KCIA = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = BFV
+			
+			modifier = {
+				drift_defence_factor = 0.12
+				communism_drift = -0.01
+				
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+state={
+	id=897
+	name="STATE_897"
+	
+	state_category = town
+	resources={
+		copper = 8
+		coal = 13
+	}
+	history={
+                               
+		owner = BEL
+		set_state_flag = banana_production
+		set_state_flag = ethnics_Hutu
+		set_state_flag = coffee_production
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_to_array = { this.state_ethnics_list = 82 }
+		buildings = {
+			hospital = 1
+			infrastructure = 2
+			farm_building = 3
+			plantation = 3
+		}
+		add_core_of = COG
+		1960.6.30 = {
+			owner = KVU
+		}
+		1962.6.30 = {
+			owner = COG
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		victory_points = { 1181 4 }
+		victory_points = { 10858 4 }
+		victory_points = { 13928 6 }
+		victory_points = { 13926 2 }
+	}
+
+	provinces={
+		1181 10766 4941 7161 13924 13925 13926 13927 13928 13929 13930 10858 13176 
+	}
+	manpower=6229078
+	buildings_max_level_factor=1.000
+}

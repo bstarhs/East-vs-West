@@ -1,0 +1,97 @@
+﻿capital = 109
+
+set_research_slots = 2
+	set_country_flag = female_finished
+oob = "ALL"
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	tech_support = 1
+	tech_recon = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_cruiser = 1
+	
+	transport = 1
+}
+	complete_national_focus = common_61
+	set_country_flag = gen230
+add_ideas = {
+
+	Catholicism
+}
+set_convoys = 5
+
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	set_technology = {
+	
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+set_popularities = {
+	democratic =25 
+	communism = 75
+}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.6.9"
+	election_frequency = 12
+	elections_allowed = no # none after offset 1
+}
+
+
+create_country_leader = {
+	name = "Ante Pavelic"
+	desc = "ANTE_PAVELIC_DESC"
+	picture = "Portrait_Croatia_Ante_Pavelic.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+		#
+	}
+}
+1991.1.20 = {
+	add_ideas = yugoslavia_collape_ideas
+	add_ideas = UNmember
+	add_to_array = { global.UNmember_list = FROM }
+	create_country_leader = {
+		name = "Franjo Tuđman"
+		
+		picture = "gfx/leaders/CRO/Portrait_Croatia_Tudman.tga"
+		expire = "1956.1.1"
+		ideology = liberalism
+		traits = {
+		}
+	}
+}

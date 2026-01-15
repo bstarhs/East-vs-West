@@ -1,0 +1,439 @@
+﻿add_namespace = syr
+
+news_event = {
+	id = syr.5
+	title = syr.5.t
+	desc = syr.5.d
+	picture = GFX_NasserSpeech
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SYR
+		NOT = { has_country_flag = syr5 }
+		date > 1957.2.1
+		date < 1957.5.2
+		EGY = {
+			has_government = neutrality
+			has_completed_focus = EGY_voice_of_arabia
+			controls_state = 860
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = syr5
+		add_popularity = { ideology = neutrality popularity = 0.08 }
+		add_ideas = nasserism_idea
+	}
+}
+news_event = {
+	id = syr.6
+	title = syr.6.t
+	desc = syr.6.d
+	picture = GFX_AfifAlBizri
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SYR
+		NOT = { has_country_flag = syr6 }
+		date > 1957.2.1
+		date < 1958.5.2
+		EGY = {
+			has_government = neutrality
+			has_completed_focus = Pro_Soviet
+			controls_state = 860
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = syr6
+		add_popularity = { ideology = communism popularity = 0.03 }
+	}
+}
+country_event = {
+	id = syr.7
+	title = syr.7.t
+	desc = syr.7.d
+	picture = GFX_DullesCIA
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = syr7 }
+		date > 1957.8.1
+		date < 1957.12.2
+		SYR = {
+			has_country_flag = syr6
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = syr7
+		add_political_power = -80
+		random_list = {
+			100 = {
+				news_event = { id = syr.9 days = 15 }
+			}
+		}
+	}
+}
+news_event = {
+	id = syr.9
+	title = syr.9.t
+	desc = syr.9.d
+	picture = GFX_SyriaCoup1963
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = syr.9.a
+		trigger = {
+			OR = {
+				tag = EGY
+				tag = FRA
+				tag = IND
+				has_government = communism
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = EGY
+					tag = SOV
+					tag = PRC
+					tag = FRA
+					tag = IND
+				}
+			}
+			news_event = { id = syr.10 days = 1 }
+			if = {
+				limit = { tag = SOV }
+				SYR = { add_to_variable = { SYR_border_war = 2 } }
+			}
+			if = {
+				limit = { tag = EGY }
+				SYR = { add_to_variable = { SYR_border_war = 1 } }
+			}
+		}
+	}
+	option = {
+		name = syr.9.b
+		trigger = {
+			NOT = {
+				tag = EGY
+				tag = FRA
+				tag = IND
+				has_government = communism
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = USA
+					tag = ENG
+					tag = TUR
+					tag = JOR
+					tag = PER
+					tag = IRQ
+				}
+			}
+			news_event = { id = syr.11 days = 1 }
+			if = {
+				limit = { tag = JOR has_idea = CENTO }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 455
+						num_provinces = 4
+						on_win = syr.12
+					}
+					defender = {
+						state = 554
+						num_provinces = 5
+						on_win = syr.13
+					}
+				}
+			}
+			if = {
+				limit = { tag = IRQ  has_idea = CENTO }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 676
+						num_provinces = 4
+						on_win = syr.12
+					}
+					defender = {
+						state = 900
+						num_provinces = 5
+						on_win = syr.13
+					}
+				}
+			}
+			if = {
+				limit = { tag = TUR has_idea = CENTO }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 350
+						num_provinces = 4
+						on_win = syr.12
+					}
+					defender = {
+						state = 900
+						num_provinces = 5
+						on_win = syr.13
+					}
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = syr.10
+	title = syr.10.t
+	desc = syr.10.d
+	picture = GFX_NasserSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+news_event = {
+	id = syr.11
+	title = syr.11.t
+	desc = syr.11.d
+	picture = GFX_ShukriQuwatli
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+news_event = {
+	id = syr.12
+	title = syr.12.t
+	desc = syr.12.d
+	picture = GFX_EgyptianArmy1950s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+		if = {
+			limit = { tag = SYR }
+			add_stability = -0.05
+			add_to_variable = { SYR_border_war = -1 } 
+		}
+	}
+}
+news_event = {
+	id = syr.13
+	title = syr.13.t
+	desc = syr.13.d
+	picture = GFX_EgyptianArmy1950s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+		if = {
+			limit = { tag = SYR }
+			add_stability = 0.02
+			add_to_variable = { SYR_border_war = 1 } 
+		}
+	}
+}
+news_event = {
+	id = syr.15
+	title = syr.15.t
+	desc = syr.15.d
+	picture = GFX_EgyptianArmy1950s
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = SYR
+		NOT = { has_global_flag = syr15 }
+		check_variable = { SYR_border_war > 0 } 
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = syr15
+	}
+}
+#埃及叙利亚合并
+country_event = {
+	id = syr.16
+	title = syr.16.t
+	desc = syr.16.d
+	picture = GFX_NasserSmall
+	fire_only_once = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = SYR
+		has_global_flag = syr15
+		date > 1958.1.1
+		date < 1958.3.2
+	}
+	option = {
+		name = usatext.19.a
+		EGY = { country_event = { id = egy.310 days = 5 } }
+	}
+}
+news_event = {
+	id = syr.17
+	title = syr.17.t
+	desc = syr.17.d
+	picture = GFX_QuwatliNasser
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SYR
+		has_country_flag = egy311
+		NOT = { is_subject_of = EGY }
+	}
+	immediate = {
+		play_song = EGY_2
+	}
+	option = {	#支持政变
+		name = syr.28.b
+		if = {
+			limit = { tag = SYR }
+			add_ideas = UAR_under_united
+			set_politics = {
+				ruling_party = neutrality
+				last_election = "1936.1.1"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+			create_country_leader = {
+				name = "Abdel Hamid al-Sarraj"
+		
+				picture = "gfx/leaders/SYR/Portrait_Syria_Sarraj.tga"
+				expire = "1997.1.1"
+				ideology = despotism
+		
+				traits = {
+				
+				}
+			}
+			set_cosmetic_tag = UAR
+		}
+		if = {
+			limit = { tag = EGY }
+			set_autonomy = {
+				target = SYR
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.4
+			}
+			set_cosmetic_tag = UAR
+		}
+		if = {
+			limit = {
+				tag = FRA
+				owns_state = 460
+			}
+				460 = { add_resistance = 12 }
+				514 = { add_resistance = 12 }
+				549 = { add_resistance = 12 }
+				513 = { add_resistance = 12 }
+		}
+	}
+}
+#推出阿联
+news_event = {
+	id = syr.18
+	title = syr.18.t
+	desc = syr.18.d
+	picture = GFX_AFG1978
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = afg.10.b
+			EGY = { end_puppet = SYR }
+			create_country_leader = {
+				name = "Nazim Al-Kudsi"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "gfx/leaders/SYR/Portrait_Syria_Nazim_al-Kudsi.tga"
+				expire = "1988.1.1"
+				ideology = conservatism
+				traits = {
+				}
+			}
+	}
+}
+#1963革命
+news_event = {
+	id = syr.24
+	title = syr.25.t
+	desc = syr.25.d
+	picture = GFX_AFG1978
+	fire_only_once = yes
+	trigger = {
+		tag = SYR
+		date > 1963.4.1
+		date < 1963.10.1
+	}
+	option = {	#支持政变
+		name = syr.25.b
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Amin Al-Hafiz"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "gfx/leaders/SYR/Portrait_Syria_Amin_al-Hafiz.tga"
+				expire = "1997.1.1"
+				ideology = despotism
+		
+				traits = {
+		
+				}
+			}
+	}
+}
+#六日战争
+country_event = {
+	id = syr.25
+	title = syr.26.t
+	desc = syr.26.d
+	picture = GFX_1948war
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+		}
+
+}
+#1968战败
+country_event = {
+	id = syr.26
+	title = syr.26.t
+	desc = syr.26.d
+	picture = GFX_1948war
+	is_triggered_only = yes
+	option = {
+		name = isr.4.a
+			SYR = { white_peace = ISR }
+			ISR = { transfer_state = 789 }
+		}
+
+}
+#纠正运动
+news_event = {
+	id = syr.28
+	title = syr.28.t
+	desc = syr.28.d
+	picture = GFX_AFG1978
+	fire_only_once = yes
+	trigger = {
+		tag = SYR
+		has_government = neutrality
+		date > 1971.4.1
+		date < 1971.10.1
+	}
+	option = {	#支持政变
+		name = syr.28.b
+			create_country_leader = {
+				name = "Hafiz Assad"
+				desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+				picture = "gfx/leaders/SYR/Portrait_Syria_Assad.tga"
+				expire = "1997.1.1"
+				ideology = despotism
+				traits = {
+		
+				}
+			}
+	}
+}

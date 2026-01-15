@@ -1,0 +1,301 @@
+characters={
+	CAM_Saloth_Sar={
+		name=CAM_Saloth_Sar
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Saloth_Sar.dds"
+				large="gfx/leaders/CAM/Portrait_Cambodia_Saloth_Sar.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Saloth_Sar
+			ledger = air
+			allowed = {
+				original_tag = CAM
+			}
+			research_bonus = {
+				electronics = 0.1
+			}
+		}
+	}
+	CAM_Penn_Nouth={
+		name=CAM_Penn_Nouth
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Penn_Nouth.tga"
+				small="gfx/interface/ideas/idea_Penn_Nouth.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Penn_Nouth
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			modifier = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Son_Sann={
+		name=CAM_Son_Sann
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Son_Sann.tga"
+				small="gfx/interface/ideas/idea_Son_Sann.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Son_Sann
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			modifier = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Sam_Sary={
+		name=CAM_Sam_Sary
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Sam_Sary.tga"
+				small="gfx/interface/ideas/idea_Sam_Sary.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Sam_Sary
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			modifier = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Pol_Pot={
+		name=CAM_Pol_Pot
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_PolPot.tga"
+				small="gfx/interface/ideas/idea_Pol_Pot.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { tyrant anti_religion_trait ideological_crusader dictator  }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Pol_Pot
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			traits = {
+				communist_revolutionary
+			}
+			available = {
+				has_completed_focus  = common_2
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Tou_Samouth={
+		name=CAM_Tou_Samouth
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Tou_Samouth.tga"
+				small="gfx/interface/ideas/idea_Tou_Samouth.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { ideological_crusader }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Tou_Samouth
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			traits = {
+				communist_revolutionary
+			}
+			available = {
+				has_completed_focus  = common_2
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Norodom_Phurissara={
+		name=CAM_Norodom_Phurissara
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Norodom_Phurissara.tga"
+				small="gfx/interface/ideas/idea_Norodom_Phurissara.dds"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { anti_communist }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Norodom_Phurissara
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			traits = {
+				democratic_reformer
+			}
+			available = {
+				date > 1950.1.1
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Son_Ngok_Thanh={
+		name=CAM_Son_Ngok_Thanh
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Son_Ngok_Thanh.tga"
+				small="gfx/interface/ideas/idea_Son_Ngok_Thanh.dds"
+			}
+		}
+		country_leader = {
+			ideology = authoritarianism
+			traits = { anti_communist dictator }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Son_Ngok_Thanh
+			allowed  = {
+				original_tag  = CAM
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_factor = 0.12
+				resistance_decay = 0.12
+				resistance_growth = -0.12
+				experience_gain_army_factor = 0.2
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	CAM_Dap_Chhuon={
+		name=CAM_Dap_Chhuon
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_Dap_Chhuon.tga"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { anti_communist dictator }
+			expire = "1971.3.1.1"
+		}
+		corps_commander={
+			visible={
+				date < 1958.1.1
+				is_country_leader = no
+			}
+			traits={ army_chief_offensive_2 }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	CAM_Lon_Nol={
+		name=CAM_Lon_Nol
+		portraits={
+			army={
+				large="gfx/leaders/CAM/Portrait_Cambodia_LonNol_army.tga"
+			}
+			civilian={
+				large="gfx/leaders/CAM/Portrait_Cambodia_LonNol.tga"
+				small="gfx/interface/ideas/idea_LonNol.dds"
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			traits = { anti_communist dictator }
+			expire = "1971.3.1.1"
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = Lon_Nol
+			ledger = army
+			allowed = {
+				original_tag = CAM
+			}
+		}	
+		corps_commander={
+			visible={
+				is_country_leader = no
+			}
+			traits={ army_chief_offensive_2 }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+}

@@ -1,0 +1,291 @@
+﻿
+division_template = {
+	name = "Infantry Division"	
+	division_names_group = CHI_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Artillery Regiment"	
+	division_names_group = CHI_MOT_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Marine Division"		
+	division_names_group = CHI_MAR_01	
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		signal_company = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+division_template = {
+	name = "Armor Division"		
+	division_names_group = CHI_ARM_01	
+
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		light_armor = { x = 2 y = 0 }
+		light_armor = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "2nd Marine Division" #高雄#
+		location = 12068
+		division_template = "Marine Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "1st Marine Division" #澎湖#
+		location = 13263
+		division_template = "Marine Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "1st Armor Division" #臺中#
+		location = 7186
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "2nd Armor Division" #臺中#
+		location = 7186
+		division_template = "Armor Division"
+		start_experience_factor = 0.8
+
+	}
+	#裝甲步兵師#
+	division = {
+		name = "33th Armored Infantry Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "17th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "19th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "26th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "27th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "34th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "58th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "68th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "69th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "84th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "92th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "93th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	#步兵師#
+	division = {
+		name = "9th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "10th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "46th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "49th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "51th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	division = {
+		name = "57th Division" #臺中#
+		location = 7186
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+
+	}
+	#金門#
+	division = {
+		name = "11th Division"
+		location = 13264
+		division_template = "Infantry Division"
+		start_experience_factor = 0.4
+
+	}
+	division = {
+		name = "14th Division"
+		location = 13264
+		division_template = "Infantry Division"
+		start_experience_factor = 0.4
+
+	}
+	division = {
+		name = "18th Division"
+		location = 13264
+		division_template = "Infantry Division"
+		start_experience_factor = 0.4
+
+	}
+	division = {
+		name = "45th Division"
+		location = 13264
+		division_template = "Infantry Division"
+		start_experience_factor = 0.4
+
+	}
+	division = {
+		name = "3rd Artillery Regiment"
+		location = 13264
+		division_template = "Artillery Regiment"
+		start_experience_factor = 0.8
+
+	}
+	fleet = {
+		name = "ROC Navy"
+		naval_base = 12068
+		task_force = {				
+			name = "ROC Navy"
+			location = 12068
+			ship = { name = "Yat Sen" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "Blackwood class" } } }
+			ship = { name = "Tan Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Fen Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Huei Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Kang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Ping" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai He" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Tsang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Hu" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Tai Chap" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+		}	
+		task_force = {				
+			name = "ROC Navy"
+			location = 7186
+			ship = { name = "Lo Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Han Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "Hsien Yang" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+		}	
+	}
+}
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	524 = {													
+		fighter_equipment_0 =  { owner = "CHI" amount = 70 }
+		fighter_equipment_1 =  { owner = "CHI" amount = 40 }
+	}
+}

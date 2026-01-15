@@ -1,0 +1,20 @@
+scripted_gui = {
+
+	SPACE = {
+		window_name = "SPACE_GUI_container"
+		context_type = player_context
+		visible = {
+			NOT = { is_subject = yes }
+			has_tech = space_research
+		}
+		effects = {	
+			space_GUI_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_space_race }
+                set_variable = { show_space_race = show }
+            }
+        }
+	}
+	
+}
+

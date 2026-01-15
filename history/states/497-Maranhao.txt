@@ -1,0 +1,64 @@
+
+state={
+	id=497
+	name="STATE_497"
+	manpower = 2950100
+	
+	state_category = town
+	
+	resources={
+		rubber=30
+		iron = 12
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 40 }
+		set_state_flag = ethnics_Brazilian
+		set_state_flag = coffee_production
+		set_state_flag = sugar_production
+		owner = BRA
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			school = 1
+			power_plant = 1
+			infrastructure = 3
+			industrial_complex = 3
+			air_base = 1
+			12853 = {
+				naval_base = 2
+			}
+		}
+		1955.1.1 = {
+			set_state_category = city
+			buildings = {
+				hospital = 2
+				arms_factory = 2
+			}
+		}
+		add_core_of = BRA
+		victory_points = { 12913 4 }
+		victory_points = { 5220 3 }
+		victory_points = {
+			12853 5
+		}
+		victory_points = {
+			12933 5
+		}
+		victory_points = {
+			13639 8
+		}
+		1984.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+
+	}
+
+	provinces={
+		2150 5220 12853 12913 12933 12947 12999 13636 13639 13642 13655
+	}
+}

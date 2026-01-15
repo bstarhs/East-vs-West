@@ -1,0 +1,35 @@
+state={
+	id=90
+	name="STATE_90" # Kielce
+	manpower = 2135700
+	
+	state_category = town
+	
+	resources={
+		iron=12
+	}
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Polish
+		add_to_array = { this.state_ethnics_list = 136 }
+                               
+		owner = POL
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 6
+		}
+		add_core_of = POL
+		victory_points = {
+			6416 5
+		}
+		victory_points = {
+			3586 2
+		}
+	}
+
+	provinces={
+		506 562 3458 3497 3586 6416 11430 11532 
+	}
+}

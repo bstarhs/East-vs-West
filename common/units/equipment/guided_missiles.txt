@@ -1,0 +1,187 @@
+equipments = {
+	
+	guided_missile_equipment = {
+		year = 1945
+
+		can_be_produced = {
+			NOT = {
+				has_idea = volunteer_only
+			}
+		}
+
+		allow_mission_type = {
+			strategic_bomber
+		}
+
+		is_archetype = yes
+		is_buildable = no
+		can_license = no
+		type = missile
+		group_by = type
+		sprite = missile_default
+		air_map_icon_frame = 9
+		
+		interface_category = interface_category_air
+				
+		reliability = 0.8
+
+		# Air vs Navy - high damage / low hit chance / hard to hurt
+		naval_strike_attack = 1.5
+		naval_strike_targetting = 0.6
+
+		#Space taken in convoy
+		lend_lease_cost = 1.5
+		
+		build_cost_ic = 54
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+
+		fuel_consumption = 0
+	}
+
+	guided_missile_equipment_1 = {
+		year = 1950
+
+		archetype = guided_missile_equipment
+		
+		one_use_only = yes
+		sprite = missile_default
+		is_buildable = no
+		
+		air_range = 500
+		maximum_speed = 640
+		air_agility = 10
+		air_bombing = 300
+		
+		# build_cost_ic = 36
+	}
+
+	guided_missile_equipment_2 = {
+		year = 1960
+
+		archetype = guided_missile_equipment
+		parent = guided_missile_equipment_1
+		
+		one_use_only = yes
+		is_buildable = no
+		sprite = missile_default
+		
+		air_range = 640
+		maximum_speed = 5760
+		air_agility = 10
+		air_bombing = 450
+	}
+	
+	guided_missile_equipment_3 = {
+		year = 1975
+
+		archetype = guided_missile_equipment
+		parent = guided_missile_equipment_2
+		
+		one_use_only = yes
+		sprite = missile_default
+		is_buildable = no
+		
+		air_range = 11000
+		maximum_speed = 9999
+		air_agility = 10
+		air_bombing = 600
+		
+		# build_cost_ic = 44
+	}
+	guided_ICBM_equipment = {
+		year = 1960
+
+		allow_mission_type = {
+			strategic_bomber
+		}
+		is_buildable = no
+		air_range = 5000
+		maximum_speed = 3000
+		air_agility = 30
+		air_bombing = 5000
+		is_archetype = yes
+		
+		can_license = no
+		type = missile
+		group_by = type
+		sprite = missile_default
+		air_map_icon_frame = 9
+		
+		interface_category = interface_category_air
+				
+		reliability = 0.8
+
+		# Air vs Navy - high damage / low hit chance / hard to hurt
+		naval_strike_attack = 1.5
+		naval_strike_targetting = 0.6
+
+		#Space taken in convoy
+		lend_lease_cost = 4
+		
+		build_cost_ic = 54
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+		
+		fuel_consumption = 0
+	}
+	guided_ICBM_equipment_1 = {
+		year = 1970
+
+		archetype = guided_ICBM_equipment
+		
+		one_use_only = yes
+		sprite = missile_default
+		
+		air_range = 12000
+		maximum_speed = 3000
+		is_buildable = no
+		air_agility = 30
+		air_bombing = 5000
+		
+		build_cost_ic = 80
+	}
+	guided_ICBM_equipment_2 = {
+		year = 1980
+
+		archetype = guided_ICBM_equipment
+		parent = guided_ICBM_equipment_1
+		
+		one_use_only = yes
+		is_buildable = no
+		sprite = missile_default
+		
+		air_range = 20000
+		maximum_speed = 9999
+		air_agility = 80
+		air_bombing = 8000
+		
+		build_cost_ic = 120
+	}
+	nuclear_powered_missile_0 = {
+		year = 1960
+
+		archetype = guided_ICBM_equipment
+		parent = guided_ICBM_equipment_1
+		
+		one_use_only = yes
+		is_buildable = no
+		sprite = missile_default
+		
+		air_range = 22000
+		maximum_speed = 9999
+		air_agility = 80
+		air_bombing = 11000
+		resources = {
+			aluminium = 2
+			tungsten = 1
+			chromium = 2
+		}
+		
+		build_cost_ic = 250
+	}
+}

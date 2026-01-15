@@ -1,0 +1,171 @@
+﻿capital = 450
+# Starting tech
+set_country_flag = maghrib_state
+set_country_flag = has_monarchs
+set_country_flag = british_colonies
+set_technology = {
+	machine_gun1 = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+		medical1 = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+		army_aviation = 1
+}
+set_country_flag = third_world
+set_country_flag = islam_state
+set_country_flag = arabs_state
+
+add_ideas = {
+	service_by_requirement
+	Sunni
+	partial_economic_mobilisation
+}
+
+set_convoys = 20
+
+	set_popularities = {
+		democratic = 5
+		communism = 8
+		neutrality = 23
+		monarchism = 64
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Bashir es Sadawi"
+	desc = ""
+	picture = "gfx/leaders/LBA/Portrait_Arabia_Generic_democratic1.dds"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Muhammad Idris I"
+	desc = ""
+	picture = "gfx/leaders/LBA/Portrait_Libya_Idris.tga"
+	ideology = monarchism
+	traits = {
+		#
+	}
+}
+
+1955.1.1 = {
+	add_ideas = nasserism_idea
+	add_to_array = { global.UNmember_list = FROM }
+	set_technology = {
+		oil_processing = 1
+		motorised_infantry = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	oob = "LBA"
+	add_ideas = {
+	arabs_league
+		UNmember
+	}
+}
+1962.1.1 = {
+	complete_national_focus = common_75
+	complete_national_focus = common_24
+	activate_decision = female_equality
+	add_ideas = {
+		OPEC
+	}
+}
+1969.12.1 = {
+	remove_ideas = nasserism_idea
+	set_capital = {state = 448}
+	set_technology = {
+		basic_heavy_tank = 1
+		basic_light_tank = 1
+	}
+	add_opinion_modifier = {
+		target = ISR
+		modifier = anti_arabs
+	}
+	add_ideas = {
+		Brotherly_Leader
+		war_economy
+		scraping_the_barrel
+		militarist_politician
+		IslamOrg
+	}
+	set_popularities = {
+		democratic = 5
+		communism = 5
+		neutrality = 73
+		fascism = 17
+	}
+	set_politics = {
+		
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_cosmetic_tag = LBA_1969
+	create_country_leader = {
+		name = "Omar Gaddafi"
+		desc = ""
+		picture = "gfx/leaders/LBA/Portrait_Libya_Gaddafi.tga"
+		ideology = despotism
+		traits = {
+		anti_america african_nationalism arabs_nationalism dictator personal_worship corrupt_leader interventionism
+		}
+	}
+}
+1971.12.1 = {
+	complete_national_focus = common_medic
+}
+1977.12.1 = {
+	complete_national_focus = steel_produc
+	set_cosmetic_tag = LBA_1977
+	set_country_leader_portrait = {
+		portrait = "gfx/leaders/LBA/Portrait_Libya_Gaddafi_1980s.tga"
+	}
+}
+1982.12.1 = {
+	declare_war_on = {
+		target = CHD
+		type = annex_everything
+	}
+}
+1986.12.1 = {
+	diplomatic_relation = { country = CHD relation = war_relation active = no }
+}
+1991.12.1 = {
+	add_to_array = { global.sanctioned_countries_list = FROM }
+	add_ideas = {
+		lockbie
+	}
+}

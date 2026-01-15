@@ -1,0 +1,243 @@
+﻿capital = 758
+
+oob = "SIG"
+set_country_flag = developmented
+set_country_flag = southeastasia
+
+set_country_flag = chinese_states
+	set_country_flag = female_finished
+set_country_flag = british_colonies
+set_research_slots = 2
+set_country_flag = japan_invade_victims
+set_country_flag = commonwealth
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+set_country_flag = third_world
+# Starting tech
+# clone of UK
+	activate_decision = Establishment_of_National_Museum
+set_technology = {
+		army_aviation = 1
+	basic_train = 1
+		medical1 = 1
+		helmet = 1
+		motorize_doctrine = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+		radio_detection = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	#improved_light_tank = 1  # PLACEHOLDER
+	#basic_heavy_tank = 1  # PLACEHOLDER
+	#basic_medium_tank = 1 # PLACEHOLDER
+	early_fighter = 1
+	
+	
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_destroyer = 1
+	
+	early_ship_hull_cruiser = 1
+	
+	
+	early_ship_hull_carrier = 1
+	
+
+	transport = 1
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+}
+	set_cosmetic_tag = SIG_ENG
+
+add_ideas = {
+	biritish_colony
+		harmonious
+		hight_welfare
+	Anglicanism
+	service_by_requirement
+	UNmember
+	partial_economic_mobilisation
+}
+if = {
+	limit = { has_dlc = "Together for Victory" }
+
+	add_to_tech_sharing_group = commonwealth_research
+}
+
+	set_popularities = {
+		democratic = 80
+		neutrality = 10
+		communism = 10
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "British Sigaporean Governeor"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "gfx/leaders/SIG/Portrait_Singapore_Governor.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Lim Chin Siong"
+	desc = ""
+	picture = "gfx/leaders/SIG/Portrait_Singapore_Lim.tga"
+	expire = "1953.3.1"
+	ideology = marxism
+	traits = {
+		
+	}
+}
+
+	activate_decision = female_equality
+1939.1.1 = {
+	add_political_power = 1198
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		interwar_artillery = 1
+		interwar_antiair = 1
+		tech_recon = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+1954.1.1 = {
+	recruit_character = SIG_Lee_Kwangyeu
+	recruit_character = SIG_Lim_YewHock
+	recruit_character = SIG_David_Marshall
+			promote_character = {
+				character = SIG_David_Marshall
+				ideology = liberalism
+			}
+}
+1959.1.1 = {
+			promote_character = {
+				character = SIG_Lee_Kwangyeu
+				ideology = authoritarianism
+			}
+	set_popularities = {
+		communism = 20
+		authoritarianism = 65
+		democratic = 15
+	}
+	set_politics = {
+	
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_technology = {
+		dispersed_industry4 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	}
+	set_cosmetic_tag = SIG
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+}
+1963.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	}
+	remove_ideas = biritish_colony
+}
+1967.1.1 = {
+	add_ideas = {
+		ASEAN
+	}
+}
+1970.1.1 = {
+	set_popularities = {
+		communism = 5
+		authoritarianism = 80
+		democratic = 15
+	}
+	complete_national_focus = common_64
+	complete_national_focus = common_65
+}
+
+1990.1.20 = {
+	set_country_flag = china_diplomacy
+	create_country_leader = {
+		name = "Goh Chok Tong"
+		
+		picture = "gfx/leaders/SIG/Portrait_Singapore_Goh.tga"
+		expire = "1979.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}

@@ -1,0 +1,50 @@
+
+state={
+	id=137
+	name="STATE_137"
+	manpower = 1061607
+	
+	state_category = large_town
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 143 }
+		set_state_flag = ethnics_Russian
+		owner = SOV
+		victory_points = { 9680 4 }
+		victory_points = { 705 8 }
+		victory_points = {
+			3686 8
+		}
+		buildings = {
+			hospital = 1
+			infrastructure = 5
+			dockyard = 5
+			air_base = 3
+			3686 ={
+				naval_base = 10
+				coastal_bunker = 3
+			}
+			9680 ={
+				naval_base = 1
+				coastal_bunker = 1
+			}
+		}
+		add_core_of = SOV
+		add_core_of = CRY
+		1954.1.1 = {
+			add_core_of = UKR
+		}
+		1971.1.1 = {
+			set_state_category = city
+		}
+		1990.1.1 = {
+			owner = UKR
+		}
+	}
+
+	provinces={
+		705 3686 3722 6704 6724 9677 9680 9718 11649 
+	}
+}

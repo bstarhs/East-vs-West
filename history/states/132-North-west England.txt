@@ -1,0 +1,62 @@
+state= {
+	id=132
+	name="STATE_132" # Lancashire
+	manpower = 5770454
+	
+	state_category = metropolis
+	
+	resources={
+		iron=13
+		aluminium=4
+		coal=16
+	}
+
+	history= {
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 65 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_English
+		owner = ENG
+		victory_points = {
+			6384 12
+		}
+		victory_points = {
+			6318 8
+		}
+		victory_points = {
+			3205 4
+		}
+		
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			synthetic_refinery = 1
+			power_plant = 2
+			steel_making = 3
+			infrastructure = 8
+			arms_factory = 4
+			industrial_complex = 6
+			dockyard = 3
+			air_base = 3
+			rubber_factory = 2
+			6384 = {
+				naval_base = 5
+			}
+		}
+		1958.1.1 = {
+			buildings = {
+				industrial_complex = 10
+				steel_making = 4
+			}
+		}
+		1974.8.23 = {
+			buildings = {
+				nuclear_reactor = 1
+			}
+		}
+		add_core_of = ENG
+	}
+	provinces= {
+		3205 6318 6335 6384
+ 	}
+}

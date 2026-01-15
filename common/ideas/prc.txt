@@ -1,0 +1,688 @@
+ideas = {
+	country = {
+		PRC_jiaofei_idea = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				NOT = { has_government = communism }
+			}
+			picture = FRA_scw_intervention_nationalists_focus
+			modifier = {
+				stability_factor = -0.12
+				political_power_cost = 0.05
+				communism_drift = -0.02
+				resistance_target = 0.12
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		GreatSteelIdeas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = food_note
+			modifier = {
+				production_speed_steel_making_factor = 0.25
+				local_resources_factor = 0.08
+				political_power_gain = -0.12
+			}
+		}
+		Products_sattlite = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = Products_sattlite
+			modifier = {
+				production_speed_farm_building_factor = 0.25
+				political_power_gain = -0.05
+			}
+		}
+		Dazhai_idea = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = Dazhai_idea
+			modifier = {
+				production_speed_farm_building_factor = 0.15
+				production_speed_buildings_factor = 0.1
+				political_power_gain = -0.08
+			}
+		}
+		three_anti_idea = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = three_anti_idea
+			modifier = {
+				stability_factor = -0.1
+				drift_defence_factor = 0.25
+				communism_drift = 0.02
+				political_power_gain = -0.15
+			}
+		}
+		four_clears = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = four_clears
+			modifier = {
+				stability_factor = -0.12
+				drift_defence_factor = 0.3
+				communism_drift = 0.05
+				political_power_gain = -0.2
+			}
+		}
+		PRC_SOV_fleets = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = PRC_SOV_fleets
+			modifier = {
+				experience_gain_navy_factor = 0.15
+				naval_equipment_upgrade_xp_cost = -0.3
+			}
+		}
+		LeiFengIdeas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = LeiFengIdeas
+			modifier = {
+				stability_factor = 0.15
+				drift_defence_factor = 0.3
+				political_power_gain = 0.12
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		food_note_ideas = {
+			removal_cost = -1
+			allowed = {
+				always = no
+			}
+			picture = food_note
+			modifier = {
+				custom_modifier_tooltip = reduce_foods_cost_modifier_20
+				compliance_growth = -0.12
+				political_power_factor = -0.08
+			}
+		}
+		Death_Mao = {
+
+			picture = Death_Mao
+
+			allowed = {
+				original_tag = PRC
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				communism_drift = -0.02
+				stability_factor = -0.2
+			}
+		}
+		tiananmen = {
+			picture = tiananmen
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = 0.2
+				stability_factor = -0.12
+				communism_drift = -0.02
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		PRC_mingfang = {
+			picture = YUG_all_yugoslavian_regiments
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = -0.2
+				political_power_factor = 0.15
+				stability_factor = 0.15
+				communism_drift = -0.01
+				democratic_drift = 0.01
+			}
+		}
+		anti_right = {
+			picture = anti_right
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_cost = -0.2
+				stability_factor = -0.05
+				communism_drift = 0.01
+			}
+		}
+		redguard = {
+			picture = redguard
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.3
+				political_power_factor = -0.25
+				experience_gain_army_factor = 0.5
+			}
+		}
+		oncechild = {
+			picture = oncechild
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				weekly_manpower = -5000
+				political_power_factor = 0.3
+			}
+		}
+		libiration = {
+
+			picture = ChinaCivilWar
+		
+			allowed = {
+				always = no
+			}
+			visible = {
+				has_war_with = CHI
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = -1
+				land_reinforce_rate = 0.3
+				supply_consumption_factor = -0.5
+				war_support_factor = 0.5
+				equipment_capture_factor = 0.5 
+				command_power_gain = 0.3
+				army_core_defence_factor = 0.45
+			}
+		}
+		landreform = {
+			removal_cost = -1
+			allowed = {
+				always = no # Unlocked via focus
+			}
+
+			picture = VIN_land_reforming
+			available = {
+				date < 1956.2.2
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+	
+			modifier = {
+				army_org_factor = 0.25
+				army_morale_factor = 0.4
+				ai_focus_aggressive_factor = 0.8
+				supply_consumption_factor = 0.5
+				supply_combat_penalties_on_core_factor = -0.3
+				political_power_cost = -0.1
+				stability_weekly = 0.05
+				war_support_factor = 0.4
+				army_core_defence_factor = 0.15
+			}
+	
+		}
+		SupportKorea = {
+			allowed = { always = yes }
+
+			picture = SupportKorea
+
+			removal_cost = -1
+			cancel = {
+				NOT = { PRK = { has_war_with = KOR } }
+			}
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteer_size = 22
+				send_volunteers_tension = -1
+				army_org_factor = 0.2
+				war_support_factor = 0.35
+				supply_consumption_factor = -0.3
+				army_morale_factor = 0.3
+				army_attack_factor = 0.14
+				army_speed_factor = 0.15
+				dig_in_speed_factor = 0.15
+				army_defence_factor = 0.5
+				pocket_penalty = -0.2
+			}
+		}
+		SovietChinaConflit = {
+			allowed = { always = yes }
+
+			picture = SovietChinaConflit
+
+			removal_cost = -1
+			
+			modifier = {
+			}
+		}
+		GreatLeapForward_ideas = {
+		
+			allowed = { always = yes }
+
+			picture = dayuejin
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.22
+				political_power_cost = 0.15
+			}
+		}
+		PRC_construction_spirit = {
+		
+			allowed = { always = yes }
+
+			picture = PRC_construction_spirit
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.2
+				local_resources_factor = 0.25
+				stability_factor = 0.22
+				political_power_factor = 0.12
+			}
+		}
+		ChinaFvieYearsPlant = {
+		
+			allowed = { always = yes }
+
+			picture = construction
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.12
+				production_speed_steel_making_factor = 0.12
+				production_speed_arms_factory_factor = 0.12
+				production_speed_industrial_complex_factor = 0.12
+				production_speed_synthetic_refinery_factor = 0.12
+				production_speed_fuel_silo_factor = 0.12
+			}
+		}
+		PeoplesCommuni = {
+			allowed = { always = yes }
+
+			picture = PeoplesCommuni
+
+			removal_cost = -1
+			modifier = {
+				production_speed_farm_building_factor = 0.15
+				custom_modifier_tooltip = PeoplesCommuni_tip
+				temporary_state_resource_food = 5
+			}
+		}
+
+		AgriculturalCooperatives = {
+			allowed = { always = yes }
+			picture = AgriculturalCooperatives
+			removal_cost = -1
+			modifier = {
+				production_speed_farm_building_factor = 0.15
+				custom_modifier_tooltip = AgriculturalCooperatives_modifier
+			}
+		}
+		Cultrue_Revolution = {
+			allowed = { always = yes }
+			picture = CultureRevolution
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 0.5
+				communism_drift = 0.12
+				stability_factor = -0.3
+				political_power_cost = 0.12
+			}
+		}
+		usa_advisors = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = -1
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+		}	
+		four_modernizations = {
+			removal_cost = -1
+			allowed = {
+				always = no 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			picture = generic_research_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.05
+			}
+	
+		}
+		Openreform = {
+			removal_cost = -1
+			picture = Openreform
+			allowed = {
+				always = no # Unlocked via focus
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				democratic_drift = 0.01
+				stability_factor = 0.1
+				drift_defence_factor = -0.12
+				political_power_gain = 0.02
+				ai_get_ally_desire_factor = -50
+			}
+			rule = {
+				can_join_opposite_factions = yes
+			}
+	
+		}
+	}
+
+	industrial_concern = {
+			
+		designer = yes
+		PRC_ChichiharFactory = {
+			picture = PRC_ChichiharFactory
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				industry = 0.05
+			}	
+			visible = {
+				has_completed_focus = prc11
+			}		
+		}
+		PRC_PowerBureau = {
+			picture = PRC_PowerBureau
+			allowed = {
+				original_tag = PRC
+			}
+			modifier = {
+				production_speed_power_plant_factor = 0.12
+			}	
+			visible = {
+				has_completed_focus = prc11
+			}		
+		}
+		PRC_NuclearBureau = {
+			picture = PRC_NuclearBureau
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				nuclear = 0.05
+			}
+			visible = {
+				has_completed_focus = PRC_nuclears
+			}		
+		}
+		Sinopec = {
+						
+			picture = Sinopec
+			
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			visible = {
+				has_completed_focus = PRC_plastics
+			}		
+			traits = { refinery_concern }
+		}
+		ChungHwa = {
+			picture = ChungHwa
+			allowed = {
+				original_tag = PRC
+			}
+			traits = { cigaratte_concern }
+			visible = {
+				has_completed_focus = prc10
+			}
+		}
+		anshan_steel = {
+			picture = anshan_steel
+			allowed = {
+				original_tag = PRC
+			}
+			visible = {
+				has_completed_focus = prc19
+			}
+			research_bonus = {
+				industry = 0.05
+			}
+			traits = { steel_making_concern }
+			
+			modifier = {
+			}
+		}
+		Lenovo = {
+			
+			picture = Lenovo
+			allowed = {
+				original_tag = PRC
+			}
+			
+			visible = {
+				has_completed_focus = prc75
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SAIC = {
+			
+			picture = volkswagen
+			allowed = {
+				original_tag = PRC
+			}
+			
+			visible = {
+				has_completed_focus = prc60
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		PRC_Wuhan_electro = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			visible = {
+				NOT = { has_completed_focus = prc39 }
+				has_completed_focus = prc_electro
+			}
+			
+			traits = { electronics_concern }
+		}
+		PRC_Shenyang_planes = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+			visible = {
+				has_completed_focus = prc17
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer medium_aircraft_manufacturer }
+		}
+		PRC_6th_machine_bureau = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+			traits = { naval_manufacturer }
+			visible = {
+				NOT = { has_completed_focus = prc39 }
+				has_completed_focus = prc16
+			}
+			
+			modifier = {
+			}
+		}
+		PRC_4th_machine_bureau = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+			traits = { electronics_concern }
+			visible = {
+				NOT = { has_completed_focus = prc39 }
+				has_completed_focus = prc16
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+		}
+		PRC_air_machine_bureau = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+			traits = { light_aircraft_manufacturer }
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			visible = {
+				NOT = { has_completed_focus = prc39 }
+				has_completed_focus = prc16
+			}
+		}
+		PRC_5th_machine_bureau = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				infantry_equipment_manufacturer
+				medium_tank_manufacturer
+			}
+			visible = {
+				NOT = { has_completed_focus = prc39 }
+				has_completed_focus = prc16
+			}
+		}
+		changchun = {
+						
+			allowed = {
+				original_tag = PRC
+			}
+			
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			visible = {
+				has_completed_focus = prc13
+			}
+			traits = { motorized_equipment_manufacturer }
+		}
+		factory_671 = {
+			picture = 296Factory
+			allowed = {
+				original_tag = PRC
+			}
+				
+			research_bonus = {
+				armor = 0.10
+			}
+			visible = {
+				has_completed_focus = prc16
+				NOT = { has_completed_focus = prc39 }
+			}
+			
+			traits = { medium_tank_manufacturer }
+		}	
+		china_air_indus = {
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			visible = {
+				has_completed_focus = prc39
+			}
+			traits = { CAS_manufacturer medium_aircraft_manufacturer light_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		NORINCO = {
+			picture = NORINCO
+			allowed = {
+				original_tag = PRC
+			}
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			visible = {
+				has_completed_focus = prc39
+			}
+			
+			traits = { infantry_equipment_manufacturer tank_manufacturer }
+		}
+	}
+}

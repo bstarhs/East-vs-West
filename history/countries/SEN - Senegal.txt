@@ -1,0 +1,82 @@
+﻿capital = 660
+
+oob = "ALL"
+
+set_research_slots = 2
+set_convoys = 60
+set_stability = 0.75
+set_country_flag = third_world
+set_country_flag = language_french
+set_country_flag = west_africa
+	set_cosmetic_tag = SEN_FRA
+
+set_country_flag = french_colonies
+	activate_decision = female_equality
+set_technology = {
+	infantry_weapons = 1
+	
+	
+	early_bomber = 1
+}
+set_country_flag = african_state
+
+
+set_popularities = {
+	democratic = 47
+	fascism = 46
+	communism = 7
+}
+set_politics = {
+
+	ruling_party = democratic
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+	
+create_country_leader = {
+	name = "Léopold Sédar Senghor"
+	picture = "gfx/leaders/SEN/Portrait_Senegal_Senghor.tga"
+	expire = "2020.1.1"
+	ideology = socialism
+	
+	traits = {
+	
+	}
+}
+1960.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+	set_cosmetic_tag = SEN
+	add_ideas = {
+		UNmember
+	}
+}
+
+1964.1.20 = {
+	complete_national_focus = common_24
+	add_ideas = {
+		NonAligned
+	}
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1987.1.20 = {
+	create_country_leader = {
+		name = "Abdou Diouf"
+		
+		picture = "gfx/leaders/SEN/Portrait_Senegal_Abdou_Diouf.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+

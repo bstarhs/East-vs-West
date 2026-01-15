@@ -1,0 +1,6302 @@
+search_filter_prios = {
+	FOCUS_FILTER_POLITICAL = 1010
+	
+	FOCUS_FILTER_RESEARCH = 522
+	
+	FOCUS_FILTER_INDUSTRY = 509
+
+	FOCUS_FILTER_BALANCE_OF_POWER = 200
+	FOCUS_FILTER_SOV_POLITICAL_PARANOIA = 111
+	FOCUS_FILTER_PROPAGANDA = 110
+	FOCUS_FILTER_MISSIOLINI = 110
+	FOCUS_FILTER_ARMY_XP = 103
+	FOCUS_FILTER_NAVY_XP = 102
+	FOCUS_FILTER_AIR_XP = 101
+
+}
+focus_tree = {
+	id = generic_focus
+	
+	default = yes
+	
+	continuous_focus_position = { x = 55 y = 2000 }
+	country = {
+		factor = 1
+	}
+	reset_on_civilwar = no
+
+	initial_show_position = {
+		focus = industrial_effort
+	}
+
+	focus = {
+		id = Focus_Goverment_reform
+		icon = GFX_goal_law
+		cost = 3
+		available = {
+			is_subject = no
+			NOT = { has_idea = isolated }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -100
+				has_idea = Himalaya 
+			}
+			modifier = {
+				add = -100
+				tag = VAT 
+			}
+		}
+		x = 2
+		y = 0
+		completion_reward = {
+			add_stability = 0.3
+			add_political_power = 100
+			add_to_variable = { influences = 200 }
+			custom_effect_tooltip = focus_tooltip_influence_200
+		}
+	}
+	
+	focus = {
+		id = common_74
+		icon = GFX_goal_education
+		cost = 3
+		x = 17
+		y = 1
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					school < 1
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = common_1
+		icon = GFX_goal_generic_demand_territory
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+		}
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		x = 26
+		y = 1
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+				add_popularity = {
+					ideology = communism
+					popularity = -0.2
+				}
+		}
+	}
+	focus = {
+		id = common_social_reform
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 3
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -10
+				has_government = monarchism
+			}
+			modifier = {
+				add = -10
+				has_country_flag = latin_america
+			}
+			modifier = {
+				add = -10
+				has_country_leader_with_trait = tratidional_trait 
+			}
+		}
+		available = {
+			NOT = { has_country_leader_with_trait = religion_leader }
+			NOT = { has_government = fascism }
+		}
+		prerequisite = {
+			focus = common_74
+			focus = common_3
+		}
+		x = 15
+		y = 2
+		completion_reward = {
+			set_country_flag = social_reform
+				news_event = { id = gen.91 }
+			add_stability = 0.1
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = common_expanded_education
+		icon = GFX_focus_generic_university_1
+		cost = 3
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -10
+				has_country_flag = latin_america
+			}
+			modifier = {
+				add = -10
+				has_country_leader_with_trait = tratidional_trait 
+			}
+		}
+		prerequisite = {
+			focus = common_74
+		}
+		x = 17
+		y = 2
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.18
+			}
+		}
+	}
+	focus = {
+		id = common_social_quality
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		cost = 3
+		available = {
+			NOT = { has_government = fascism }
+		}
+		prerequisite = {
+			focus = common_social_reform
+		}
+		x = 15
+		y = 3
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = common_minority
+		icon = GFX_focus_ETH_sway_the_warlords
+		cost = 3
+		prerequisite = {
+			focus = common_social_quality
+		}
+		x = 15
+		y = 4
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = common_accept_immigrate
+		icon = GFX_focus_generic_population_growth
+		cost = 3
+		prerequisite = {
+			focus = common_minority
+		}
+		x = 15
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			news_event = { id = gen.120 }
+			add_stability = -0.12
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = common_weman_right
+		icon = GFX_focus_SWE_education_reform
+		cost = 3
+		available = {
+			NOT = { has_government = fascism }
+		}
+		prerequisite = {
+			focus = common_social_reform
+		}
+		x = 17
+		y = 3
+		completion_reward = {
+			set_country_flag = female_refrom
+			news_event = { id = gen.54 }
+			add_political_power = 300
+			add_stability = 0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = common_LGBT
+		icon = GFX_goal_LGBT
+		cost = 3
+		prerequisite = {
+			focus = common_weman_right
+		}
+		available = {
+			NOT = { has_government = fascism }
+			has_global_flag = sexual_liberal_event
+		}
+	
+		x = 18
+		y = 4
+		ai_will_do = {
+			factor = -100
+		}
+		completion_reward = {
+			news_event = { id = gen.116 }
+			add_political_power = 20
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+		}
+	}
+	focus = {
+		id = common_secularized
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		cost = 3
+		prerequisite = {
+			focus = common_weman_right
+		}
+		prerequisite = {
+			focus = common_social_quality
+		}
+		available = {
+			NOT = { has_government = fascism }
+			has_country_flag = female_voted_modifiers
+			has_dynamic_modifier = { modifier = female_educate_modifiers }
+			has_country_flag = secularism_refrom
+			fascism < 0.02
+			has_stability > 0.7
+			if = {
+				limit = { has_government = authoritarianism }
+				authoritarianism > 0.7
+			}
+			if = {
+				limit = { has_government = neutrality }
+				neutrality > 0.7
+			}
+			if = {
+				limit = { has_government = democratic }
+				democratic > 0.8
+			}
+		}
+		x = 17
+		y = 5
+		ai_will_do = {
+			factor = -100
+		}
+		completion_reward = {
+			news_event = { id = gen.212 }
+			add_political_power = 520
+			add_stability = 0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_ideas = Secularism
+		}
+	}
+	focus = {
+		id = common_3
+		icon = GFX_goal_support_democracy
+		cost = 3
+		available = {
+		or = {
+			democratic > 0.3
+				AND = {
+				has_government = communism
+				communism < 0.6
+				}
+				AND = {
+				has_government = authoritarianism
+				authoritarianism < 0.6
+				}
+				AND = {
+				has_government = neutrality
+				neutrality < 0.6
+				}
+				AND = {
+				has_government = monarchism
+				monarchism < 0.6
+				}
+			}
+		}
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		x = 12
+		y = 1
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_government = democratic } }
+				news_event = { id = gen.69 }
+			}
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_stability = 0.2
+			add_political_power = 200
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 0
+				NOT = { has_government = democratic }
+			}
+			modifier = {
+				factor = 0
+				tag = CZE
+				date < 1951.1.1
+			}
+		}
+	}
+	focus = {
+		id = common_social_democratic
+		icon = GFX_goal_rose
+		cost = 25
+		prerequisite = {
+			focus = common_3
+		}
+		x = 13
+		y = 2
+		available = {
+			democratic > 0.6
+			has_stability > 0.8
+		}
+		completion_reward = {
+			news_event = { id = gen.109 }
+			add_political_power = 20
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_idea = banana_inc
+			}
+			modifier = {
+				factor = 0
+				has_government = neutrality
+			}
+		}
+
+	}
+	focus = {
+		id = common_accept_abour
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		cost = 25
+		prerequisite = {
+			focus = common_social_democratic
+		}
+		x = 13
+		y = 3
+		completion_reward = {
+			news_event = { id = gen.114 }
+			add_political_power = 20
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_idea = banana_inc
+			}
+			modifier = {
+				factor = 0
+				has_government = neutrality
+			}
+			modifier = {
+				add = 1
+				has_government = democratic
+			}
+		}
+
+	}
+	focus = {
+		id = common_labour_right
+		icon = GFX_focus_FIN_socialist_welfare
+		cost = 25
+		prerequisite = {
+			focus = common_accept_abour
+		}
+		x = 13
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.115 }
+			add_political_power = 20
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_idea = banana_inc
+			}
+			modifier = {
+				factor = 0
+				has_government = neutrality
+			}
+			modifier = {
+				add = 1
+				has_government = democratic
+			}
+		}
+
+	}
+	focus = {
+		id = common_progressive
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		cost = 25
+		prerequisite = {
+			focus = common_7
+			focus = common_social_democratic
+		}
+		available = {
+			has_global_flag = silent_spring_event
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+			add_political_power = 20
+			add_stability = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+			add_dynamic_modifier = { modifier = environmental_protection_modifiers }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+	focus = {
+		id = common_7
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		cost = 25
+		prerequisite = {
+			focus = common_3
+		}
+		x = 11
+		y = 2
+		available = {
+			democratic > 0.6
+			has_stability > 0.8
+		}
+		completion_reward = {
+			news_event = { id = gen.108 }
+			add_political_power = 20
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.15
+				}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_idea = banana_inc
+			}
+			modifier = {
+				factor = 0
+				has_government = neutrality
+			}
+			modifier = {
+				add = 1
+				has_government = democratic
+			}
+		}
+
+	}
+	focus = {
+		id = common_expanded_voet
+		icon = GFX_goal_vote
+		cost = 30
+		prerequisite = {
+			focus = common_7
+		}
+		x = 11
+		y = 3
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+
+	}
+	focus = {
+		id = common_8
+		icon = GFX_goal_generic_national_unity
+		cost = 30
+		prerequisite = {
+			focus = common_7
+		}
+		available = {
+			NOT = { has_government = democratic }
+		}
+		x = 10
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.82 }
+			set_country_flag = election_ready
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+
+	}
+	
+	focus = {
+		id = common_conservatism
+		icon = GFX_focus_generic_industrialists
+		cost = 3
+		prerequisite = {
+			focus = common_1
+		}
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		x = 22
+		y = 2
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = common_church
+		icon = GFX_focus_por_concordat
+		cost = 3
+		prerequisite = {
+			focus = common_conservatism
+		}
+		available = {
+			NOT = {
+				has_country_flag = islam_state
+			}
+			OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		ai_will_do = {
+			base = -10
+		}
+		x = 21
+		y = 3
+		completion_reward = {
+			news_event = { id = gen.140 }
+			add_stability = 0.12
+		}
+
+	}
+	focus = {
+		id = common_lutherism
+		icon = GFX_goal_lutherism
+		cost = 3
+		prerequisite = {
+			focus = common_church
+		}
+		ai_will_do = {
+			base = 0
+		}
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		x = 22
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.148 }
+			add_ideas = Lutherism
+			add_stability = 0.12
+			add_political_power = -200
+		}
+	}
+	focus = {
+		id = common_catholic
+		icon = GFX_focus_generic_vatican_state
+		cost = 3
+		prerequisite = {
+			focus = common_church
+		}
+		x = 20
+		y = 4
+		ai_will_do = {
+			base = 0
+		}
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		completion_reward = {
+			news_event = { id = gen.145 }
+			add_ideas = Catholicism
+			add_stability = 0.12
+			add_political_power = -200
+		}
+
+	}
+	focus = {
+		id = common_traditional
+		icon = GFX_focus_POL_end_the_regency
+		cost = 3
+		prerequisite = {
+			focus = common_church
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 21
+		y = 5
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		completion_reward = {
+			news_event = { id = gen.149 }
+			add_ideas = limited_exports
+		}
+
+	}
+	focus = {
+		id = common_dios_patria_familia
+		icon = GFX_focus_generic_catholic_dominion
+		cost = 3
+		prerequisite = {
+			focus = common_traditional
+		}
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+		x = 21
+		y = 6
+		completion_reward = {
+			add_political_power = 300
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+			add_ideas = patria_familia_ideas
+			news_event = { id = gen.153 }
+		}
+
+	}
+	focus = {
+		id = common_crusaders
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		cost = 3
+		prerequisite = {
+			focus = common_dios_patria_familia
+		}
+		ai_will_do = {
+			base = 0
+		}
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+			has_idea = Catholicism
+			has_stability > 0.8
+			has_war_support > 0.7
+		}
+		x = 21
+		y = 7
+		completion_reward = {
+			news_event = { id = gen.155 }
+			add_ideas = crusade_ideas
+			add_ideas = all_adults_serve
+		}
+
+	}
+	focus = {
+		id = common_judge
+		icon = GFX_goal_excute
+		cost = 3
+		prerequisite = {
+			focus = common_dios_patria_familia
+		}
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+		x = 22
+		y = 8
+		completion_reward = {
+			news_event = { id = gen.156 }
+			add_ideas = closed_economy
+		}
+
+	}
+	focus = {
+		id = common_army_gov
+		icon = GFX_focus_SOV_mobilization_plan
+		cost = 3
+		prerequisite = {
+			focus = common_1
+		}
+		x = 28
+		y = 2
+		available = {
+		OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+			add_stability = -0.12
+			add_political_power = -300
+		}
+
+	}
+	focus = {
+		id = common_4
+		icon = GFX_goal_military_regimr
+		cost = 3
+		prerequisite = {
+			focus = common_army_gov
+		}
+		available = {
+			neutrality > 0.5
+		}
+		ai_will_do = {
+			factor = -10
+			modifier = {
+				add = 50
+				has_government = neutrality
+			}
+		}
+		x = 26
+		y = 3
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_government = neutrality } }
+				news_event = { id = latin.18 }
+				set_politics = { ruling_party = neutrality }
+				add_to_variable = { influences = -40 }
+				custom_effect_tooltip = focus_tooltip_influence_-40
+				add_stability = 0.25
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = common_militarist_economic
+		icon = GFX_focus_generic_reorient_production
+		cost = 3
+		prerequisite = {
+			focus = common_4
+		}
+		available = {
+		OR = {
+			has_government = neutrality
+			}
+		}
+		x = 26
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.170 }
+			add_ideas = militarist_politician
+			add_ideas = extensive_conscription
+		}
+	}
+	focus = {
+		id = common_9
+		icon = GFX_goal_handcuffs
+		cost = 3
+		prerequisite = {
+			focus = common_army_gov
+			focus = common_conservatism
+		}
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = monarchism
+			has_government = authoritarianism
+			}
+		}
+		x = 24
+		y = 3
+		completion_reward = {
+			add_ideas = limited_exports
+			add_to_variable = { influences = -80 }
+			custom_effect_tooltip = focus_tooltip_influence_-80
+			add_political_power = -100
+			add_stability = -0.15
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = -0.12
+				}
+		}
+
+	}
+	focus = {
+		id = commons_5
+		icon = GFX_goal_diplo_usa
+		cost = 15
+		available = {
+			NOT = { has_country_leader_with_trait = anti_america }
+			NOT = { has_country_leader_with_trait = tyrant }
+			NOT = { has_government = communism }
+			NOT = { has_government = fascism }
+		}
+		prerequisite = {
+			focus = common_1
+		}
+		x = 32
+		y = 2
+		completion_reward = {
+			news_event = { id = gen.40 }
+			add_political_power = 30
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.05
+				}
+			add_opinion_modifier = {
+				target = USA
+				modifier = USA_special_relationship
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 2
+				has_idea = banana_inc
+			}
+			modifier = {
+				add = -100
+				tag = FIN
+			}
+			modifier = {
+				add = 50
+				tag = GRE
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				add = 10
+				USA = { check_variable = { influences > 250 } }
+			}
+			modifier = {
+				add = -40
+				USA = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = -100
+				has_idea = neutrality_idea
+			}
+			modifier = {
+				add = 50
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = anti_communist
+			}
+			modifier = {
+				add = -5
+				has_government = authoritarianism
+			}
+			modifier = {
+				add = 50
+				tag = TUR
+				date > 1951.1.1
+				has_government = democratic
+			}
+			modifier = {
+				add = -50
+				has_government = communism
+			}
+			modifier = {
+				add = -5
+				has_country_flag = african_state
+			}
+			modifier = {
+				add = 10
+				has_country_flag = atin_america
+			}
+			modifier = {
+				add = 10
+				has_government = democratic
+			}
+			modifier = {
+				add = -50
+				has_country_flag = third_world
+				date < 1964.1.1
+			}
+		}
+
+	}
+	focus = {
+		id = common_10
+		icon = GFX_goal_anti_communist
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+			OR = {
+			authoritarianism > 0.4
+			neutrality > 0.4
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				tag = GRE
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				add = 2
+				has_idea = banana_inc
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences > 250 } }
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = 5
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 50
+				has_country_leader_with_trait = anti_communist
+			}
+			modifier = {
+				add = 1
+				has_government = neutrality
+			}
+			modifier = {
+				add = -10
+				has_government = democratic
+			}
+			modifier = {
+				add = 500
+				tag = AST
+				date > 1948.1.1
+			}
+		}
+		prerequisite = {
+			focus = common_army_gov
+			focus = common_conservatism
+		}
+		x = 28
+		y = 3
+		completion_reward = {
+			add_political_power = -120
+			add_stability = -0.15
+			news_event = { id = gen.51 }
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+		}
+
+	}
+	focus = {
+		id = common_11
+		icon = GFX_goal_secret_police
+		cost = 3
+		prerequisite = {
+			focus = common_9
+			focus = common_10
+		}
+		x = 28
+		y = 4
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_political_power = 30
+				add_popularity = {
+					ideology = communism
+					popularity = -0.2
+				}
+		}
+
+	}
+	focus = {
+		id = common_13
+		icon = GFX_goal_marshall_plan
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+		}
+		prerequisite = {
+			focus = commons_5
+		}
+		available = {
+			has_opinion = {
+				target = USA
+				value > 19
+			}
+			NOT = {
+				has_idea = low_diplomacy
+			}
+		}
+		x = 32
+		y = 3
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			USA = { country_event = { id = gen.47 } }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				tag = GRE
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				add = 2
+				has_idea = banana_inc
+			}
+			modifier = {
+				add = 40
+				USA = { check_variable = { influences > 250 } }
+			}
+			modifier = {
+				add = -40
+				USA = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = 5
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 50
+				has_country_leader_with_trait = anti_communist
+			}
+			modifier = {
+				add = 1
+				has_government = neutrality
+			}
+			modifier = {
+				add = -10
+				has_government = democratic
+			}
+		}
+	}
+	focus = {
+		id = common_usa_techs
+		icon = GFX_focus_research2
+		cost = 3
+		prerequisite = {
+			focus = commons_5
+		}
+		x = 34
+		y = 3
+		available = {
+			NOT = { has_government = communism }
+			has_opinion = {
+				target = USA
+				value > 29
+			}
+			has_idea = Marshall
+		}
+		completion_reward = {
+			set_country_flag = UsaAdvisorAllow
+			add_ideas = usa_industry_advisitor_idea
+		}
+	}
+	focus = {
+		id = common_usa_intel
+		icon = GFX_focus_SWI_embrace_rote_drei
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+		}
+		prerequisite = {
+			focus = common_13
+		}
+		x = 30
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = common_garrison
+		icon = GFX_goal_us_taiwan
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+		}
+		prerequisite = {
+			focus = common_13
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				tag = GRE
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 80
+				has_country_leader_with_trait = anti_communist
+			}
+			modifier = {
+				add = 50
+				tag = TUR
+				date > 1951.1.1
+				has_government = democratic
+		}
+			}
+		x = 32
+		y = 4
+		completion_reward = {
+			add_political_power = 50
+			set_country_flag = USA_militar_advisor_focus
+			custom_effect_tooltip = USA_militar_advisor_focus
+		}
+	}
+	focus = {
+		id = common_14
+		icon = GFX_goal_focus_NATO
+		cost = 3
+		available = {
+			OR = {
+				capital_scope = {
+					is_on_continent = europe
+				}
+				tag = CAN
+				tag = TUR
+			}
+			NOT = { has_government = communism }
+			
+			USA = { is_faction_leader = yes }
+		}
+		prerequisite = {
+			focus = common_garrison
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = -40
+				tag = POR
+				date < 1949.1.1
+			}
+			modifier = {
+				add = 40
+				USA = { check_variable = { influences > 250 } }
+			}
+			modifier = {
+				add = -40
+				USA = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = 5
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 80
+				has_country_leader_with_trait = anti_communist
+			}
+			modifier = {
+				add = 50
+				tag = TUR
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 50
+				tag = GRE
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				add = 50
+				tag = TUR
+				has_government = democratic
+			}
+			modifier = {
+				add = 1
+				has_government = neutrality
+			}
+		}
+		x = 32
+		y = 5
+		completion_reward = {
+			USA = { country_event = { id = gen.48 } }
+		}
+
+	}
+	focus = {
+		id = common_16
+		icon = GFX_goal_euro_pershing
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+		}
+		prerequisite = {
+			focus = common_14
+		}
+		x = 32
+		y = 6
+		completion_reward = {
+			add_political_power = 30
+		}
+
+	}
+	focus = {
+		id = common_15
+		icon = GFX_goal_us_army
+		cost = 3
+		available = {
+			NOT = { has_government = communism }
+		}
+		prerequisite = {
+			focus = common_13
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = 34
+		y = 4
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					OR = {
+						has_idea = gaulle
+						has_idea = colonist_war
+						has_idea = jungle_war
+						has_idea = southeast_revolution
+						has_country_leader_with_trait = anti_communist
+					}
+				}
+				news_event = { id = gen.90 }
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+						has_idea = gaulle
+						has_idea = colonist_war
+						has_idea = jungle_war
+						has_idea = southeast_revolution
+						has_country_leader_with_trait = anti_communist
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = common_17
+		icon = GFX_focus_generic_little_entente
+		cost = 3
+		prerequisite = {
+			focus = common_15
+			focus = common_14
+		}
+		x = 34
+		y = 6
+		available = {
+			has_opinion = {
+				target = USA
+				value > 39
+			}
+			has_idea = Marshall
+		}
+		completion_reward = {
+			USA = { country_event = { id = gen.34 } }
+		}
+
+	}
+	focus = {
+		id = common_20
+		icon = GFX_goal_generic_construct_military
+		cost = 3
+		prerequisite = {
+			focus = common_23
+		}
+		x = -22
+		y = 2
+		completion_reward = {
+			army_experience = 500
+		}
+	}
+	focus = {
+		id = common_neo_liberalism
+		icon = GFX_goal_buisness_clan
+		cost = 5
+		prerequisite = {
+			focus = common_23
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			NOT = {
+				has_government = communism
+			}
+			
+		}
+		x = -16
+		y = 2
+		completion_reward = {
+			news_event = { id = gen.191 }
+			add_political_power = 500
+			add_ideas = civilian_economy
+		}
+	}
+	focus = {
+		id = common_reduce_welfare
+		icon = GFX_focus_ETH_adopt_the_lira
+		cost = 3
+		prerequisite = {
+			focus = common_neo_liberalism
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -14
+		y = 3
+		completion_reward = {
+			news_event = { id = gen.186 }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.04
+			}
+			add_political_power = 300
+			if = {
+				limit = {
+					OR = {
+						has_idea = welfare_state
+						has_idea = hight_welfare
+					}
+				}
+				add_ideas = mid_welfare
+			}
+			if = {
+				limit = {
+					has_idea = mid_welfare
+				}
+				add_ideas = low_welfare
+			}
+			if = {
+				limit = {
+					has_idea = low_welfare
+				}
+				add_ideas = no_welfare
+			}
+		}
+	}
+	focus = {
+		id = common_reduce_cost
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		cost = 3
+		prerequisite = {
+			focus = common_reduce_welfare
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -14
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.188 }
+			add_political_power = -300
+				divide_variable = {
+					var = financial_to_power
+					value = 2
+					tooltip = half_financial_to_power
+				}
+				divide_variable = {
+					var = total_to_ppower
+					value = 2
+				}
+		}
+	}
+	focus = {
+		id = common_reduce_manage
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		cost = 3
+		prerequisite = {
+			focus = common_reduce_cost
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -14
+		y = 5
+		completion_reward = {
+			add_political_power = -300
+				set_variable = {
+					var = financial_to_power
+					value = 100
+					tooltip = clear_financial_to_power
+				}
+				set_variable = {
+					var = total_to_ppower
+					value = 0
+				}
+				set_country_flag = clear_financial_to_power
+				remove_dynamic_modifier = { modifier = financial_to_power_modifier }
+		}
+	}
+	focus = {
+		id = common_market
+		icon = GFX_focus_mex_privatisation
+		cost = 3
+		prerequisite = {
+			focus = common_reduce_manage
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -14
+		y = 6
+		completion_reward = {
+			news_event = { id = gen.189 }
+			add_political_power = 500
+		}
+	}
+	focus = {
+		id = common_companies_personalized
+		icon = GFX_focus_generic_industry_3
+		cost = 3
+		prerequisite = {
+			focus = common_neo_liberalism
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -16
+		y = 3
+		completion_reward = {
+			set_country_flag = private_economic
+			news_event = { id = gen.96 }
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = common_close_factories
+		icon = GFX_focus_NOR_approach_kretsen
+		cost = 3
+		prerequisite = {
+			focus = common_companies_personalized
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -16
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.180 }
+			custom_effect_tooltip = private_focus_tool
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = common_strike_union
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 3
+		prerequisite = {
+			focus = common_close_factories
+		}
+		available = {
+			has_idea = civilian_economy
+			has_idea = ENG_labour_union
+		}
+		x = -16
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.184 }
+			remove_ideas = ENG_labour_union
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = common_currency_reform
+		icon = GFX_focus_mex_privatisation
+		cost = 3
+		prerequisite = {
+			focus = common_neo_liberalism
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -18
+		y = 3
+		completion_reward = {
+			news_event = { id = gen.178 }
+			add_political_power = -100
+		}
+	}
+	focus = {
+		id = common_reduce_tax
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		cost = 3
+		prerequisite = {
+			focus = common_currency_reform
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -18
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.179 }
+			add_political_power = -200
+			custom_effect_tooltip = consumer_lack_for_add_tool
+			set_country_flag = consumer_lack_for_add
+		}
+	}
+	focus = {
+		id = common_develop_finacial
+		icon = GFX_focus_generic_american_investments
+		cost = 3
+		prerequisite = {
+			focus = common_reduce_tax
+		}
+		available = {
+			has_idea = civilian_economy
+		}
+		x = -18
+		y = 5
+		completion_reward = {
+			add_political_power = 500
+		}
+	}
+	
+	focus = {
+		id = common_Keynesianism
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		cost = 5
+		prerequisite = {
+			focus = common_23
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		x = -12
+		y = 2
+		completion_reward = {
+			news_event = { id = gen.190 }
+			add_ideas = low_economic_mobilisation
+			add_political_power = 500
+		}
+	}
+	focus = {
+		id = common_expand_welfare
+		icon = GFX_focus_generic_field_hostpital
+		cost = 3
+		prerequisite = {
+			focus = common_Keynesianism
+		}
+		x = -12
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_idea = low_economic_mobilisation
+		}
+		completion_reward = {
+			news_event = { id = gen.192 }
+			add_political_power = -100
+			add_stability = 0.12
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.06
+			}
+			if = {
+				limit = {
+					OR = {
+						has_idea = no_welfare
+						has_idea = low_welfare
+					}
+				}
+				add_ideas = mid_welfare
+			}
+		}
+	}
+	focus = {
+		id = common_welfare_state
+		icon = GFX_goal_welfare
+		cost = 3
+		available = {
+			has_idea = low_economic_mobilisation
+		}
+		prerequisite = {
+			focus = common_expand_welfare
+		}
+		x = -12
+		y = 4
+		available = {
+			OR = {
+				has_idea = mid_welfare
+				has_idea = hight_welfare
+			}
+			NOT = {
+				has_dynamic_modifier = { modifier = financial_deficit_modifier }
+			}
+		}
+		completion_reward = {
+			add_political_power = -200
+			add_stability = 0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.08
+			}
+			add_ideas = welfare_state
+		}
+	}
+	focus = {
+		id = common_unemploy_help
+		icon = GFX_focus_generic_concessions
+		cost = 3
+		available = {
+			has_idea = low_economic_mobilisation
+		}
+		prerequisite = {
+			focus = common_welfare_state
+		}
+		x = -12
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.194 }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_companies_nationalized
+		icon = GFX_goal_PRC_economic_reform
+		cost = 3
+		prerequisite = {
+			focus = common_Keynesianism
+		}
+		available = {
+			OR = {
+				has_idea = low_economic_mobilisation
+				has_idea = governed_economic
+			}
+		}
+		x = -10
+		y = 3
+		completion_reward = {
+			news_event = { id = gen.193 }
+			add_dynamic_modifier = { modifier = companies_nationalized_modifiers }
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_high_tax
+		icon = GFX_focus_ITA_devaluate_the_lire
+		cost = 3
+		available = {
+			OR = {
+				has_idea = low_economic_mobilisation
+				has_idea = governed_economic
+			}
+		}
+		prerequisite = {
+			focus = common_companies_nationalized
+		}
+		x = -10
+		y = 4
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_govern_economic
+		icon = GFX_focus_DEN_heavy_regulations
+		cost = 3
+		available = {
+			has_idea = low_economic_mobilisation
+		}
+		prerequisite = {
+			focus = common_high_tax
+		}
+		x = -10
+		y = 5
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = governed_economic
+		}
+	}
+	focus = {
+		id = common_medic_system
+		icon = GFX_goal_House
+		cost = 3
+		available = {
+			has_idea = low_economic_mobilisation
+		}
+		prerequisite = {
+			focus = common_unemploy_help
+		}
+		available = {
+			has_political_power > 300
+			has_stability > 0.7
+		}
+		x = -12
+		y = 6
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.12
+			news_event = { id = bri.77 }
+			add_dynamic_modifier = { modifier = health_nationalized_modifier }
+			add_ideas = hight_welfare
+		}
+	}
+	focus = {
+		id = common_support_labour
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		cost = 3
+		available = {
+			has_idea = low_economic_mobilisation
+		}
+		prerequisite = {
+			focus = common_companies_nationalized
+		}
+		x = -8
+		y = 4
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.12
+			add_ideas = ENG_labour_union
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = common_76
+		icon = GFX_focus_generic_license_production
+		cost = 3
+		prerequisite = {
+			focus = common_69
+		}
+		x = -24
+		y = 7
+		completion_reward = {
+			army_experience = 120
+		}
+	}
+	focus = {
+		id = common_77
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 3
+		prerequisite = {
+			focus = common_20
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -28
+		y = 3
+		completion_reward = {
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_buy_ship
+		icon = GFX_focus_generic_destroyer
+		cost = 3
+		prerequisite = {
+			focus = common_77
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -28
+		y = 4
+		completion_reward = {
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_naval_base_1
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 3
+		prerequisite = {
+			focus = common_77
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -26
+		y = 4
+		completion_reward = {
+			navy_experience = 180	
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+	focus = {
+		id = common_marines
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 3
+		prerequisite = {
+			focus = common_77
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		prerequisite = {
+			focus = common_develop_weapons
+		}
+		x = -24
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = marine_tech
+				ahead_reduction = 2
+				category = marine_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_naval_base_2
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 3
+		prerequisite = {
+			focus = common_naval_base_1
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+			num_of_controlled_states > 2
+		}
+		x = -26
+		y = 5
+		completion_reward = {
+			navy_experience = 180	
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+	focus = {
+		id = common_light_ships
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 3
+		prerequisite = {
+			focus = common_buy_ship
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -28
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_tech
+				ahead_reduction = 2
+				category = cl_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_buy_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 3
+		prerequisite = {
+			focus = common_buy_ship
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -30
+		y = 5
+		completion_reward = {
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_submarines
+		icon = GFX_goal_generic_navy_submarine
+		cost = 3
+		prerequisite = {
+			focus = common_buy_submarines
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -30
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = ss_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_medium_ships
+		icon = GFX_focus_generic_cruiser2
+		cost = 3
+		prerequisite = {
+			focus = common_light_ships
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -28
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = cl_tech
+				ahead_reduction = 2
+				category = dd_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_heavy_ships
+		icon = GFX_goal_generic_navy_carrier
+		cost = 3
+		prerequisite = {
+			focus = common_medium_ships
+		}
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		x = -28
+		y = 7
+		completion_reward = {
+			add_tech_bonus = {
+				name = cv_tech
+				ahead_reduction = 2
+				category = cv_tech
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = common_78
+		icon = GFX_goal_expand_the_luftwaffe
+		cost = 3.00
+		prerequisite = {
+			focus = common_20
+		}
+		x = -34
+		y = 3
+		completion_reward = {
+			set_technology = {
+				independet_airforce = 1
+			}
+			air_experience = 100
+			add_tech_bonus = {
+				name = air_doc_bonus
+				ahead_reduction = 2
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = common_buy_plane
+		icon = GFX_focus_generic_air_partners
+		cost = 3
+		prerequisite = {
+			focus = common_78
+		}
+		x = -34
+		y = 4
+		completion_reward = {
+			air_experience = 100
+		}
+	}
+	focus = {
+		id = common_airbase_1
+		icon = GFX_focus_generic_air_bases
+		cost = 3
+		prerequisite = {
+			focus = common_78
+		}
+		x = -32
+		y = 4
+		completion_reward = {
+			air_experience = 100
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+		}
+	}
+	focus = {
+		id = common_airbase_2
+		icon = GFX_focus_generic_air_bases
+		cost = 3
+		prerequisite = {
+			focus = common_airbase_1
+		}
+		available = {
+			num_of_controlled_states > 2
+		}
+		x = -32
+		y = 5
+		completion_reward = {
+			air_experience = 100
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+					ROOT = { set_country_flag = aviation_effort_AB }
+				}
+		}
+	}
+	focus = {
+		id = common_anti_air
+		icon = GFX_goal_generic_army_artillery2
+		cost = 3
+		prerequisite = {
+			focus = common_78
+		}
+		x = -36
+		y = 4
+		completion_reward = {
+			air_experience = 100
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = cat_anti_air
+			}
+		}
+	}
+	focus = {
+		id = common_air_equip
+		icon = GFX_focus_generic_copy_plane_designs
+		cost = 3
+		prerequisite = {
+			focus = common_buy_plane
+		}
+		x = -36
+		y = 5
+		completion_reward = {
+			air_experience = 100
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = air_equip_tech
+			}
+		}
+	}
+	focus = {
+		id = common_jet_1
+		icon = GFX_focus_generic_cas_aircraft
+		cost = 3
+		prerequisite = {
+			focus = common_buy_plane
+		}
+		x = -34
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = light_air
+			}
+		}
+	}
+	focus = {
+		id = common_transfer
+		icon = GFX_goal_generic_air_bomber
+		cost = 3
+		prerequisite = {
+			focus = common_jet_1
+		}
+		x = -32
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = medium_air
+			}
+		}
+	}
+	focus = {
+		id = common_bomber
+		icon = GFX_focus_generic_long_range_aircraft
+		cost = 3
+		prerequisite = {
+			focus = common_jet_1
+		}
+		x = -36
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = heavy_air
+			}
+		}
+	}
+	focus = {
+		id = common_jet_2
+		icon = GFX_goal_air_force
+		cost = 3
+		prerequisite = {
+			focus = common_jet_1
+		}
+		x = -34
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_tech
+				ahead_reduction = 2
+				category = light_air
+			}
+		}
+	}
+	focus = {
+		id = common_2
+		icon = GFX_goal_socialist
+		cost = 3
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		available = {
+			communism > 0.1
+		}
+		x = 45
+		y = 1
+		completion_reward = {
+			set_country_flag = social_reform
+			add_stability = 0.1
+			add_political_power = 20
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+					has_government = communism
+			}
+			modifier = {
+				add = 300
+				tag = CUB
+				has_government = authoritarianism
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences > 250 } }
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = 1
+					has_country_leader_with_trait = communist_revolutionary
+			}
+			modifier = {
+				add = 80
+				OR = {
+				tag = POL
+				tag = HUN
+				tag = ALB
+				tag = CZE
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = common_comparty_strike
+		icon = GFX_focus_generic_fascist_propaganda
+		cost = 3
+		available = {
+			communism > 0.3
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+				tag = POL
+				tag = HUN
+				tag = ALB
+				tag = CZE
+				}
+			}
+			modifier = {
+				add = 300
+				has_government = communism
+			}
+		}
+		prerequisite = {
+			focus = common_2
+		}
+		x = 43
+		y = 2
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = common_support_comparty
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		cost = 3
+		available = {
+			communism > 0.3
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+				tag = POL
+				tag = HUN
+				tag = ALB
+				tag = CZE
+				}
+			}
+			modifier = {
+				add = 300
+				has_government = communism
+			}
+		}
+		prerequisite = {
+			focus = common_2
+		}
+		x = 47
+		y = 2
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = common_26
+		icon = GFX_goal_communist
+		cost = 3
+		available = {
+			communism > 0.3
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				OR = {
+				tag = POL
+				tag = HUN
+				tag = ALB
+				tag = CZE
+				}
+			}
+			modifier = {
+				add = 300
+				has_government = communism
+			}
+		}
+		prerequisite = {
+			focus = common_2
+		}
+		x = 45
+		y = 2
+		completion_reward = {
+			set_politics = { ruling_party = communism }
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					NOT = {
+						tag = CZE
+					}
+				}
+				news_event = { id = gen.36 }
+			}
+			if = {
+				limit = {
+						tag = CZE
+				}
+				news_event = { id = cze.10 }
+			}
+		}
+
+	}
+	focus = {
+		id = common_people_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		cost = 3
+		prerequisite = {
+			focus = common_26
+		}
+		x = 45
+		y = 3
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.06
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		}
+
+	}
+	focus = {
+		id = common_27
+		icon = GFX_focus_BUL_cooperate_with_the_zveno
+		cost = 3
+		available = {
+			has_government = communism
+			NOT = {
+				OR = {
+				has_country_leader_with_trait = stalins_puppet
+				has_country_leader_with_trait = staunch_stalinist
+				has_country_leader_with_trait = tyrant
+				has_country_leader_with_trait = dictator
+				has_country_leader_with_trait = pro_soviet
+				}
+			}
+		}
+		prerequisite = {
+			focus = common_26
+		}
+		x = 41
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				has_country_leader_with_trait = socialist_reformism
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences < 100 } }
+			}
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_diplomacy
+		icon = GFX_goal_multy_hands
+		cost = 3
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		x = 38
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+
+	}
+	focus = {
+		id = common_diplomacy_latins
+		icon = GFX_goal_map_latin
+		cost = 3
+		prerequisite = {
+			focus = common_diplomacy
+		}
+		x = 36
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			random_country = {
+				limit = {
+					has_country_flag = latin_america
+				}
+				news_event = { id = gen.80 }
+			}
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = latin_america
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = common_diplomacy_asia
+		icon = GFX_goal_diplo_india
+		cost = 15
+		prerequisite = {
+			focus = common_diplomacy
+		}
+		x = 40
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			random_country = {
+				limit = {
+					NOT = {
+						is_in_faction = yes
+						has_idea = isolated
+						has_idea = jungle_war
+						has_idea = sanctions
+						has_idea = low_diplomacy
+						is_subject = yes
+					}
+					capital_scope = { is_on_continent = asia }
+				}
+				news_event = { id = gen.80 }
+			}
+			every_other_country = {
+				limit = {
+					capital_scope = { is_on_continent = asia }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = common_21
+		icon = GFX_goal_third_world
+		cost = 3
+		prerequisite = {
+			focus = common_diplomacy
+		}
+		x = 38
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = pro_third_world
+			}
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = african_nationalism
+			}
+			modifier = {
+				add = 2
+				has_country_leader_with_trait = pro_socialism
+			}
+			modifier = {
+				add = -20
+				has_idea = banana_inc
+			}
+			modifier = {
+				add = -40
+				USA = { check_variable = { influences > 3000 } }
+			}
+			modifier = {
+				add = 40
+				USA = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = -5
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = -20
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		completion_reward = {
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+			add_opinion_modifier = {
+				target = PRC
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = BUR
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = EGY
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = INS
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = YUG
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = IND
+				modifier = SOV_support_africa
+			}
+		}
+
+	}
+	focus = {
+		id = common_22
+		icon = GFX_goal_red_barigade
+		cost = 3
+		prerequisite = {
+			focus = common_21
+		}
+		x = 36
+		y = 3
+		completion_reward = {
+			every_other_country = {
+				news_event = { id = gen.81 }
+				limit = {
+					has_idea = ColonyWar
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+			custom_effect_tooltip = focus_tooltip_influence_100
+			add_to_variable = { influences = 100 }
+		}
+
+	}
+	focus = {
+		id = common_23
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		x = -14
+		y = 1
+		completion_reward = {
+			add_political_power = 500
+		}
+
+	}
+	focus = {
+		id = common_24
+		icon = GFX_goal_non_aligned
+		cost = 3
+		prerequisite = {
+			focus = common_21
+		}
+		x = 38
+		y = 3
+		available = {
+			NOT = { is_guaranteed_by = USA }
+			NOT = { is_guaranteed_by = SOV }
+			is_in_faction = no
+			has_global_flag = has_non_aliged
+		}
+		completion_reward = {
+			news_event = { id = gen.39 }
+			add_ideas = NonAligned
+		}
+	}
+	focus = {
+		id = common_31
+		icon = GFX_goal_multy_hands
+		cost = 3
+		prerequisite = {
+			focus = common_27
+		}
+		x = 40
+		y = 4
+		completion_reward = {
+			add_stability = 0.3
+			add_political_power = 200
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+
+	}
+	focus = {
+		id = common_28
+		icon = GFX_focus_SOV_stalins_cult_of_personality
+		cost = 3
+		prerequisite = {
+			focus = common_26
+		}
+		x = 48
+		y = 3
+		available = {
+			has_government = communism
+			NOT = {
+				OR = {
+				has_country_leader_with_trait = socialist_reformism
+				has_country_leader_with_trait = liberal_reformism
+				has_country_leader_with_trait = independent_red
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = socialist_reformism
+			}
+			modifier = {
+				add = 1
+				has_government = communism
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -10
+				SOV = { check_variable = { influences < 100 } }
+			}
+		}
+		completion_reward = {
+			news_event = gen.200
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+
+	}
+	focus = {
+		id = common_37
+		icon = GFX_goal_internatinoalism
+		cost = 3
+		prerequisite = {
+			focus = common_28
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		x = 48
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.241 }
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.08
+			}
+			add_ideas = limited_exports
+		}
+
+	}
+	focus = {
+		id = common_strike_religion
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		cost = 3
+		prerequisite = {
+			focus = common_28
+		}
+		x = 52
+		y = 4
+		completion_reward = {
+			add_political_power = -120
+			add_stability = -0.12
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			add_ideas = Anti_religious
+		}
+
+	}
+	focus = {
+		id = common_39
+		icon = GFX_goal_personal_worship
+		cost = 3
+		prerequisite = {
+			focus = common_40
+		}
+		x = 48
+		y = 6
+		completion_reward = {
+			news_event = { id = gen.44 }
+			add_ideas = { personal_worship }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+			}
+			modifier = {
+				factor = 1
+				has_country_leader_with_trait = personal_worship
+			}
+		}
+	}
+	focus = {
+		id = common_81
+		icon = GFX_goal_redflag_war
+		cost = 3
+		prerequisite = {
+			focus = common_39
+		}
+		x = 48
+		y = 8
+		completion_reward = {
+			custom_effect_tooltip = common_80_tool
+			set_country_flag = can_claim_categories
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+			}
+			modifier = {
+				factor = 1
+				has_country_leader_with_trait = personal_worship
+			}
+		}
+	}
+	focus = {
+		id = common_40
+		icon = GFX_goal_nkvd
+		cost = 3
+		prerequisite = {
+			focus = common_37
+		}
+		x = 48
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 40
+				date > 1949.1.1
+			}
+		}
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_political_power = -100
+				add_popularity = {
+					ideology = communism
+					popularity = 0.12
+				}
+		}
+
+	}
+	focus = {
+		id = common_42
+		icon = GFX_goal_planned_economy
+		cost = 3
+		prerequisite = {
+			focus = common_28
+		}
+		x = 46
+		y = 4
+		completion_reward = {
+			add_ideas = war_economy
+		}
+
+	}
+	focus = {
+		id = common_commuist_nationalized
+		icon = GFX_focus_DEN_limited_regulations
+		cost = 3
+		prerequisite = {
+			focus = common_42
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 40
+				date > 1951.1.1
+			}
+		}
+		x = 46
+		y = 5
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+		}
+
+	}
+	focus = {
+		id = common_43
+		icon = GFX_goal_agriculture
+		cost = 3
+		prerequisite = {
+			focus = common_42
+		}
+		x = 44
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date < 1953.1.1
+			}
+			modifier = {
+				add = -10
+				date > 1955.1.1
+			}
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = AgriculturalCollectivization
+				days = 500
+			}
+			news_event = { id = gen.95 }
+			add_political_power = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+		}
+
+	}
+	focus = {
+		id = common_44
+		icon = GFX_goal_agriculture
+		cost = 3
+		prerequisite = {
+			focus = common_27
+		}
+		x = 42
+		y = 4
+		completion_reward = {
+			add_ideas = { AgriculturalCooperatives }
+		}
+	}
+	focus = {
+		id = common_45
+		icon = GFX_focus_generic_modernize_industry
+		cost = 3
+		prerequisite = {
+			focus = common_commuist_nationalized
+		}
+		x = 46
+		y = 6
+		completion_reward = {
+			add_to_variable = { influences = 80 } 
+			add_timed_idea = {
+				idea = five_years_plant
+				days = 500
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					NOT = {
+						OR = {
+							has_dynamic_modifier = { modifier = state_desert_modifier }
+							has_state_category = wasteland
+							has_state_category = pastoral
+							has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 1 }
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					NOT = {
+						OR = {
+							has_dynamic_modifier = { modifier = state_desert_modifier }
+							has_state_category = wasteland
+							has_state_category = pastoral
+							has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 1 }
+			}
+		}	
+	}
+	focus = {
+		id = common_46
+		icon = GFX_goal_generic_construction
+		cost = 3
+		prerequisite = {
+			focus = common_45
+		}
+		x = 46
+		y = 7
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					OR = {
+						NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = common_48
+		icon = GFX_soviet_relationship
+		cost = 3
+		prerequisite = {
+			focus = common_72
+		}
+		x = 56
+		y = 3
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = independent_red
+			}
+			modifier = {
+				factor = 1
+				has_completed_focus = common_28
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences < 100 } }
+			}
+		}
+	}
+	focus = {
+		id = common_sov_aid
+		icon = GFX_focus_SOV_third_rome
+		cost = 3
+		prerequisite = {
+			focus = common_48
+		}
+		x = 58
+		y = 4
+		available = {
+			has_opinion = {
+				target = SOV
+				value > 29
+			}
+			has_government = communism
+		}
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = independent_red
+			}
+			modifier = {
+				factor = 1
+				has_completed_focus = common_28
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences < 100 } }
+			}
+		}
+	}
+	focus = {
+		id = common_sov_techs
+		icon = GFX_focus_SOV_organize_wreckers
+		cost = 3
+		prerequisite = {
+			focus = common_sov_aid
+		}
+		x = 58
+		y = 5
+		available = {
+			has_opinion = {
+				target = SOV
+				value > 29
+			}
+			has_government = communism
+		}
+		completion_reward = {
+			SOV = { news_event = { id = sov.46 } }
+			add_ideas = soviet_industry_advisitor_idea
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = independent_red
+			}
+			modifier = {
+				factor = 1
+				has_completed_focus = common_28
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences < 100 } }
+			}
+		}
+	}
+	focus = {
+		id = common_sov_arms
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		cost = 3
+		prerequisite = {
+			focus = common_48
+		}
+		available = {
+			has_opinion = {
+				target = SOV
+				value > 39
+			}
+			has_government = communism
+		}
+		x = 56
+		y = 4
+		completion_reward = {
+			SOV = { country_event = sov.263 }
+			set_country_flag = SOV_militar_advisor_focus
+			add_political_power = 30
+			army_experience = 300
+		}
+
+	}
+	focus = {
+		id = common_49
+		icon = GFX_goal_WarsawPact
+		cost = 3
+		prerequisite = {
+			focus = common_sov_arms
+		}
+		available = {
+			capital_scope = {
+				is_on_continent = europe
+			}
+			SOV = { has_completed_focus = SOV_WarsawPact }
+			has_government = communism
+			NOT = { has_idea = SovietChinaConflit }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 10
+				has_government = communism
+			}
+			modifier = {
+				factor = -80
+				tag = YUG
+			}
+		}
+		x = 56
+		y = 5
+		completion_reward = {
+			add_political_power = 30
+			news_event = { id = sov.12 }
+		}
+
+	}
+	focus = {
+		id = common_50
+		icon = GFX_goal_diplo_prc
+		cost = 3
+		prerequisite = {
+			focus = common_48
+		}
+		x = 54
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 80
+				tag = CAM
+				date > 1955.1.1
+				has_country_leader_with_trait = pro_third_world
+			}
+			modifier = {
+				add = 20
+				PRC = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				PRC = { check_variable = { influences < 200 } }
+			}
+			modifier = {
+				add = -40
+				PRC = { has_idea = SovietChinaConflit }
+				is_in_faction_with = SOV
+			}
+		}
+		completion_reward = {
+			news_event = { id = gen.43 }
+			PRC = { news_event = { id = gen.43 } }
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = PRC
+				modifier = USA_special_relationship
+			}
+		}
+
+	}
+	focus = {
+		id = common_maoism
+		icon = GFX_focus_prc_maoism
+		cost = 3
+		prerequisite = {
+			focus = common_50
+		}
+		available = {
+			PRC = { has_idea = Cultrue_Revolution }
+		}
+		x = 53
+		y = 5
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = common_culture_revolution
+		icon = GFX_goal_PRC_culture_revolution~1
+		cost = 3
+		prerequisite = {
+			focus = common_maoism
+		}
+		prerequisite = {
+			focus = common_strike_religion
+		}
+		x = 52
+		y = 6
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = common_people_communie
+		icon = GFX_focus_generic_communist_industry
+		cost = 3
+		prerequisite = {
+			focus = common_maoism
+		}
+		x = 54
+		y = 6
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = common_workers_communie
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 3
+		prerequisite = {
+			focus = common_maoism
+		}
+		x = 53
+		y = 7
+		completion_reward = {
+		}
+
+	}
+	focus = {
+		id = common_12
+		icon = GFX_goal_mccarthyism
+		cost = 3
+		prerequisite = {
+			focus = common_11
+		}
+		x = 28
+		y = 5
+		completion_reward = {
+			add_ideas = closed_economy
+			add_to_variable = { influences = -100 }
+			custom_effect_tooltip = focus_tooltip_influence_-100
+		}
+
+	}
+	focus = {
+		id = common_25
+		icon = GFX_goal_PRC_economic_reform
+		cost = 3
+		prerequisite = {
+			focus = common_22
+		}
+		x = 36
+		y = 4
+
+	}
+	focus = {
+		id = common_29
+		icon = GFX_goal_neoliberal
+		cost = 35
+		available = {
+			has_government = communism
+		}
+		prerequisite = {
+			focus = common_30
+		}
+		x = 36
+		y = 6
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = partial_economic_mobilisation
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+
+	}
+	focus = {
+		id = common_30
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 35
+		available = {
+			has_government = communism
+		}
+		prerequisite = {
+			focus = common_27
+		}
+		x = 38
+		y = 5
+		completion_reward = {
+			custom_effect_tooltip = foreign_companies_tool
+			add_dynamic_modifier = { modifier = foreign_companies_modifiers }
+			add_ideas = low_economic_mobilisation
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			add_stability = 0.1
+			add_political_power = 200
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+
+	}
+	focus = {
+		id = common_32
+		icon = GFX_goal_generic_improve_relations
+		cost = 35
+		available = {
+			has_government = communism
+			has_country_leader_with_trait = liberal_reformism
+		}
+		prerequisite = {
+			focus = common_31
+		}
+		x = 40
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.46 }
+			add_ideas = New_idea
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+		}
+
+	}
+	focus = {
+		id = common_33
+		icon = GFX_goal_diplo_usa
+		cost = 3
+		available = {
+			has_government = communism
+		}
+		prerequisite = {
+			focus = common_30
+		}
+		x = 38
+		y = 6
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = 40
+				USA = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				USA = { check_variable = { influences < 100 } }
+			}
+		}
+		completion_reward = {
+			news_event = { id = gen.40 }
+			add_political_power = 200
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+
+	}
+	focus = {
+		id = common_34
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 3
+		available = {
+			has_government = communism
+		}
+		prerequisite = {
+			focus = common_33
+		}
+		mutually_exclusive = {
+			focus = common_36
+		}
+		x = 38
+		y = 7
+
+	}
+	focus = {
+		id = common_35
+		icon = GFX_goal_support_democracy
+		cost = 3
+		available = {
+			has_government = communism
+			has_country_leader_with_trait = liberal_reformism
+		}
+		prerequisite = {
+			focus = common_32
+		}
+		x = 40
+		y = 6
+		completion_reward = {
+			news_event = { id = gen.69 }
+			add_political_power = 180
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
+
+	}
+	focus = {
+		id = common_36
+		icon = GFX_goal_anti_communist
+		cost = 3
+		prerequisite = {
+			focus = common_35
+		}
+		prerequisite = {
+			focus = common_33
+		}
+		available = {
+			has_government = communism
+			has_country_leader_with_trait = liberal_reformism
+		}
+		mutually_exclusive = {
+			focus = common_34
+		}
+		x = 40
+		y = 7
+		completion_reward = {
+			news_event = { id = gen.82 }
+			set_country_flag = election_ready
+			add_political_power = 180
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = common_companies_reform
+		icon = GFX_focus_generic_university_2
+		cost = 3
+		prerequisite = {
+			focus = common_29
+		}
+		x = 36
+		y = 7
+		available = {
+			OR = {
+				has_country_leader_with_trait = socialist_reformism
+				has_country_leader_with_trait = liberal_reformism
+			}
+			NOT = {
+				OR = {
+					has_idea = war_economy
+					has_idea = low_economic_mobilisation
+				}
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = private_focus_tool
+			set_country_flag = private_economic
+			news_event = { id = gen.96 }
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = common_41
+		icon = GFX_goal_red_terror
+		cost = 3
+		prerequisite = {
+			focus = common_40
+			focus = common_70
+		}
+		x = 49
+		y = 7
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 40
+				date > 1949.2.1
+			}
+		}
+		completion_reward = {
+			add_ideas = closed_economy
+			add_timed_idea = {
+				idea = grand_purge
+				days = 365
+			}
+			news_event = { id = gen.45 }
+			add_political_power = -200
+			add_stability = -0.25
+			add_popularity = {
+				ideology = communism
+				popularity = 0.3
+			}
+		}
+
+	}
+	focus = {
+		id = common_52
+		icon = GFX_focus_wonderweapons
+		cost = 3
+		prerequisite = {
+			focus = common_68
+		}
+		x = -24
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+
+	}
+	focus = {
+		id = common_Semiconductor
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 3
+		prerequisite = {
+			focus = focus_electro
+		}
+		x = 4
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = common_hight_tech
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 3
+		prerequisite = {
+			focus = common_Semiconductor
+		}
+		x = 4
+		y = 7
+		available = {
+			has_tech = Semiconductor
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = common_massage_tech
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 3
+		prerequisite = {
+			focus = common_hight_tech
+		}
+		available = {
+			has_tech = Semiconductor
+		}
+		x = 4
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = common_islamic
+		icon = GFX_goal_islam_diplo
+		cost = 3
+		available = {
+			has_country_flag = islam_state
+		}
+		prerequisite = {
+			focus = common_1
+		}
+		x = 19
+		y = 3
+		ai_will_do = {
+			factor = -10
+		}
+		completion_reward = {
+			news_event = { id = gen.123 }
+			add_political_power = 30
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.15
+				}
+		}
+
+	}
+	focus = {
+		id = common_53
+		icon = GFX_goal_islam
+		cost = 3
+		available = {
+			fascism > 0.5
+		}
+		prerequisite = {
+			focus = common_islamic
+		}
+		x = 19
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.130 }
+			add_political_power = 30
+			set_politics = { ruling_party = fascism }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.12
+				}
+		}
+
+	}
+	focus = {
+		id = common_54
+		icon = GFX_focus_FIN_parmis_devils
+		cost = 3
+		available = {
+			has_government = fascism
+		}
+		prerequisite = {
+			focus = common_53
+		}
+		x = 17
+		y = 6
+		completion_reward = {
+			add_popularity = { ideology = fascism popularity = 0.15 }
+			add_ideas = theory_police_idea
+			news_event = { id = per.126 }
+			add_political_power = -130
+		}
+
+	}
+	focus = {
+		id = common_55
+		icon = GFX_goal_mujahideen
+		cost = 3
+		available = {
+			has_government = fascism
+		}
+		prerequisite = {
+			focus = common_54
+		}
+		x = 17
+		y = 7
+		completion_reward = {
+			add_timed_idea = {
+				idea = mujahedeen
+				days = 200
+			}
+			add_political_power = 30
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.2
+				}
+		}
+
+	}
+	
+	focus = {
+		id = common_80
+		icon = GFX_goal_territorry_war
+		cost = 3
+		available = {
+			has_war_support > 0.8
+		}
+		prerequisite = {
+			focus = common_55
+			focus = common_57
+			focus = common_crusaders
+		}
+		x = 20
+		y = 8
+		completion_reward = {
+			custom_effect_tooltip = common_80_tool
+			set_country_flag = can_claim_categories
+		}
+
+	}
+	focus = {
+		id = common_56
+		icon = GFX_focus_ITA_generic_fascist_workers
+		cost = 3
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = authoritarianism
+			}
+		}
+		ai_will_do = {
+			base = -10
+		}
+		prerequisite = {
+			focus = common_9
+		}
+		x = 24
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.167 }
+			add_political_power = 180
+			add_ideas = export_focus
+			add_ideas = extensive_conscription
+			if = {
+				limit = { has_government = authoritarianism }
+				add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.2
+				}
+			}
+			if = {
+				limit = { has_government = neutrality }
+				add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+				}
+			}
+		}
+	}
+	focus = {
+		id = common_hateful
+		icon = GFX_goal_parade
+		cost = 3
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = authoritarianism
+			}
+		}
+		prerequisite = {
+			focus = common_56
+		}
+		x = 23
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.171 }
+			add_political_power = -150
+				add_popularity = {
+					ideology = democratic
+					popularity = -0.08
+				}
+		}
+	}
+	focus = {
+		id = common_majority
+		icon = GFX_goal_parade
+		cost = 3
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = authoritarianism
+			}
+		}
+		prerequisite = {
+			focus = common_56
+		}
+		x = 26
+		y = 5
+		completion_reward = {
+			add_to_variable = { influences = -80 }
+			custom_effect_tooltip = focus_tooltip_influence_-80
+			news_event = { id = gen.174 }
+			add_ideas = harmonious
+		}
+	}
+	focus = {
+		id = common_united_ethnics
+		icon = GFX_goal_parade
+		cost = 3
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = authoritarianism
+			}
+		}
+		prerequisite = {
+			focus = common_majority
+		}
+		x = 28
+		y = 6
+		completion_reward = {
+			add_to_variable = { influences = -100 }
+			custom_effect_tooltip = focus_tooltip_influence_-100
+		}
+	}
+	focus = {
+		id = common_super_race
+		icon = GFX_focus_generic_workers
+		cost = 3
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = authoritarianism
+			}
+		}
+		prerequisite = {
+			focus = common_majority
+		}
+		x = 26
+		y = 6
+		completion_reward = {
+			add_to_variable = { influences = -100 }
+			custom_effect_tooltip = focus_tooltip_influence_-100
+			add_ideas = apartheid
+		}
+	}
+	focus = {
+		id = common_57
+		icon = GFX_focus_ger_reichskommisariats
+		cost = 3
+		available = {
+			OR = {
+			has_government = neutrality
+			has_government = authoritarianism
+			}
+		}
+		prerequisite = {
+			focus = common_56
+		}
+		x = 24
+		y = 6
+		completion_reward = {
+			news_event = { id = gen.175 }
+			add_political_power = 180
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.12
+				}
+			if = {
+				limit = { has_government = authoritarianism }
+				add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.2
+				}
+			}
+			if = {
+				limit = { has_government = neutrality }
+				add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = common_58
+		icon = GFX_goal_nationalism_speak
+		cost = 3
+		available = {
+			has_government = neutrality
+		}
+		prerequisite = {
+			focus = common_57
+		}
+		x = 24
+		y = 7
+		completion_reward = {
+			add_political_power = 30
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.12
+				}
+		}
+
+	}
+	focus = {
+		id = common_expanded_soldiers
+		icon = GFX_focus_generic_little_entente
+		cost = 3
+		available = {
+			has_government = neutrality
+		}
+		prerequisite = {
+			focus = common_57
+		}
+		x = 26
+		y = 7
+		completion_reward = {
+			news_event = { id = gen.176 }
+			add_ideas = scraping_the_barrel
+			add_political_power = 30
+		}
+
+	}
+	focus = {
+		id = common_all_soldiers
+		icon = GFX_focus_generic_fascist_troops
+		cost = 3
+		available = {
+			has_government = neutrality
+		}
+		prerequisite = {
+			focus = common_expanded_soldiers
+		}
+		x = 26
+		y = 8
+		completion_reward = {
+			add_ideas = scraping_the_barrel
+			add_political_power = 30
+		}
+
+	}
+	focus = {
+		id = common_59
+		icon = GFX_goal_youthleage
+		cost = 3
+		available = {
+			has_government = neutrality
+		}
+		prerequisite = {
+			focus = common_58
+		}
+		x = 24
+		y = 8
+		completion_reward = {
+			news_event = { id = gen.177 }
+			add_political_power = 30
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.2
+				}
+		}
+
+	}
+	focus = {
+		id = common_60
+		icon = GFX_goal_quran
+		cost = 3
+		prerequisite = {
+			focus = common_53
+		}
+		x = 19
+		y = 6
+		completion_reward = {
+			news_event = { id = gen.136 }
+			add_political_power = 20
+			add_popularity = {
+					ideology = fascism
+					popularity = 0.12
+				}
+		}
+
+	}
+	focus = {
+		id = common_ulima
+		icon = GFX_focus_TUR_turanist_ambition
+		cost = 3
+		prerequisite = {
+			focus = common_53
+		}
+		x = 18
+		y = 8
+		completion_reward = {
+			news_event = { id = gen.139 }
+			add_political_power = 20
+			add_popularity = {
+					ideology = fascism
+					popularity = 0.12
+				}
+		}
+
+	}
+	focus = {
+		id =  ethics_committee
+		icon = GFX_goal_islam_court
+		cost = 3
+		prerequisite = {
+			focus = common_60
+		}
+		x = 19
+		y = 7
+		completion_reward = {
+			news_event = { id = gen.135 }
+			add_ideas = closed_economy
+			add_political_power = -200
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.2
+				}
+		}
+	}
+	focus = {
+		id = common_61
+		icon = GFX_goal_PRC_baochan
+		cost = 3
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		x = -4
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = -10
+				has_government = monarchism
+			}
+			modifier = {
+				add = -10
+				has_country_flag = islam_state
+			}
+			modifier = {
+				add = -10
+				has_country_flag = latin_america
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = focus_landreform_tool
+			add_political_power = 100
+			add_stability = 0.02
+			add_to_variable = { influences = 40 }
+			news_event = { id = gen.65 }
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.02
+				}
+		}
+	}
+	focus = {
+		id = common_port
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		cost = 3
+		prerequisite = {
+			focus = common_63
+		}
+		available = {
+		}
+		x = 4
+		y = 2
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 2
+								include_locked = yes
+							}
+						}
+					}
+					any_owned_state = {
+						is_coastal = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+				set_country_flag = naval_effort_built
+			}
+			if = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+			if = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+	focus = {
+		id = common_75
+		icon = GFX_focus_POL_warsaw_main_station
+		cost = 3
+		prerequisite = {
+			focus = common_63
+			focus = common_infra
+		}
+		available = {
+			has_tech = construction2
+		}
+		x = 2
+		y = 2
+		completion_reward = {
+			capital_scope = {
+				if = {
+					limit = {
+						has_state_category = rural
+					}
+					set_state_category = large_town
+				}
+			}
+			capital_scope = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 1 }
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				if = {
+					limit = {
+						has_state_category = rural
+					}
+					set_state_category = town
+				}
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+					infrastructure < 4
+					power_plant < 2
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 1 }
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				if = {
+					limit = {
+						is_in_home_area = yes
+						has_state_category = rural
+					}
+					set_state_category = town
+				}
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = state_desert_modifier } }
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					infrastructure < 4
+					power_plant < 2
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = school
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 1 }
+				add_extra_state_shared_building_slots = 2
+			}
+			add_to_variable = { influences = 40 }
+		}
+	}
+	focus = {
+		id = common_medic
+		icon = GFX_goal_medical
+		cost = 3
+		prerequisite = {
+			focus = common_75
+		}
+		available = {
+			any_owned_state = {
+				hospital < 1
+			}
+		}
+		x = 0
+		y = 3
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					hospital < 1
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = common_62
+		icon = GFX_focus_hun_elect_a_king
+		cost = 3
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		available = {
+			has_country_flag = has_monarchs
+		}
+		x = 7
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				NOT = { has_government = monarchism }
+			}
+			modifier = {
+				factor = -60
+				date < 1960.1.1
+			}
+			modifier = {
+				add = 1
+				has_government = monarchism
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { has_government = monarchism }
+				news_event = { id = gen.63 }
+			}
+			add_political_power = 20
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.25
+			}
+		}
+
+	}
+	focus = {
+		id = common_51
+		icon = GFX_goal_parliament
+		cost = 3
+		prerequisite = {
+			focus = common_62
+			focus = common_3
+		}
+		x = 9
+		y = 2
+		available = {
+			has_government = monarchism
+		}
+		ai_will_do = {
+			base = 0
+		}
+		completion_reward = {
+			news_event = { id = gen.99 }
+			add_stability = 0.2
+			add_political_power = 600
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_to_variable = { root.influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+	focus = {
+		id = common_19
+		icon = GFX_goal_monarch_constitution
+		cost = 3
+		prerequisite = {
+			focus = common_51
+		}
+		available = {
+			has_government = monarchism
+		}
+		x = 9
+		y = 3
+		completion_reward = {
+			add_stability = 0.2
+			add_political_power = 300
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.4
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.15
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_to_variable = { root.influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+	focus = {
+		id = common_18
+		icon = GFX_goal_monarch_parliament
+		cost = 3
+		available = {
+			monarchism > 0.35
+		}
+		prerequisite = {
+			focus = common_62
+		}
+		prerequisite = {
+			focus = common_51
+		}
+		x = 7
+		y = 3
+		completion_reward = {
+			set_politics = { ruling_party = monarchism }
+			news_event = { id = gen.97 }
+			add_political_power = 60
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = common_monarch_party
+		icon = GFX_focus_generic_royal_wedding
+		cost = 3
+		available = {
+			has_government = monarchism
+		}
+		prerequisite = {
+			focus = common_18
+		}
+		x = 7
+		y = 4
+		completion_reward = {
+			news_event = { id = gen.100 }
+			add_political_power = 60
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = common_monarch_worship
+		icon = GFX_focus_generic_monarchy_2
+		cost = 3
+		available = {
+			has_government = monarchism
+			monarchism > 0.6
+		}
+		prerequisite = {
+			focus = common_79
+		}
+		x = 6
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.101 }
+			add_political_power = 60
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = common_king_state
+		icon = GFX_focus_ICE_break_with_the_crown
+		cost = 3
+		available = {
+			has_government = monarchism
+			monarchism > 0.6
+		}
+		prerequisite = {
+			focus = common_monarch_party
+		}
+		x = 8
+		y = 5
+		completion_reward = {
+			news_event = { id = gen.107 }
+			add_political_power = -250
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = common_king_law
+		icon = GFX_goal_handcuffs
+		cost = 3
+		available = {
+			has_government = monarchism
+			monarchism > 0.7
+		}
+		prerequisite = {
+			focus = common_king_state
+		}
+		prerequisite = {
+			focus = common_monarch_worship
+		}
+		x = 7
+		y = 6
+		completion_reward = {
+			news_event = { id = gen.103 }
+			add_political_power = 60
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = common_79
+		icon = GFX_goal_monarch_cabinet
+		cost = 3
+		available = {
+			has_government = monarchism
+		}
+		prerequisite = {
+			focus = common_62
+		}
+		x = 6
+		y = 2
+		ai_will_do = {
+			base = 0
+		}
+		completion_reward = {
+			news_event = { id = gen.98 }
+			add_political_power = -200
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.25
+			}
+			add_to_variable = { root.influences = -50 }
+			custom_effect_tooltip = focus_tooltip_influence_-50
+		}
+
+	}
+	focus = {
+		id = common_agriculture
+		icon = GFX_goal_agriculture
+		cost = 3
+		prerequisite = {
+			focus = common_61
+		}
+		x = -4
+		y = 2
+		completion_reward = {
+			set_technology = {
+				dispersed_industry = 1
+				dispersed_industry2 = 1
+				can_foods = 1
+				frozen_food = 1
+			}
+			add_to_variable = { influences = 40 }
+			custom_effect_tooltip = focus_tooltip_influence_40
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_fishing_1
+		icon = GFX_goal_fishing
+		cost = 3
+		prerequisite = {
+			focus = common_agriculture
+		}
+		x = -6
+		y = 3
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = common_fishing_1_tool
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_fishing_2
+		icon = GFX_goal_fishing
+		cost = 3
+		prerequisite = {
+			focus = common_fishing_1
+		}
+		x = -6
+		y = 4
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+			num_of_naval_factories > 3
+		}
+		completion_reward = {
+			custom_effect_tooltip = common_fishing_1_tool
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_fishing_manufacture
+		icon = GFX_goal_fish_can
+		cost = 3
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+			}
+			num_of_naval_factories > 5
+			num_of_available_civilian_factories > 9
+		}
+		prerequisite = {
+			focus = common_fishing_2
+		}
+		x = -6
+		y = 5
+		completion_reward = {
+			custom_effect_tooltip = common_fishing_manufacture_tool
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = common_63
+		icon = GFX_focus_generic_aluminum
+		cost = 10
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		available = {
+			iron > 9
+			copper > 4
+			rubber > 2
+			has_stability > 0.7
+			has_political_power > 300
+		}
+		x = 2
+		y = 1
+		completion_reward = {
+			set_technology = {
+				improved_machine_tools = 1
+				concentrated_industry = 1
+				dispersed_industry2 = 1
+				synth_oil_experiments = 1
+				oil_processing = 1
+				construction2 = 1
+				excavation2 = 1
+				power_generation1 = 1
+				electronic_mechanical_engineering = 1
+			}
+			add_to_variable = { influences = 40 }
+			custom_effect_tooltip = focus_tooltip_influence_40
+			add_stability = 0.1
+			add_political_power = 100
+			if= {
+				limit= { NOT = { has_country_flag = developmented } }
+				capital_scope = {
+					add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					}
+					add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+					}
+					add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = common_power
+		icon = GFX_focus_generic_energy
+		cost = 3
+		prerequisite = {
+			focus = common_75
+		}
+		x = 4
+		y = 3
+		available = {
+			has_tech = power_generation1
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					power_plant < 1
+					OR = {
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = city
+					}
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					power_plant < 1
+					OR = {
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = city
+					}
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_dynamic_modifier = {
+			modifier = power_construct_modifiers
+				days = 1800
+			}
+		}
+	}
+	
+	focus = {
+		id = common_64
+		icon = GFX_focus_generic_modernize_industry
+		cost = 3
+		prerequisite = {
+			focus = common_75
+		}
+		x = 2
+		y = 3
+		available = {
+			has_tech = basic_machine_tools
+			any_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+			}
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}	
+
+		completion_reward = {
+			add_research_slot = 1
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}		
+	}
+	focus = {
+		id = common_65
+		icon = GFX_focus_generic_modernize_industry
+		cost = 3
+		prerequisite = {
+			focus = common_64
+		}
+		available = {
+			num_of_controlled_states > 2
+			has_tech = concentrated_industry
+			has_tech = concentrated_industry4
+			has_tech = excavation2
+			has_tech = synth_oil_experiments
+			has_tech = construction2
+			has_tech = improved_machine_tools
+			any_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+			}
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}	
+
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		x = 2
+		y = 4
+	}
+	focus = {
+		id = steel_produc
+		icon = GFX_goal_steel
+		cost = 3
+		prerequisite = {
+			focus = common_64
+		}
+		available = {
+			has_tech = concentrated_industry4
+			iron > 4
+			coal > 9
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = steel_construct_modifiers
+					days = 1800
+				}
+			if = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			}
+		}
+		x = 4
+		y = 4
+	}
+	focus = {
+		id = focus_electro
+		icon = GFX_goal_electronic
+		cost = 3
+		prerequisite = {
+			focus = steel_produc
+		}
+		available = {
+			has_tech = vaccum_tube
+			has_tech = improved_machine_tools
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronics
+				ahead_reduction = 1
+				category = electronics
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = focus_electro_tool
+		}
+		x = 4
+		y = 5
+	}
+	focus = {
+		id = focus_space_explore
+		icon = GFX_goal_sputnik1
+		cost = 3
+		prerequisite = {
+			focus = common_66
+		}
+		prerequisite = {
+			focus = focus_electro
+		}
+		available = {
+			has_completed_focus = common_airbase_2
+			has_completed_focus = common_jet_1
+			has_completed_focus = common_missile
+		}
+		completion_reward = {
+			news_event = { id = gen.64 }
+			add_tech_bonus = {
+				name = focus_space_explore
+				bonus = 1.0
+				uses = 1
+				category = space
+			}
+		}
+		x = 2
+		y = 7
+	}
+	focus = {
+		id = oil_produc
+		icon = GFX_goal_oil_produc
+		cost = 3
+		prerequisite = {
+			focus = common_64
+		}
+		available = {
+			has_tech = oil_processing
+			oil > 8
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = refinery_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = dockyard
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 3
+						include_locked = yes
+					}
+					is_in_home_area = yes
+					has_dynamic_modifier = { modifier = oil_modifiers }
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		x = 0
+		y = 4
+	}
+	focus = {
+		id = common_nuclear
+		icon = GFX_goal_focus_Nuke
+		cost = 3
+		prerequisite = {
+			focus = plastic_produc
+		}
+		x = 0
+		y = 6
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = excavation2
+			has_tech = polymer
+			chromium > 5
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.5
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = common_nuclear_power
+		icon = GFX_goal_nuclear_plant
+		cost = 3
+		prerequisite = {
+			focus = common_nuclear
+		}
+		x = 0
+		y = 7
+		available = {
+			has_tech = nucelar_fusion
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.5
+				category = nuclear
+			}
+		}
+	}
+	
+	focus = {
+		id = plastic_produc
+		icon = GFX_goal_plastic_indus
+		cost = 3
+		prerequisite = {
+			focus = oil_produc
+		}
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = rubber_processing
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+				any_owned_state = {
+		            is_controlled_by = ROOT 
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+				}
+			}
+		}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		}
+		x = 0
+		y = 5
+	}
+
+	focus = {
+		id = common_66
+		icon = GFX_focus_generic_modernize_industry
+		cost = 3
+		prerequisite = {
+			focus = common_65
+		}
+		available = {
+			num_of_controlled_states > 4
+			has_tech = excavation3
+			has_tech = rubber_processing
+			has_tech = construction3
+			has_tech = advanced_machine_tools
+			has_tech = concentrated_industry5
+			has_tech = aluminum_tech
+			has_tech = concentrated_industry3
+			any_owned_state = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+			}
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}	
+
+		completion_reward = {
+			add_research_slot = 1
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		x = 2
+		y = 5
+	}
+	focus = {
+		id = common_mineral
+		icon = GFX_focus_generic_mining_industry
+		cost = 3
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		available = {
+			has_tech = excavation2
+		}
+		x = -2
+		y = 1
+		completion_reward = {
+			every_owned_state = {
+				limit = { iron > 2 }
+				add_resource = {
+					type = iron
+					amount = 5
+				}
+			}
+			every_owned_state = {
+				limit = { coal > 2 }
+				add_resource = {
+					type = coal
+					amount = 5
+				}
+			}
+			every_owned_state = {
+				limit = { copper > 2 }
+				add_resource = {
+					type = copper
+					amount = 5
+				}
+			}
+			every_owned_state = {
+				limit = { chromium > 0 }
+				add_resource = {
+					type = chromium
+					amount = 3
+				}
+			}
+			every_owned_state = {
+				limit = { aluminium > 2 }
+				add_resource = {
+					type = aluminium
+					amount = 5
+				}
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						iron > 5
+						coal > 5
+						copper > 5
+						salt > 5
+						aluminium > 5
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = common_infra
+		icon = GFX_goal_Hight_way
+		cost = 3
+		prerequisite = {
+			focus = Focus_Goverment_reform
+		}
+		x = 0
+		y = 1
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+			every_owned_state = {
+				limit = {
+					infrastructure < 2
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = common_tourism
+		icon = GFX_goal_Hight_way
+		cost = 3
+		prerequisite = {
+			focus = common_infra
+		}
+		x = 0
+		y = 2
+		available = {
+			has_stability > 0.7
+			OR = {
+				has_idea = civilian_economy
+				has_idea = partial_economic_mobilisation
+			}
+			NOT = {
+				has_idea = low_education
+				has_idea = low_diplomacy
+			}
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = { check_variable = { state_tourist > 0 } }
+				multiply_variable = { state_tourist = 1.25 }
+				custom_effect_tooltip = common_tourism_tool
+			}
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = common_railway_1
+		icon = GFX_focus_generic_railroad
+		cost = 3
+		prerequisite = {
+			focus = common_infra
+		}
+		x = -2
+		y = 2
+		available = {
+			num_of_controlled_states > 2
+			has_tech = basic_train
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = railway_nationalized_modifier
+					days = 1800
+				}
+		}
+	}
+	focus = {
+		id = common_railway_2
+		icon = GFX_goal_Hight_way
+		cost = 3
+		prerequisite = {
+			focus = common_railway_1
+		}
+		x = -2
+		y = 3
+		available = {
+			has_tech = gasoline_train
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = railway_tech
+			}
+				add_dynamic_modifier = {
+					modifier = railway_nationalized_modifier
+					days = 1800
+				}
+		}
+	}
+	focus = {
+		id = common_high_railway
+		icon = GFX_goal_Hight_way
+		cost = 3
+		prerequisite = {
+			focus = common_railway_2
+		}
+		x = -2
+		y = 4
+		available = {
+			has_tech = electro_train
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = railway_tech
+			}
+				add_dynamic_modifier = {
+					modifier = railway_nationalized_modifier
+					days = 1800
+				}
+		}
+	}
+	focus = {
+		id = common_buy_weapons
+		icon = GFX_focus_generic_combined_arms
+		cost = 3
+		prerequisite = {
+			focus = common_20
+		}
+		x = -22
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = common_armors
+		icon = GFX_goal_generic_army_tanks
+		cost = 3
+		prerequisite = {
+			focus = common_67
+		}
+		x = -24
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = cat_medium_armor
+				ahead_reduction = 2
+				uses = 1
+				category = cat_medium_armor
+			}
+		}
+	}
+	focus = {
+		id = common_airborn
+		icon = GFX_focus_FIN_expand_air_force_academy
+		cost = 3
+		prerequisite = {
+			focus = common_67
+		}
+		x = -20
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = para_tech
+			}
+		}
+	}
+	focus = {
+		id = common_develop_weapons
+		icon = GFX_goal_generic_small_arms
+		cost = 3
+		prerequisite = {
+			focus = common_20
+		}
+		x = -24
+		y = 3
+		completion_reward = {
+			custom_effect_tooltip = common_20_tool
+		}
+	}
+	focus = {
+		id = common_mechanized
+		icon = GFX_focus_SWE_lynx_armored_car
+		cost = 3
+		prerequisite = {
+			focus = common_military_system
+		}
+		x = -20
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = motorized_equipment
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = cat_mechanized_equipment
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = cat_light_armor
+			}
+		}
+	}
+	focus = {
+		id = common_military_system
+		icon = GFX_focus_generic_infiltration
+		cost = 3
+		prerequisite = {
+			focus = common_20
+		}
+		x = -20
+		y = 3
+		completion_reward = {
+			army_experience = 400
+		}
+	}
+	focus = {
+		id = common_67
+		icon = GFX_goal_militarist
+		cost = 3
+		prerequisite = {
+			focus = common_buy_weapons
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = infantry_weapons
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		x = -22
+		y = 4
+	}
+	focus = {
+		id = common_missile
+		icon = GFX_focus_rocketry
+		cost = 3
+		prerequisite = {
+			focus = common_68
+		}
+		available = {
+			has_tech = improved_machine_tools
+		}
+		completion_reward = {
+			custom_effect_tooltip = common_missile_tool
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.2
+				category = space
+			}
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.5
+				category = rocketry
+			}
+		}
+		x = -20
+		y = 6
+	}
+	focus = {
+		id = common_68
+		icon = GFX_goal_militarist
+		cost = 3
+		prerequisite = {
+			focus = common_67
+		}
+		available = {
+			num_of_controlled_states > 2
+			has_tech = improved_machine_tools
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		x = -22
+		y = 5
+	}
+	focus = {
+		id = common_69
+		icon = GFX_goal_militarist
+		cost = 3
+		prerequisite = {
+			focus = common_68
+		}
+		available = {
+			num_of_controlled_states > 4
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		x = -22
+		y = 6
+	}
+	focus = {
+		id = common_70
+		icon = GFX_goal_Commissar
+		cost = 3
+		prerequisite = {
+			focus = common_37
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			add_war_support = 0.3
+		}
+		x = 50
+		y = 5
+	}
+	focus = {
+		id = common_71
+		icon = GFX_goal_youth_poineers
+		cost = 3
+		prerequisite = {
+			focus = common_28
+		}
+		completion_reward = {
+			news_event = gen.240
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+		x = 50
+		y = 4
+	}
+	focus = {
+		id = common_72
+		icon = GFX_focus_SOV_international_union_of_soviet_republics
+		cost = 3
+		prerequisite = {
+			focus = common_2
+		}
+		available = {
+			NOT = { has_country_leader_with_trait = independent_red }
+		}
+		x = 56
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = socialist_reformism
+			}
+			modifier = {
+				add = 1
+				has_government = communism
+			}
+		}
+		completion_reward = {
+			add_to_variable = { influences = 40 }
+			custom_effect_tooltip = focus_tooltip_influence_40
+			news_event = { id = gen.41 }
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = PRC
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = common_73
+		icon = GFX_goal_comecon
+		cost = 3
+		prerequisite = {
+			focus = common_72
+		}
+		available = {
+			has_opinion = {
+				target = SOV
+				value > 19
+			}
+			SOV = { has_completed_focus = SOV_EconomicMutualAidCommittee }
+			NOT = { has_country_leader_with_trait = independent_red }
+		}
+		x = 54
+		y = 3
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			news_event = { id = gen.42 }
+			add_ideas = comecon
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+	}
+	focus = {
+		id = common_export_revolution
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		cost = 3
+		prerequisite = {
+			focus = common_72
+		}
+		available = {
+			has_government = communism
+		}
+		x = 62
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_political_power = -150
+		}
+	}
+	focus = {
+		id = common_latin_revolution
+		icon = GFX_focus_por_latin_american_communism
+		cost = 3
+		prerequisite = {
+			focus = common_export_revolution
+		}
+		available = {
+			has_government = communism
+		}
+		x = 60
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+				add_political_power = -100
+			every_other_country = {
+				limit = { has_country_flag = latin_america }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}
+			}
+			every_other_country = {
+				limit = {
+					NOT = { has_government = communism }
+					has_country_flag = latin_america
+					is_neighbor_of = ROOT
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}	
+			}
+		}
+	}
+	focus = {
+		id = common_asia_revolution
+		icon = GFX_goal_VietCong
+		cost = 3
+		prerequisite = {
+			focus = common_export_revolution
+		}
+		available = {
+			has_government = communism
+		}
+		x = 61
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+				add_political_power = -100
+			news_event = { id = sov.70 }
+			every_other_country = {
+				limit = { has_country_flag = southeastasia }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}	
+			}
+			every_other_country = {
+				limit = {
+					NOT = { has_government = communism }
+					has_country_flag = southeastasia
+					is_neighbor_of = ROOT
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}	
+			}
+		}
+	}
+	focus = {
+		id = common_arabs_revolution
+		icon = GFX_goal_arab_communist
+		cost = 3
+		prerequisite = {
+			focus = common_export_revolution
+		}
+		available = {
+			has_government = communism
+		}
+		x = 62
+		y = 6
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+				add_political_power = -100
+			news_event = { id = egy.148 }
+			every_other_country = {
+				limit = { has_country_flag = arabs_state }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}	
+			}
+			every_other_country = {
+				limit = {
+					NOT = { has_government = communism }
+					has_country_flag = arabs_state
+					is_neighbor_of = ROOT
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}	
+			}
+		}
+	}
+	focus = {
+		id = common_europe_revolution
+		icon = GFX_focus_ger_great_red_menace
+		cost = 3
+		prerequisite = {
+			focus = common_export_revolution
+		}
+		available = {
+			has_government = communism
+		}
+		x = 63
+		y = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+				add_political_power = -100
+			every_other_country = {
+				limit = { is_in_faction_with = ENG
+					NOT = { has_government = communism } }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}	
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ENG
+					is_neighbor_of = ROOT
+					NOT = { has_government = communism } }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}	
+			}
+		}
+	}
+	focus = {
+		id = common_africa_revolution
+		icon = GFX_focus_ETH_african_union
+		cost = 3
+		prerequisite = {
+			focus = common_export_revolution
+		}
+		available = {
+			has_government = communism
+		}
+		x = 64
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+				add_political_power = -100
+			every_other_country = {
+				limit = { has_country_flag = african_state 
+					NOT = { has_government = communism } }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}	
+			}
+			every_other_country = {
+				limit = {
+					NOT = { has_government = communism }
+					has_country_flag = african_state
+					is_neighbor_of = ROOT
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}	
+			}
+		}
+	}
+}

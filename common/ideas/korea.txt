@@ -1,0 +1,274 @@
+ideas = {
+
+	country = {
+		kor_industrial_pionners = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = kor_industrial_pionners
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		rok_parliament = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = rok_parliament
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		korean_culture = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = korean_culture
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		korean_christ = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = KoreanProtest
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		KOR_war_growth = {
+		
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = KoreanProtest
+			removal_cost = -1
+			cancel = {
+				NOT = { PRK = { has_war_with = KOR } }
+			}
+			modifier = {
+				training_time_army_factor = -0.12
+				army_org_factor = 0.15
+				army_core_defence_factor = 1.2
+				war_support_factor = 0.05
+			}
+		}
+		UNSC_83 = {
+		
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = UNSC_83
+			cancel = {
+				NOT = { PRK = { has_war_with = KOR } }
+			}
+			removal_cost = -1
+			modifier = {
+				surrender_limit = 3
+				training_time_army_factor = -0.3
+				army_org_factor = 0.15
+				army_core_defence_factor = 1.5
+				war_support_factor = 0.4
+				command_power_gain = 0.12
+				army_core_attack_factor = 0.15
+			}
+		}
+		KoreanProtest = {
+		
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			picture = KoreanProtest
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = KoreanProtest_tool
+				political_power_gain = -0.16
+				stability_factor = -0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		Saemaul = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			picture = Saemaul
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+	}
+	high_command = {
+
+		Peak_SeonYeob = {
+			
+			allowed = {
+				original_tag = KOR
+			}
+			
+			traits = { air_air_superiority_3 }
+			
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+		Jeon_IkKwon = {
+			
+			allowed = {
+				original_tag = KOR
+			}
+			
+			traits = { air_air_superiority_3 }
+			
+			ai_will_do = {
+				factor = 0.2
+			}
+			visible = {
+				date < 1965.1.1
+			}
+		}
+		KOR_Park_JungHee = {
+			
+			allowed = {
+				original_tag = KOR
+			}
+			
+			traits = { air_air_superiority_3 }
+			visible = {
+				date < 1961.1.1
+			}
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+		Roh_TaeWoo = {
+			
+			allowed = {
+				original_tag = KOR
+			}
+			visible = {
+				date > 1975.1.1
+			}
+			traits = { air_air_superiority_3 }
+			
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+		Jeong_SeungHwa = {
+			
+			allowed = {
+				original_tag = KOR
+			}
+			visible = {
+				date > 1975.1.1
+				date < 1980.1.1
+			}
+			
+			traits = { air_air_superiority_3 }
+			
+			ai_will_do = {
+				factor = 0.2
+			}
+		}
+	}
+
+	industrial_concern = {
+			
+		designer = yes
+		daewoo = {
+			picture = daewoo
+			allowed = {
+				original_tag = KOR
+			}
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer tank_manufacturer }
+		}
+		ulsan_dock_idea = {
+						
+			picture = hyungdae
+			
+			allowed = {
+				tag = KOR
+			}
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			traits = { naval_manufacturer }
+		}
+		hyungdae = {
+						
+			picture = hyungdae
+			
+			allowed = {
+				tag = KOR
+			}
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+		posco = {
+						
+			picture = posco
+			
+			allowed = {
+				tag = KOR
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			
+			traits = { refinery_concern }
+		}
+		Samsung = {
+			picture = samsung
+			allowed = {
+				tag = KOR
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+			
+			modifier = {
+			}
+		}
+	}
+}

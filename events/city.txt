@@ -1,0 +1,101 @@
+﻿add_namespace = city
+#富尔达山谷
+news_event = {
+	id = city.1
+	title = city.1.t
+	desc = city.1.d
+	picture = GFX_WGR_Army
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = city.1.a
+	}
+}
+#法兰克福
+news_event = {
+	id = city.2
+	title = city.2.t
+	desc = city.2.d
+	picture = GFX_SovietInvadePrague
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = city.2.a
+	}
+}
+#首都沦陷欧洲
+news_event = {
+	id = city.3
+	title = city.3.t
+	desc = city.3.d
+	picture = GFX_Yugowarnews
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = city.3.a
+	}
+}
+#超級測試
+news_event = {
+	id = city.4
+	title = city.4.t
+	desc = city.4.d
+	picture = GFX_Yugowarnews
+	is_triggered_only = yes
+	
+	option = {
+		every_country = {
+			leave_faction = yes
+		}
+		NON = {
+			transfer_state = 663
+			transfer_state = 377
+			transfer_state = 300
+			transfer_state = 633
+			transfer_state = 68
+			transfer_state = 428
+			transfer_state = 876
+			transfer_state = 496
+			transfer_state = 596
+			transfer_state = 595
+			transfer_state = 142
+			add_research_slot = 6
+			declare_war_on = { target = CHL type = annex_everything }
+			declare_war_on = { target = ARG type = annex_everything }
+			declare_war_on = { target = USA type = annex_everything }
+			declare_war_on = { target = BRA type = annex_everything }
+			declare_war_on = { target = PAR type = annex_everything }
+			declare_war_on = { target = LBA type = annex_everything }
+			declare_war_on = { target = EGY type = annex_everything }
+			declare_war_on = { target = NOR type = annex_everything }
+			declare_war_on = { target = SWE type = annex_everything }
+			declare_war_on = { target = IND type = annex_everything }
+			declare_war_on = { target = SOV type = annex_everything }
+			declare_war_on = { target = PRC type = annex_everything }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 99999
+				producer = NON
+			}
+			add_equipment_to_stockpile = {
+				type = machine_gun
+				amount = 99999
+				producer = NON
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 99999
+				producer = NON
+			}
+			load_oob = NON_TEST
+			army_experience = 9999
+		}
+		name = city.3.a
+	}
+}

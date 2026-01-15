@@ -1,0 +1,264 @@
+add_namespace = tun
+#丹吉尔宣言
+news_event = {
+	id = tun.1
+	title = tun.1.t
+	desc = tun.1.d
+	picture = GFX_Bourguiba
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1947.4.1
+		date < 1949.4.1
+		tag = TUN
+		NOT = { has_global_flag = TunisIndependent }
+		is_subject_of = FRA
+	}
+	option = {
+		name = tun.1.a
+		set_global_flag = TunisIndependent
+	}
+}
+news_event = {
+	id = tun.2
+	title = tun.2.t
+	desc = tun.2.d
+	picture = GFX_Bourguiba
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1950.4.1
+		date < 1951.4.1
+		tag = TUN
+		NOT = { has_global_flag = TunisIndependentPartyRise }
+		is_subject_of = FRA
+	}
+	option = {
+		name = tun.1.a
+		set_global_flag = TunisIndependentPartyRise
+	}
+}
+news_event = {
+	id = tun.3
+	title = tun.3.t
+	desc = tun.3.d
+	picture = GFX_Bourguiba
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1951.1.1
+		date < 1952.4.1
+		tag = TUN
+		NOT = { has_global_flag = TunisNationalist }
+		is_subject_of = FRA
+	}
+	option = {
+		name = tun.1.a
+		set_global_flag = TunisNationalist
+	}
+}
+news_event = {
+	id = tun.4
+	title = tun.4.t
+	desc = tun.4.d
+	picture = GFX_Bourguiba
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = FRA
+		has_global_flag = TunisNationalis
+		TUN = { is_subject_of = FRA }
+	}
+	option = {
+		name = tun.1.a
+		random_list = {
+			40 = {
+			} 
+			60 = {
+				news_event = { id = tun.5 }
+			} 
+		}
+	}
+}
+news_event = {
+	id = tun.5
+	title = tun.5.t
+	desc = tun.5.d
+	picture = GFX_Bourguiba
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = tun.26.a
+	}
+}	
+news_event = {
+	id = tun.6
+	title = tun.6.t
+	desc = tun.6.d
+	picture = GFX_Bourguiba
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = FRA
+		has_global_flag = TunisNationalis
+		TUN = { is_subject_of = FRA }
+	}
+	option = {
+		name = tun.1.a
+		news_event = { id = tun.11 }
+		set_global_flag = TUNBourguibaexield
+	}
+}
+news_event = {
+	id = tun.7
+	title = tun.7.t
+	desc = tun.7.d
+	picture = GFX_Bourguiba
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = FRA
+		has_global_flag = TUNBourguibaexield
+		TUN = { is_subject_of = FRA }
+	}
+	option = {
+		name = tun.26.a
+		news_event = { id = tun.20 }
+		clr_global_flag = TUNBourguibaexield
+	}
+	option = {
+		name = tun.1.a
+		random_list = {
+			40 = {
+			} 
+			60 = {
+				news_event = { id = tun.8 }
+			} 
+		}
+	}
+}
+news_event = {
+	id = tun.8
+	title = tun.8.t
+	desc = tun.8.d
+	picture = GFX_Bourguiba
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = tun.26.a
+	}
+}	
+news_event = {
+	id = tun.9
+	title = tun.9.t
+	desc = tun.9.d
+	picture = GFX_Bourguiba
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		TUN = { is_subject_of = FRA }
+		has_global_flag = TUNBourguibaexield
+		NOT = { has_country_flag =  TUNBourguibaAnswer }
+		OR = { 
+			has_country_flag = main_country
+			has_country_flag = islam_state
+		}
+	}
+	option = {
+		name = hun.20.b1
+		set_country_flag = TUNBourguibaAnswer
+		news_event = { id = tun.10 }
+	}
+}
+news_event = {
+	id = tun.10
+	title = tun.10.t
+	desc = tun.10.d
+	picture = GFX_Bourguiba
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = tun.26.a
+	}
+}	
+news_event = {
+	id = tun.20
+	title = tun.20.t
+	desc = tun.20.d
+	picture = GFX_Bourguiba
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = tun.26.a
+	}
+}	
+news_event = {
+	id = tun.21
+	title = tun.21.t
+	desc = tun.21.d
+	picture = GFX_Bourguiba
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		date > 1955.8.1
+		tag = FRA
+		TUN = {
+			is_subject_of = FRA
+			NOT = { has_global_flag = TunisIndependent }
+			NOT = { has_country_flag = TUNBourguibaexield }
+		}
+	}
+	option = {
+		name = tun.1.a
+		trigger = {
+			NOT = { tag = FRA }
+		}
+	}
+	option = {
+		name = tun.1.a
+		trigger = { tag = FRA }
+		news_event = { id = tun.26 days = 10 }
+		set_global_flag = TunisIndependent
+	}
+}
+news_event = {
+	id = tun.26
+	title = tun.26.t
+	desc = tun.26.d
+	picture = GFX_Bourguiba
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = tun.26.a
+	}
+}	
+news_event = {
+	id = tun.28
+	title = tun.28.t
+	desc = tun.28.d
+	picture = GFX_Bourguiba
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	immediate = {
+		play_song = TUN_1
+	}
+	trigger = {
+		date > 1956.4.1
+		tag = TUN
+		TUN = {
+			is_subject_of = FRA
+			has_global_flag = TunisIndependent
+		}
+	}
+	option = {
+		name = tun.1.a
+		if = {
+			limit = { tag = TUN }
+			FRA = { end_puppet = TUN }
+			add_stability = 0.5
+			clr_global_flag = TunisIndependent
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.25
+			}
+			leave_faction = yes
+			set_cosmetic_tag = TUN
+		}
+	}
+}

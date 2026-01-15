@@ -1,0 +1,60 @@
+
+state={
+	id=115
+	name="STATE_115"
+	manpower = 3836571
+	state_category = town
+	resources={
+		salt=11
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = ITA
+		add_to_array = { this.state_ethnics_list = 149 }
+		set_state_flag = ethnics_Sicilian
+		set_state_flag = wine_production
+		victory_points = {
+			10074 12
+		}
+		victory_points = {
+			4159 6
+		}
+		victory_points = {
+			4014 5
+		}
+		victory_points = {
+			7059 4
+		}
+		victory_points = {
+			7147 4
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 1
+			air_base = 10
+			dockyard = 1
+			10074 = {
+				naval_base = 2
+			}
+			7059 = {
+				naval_base = 5
+			}
+			4159 = {
+				naval_base = 8
+			}
+			4014 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = ITA
+		add_core_of = SIC
+	}
+
+	provinces={
+		1009 1156 3857 4014 4159 7059 7147 10074 12047 
+	}
+}

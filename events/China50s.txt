@@ -1,0 +1,1096 @@
+﻿add_namespace = prcjf
+#西南地区反革命动荡
+news_event = {
+	id = prcjf.1
+	title = prcjf.1.t
+	desc = prcjf.1.d
+	picture = GFX_Jiaofei
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 1319
+		controls_province = 4504
+		NOT = { has_global_flag = jf1 }
+		325 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			set_global_flag = jf1
+			325 = { add_resistance = 60 }
+			603 = { add_resistance = 60 }
+			325 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			603 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			if = {
+				limit = { NOT = { has_idea = PRC_jiaofei_idea } }
+				add_ideas = PRC_jiaofei_idea
+			}
+		}
+	}
+}
+#云南顺利
+news_event = {
+	id = prcjf.2
+	title = prcjf.2.t
+	desc = prcjf.2.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		325 = { add_resistance = -8 }
+		603 = { add_resistance = -8 }
+	}
+}
+#云南失败
+news_event = {
+	id = prcjf.3
+	title = prcjf.3.t
+	desc = prcjf.3.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		325 = { add_resistance = 8 }
+		603 = { add_resistance = 8 }
+	}
+}
+#中部地区反革命动荡
+news_event = {
+	id = prcjf.5
+	title = prcjf.5.t
+	desc = prcjf.5.d
+	picture = GFX_Jiaofei
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 4619
+		controls_province = 6999
+		controls_province = 7097
+		controls_province = 3992
+		NOT = { has_global_flag = jf5 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		set_global_flag = jf5
+		602 = { add_resistance = 60 }
+		620 = { add_resistance = 60 }
+		600 = { add_resistance = 60 }
+		if = {
+			limit = {
+				602 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			602 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			620 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			600 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			if = {
+				limit = { NOT = { has_idea = PRC_jiaofei_idea } }
+				add_ideas = PRC_jiaofei_idea
+			}
+		}
+	}
+}
+#中部顺利
+news_event = {
+	id = prcjf.6
+	title = prcjf.6.t
+	desc = prcjf.6.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		602 = { add_resistance = -8 }
+		620 = { add_resistance = -8 }
+		600 = { add_resistance = -8 }
+	}
+}
+#中部失败
+news_event = {
+	id = prcjf.7
+	title = prcjf.7.t
+	desc = prcjf.7.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		602 = { add_resistance = 8 }
+		620 = { add_resistance = 8 }
+		600 = { add_resistance = 8 }
+	}
+}
+#沿海地区反革命动荡
+news_event = {
+	id = prcjf.10
+	title = prcjf.10.t
+	desc = prcjf.10.d
+	picture = GFX_Jiaofei
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 7191
+		controls_province = 4196
+		NOT = { has_global_flag = jf10 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		set_global_flag = jf10
+		595 = { add_resistance = 60 }
+		596 = { add_resistance = 60 }
+		if = {
+			limit = {
+				595 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			595 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			596 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			if = {
+				limit = { NOT = { has_idea = PRC_jiaofei_idea } }
+				add_ideas = PRC_jiaofei_idea
+			}
+		}
+	}
+}
+#沿海顺利
+news_event = {
+	id = prcjf.11
+	title = prcjf.11.t
+	desc = prcjf.11.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		595 = { add_resistance = -8 }
+		596 = { add_resistance = -8 }
+	}
+}
+#沿海失败
+news_event = {
+	id = prcjf.12
+	title = prcjf.12.t
+	desc = prcjf.12.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		595 = { add_resistance = 8 }
+		596 = { add_resistance = 8 }
+	}
+}
+#川渝地区反革命动荡
+news_event = {
+	id = prcjf.16
+	title = prcjf.16.t
+	desc = prcjf.16.d
+	picture = GFX_Jiaofei
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 4925
+		NOT = { has_global_flag = jf16 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		set_global_flag = jf16 
+		605 = { add_resistance = 60 }
+		601 = { add_resistance = 60 }
+		if = {
+			limit = {
+				605 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			605 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			if = {
+				limit = { NOT = { has_idea = PRC_jiaofei_idea } }
+				add_ideas = PRC_jiaofei_idea
+			}
+		}
+	}
+}
+#川渝顺利
+news_event = {
+	id = prcjf.17
+	title = prcjf.17.t
+	desc = prcjf.17.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		605 = { add_resistance = -8 }
+	}
+}
+#川渝失败
+news_event = {
+	id = prcjf.18
+	title = prcjf.18.t
+	desc = prcjf.18.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		605 = { add_resistance = 8 }
+	}
+}
+#西北地区反革命动荡
+news_event = {
+	id = prcjf.20
+	title = prcjf.20.t
+	desc = prcjf.20.d
+	picture = GFX_Jiaofei
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 1630
+		controls_province = 10724
+		controls_province = 7971
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		604 = { add_resistance = 20 }
+		616 = { add_resistance = 20 }
+		980 = { add_resistance = 20 }
+		618 = { add_resistance = 20 }
+		if = {
+			limit = {
+				604 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			604 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			616 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			980 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			618 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			if = {
+				limit = { NOT = { has_idea = PRC_jiaofei_idea } }
+				add_ideas = PRC_jiaofei_idea
+			}
+		}
+	}
+}
+#新疆地区反革命动荡
+news_event = {
+	id = prcjf.25
+	title = prcjf.25.t
+	desc = prcjf.25.d
+	picture = GFX_Jiaofei
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 4709
+		controls_province = 1838
+		controls_province = 2015
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		949 = { add_resistance = 20 }
+		619 = { add_resistance = 20 }
+		950 = { add_resistance = 20 }
+		618 = { add_resistance = 20 }
+		if = {
+			limit = {
+				949 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			949 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			619 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			950 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			618 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			if = {
+				limit = { NOT = { has_idea = PRC_jiaofei_idea } }
+				add_ideas = PRC_jiaofei_idea
+			}
+		}
+	}
+}
+#新疆顺利
+news_event = {
+	id = prcjf.26
+	title = prcjf.26.t
+	desc = prcjf.26.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		949 = { add_resistance = -8 }
+		619 = { add_resistance = -5 }
+		950 = { add_resistance = -5 }
+	}
+}
+#新疆顺利
+news_event = {
+	id = prcjf.27
+	title = prcjf.27.t
+	desc = prcjf.27.d
+	picture = GFX_Jiaofei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+		}
+		949 = { add_resistance = 8 }
+		619 = { add_resistance = 5 }
+		950 = { add_resistance = 5 }
+	}
+}
+#袍哥会瓦解
+news_event = {
+	id = prcjf.30
+	title = prcjf.30.t
+	desc = prcjf.30.d
+	picture = GFX_Jiaofei
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1951.5.1
+		date < 1954.12.1
+		controls_province = 4925
+		NOT = { has_country_flag = PaoKeDisolved }
+		605 = { resistance < 30 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			605 = { add_resistance = -12 }
+			set_country_flag = PaoKeDisolved
+		}
+	}
+}
+#乌斯曼被俘
+news_event = {
+	id = prcjf.32
+	title = prcjf.32.t
+	desc = prcjf.32.d
+	picture = GFX_Jiaofei
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1951.5.1
+		date < 1954.12.1
+		controls_province = 2015
+		NOT = { has_country_flag = UsmanDeath }
+		619 = { resistance < 10 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			619 = { add_resistance = -12 }
+			950 = { add_resistance = -12 }
+			617 = { add_resistance = -12 }
+			618 = { add_resistance = -12 }
+			set_country_flag = UsmanDeath
+		}
+	}
+}
+#救世军
+news_event = {
+	id = prcjf.33
+	title = prcjf.33.t
+	desc = prcjf.33.d
+	picture = GFX_Jiaofei
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1949.5.1
+		date < 1954.12.1
+		controls_province = 4925
+		NOT = { has_country_flag = JiuShiArmy }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			605 = { add_resistance = 15 }
+			602 = { add_resistance = 15 }
+			620 = { add_resistance = 15 }
+			set_country_flag = JiuShiArmy
+		}
+	}
+}
+#中缅边境
+news_event = {
+	id = prcjf.34
+	title = prcjf.34.t
+	desc = prcjf.34.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#中缅边境
+news_event = {
+	id = prcjf.35
+	title = prcjf.35.t
+	desc = prcjf.35.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		ai_chance = {
+			factor = 60
+		}
+		news_event = { id = prcjf.36 }
+		add_political_power = 200
+			add_stability = 0.3
+	}
+	option = {
+		name = prcjf.3.a
+		ai_chance = {
+			factor = 0
+		}
+		CHI = { end_puppet = YUN }
+		declare_war_on = {
+			target = YUN
+			type = puppet_wargoal_focus 
+		}
+		add_stability = -0.12
+		add_political_power = -300
+		BUR = { news_event = { id = prcjf.37 } }
+	}
+}
+news_event = {
+	id = prcjf.36
+	title = prcjf.36.t
+	desc = prcjf.36.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+
+news_event = {
+	id = prcjf.37
+	title = prcjf.37.t
+	desc = prcjf.37.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		set_global_flag = PRCinvadeBUR
+		news_event = { id = prcjf.38 }
+	}
+}
+news_event = {
+	id = prcjf.38
+	title = prcjf.38.t
+	desc = prcjf.38.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#西南地区的武装暴动被镇压
+news_event = {
+	id = prcjf.50
+	title = prcjf.50.t
+	desc = prcjf.50.d
+	picture = GFX_JiaofeiSuccces
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 1319
+		325 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		325 = { resistance < 10 }
+		603 = { resistance < 10 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			325 = { add_resistance = -20 }
+			603 = { add_resistance = -20 }
+			325 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			603 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#西北地区的武装暴动被镇压
+news_event = {
+	id = prcjf.53
+	title = prcjf.53.t
+	desc = prcjf.53.d
+	picture = GFX_JiaofeiSuccces
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 1630
+		controls_province = 10724
+		controls_province = 7971
+		604 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		604 = { resistance < 10 }
+		616 = { resistance < 10 }
+		980 = { resistance < 10 }
+		618 = { resistance < 10 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			604 = { add_resistance = -20 }
+			616 = { add_resistance = -20 }
+			980 = { add_resistance = -20 }
+			618 = { add_resistance = -20 }
+			604 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			616 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			980 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			618 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#川渝地区的武装暴动被镇压
+news_event = {
+	id = prcjf.54
+	title = prcjf.54.t
+	desc = prcjf.54.d
+	picture = GFX_JiaofeiSuccces
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 4925
+		605 = { resistance < 10 }
+		605 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			605 = { add_resistance = -20 }
+			605 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#新疆地区的武装暴动被镇压
+news_event = {
+	id = prcjf.55
+	title = prcjf.55.t
+	desc = prcjf.55.d
+	picture = GFX_JiaofeiSuccces
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 4709
+		controls_province = 1838
+		controls_province = 2015
+		949 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		949 = { resistance < 10 }
+		619 = { resistance < 10 }
+		950 = { resistance < 10 }
+		618 = { resistance < 10 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			949 = { add_resistance = -20 }
+			619 = { add_resistance = -20 }
+			950 = { add_resistance = -20 }
+			618 = { add_resistance = -20 }
+			949 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			619 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			950 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			618 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#中部地区的武装暴动被镇压
+news_event = {
+	id = prcjf.56
+	title = prcjf.56.t
+	desc = prcjf.56.d
+	picture = GFX_JiaofeiSuccces
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		date > 1948.5.1
+		date < 1954.12.1
+		controls_province = 4619
+		controls_province = 6999
+		controls_province = 7097
+		controls_province = 3992
+		602 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		602 = { resistance < 10 }
+		620 = { resistance < 10 }
+		600 = { resistance < 10 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			602 = { add_resistance = -20 }
+			620 = { add_resistance = -20 }
+			600 = { add_resistance = -20 }
+			602 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			620 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			600 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+
+
+#张平
+news_event = {
+	id = prcjf.57
+	title = prcjf.57.t
+	desc = prcjf.57.d
+	picture = GFX_JiaofeiSuccces
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date < 1954.12.1
+		controls_province = 4896
+		NOT = { has_country_flag = prcjf57 }
+		602 = { resistance < 20 }
+	}
+	option = {
+		name = hol.10.a
+		602 = { add_resistance = 40 }
+		set_country_flag = prcjf57
+	}
+}
+news_event = {
+	id = prcjf.58
+	title = prcjf.58.t
+	desc = prcjf.58.d
+	picture = GFX_JiaofeiSuccces
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1951.3.1
+		date < 1954.12.1
+		controls_province = 7949
+		NOT = { has_country_flag = prcjf58 }
+		950 = { resistance < 20 }
+	}
+	option = {
+		name = hol.10.a
+		set_country_flag = prcjf58
+		950 = { add_resistance = 40 }
+	}
+}
+news_event = {
+	id = prcjf.59
+	title = prcjf.59.t
+	desc = prcjf.59.d
+	picture = GFX_JiaofeiSuccces
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1950.5.1
+		date < 1954.12.1
+		controls_province = 10010
+		NOT = { has_country_flag = prcjf59 }
+		595 = { resistance < 20 }
+	}
+	option = {
+		name = hol.10.a
+		set_country_flag = prcjf59
+		595 = { add_resistance = 25 }
+		596 = { add_resistance = 25 }
+	}
+}
+
+
+#少数民族失败
+state_event = {
+	id = prcjf.61
+	title = prcjf.61.t
+	desc = prcjf.61.d
+	picture = GFX_jiaofei_meets_minor
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#少数民族失败
+state_event = {
+	id = prcjf.62
+	title = prcjf.62.t
+	desc = prcjf.62.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#工商改革成功
+country_event = {
+	id = prcjf.63
+	title = prcjf.63.t
+	desc = prcjf.63.d
+	picture = GFX_jiaofei_meets_minor
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#工商改革失败
+country_event = {
+	id = prcjf.64
+	title = prcjf.64.t
+	desc = prcjf.64.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#宗族暴动
+news_event = {
+	id = prcjf.65
+	title = prcjf.65.t
+	desc = prcjf.65.d
+	picture = GFX_Jiaofei
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = PRC
+		date > 1949.5.1
+		date < 1954.12.1
+		controls_province = 1047
+		593 = { resistance > 15 }
+		595 = { resistance > 15 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			random_owned_state = {
+				limit = {
+					OR = {
+						has_state_flag = ethnics_Canton
+						has_state_flag = ethnics_Zhuang
+						has_state_flag = ethnics_Minnan
+					}
+				}
+				add_resistance = 12
+			}
+		}
+	}
+}
+#少数民族失败
+state_event = {
+	id = prcjf.67
+	title = prcjf.67.t
+	desc = prcjf.67.d
+	picture = GFX_jiaofei_meets_minor
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#少数民族失败
+country_event = {
+	id = prcjf.68
+	title = prcjf.68.t
+	desc = prcjf.68.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+#民团投降
+news_event = {
+	id = prcjf.69
+	title = prcjf.69.t
+	desc = prcjf.69.d
+	picture = GFX_Jiaofei
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = PRC
+		date > 1949.5.1
+		date < 1954.12.1
+		has_war = no
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			random_owned_state = {
+				limit = {
+					OR = {
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = town
+					}
+					NOT = { has_state_flag = MinTuanSurrender }
+					has_resistance = yes
+				}
+				set_state_flag = MinTuanSurrender
+				add_resistance = -15
+			}
+		}
+	}
+}
+#禁毒
+country_event = {
+	id = prcjf.70
+	title = prcjf.70.t
+	desc = prcjf.70.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		add_political_power = 60
+	}
+}
+news_event = {
+	id = prcjf.71
+	title = prcjf.71.t
+	desc = prcjf.71.d
+	picture = GFX_AntiDrugs
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = PRC
+		date > 1949.5.1
+		date < 1960.12.1
+		has_war = no
+			check_variable = { drugs_clears_score > 5 }
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 300
+			add_stability = 0.15
+			every_owned_state = {
+				add_resistance = -8
+			}
+		}
+	}
+}
+#北京政府要求我们驱逐国民党军
+news_event = {
+	id = prcjf.101
+	title = prcjf.101.t
+	desc = prcjf.101.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		news_event = { id = prcjf.102 }
+	}
+	option = {
+		name = prcjf.3.a
+		news_event = { id = prcjf.103 }
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 798
+					num_provinces = 4
+					on_win = prcjf.104
+				}
+				defender = {
+					state = 836
+					num_provinces = 4
+					on_win = prcjf.105
+				}
+			}
+	}
+}
+news_event = {
+	id = prcjf.102
+	title = prcjf.102.t
+	desc = prcjf.102.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+news_event = {
+	id = prcjf.103
+	title = prcjf.103.t
+	desc = prcjf.103.d
+	picture = GFX_SalweenRiver
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+news_event = {
+	id = prcjf.104
+	title = prcjf.104.t
+	desc = prcjf.104.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+news_event = {
+	id = prcjf.105
+	title = prcjf.105.t
+	desc = prcjf.105.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prcjf.3.a
+	}
+}
+news_event = {
+	id = prcjf.110
+	title = prcjf.110.t
+	desc = prcjf.110.d
+	picture = GFX_Jiaofei
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		has_war = no
+		has_idea = PRC_jiaofei_idea
+		all_owned_state = {
+			NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			resistance < 5
+		}
+	}
+	option = {
+		name = prcjf.3.a
+		if = {
+			limit = { tag = PRC }
+			every_owned_state = {
+				if = {
+					limit = { has_resistance = yes }
+					add_resistance = -20
+				}
+			}
+			remove_ideas = PRC_jiaofei_idea
+			add_stability = 0.2
+			add_political_power = 400
+		}
+	}
+}
+news_event = {
+	id = prcjf.120
+	title = prcjf.120.t
+	desc = prcjf.120.d
+	picture = GFX_JiaofeiSuccces
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1951.5.1
+		date < 1955.12.1
+		controls_province = 10006
+		has_completed_focus = prc_armed_police
+		NOT = { has_country_flag = prcjf120 }
+	}
+	option = {
+		name = hol.10.a
+		set_country_flag = prcjf120
+		add_stability = 0.01
+		602 = {
+			add_resistance = -30
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+}
+news_event = {
+	id = prcjf.121
+	title = prcjf.121.t
+	desc = prcjf.121.d
+	picture = GFX_JiaofeiSuccces
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date < 1954.12.1
+		controls_province = 4896
+		NOT = { has_country_flag = prcjf121 }
+		601 = { resistance < 20 }
+	}
+	option = {
+		name = hol.10.a
+		601 = { add_resistance = 40 }
+		set_country_flag = prcjf121
+	}
+}
+country_event = {
+	id = prcjf.122
+	title = prcjf.122.t
+	desc = prcjf.122.d
+	picture = GFX_tufei
+	is_triggered_only = yes
+	option = {
+		name = prcjf.3.a
+		add_political_power = -20
+	}
+}

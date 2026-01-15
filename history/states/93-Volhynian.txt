@@ -1,0 +1,41 @@
+state={
+	id=93
+	name="STATE_93"
+
+	local_supplies=0.0
+	history={
+		set_state_flag = ethnics_Ukraine
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SOV
+		buildings = {
+			hospital = 1
+			farm_building = 1
+			infrastructure = 2
+		}
+		1952.1.1 = {
+			buildings = {
+				hospital = 1
+				infrastructure = 4
+				power_plant = 1
+				industrial_complex = 2
+				school = 1
+			}
+		}
+		victory_points = { 422 4 }
+		victory_points = { 572 5 }
+		add_core_of = SOV
+		add_core_of = UKR
+		1990.1.1 = {
+			owner = UKR
+			remove_core_of = SOV
+		}
+
+	}
+
+	provinces={
+		422 474 513 572 3412 6435 6520 6557 11441 11543 11503 3496 9520 
+	}
+	manpower=1985600
+	buildings_max_level_factor=1.000
+	state_category=town
+}

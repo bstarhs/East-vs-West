@@ -1,0 +1,62 @@
+
+state={
+	id=42
+	name="STATE_42"
+	manpower = 3027739
+	resources={
+		aluminium=24
+		coal=37
+	}
+	
+	local_supplies=0.0
+	state_category = metropolis
+
+	history={
+		set_state_flag = ethnics_Deutscher
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		set_state_flag = wine_production
+		owner = FRA
+		add_to_array = { this.state_ethnics_list = 63 }
+		add_core_of = RHI
+		victory_points = { 11435 5 }
+		victory_points = { 6444 5 }
+		victory_points = { 3558 3 }
+		victory_points = { 11494 3 }
+		victory_points = { 589 3 }
+		victory_points = { 11547 2 }
+		victory_points = {
+			11560 3
+		}
+		buildings = {
+			farm_building = 1
+			school = 2
+			hospital = 2
+			power_plant = 1
+			steel_making = 1
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 2
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		1949.5.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = WDR
+			add_core_of = DDR
+		}
+		1955.5.23 = {
+			buildings = {
+			farm_building = 2
+			power_plant = 2
+			steel_making = 4
+			}
+		}
+	}
+
+	provinces={
+		563 3423 3558 11435 11470 11494 11547 6444 11560 589 3574 
+	}
+	
+	
+}

@@ -1,0 +1,125 @@
+﻿capital = 298
+
+oob = "LIB_1936"
+
+# Starting tech
+set_country_flag = african_state
+set_country_flag = language_english
+	activate_decision = female_equality
+set_technology = {
+	infantry_weapons = 1
+}
+	add_to_array = { global.UNmember_list = FROM }
+
+set_country_flag = third_world
+set_convoys = 10
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+add_ideas = {
+
+	Anglicanism
+	partial_economic_mobilisation
+}
+	
+	oob = "LIB_1947"
+	set_technology = {
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+	set_popularities = {
+		authoritarianism = 70
+		democratic = 15
+		neutrality = 15
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1931.1.1"
+	election_frequency = 96
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "William Tubman"
+	desc = "POLITICS_EDWIN_BARCLAY_DESC"
+	picture = "gfx/leaders/LIB/Portrait_Liberia_Shadrach_Tubman.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		personal_worship pro_america corrupt_leader dictator Developmentalism
+	}
+}
+
+1945.1.1 = {
+	add_ideas = {
+		UNmember
+	}
+}
+1952.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+}
+1964.1.1 = {
+	complete_national_focus = common_24
+}
+1971.1.1 = {
+	create_country_leader = {
+		name = "William Richard Tolbert"
+		
+		picture = "gfx/leaders/LIB/Portrait_Liberia_Tolbert.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		dictator pro_socialism
+		}
+	}
+}
+1977.3.12 = {
+	set_country_flag = china_diplomacy
+}
+1980.3.12 = {
+	set_popularities = {
+		democratic = 30
+		communism = 10
+		neutrality = 60
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+add_ideas = {
+	militarist_politician
+	ThiefEconomic
+}
+	create_country_leader = {
+		name = "Samuel Kanyon Doe"
+		
+		picture = "gfx/leaders/LIB/Portrait_Liberia_Samuel.tga"
+		expire = "2050.1.1"
+		ideology = centrism
+		
+		traits = { dictator tyrant personal_worship pro_america corrupt_leader 
+		
+		}
+	}
+}

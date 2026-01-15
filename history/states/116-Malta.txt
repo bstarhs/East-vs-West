@@ -1,0 +1,33 @@
+state=
+{
+	id=116
+	name="STATE_116"
+	manpower = 241621
+	state_category = small_island
+	resources={
+		salt=4
+	}
+	history= {
+		owner = ENG
+		add_to_array = { this.state_ethnics_list = 107 }
+		set_state_flag = ethnics_Maltalese
+		add_dynamic_modifier = { modifier = fish_production }
+		victory_points = {
+			12003 5 
+		}
+		buildings = {
+			hospital = 1
+			infrastructure = 3
+			air_base = 3
+			12003 = {
+				naval_base = 3
+				coastal_bunker = 1
+			}
+		}
+		1964.5.14 = {
+		owner = MLT
+		add_core_of = MLT
+		}
+	}
+	provinces= { 12003 }
+}

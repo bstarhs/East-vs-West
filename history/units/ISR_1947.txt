@@ -1,0 +1,78 @@
+﻿
+division_template = {
+	name = "Infantry Division"	
+	division_names_group = ISR_MOT_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Armored Division" 	
+	division_names_group = ISR_ARM_01	
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 }
+	}
+}
+units = {
+	division = {
+		name = "Golani Division"
+		location = 4206
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Alexandroni Division"
+		location = 4206
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Givati Division"
+		location = 1065
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Carmel Division"
+		location = 1065
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Kiryati Division"
+		location = 1065
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Kiryati Division"
+		location = 4088
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Kiryati Division"
+		location = 4088
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Kiryati Division"
+		location = 4088
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+}

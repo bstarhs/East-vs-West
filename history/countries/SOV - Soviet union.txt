@@ -1,0 +1,1270 @@
+﻿capital = 219
+
+set_country_flag = main_country
+set_country_flag = language_russian
+set_country_flag = developmented
+set_country_flag = orthodox_state
+set_country_flag = soviet_state
+		add_dynamic_modifier = { modifier = volunteer_fix_modifier }
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 200000
+    producer = SOV
+}
+	diplomatic_relation = {
+		relation = military_access
+		country = AUS
+		active = yes
+	}
+	set_variable = { this.education = 62 }
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 18000
+    producer = SOV
+}
+			add_tech_bonus = {
+				bonus = 1.6
+				uses = 1
+				category = nuclear
+			}
+add_intel = {
+    target = ENG
+    civilian_intel = 30
+    army_intel = 30
+    navy_intel = 30
+    airforce_intel = 22
+}
+create_intelligence_agency = yes
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+recruit_character = SOV_Viktor_Makeyev
+recruit_character = SOV_Dimitry_Yazov
+recruit_character = SOV_nikita_khrushchyov
+recruit_character = SOV_nikolay_voznesensky
+recruit_character = SOV_lazar_kaganovich
+recruit_character = SOV_lavrenty_beriya
+recruit_character = SOV_vsevolod_merkulov
+recruit_character = SOV_vyacheslav_molotov
+recruit_character = SOV_maksim_litvinov
+recruit_character = SOV_nikolay_bulganin
+recruit_character = SOV_kadarshev
+recruit_character = SOV_sergey_gorshkov
+
+recruit_character = SOV_aleksandr_vasilevsky
+recruit_character = SOV_aleksandr_golovanov
+recruit_character = SOV_aleksandr_gorbatov
+recruit_character = SOV_aleksandr_novikov
+recruit_character = SOV_andrey_grechko
+recruit_character = SOV_andrey_yeryomenko
+recruit_character = SOV_arseny_golovko
+recruit_character = SOV_dmitry_lelyushenko
+recruit_character = SOV_filipp_golikov
+recruit_character = SOV_filipp_oktyabrsky
+recruit_character = SOV_Nikolai_Shvernik
+
+recruit_character = SOV_georgy_zakharov
+recruit_character = SOV_georgy_zhukov
+recruit_character = SOV_gordey_levchenko
+recruit_character = SOV_igor_kurchatov
+recruit_character = SOV_issa_pliyev
+recruit_character = SOV_ivan_fedyuninsky
+recruit_character = SOV_ivan_konev
+recruit_character = SOV_ivan_yumashev
+recruit_character = SOV_kirill_meretskov
+recruit_character = SOV_kirill_moskalenko
+recruit_character = SOV_Kliment_Voroshirov
+recruit_character = SOV_konstantin_vershinin
+recruit_character = SOV_kuzma_galitsky
+recruit_character = SOV_leonid_govorov
+recruit_character = SOV_maksim_purkayev
+recruit_character = SOV_markian_popov
+recruit_character = SOV_maks_reyter
+recruit_character = SOV_mikhail_frinovsky
+recruit_character = SOV_andrey_zhdanov
+recruit_character = SOV_nikandr_chibisov
+recruit_character = SOV_nikolay_kuznetsov
+
+recruit_character = SOV_pavel_rychagov
+recruit_character = SOV_pavel_zhigarev
+recruit_character = SOV_pyotr_smirnov
+recruit_character = SOV_Rodion_Malinovsky
+recruit_character = SOV_semyon_timoshenko
+recruit_character = SOV_sergey_khudyakov
+recruit_character = SOV_sergey_rudenko
+recruit_character = SOV_Stepan_Krasovsky
+recruit_character = SOV_vasily_chuykov
+recruit_character = SOV_vasily_kuznetsov
+recruit_character = SOV_vladimir_kasatonov
+recruit_character = SOV_vladimir_tributs
+recruit_character = SOV_Malenkov
+recruit_character = SOV_yakov_cherevichenko
+recruit_character = SOV_yakov_smushkevich
+recruit_character = SOV_Mitrofan_Nedzelin
+
+recruit_character = SOV_Anastas_Mikoyan
+recruit_character = SOV_Tikhonov
+recruit_character = SOV_Kosygin
+recruit_character = SOV_Suslov
+recruit_character = SOV_Vasily_petrov
+recruit_character = SOV_Ustinov
+recruit_character = SOV_Gromyko
+
+recruit_character = SOV_Ryzhkov
+recruit_character = SOV_Kalashnikov
+recruit_character = SOV_Glushkov
+recruit_character = SOV_Korolyov
+recruit_character = SOV_iosif_stalin
+
+
+set_country_flag = UNSC
+give_guarantee = POL
+give_guarantee = HUN
+give_guarantee = CZE
+give_guarantee = ROM
+give_guarantee = BUL
+give_guarantee = MON
+set_research_slots = 4
+diplomatic_relation = {
+	relation = military_access
+	country = BUL
+	active = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = ROM
+	active = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = HUN
+	active = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = CZE
+	active = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = MON
+	active = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = POL
+	active = yes
+}
+diplomatic_relation = {
+	relation = military_access
+	country = DDR
+	active = yes
+}
+	
+
+create_operative_leader = {
+	name = "Harold King Philby"
+	GFX = "gfx/leaders/ENG/Portrait_British_King_Philby.tga"
+	traits = { operative_infiltrator operative_natural_orator }
+	bypass_recruitment = yes
+	nationalities = { ENG }
+}
+create_operative_leader = {
+	name = "Donald Maclean"
+	GFX = "gfx/leaders/ENG/Portrait_British_Donald_Maclean.tga"
+	traits = { operative_infiltrator operative_natural_orator }
+	bypass_recruitment = yes
+	nationalities = { ENG }
+}
+create_operative_leader = {
+	name = "Guy Burgess"
+	GFX = "gfx/leaders/ENG/Portrait_British_Guy_Burgess.tga"
+	traits = { operative_infiltrator operative_natural_orator }
+	bypass_recruitment = yes
+	nationalities = { ENG }
+}
+create_operative_leader = {
+	name = "Rudolf Ivanovich Abel"
+	GFX = "gfx/leaders/SOV/Portrait_Soviet_Rudolf_Abel.tga"
+	traits = { operative_infiltrator operative_natural_orator }
+	bypass_recruitment = yes
+	nationalities = { ENG SOV }
+}
+
+# Starting tech
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = medal_war
+	activate_decision = female_equality
+	activate_decision = create_radio_station
+	set_technology = {
+	atomic_research = 1
+		auto_industry = 1
+		oil_processing = 1
+		army_aviation = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		motorize_doctrine = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		medical1 = 1
+		radio_detection = 1
+		dispersed_industry4 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	gasmask = 1
+	dispersed_industry = 1
+	fuel_silos = 1
+	rubber_processing = 1
+	infantry_at = 1
+	streamlined_line = 1
+	fuel_refining = 1
+	aluminum_tech = 1
+	can_foods = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_military_police = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	paratroopers = 1
+	gw_artillery = 1
+	gwtank = 1
+	basic_light_tank = 1  # PLACEHOLDER
+	early_fighter = 1
+	fighter1 = 1
+	early_bomber = 1
+	naval_bomber1 = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	medical2 = 1
+	medical3 = 1
+	medical4 = 1
+	medical5 = 1
+	vaccum_tube = 1
+	early_ship_hull_cruiser = 1
+	
+	gas_peaons_1 = 1
+	spaa1 = 1
+	transport = 1
+	
+	marines = 1
+	armor_trench = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company  = 1
+	sp_artillery1 = 1
+	infantry_training = 1
+	basic_militia = 1
+	military_office = 1
+	infantry_training_2 = 1
+	infantry_training_3 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	delay = 1
+	morale_1 = 1
+	morale_2 = 1
+	motorize_doctrine = 1
+	motorized_transport = 1
+	motorized_infantry = 1
+	military_instructor = 1
+	depth_defense = 1
+	armor_doctrine = 1
+	command_cooperation = 1
+	machine_gun1 = 1
+	machine_gun2 = 1
+	street_fight = 1
+	
+	artilelery_doctrine = 1
+	superior_firepower = 1
+	forward_observers = 1
+	indirect_fire_support = 1
+	mine_bomb = 1
+	
+	military_college = 1
+	intelligence_analysis = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	antiair1 = 1
+	decimetric_radar = 1
+	power_generation1 = 1
+	
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+}
+
+1939.1.1 = {
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Submarines #
+	create_equipment_variant = {
+		name = "613 Whiskey"			# represents Debakrist, B class, L-55 sub
+		type = ship_hull_submarine_1
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "641 Foxtrot"				
+		type = ship_hull_submarine_1
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Shchuka class"				
+		type = ship_hull_submarine_1
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Gnevny class"
+		type = ship_hull_heavy_1
+		name_group = SOV_CL_HISTORICAL
+		
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+	}
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Orfey Class"
+		type = ship_hull_light_1
+		
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+		create_equipment_variant = {
+			name = "Sevastopol class"
+			type = ship_hull_heavy_1
+			
+			upgrades = {
+				ship_reliability_upgrade = 2
+				ship_engine_upgrade = 3
+				ship_armor_upgrade = 1
+				ship_gun_upgrade = 1
+			}
+			obsolete = yes
+		}
+	create_equipment_variant = {
+		name = "Chervona Ukraina Class"
+		type = ship_hull_heavy_1
+		
+		modules = {
+				fixed_ship_battery_slot = ship_heavy_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = heavy_ship_engine_2
+				fixed_ship_secondaries_slot = ship_secondaries_1
+				fixed_ship_armor_slot = ship_armor_bb_1
+				front_1_custom_slot = empty
+				mid_1_custom_slot = ship_secondaries_1
+				mid_2_custom_slot = ship_airplane_launcher_1
+				rear_1_custom_slot = ship_heavy_battery_2
+		}
+	}
+}
+	oob = "SOV_1947"
+
+	add_political_power = 1198
+	add_ideas = {
+		low_welfare
+		all_adults_serve
+		war_economy
+		extensive_conscription
+		assimilated
+		Anti_religious
+		closed_economy
+		andrey_zhdanov
+		vyacheslav_molotov
+		Zhdanov_doctrine
+		lazar_kaganovich
+	}
+	set_technology = {
+		CAS1 = 1
+		improved_light_tank = 1 
+	
+		interwar_artillery = 1
+		interwar_antitank = 1
+		interwar_antiair = 1
+		infantry_weapons2 = 1
+		
+		
+		paratroopers = 1
+		basic_ship_hull_submarine = 1
+		basic_destroyer = 1
+		basic_heavy_cruiser = 1
+
+		#doctrines
+		
+		
+		
+		
+
+		#Air
+		formation_flying = 1		
+		dive_bombing = 1
+		direct_ground_support = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		radio_detection = 1
+		
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+	atomic_research = 1
+	nucelar_fusion = 1
+	
+	space_research = 1
+	
+	basic_rocket_artillery = 1
+	}
+}
+add_ideas = {
+	good_diplomacy
+	UNmember
+	metsavennad
+	ikolay_voznesensky
+	SOV_4th_plan_idea
+}
+
+
+set_convoys = 50
+set_stability = 0.85
+
+	set_popularities  = {
+		democratic = 4
+		
+		communism = 96
+	}
+
+set_politics = {
+	
+	ruling_party = communism
+	last_election = "1933.7.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+	promote_character = {
+		character = SOV_iosif_stalin
+		ideology = marxism
+	}
+			set_variable = { this.auto_factory = 15 }
+			set_variable = { this.electronic_factory = 8 }
+			set_variable = { this.textile_factory = 45 }
+			set_variable = { this.civil_factory_use = 80 }
+			set_variable = { this.oil_output = 12 }
+1948.1.1 = {
+	retire_character = SOV_andrey_zhdanov
+	set_country_flag = israel_diplomacy
+	set_country_flag = LeningradIncident
+	set_global_flag = SovFinTreaty
+		set_global_flag = sov431
+	retire_character = SOV_nikolay_voznesensky
+	create_equipment_variant = {
+		name = "Leningrad & Minsk Class"
+		type = ship_hull_heavy_1
+		
+		modules = {
+				fixed_ship_battery_slot = ship_heavy_battery_1
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = heavy_ship_engine_2
+				fixed_ship_secondaries_slot = ship_secondaries_1
+				fixed_ship_armor_slot = ship_armor_bc_2
+				front_1_custom_slot = ship_anti_air_1
+				mid_1_custom_slot = empty
+				mid_2_custom_slot = ship_airplane_launcher_1
+				rear_1_custom_slot = ship_heavy_battery_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Sverdlov class"				
+		type = ship_hull_cruiser_2
+		name_group = SOV_DD_HISTORICAL
+		
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+		obsolete = yes
+	}
+	add_to_array = { global.nuke_states_list = FROM }
+	set_stability = 0.9
+	add_nuclear_bombs = 9
+	complete_national_focus = SOV_Relation_Norway
+	complete_national_focus = SOV_TurkStraite
+	complete_national_focus = SOV_ReformingPolitics
+	complete_national_focus = SOV_EasternEuropeanGroup
+	complete_national_focus = SOV_Asianpolicy
+	complete_national_focus = SOV_EconomicChange
+	complete_national_focus = SOV_FosteringEastGermany
+	complete_national_focus = SOV_CommunistPartyAndWorkersIntelligenceBureau
+	complete_national_focus = SOV_NormalizationOfSoviet-FinnishRelations
+	complete_national_focus = SOV_EconomicMutualAidCommittee
+	complete_national_focus = SOV_SupportForNewChina
+	complete_national_focus = SOV_SupportingTheNorthKoreanRegime
+	complete_national_focus = SOV_DevelopingANuclearProgram
+	complete_national_focus = SOV_HydrogenBombProject
+	complete_national_focus = SOV_China_Union_of_Soviet_Union
+	complete_national_focus = SOV_purge_jews
+	complete_national_focus = SOV_develop_air_force
+	complete_national_focus = SOV_develop_naval
+	complete_national_focus = SOV_anti_nuke_movement
+	complete_national_focus = SOV_AdhereToStalinism
+	complete_national_focus = SOV_GreatProject
+	complete_national_focus = SOV_EmphasisOnMilitaryIndustry
+	set_technology = {
+		strategic_bomber1 = 1
+	}
+	add_ideas = Malenkov
+	add_ideas = SOV_Korolyov
+	set_variable = { this.nuke_speed = 20 }
+}
+1953.9.9 = {
+	retire_character = SOV_maksim_litvinov
+	retire_character = SOV_vsevolod_merkulov
+	set_country_flag = SOV_volga_don_canal_decis
+	set_country_flag = SOV_Tsimlyansk_dam_decis
+	set_global_flag = SOV_construction_Mingachevir
+	retire_character = SOV_iosif_stalin
+	set_country_flag = Khrushchev
+	remove_ideas = SOV_4th_plan_idea
+	promote_character = {
+		character = SOV_nikita_khrushchyov
+		ideology = marxism
+	}
+	add_timed_idea = {
+		idea = khrushchevka_idea
+		days = 1000
+	}
+	complete_national_focus = SOV_StrengtheningNationalDefenseConstruction
+	complete_national_focus = SOV_KGB
+	complete_national_focus = SOV_WarsawPact
+	complete_national_focus = SOV_EconomicChange
+	complete_national_focus = SOV_RemoveTheStalinModel
+	complete_national_focus = SOV_InterventionInVietnam
+	complete_national_focus = SOV_develop_ukraine
+	complete_national_focus = SOV_Ukrain_Zones
+	add_ideas = {
+		KGB
+	}
+	set_technology = {
+	early_missile = 1
+		early_computer = 1
+		cable_television = 1
+		medium_computer = 1
+		infantry_at = 1
+		supersonic_engine = 1
+		assembly_line = 1
+		motorized_cooperation = 1
+		vehicle_artillery = 1
+		dispersed_industry2 = 1
+		sp_artillery2 = 1
+		tech_logistics_company2 = 1
+		basic_ship_hull_light = 1
+		basic_heavy_tank = 1
+	}
+	create_equipment_variant = {
+		name = "611 Zulu"				
+		type = ship_hull_submarine_1
+		name_group = SOV_SS_SHCHUKA
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "627-class"		
+		type = ship_hull_cruiser_submarine
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_4
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Riga class"				
+		type = ship_hull_light_2
+		name_group = SOV_DD_HISTORICAL
+		
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+}
+1955.1.1 = {
+				recruit_character = SOV_Brezhnev
+	oob = "SOV_1956"
+	diplomatic_relation = {
+		relation = military_access
+		country = AUS
+		active = no
+	}
+	retire_character = SOV_Malenkov
+	retire_character = SOV_lavrenty_beriya
+	remove_ideas = metsavennad
+	set_technology = {
+		basic_helicopter = 1
+	air_gun = 1
+	
+	transistor = 1
+		antiair2 = 1
+		strategic_bomber2 = 1
+		napalm = 1
+		land_guidance = 1
+		rocket_engines = 1
+		nukes = 1
+		basic_medium_tank = 1
+		CAS2 = 1
+		nuclear_plant_1 = 1
+		mechanised_infantry = 1
+	}
+	add_ideas = {
+		warsawpact
+		hasnuke
+		mid_welfare
+	}
+	complete_national_focus = SOV_WarsawPact
+	complete_national_focus = SOV_Corn
+	complete_national_focus = SOV_Ottepel
+	complete_national_focus = SOV_easteuro_UN
+	complete_national_focus = SOV_SpaceExploration
+	complete_national_focus = SOV_VirginLand
+	create_faction = WP
+	add_to_faction = SOV
+	add_to_faction = POL
+	add_to_faction = DDR
+	add_to_faction = CZE
+	add_to_faction = HUN
+	add_to_faction = ROM
+	add_to_faction = BUL
+	add_to_faction = ALB
+	add_to_faction = MON
+}
+1956.1.12 = {
+	set_variable = { space_power = 150 }
+	activate_decision = SOV_change_name
+	set_stability = 0.78
+	add_nuclear_bombs = 466
+	complete_national_focus = SOV_RemovingStalinization
+	complete_national_focus = SOV_HydrogenBombProject
+	complete_national_focus = SOV_NewLeader
+	complete_national_focus = SOV_Education_reform
+	remove_ideas = Cominform
+	complete_national_focus = SOV_retrail_purge
+	set_technology = {
+	basic_ship_hull_cruiser = 1
+		improved_infantry_weapons_2 = 1
+		supersonic_engine = 1
+		pattern = 1
+		spaa2 = 1
+		antiair2 = 1
+		artillery1 = 1
+		rocket_vehicle = 1
+		spaa1 = 1
+		tech_engineers2 = 1
+		basic_ship_hull_submarine = 1
+		fuel_silos = 1
+		dispersed_industry = 1
+		decimetric_radar = 1
+		nucelar_fusion = 1
+		basic_heavy_tank = 1
+		landing_craft = 1
+		ICBM_missile = 1
+		laundry = 1
+	}
+}
+1957.1.1 = {
+	set_country_flag = SOV_Kuybyshev_dam_decis
+	set_country_flag = SOV_Kakhovka_dam_decis
+	set_country_flag = SOV_baltic_belaya_decis
+	set_global_flag = destalin_Tukhachevsky_decis
+	set_global_flag = destalin_Mandelshtam_decis
+	set_global_flag = Solzhenitsyn
+	complete_national_focus = SOV_CommunieFarm
+	complete_national_focus = SOV_RemovePersonalWorship
+	set_variable = { space_power = 500 }
+	recruit_character = SOV_Qazimbek
+	set_variable = { this.nukes_limit = 300 }
+		create_equipment_variant = {
+			name = "Petya class"
+			type = ship_hull_light_3
+			name_group = SOV_DD_HISTORICAL
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = ship_sonar_2
+				fixed_ship_engine_slot = light_ship_engine_2
+				fixed_ship_torpedo_slot = ship_torpedo_1
+				mid_1_custom_slot = ship_anti_air_2
+				rear_1_custom_slot = ship_depth_charge_2
+			}
+		}
+		create_equipment_variant = {
+			name = "690 Bravo"
+			type = ship_hull_submarine_1
+			
+			modules = {
+				fixed_ship_torpedo_slot = ship_torpedo_sub_2
+				fixed_ship_engine_slot = sub_ship_engine_2
+				rear_1_custom_slot = empty
+			}
+		}
+		create_equipment_variant = {
+			name = "Series II Leninets"
+			type = ship_hull_submarine_2
+			
+			modules = {
+				fixed_ship_torpedo_slot = ship_torpedo_sub_2
+				fixed_ship_engine_slot = sub_ship_engine_2
+				rear_1_custom_slot = empty
+			}
+		}
+	set_technology = {
+		fire_control_methods_1 = 1
+		power_generation2 = 1
+		tech_Satellite = 1
+		rocket_engine = 1
+		transport_plane1 = 1
+		halicopter_rocket_net = 1
+		halicopter_machinegun = 1
+		gasoline_train = 1
+		improved_oil_processing = 1
+		frozen_food = 1
+		guided_missile = 1
+		tac_missile1 = 1
+		early_nuke_sub = 1
+		nuclear_submarine_engine = 1
+	}
+	set_country_flag = launch_vehicle_succes
+	set_country_flag = Satellite_succes
+	set_country_flag = space_dog_succes
+	add_ideas = Secularism
+	add_ideas = limited_exports
+	remove_ideas = vyacheslav_molotov
+	remove_ideas = lazar_kaganovich
+	retire_character = SOV_Kliment_Voroshirov
+}
+1959.9.9 = {
+	complete_national_focus = SOV_ARABS
+	activate_decision = fuel_power_generate
+	retire_character = SOV_Mitrofan_Nedzelin
+	add_to_variable = { space_power = 50 } 
+	add_intel = {
+		target = ENG
+		civilian_intel = 4
+	}
+	create_equipment_variant = {
+		name = "Kresta I class"
+		type = ship_hull_heavy_1
+		name_group = SOV_CL_HISTORICAL
+		
+		modules = {
+				fixed_ship_battery_slot = dp_light_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = heavy_ship_engine_2
+				fixed_ship_secondaries_slot = dp_ship_secondaries_3
+				front_1_custom_slot = empty
+				mid_1_custom_slot = ship_anti_air_1
+		}
+	}
+		create_equipment_variant = {
+			name = "Sverdrov class"
+			name_group = SOV_CL_HISTORICAL
+			type = ship_hull_heavy_1
+		
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = heavy_ship_engine_2
+				fixed_ship_secondaries_slot = dp_ship_secondaries_3
+				front_1_custom_slot = empty
+				mid_1_custom_slot = ship_anti_air_1
+			}
+		}
+	complete_national_focus = SOV_EconomicSupport
+	complete_national_focus = SOV_IntoTheAfrica
+	complete_national_focus = SOV_SupportAntiColonal
+	complete_national_focus = SOV_KhrushchevHouse
+	complete_national_focus = SOV_OpenArts
+	set_technology = {
+		improved_light_battery = 1
+		tech_recon3 = 1
+		motorized_HQ = 1
+		midrange_missile = 1
+		aa_missile_1 = 1
+		spaa2 = 1
+		improved_infantry_weapons = 1
+		nuclear_submarine_tech = 1
+		fighter2 = 1
+		rocket_artillery = 1
+		thermonuclear = 1
+		deterrence = 1
+		aim_missile_1 = 1
+	}
+	set_variable = { this.nuke_speed = 10 }
+	add_ideas = {
+		Furtseva
+	}
+	set_country_flag = manned_space_succes
+	give_guarantee = CUB
+}
+1961.4.12 = {
+	set_country_flag = SOV_stalingrad_dam_decis
+	set_global_flag = tsar_bomb
+	set_variable = { this.education = 72 }
+	set_technology = {
+		laser_weapon = 1
+		strategic_bomber3 = 1
+		tech_spacemanned = 1
+		trans_helicopter_1 = 1
+		tech_recon2 = 1
+		transport_2 = 1
+		probe = 1
+	}
+	create_equipment_variant = {
+		name = "Echo class"	
+		type = ship_hull_cruiser_submarine
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+		obsolete = yes
+	}
+	remove_ideas = SOV_virginland_idea
+	add_dynamic_modifier = { modifier = space_race_lead_modifiers }
+	complete_national_focus = SOV_Education_reform
+	complete_national_focus = SOV_CommunieFarm
+}
+1964.9.9 = {
+	set_variable = { oil_output = 90 }
+	set_variable = { space_power = 800 }
+	retire_character = SOV_nikita_khrushchyov
+	promote_character = SOV_Brezhnev
+	complete_national_focus = SOV_SupportAngola
+	add_nuclear_bombs = 600
+	
+	remove_ideas = good_diplomacy
+	set_technology = {
+		Semiconductor = 1
+	air_chaff = 1
+	basic_secondary_battery = 1
+	
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		medium_computer = 1
+		computer_consol = 1
+		excavation3 = 1
+		gasmask = 1
+		transport_plane2 = 1
+		antiair5 = 1
+		at_missile_1 = 1
+		machine_gun3 = 1
+		armor_assult = 1
+		armor_group = 1
+		paratroopers2 = 1
+		spaa3 = 1
+		improved_destroyer = 1
+		basic_ship_hull_carrier = 1
+		tech_signal_company2 = 1
+		tech_signal_company3 = 1
+		tech_field_hospital2 = 1
+		tech_logistics_company3 = 1
+		sp_artillery1 = 1
+		autoloader = 1
+		antiair4 = 1
+		improved_ship_hull_light = 1
+		nuclear_plant_2 = 1
+		infraed_homing = 1
+	}
+	add_nuclear_bombs = 6248
+	remove_ideas = SOV_corn_movement
+	complete_national_focus = SOV_Kazakh_Zones
+	complete_national_focus = SOV_StrengtheningControlOverEasternEurope
+	complete_national_focus = SOV_IntoTheAmericas
+	complete_national_focus = SOV_SupportCubanRevolution
+	complete_national_focus = SOV_GunSalute_1
+	complete_national_focus = SOV_MannedSpaceProject
+	complete_national_focus = SOV_Oriental_1
+	complete_national_focus = SOV_UralOilfield
+}
+1968.9.9 = {
+	retire_character = SOV_Nikolai_Shvernik
+	set_country_flag = SOV_krem_canal_decis
+	set_country_flag = SOV_Bratsk_dam_decis
+	activate_decision = SOV_voina_i_mir_1
+	activate_decision = SOV_voina_i_mir_2
+	activate_decision = SOV_voina_i_mir_3
+	activate_decision = SOV_voina_i_mir_4
+	set_technology = {
+		husbandry_feed = 1
+		CAS3 = 1
+		fighter3 = 1
+		motorised_infantry_2 = 1
+		mechanized_aa_missile_1 = 1
+		infantry_at2 = 1
+		improved_ship_hull_carrier = 1
+		advanced_oil_processing = 1
+		tac_missile2 = 1
+		fire_control_methods_2 = 1
+	}
+			set_variable = { this.nuke_speed = 6 }
+	oob = "SOV_1968"
+	remove_dynamic_modifier = { modifier = space_race_lead_modifiers }
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_SOV_conflict
+	}
+	add_ideas = {
+		corrupt
+		tula_arms_plant
+		mig_design_bureau
+		mil_design_bureau
+		morozov_design_bureau
+		tupolev_design_bureau
+		service_by_requirement
+	}
+	complete_national_focus = SOV_Brezhnevism
+	complete_national_focus = SOV_FocusOnConsumerProducts
+	complete_national_focus = SOV_Support_Africa_revolt
+	add_named_threat = { threat = 10 name = InvadeCzech }
+	remove_from_faction = ALB
+}
+1971.1.1 = {
+	create_equipment_variant = {
+		name = "Kiev Class"
+		type = carrier_2
+		upgrades = {
+			ship_deckspace_upgrade = 1
+			carrier_armor_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_reliability_upgrade = 1
+		}
+	}
+	complete_national_focus = SOV_Sino_struggle
+	complete_national_focus = SOV_Silent_Stalinization
+	set_country_flag = space_station_succes
+}
+1973.3.12 = {
+	set_variable = { this.oil_output = 80 }
+	remove_ideas = khrushchevka_idea
+	retire_character = SOV_Rodion_Malinovsky
+	create_equipment_variant = {
+		name = "Kara Class"
+		type = ship_hull_cruiser_2
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_airplane_launcher_1
+			rear_1_custom_slot = ship_light_medium_battery_2
+		}
+	}
+	create_equipment_variant = {
+		name = "641B Tango"			
+		type = ship_hull_submarine_2
+		
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+	complete_national_focus = SOV_SiberianIndustrialArea
+	complete_national_focus = SOV_AfricanHorn
+	complete_national_focus = SOV_Uzbek_Zones
+	complete_national_focus = SOV_Support_Africa_communism
+	set_stability = 0.8
+	add_nuclear_bombs = 244
+	oob = "SOV_1980"
+	set_technology = {
+	countermeasure_flare = 1
+		artillery3 = 1
+		mtg_landing_craft = 1
+		halicopter_at_missile = 1
+		spaa2 = 1
+		air_assult = 1
+		machine_gun4 = 1
+		paratroopers3 = 1
+		aa_missile_2 = 1
+		power_cable = 1
+		dispersed_industry3 = 1
+		
+		sp_artillery3 = 1
+		tech_engineers3 = 1
+		marines2 = 1
+		electric_arc_furnace_steel = 1
+		improved_heavy_tank = 1
+		mechanised_infantry2 = 1
+		
+		trans_helicopter_2 = 1
+		improved_medium_tank = 1
+		advanced_infantry_weapons = 1
+		tank_landing_craft = 1
+		advanced_medium_tank = 1
+		game = 1
+		at_missile_2 = 1
+		rocket_artillery4 = 1
+	advanced_oil_processing = 1
+		improved_ship_hull_cruiser = 1
+		adv_cockpit = 1
+		solar_power = 1
+	}
+}
+1976.1.1 = {
+	set_country_flag = SOV_turkmen_canal_decis
+	retire_character = SOV_Qazimbek
+	add_ideas = {
+		Olympic
+	}
+	remove_ideas = Furtseva
+	complete_national_focus = SOV_republics_autonomy
+}
+1979.12.1 = {
+		recruit_character = SOV_Gorbachev
+		create_equipment_variant = {
+			name = "Kirov Class"
+			type = ship_hull_heavy_3
+			
+			modules = {
+				fixed_ship_battery_slot = ship_medium_battery_1
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = cruiser_ship_engine_2
+				fixed_ship_armor_slot = ship_armor_cruiser_1
+				mid_1_custom_slot = ship_airplane_launcher_1
+				mid_2_custom_slot = ship_anti_air_1
+				rear_1_custom_slot = ship_medium_battery_1
+			}
+		}
+	remove_ideas = Olympic
+	complete_national_focus = SOV_InterventionInVietnam
+	complete_national_focus = SOV_local_leader
+	add_named_threat = { threat = 20 name = Invade_Afghanistan }
+	give_guarantee = AFG
+	add_ideas = Invade_afghanistan
+	add_ideas = Boris_Pugo
+	add_named_threat = { threat = -6 name = SALT }
+}
+1983.10.9 = {
+	retire_character = SOV_Brezhnev
+	retire_character = SOV_Sharav_Radidov
+	promote_character = SOV_Andropov
+	add_ideas = Ryzhkov
+	add_named_threat = { threat = 8 name = KAL100 }
+		add_to_variable = { space_power = 200 } 
+	complete_national_focus = SOV_Toshkent_speech
+	set_technology = {
+		trans_helicopter_3 = 1
+		modularization = 1
+		integrated_circuit = 1
+		aa_missile_3 = 1
+		advanced_destroyer = 1
+		advanced_heavy_tank = 1
+		tech_logistics_company4 = 1
+		sp_artillery2 = 1
+		transistor = 1
+		CAS4 = 1
+		CAS5 = 1
+		fighter4 = 1
+		space_station = 1
+	}
+	add_nuclear_bombs = 375
+	set_country_flag = Andropov
+}
+
+1985.10.9 = {
+	retire_character = SOV_Andropov
+	retire_character = SOV_Nikolai_Shchelokov
+	promote_character = SOV_Gorbachev
+	add_named_threat = { threat = -5 name = SmithSamantha }
+	set_variable = { this.education = 80 }
+	set_country_flag = Gorbachev
+	remove_ideas = personal_worship
+}
+
+1986.12.2 = {
+	set_stability = 0.72
+	add_ideas = {
+		partial_economic_mobilisation
+		Chernobyl
+		Dimitry_Yazov
+	}
+	complete_national_focus = SOV_Perestroika
+	complete_national_focus = SOV_Glasnost
+	add_named_threat = { threat = 5 name = Chernobyl }
+	set_technology = {
+		transport_plane3 = 1
+		at_missile_3 = 1
+		tech_engineers4 = 1
+		personal_computer = 1
+		mechanised_infantry3 = 1
+		marines3 = 1
+		paratroopers2 = 1
+		artillery4 = 1
+	}
+	set_popularities = {
+		democratic = 33
+		communism = 62
+		neutrality = 5
+	}
+}
+
+1988.10.9 = {
+	add_ideas = economic_trans
+	add_ideas = Alexander_Yakovlev
+	complete_national_focus = SOV_New_idea
+	complete_national_focus = SOV_church
+	set_global_flag = destalin_Bukharin_decis
+	set_global_flag = destalin_Zinovyev_decis
+	set_global_flag = destalin_Rykov_decis
+	set_global_flag = destalin_Kamenev_decis
+	set_global_flag = destalin_Akhmatova_decis
+	set_technology = {
+		internet = 1
+		advanced_light_tank = 1
+		infantry_at3 = 1
+		artillery2 = 1
+		vest = 1
+	}
+	create_country_leader = {
+		name = "Boris Yeltsin"
+		
+		picture = "gfx/leaders/SOV/Portrait_Soviet_Yeltsin.tga"
+		expire = "2020.1.1"
+		ideology = conservatism
+		
+		traits = {
+			liberal_reformism
+		}
+	}
+}
+1991.12.2 = {
+	activate_decision = RUS_change_name
+	retire_character = SOV_Gorbachev
+	oob = "RUS"
+	dismantle_faction = yes
+	add_ideas = {
+		USSR_collape_ideas
+	}
+	remove_ideas = {
+		KGB
+		New_idea
+		Invade_Afghanistan
+		warsawpact
+		comecon
+		Chernobyl
+	}
+	set_cosmetic_tag = RUS
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_stability = 0.8
+	set_popularities = {
+		democratic = 63
+		communism = 32
+		neutrality = 5
+	}
+}

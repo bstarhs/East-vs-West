@@ -1,0 +1,121 @@
+﻿capital = 1010
+
+
+oob = "ZAM"
+# Starting tech
+set_country_flag = british_colonies
+set_technology = {
+	infantry_weapons = 1
+	tech_mountaineers = 1
+}
+
+	set_cosmetic_tag = ZAM_ENG
+set_country_flag = language_english
+
+set_country_flag = third_world
+add_ideas = {
+	service_by_requirement
+	Anglicanism
+	miner
+	partial_economic_mobilisation
+}
+set_country_flag = african_state
+
+create_country_leader = {
+	name = "British North Rhodesia Governeor"
+	picture = "gfx/leaders/KEN/Build_Portrait_Kenya_Governor.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+set_convoys = 5
+
+	set_technology = {
+	steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	early_bomber = 1
+	
+	machine_gun1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_mountaineers = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	CAS1 = 1
+	construction1 = 1
+	marines = 1
+	paratroopers = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	
+	power_generation1 = 1
+}
+set_popularities = {
+	democratic = 47
+	fascism = 46
+	communism = 7
+}
+set_politics = {
+
+	ruling_party = democratic
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	
+	name = "Kenneth Kaunda"
+	picture = "gfx/leaders/ZAM/Portrait_Zambia_Kenneth_Kaunda.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+}
+
+1961.1.1 = {
+	set_cosmetic_tag = ZAM
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		authoritarianism = 76
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+	}
+}
+
+#Now a colony of Italy  However, if independent it would have
+1964.1.1 = {
+	add_ideas = {
+		UNmember
+	}
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+}

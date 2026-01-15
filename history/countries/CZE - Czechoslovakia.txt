@@ -1,0 +1,405 @@
+﻿capital = 9
+
+set_country_flag = main_country
+set_country_flag = developmented
+	set_country_flag = female_finished
+oob = "CZE_1948"
+set_country_flag = east_europe
+	recruit_character = CZE_Rudolf_Slansky
+	recruit_character = CZE_Antonin_Novotny
+	recruit_character = CZE_Zdenek_Nejedly
+	recruit_character = CZE_Milada_Horakova
+	recruit_character = CZE_Antonin_Zapotocky
+	recruit_character = CZE_Ludvik_Svoboda
+	recruit_character = CZE_Rudolf_Margolius
+	recruit_character = CZE_Vladimir_Clementis
+	recruit_character = CZE_Vaclav_Kopecky
+	recruit_character = CZE_Bedrich_Reicin
+	recruit_character = CZE_Josef_Urvalek
+	recruit_character = CZE_Alexej_Cepicka
+	recruit_character = CZE_Alois_Vicherek
+	recruit_character = CZE_Jaroslav_Fajfr
+	recruit_character = CZE_Jozef_Lettrich
+	recruit_character = CZE_Jan_Masaryk
+	recruit_character = CZE_Vaclav_Nosek
+add_ideas = {
+	service_by_requirement
+	Secularism
+	war_economy
+	Rudolf_Slansky
+		UNmember
+		CZE_unificate_gov
+		governed_economic
+}
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	complete_national_focus = steel_produc
+set_technology = {
+		excavation1 = 1
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		medical1 = 1
+		helmet = 1
+		motorize_doctrine = 1
+		radio_detection = 1
+		radio = 1
+		radio_detection = 1
+		decimetric_radar = 1
+		auto_industry = 1
+	infantry_weapons = 1
+	tech_support = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	interwar_antiair = 1
+	early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+	motorised_infantry = 1
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	power_generation1 = 1
+		tech_maintenance_company = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+		tech_signal_company = 1
+		
+		paratroopers = 1
+		dispersed_industry = 1
+		concentrated_industry2 = 1
+		construction1 = 1
+		electronic_mechanical_engineering = 1
+	tech_engineers = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	fuel_refining = 1
+	artilelery_doctrine = 1
+}
+
+set_research_slots = 1
+
+	set_popularities = {
+		democratic = 58
+		communism = 42
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.5.19"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Edvard Benes"
+	desc = "POLITICS_EDVARD_BENES_DESC"
+	picture = "gfx/leaders/CZE/Portrait_Czech_Benes.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+
+	set_party_name = {
+		ideology = democratic
+		long_name = CZE_conservativism_party
+		name = CZE_conservativism_party
+	}
+	
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+
+	add_timed_idea = {
+		idea = CZE_Benes_order
+		days = 100
+	}
+create_country_leader = {
+	name = "Klement Gottwald"
+	desc = "POLITICS_KLEMENT_GOTTWALD_DESC"
+	picture = "gfx/leaders/CZE/Portrait_Czech_Gottwald.tga"
+	expire = "1965.1.1"
+	ideology = stalinism
+	traits = {
+			staunch_stalinist pro_soviet
+	}
+}
+	add_ideas = {
+	}
+	
+	set_variable = { this.education = 78 }
+	
+1948.7.14 = {
+	retire_character = CZE_Jaroslav_Fajfr
+	retire_character = CZE_Jozef_Lettrich
+	retire_character = CZE_Jan_Masaryk
+	retire_character = CZE_Milada_Horakova
+	set_technology = {
+		dispersed_industry4 = 1
+		tech_engineers2 = 1
+		fighter1 = 1
+		basic_medium_tank = 1 
+		can_foods = 1
+	}
+	set_popularities = {
+		democratic = 32
+		communism = 66
+		neutrality = 2
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	complete_national_focus = common_weman_right
+	complete_national_focus = common_40
+	complete_national_focus = common_72
+	complete_national_focus = common_73
+	complete_national_focus = common_61
+	complete_national_focus = common_41
+	complete_national_focus = common_people_army
+	complete_national_focus = common_strike_religion
+	complete_national_focus = common_37
+	complete_national_focus = common_support_comparty
+	complete_national_focus = common_comparty_strike
+	set_country_flag = gen230
+	set_country_flag = china_diplomacy
+	set_country_flag = israel_diplomacy
+	set_country_flag = gen242
+	set_country_flag = china_diplomacy
+	activate_decision = Establishment_of_National_Museum
+	remove_ideas = {
+		CZE_Benes_order
+		CZE_unificate_gov
+	}
+	add_timed_idea = {
+		idea = grand_purge
+		days = 100
+	}
+	add_timed_idea = {
+		idea = AgriculturalCollectivization
+		days = 500
+	}
+}
+1955.1.1 = {
+	retire_character = CZE_Rudolf_Slansky
+	retire_character = CZE_Rudolf_Margolius
+	retire_character = CZE_Vladimir_Clementis
+	retire_character = CZE_Bedrich_Reicin
+	retire_character = CZE_Alois_Vicherek
+	remove_ideas = Rudolf_Slansky
+	promote_character = {
+		character = CZE_Antonin_Novotny
+		ideology = marxism
+	} 
+	complete_national_focus = common_commuist_nationalized
+	complete_national_focus = common_39
+	complete_national_focus = common_45
+	complete_national_focus = common_49
+	complete_national_focus = common_43
+	complete_national_focus = common_48
+	complete_national_focus = common_28
+	complete_national_focus = common_67
+	complete_national_focus = common_23
+	complete_national_focus = common_medic
+	complete_national_focus = common_70
+	complete_national_focus = common_commuist_nationalized
+	set_technology = {
+		mechanised_infantry = 1
+		rubber_processing = 1
+		mechanised_infantry = 1
+		dispersed_industry2 = 1
+		improved_machine_tools = 1
+		concentrated_industry = 1
+		infantry_at = 1
+		infantry_weapons1 = 1
+	}
+	add_ideas = {
+		hight_welfare
+		warsawpact
+	}
+	remove_ideas = {
+		grand_purge
+		AgriculturalCollectivization
+	}
+}
+1957.1.20 = {
+	retire_character = CZE_Alexej_Cepicka
+	complete_national_focus = common_75
+	complete_national_focus = common_64
+	complete_national_focus = common_65
+	complete_national_focus = common_68
+	set_technology = {
+		improved_infantry_weapons = 1
+		advanced_infantry_weapons = 1
+		mechanised_infantry2 = 1
+		basic_helicopter = 1
+		dispersed_industry2 = 1
+		construction2 = 1
+		tech_recon2 = 1
+		spaa1 = 1
+		basic_light_tank = 1
+	}
+}
+1962.1.1 = {
+	retire_character = CZE_Vaclav_Kopecky
+	retire_character = CZE_Zdenek_Nejedly
+	retire_character = CZE_Antonin_Zapotocky
+	recruit_character = CZE_Gustav_Husak
+	set_technology = {
+		advanced_machine_tools = 1
+		trans_helicopter_1 = 1
+		spaa1 = 1
+		improved_medium_tank = 1
+		basic_helicopter = 1
+		basic_heavy_tank = 1
+		tech_field_hospital2 = 1
+		tech_logistics_company2 = 1
+		halicopter_machinegun = 1
+		halicopter_rocket_net = 1
+		aa_missile_1 = 1
+	}
+	add_ideas = {
+		Dryzhpa_oilpipes
+	}
+}
+
+1969.1.20 = {
+	retire_character = CZE_Josef_Urvalek
+	retire_character = CZE_Vaclav_Nosek
+	complete_national_focus = common_27
+	set_technology = {
+		tech_engineers3 = 1
+		advanced_medium_tank = 1
+		improved_heavy_tank = 1
+		advanced_machine_tools = 1
+		infantry_at2 = 1
+		sp_artillery1 = 1
+		construction3 = 1
+		construction4 = 1
+		fighter3 = 1
+		mechanised_infantry3 = 1
+		at_missile_1 = 1
+		mechanized_aa_missile_1 = 1
+		improved_light_tank = 1
+	}
+	oob = "CZE_1989"
+	set_popularities = {
+		democratic = 20
+		communism = 80
+	}
+	retire_character = CZE_Antonin_Novotny
+	promote_character = CZE_Gustav_Husak
+	create_country_leader = {
+		name = "Vaclav Havel"
+		
+		picture = "gfx/leaders/CZE/Portrait_Czech_Vaclav_Havel.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1974.1.20 = {
+	complete_national_focus = oil_produc
+	set_technology = {
+		electrolytic_aluminum = 1
+		spaa2 = 1
+		fighter4 = 1
+		advanced_heavy_tank = 1	
+		rocket_artillery4 = 1
+		at_missile_2 = 1
+
+	}
+}
+1978.1.20 = {
+	inherit_technology = DDR
+	set_country_flag = Satellite_succes
+	set_technology = {
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+		autoloader = 1
+		sp_artillery2 = 1
+	}
+}
+1983.1.20 = {
+	set_party_name = {
+		ideology = democratic
+		long_name = CZE_socialism_party
+		name = CZE_socialism_party
+	}
+	set_technology = {
+		aa_missile_3 = 1
+		advanced_light_tank = 1
+	}
+}
+1987.1.20 = {
+	set_popularities = {
+		democratic = 38
+		communism = 62
+	}
+	set_technology = {
+		at_missile_3 = 1
+		assembly_line_production = 1
+	}
+	create_country_leader = {
+		name = "Milous Jakes"
+		
+		picture = "gfx/leaders/CZE/Portrait_Czech_Milous_Jakes.tga"
+		expire = "1988.1.1"
+		ideology = marxism
+		traits = {
+		}
+	}
+}
+1989.10.29 = {
+	add_ideas = economic_trans
+	remove_ideas = {
+		warsawpact
+		comecon
+		AgriculturalCollectivization
+		Dryzhpa_oilpipes
+	}
+	set_cosmetic_tag = CZECH
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1991.10.29 = {
+oob = "CZE_1991"
+}

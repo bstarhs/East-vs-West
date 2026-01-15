@@ -1,0 +1,249 @@
+﻿capital = 284
+
+oob = "NZL_1936"
+
+# Starting tech
+set_country_flag = commonwealth
+set_country_flag = developmented
+set_country_flag = british_colonies
+set_country_flag = has_monarchs
+set_country_flag = language_english
+set_country_flag = pacific_states
+	set_country_flag = female_finished
+	complete_national_focus = common_61
+	complete_national_focus = common_weman_right
+	set_country_flag = gen230
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+
+	activate_decision = Establishment_of_National_Museum
+	set_technology = {
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		medical1 = 1
+		motorised_infantry = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		radio_detection = 1
+		motorize_doctrine = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		oil_processing = 1
+		army_aviation = 1
+		dispersed_industry4 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gwtank = 1
+	gw_artillery = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	early_fighter = 1
+	naval_bomber1 = 1
+	early_ship_hull_light = 1
+	
+	transport = 1
+	
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	
+	power_generation1 = 1
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	complete_national_focus = common_13
+
+add_ideas = {
+
+	Anglicanism
+		UNmember
+		volunteer_only
+		low_economic_mobilisation
+}
+if = {
+	limit = { has_dlc = "Together for Victory" }
+
+	add_to_tech_sharing_group = commonwealth_research
+}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	oob = "NZL_1947"
+	
+
+	add_ideas = {
+		#laws
+		limited_conscription
+	}
+
+	
+	set_technology = {
+		fighter1 = 1
+		early_bomber = 1
+	
+		basic_light_tank = 1
+		improved_light_tank = 1
+		basic_medium_tank = 1
+		basic_heavy_tank = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		infantry_weapons2 = 1
+		
+		
+		basic_destroyer = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+	set_popularities = {
+		democratic = 98
+		communism = 2
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.11.27"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Peter Fraser"
+	desc = "POLITICS_MICHAEL_JOSEPH_SAVAGE_DESC"
+	picture = "gfx/leaders/NZL/Portrait_NewZealand_Peter_Fraser.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+
+1949.1.20 = {
+	create_country_leader = {
+		name = "Sir Sidney Holland"
+		
+		picture = "gfx/leaders/NZL/Portrait_NewZealand_Sidney_Holland.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1952.1.20 = {
+	set_country_flag = israel_diplomacy
+	add_ideas = Elizabeth_young
+}
+1955.1.1 = {
+	complete_national_focus = common_medic
+	add_ideas = {
+		SEATO
+	}
+}
+1960.1.20 = {
+	create_country_leader = {
+		name = "Sir Keith Holyoake"
+		
+		picture = "gfx/leaders/NZL/Portrait_NewZealand_Keith_Holyoake.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1975.1.20 = {
+	set_country_flag = china_diplomacy
+	give_guarantee = MAL
+	give_guarantee = SIG
+	add_ideas = {
+		Commonwealth
+	}
+	create_country_leader = {
+		name = "Robert David Muldoon"
+		
+		picture = "gfx/leaders/NZL/Portrait_NewZealand_Robert_Muldoon.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1977.1.20 = {
+	remove_ideas = SEATO
+}
+1984.1.20 = {
+	create_country_leader = {
+		name = "David Lange"
+		
+		picture = "gfx/leaders/NZL/Portrait_NewZealand_David_Lange.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}

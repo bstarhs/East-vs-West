@@ -1,0 +1,46 @@
+
+state={
+	id=149
+	name="STATE_149" # Pohjanmaa
+	manpower = 811029
+	
+	state_category = large_town
+	
+	history={
+		set_state_flag = ethnics_Finnish
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 68 }
+		owner = FIN
+		add_dynamic_modifier = { modifier = more_food_production }
+		victory_points = {
+			3122 8
+		}
+		victory_points = {
+			66 3
+		}
+		victory_points = {
+			158 4
+		}
+		buildings = {
+			power_plant = 1
+			school = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 4
+			industrial_complex = 2
+			steel_making = 2
+			3122 = {
+				naval_base = 2
+			}
+			158 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = FIN
+	}
+
+	provinces={
+		63 66 82 120 132 158 195 3119 3122 3172 6013 6081 6138 6141 6198 6212 9038 9156 9166 9219 11033 11041 11065 11081 11121 11126 11132 11144 13113 
+	}
+}

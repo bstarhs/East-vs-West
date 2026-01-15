@@ -1,0 +1,39 @@
+
+state={
+	id=553
+	name="STATE_553"
+	manpower = 1104000
+	
+	state_category = town
+
+	history={
+		owner = FRA
+		victory_points = {
+			792 3 
+		}
+		set_state_flag = ethnics_Arabs
+		add_to_array = { this.state_ethnics_list = 24 }
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 1
+			air_base = 5
+			792 = {
+				naval_base = 3
+			}
+		}
+
+		add_core_of = LEB
+		1943.8.23 = {
+			owner = LEB
+		}
+		1975.8.23 = {
+			SYR = {
+				set_province_controller = 13254
+			}
+		}
+	}
+
+	provinces={
+		792 13254
+	}
+}

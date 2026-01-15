@@ -1,0 +1,52 @@
+
+state={
+	id=336
+	name="STATE_336"
+	manpower = 1893200
+	state_category = large_town
+	resources={
+		rubber=21
+		iron=12
+		tungsten=5
+	}
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = banana_production
+		add_to_array = { this.state_ethnics_list = 106 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		set_state_flag = ethnics_Malayan
+		owner = MAL
+		victory_points = { 10297 12 }
+		victory_points = { 7342 6 }
+		victory_points = { 1376 5 }
+		victory_points = { 4412 2 }
+		victory_points = { 12215 2 }
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			oilfield = 1
+			synthetic_refinery = 1
+			infrastructure = 3
+			industrial_complex = 3
+			air_base = 6
+			dockyard = 2
+			10297 = {
+				naval_base = 5
+			}
+		}
+		1948.5.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1957.5.23 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		add_core_of = MAL
+	}
+
+	provinces={
+		1364 1376 4384 4412 7342 10297 12215 12255 
+	}
+}

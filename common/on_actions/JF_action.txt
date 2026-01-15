@@ -1,0 +1,350 @@
+on_actions = {
+	on_monthly = {
+		##缴费
+		##随机的袭击事件
+		effect = {
+			random_list = {
+				40 = { }
+				60 = {
+				random_owned_state = {
+					limit = {
+						is_owned_by = PRC
+						has_dynamic_modifier = { modifier = more_rebel_modifiers }
+						resistance > 25
+						date < 1955.1.1
+					}
+					state_event = {
+						id = prcjf.122
+						trigger_for = PRC
+					}
+				}
+				}
+			}
+		}
+		effect = {
+			#云南
+			if = {
+				limit = {
+					tag = PRC
+					controls_province = 1319
+					325 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+				random_list = {
+					80 = { }
+					30 = {
+						modifier = {
+							add = 6
+							325 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 325
+							}
+						}
+						modifier = {
+							add = 10
+							divisions_in_state = {
+								type = infantry
+    							size > 5
+    							state = 325
+							}
+						}
+						modifier = {
+							add = 20
+							divisions_in_state = {
+								type = infantry
+    							size > 10
+    							state = 325
+							}
+						}
+						news_event = { id = prcjf.2 }
+					} 
+					40 = {
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 325
+							}
+						}
+						news_event = { id = prcjf.3 }
+					} 
+				}
+			}
+			#中部
+			if = {
+				limit = {
+					tag = PRC
+					controls_province = 4619
+					602 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+				random_list = {
+					80 = { }
+					30 = {
+						modifier = {
+							add = 6
+							620 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 6
+							600 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 6
+							602 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 10
+							OR = {
+								620 = { has_state_flag = JF_contact_minority_get }
+								600 = { has_state_flag = JF_contact_minority_get }
+								602 = { has_state_flag = JF_contact_minority_get }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 602
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 600
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 620
+							}
+						}
+						news_event = { id = prcjf.6 }
+					} 
+					40 = {
+						modifier = {
+							add = 10
+							OR = {
+								620 = { has_state_flag = JF_contact_minority_failed }
+								600 = { has_state_flag = JF_contact_minority_failed }
+								602 = { has_state_flag = JF_contact_minority_failed }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 602
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 600
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 620
+							}
+						}
+						news_event = { id = prcjf.7 }
+					} 
+				}
+			}
+			#沿海
+			if = {
+				limit = {
+					tag = PRC
+					controls_province = 4619
+					595 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+				random_list = {
+					80 = { }
+					30 = {
+						modifier = {
+							add = 6
+							595 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 6
+							596 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 10
+							OR = {
+								595 = { has_state_flag = JF_contact_minority_get }
+								596 = { has_state_flag = JF_contact_minority_get }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 596
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 595
+							}
+						}
+						news_event = { id = prcjf.11 }
+					} 
+					30 = {
+						modifier = {
+							add = 10
+							OR = {
+								595 = { has_state_flag = JF_contact_minority_failed }
+								596 = { has_state_flag = JF_contact_minority_failed }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 596
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 595
+							}
+						}
+						news_event = { id = prcjf.12 }
+					} 
+				}
+			}
+			#四川
+			if = {
+				limit = {
+					tag = PRC
+					controls_province = 4925
+					605 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+				random_list = {
+					80 = { }
+					30 = {
+						modifier = {
+							add = 6
+							605 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 10
+							OR = {
+								605 = { has_state_flag = JF_contact_minority_get }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 605
+							}
+						}
+						news_event = { id = prcjf.17 }
+					} 
+					30 = {
+						modifier = {
+							add = 10
+							OR = {
+								605 = { has_state_flag = JF_contact_minority_failed }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 595
+							}
+						}
+						news_event = { id = prcjf.18 }
+					} 
+				}
+			}
+			#新疆
+			if = {
+				limit = {
+					tag = PRC
+					controls_province = 4709
+					949 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+				}
+				random_list = {
+					80 = { }
+					30 = {
+						modifier = {
+							add = 6
+							949 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 6
+							619 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 6
+							618 = { has_state_flag = JF_deci_police_station }
+						}
+						modifier = {
+							add = 10
+							OR = {
+								949 = { has_state_flag = JF_contact_minority_get }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size > 0
+    							state = 949
+							}
+						}
+						news_event = { id = prcjf.26 }
+					} 
+					30 = {
+						modifier = {
+							add = 10
+							OR = {
+								949 = { has_state_flag = JF_contact_minority_failed }
+							}
+						}
+						modifier = {
+							add = 5
+							divisions_in_state = {
+								type = infantry
+    							size < 5
+    							state = 619
+							}
+						}
+						news_event = { id = prcjf.27 }
+					} 
+				}
+			}
+		}
+	}
+}

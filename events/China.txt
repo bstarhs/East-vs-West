@@ -1,0 +1,5283 @@
+﻿add_namespace = prc
+#解放北平
+news_event = {
+	id = prc.1
+	title = prc.1.t
+	desc = prc.1.d
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		country_exists = SHX
+		date > 1948.5.1
+		OR = {
+			date > 1949.2.1
+			controls_province = 11771
+		}
+		OR = {
+			controls_province = 11822
+			controls_province = 6969
+			controls_province = 9843
+		}
+		AND = {
+			PRC = { has_war_with = CHI }
+			PRC = { has_war_with = SHX }
+		}
+		SHX = { has_war_support < 0.2 }
+	}
+	option = {
+		name = prc.3.a
+		if = {
+			limit = { tag = PRC }
+			annex_country = {
+			target = SHX
+			transfer_troops = yes
+			}
+		}
+	}
+}
+#解放南京
+news_event = {
+	id = prc.2
+	title = prc.2.t
+	desc = prc.2.d
+	picture = GFX_liberation_Nanjing
+	major = yes
+	immediate = {
+		play_song = PRC_23
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = nanking_liberate_video
+	}
+	is_triggered_only = yes
+	option = {
+		name = prc.3.a
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.3
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = NJ_liberate
+			add_war_support = 0.3
+		}
+	}
+
+}
+#开国大典
+news_event = {
+	id = prc.3
+	title = prc.3.t
+	desc = prc.3.d
+	picture = GFX_PRCfoud
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = PRC_1
+	}
+	option = {
+		name = prc.2.a
+	}
+
+}
+#收复新疆
+news_event = {
+	id = prc.4
+	title = prc.4.t
+	desc = prc.4.d
+	picture = GFX_liberation_Sinkiang
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+			tag = PRC
+			controls_province = 7222
+			has_war_with = CHI
+			country_exists = SIK
+	}
+	option = {
+		name = prc.4.a
+		if = {
+			limit = { tag = PRC }
+			annex_country = {
+				target = SIK
+				transfer_troops = yes
+			}
+		}
+	}
+
+}
+#收复西藏
+news_event = {
+	id = prc.5
+	title = prc.5.t
+	desc = prc.5.d
+	picture = GFX_liberation_Tibet
+	fire_only_once = yes
+	
+	trigger = {
+		AND = {
+			tag = PRC
+			322 = { is_owned_and_controlled_by = PRC }
+			has_war_with = TIB
+		}
+	}
+	option = {
+		add_to_variable = { influences = -40 } 
+		name = prc.5.a
+	}
+
+}
+#解放广州
+news_event = {
+	id = prc.6
+	title = prc.6.t
+	desc = prc.6.d
+	picture = GFX_liberation_Guangzhou
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.6.a
+		CHI = {
+			set_capital = { state = 756 }
+		}
+		set_country_flag = GZ_liberate
+	}
+
+}
+
+#钱学森回国
+news_event = {
+	id = prc.7
+	title = prc.7.t
+	desc = prc.7.d
+	picture = GFX_qian
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		date > 1955.12.18
+		date < 1956.12.18
+		PRC = { has_completed_focus = prc16 }
+		tag = USA
+	}
+	option = {
+		name = prc.7.a
+		trigger = { tag = USA }
+		news_event = { id = prc.11 days = 5 }
+	}
+	
+	option = {
+		name = prc.7.b
+		trigger = { tag = USA }
+		news_event = { id = prc.19 }
+		set_global_flag = QianXueSenArrest
+	}
+	option = {
+		name = prc.7.c
+		trigger = { NOT = { tag = CHI } }
+	}
+	option = {
+		name = prc.7.D
+		trigger = { tag = CHI }
+	}
+}
+
+
+#soviet experts
+news_event = {
+	id = prc.8
+	title = prc.8.t
+	desc = prc.8.d
+	picture = GFX_qian
+	is_triggered_only = yes
+	option = {
+		name = prc.8.a
+		PRC = {
+			add_ideas = SovietAdviser
+			add_political_power = 80
+		}
+	}
+}
+
+#land reform
+news_event = {
+	id = prc.9
+	title = prc.9.t
+	desc = prc.9.d
+	picture = GFX_LandReform
+	is_triggered_only = yes
+	option = {
+		name = prc.9.a
+		add_ideas = landreform
+		add_political_power = 80
+		news_event = { id = prc.10 }
+	}
+}
+
+#landlords
+news_event = {
+	id = prc.10
+	title = prc.10.t
+	desc = prc.10.d
+	
+	picture = GFX_TrialLandlord
+	is_triggered_only = yes
+	trigger = {
+			tag = PRC
+			has_government = communism
+   		}
+	
+	option = {
+		name = prc.10.a
+		add_political_power = -50
+		add_stability = 0.1
+	}
+	
+	option = {
+		name = prc.10.b
+		add_political_power = 50
+	}
+}
+
+#tibet
+news_event = {
+	id = prc.11
+	title = prc.11.t
+	desc = prc.11.d
+	picture = GFX_qian
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.11.a
+		if = {
+			limit = { tag = PRC }
+			recruit_character = PRC_Qian_xuesen 
+		}
+	}
+}
+
+#five yr plan
+news_event = {
+	id = prc.12
+	title = prc.12.t
+	desc = prc.12.d
+	
+	picture = GFX_ChinaFiveYearsPlan
+	is_triggered_only = yes
+	option = {
+		add_ideas = { ChinaFvieYearsPlant }
+		name = prc.12.a
+	}
+}
+
+#wanlong
+news_event = {
+	id = prc.13
+	title = prc.13.t
+	desc = prc.13.d
+	
+	picture = GFX_BandungConference
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.13.a
+		ai_chance = {
+			base = 1
+		}
+		add_political_power = 80
+		INS = { news_event = { id = ind.5 } }
+		add_to_variable = { influences = 100 } 
+	}
+	
+	option = {
+		name = prc.13.b
+		ai_chance = {
+			factor = 25	
+		}
+		add_political_power = -80
+		INS = { news_event = { id = ind.6 } }
+		add_to_variable = { influences = -50 } 
+	}
+}
+
+#taiwan
+news_event = {
+	id = prc.14
+	title = prc.14.t
+	desc = prc.14.d
+	
+	picture = GFX_LiberationTaiwan
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.14.a
+		declare_war_on = {
+			target = CHI
+			type = annex_everything
+		}
+		add_state_core = 756
+		add_state_core = 524
+	}
+}
+
+#中国要求归还旅顺
+news_event = {
+	id = prc.15
+	title = prc.15.t
+	desc = prc.15.d
+	picture = GFX_Lvshun
+	is_triggered_only = yes
+	option = {
+		name = prc.15.a
+		news_event = { id =	prc.16 }
+		ai_chance = { factor = 20 }
+		PRC = { transfer_state = 111 }
+	}
+	option = {
+		name = prc.15.a
+		ai_chance = { factor = 0 }
+		news_event = { id =	prc.17 }
+	}
+}
+
+#korean war - peace
+news_event = {
+	id = prc.16
+	title = prc.16.t
+	desc = prc.16.d
+	picture = GFX_Lvshun
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.17
+	title = prc.17.t
+	desc = prc.17.d
+	picture = GFX_Lvshun
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+#提醒索要旅顺
+news_event = {
+	id = prc.18
+	title = prc.18.t
+	desc = prc.18.d
+	picture = GFX_Lvshun
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		date > 1955.5.1
+		has_global_flag = SOVgiveupAthur
+		SOV = { controls_state = 111 }
+	}
+	option = {	#接受
+		name = prc.18.a
+		SOV = { news_event = { id = prc.15 } }
+	}
+}
+
+#qxs arrested
+news_event = {
+	id = prc.19
+	title = prc.19.t
+	desc = prc.19.d
+	picture = GFX_qian
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.11.a
+	}
+}
+
+#qxs release
+news_event = {
+	id = prc.20
+	title = prc.20.t
+	desc = prc.20.d
+	picture = GFX_qian
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.11.a
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = prc.11 days = 5 }
+		}
+	}
+}
+
+#qxs killed
+news_event = {
+	id = prc.21
+	title = prc.21.t
+	desc = prc.21.d
+	picture = GFX_qian
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.11.a
+	}
+}
+
+#冯诺依曼
+news_event = {
+	id = prc.22
+	title = prc.22.t
+	desc = prc.22.d
+	picture = GFX_qian
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		has_global_flag = QianXueSenArrest
+	}
+	option = {
+		name = prc.22.a
+		news_event = { id = prc.20 }
+		clr_global_flag = QianXueSenArrest
+	}
+	option = {
+		name = prc.22.a
+		news_event = { id = prc.21 }
+		clr_global_flag = QianXueSenArrest
+		set_global_flag = QianXueSenKilled
+	}
+}
+
+#640
+news_event = {
+	id = prc.23
+	title = prc.23.t
+	desc = prc.23.d
+	picture = GFX_596
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.23.a
+	}
+	
+	option = {
+		name = prc.23.b
+	}
+}
+
+#651
+news_event = {
+	id = prc.24
+	title = prc.24.t
+	desc = prc.24.d
+	picture = GFX_Lushan
+	
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.24.a
+	}
+}
+
+#steelmaking
+news_event = {
+	id = prc.25
+	title = prc.25.t
+	desc = prc.25.d
+	picture = GFX_GreatSteel
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.27.a
+		if = {
+			limit = { tag = PRC }
+			add_ideas = GreatiIron
+		}
+	}
+}
+
+#people's commune
+news_event = {
+	id = prc.26
+	title = prc.26.t
+	desc = prc.26.d
+	picture = GFX_GreatLeapForward
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.27.a
+		if = {
+			limit = { tag = PRC }
+			add_ideas = PeoplesCommuni
+		}
+	}
+}
+
+#great leap forward
+news_event = {
+	id = prc.27
+	title = prc.27.t
+	desc = prc.27.d
+	picture = GFX_GreatLeapStart
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = PRC_41
+	}
+	option = {
+		name = prc.27.a
+		if = {
+			limit = { tag = PRC }
+			add_ideas = GreatLeapForward_ideas
+		}
+	}
+}
+
+#3-year natural disaster
+news_event = {
+	id = prc.28
+	title = prc.28.t
+	desc = prc.28.d
+	
+	picture = GFX_ThreeYearsFamine
+	
+	trigger = {
+		tag = PRC
+		date > 1959.1.1
+		has_idea = GreatLeapForward_ideas
+		has_stability < 0.6
+	}
+	fire_only_once = yes
+	option = {
+		name = prc.28.b
+		add_political_power = -100
+		add_stability = -0.2
+	}
+	
+	option = {
+		name = prc.28.a
+		set_global_flag = prc28
+	}
+}
+
+#hairui ba guan
+news_event = {
+	id = prc.29
+	title = prc.29.t
+	desc = prc.29.d
+	
+	picture = GFX_HairuiBaguan
+	
+	trigger = {
+		tag = PRC
+		date > 1966.1.1
+		date < 1966.12.1
+			has_completed_focus = prc27
+	}
+	fire_only_once = yes
+	
+	option = {
+		ai_chance = {
+			factor = 1
+		}
+		name = prc.29.a
+		news_event = { id = prc.30 }
+	}
+	
+	option = {
+		name = prc.29.b
+		add_political_power = -100
+	}
+}
+#516tz
+news_event = {
+	id = prc.30
+	title = prc.30.t
+	desc = prc.30.d
+	picture = GFX_CulrueRevolution
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = PRC_19
+	}
+	option = {
+		name = prc.30.a
+		if = {
+			limit = { tag = PRC }
+			remove_ideas = anti_right
+			add_ideas = Cultrue_Revolution
+			add_political_power = 100
+			add_to_variable = { influences = 20 } 
+		}
+		if = {
+			limit = {
+				tag = PRC
+				NOT = { has_completed_focus = prc29 }
+				}
+			complete_national_focus = prc29
+		}
+	}
+}
+
+#wgygfjsdmd
+news_event = {
+	id = prc.31
+	title = prc.31.t
+	desc = prc.31.d
+	
+	picture = GFX_CulrueRevolution
+	is_triggered_only = yes
+	option = {
+		name = prc.31.a
+		add_political_power = -100
+		add_ideas = redguard
+		set_country_flag = WangHongWen
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		add_stability = -0.3
+	}
+}
+
+#comment on Khrushchev
+news_event = {
+	id = prc.32
+	title = prc.32.t
+	desc = prc.32.d
+	picture = GFX_AntiRight
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.32.a
+		play_song = PRC_39
+		if = {
+			limit = { tag = PRC }
+			add_ideas = anti_right
+		}
+		
+	}
+}
+
+news_event = {
+	id = prc.33
+	title = prc.33.t
+	desc = prc.33.d
+	fire_only_once = yes
+	picture = GFX_RedGuard
+	trigger = {
+		tag = PRC
+		date > 1966.12.1
+		date < 1967.3.1
+		has_idea = Cultrue_Revolution
+	}
+	option = {
+		news_event = { id = prc.31 }
+		name = prc.33.a
+	}
+	
+	option = {
+		name = prc.33.b
+		add_political_power = -100
+	}
+}
+#七千人大会
+news_event = {
+	id = prc.34
+	title = prc.34.t
+	desc = prc.34.d
+	picture = GFX_Lushan
+	trigger = {
+		tag = PRC
+		has_idea = GreatLeapForward_ideas
+		date > 1962.4.1
+		date < 1962.10.1
+	}
+	mean_time_to_happen = { days = 5 }
+	fire_only_once = yes
+	option = {
+		name = prc.34.a
+		ai_chance = { factor = 20 }
+		news_event = { id = prc.38 }
+		promote_character = {
+			character = PRC_liu_shaoqi
+			ideology = marxism
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = prc.34.b
+	}
+}
+
+#林彪政变尝试
+news_event = {
+	id = prc.35
+	title = prc.35.t
+	desc = prc.35.d
+	picture = GFX_LinbiaoCometopower
+	hidden = yes
+	trigger = {
+		tag = PRC
+		date > 1971.1.1
+		date < 1971.10.1
+		has_completed_focus = prc31
+		has_idea = Lin_Biao
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		random_list = {
+			70 = { news_event = { id = prc.36 } } 
+			30 = { news_event = { id = prc.42 } } 
+		}
+	}
+}
+
+#政变失败
+news_event = {
+	id = prc.36
+	title = prc.36.t
+	desc = prc.36.d
+	
+	picture = GFX_LinBiaoDead
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.36.a
+		add_political_power = -50
+	}
+}
+
+#jb island
+news_event = {
+	id = prc.37
+	title = prc.37.t
+	desc = prc.37.d
+	
+	picture = GFX_Zhenbaodao
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		date > 1969.4.1
+		date < 1970.4.1
+		has_completed_focus = prc67
+		
+	}
+	
+	option = {
+		name = prc.37.a
+		add_political_power = 50
+		add_ideas = SovietChinaConflit
+		add_named_threat = { threat = 15 name = Sino-Soviet-Conflict }
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 657
+				num_provinces = 4
+			}
+			defender = {
+				state = 714
+				num_provinces = 10
+			}
+		}
+	}
+	
+	option = {
+		name = prc.37.a
+		add_political_power = -50
+		add_to_variable = { influences = -30 } 
+	}
+}
+
+#tlkt 
+news_event = {
+	id = prc.38
+	title = prc.38.t
+	desc = prc.38.d
+	fire_only_once = yes
+	picture = GFX_Lushan
+	major = yes
+	is_triggered_only yes
+	
+	option = {
+		name = prc.38.a
+	}
+}
+
+#唐山大地震
+news_event = {
+	id = prc.39
+	title = prc.39.t
+	desc = prc.39.d
+	picture = GFX_Tangshan
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		tag = PRC
+		date > 1976.4.1
+		date < 1976.10.1
+	}
+	option = {
+		name = prc.39.a
+		if = {
+		limit = { tag = PRC }
+			add_political_power = -200
+			add_stability = -0.2
+		}
+	}
+}
+#lsq criticised
+news_event = {
+	id = prc.40
+	title = prc.40.t
+	desc = prc.40.d
+	
+	picture = GFX_LiuShaoqiCriticised
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.40.a
+		retire_character = PRC_liu_shaoqi
+		create_country_leader = {
+			name = "Mao Ze-Dong"
+			picture = "gfx/leaders/PRC/gfx/leaders/PRC/Portrait_China_Mao_Zedong_old.tga"
+			expire = "1976.1.1"
+			ideology = marxism
+			traits = {
+				communist_revolutionary popular_figurehead ideological_crusader
+			}
+		}
+	}
+}
+
+#毛泽东苏去世（国际新闻）
+news_event = {
+	id = prc.41
+	title = prc.41.t
+	desc = prc.41.d
+	picture = GFX_MaoDead
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.41.a
+	}
+}
+
+#林彪上台
+news_event = {
+	id = prc.42
+	title = prc.42.t
+	desc = prc.42.d
+	picture = GFX_LinbiaoCometopower
+	is_triggered_only = yes
+	option = {
+		name = prc.42.a
+		retire_character = PRC_mao_zedong
+		promote_character = PRC_lin_biao
+		news_event = { id = prc.41 }
+	}
+}
+
+#jsg
+news_event = {
+	id = prc.43
+	title = prc.43.t
+	desc = prc.43.d
+	picture = GFX_KissingerVisit
+	is_triggered_only = yes
+	option = {
+		name = prc.43.a
+		add_political_power = 100
+		news_event = { id = prc.44 }
+		add_to_variable = { influences = 80 }
+		USA = {
+			add_political_power = 100
+			add_to_variable = { influences = 80 } 
+			add_named_threat = { threat = -8 name = Kissinger-visits-China }
+		}
+	}
+	
+	option = {
+		name = prc.43.b
+		add_political_power = -100
+		add_to_variable = { influences = -20 }
+		USA = { news_event = { id = prc.45 } }
+	}
+}
+
+#nixon
+news_event = {
+	id = prc.44
+	title = prc.44.t
+	desc = prc.44.d
+	picture = GFX_NixonVisit
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.43.a
+	}
+}
+
+#un two repre
+news_event = {
+	id = prc.45
+	title = prc.45.t
+	desc = prc.45.d
+	picture = GFX_KissingerVisit
+	is_triggered_only = yes
+	option = {
+		name = prc.45.a
+	}
+}
+
+#us-cn
+news_event = {
+	id = prc.46
+	title = prc.46.t
+	desc = prc.46.d
+	picture = GFX_NixonVisit
+	is_triggered_only = yes
+	option = {
+		name = prc.46.a
+		add_political_power = 100
+		complete_national_focus = prc56
+	}
+	
+}
+
+#fr-cn
+news_event = {
+	id = prc.47
+	title = prc.47.t
+	desc = prc.47.d
+	picture = GFX_PompidouVisit
+	is_triggered_only = yes
+	option = {
+		name = prc.47.a
+		add_political_power = 100
+	}
+	
+	option = {
+		name = prc.47.b
+		add_political_power = -100
+		add_to_variable = { influences = 60 } 
+	}
+	
+}
+
+#jp-cn
+news_event = {
+	id = prc.48
+	title = prc.48.t
+	desc = prc.48.d
+	
+	picture = GFX_TanagaVisit
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.48.a
+		add_political_power = 100
+	}
+	
+	option = {
+		name = prc.48.b
+		add_political_power = -100
+		add_to_variable = { influences = 40 } 
+	}
+	
+}
+
+#feb countercurrent
+news_event = {
+	id = prc.49
+	title = prc.49.t
+	desc = prc.49.d
+	
+	picture = GFX_Lushan
+	
+	trigger = {
+		tag = PRC
+		has_idea = Cultrue_Revolution
+		date > 1967.2.1
+		date < 1967.3.1
+	}
+	
+	mean_time_to_happen = { days = 5 }
+	
+	option = {
+		name = prc.49.a
+		add_political_power = -100
+		add_stability = -0.2
+	}
+	
+	option = {
+		name = prc.49.b
+		add_political_power = 100
+	}
+	
+}
+#mao die
+news_event = {
+	id = prc.50
+	title = prc.50.t
+	desc = prc.50.d
+	picture = GFX_MaoDead
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		date > 1976.9.1
+		date < 1976.10.1
+	}
+	option = {
+		name = prc.50.a
+		add_political_power = -100
+		add_stability = -0.2
+		add_to_variable = { influences = -30 }
+		create_country_leader = {
+			name = "Wang Hong-Wen"
+			picture = "gfx/leaders/PRC/Portrait_China_Wang_Hongwen.tga"
+			expire = "2050.1.1"
+			ideology = marxism
+			traits = {
+			}
+		}
+		news_event = { id = prc.41 }
+		hidden_effect = {	
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+	}
+	option = {
+		name = prc.50.b
+		add_political_power = -50
+		add_stability = -0.2
+		create_country_leader = {
+			name = "Hua Guo-Feng"
+			picture = "gfx/leaders/PRC/Portrait_China_Hua_Guofeng.tga"
+			expire = "2050.1.1"
+			ideology = marxism
+			traits = {
+				socialist_reformism
+			}
+		}
+		hidden_effect = {	
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+		news_event = { id = prc.41 }
+		news_event = { id = prc.51 days = 2 }
+		add_to_variable = { influences = -30 } 
+		
+	}
+	
+}
+
+#四人帮拒绝投降
+news_event = {
+	id = prc.51
+	title = prc.51.t
+	desc = prc.51.d
+	picture = GFX_Sirenbang
+	is_triggered_only = yes
+	option = {
+		name = prc.51.a
+		random_list = {
+			80 = {
+				news_event = { id = prc.108 }
+				add_stability = -0.2
+				add_to_variable = { influences = -50 }
+				SHN = {
+					add_popularity = {
+						ideology = communism
+						popularity = 0.8
+					}
+					set_politics = { ruling_party = communism }
+					transfer_state = 613
+					create_country_leader = {
+						name = "Wang Hong-Wen"
+						picture = "gfx/leaders/PRC/Portrait_China_Wang_Hongwen.tga"
+						expire = "2050.1.1"
+						ideology = marxism
+						traits = {
+						}
+					}
+				}
+				every_state = {
+					limit = { has_state_flag = PRC_Revolutionary_community }
+					transfer_state_to = SHN
+				}
+			}
+			20 = {
+				add_stability = 0.15
+				news_event = { id = prc.52 }
+			}
+		}
+	}
+	option = {
+		name = prc.51.b
+		news_event = { id = prc.90 }
+	}
+}
+#四人帮被捕
+news_event = {
+	id = prc.52
+	title = prc.52.t
+	desc = prc.52.d
+	picture = GFX_JiangQingGroupArrest
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.52.a
+	}
+}
+
+#十一届三中全会
+news_event = {
+	id = prc.53
+	title = prc.53.t
+	desc = prc.53.d
+	picture = GFX_PRC1978
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PRC
+		has_government = communism
+		date > 1978.6.1
+		date < 1978.12.1
+	}
+	option = {	#Deng Xiao-Ping
+		name = prc.53.b
+		ai_chance = {
+			factor = 1
+		}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Deng Xiao-Ping"
+			desc = "POLITICIAN_PRC_HU_JINTAO_DESC"
+			picture = "gfx/leaders/PRC/Portrait_China_Deng.tga"
+			expire = "2050.1.1"
+			ideology = marxism
+			traits = {
+				socialist_reformism
+				independent
+			}
+		}
+		complete_national_focus = prc39
+		remove_ideas = Cultrue_Revolution
+		add_political_power = 100
+		hidden_effect = {	
+		add_tech_bonus = { bonus = 0.25 uses = 1 category = industry }
+			add_popularity = {
+			ideology = communism
+			popularity = 0.05
+			}
+			add_popularity = {
+			ideology = democratic
+			popularity = 0.03
+			}
+		}
+		news_event = {
+			id = prc.54
+		}
+	}
+	option = {	#华国锋
+		name = prc.53.a
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 15
+		hidden_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		news_event = { id = prc.88 }
+	}
+}
+#解放思想
+news_event = {
+	id = prc.54
+	title = prc.54.t
+	desc = prc.54.d
+	picture = GFX_PRC1978
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.54.a
+		if = {
+			limit = { tag = PRC }
+			add_to_variable = { influences = 80 } 
+			complete_national_focus = prc39
+			remove_ideas = Cultrue_Revolution
+			remove_ideas = redguard
+			add_political_power = 20
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+
+}
+
+#ggkf
+news_event = {
+	id = prc.55
+	title = prc.55.t
+	desc = prc.55.d
+	
+	picture = GFX_PRC1978
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.55.a
+		add_ideas = Openreform
+		add_stability = 0.10
+		add_political_power = 20
+		add_to_variable = { influences = 20 } 
+	}
+}
+
+#uk-cn meeting
+news_event = {
+	id = prc.56
+	title = prc.56.t
+	desc = prc.56.d
+	picture = GFX_DengThatcherMeeting
+	trigger = {
+		tag = PRC
+		date > 1984.1.1
+		date < 1985.1.1
+		has_idea = Openreform
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = prc.56.a
+		add_political_power = 80
+		ENG = {
+			news_event = { id = prc.57 days = 20 }
+			set_country_flag = guard_hongkong
+		}
+	}
+	
+	option = {
+		name = prc.56.b
+		add_political_power = -200
+		add_stability = -0.2
+		remove_state_core = 326
+	}
+}
+#uk-cn meeting
+news_event = {
+	id = prc.57
+	title = prc.57.t
+	desc = prc.57.d
+	picture = GFX_DengThatcherMeeting
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.57.a
+		add_political_power = -50
+		every_country = { news_event = { id = prc.61 days = 20 } }
+	}
+	option = {
+		name = prc.57.b
+		add_political_power = 50
+		PRC = {
+			news_event = { id = prc.58 days = 20 }
+		}
+	}
+}
+
+#uk no return hk
+news_event = {
+	id = prc.58
+	title = prc.58.t
+	desc = prc.58.d
+	picture = GFX_BritishNavy1980s
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.58.a
+			create_wargoal = {
+				type = annex_everything
+				target = HKN
+			}
+		news_event = { id = hkn.10 }
+		add_to_variable = { influences = -180 } 
+	}
+	
+	option = {
+		name = prc.58.b
+		add_political_power = -200
+		add_stability = -0.2
+		remove_state_core = 326
+	}
+}
+
+#liberate hk
+news_event = {
+	id = prc.59
+	title = prc.59.t
+	desc = prc.59.d
+	
+	picture = GFX_PLA1980
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		set_global_flag = prc59_fired
+	}
+	
+	option = {
+		name = prc.58.a
+	}
+}
+
+#peace
+news_event = {
+	id = prc.60
+	title = prc.60.t
+	desc = prc.60.d
+	picture = GFX_PLA1980
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = prc.60.a
+	}
+}
+
+#peace
+news_event = {
+	id = prc.61
+	title = prc.61.t
+	desc = prc.61.d
+	
+	picture = GFX_HongongReback
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = prc61_fired
+	}
+	
+	option = {
+		name = prc.61.a
+		if = {
+			limit = {
+				OR = {
+					tag = PRC
+					tag = ENG
+				}
+			}
+			add_political_power = 100
+		}
+		HKN = {
+			remove_state_core = 326
+		}
+		PRC = {
+			add_state_core = 326
+		}
+	}
+}
+
+#澳门谈判
+news_event = {
+	id = prc.62
+	title = prc.62.t
+	desc = prc.62.d
+	fire_only_once = yes
+	picture = GFX_ChinaPorugalNegosation
+	trigger = {
+		tag = PRC
+		date > 1987.4.1
+		date < 1987.4.1
+		has_completed_focus = prc61
+	}
+	option = {
+		name = prc.62.a
+		if = {
+			limit = {
+				OR = {
+					tag = PRC
+					tag = POR
+				}
+			}
+			add_political_power = 100
+		}
+		POR = {
+			remove_state_core = 729
+		}
+		PRC = {
+			add_state_core = 729
+		}
+	}
+}
+
+#越南反华
+news_event = {
+	id = prc.63
+	title = prc.63.t
+	desc = prc.63.d
+	
+	picture = GFX_ChinaVietSeaWar
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = prc.63.a
+		add_political_power = 100
+		set_global_flag = prc63_fired
+	}
+	
+	option = {
+		name = prc.63.b
+		add_political_power = -100
+	}
+}
+
+#中越海战
+news_event = {
+	id = prc.64
+	title = prc.64.t
+	desc = prc.64.d
+	
+	picture = GFX_ChinaVietSeaWar
+	
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		date > 1988.4.1
+		date < 1989.4.1
+		has_global_flag = prc63_fired
+	}
+	
+	option = {
+		name = prc.64.a
+		add_political_power = -300
+		add_stability = -0.2
+	}
+}
+
+#波尔布特访华
+news_event = {
+	id = prc.65
+	title = prc.65.t
+	desc = prc.65.d
+	
+	picture = GFX_PolPotVisit
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = prc.65.a
+		add_political_power = -50
+		set_global_flag = ChinaVietConflit
+		add_to_variable = { influences = -20 } 
+	}
+	
+	option = {
+		name = prc.65.b
+		add_political_power = 100
+	}
+}
+
+#对越作战
+news_event = {
+	id = prc.66
+	title = prc.66.t
+	desc = prc.66.d
+	picture = GFX_PLA1970
+	is_triggered_only = yes
+	option = {
+		name = prc.66.a
+		add_to_war = {
+			targeted_alliance = CAM
+			enemy = VIN
+			hostility_reason = asked_to_join
+		}
+		add_political_power = 100
+		set_global_flag = sino_viet_conflict
+	}
+	
+	option = {
+		name = prc.66.b
+		add_political_power = -100
+	}
+}
+
+#end war w/ vin
+news_event = {
+	id = prc.67
+	title = prc.67.t
+	desc = prc.67.d
+	
+	fire_only_once = yes
+	picture = GFX_Hero
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = PRC
+		has_war_with = VIN
+		OR = {
+			VIN = { has_war_support < 0.5 }
+			controls_province = 12048
+		}
+	}
+	
+	option = {
+		name = prc.67.a
+		white_peace = VIN
+		white_peace = CAM
+		add_political_power = 100
+	}
+	option = {
+		name = prc.67.a
+		news_event = { id = vin.58 }
+		set_global_flag = China_invade_Vietnam
+	}
+}
+
+#胡耀邦去世
+news_event = {
+	id = prc.68
+	title = prc.68.t
+	desc = prc.68.d
+	picture = GFX_HuYaobangDead
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+			AND = {
+			tag = PRC
+			has_government = communism
+			date > 1989.4.1
+			date < 1989.5.1
+			}
+   		}
+	option = {
+		name = prc.68.a
+		add_stability = -0.10
+		PRC = { set_country_flag = tiananmen }
+	}
+}
+
+#学生在天安门聚集
+news_event = {
+	id = prc.69
+	title = prc.69.t
+	desc = prc.69.d
+	picture = GFX_8964StudentMovement
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = PRC
+		has_country_flag = tiananmen
+	}
+	option = {	#予以支持
+		name = prc.69.a
+		add_stability = 0.1
+
+		add_political_power = 30
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+		PRC = {
+			news_event = { id = prc.70 }
+		}
+	}
+	option = {	#批判一番
+		ai_chance = {
+			factor = 100	
+		}
+		name = prc.69.b
+		add_stability = -0.08
+		add_political_power = 10
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		news_event = { id = prc.71 }
+	}
+
+}
+#李鹏谈判
+news_event = {
+	id = prc.70
+	title = prc.70.t
+	desc = prc.70.d
+	picture = GFX_LiPengNegotiation
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.70.a	#接受言论自由
+		add_stability = 0.05
+		news_event = { id = prc.80 }
+	}
+	option = {
+		name = prc.70.b	#拒绝
+		add_stability = -0.05
+	}
+}
+#四二七大游行新闻
+news_event = {
+	id = prc.71
+	title = prc.71.t
+	desc = prc.71.d
+	picture = GFX_8964StudentMovement
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = PRC_16
+	}
+	option = {
+		name = prc.71.a
+		if = {
+			limit = { NOT = { has_government = democratic } }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+	}
+}
+
+#大井冲突
+news_event = {
+	id = prc.72
+	title = prc.72.t
+	desc = prc.72.d
+	picture = GFX_StudentUprising
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		AND = {
+			tag = PRC
+			has_country_flag = tiananmen
+			date > 1989.6.1
+		}
+   	}
+	option = {
+		name = prc.72.a	#保持镇定
+		add_stability = -0.02
+		news_event = { id = prc.73 }
+	}
+	option = {
+		name = prc.72.b	#下令清场
+		add_stability = -0.02
+		news_event = { id = prc.73 }
+	}
+}
+
+#清场开始
+news_event = {
+	id = prc.73
+	title = prc.73.t
+	desc = prc.73.d
+	picture = GFX_8964
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.73.a
+		add_stability = -0.10
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		608 = {
+			add_manpower = -376
+		}
+		news_event = { id = prc.74 }
+		add_named_threat = {
+			threat = 5
+			name = Tiananmen-incident
+		}
+	}
+}
+
+#天安门的命运
+news_event = {
+	id = prc.74
+	title = prc.74.t
+	desc = prc.74.d
+	picture = GFX_8964
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			factor = 100	
+		}
+		play_song = PRC_27
+		name = prc.74.a	#和平撤离
+		add_ideas = tiananmen
+		news_event = prc.76
+		news_event = { id = prc.82 }
+		add_to_variable = { influences = -150 } 
+	}
+	option = {
+		ai_chance = {
+			factor = 0	
+		}
+		play_song = PRC_27
+		add_ideas = tiananmen
+		name = prc.74.b	#去你妈的
+		add_stability = -0.3
+		news_event = { id = prc.75 }
+		news_event = { id = prc.82 }
+		add_to_variable = { influences = -300 } 
+	}
+}
+
+#暴力清场
+news_event = {
+	id = prc.75
+	title = prc.75.t
+	desc = prc.75.d
+	picture = GFX_8964
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.75.a
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.1
+			}
+		}
+	}
+}
+#和平情场
+news_event = {
+	id = prc.76
+	title = prc.76.t
+	desc = prc.76.d
+	picture = GFX_8964
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.76.a
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+		}
+	}
+}
+
+
+#北京之春
+news_event = {
+	id = prc.80
+	title = prc.80.t
+	desc = prc.80.d
+	picture = GFX_8964StudentMovement
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.80.a
+		add_stability = 0.40
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+		news_event = { id = prc.83 }
+		add_to_variable = { influences = 100 } 
+	}
+}
+
+#绝食运动
+news_event = {
+	id = prc.81
+	title = prc.81.t
+	desc = prc.81.d
+	picture = GFX_8964StudentMovement
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		has_country_flag = tiananmen
+	}
+	option = {
+		name = prc.81.a		#谈判
+		news_event = { id = prc.70 }
+	}
+	option = {
+		name = prc.81.b	#拒绝
+		add_stability = -0.10
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+	}
+}
+#新总书记
+news_event = {
+	id = prc.82
+	title = prc.82.t
+	desc = prc.81.d
+	picture = GFX_8964StudentMovement
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.81.b	#拒绝
+		create_country_leader = {
+			name = "Jiang Ze-Min"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/PRC/Portrait_China_Jiang_Zemin.tga"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = {  }
+		}
+		add_popularity = { ideology = communism popularity = 0.12 }
+	}
+}
+
+#新总书记（怂）
+news_event = {
+	id = prc.83
+	title = prc.83.t
+	desc = prc.81.d
+	picture = GFX_8964StudentMovement
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.81.b	#拒绝
+		create_country_leader = {
+			name = "Zhao Zi-Yang"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/PRC/Portrait_China_Zhao_Ziyang.tga"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = {  }
+		}
+		add_popularity = { ideology = communism popularity = 0.12 }
+	}
+}
+#储安平
+news_event = {
+	id = prc.84
+	title = prc.84.t
+	desc = prc.84.d
+	picture = GFX_Lushan
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1957.3.10
+		date < 1957.4.20
+		NOT = { has_global_flag = prc84 }
+		has_idea = PRC_mingfang
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = prc84
+	}
+}
+
+#西藏独立
+news_event = {
+	id = prc.85
+	title = usatext.91.t
+	desc = usatext.8.d
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.87.a
+	}
+}
+#大鸣大放
+news_event = {
+	id = prc.87
+	title = prc.87.t
+	desc = prc.87.d
+	picture = GFX_Lushan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.87.a
+		if = {
+			limit = { tag = PRC }
+			add_ideas = PRC_mingfang
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+}
+#华国锋
+news_event = {
+	id = prc.88
+	title = prc.88.t
+	desc = prc.88.d
+	picture = GFX_HuaGuofeng
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.87.a
+		
+	}
+}
+#王洪文
+news_event = {
+	id = prc.89
+	title = prc.89.t
+	desc = prc.89.d
+	picture = GFX_Wanghongwen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.87.a
+		
+	}
+}
+news_event = {
+	id = prc.90
+	title = prc.90.t
+	desc = prc.90.d
+	picture = GFX_Wanghongwen
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.87.a
+		
+	}
+}
+#解放长春
+news_event = {
+	id = prc.91
+	title = prc.91.t
+	desc = prc.91.d
+	picture = GFX_Shenyang_liberate
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.91.a
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.05
+		}
+		if = {
+			limit = { tag = DOB }
+			add_war_support = -0.3
+		}
+		if = {
+			limit = { tag = SHX }
+			add_war_support = -0.3
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = Changchun_liberate
+			add_war_support = 0.2
+		}
+	}
+
+}
+#解放沈阳
+news_event = {
+	id = prc.92
+	title = prc.92.t
+	desc = prc.92.d
+	picture = GFX_Shenyang_liberate
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.91.a
+		if = {
+			limit = { tag = CHI }
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = Shenyang_liberate
+			add_war_support = 0.2
+		}
+	}
+
+}
+#解放沈阳
+news_event = {
+	id = prc.93
+	title = prc.93.t
+	desc = prc.93.d
+	picture = GFX_Shenyang_liberate
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.91.a
+		if = {
+			limit = { tag = CHI }
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = Kaifeng_liberate
+			add_war_support = 0.2
+		}
+	}
+
+}
+#解放沈阳
+news_event = {
+	id = prc.94
+	title = prc.94.t
+	desc = prc.94.d
+	picture = GFX_liberation_Nanjing
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.91.a
+		if = {
+			limit = { tag = DOB }
+			remove_ideas = CHI_civil_war_deserters
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = Xuzhou_liberate
+			add_war_support = 0.2
+		}
+	}
+
+}
+#解放重庆
+news_event = {
+	id = prc.95
+	title = prc.95.t
+	desc = prc.95.d
+	picture = GFX_Chongqing_liberate
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.91.a
+		if = {
+			limit = { tag = CHI }
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = Chongching_liberate
+			add_war_support = 0.2
+		}
+	}
+
+}
+#解放重庆
+news_event = {
+	id = prc.96
+	title = prc.96.t
+	desc = prc.96.d
+	picture = GFX_Shanghai_Liberate
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.91.a
+		if = {
+			limit = { tag = CHI }
+		}
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = Shanghai_Liberate
+			add_war_support = 0.2
+		}
+	}
+
+}
+#解放重庆
+news_event = {
+	id = prc.97
+	title = prc.97.t
+	desc = prc.97.d
+	picture = GFX_Revolutionary_community
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		date > 1955.1.1
+		date < 1957.1.1
+	}
+	option = {
+		name = prc.97.a
+		add_popularity = { ideology = communism popularity = 0.05 }
+		add_political_power = -120
+		news_event = { id = prc.98 }
+	}
+	option = {
+		name = prc.97.b
+	}
+
+}
+news_event = {
+	id = prc.98
+	title = prc.98.t
+	desc = prc.98.d
+	picture = GFX_Revolutionary_community
+	is_triggered_only = yes
+	option = {
+		name = prc.98.a
+	}
+
+}
+#三反五反
+news_event = {
+	id = prc.99
+	title = prc.99.t
+	desc = prc.99.d
+	picture = GFX_Revolutionary_community
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		has_decision = PRC_3_anti
+		date < 1957.1.1
+	}
+	option = {
+		name = prc.99.a
+		add_ideas = anti_right
+		set_country_flag = PRC_5_anti
+		add_popularity = { ideology = communism popularity = 0.05 }
+		news_event = { id = prc.100 }
+	}
+	option = {
+		name = prc.99.b
+	}
+}
+news_event = {
+	id = prc.100
+	title = prc.100.t
+	desc = prc.100.d
+	picture = GFX_Revolutionary_community
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.100.a
+	}
+
+}
+
+news_event = {
+	id = prc.101
+	title = prc.101.t
+	desc = prc.101.d
+	picture = GFX_Revolutionary_community
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = PRC
+		has_country_flag = PRC_5_anti
+		date > 1952.1.1
+		date < 1953.1.1
+		NOT = { has_country_flag = PRC_5_anti_event }
+	}
+	option = {
+		name = prc.100.a
+		add_political_power = -120
+		add_stability = -0.15
+		set_country_flag = PRC_5_anti_event
+	}
+
+}
+#知青
+news_event = {
+	id = prc.102
+	title = prc.102.t
+	desc = prc.102.d
+	picture = GFX_Revolutionary_community
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.100.a
+		add_political_power = -120
+		add_stability = -0.15
+	}
+
+}
+
+#知青
+news_event = {
+	id = prc.103
+	title = prc.103.t
+	desc = prc.103.d
+	picture = GFX_MaoEurope
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		NOT = { has_global_flag = Mao_influence }
+		has_idea = Cultrue_Revolution
+		date < 1973.1.1
+	}
+	major = yes
+	option = {
+		name = prc.100.a
+		set_global_flag = Mao_influence
+		if = {
+			limit = { has_government = democratic }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+		}
+	}
+
+}
+#是否同意
+news_event = {
+	id = prc.104
+	title = prc.104.t
+	desc = prc.104.d
+	picture = GFX_MaoEurope
+	is_triggered_only = yes
+	option = {
+		name = prc.100.a
+		add_to_variable = { global.support_prc = 1 }
+			if = {
+				limit = {
+					PRC = {
+						NOT = {
+							has_idea = UNmember
+						}
+					}
+					check_variable = {
+						global.support_prc > 2
+					}
+				}
+				PRC = {
+					add_ideas = UNmember
+					set_country_flag = UNSC
+				}
+				CHI = {
+					remove_ideas = UNmember
+					clr_country_flag = UNSC
+				}
+				news_event = { id = prc.105 }
+				set_variable = { global.support_prc = 0 }
+				set_variable = { global.oppose_prc = 0 }
+			}
+	
+	}
+	option = {
+		name = prc.100.a
+		add_to_variable = { global.oppose_prc = 1 }
+			if = {
+				limit = {
+					PRC = {
+						NOT = {
+							has_idea = UNmember
+						}
+					}
+					check_variable = {
+						global.oppose_prc > 2
+					}
+				}
+				news_event = { id = prc.106 }
+				set_variable = { global.support_prc = 0 }
+				set_variable = { global.oppose_prc = 0 }
+			}
+	
+	}
+}
+news_event = {
+	id = prc.105
+	title = prc.105.t
+	desc = prc.105.d
+	picture = GFX_Revolutionary_community
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.100.a
+	}
+}
+news_event = {
+	id = prc.106
+	title = prc.106.t
+	desc = prc.106.d
+	picture = GFX_Revolutionary_community
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.100.a
+	}
+
+}
+news_event = {
+	id = prc.107
+	title = prc.107.t
+	desc = prc.107.d
+	picture = GFX_PekingSquare
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.107.a
+	}
+
+}
+news_event = {
+	id = prc.108
+	title = prc.108.t
+	desc = prc.108.d
+	picture = GFX_PLA1970
+	is_triggered_only = yes
+	immediate = {
+		play_song = PRC_24
+	}
+	major = yes
+	option = {
+		name = prc.108.a
+	}
+
+}
+news_event = {
+	id = prc.109
+	title = prc.109.t
+	desc = prc.109.d
+	picture = GFX_PLA1970
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.109.a
+	}
+
+}
+#苏联入侵中国
+news_event = {
+	id = prc.110
+	title = prc.110.t
+	desc = prc.110.d
+	picture = GFX_SovietInvade
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = SOV_23
+	}
+	option = {
+		name = prc.110.a
+	}
+
+}
+#是否退出华约
+news_event = {
+	id = prc.111
+	title = prc.111.t
+	desc = prc.111.d
+	picture = GFX_SovietInvade
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				OR = {
+					has_country_leader_with_trait = independent_red
+					has_country_leader_with_trait = socialist_reformism
+					has_country_leader_with_trait = liberal_reformism
+				}
+			}
+		}
+		name = prc.109.a
+		news_event = { id = prc.112 }
+		leave_faction = yes
+	}
+	option = {
+		ai_chance = {
+			factor = 2
+		}
+		name = prc.109.a
+	}
+
+}
+#退出华约
+news_event = {
+	id = prc.112
+	title = prc.112.t
+	desc = prc.112.d
+	picture = GFX_SovietInvade
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.109.a
+	}
+
+}
+
+#对华战争陷入僵持
+news_event = {
+	id = prc.113
+	title = prc.113.t
+	desc = prc.113.d
+	picture = GFX_PLA1970
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = SOV
+		has_war_with = PRC
+		has_stability < 0.6
+		has_war_support < 0.4
+	}
+	option = {
+		white_peace = PRC
+		news_event = { id = prc.114 }
+		every_other_country = {
+			limit = { is_in_faction_with = SOV }
+			white_peace = PRC
+		}
+		name = prc.109.a
+	}
+
+}
+#苏联撤军
+news_event = {
+	id = prc.114
+	title = prc.114.t
+	desc = prc.114.d
+	picture = GFX_SovietInvade
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.109.a
+	}
+
+}
+#请求建交
+news_event = {
+	id = prc.115
+	title = prc.115.t
+	desc = prc.115.d
+	picture = GFX_ChinaPorugalNegosation
+	is_triggered_only = yes
+	option = {
+		name = prc.109.a
+		
+		FROM = {
+			set_country_flag = china_diplomacy
+			news_event = { id = prc.116 }
+		}
+	}
+
+}
+#宣布建交
+news_event = {
+	id = prc.116
+	title = prc.116.t
+	desc = prc.116.d
+	picture = GFX_ChinaPorugalNegosation
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+#宣布建交
+news_event = {
+	id = prc.117
+	title = prc.117.t
+	desc = prc.117.d
+	picture = GFX_LiuShaoQicpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+
+#宣布建交
+news_event = {
+	id = prc.118
+	title = prc.118.t
+	desc = prc.118.d
+	picture = GFX_RedGuard
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+#宣布建交
+news_event = {
+	id = prc.119
+	title = prc.119.t
+	desc = prc.119.d
+	picture = GFX_posijiu
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+#宣布建交
+news_event = {
+	id = prc.120
+	title = prc.120.t
+	desc = prc.120.d
+	picture = GFX_ChinaFiveYearsPlan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+
+#亚洲人民革命同盟
+news_event = {
+	id = prc.121
+	title = prc.121.t
+	desc = prc.121.d
+	picture = GFX_China-Albania
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+#蛇口工业区
+news_event = {
+	id = prc.122
+	title = prc.122.t
+	desc = prc.122.d
+	picture = GFX_Shenzhen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+#国企改革
+news_event = {
+	id = prc.123
+	title = prc.123.t
+	desc = prc.123.d
+	picture = GFX_Shenzhen
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+#发行人民币
+news_event = {
+	id = prc.124
+	title = prc.124.t
+	desc = prc.124.d
+	picture = GFX_RMB_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.116.a
+	}
+
+}
+
+news_event = {   #卢汉起义
+	id = prc.125
+	title = prc.125.t
+	desc = prc.125.d
+	picture = GFX_PLA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+
+news_event = {   #卢汉起义
+	id = prc.126
+	title = prc.126.t
+	desc = prc.126.d
+	picture = GFX_SinjangRevolution
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+#中国要求归还旅顺
+news_event = {
+	id = prc.129
+	title = prc.129.t
+	desc = prc.129.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	option = {
+		name = prc.15.a
+		news_event = { id =	prc.130 }
+		ai_chance = {
+			factor = 20
+		}
+		set_global_flag = PRC_sov_alliance
+		news_event = { id =	prc.18 }
+	}
+	option = {
+		name = prc.15.a
+		ai_chance = {
+			factor = 0
+		}
+		news_event = { id =	prc.131 }
+	}
+}
+
+#korean war - peace
+news_event = {
+	id = prc.130
+	title = prc.130.t
+	desc = prc.130.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.131
+	title = prc.131.t
+	desc = prc.131.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+
+#毛岸英同志请求前往朝鲜参战
+news_event = {
+	id = prc.132
+	title = prc.132.t
+	desc = prc.132.d
+	picture = GFX_Mao_AnYing
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_idea = SupportKorea
+		NOT = { has_global_flag = AnYingAsk }
+	}
+	option = {
+		name = prc.15.a
+		ai_chance = {
+			factor = 20
+		}
+		add_war_support = 0.25
+		set_global_flag = AnYingAsk
+		set_global_flag = AnYingGo
+	}
+	option = {
+		name = prc.15.a
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = AnYingAsk
+	}
+}
+
+news_event = {
+	id = prc.140
+	title = prc.140.t
+	desc = prc.140.d
+	picture = GFX_GaoGang
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatLeapForward_ideas
+		NOT = { has_country_flag = GaoGangIcidents }
+	}
+	option = {
+		name = prc.140.a
+		set_country_flag = GaoGangIcidents
+		remove_ideas = PRC_liu_shaoqi
+		add_ideas = PRC_gaogang
+		news_event = { id =	prc.141 }
+	}
+	option = {
+		name = prc.140.b
+		set_country_flag = GaoGangIcidents
+		set_country_flag = GaoGangDeath
+	}
+}
+news_event = {
+	id = prc.141
+	title = prc.141.t
+	desc = prc.141.d
+	picture = GFX_GaoGang
+	is_triggered_only = yes
+	option = {
+		name = prc.141.a
+	}
+}
+news_event = {
+	id = prc.142
+	title = prc.142.t
+	desc = prc.142.d
+	picture = GFX_GaoGang
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = PRC
+		has_country_flag = GaoGangIcidents
+		has_country_flag = GaoGangDeath
+		has_character = PRC_gaogang
+		
+	}
+	major = yes
+	option = {
+		name = prc.19.a
+		if = {
+			limit = { tag = PRC }
+			retire_character = PRC_gaogang
+		}
+	}
+}
+news_event = {
+	id = prc.143
+	title = prc.143.t
+	desc = prc.143.d
+	picture = GFX_MaoSpeech
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.144
+	title = prc.144.t
+	desc = prc.144.d
+	picture = GFX_ChinaFemale
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.145
+	title = prc.145.t
+	desc = prc.145.d
+	picture = GFX_MaoSpeech
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.146
+	title = prc.146.t
+	desc = prc.146.d
+	picture = GFX_MaoSpeech
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.147
+	title = prc.147.t
+	desc = prc.147.d
+	picture = GFX_HuangJinRong
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = HuangJinRong }
+		date > 1951.1.1
+		date < 1952.2.2
+	}
+	major = yes
+	option = {
+		name = prc.147.a
+		set_country_flag = HuangJinRong
+		if = {
+			limit = { tag = PRC }
+			add_stability = 0.04
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = prc.148
+	title = prc.148.t
+	desc = prc.148.d
+	picture = GFX_PRC_SOV_friends_ship
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = YangTzeFlood }
+		date > 1954.1.1
+		date < 1955.2.2
+	}
+	major = yes
+	option = {
+		name = prc.148.a
+		set_country_flag = YangTzeFlood
+		if = {
+			limit = { tag = PRC }
+				602 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 1
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				620 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 1
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				613 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 1
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+				606 = {
+					damage_building = {
+						type = industrial_complex
+						damage = 1
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 1
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 3
+					}
+				}
+			add_stability = -0.15
+			add_political_power = -500
+		}
+	}
+}
+news_event = {
+	id = prc.149
+	title = prc.149.t
+	desc = prc.149.d
+	picture = GFX_Zhanglan
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = ZhangLanDeath }
+		date > 1955.2.9
+		date < 1955.4.2
+	}
+	major = yes
+	option = {
+		name = prc.19.a
+		set_country_flag = ZhangLanDeath
+	}
+}
+news_event = {
+	id = prc.150
+	title = prc.150.t
+	desc = prc.150.d
+	picture = GFX_LinHuiIn
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = LinHuiInDeath }
+		date > 1955.4.1
+		date < 1955.5.2
+	}
+	major = yes
+	option = {
+		name = prc.19.a
+		set_country_flag = LinHuiInDeath
+	}
+}
+news_event = {
+	id = prc.151
+	title = prc.151.t
+	desc = prc.151.d
+	picture = GFX_PRC_SOV_friends_ship
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = LeiFeng }
+		date > 1962.1.1
+		date < 1963.2.2
+	}
+	major = yes
+	option = {
+		name = prc.19.a
+		set_country_flag = LeiFeng
+		if = {
+			limit = { tag = PRC }
+			add_stability = 0.04
+			add_political_power = 150
+		}
+	}
+}
+news_event = {
+	id = prc.152
+	title = prc.152.t
+	desc = prc.152.d
+	picture = GFX_GreatSatellite
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.152.a
+	}
+}
+news_event = {
+	id = prc.153
+	title = prc.153.t
+	desc = prc.153.d
+	picture = GFX_GreatFarmine
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		has_idea = Products_sattlite
+		NOT = { has_country_flag = FakeProducWarning }
+	}
+	option = {
+		name = prc.153.a
+		set_country_flag = FakeProducWarning
+		set_country_flag = FakeProduc
+	}
+	option = {
+		name = prc.153.a
+		set_country_flag = FakeProducWarning
+		news_event = { id =	prc.157 }
+		remove_ideas = Products_sattlite
+		every_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
+			remove_dynamic_modifier = { modifier = lack_foods_modifiers }
+		}
+	}
+}
+
+news_event = {
+	id = prc.154
+	title = prc.154.t
+	desc = prc.154.d
+	picture = GFX_GreatFarmine
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		has_idea = Products_sattlite
+		has_country_flag = FakeProduc
+		date > 1960.1.1
+	}
+	option = {
+		name = prc.154.a
+		random_owned_state = {
+			add_dynamic_modifier = { modifier = lack_foods_modifiers }
+		}
+	}
+}
+news_event = {
+	id = prc.155
+	title = prc.155.t
+	desc = prc.155.d
+	picture = GFX_GreatFarmine
+	fire_only_once = yes
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = PRC
+		has_idea = Products_sattlite
+		date > 1960.1.1
+		any_owned_state = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
+	}
+	option = {
+		name = prc.155.a
+		add_stability = -0.06
+		add_political_power = -120
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+	}
+}
+news_event = {
+	id = prc.156
+	title = prc.156.t
+	desc = prc.156.d
+	picture = GFX_GreatSteel
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		date > 1958.12.1
+		any_owned_state = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+	}
+	option = {
+		name = prc.156.a
+		set_country_flag = FakeProducWarning
+		set_country_flag = FakeProduc
+		random_owned_state = {
+			limit = {
+				steel > 0
+				has_dynamic_modifier = { modifier = state_great_steel_modifiers }
+				NOT = { has_dynamic_modifier = { modifier = state_great_steel_punishment_modifiers } }
+			}
+			remove_dynamic_modifier = { modifier = state_great_steel_modifiers }
+			add_dynamic_modifier = { modifier = state_great_steel_punishment_modifiers }
+		}
+	}
+	option = {
+		name = prc.156.a
+		set_country_flag = FakeProducWarning
+		news_event = { id =	prc.158 }
+		remove_ideas = GreatSteelIdeas
+		every_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_punishment_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_punishment_modifiers }
+		}
+	}
+}
+news_event = {
+	id = prc.157
+	title = prc.157.t
+	desc = prc.157.d
+	picture = GFX_GreatSatellite
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.157.a
+	}
+}
+news_event = {
+	id = prc.158
+	title = prc.158.t
+	desc = prc.158.d
+	picture = GFX_GreatSatellite
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.158.a
+	}
+}
+#学大寨
+news_event = {
+	id = prc.159
+	title = prc.159.t
+	desc = prc.159.d
+	picture = GFX_GreatSatellite
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		date > 1963.1.1
+		NOT = { has_country_flag = DaZhaiReport }
+		NOT = { has_idea = Dazhai_idea }
+	}
+	option = {
+		name = prc.159.a
+		set_country_flag = DaZhaiReport
+	}
+	option = {
+		name = prc.159.b
+		set_country_flag = DaZhaiReport
+		complete_national_focus = PRC_dazhai
+	}
+}
+news_event = {
+	id = prc.160
+	title = prc.160.t
+	desc = prc.160.d
+	picture = GFX_GreatSatellite
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.160.a
+	}
+}
+#自然灾害
+news_event = {
+	id = prc.161
+	title = prc.161.t
+	desc = prc.161.d
+	picture = GFX_GreatSatellite
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		has_idea = Dazhai_idea
+		date > 1970.1.1
+		NOT = { has_country_flag = DazhaiWarning }
+	}
+	option = {
+		name = prc.161.a
+		set_country_flag = DazhaiWarning
+	}
+	option = {
+		name = prc.161.b
+		set_country_flag = DazhaiWarning
+		news_event = { id =	prc.163 }
+		remove_ideas = Dazhai_idea
+	}
+}
+news_event = {
+	id = prc.163
+	title = prc.163.t
+	desc = prc.163.d
+	picture = GFX_GreatSatellite
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.163.a
+	}
+}
+news_event = {
+	id = prc.164
+	title = prc.164.t
+	desc = prc.164.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.165
+	title = prc.165.t
+	desc = prc.165.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.166
+	title = prc.166.t
+	desc = prc.166.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+#刘青山案
+news_event = {
+	id = prc.167
+	title = prc.167.t
+	desc = prc.167.d
+	picture = GFX_MaoWriting
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		has_idea = Dazhai_idea
+		date > 1970.1.1
+		NOT = { has_country_flag = LiuQingShan }
+	}
+	option = {
+		name = prc.167.a
+		set_country_flag = LiuQingShan
+		news_event = { id =	prc.168 }
+		add_political_power = -300
+		add_stability = 0.15
+		add_popularity = {
+			ideology = communism
+			popularity = 0.12
+		}
+	}
+	option = {
+		name = prc.167.b
+		set_country_flag = LiuQingShan
+		add_political_power = 120
+		add_stability = 0.1
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		news_event = { id =	prc.169 }
+	}
+}
+news_event = {
+	id = prc.168
+	title = prc.168.t
+	desc = prc.168.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.168.a
+	}
+}
+news_event = {
+	id = prc.169
+	title = prc.169.t
+	desc = prc.169.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.168.a
+	}
+}
+news_event = {
+	id = prc.170
+	title = prc.170.t
+	desc = prc.170d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.171
+	title = prc.171.t
+	desc = prc.171.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.172
+	title = prc.172.t
+	desc = prc.172.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.173
+	title = prc.173.t
+	desc = prc.173.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.174
+	title = prc.174.t
+	desc = prc.174.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = prc.175
+	title = prc.175.t
+	desc = prc.175.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+
+news_event = {
+	id = prc.201
+	title = prc.201.t
+	desc = prc.201.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+	}
+}
+
+news_event = {
+	id = prc.200
+	title = prc.200.t
+	desc = prc.200.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.200.a
+	}
+}
+
+news_event = {
+	id = prc.202
+	title = prc.202.t
+	desc = prc.202.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.202.a
+	}
+}
+
+news_event = {
+	id = prc.203
+	title = prc.203.t
+	desc = prc.203.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.202.a
+	}
+}
+
+news_event = {
+	id = prc.204
+	title = prc.204.t
+	desc = prc.204.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.202.a
+	}
+}
+news_event = {
+	id = prc.205
+	title = prc.205.t
+	desc = prc.205.d
+	picture = GFX_PRC_SOV_friends_ship
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.202.a
+	}
+}
+###朱迈先
+news_event = {
+	id = prc.206
+	title = prc.206.t
+	desc = prc.206.d
+	picture = GFX_TrialLandlord
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_idea = PRC_jiaofei_idea
+		date > 1951.11.10
+		date < 1951.12.1
+		NOT = { has_global_flag = prc206 }
+	}
+	option = {
+		name = prc.206.a
+		ai_chance = { factor = 0 }
+		set_global_flag = prc206
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -120
+		}
+	}
+	option = {
+		name = prc.206.a
+		trigger = { NOT = { has_government = communism } }
+	}
+}
+###阎锡山去世
+news_event = {
+	id = prc.207
+	title = prc.207.t
+	desc = prc.207.d
+	picture = GFX_YanXiShan
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_idea = PRC_jiaofei_idea
+		date > 1951.11.10
+		date < 1951.12.1
+		NOT = { has_global_flag = prc207 }
+	}
+	option = {
+		name = prc.207.a
+		ai_chance = { factor = 0 }
+		set_global_flag = prc207
+	}
+}
+###邓稼先
+news_event = {
+	id = prc.210
+	title = prc.210.t
+	desc = prc.210.d
+	picture = GFX_DengJiaXian
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_completed_focus = prc16 
+		date > 1950.8.20
+		date < 1950.10.1
+		NOT = { has_character = PRC_Deng_Jiaxian }
+		NOT = { has_global_flag = prc210 }
+	}
+	option = {
+		name = prc.210.a
+		ai_chance = { factor = 0 }
+		set_global_flag = prc210
+	}
+	option = {
+		name = prc.210.b
+		ai_chance = { factor = 20 }
+		set_global_flag = prc210a
+	}
+}
+news_event = {
+	id = prc.211
+	title = prc.211.t
+	desc = prc.211.d
+	picture = GFX_DengJiaXian
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = USA
+		date > 1950.8.20
+		date < 1950.10.1
+		NOT = { has_global_flag = prc211 }
+		has_global_flag = prc210a
+	}
+	option = {
+		name = prc.211.a
+		ai_chance = { factor = 0 }
+		news_event = { id = prc.212 days = 3 }
+		set_global_flag = prc211
+	}
+	option = {
+		name = prc.211.b
+		ai_chance = { factor = 20 }
+		news_event = { id = prc.213 days = 3 }
+		set_global_flag = prc211
+	}
+}
+news_event = {
+	id = prc.212
+	title = prc.212.t
+	desc = prc.212.d
+	picture = GFX_DengJiaXian
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.212.a
+		if = {
+			limit = { tag = USA }
+			add_political_power = -120
+		}
+	}
+}
+news_event = {
+	id = prc.213
+	title = prc.213.t
+	desc = prc.213.d
+	picture = GFX_DengJiaXian
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.213.a
+		if = {
+			limit = { tag = PRC }
+			recruit_character = PRC_Deng_Jiaxian
+			add_political_power = 200
+		}
+	}
+}
+#任弼时去世
+news_event = {
+	id = prc.219
+	title = prc.219.t
+	desc = prc.219.d
+	picture = GFX_RenBiShi
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_character = PRC_Ren_BiShi 
+		date > 1950.10.20
+		date < 1950.12.1
+	}
+	option = {
+		name = prc.219.a
+		retire_character = PRC_Ren_BiShi
+	}
+}
+
+
+
+news_event = {
+	id = prc.220
+	title = prc.220.t
+	desc = prc.220.d
+	picture = GFX_1956ZhejiangTyphoon
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		date > 1956.7.1
+		date < 1956.8.1
+		NOT = { has_global_flag = prc220 }
+	}
+	option = {
+		name = prc.220.a
+		set_global_flag = prc220
+	}
+}
+news_event = {
+	id = prc.221
+	title = prc.221.t
+	desc = prc.221.d
+	picture = GFX_1956ZhejiangTyphoon
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1956.7.1
+		date < 1956.8.1
+		NOT = { has_global_flag = prc221 }
+	}
+	option = {
+		name = prc.220.a
+		set_global_flag = prc221
+	}
+}
+news_event = {
+	id = prc.222
+	title = prc.222.t
+	desc = prc.222.d
+	picture = GFX_1956ZhejiangTyphoon
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1956.7.10
+		date < 1956.8.20
+		has_global_flag = prc221
+		NOT = { has_global_flag = prc222 }
+	}
+	option = {
+		name = prc.222.a
+		add_political_power = -120
+		set_global_flag = prc222
+		set_global_flag = prc222A
+		news_event = { id =	prc.223 }
+	}
+	option = {
+		name = prc.222.b
+		set_global_flag = prc222
+		set_global_flag = prc222B
+		news_event = { id =	prc.224 }
+	}
+}
+news_event = {
+	id = prc.223
+	title = prc.223.t
+	desc = prc.223.d
+	picture = GFX_1956ZhejiangFlood
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.223.a
+	}
+}
+news_event = {
+	id = prc.224
+	title = prc.224.t
+	desc = prc.224.d
+	picture = GFX_1956ZhejiangFlood
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.224.a
+	}
+	option = {
+		name = prc.224.b
+	}
+}
+news_event = {
+	id = prc.225
+	title = prc.225.t
+	desc = prc.225.d
+	picture = GFX_1956ZhejiangFlooding
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1956.8.1
+		date < 1956.9.1
+		has_global_flag = prc222A
+		NOT = { has_global_flag = prc225 }
+	}
+	option = {
+		name = prc.225.a
+		set_global_flag = prc225
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -80
+			596 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 2
+				}
+				damage_building = {
+					type = farm_building
+					damage = 2
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = prc.226
+	title = prc.226.t
+	desc = prc.226.d
+	picture = GFX_1956ZhejiangFlooding
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1956.8.1
+		date < 1956.9.1
+		has_global_flag = prc222B
+		NOT = { has_global_flag = prc226 }
+	}
+	option = {
+		name = prc.226.a
+		set_global_flag = prc226
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -200
+			596 = {
+				damage_building = {
+					type = infrastructure
+					damage = 5
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 5
+				}
+				damage_building = {
+					type = farm_building
+					damage = 6
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = prc.227
+	title = prc.227.t
+	desc = prc.227.d
+	picture = GFX_1956ZhejiangFlooding
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1956.8.10
+		date < 1956.9.15
+		OR = {
+			has_global_flag = prc225
+			has_global_flag = prc226
+		}
+		NOT = { has_global_flag = prc227 }
+	}
+	option = {
+		name = prc.227.a
+		set_global_flag = prc227
+	}
+}
+news_event = {
+	id = prc.228
+	title = prc.228.t
+	desc = prc.228.d
+	picture = GFX_1956ZhejiangFlooding
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		date > 1956.8.10
+		date < 1956.10.10
+		has_global_flag = prc227
+		NOT = { has_global_flag = prc228 }
+	}
+	option = {
+		name = prc.227.a
+		set_global_flag = prc228
+	}
+}
+
+#事情正在起变化
+news_event = {
+	id = prc.230
+	title = prc.230.t
+	desc = prc.230.d
+	picture = GFX_MaoWriting
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.230.a
+		if = {
+			limit = { tag = PRC }
+			remove_ideas = PRC_mingfang
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+		}
+	}
+}
+
+#章伯钧的政治文章
+news_event = {
+	id = prc.231
+	title = prc.231.t
+	desc = prc.231.d
+	picture = GFX_MaoWriting
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1957.4.10
+		date < 1957.8.20
+		has_idea = PRC_mingfang
+		NOT = { has_global_flag = prc231 }
+	}
+	option = {
+		name = prc.231.a
+		ai_chance = {
+			factor = 10	
+		}
+		set_global_flag = prc231
+		add_political_power = 80
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = prc.231.b
+		set_global_flag = prc231
+		news_event = { id = prc.230 days = 3 }
+	}
+}
+news_event = {
+	id = prc.232
+	title = prc.232.t
+	desc = prc.232.d
+	picture = GFX_MaoWriting
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1957.4.10
+		date < 1957.8.20
+		has_idea = PRC_mingfang
+		NOT = { has_global_flag = prc232 }
+	}
+	option = {
+		name = prc.232.a
+		ai_chance = {
+			factor = 10	
+		}
+		set_global_flag = prc231
+		add_political_power = 80
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+	}
+	option = {
+		name = prc.232.b
+		ai_chance = {
+			factor = 0	
+		}
+		set_global_flag = prc232
+		news_event = { id = prc.230 days = 3 }
+	}
+}
+news_event = {
+	id = prc.233
+	title = prc.233.t
+	desc = prc.233.d
+	picture = GFX_MaoWriting
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		date > 1957.4.10
+		date < 1957.8.20
+		has_idea = PRC_mingfang
+		NOT = { has_global_flag = prc231 }
+	}
+	option = {
+		name = prc.233.a
+		ai_chance = {
+			factor = 0	
+		}
+		set_global_flag = prc231
+		add_political_power = 80
+		add_popularity = {
+			ideology = communism
+			popularity = -0.08
+		}
+	}
+	option = {
+		name = prc.233.b
+		ai_chance = {
+			factor = 10	
+		}
+		set_global_flag = prc231
+		news_event = { id = prc.230 days = 3 }
+	}
+}
+
+#王明
+news_event = {
+	id = prc.240
+	title = prc.240.t
+	desc = prc.240.d
+	picture = GFX_WangMing
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = PRC
+		date > 1956.2.10
+		date < 1956.5.20
+		NOT = { has_global_flag = prc240 }
+	}
+	option = {
+		name = prc.240.a
+		set_global_flag = prc240
+	}
+}
+news_event = {
+	id = prc.241
+	title = prc.241.t
+	desc = prc.241.d
+	picture = GFX_QiBaiShi
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = PRC
+		date > 1957.8.10
+		date < 1957.10.20
+		NOT = { has_global_flag = prc241 }
+	}
+	option = {
+		name = prc.241.a
+		set_global_flag = prc241
+	}
+}
+news_event = {
+	id = prc.242
+	title = prc.242.t
+	desc = prc.242.d
+	picture = GFX_WuhanBriadge
+	major = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = prc242 }
+	}
+	option = {
+		name = prc.242.a
+		set_global_flag = prc242
+	}
+}
+news_event = {
+	id = prc.243
+	title = prc.243.t
+	desc = prc.243.d
+	picture = GFX_ShanghaiBombing
+	is_triggered_only = yes
+	option = {
+		trigger = { NOT = { tag = CHI } }
+		name = prc.243.a
+	}
+	option = {
+		trigger = { NOT = { tag = PRC } }
+		name = prc.243.b
+	}
+}
+news_event = {
+	id = prc.244
+	title = prc.244.t
+	desc = prc.244.d
+	picture = GFX_ShanghaiBombing
+	major = yes
+	is_triggered_only = yes
+	option = {
+		trigger = { NOT = { tag = CHI } }
+		set_global_flag = prc244
+		name = prc.243.a
+	}
+	option = {
+		trigger = { NOT = { tag = PRC } }
+		name = prc.243.b
+	}
+}
+news_event = {
+	id = prc.250
+	title = prc.250.t
+	desc = prc.250.d
+	picture = GFX_GreatSteel
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		date < 1958.12.1
+	}
+	option = {
+		name = prc.250.a
+		random_owned_state = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = state_great_steel_modifiers }
+					is_core_of = TIB
+					is_core_of = SIK
+					is_core_of = VIN
+				}
+			}
+			add_dynamic_modifier = { modifier = state_great_steel_modifiers }
+		}
+	}
+	option = {
+		name = prc.250.b
+		add_political_power = -20
+	}
+}
+news_event = {
+	id = prc.251
+	title = prc.251.t
+	desc = prc.251.d
+	picture = GFX_GreatSatellite
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatLeapForward_ideas
+		NOT = { has_idea = Products_sattlite }
+		date > 1958.6.1
+		date < 1958.8.1
+	}
+	option = {
+		name = prc.251.a
+		ai_chance = {
+			factor = 10	
+		}
+		add_ideas = Products_sattlite
+		add_political_power = 400
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0	
+		}
+		name = prc.251.b
+	}
+}
+news_event = {
+	id = prc.252
+	title = prc.252.t
+	desc = prc.252.d
+	picture = GFX_GreatSatellite
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatLeapForward_ideas
+		NOT = { has_idea = Products_sattlite }
+		date > 1958.9.1
+		date < 1958.10.1
+	}
+	option = {
+		name = prc.251.a
+		ai_chance = {
+			factor = 10	
+		}
+		if = {
+			limit = { NOT = { has_idea = Products_sattlite } }
+			add_ideas = Products_sattlite
+		}
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0	
+		}
+		name = prc.251.b
+	}
+}
+news_event = {
+	id = prc.253
+	title = prc.253.t
+	desc = prc.253.d
+	picture = GFX_GreatSteel
+	mean_time_to_happen = { days = 70 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		any_owned_state = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+	}
+	option = {
+		name = prc.253.a
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			damage_building = {
+				type = farm_building
+				damage = 2
+			}
+		}
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			damage_building = {
+				type = farm_building
+				damage = 2
+			}
+		}
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			damage_building = {
+				type = farm_building
+				damage = 2
+			}
+		}
+	}
+	option = {
+		name = prc.253.b
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_modifiers }
+		}
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_modifiers }
+		}
+	}
+}
+news_event = {
+	id = prc.254
+	title = prc.254.t
+	desc = prc.254.d
+	picture = GFX_GreatSteel
+	mean_time_to_happen = { days = 70 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		any_owned_state = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+	}
+	option = {
+		name = prc.254.a
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			damage_building = {
+				type = farm_building
+				damage = 2
+			}
+		}
+	}
+	option = {
+		name = prc.254.a
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_modifiers }
+		}
+		random_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_modifiers }
+		}
+	}
+}
+news_event = {
+	id = prc.255
+	title = prc.255.t
+	desc = prc.255.d
+	picture = GFX_GreatSteel
+	mean_time_to_happen = { days = 70 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		NOT = { has_global_flag = prc255 }
+	}
+	option = {
+		name = prc.255.a
+		set_global_flag = prc255
+	}
+	option = {
+		name = prc.255.b
+		set_global_flag = prc255
+	}
+}
+news_event = {
+	id = prc.256
+	title = prc.256.t
+	desc = prc.256.d
+	picture = GFX_MaoWriting
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		date > 1958.10.15
+		date < 1958.11.15
+		NOT = { has_global_flag = prc256 }
+	}
+	option = {
+		name = prc.256.a
+		set_global_flag = prc256
+	}
+}
+news_event = {
+	id = prc.257
+	title = prc.257.t
+	desc = prc.257.d
+	picture = GFX_MaoWriting
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_idea = anti_right
+		date > 1959.7.15
+		date < 1959.11.15
+		NOT = { has_global_flag = prc257 }
+	}
+	option = {
+		name = prc.257.a
+		set_global_flag = prc257
+		remove_ideas = anti_right
+		add_political_power = 400
+		add_stability = 0.12
+	}
+}
+news_event = {
+	id = prc.258
+	title = prc.258.t
+	desc = prc.258.d
+	picture = GFX_Lushan
+	trigger = {
+		tag = PRC
+		has_idea = GreatLeapForward_ideas
+		OR = {
+			date > 1961.2.1
+			has_global_flag = prc28
+			has_global_flag = prc271
+		}
+		date < 1961.4.1
+	}
+	mean_time_to_happen = { days = 5 }
+	fire_only_once = yes
+	option = {
+		name = prc.258.a
+		ai_chance = { factor = 20 }
+		news_event = { id = prc.259 }
+		add_political_power = -150
+		remove_ideas = GreatLeapForward_ideas
+		remove_ideas = Products_sattlite
+		remove_ideas = PeoplesCommuni
+		every_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
+			remove_dynamic_modifier = { modifier = lack_foods_modifiers }
+		}
+		every_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_punishment_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_punishment_modifiers }
+		}
+		every_owned_state = {
+			limit = { has_dynamic_modifier = { modifier = state_great_steel_modifiers } }
+			remove_dynamic_modifier = { modifier = state_great_steel_modifiers }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = prc.258.b
+		add_political_power = -80
+	}
+}
+news_event = {
+	id = prc.259
+	title = prc.259.t
+	desc = prc.259.d
+	picture = GFX_Lushan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.259.a
+		set_global_flag = prc244
+	}
+}
+news_event = {
+	id = prc.260
+	title = prc.260.t
+	desc = prc.260.d
+	picture = GFX_AntiRight
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_idea = anti_right
+		date > 1958.2.15
+		date < 1958.3.15
+		NOT = { has_global_flag = prc260 }
+	}
+	option = {
+		name = prc.257.a
+		set_global_flag = prc260
+	}
+}
+news_event = {
+	id = prc.261
+	title = prc.261.t
+	desc = prc.261.d
+	picture = GFX_GreatLeapForward
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_idea = GreatSteelIdeas
+		date > 1958.9.15
+		date < 1958.12.15
+		NOT = { has_global_flag = prc261 }
+	}
+	option = {
+		name = prc.250.a
+		set_global_flag = prc261
+		add_political_power = 60
+	}
+}
+news_event = {
+	id = prc.262
+	title = prc.262.t
+	desc = prc.262.d
+	picture = GFX_qian
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_idea = Products_sattlite
+		date > 1958.6.15
+		date < 1958.12.15
+		NOT = { has_global_flag = prc262 }
+	}
+	option = {
+		name = prc.250.a
+		set_global_flag = prc262
+		add_political_power = 60
+	}
+}
+#批斗刘伯承
+news_event = {
+	id = prc.263
+	title = prc.263.t
+	desc = prc.263.d
+	picture = GFX_LiuBoCheng
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		date > 1958.5.15
+		date < 1958.8.15
+		NOT = { has_global_flag = prc263 }
+	}
+	option = {
+		name = prc.263.a
+		set_global_flag = prc263
+		add_political_power = 60
+		news_event = { id = prc.264 days = 2 }
+	}
+}
+news_event = {
+	id = prc.264
+	title = prc.264.t
+	desc = prc.264.d
+	picture = GFX_LiuBoCheng
+	is_triggered_only = yes
+	option = {
+		name = prc.264.a
+		set_global_flag = prc264
+	}
+}
+news_event = {
+	id = prc.265
+	title = prc.265.t
+	desc = prc.265.d
+	picture = GFX_PengDeHuaiVisit
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		has_country_flag = east_europe
+		has_government = communism
+		date > 1959.5.15
+		date < 1959.10.15
+		NOT = { has_country_flag = prc265 }
+		ALB = { NOT = { has_country_flag = prc265 } }
+	}
+	option = {
+		name = prc.265.a
+		set_country_flag = prc265
+		add_political_power = 60
+		army_experience = 40
+		if = {
+			limit = { NOT = { tag = PRC } }
+			PRC = { news_event = { id = prc.265 } }
+		}
+	}
+}
+country_event = {
+	id = prc.266
+	title = prc.266.t
+	desc = prc.266.d
+	picture = GFX_PeoplesCommunie
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		has_government = communism
+		date > 1958.5.15
+		date < 1959.8.15
+		NOT = { has_country_flag = prc266 }
+		PRC = { has_idea = PeoplesCommuni }
+	}
+	option = {
+		name = prc.266.a
+		set_country_flag = prc266
+		add_political_power = 60
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				tag = SOV
+			}
+		}
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = prc.267 }
+		}
+	}
+	option = {
+		name = prc.266.b
+		set_country_flag = prc266
+		add_political_power = 60
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				tag = SOV
+			}
+		}
+		if = {
+			limit = { tag = BUL }
+			news_event = { id = prc.268 }
+		}
+	}
+}
+news_event = {
+	id = prc.267
+	title = prc.267.t
+	desc = prc.267.d
+	picture = GFX_Soviet20thMeeting
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.267.a
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = SOV_cancel_aid
+		}
+	}
+}
+news_event = {
+	id = prc.268
+	title = prc.268.t
+	desc = prc.268.d
+	picture = GFX_PeoplesCommunie
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.268.a
+	}
+}
+###庐山会议
+news_event = {
+	id = prc.269
+	title = prc.269.t
+	desc = prc.269.d
+	picture = GFX_Lushan
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_idea = PeoplesCommuni
+		has_idea = GreatLeapForward_ideas
+		has_idea = Products_sattlite
+		has_idea = GreatSteelIdeas
+		date > 1959.7.15
+		date < 1959.12.15
+		NOT = { has_country_flag = prc269 }
+	}
+	option = {
+		name = prc.269.a
+		set_country_flag = prc269
+		add_political_power = 60
+		news_event = { id = prc.270 days = 2 }
+	}
+}
+news_event = {
+	id = prc.270
+	title = prc.270.t
+	desc = prc.270.d
+	picture = GFX_PengMao
+	is_triggered_only = yes
+	option = {
+		name = prc.270.a
+		ai_chance = {
+			factor = 0
+		}
+		news_event = { id = prc.271 days = 2 }
+	}
+	option = {
+		name = prc.270.b
+		ai_chance = {
+			factor = 10
+		}
+		news_event = { id = prc.272 days = 2 }
+	}
+}
+news_event = {
+	id = prc.271
+	title = prc.271.t
+	desc = prc.271.d
+	picture = GFX_MaoWriting
+	is_triggered_only = yes
+	option = {
+		name = prc.270.a
+		set_global_flag = prc271
+	}
+}
+news_event = {
+	id = prc.272
+	title = prc.272.t
+	desc = prc.272.d
+	picture = GFX_Lushan
+	is_triggered_only = yes
+	option = {
+		name = prc.270.b
+		set_global_flag = prc271
+		news_event = { id = prc.273 days = 2 }
+	}
+}
+news_event = {
+	id = prc.273
+	title = prc.273.t
+	desc = prc.273.d
+	picture = GFX_Lushan
+	is_triggered_only = yes
+	option = {
+		name = prc.273.a
+		set_global_flag = prc271
+		news_event = { id = prc.274 days = 2 }
+	}
+}
+news_event = {
+	id = prc.274
+	title = prc.274.t
+	desc = prc.274.d
+	picture = GFX_PengMao
+	is_triggered_only = yes
+	option = {
+		name = prc.273.a
+		set_global_flag = prc271
+	}
+}
+########刘少奇上台
+news_event = {
+	id = prc.275
+	title = prc.275.t
+	desc = prc.275.d
+	picture = GFX_PRC1959Congress
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		date > 1959.4.15
+		date < 1959.6.15
+		NOT = { has_global_flag = prc275 }
+	}
+	option = {
+		name = prc.275.a
+		set_global_flag = prc275
+		ai_chance = {
+			factor = 10
+		}
+		news_event = { id = prc.276 days = 2 }
+	}
+	option = {
+		name = prc.275.b
+		set_global_flag = prc275
+		ai_chance = {
+			factor = 0
+		}
+		news_event = { id = prc.277 days = 2 }
+	}
+}
+news_event = {
+	id = prc.276
+	title = prc.276.t
+	desc = prc.276.d
+	picture = GFX_LiuShaoQi
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.276.a
+		set_global_flag = prc271
+		if = {
+			limit = { tag = PRC }
+			promote_character = PRC_Liu_Shaoqi
+		}
+	}
+}
+news_event = {
+	id = prc.277
+	title = prc.277.t
+	desc = prc.277.d
+	picture = GFX_MaoSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.277.a
+		set_global_flag = prc271
+	}
+}
+########信阳
+country_event = {
+	id = prc.281
+	title = prc.281.t
+	desc = prc.281.d
+	picture = GFX_GreatLeapSmall
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		has_completed_focus = prc18
+		OR = {
+			has_completed_focus = prc8
+			has_completed_focus = prc_great_steel
+		}
+		date > 1959.10.15
+		date < 1960.2.15
+		NOT = { has_global_flag = prc281 }
+	}
+	option = {
+		name = prc.281.a
+		ai_chance = {
+			factor = 0
+		}
+		607 = {
+			set_state_flag = great_farmines
+		}
+		606 = {
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+	}
+	option = {
+		name = prc.281.b
+		ai_chance = {
+			factor = 10
+		}
+		country_event = { id = prc.282 days = 2 }
+	}
+}
+country_event = {
+	id = prc.282
+	title = prc.282.t
+	desc = prc.282.d
+	picture = GFX_Wuzhipu
+	is_triggered_only = yes
+	option = {
+		name = prc.282.a
+		set_global_flag = prc271
+		607 = {
+			set_state_flag = great_farmines
+		}
+		606 = {
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		random_owned_state = {
+			limit = { NOT = { has_state_flag = great_farmines } }
+			set_state_flag = great_farmines
+		}
+		country_event = { id = prc.283 days = 2 }
+	}
+}
+country_event = {
+	id = prc.283
+	title = prc.283.t
+	desc = prc.283.d
+	picture = GFX_Wuzhipu
+	is_triggered_only = yes
+	option = {
+		name = prc.282.a
+		set_global_flag = prc283
+	}
+}
+country_event = {
+	id = prc.284
+	title = prc.284.t
+	desc = prc.284.d
+	picture = GFX_HenanFarmine
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		date > 1959.10.15
+		date < 1960.2.15
+		has_global_flag = prc283
+		NOT = { has_global_flag = prc284 }
+	}
+	option = {
+		name = prc.284.a
+		set_global_flag = prc284
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+		add_political_power = -400
+		add_stability = -0.2
+		news_event = { id = prc.285 days = 2 }
+	}
+}
+news_event = {
+	id = prc.285
+	title = prc.285.t
+	desc = prc.285.d
+	picture = GFX_GreatFarmine
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.285.a
+		set_global_flag = prc271
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = prc.289 days = 2 }
+		}
+	}
+}
+country_event = {
+	id = prc.286
+	title = prc.286.t
+	desc = prc.286.d
+	picture = GFX_GreatLeapSmall
+	is_triggered_only = yes
+	option = {
+		name = prc.286.a
+		set_global_flag = prc289
+	}
+}
+country_event = {
+	id = prc.287
+	title = prc.287.t
+	desc = prc.287.d
+	picture = GFX_HenanFarmine
+	is_triggered_only = yes
+	option = {
+		name = prc.285.a
+		set_global_flag = prc289
+		add_political_power = -80
+	}
+}
+news_event = {
+	id = prc.289
+	title = prc.289.t
+	desc = prc.289.d
+	picture = GFX_ZhouEnLai
+	is_triggered_only = yes
+	option = {
+		name = prc.286.a
+		set_global_flag = prc289
+	}
+}
+country_event = {
+	id = prc.290
+	title = prc.290.t
+	desc = prc.290.d
+	picture = GFX_GreatLeapSmall
+	is_triggered_only = yes
+	option = {
+		name = prc.290.a
+		set_global_flag = prc289
+		var:farmin_cheking = {
+			if = {
+				limit = { NOT = { has_state_flag = great_farmines } }
+				state_event = {
+					id = prc.286
+					trigger_for = controller
+				}
+			}
+			if = {
+				limit = { has_state_flag = great_farmines }
+				state_event = {
+					id = prc.287
+					trigger_for = controller
+				}
+				clr_state_flag = great_farmines
+			}
+		}
+	}
+}
+country_event = {
+	id = prc.291
+	title = prc.291.t
+	desc = prc.291.d
+	picture = GFX_GreatLeapSmall
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_global_flag = prc289
+		NOT = { has_global_flag = prc289 }
+		all_owned_state = {
+			NOT = { has_state_flag = great_farmines }
+		}
+	}
+	option = {
+		name = prc.286.a
+		set_global_flag = prc291
+		add_stability = 0.03
+	}
+}
+country_event = {
+	id = prc.300
+	title = prc.300.t
+	desc = prc.300.d
+	picture = GFX_MaoSmall
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		NOT = { has_global_flag = prc300 }
+		date > 1959.9.20
+		date < 1959.10.10
+	}
+	option = {
+		name = prc.300.a
+		set_global_flag = prc300
+		news_event = { id = prc.301 days = 2 }
+	}
+}
+news_event = {
+	id = prc.301
+	title = prc.301.t
+	desc = prc.301.d
+	picture = GFX_PRC1959Parade
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.301.a
+		set_global_flag = prc289
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = prc.302 days = 1 }
+		}
+	}
+}
+news_event = {
+	id = prc.302
+	title = prc.302.t
+	desc = prc.302.d
+	picture = GFX_MaoSpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prc.19.a
+		set_global_flag = prc289
+	}
+}
+
+##溥仪回国
+country_event = {
+	id = prc.310
+	title = prc.310.t
+	desc = prc.310.d
+	picture = GFX_PuyiJail
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		NOT = { has_global_flag = prc310 }
+		date > 1949.9.20
+		date < 1950.10.10
+	}
+	option = {
+		name = prc.310.a
+		set_global_flag = prc310
+		SOV = { news_event = { id = prc.311 days = 1 } }
+	}
+}
+country_event = {
+	id = prc.311
+	title = prc.311.t
+	desc = prc.311.d
+	picture = GFX_PuyiJail
+	is_triggered_only = yes
+	option = {
+		name = prc.311.a
+		ai_chance = {
+			factor = 0
+		}
+		PRC = { news_event = { id = prc.312 days = 1 } }
+	}
+	option = {
+		name = prc.311.b
+		ai_chance = {
+			factor = 10
+		}
+		set_global_flag = prc313
+		PRC = { news_event = { id = prc.313 days = 1 } }
+	}
+}
+country_event = {
+	id = prc.312
+	title = prc.312.t
+	desc = prc.312.d
+	picture = GFX_PuyiJail
+	is_triggered_only = yes
+	option = {
+		name = prc.312.a
+	}
+}
+country_event = {
+	id = prc.313
+	title = prc.313.t
+	desc = prc.313.d
+	picture = GFX_PuyiJail
+	is_triggered_only = yes
+	option = {
+		name = prc.313.a
+	}
+}
+news_event = {
+	id = prc.314
+	title = prc.314.t
+	desc = prc.314.d
+	picture = GFX_PuyiExecute
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PRC
+		has_global_flag = prc313
+		NOT = { has_global_flag = prc314 }
+		date > 1949.9.20
+		date < 1950.10.10
+	}
+	option = {
+		name = prc.314.a
+		set_global_flag = prc315
+		set_global_flag = prc314
+		ai_chance = {
+			factor = 0
+		}
+		news_event = { id = prc.315 days = 1 }
+	}
+	option = {
+		name = prc.314.b
+		ai_chance = {
+			factor = 10
+		}
+		set_global_flag = prc320
+		set_global_flag = prc314
+		news_event = { id = prc.320 days = 1 }
+	}
+}
+news_event = {
+	id = prc.315
+	title = prc.315.t
+	desc = prc.315.d
+	picture = GFX_PuyiExecute
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.315.a
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.05
+			add_political_power = -50
+			news_event = { id = prc.316 days = 5 }
+		}
+	}
+}
+news_event = {
+	id = prc.316
+	title = prc.316.t
+	desc = prc.316.d
+	picture = GFX_PuyiExecute
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.315.a
+		if = {
+			limit = { tag = PRC }
+			add_stability = -0.15
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			news_event = { id = prc.317 days = 5 }
+		}
+	}
+}
+news_event = {
+	id = prc.317
+	title = prc.317.t
+	desc = prc.317.d
+	picture = GFX_PuyiExecute
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.317.a
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = prc.318 days = 5 }
+		}
+		if = {
+			limit = { tag = SOV }
+			PRC = { country_event = { id = prc.319 days = 8 } }
+		}
+	}
+}
+news_event = {
+	id = prc.318
+	title = prc.318.t
+	desc = prc.318.d
+	picture = GFX_PuyiExecute
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.317.a
+	}
+}
+country_event = {
+	id = prc.319
+	title = prc.319.t
+	desc = prc.319.d
+	picture = GFX_PuyiJail
+	is_triggered_only = yes
+	option = {
+		name = prc.317.a
+		add_political_power = -100
+	}
+}
+news_event = {
+	id = prc.320
+	title = prc.320.t
+	desc = prc.320.d
+	picture = GFX_PuyiPrison
+	major = yes
+	is_triggered_only = yes
+	option = {
+		set_global_flag = prc320
+		name = prc.320.a
+	}
+}
+news_event = {
+	id = prc.321
+	title = prc.321.t
+	desc = prc.321.d
+	picture = GFX_Liyuqin
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = PRC
+		has_global_flag = prc320
+		NOT = { has_global_flag = prc321 } 
+		date > 1957.6.20
+		date < 1957.10.10
+	}
+	option = {
+		name = prc.321.a
+		set_global_flag = prc321
+	}
+}
+country_event = {
+	id = prc.322
+	title = prc.322.t
+	desc = prc.322.d
+	picture = GFX_PuyiJail
+	mean_time_to_happen = { days = 300 }
+	trigger = {
+		tag = PRC
+		has_global_flag = prc321
+		NOT = { has_global_flag = prc322 } 
+		date > 1959.6.20
+		date < 1959.10.10
+	}
+	option = {
+		name = prc.322.a
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = prc.322.b
+		ai_chance = { factor = 20 }
+		news_event = { id = prc.323 days = 5 }
+	}
+}
+news_event = {
+	id = prc.323
+	title = prc.323.t
+	desc = prc.323.d
+	picture = GFX_PuyiRelease
+	major = yes
+	is_triggered_only = yes
+	option = {
+		set_global_flag = prc320
+		name = prc.323.a
+		news_event = { id = prc.324 days = 5 }
+	}
+}
+news_event = {
+	id = prc.324
+	title = prc.324.t
+	desc = prc.324.d
+	picture = GFX_PuyiZhou
+	major = yes
+	is_triggered_only = yes
+	option = {
+		set_global_flag = prc324
+		name = prc.324.a
+	}
+}
+country_event = {
+	id = prc.325
+	title = prc.325.t
+	desc = prc.325.d
+	picture = GFX_PuyiMeeting
+	mean_time_to_happen = { days = 300 }
+	trigger = {
+		tag = PRC
+		has_global_flag = prc320
+		NOT = { has_global_flag = prc325 } 
+		date > 1961.10.20
+		date < 1961.12.10
+	}
+	option = {
+		name = prc.325.a
+		set_global_flag = prc325
+	}
+}
+news_event = {
+	id = prc.326
+	title = prc.326.t
+	desc = prc.326.d
+	picture = GFX_Zaifeng
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		NOT = { has_global_flag = prc326 } 
+		date > 1951.2.20
+		date < 1951.4.10
+	}
+	option = {
+		name = prc.326.a
+		set_global_flag = prc326
+	}
+}
+##大庆油田
+country_event = {
+	id = prc.330
+	title = prc.330.t
+	desc = prc.330.d
+	picture = GFX_OilProduct
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		NOT = { has_global_flag = prc330 } 
+		date > 1959.9.20
+		date < 1959.11.10
+	}
+	option = {
+		name = prc.330.a
+		714 = { add_dynamic_modifier = { modifier = oil_modifiers } }
+		set_global_flag = prc330
+	}
+}
+news_event = {
+	id = prc.331
+	title = prc.331.t
+	desc = prc.331.d
+	picture = GFX_WangJinXi
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		NOT = { has_global_flag = prc331 }
+		focus_progress = {
+			focus = prc14
+			progress > 0.4
+		}
+		focus_progress = {
+			focus = prc14
+			progress < 0.9
+		}
+	}
+	option = {
+		name = prc.331.a
+		set_global_flag = prc331
+	}
+}
+news_event = {
+	id = prc.332
+	title = prc.332.t
+	desc = prc.332.d
+	picture = GFX_DaqingOilfield
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.332.a
+		if = {
+			limit = { tag = PRC }
+			add_stability = 0.02
+			add_political_power = 100
+		}
+	}
+}
+news_event = {
+	id = prc.333
+	title = prc.333.t
+	desc = prc.333.d
+	picture = GFX_CantonIEF
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		has_completed_focus = prc15
+		has_stability > 0.8
+		date > 1957.4.1
+		date < 1961.1.1
+		NOT = { has_global_flag = prc333 }
+	}
+	option = {
+		name = prc.333.a
+		set_global_flag = prc333
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 150
+		}
+	}
+}
+news_event = {
+	id = prc.334
+	title = prc.334.t
+	desc = prc.334.d
+	picture = GFX_AAmissileHit
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		has_idea = soviet_military_advisitor_idea
+		date > 1959.10.1
+		date < 1961.1.1
+		NOT = { has_global_flag = prc334 }
+	}
+	option = {
+		name = prc.334.b
+		set_global_flag = prc334
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 150
+		}
+		if = {
+			limit = { tag = SOV }
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = prc.335
+	title = prc.335.t
+	desc = prc.335.d
+	picture = GFX_GreatFarmine
+	major = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PRC
+		any_owned_state = {
+			has_state_flag = great_farmines
+		}
+		date < 1961.10.1
+		NOT = { has_global_flag = prc335 }
+	}
+	option = {
+		name = prc.335.a
+		set_global_flag = prc335
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -150
+			add_stability = -0.15
+			
+		}
+	}
+}

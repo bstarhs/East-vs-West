@@ -1,0 +1,1023 @@
+scripted_gui = {
+	state_ethnics_detail = {
+		context_type = selected_state_context
+
+		window_name = "ethnics_detail_container"
+		parent_window_token = selected_state_view
+		dynamic_lists = {
+			state_ethnics_list_grid = {
+				array = this.state_ethnics_list
+				entry_container = state_ethnics_grid_entry
+				change_scope = no
+			}
+		}
+		visible = {
+			owner = { check_variable = { show_states_ethnics_detail > 0.0 } }
+		}
+		triggers = {
+			ethnics_detail_Arabs_visible = {
+				has_state_flag = ethnics_Arabs
+			}
+			ethnics_detail_Bemba_visible = {
+				has_state_flag = ethnics_Bemba
+			}
+			ethnics_detail_Batak_visible = {
+				has_state_flag = ethnics_Batak
+			}
+			ethnics_detail_Chukchi_visible = {
+				has_state_flag = ethnics_Chukchi
+			}
+			ethnics_detail_kannada_visible = {
+				has_state_flag = ethnics_kannada
+			}
+			ethnics_detail_Khmer_visible = {
+				has_state_flag = ethnics_Khmer
+			}
+			ethnics_detail_Khazakhs_visible = {
+				has_state_flag = ethnics_Khazakhs
+			}
+			ethnics_detail_Kamchatka_visible = {
+				has_state_flag = ethnics_Kamchatka
+			}
+			ethnics_detail_Korean_visible = {
+				has_state_flag = ethnics_Korean
+			}
+			ethnics_detail_Estonian_visible = {
+				has_state_flag = ethnics_Estonian
+			}
+			ethnics_detail_Brittany_visible = {
+				has_state_flag = ethnics_Brittany
+			}
+			ethnics_detail_Latvian_visible = {
+				has_state_flag = ethnics_Latvian
+			}
+			ethnics_detail_Laos_visible = {
+				has_state_flag = ethnics_Laos
+			}
+			ethnics_detail_Lithuanian_visible = {
+				has_state_flag = ethnics_Lithuanian
+			}
+			ethnics_detail_Belarus_visible = {
+				has_state_flag = ethnics_Belarus
+			}
+			ethnics_detail_Russian_visible = {
+				has_state_flag = ethnics_Russian
+			}
+			ethnics_detail_Ryukyu_visible = {
+				has_state_flag = ethnics_Ryukyu
+			}
+			ethnics_detail_Tibetan_visible = {
+				has_state_flag = ethnics_Tibetan
+			}
+			ethnics_detail_Thai_visible = {
+				has_state_flag = ethnics_Thai
+			}
+			ethnics_detail_Zhuang_visible = {
+				has_state_flag = ethnics_Zhuang
+			}
+			ethnics_detail_Yi_visible = {
+				has_state_flag = ethnics_Yizu
+			}
+			ethnics_detail_Ughurs_visible = {
+				has_state_flag = ethnics_Ughurs
+			}
+			ethnics_detail_Ukraine_visible = {
+				has_state_flag = ethnics_Ukraine
+			}
+			ethnics_detail_Vietnamese_visible = {
+				has_state_flag = ethnics_Vietnamese
+			}
+			ethnics_detail_Romanian_visible = {
+				has_state_flag = ethnics_Romanian
+			}
+			ethnics_detail_Minnan_visible = {
+				has_state_flag = ethnics_Minnan
+			}
+			ethnics_detail_Moldovian_visible = {
+				has_state_flag = ethnics_Moldovian
+			}
+			ethnics_detail_Burmese_visible = {
+				has_state_flag = ethnics_Burmese
+			}
+			ethnics_detail_Bugis_visible = {
+				has_state_flag = ethnics_Bugis
+			}
+			ethnics_detail_Bulgarian_visible = {
+				has_state_flag = ethnics_Bulgarian
+			}
+			ethnics_detail_Greeks_visible = {
+				has_state_flag = ethnics_Greeks
+			}
+			ethnics_detail_Albanian_visible = {
+				has_state_flag = ethnics_Albanian
+			}
+			ethnics_detail_Malayan_visible = {
+				has_state_flag = ethnics_Malayan
+			}
+			ethnics_detail_Macedonia_visible = {
+				has_state_flag = ethnics_Macedonia
+			}
+			ethnics_detail_manchu_visible = {
+				has_state_flag = ethnics_manchu
+			}
+			ethnics_detail_Serbian_visible = {
+				has_state_flag = ethnics_Serbian
+			}
+			ethnics_detail_Montenegro_visible = {
+				has_state_flag = ethnics_Montenegro
+			}
+			ethnics_detail_Mongols_visible = {
+				has_state_flag = ethnics_Mongols
+			}
+			ethnics_detail_Bosniak_visible = {
+				has_state_flag = ethnics_Bosniak
+			}
+			ethnics_detail_Croatia_visible = {
+				has_state_flag = ethnics_Croatia
+			}
+			ethnics_detail_Slovenian_visible = {
+				has_state_flag = ethnics_Slovenian
+			}
+			ethnics_detail_Slovakian_visible = {
+				has_state_flag = ethnics_Slovakian
+			}
+			ethnics_detail_Hui_visible = {
+				has_state_flag = ethnics_Hui
+			}
+			ethnics_detail_Hungarian_visible = {
+				has_state_flag = ethnics_Hungarian
+			}
+			ethnics_detail_Czech_visible = {
+				has_state_flag = ethnics_Czech
+			}
+			ethnics_detail_Polish_visible = {
+				has_state_flag = ethnics_Polish
+			}
+			ethnics_detail_Philippines_visible = {
+				has_state_flag = ethnics_Philippines
+			}
+			ethnics_detail_Sicilian_visible = {
+				has_state_flag = ethnics_Sicilian
+			}
+			ethnics_detail_Italian_visible = {
+				has_state_flag = ethnics_Italian
+			}
+			ethnics_detail_Japanese_visible = {
+				has_state_flag = ethnics_Japanese
+			}
+			ethnics_detail_Austrian_visible = {
+				has_state_flag = ethnics_Austrian
+			}
+			ethnics_detail_Barvarian_visible = {
+				has_state_flag = ethnics_Barvarian
+			}
+			ethnics_detail_Deutscher_visible = {
+				has_state_flag = ethnics_Deutscher
+			}
+			ethnics_detail_Catalan_visible = {
+				has_state_flag = ethnics_Catalan
+			}
+			ethnics_detail_Chams_visible = {
+				has_state_flag = ethnics_Chams
+			}
+			ethnics_detail_Andalucian_visible = {
+				has_state_flag = ethnics_Andalucian
+			}
+			ethnics_detail_Galician_visible = {
+				has_state_flag = ethnics_Galician
+			}
+			ethnics_detail_Basque_visible = {
+				has_state_flag = ethnics_Basque
+			}
+			ethnics_detail_Baya_visible = {
+				has_state_flag = ethnics_Baya
+			}
+			ethnics_detail_Portuguese_visible = {
+				has_state_flag = ethnics_Portuguese
+			}
+			ethnics_detail_Castile_visible = {
+				has_state_flag = ethnics_Castile
+			}
+			ethnics_detail_Octavian_visible = {
+				has_state_flag = ethnics_Octavian
+			}
+			ethnics_detail_Alsace_visible = {
+				has_state_flag = ethnics_Alsace
+			}
+			ethnics_detail_French_visible = {
+				has_state_flag = ethnics_French
+			}
+			ethnics_detail_Corsican_visible = {
+				has_state_flag = ethnics_Corsican
+			}
+			ethnics_detail_Wallons_visible = {
+				has_state_flag = ethnics_Wallons
+			}
+			ethnics_detail_Flanders_visible = {
+				has_state_flag = ethnics_Flanders
+			}
+			ethnics_detail_Luxemburg_visible = {
+				has_state_flag = ethnics_Luxemburg
+			}
+			ethnics_detail_Dutch_visible = {
+				has_state_flag = ethnics_Dutch
+			}
+			ethnics_detail_Crownwall_visible = {
+				has_state_flag = ethnics_Crownwall
+			}
+			ethnics_detail_Wales_visible = {
+				has_state_flag = ethnics_Wales
+			}
+			ethnics_detail_Irish_visible = {
+				has_state_flag = ethnics_Irish
+			}
+			ethnics_detail_Scottish_visible = {
+				has_state_flag = ethnics_Scottish
+			}
+			ethnics_detail_English_visible = {
+				has_state_flag = ethnics_English
+			}
+			ethnics_detail_Sami_visible = {
+				has_state_flag = ethnics_Sami
+			}
+			ethnics_detail_Finnish_visible = {
+				has_state_flag = ethnics_Finnish
+			}
+			ethnics_detail_Han_visible = {
+				has_state_flag = ethnics_Han
+			}
+			ethnics_detail_Hakka_visible = {
+				has_state_flag = ethnics_Hakka
+			}
+			ethnics_detail_Dixies_visible = {
+				has_state_flag = ethnics_Dixies
+			}
+			ethnics_detail_Dennish_visible = {
+				has_state_flag = ethnics_Dennish
+			}
+			ethnics_detail_Sweden_visible = {
+				has_state_flag = ethnics_Sweden
+			}
+			ethnics_detail_Norwegian_visible = {
+				has_state_flag = ethnics_Norwegian
+			}
+			ethnics_detail_icelander_visible = {
+				has_state_flag = ethnics_icelander
+			}
+			ethnics_detail_Canton_visible = {
+				has_state_flag = ethnics_Canton
+			}
+			ethnics_detail_Canadian_visible = {
+				has_state_flag = ethnics_Canadian
+			}
+		}
+		effects = {
+			closebutton_click = {
+                set_variable = { prev.show_states_ethnics_detail = 0 }
+				owner = { set_variable = { show_states_ethnics_detail = 0 } }
+			}
+		}
+	}
+	state_ethnics = {
+		context_type = selected_state_context
+
+		window_name = "ethnics_icon_container"
+		parent_window_token = selected_state_view
+		effects = {
+			ethnics_tips_button_click = {
+				country_event = { id = tip.7 }
+			}
+			ethnics_tips_button_click = {
+				owner = { set_variable = { show_states_ethnics_detail = 1 } }
+			}
+			nuke_province_click = {
+				owner = {
+					launch_nuke = {
+						state = FROM
+						use_nuke = no
+					}
+				}
+			}
+		}
+		triggers = {
+			nuke_province_click_enabled = {
+				controller = { has_war_with = PREV.ROOT }
+				NOT = {
+					is_owned_by = PREV.ROOT
+				}
+			}
+			ethnics_Abkhazian_visible = {
+				has_state_flag = ethnics_Abkhazian
+			}
+			ethnics_Abroginal_visible = {
+				has_state_flag = ethnics_Abroginal
+			}
+			ethnics_Afar_visible = {
+				has_state_flag = ethnics_Afar
+			}
+			ethnics_Afrikaaners_visible = {
+				has_state_flag = ethnics_Afrikaaners
+			}
+			ethnics_Albanian_visible = {
+				has_state_flag = ethnics_Albanian
+			}
+			ethnics_Ainu_visible = {
+				has_state_flag = ethnics_Ainu
+			}
+			ethnics_Amazigh_visible = {
+				has_state_flag = ethnics_Amazigh
+			}
+			ethnics_Amharic_visible = {
+				has_state_flag = ethnics_Amharic
+			}
+			ethnics_Arabs_visible = {
+				has_state_flag = ethnics_Arabs
+			}
+			ethnics_Argentina_visible = {
+				has_state_flag = ethnics_Argentina
+			}
+			ethnics_Armenian_visible = {
+				has_state_flag = ethnics_Armenian
+			}
+			ethnics_Ashanti_visible = {
+				has_state_flag = ethnics_Ashanti
+			}
+			ethnics_Assamese_visible = {
+				has_state_flag = ethnics_Assamese
+			}
+			ethnics_Australian_visible = {
+				has_state_flag = ethnics_Australian
+			}
+			ethnics_Austrian_visible = {
+				has_state_flag = ethnics_Austrian
+			}
+			ethnics_Aymara_visible = {
+				has_state_flag = ethnics_Aymara
+			}
+			ethnics_Bakongo_visible = {
+				has_state_flag = ethnics_Bakongo
+			}
+			ethnics_Bambara_visible = {
+				has_state_flag = ethnics_Bambara
+			}
+			ethnics_Bangladesh_visible = {
+				has_state_flag = ethnics_Bangladesh
+			}
+			ethnics_Barvarian_visible = {
+				has_state_flag = ethnics_Barvarian
+			}
+			ethnics_Basque_visible = {
+				has_state_flag = ethnics_Basque
+			}
+			ethnics_Baya_visible = {
+				has_state_flag = ethnics_Baya
+			}
+			ethnics_Belarus_visible = {
+				has_state_flag = ethnics_Belarus
+			}
+			ethnics_Bhutan_visible = {
+				has_state_flag = ethnics_Bhutan
+			}
+			ethnics_Bosniak_visible = {
+				has_state_flag = ethnics_Bosniak
+			}
+			ethnics_Brazilian_visible = {
+				has_state_flag = ethnics_Brazilian
+			}
+			ethnics_Brittany_visible = {
+				has_state_flag = ethnics_Brittany
+			}
+			ethnics_Bugis_visible = {
+				has_state_flag = ethnics_Bugis
+			}
+			ethnics_Bulgarian_visible = {
+				has_state_flag = ethnics_Bulgarian
+			}
+			ethnics_Burmese_visible = {
+				has_state_flag = ethnics_Burmese
+			}
+			ethnics_Calidonian_visible = {
+				has_state_flag = ethnics_Calidonian
+			}
+			ethnics_Californian_visible = {
+				has_state_flag = ethnics_Californian
+			}
+			ethnics_Canadian_visible = {
+				has_state_flag = ethnics_Canadian
+			}
+			ethnics_Canton_visible = {
+				has_state_flag = ethnics_Canton
+			}
+			ethnics_Castile_visible = {
+				has_state_flag = ethnics_Castile
+			}
+			ethnics_Chams_visible = {
+				has_state_flag = ethnics_Chams
+			}
+			ethnics_Catalan_visible = {
+				has_state_flag = ethnics_Catalan
+			}
+			ethnics_Chechinia_visible = {
+				has_state_flag = ethnics_Chechinia
+			}
+			ethnics_Chilenos_visible = {
+				has_state_flag = ethnics_Chilenos
+			}
+			ethnics_Chokwe_visible = {
+				has_state_flag = ethnics_Chokwe
+			}
+			ethnics_Chuvash_visible = {
+				has_state_flag = ethnics_Chuvash
+			}
+			ethnics_Colombian_visible = {
+				has_state_flag = ethnics_Colombian
+			}
+			ethnics_Comoros_visible = {
+				has_state_flag = ethnics_Comoros
+			}
+			ethnics_Corsican_visible = {
+				has_state_flag = ethnics_Corsican
+			}
+			ethnics_Creores_visible = {
+				has_state_flag = ethnics_Creores
+			}
+			ethnics_Cree_visible = {
+				has_state_flag = ethnics_Cree
+			}
+			ethnics_Croatia_visible = {
+				has_state_flag = ethnics_Croatia
+			}
+			ethnics_Crownwall_visible = {
+				has_state_flag = ethnics_Crownwall
+			}
+			ethnics_Czech_visible = {
+				has_state_flag = ethnics_Czech
+			}
+			ethnics_Dagestan_visible = {
+				has_state_flag = ethnics_Dagestan
+			}
+			ethnics_Dagestan_visible = {
+				has_state_flag = ethnics_Dagestan
+			}
+			ethnics_Dahomey_visible = {
+				has_state_flag = ethnics_Dahomey
+			}
+			ethnics_Darfur_visible = {
+				has_state_flag = ethnics_Darfur
+			}
+			ethnics_Dixies_visible = {
+				has_state_flag = ethnics_Dixies
+			}
+			ethnics_Dennish_visible = {
+				has_state_flag = ethnics_Dennish
+			}
+			ethnics_Deutscher_visible = {
+				has_state_flag = ethnics_Deutscher
+			}
+			ethnics_Dutch_visible = {
+				has_state_flag = ethnics_Dutch
+			}
+			ethnics_English_visible = {
+				has_state_flag = ethnics_English
+			}
+			ethnics_Estonian_visible = {
+				has_state_flag = ethnics_Estonian
+			}
+			ethnics_Chukchi_visible = {
+				has_state_flag = ethnics_Chukchi
+			}
+			ethnics_Batak_visible = {
+				has_state_flag = ethnics_Batak
+			}
+			ethnics_Acholi_visible = {
+				has_state_flag = ethnics_Acholi
+			}
+			ethnics_Kikuyu_visible = {
+				has_state_flag = ethnics_Kikuyu
+			}
+			ethnics_Kamba_visible = {
+				has_state_flag = ethnics_Kamba
+			}
+			ethnics_Luo_visible = {
+				has_state_flag = ethnics_Luo
+			}
+			ethnics_Nuer_visible = {
+				has_state_flag = ethnics_Nuer
+			}
+			ethnics_Fiji_visible = {
+				has_state_flag = ethnics_Fiji
+			}
+			ethnics_kannada_visible = {
+				has_state_flag = ethnics_kannada
+			}
+			ethnics_Kamchatka_visible = {
+				has_state_flag = ethnics_Kamchatka
+			}
+			ethnics_Finnish_visible = {
+				has_state_flag = ethnics_Finnish
+			}
+			ethnics_Flanders_visible = {
+				has_state_flag = ethnics_Flanders
+			}
+			ethnics_French_visible = {
+				has_state_flag = ethnics_French
+			}
+			ethnics_Galician_visible = {
+				has_state_flag = ethnics_Galician
+			}
+			ethnics_Gerogians_visible = {
+				has_state_flag = ethnics_Gerogians
+			}
+			ethnics_Azerbaijan_visible = {
+				has_state_flag = ethnics_Azerbaijan
+			}
+			ethnics_Greeks_visible = {
+				has_state_flag = ethnics_Greeks
+			}
+			ethnics_EastRoman_visible = {
+				has_state_flag = ethnics_EastRoman
+			}
+			ethnics_Guarani_visible = {
+				has_state_flag = ethnics_Guarani
+			}
+			ethnics_Haida_visible = {
+				has_state_flag = ethnics_Haida
+			}
+			ethnics_Hakka_visible = {
+				has_state_flag = ethnics_Hakka
+			}
+			ethnics_Han_visible = {
+				has_state_flag = ethnics_Han
+			}
+			ethnics_Hausa_visible = {
+				has_state_flag = ethnics_Hausa
+			}
+			ethnics_Hawaii_visible = {
+				has_state_flag = ethnics_Hawaii
+			}
+			ethnics_Himmachal_visible = {
+				has_state_flag = ethnics_Himmachal
+			}
+			ethnics_Hindustan_visible = {
+				has_state_flag = ethnics_Hindustan
+			}
+			ethnics_Hungarian_visible = {
+				has_state_flag = ethnics_Hungarian
+			}
+			ethnics_Hutu_visible = {
+				has_state_flag = ethnics_Hutu
+			}
+			ethnics_Igbo_visible = {
+				has_state_flag = ethnics_Igbo
+			}
+			ethnics_Inuit_visible = {
+				has_state_flag = ethnics_Inuit
+			}
+			ethnics_Irish_visible = {
+				has_state_flag = ethnics_Irish
+			}
+			ethnics_Israeli_visible = {
+				has_state_flag = ethnics_Israeli
+			}
+			ethnics_Italian_visible = {
+				has_state_flag = ethnics_Italian
+			}
+			ethnics_Japanese_visible = {
+				has_state_flag = ethnics_Japanese
+			}
+			ethnics_Kachin_visible = {
+				has_state_flag = ethnics_Kachin
+			}
+			ethnics_Kalmyks_visible = {
+				has_state_flag = ethnics_Kalmyks
+			}
+			ethnics_Karen_visible = {
+				has_state_flag = ethnics_Karen
+			}
+			ethnics_Kashmir_visible = {
+				has_state_flag = ethnics_Kashmir
+			}
+			ethnics_Katangese_visible = {
+				has_state_flag = ethnics_Katangese
+			}
+			ethnics_Kenya_visible = {
+				has_state_flag = ethnics_Kenya
+			}
+			ethnics_Khazakhs_visible = {
+				has_state_flag = ethnics_Khazakhs
+			}
+			ethnics_Khmer_visible = {
+				has_state_flag = ethnics_Khmer
+			}
+			ethnics_Khoe_visible = {
+				has_state_flag = ethnics_Khoe
+			}
+			ethnics_Khosa_visible = {
+				has_state_flag = ethnics_Khosa
+			}
+			ethnics_Kokang_visible = {
+				has_state_flag = ethnics_Kokang
+			}
+			ethnics_Komi_visible = {
+				has_state_flag = ethnics_Komi
+			}
+			ethnics_Korean_visible = {
+				has_state_flag = ethnics_Korean
+			}
+			ethnics_Kurdish_visible = {
+				has_state_flag = ethnics_Kurdish
+			}
+			ethnics_Kyrgyz_visible = {
+				has_state_flag = ethnics_Kyrgyz
+			}
+			ethnics_Ladakh_visible = {
+				has_state_flag = ethnics_Ladakh
+			}
+			ethnics_Laos_visible = {
+				has_state_flag = ethnics_Laos
+			}
+			ethnics_Latvian_visible = {
+				has_state_flag = ethnics_Latvian
+			}
+			ethnics_Lesotho_visible = {
+				has_state_flag = ethnics_Lesotho
+			}
+			ethnics_Lhoba_visible = {
+				has_state_flag = ethnics_Lhoba
+			}
+			ethnics_Lithuanian_visible = {
+				has_state_flag = ethnics_Lithuanian
+			}
+			ethnics_Luxemburg_visible = {
+				has_state_flag = ethnics_Luxemburg
+			}
+			ethnics_Macedonia_visible = {
+				has_state_flag = ethnics_Macedonia
+			}
+			ethnics_Maghreb_visible = {
+				has_state_flag = ethnics_Maghreb
+			}
+			ethnics_Malayan_visible = {
+				has_state_flag = ethnics_Malayan
+			}
+			ethnics_Maltalese_visible = {
+				has_state_flag = ethnics_Maltalese
+			}
+			ethnics_Maluccu_visible = {
+				has_state_flag = ethnics_Maluccu
+			}
+			ethnics_manchu_visible = {
+				has_state_flag = ethnics_manchu
+			}
+			ethnics_Manipor_visible = {
+				has_state_flag = ethnics_Manipor
+			}
+			ethnics_Mapuche_visible = {
+				has_state_flag = ethnics_Mapuche
+			}
+			ethnics_Maratha_visible = {
+				has_state_flag = ethnics_Maratha
+			}
+			ethnics_Mariana_visible = {
+				has_state_flag = ethnics_Mariana
+			}
+			ethnics_Mashall_visible = {
+				has_state_flag = ethnics_Mashall
+			}
+			ethnics_Hui_visible = {
+				has_state_flag = ethnics_Hui
+			}
+			ethnics_icelander_visible = {
+				has_state_flag = ethnics_icelander
+			}
+			ethnics_Andalucian_visible = {
+				has_state_flag = ethnics_Andalucian
+			}
+			ethnics_Mayan_visible = {
+				has_state_flag = ethnics_Mayan
+			}
+			ethnics_Merina_visible = {
+				has_state_flag = ethnics_Merina
+			}
+			ethnics_Mexican_visible = {
+				has_state_flag = ethnics_Mexican
+			}
+			ethnics_Miao_visible = {
+				has_state_flag = ethnics_Miao
+			}
+			ethnics_Micronesian_visible = {
+				has_state_flag = ethnics_Micronesian
+			}
+			ethnics_Minnan_visible = {
+				has_state_flag = ethnics_Minnan
+			}
+			ethnics_Moldovian_visible = {
+				has_state_flag = ethnics_Moldovian
+			}
+			ethnics_Mongols_visible = {
+				has_state_flag = ethnics_Mongols
+			}
+			ethnics_Montenegro_visible = {
+				has_state_flag = ethnics_Montenegro
+			}
+			ethnics_Moros_visible = {
+				has_state_flag = ethnics_Moros
+			}
+			ethnics_Naples_visible = {
+				has_state_flag = ethnics_Naples
+			}
+			ethnics_Nauru_visible = {
+				has_state_flag = ethnics_Nauru
+			}
+			ethnics_Ndebele_visible = {
+				has_state_flag = ethnics_Ndebele
+			}
+			ethnics_Nepalese_visible = {
+				has_state_flag = ethnics_Nepalese
+			}
+			ethnics_Newzealand_visible = {
+				has_state_flag = ethnics_Newzealand
+			}
+			ethnics_Ngala_visible = {
+				has_state_flag = ethnics_Ngala
+			}
+			ethnics_Norwegian_visible = {
+				has_state_flag = ethnics_Norwegian
+			}
+			ethnics_Octavian_visible = {
+				has_state_flag = ethnics_Octavian
+			}
+			ethnics_Oromos_visible = {
+				has_state_flag = ethnics_Oromos
+			}
+			ethnics_Ossetian_visible = {
+				has_state_flag = ethnics_Ossetian
+			}
+			ethnics_Ovambo_visible = {
+				has_state_flag = ethnics_Ovambo
+			}
+			ethnics_Ovinbindu_visible = {
+				has_state_flag = ethnics_Ovinbindu
+			}
+			ethnics_Palau_visible = {
+				has_state_flag = ethnics_Palau
+			}
+			ethnics_Papua_visible = {
+				has_state_flag = ethnics_Papua
+			}
+			ethnics_Pashto_visible = {
+				has_state_flag = ethnics_Pashto
+			}
+			ethnics_Persian_visible = {
+				has_state_flag = ethnics_Persian
+			}
+			ethnics_Philippines_visible = {
+				has_state_flag = ethnics_Philippines
+			}
+			ethnics_Polish_visible = {
+				has_state_flag = ethnics_Polish
+			}
+			ethnics_Polynesia_visible = {
+				has_state_flag = ethnics_Polynesia
+			}
+			ethnics_Portuguese_visible = {
+				has_state_flag = ethnics_Portuguese
+			}
+			ethnics_Punjabi_visible = {
+				has_state_flag = ethnics_Punjabi
+			}
+			ethnics_Quebec_visible = {
+				has_state_flag = ethnics_Quebec
+			}
+			ethnics_Romanian_visible = {
+				has_state_flag = ethnics_Romanian
+			}
+			ethnics_Rozi_visible = {
+				has_state_flag = ethnics_Rozi
+			}
+			ethnics_Russian_visible = {
+				has_state_flag = ethnics_Russian
+			}
+			ethnics_Ryukyu_visible = {
+				has_state_flag = ethnics_Ryukyu
+			}
+			ethnics_Sami_visible = {
+				has_state_flag = ethnics_Sami
+			}
+			ethnics_Sara_visible = {
+				has_state_flag = ethnics_Sara
+			}
+			ethnics_Scottish_visible = {
+				has_state_flag = ethnics_Scottish
+			}
+			ethnics_Serbian_visible = {
+				has_state_flag = ethnics_Serbian
+			}
+			ethnics_Shan_visible = {
+				has_state_flag = ethnics_Shan
+			}
+			ethnics_Shona_visible = {
+				has_state_flag = ethnics_Shona
+			}
+			ethnics_Sicilian_visible = {
+				has_state_flag = ethnics_Sicilian
+			}
+			ethnics_Sindh_visible = {
+				has_state_flag = ethnics_Sindh
+			}
+			ethnics_Sinhalan_visible = {
+				has_state_flag = ethnics_Sinhalan
+			}
+			ethnics_Sioux_visible = {
+				has_state_flag = ethnics_Sioux
+			}
+			ethnics_Slovakian_visible = {
+				has_state_flag = ethnics_Slovakian
+			}
+			ethnics_Slovenian_visible = {
+				has_state_flag = ethnics_Slovenian
+			}
+			ethnics_Sukuma_visible = {
+				has_state_flag = ethnics_Sukuma
+			}
+			ethnics_Somalian_visible = {
+				has_state_flag = ethnics_Somalian
+			}
+			ethnics_Sumatra_visible = {
+				has_state_flag = ethnics_Sumatra
+			}
+			ethnics_Swahili_visible = {
+				has_state_flag = ethnics_Swahili
+			}
+			ethnics_Sumatra_visible = {
+				has_state_flag = ethnics_Sumatra
+			}
+			ethnics_Swazi_visible = {
+				has_state_flag = ethnics_Swazi
+			}
+			ethnics_Sweden_visible = {
+				has_state_flag = ethnics_Sweden
+			}
+			ethnics_Tajik_visible = {
+				has_state_flag = ethnics_Tajik
+			}
+			ethnics_Tamils_visible = {
+				has_state_flag = ethnics_Tamils
+			}
+			ethnics_Texas_visible = {
+				has_state_flag = ethnics_Texas
+			}
+			ethnics_Thai_visible = {
+				has_state_flag = ethnics_Thai
+			}
+			ethnics_Tibetan_visible = {
+				has_state_flag = ethnics_Tibetan
+			}
+			ethnics_Timor_visible = {
+				has_state_flag = ethnics_Timor
+			}
+			ethnics_Tigrey_visible = {
+				has_state_flag = ethnics_Tigrey
+			}
+			ethnics_Tonga_visible = {
+				has_state_flag = ethnics_Tonga
+			}
+			ethnics_Tsonga_visible = {
+				has_state_flag = ethnics_Tsonga
+			}
+			ethnics_Tswana_visible = {
+				has_state_flag = ethnics_Tswana
+			}
+			ethnics_Tupi_visible = {
+				has_state_flag = ethnics_Tupi
+			}
+			ethnics_Turkish_visible = {
+				has_state_flag = ethnics_Turkish
+			}
+			ethnics_Turkmeni_visible = {
+				has_state_flag = ethnics_Turkmeni
+			}
+			ethnics_Ugandian_visible = {
+				has_state_flag = ethnics_Ugandian
+			}
+			ethnics_Ughurs_visible = {
+				has_state_flag = ethnics_Ughurs
+			}
+			ethnics_Ukraine_visible = {
+				has_state_flag = ethnics_Ukraine
+			}
+			ethnics_Urdu_visible = {
+				has_state_flag = ethnics_Urdu
+			}
+			ethnics_Vietnamese_visible = {
+				has_state_flag = ethnics_Vietnamese
+			}
+			ethnics_Wales_visible = {
+				has_state_flag = ethnics_Wales
+			}
+			ethnics_Wa_visible = {
+				has_state_flag = ethnics_Wa
+			}
+			ethnics_Wallons_visible = {
+				has_state_flag = ethnics_Wallons
+			}
+			ethnics_Yankee_visible = {
+				has_state_flag = ethnics_Yankee
+			}
+			ethnics_Zhuang_visible = {
+				has_state_flag = ethnics_Zhuang
+			}
+			ethnics_Zuluu_visible = {
+				has_state_flag = ethnics_Zuluu
+			}
+			ethnics_Balochi_visible = {
+				has_state_flag = ethnics_Balochi
+			}
+			ethnics_Gujarati_visible = {
+				has_state_flag = ethnics_Gujarati
+			}
+			ethnics_Greenland_visible = {
+				has_state_flag = ethnics_Greenland
+			}
+			ethnics_Guyana_visible = {
+				has_state_flag = ethnics_Guyana
+			}
+			ethnics_Yoruba_visible = {
+				has_state_flag = ethnics_Yoruba
+			}
+			ethnics_Akan_visible = {
+				has_state_flag = ethnics_Akan
+			}
+			ethnics_Mossi_visible = {
+				has_state_flag = ethnics_Mossi
+			}
+			ethnics_Mandinka_visible = {
+				has_state_flag = ethnics_Mandinka
+			}
+			ethnics_Fang_visible = {
+				has_state_flag = ethnics_Fang
+			}
+			ethnics_Mongo_visible = {
+				has_state_flag = ethnics_Mongo
+			}
+			ethnics_Zande_visible = {
+				has_state_flag = ethnics_Zande
+			}
+			ethnics_Dinka_visible = {
+				has_state_flag = ethnics_Dinka
+			}
+			ethnics_Chewa_visible = {
+				has_state_flag = ethnics_Chewa
+			}
+			ethnics_Maasai_visible = {
+				has_state_flag = ethnics_Maasai
+			}
+			ethnics_Makua_visible = {
+				has_state_flag = ethnics_Makua
+			}
+			ethnics_Zambian_visible = {
+				has_state_flag = ethnics_Zambian
+			}
+			ethnics_Caribbean_visible = {
+				has_state_flag = ethnics_Caribbean
+			}
+			ethnics_Quechua_visible = {
+				has_state_flag = ethnics_Quechua
+			}
+			ethnics_Dayak_visible = {
+				has_state_flag = ethnics_Dayak
+			}
+			ethnics_Java_visible = {
+				has_state_flag = ethnics_Java
+			}
+			ethnics_Balinese_visible = {
+				has_state_flag = ethnics_Balinese
+			}
+			ethnics_Yizu_visible = {
+				has_state_flag = ethnics_Yizu
+			}
+			ethnics_Yakut_visible = {
+				has_state_flag = ethnics_Yakut
+			}
+			ethnics_Odisha_visible = {
+				has_state_flag = ethnics_Odisha
+			}
+			ethnics_CenturalAmerican_visible = {
+				has_state_flag = ethnics_CenturalAmerican
+			}
+			ethnics_Maldives_visible = {
+				has_state_flag = ethnics_Maldives
+			}
+			ethnics_Malayalam_visible = {
+				has_state_flag = ethnics_Malayalam
+			}
+			ethnics_Alsace_visible = {
+				has_state_flag = ethnics_Alsace
+			}
+			ethnics_Uzbeki_visible = {
+				has_state_flag = ethnics_Uzbeki
+			}
+		}
+	}
+}
+

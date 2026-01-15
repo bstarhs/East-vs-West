@@ -1,0 +1,373 @@
+﻿add_namespace = saf
+#西南非洲抵抗运动
+news_event = {
+	id = saf.2
+	title = saf.2.t
+	desc = saf.2.d
+	picture = GFX_saftan
+	is_triggered_only = yes
+	option = {
+		name = vin.21.a
+		868 = { add_resistance = 20 }
+		541 = { add_resistance = 20 }
+		822 = { add_resistance = 20 }
+		set_country_flag = namibia_revolt
+	}
+}
+news_event = {
+	id = saf.3
+	title = vin.28.t
+	desc = vin.28.d
+	picture = GFX_SAFarmy
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+			tag = SAF
+			controls_state = 822
+			date > 1955.1.1
+		OR = {
+			541 = { resistance > 80 }
+			822 = { resistance > 80 }
+		}
+	}
+	option = {
+		name = vin.21.a
+		NAM = { 
+				transfer_state = 541
+				transfer_state = 822
+		}
+		SAF = {
+			declare_war_on = { target = NAM type = annex_everything }
+		}
+	}
+}
+#西南非洲抵抗运动失败
+news_event = {
+	id = saf.4
+	title = saf.4.t
+	desc = saf.4.d
+	picture = GFX_SAFarmy
+	is_triggered_only = yes
+	option = {
+		name = vin.21.a
+		541 = { add_resistance = -10 }
+		822 = { add_resistance = -10 }
+	}
+}
+#西南非洲抵抗运动
+news_event = {
+	id = saf.5
+	title = saf.5.t
+	desc = saf.5.d
+	picture = GFX_saftan
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+			tag = SAF
+			controls_state = 822
+		has_country_flag = namibia_revolt
+	}
+	option = {
+		name = vin.21.a
+		868 = { add_resistance = 20 }
+		541 = { add_resistance = 20 }
+		822 = { add_resistance = 20 }
+	}
+}
+#边境冲突南非获胜
+news_event = {
+	id = saf.6
+	title = saf.6.t
+	desc = saf.6.d
+	picture = GFX_SAFarmy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+		if = {
+			limit = { tag = SAF }
+			add_political_power = 80
+			868 = { add_resistance = -20 }
+			541 = { add_resistance = -20 }
+			822 = { add_resistance = -20 }
+			army_experience = 20
+		}
+	}
+}
+#边境冲突南非战败
+news_event = {
+	id = saf.7
+	title = saf.7.t
+	desc = saf.7.d
+	picture = GFX_SAFarmy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+		if = {
+			limit = { tag = SAF }
+			add_political_power = -80
+			868 = { add_resistance = 20 }
+			541 = { add_resistance = 20 }
+			822 = { add_resistance = 20 }
+			army_experience = -20
+		}
+	}
+}
+#南非入侵安哥拉
+news_event = {
+	id = saf.8
+	title = saf.8.t
+	desc = saf.8.d
+	picture = GFX_SAFarmy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+	}
+}
+#南非成功
+news_event = {
+	id = saf.9
+	title = saf.9.t
+	desc = saf.9.d
+	picture = GFX_SAFarmy
+	trigger = {
+		tag = SAF
+		has_war_with = ANG
+		controls_province = 4735
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	major = yes
+	option = {
+		name = vin.21.a
+		if = {
+			limit = { tag = SAF }
+			white_peace = ANG
+			add_political_power = 200
+			add_stability = 0.15
+			868 = { add_resistance = -60 }
+			541 = { add_resistance = -60 }
+			822 = { add_resistance = -60 }
+			army_experience = 100
+		}
+	}
+}
+#1958选举
+news_event = {
+	id = saf.11
+	title = saf.11.t
+	desc = saf.11.d
+	picture = GFX_DanielMalan
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = SAF
+		NOT = { has_global_flag =SafElect1948 }
+		date > 1947.6.20
+		date < 1948.5.1
+		has_government = democratic
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = SafElect1948
+	}
+}
+#马兰赢得大选
+news_event = {
+	id = saf.12
+	title = saf.12.t
+	desc = saf.12.d
+	picture = GFX_DanielMalan
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = SAF
+		has_completed_focus = SAF_aftikaans_state
+		NOT = { has_global_flag = MalanWin }
+		date > 1948.1.20
+		has_government = democratic
+	}
+	major = yes
+	option = {
+		name = col.2.a
+		if = {
+			limit = { tag = SAF }
+			set_global_flag = MalanWin
+			set_politics = { ruling_party = authoritarianism }
+			add_stability = 0.3
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.3
+			}
+		}
+	}
+}
+#斯特里敦病逝
+news_event = {
+	id = saf.20
+	title = saf.20.t
+	desc = saf.20.d
+	picture = GFX_HendrikVerwoerd
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SAF
+		date > 1958.8.1
+		date < 1958.10.1
+		NOT = { has_global_flag = saf20 }
+	}
+	option = {
+		name = vin.21.a
+		set_global_flag = saf20
+		if = {
+			limit = { tag = SAF }
+			create_country_leader = {
+				name = "Hendrik Frensch Verwoerd"
+		
+				picture = "gfx/leaders/SAF/Portrait_SAF_Frensch_Verwoerd.tga"
+				expire = "1997.1.1"
+				ideology = authoris
+				traits = {
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = saf.23
+	title = saf.23.t
+	desc = saf.23.d
+	picture = GFX_BlankenGebied
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+	}
+}
+news_event = {
+	id = saf.24
+	title = saf.24.t
+	desc = saf.24.d
+	picture = GFX_EducateApartheid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+	}
+}
+news_event = {
+	id = saf.25
+	title = saf.25.t
+	desc = saf.25.d
+	picture = GFX_VoteApartheid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+	}
+}
+news_event = {
+	id = saf.26
+	title = saf.26.t
+	desc = saf.26.d
+	picture = GFX_VoteApartheid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+	}
+}
+news_event = {
+	id = saf.36
+	title = saf.36.t
+	desc = saf.36.d
+	picture = GFX_VoteApartheid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = vin.21.a
+	}
+}
+news_event = {
+	id = saf.37
+	title = saf.37.t
+	desc = saf.37.d
+	picture = GFX_SharpevilleProtest
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = SAF
+		has_completed_focus = SAF_apartheid
+		NOT = { has_global_flag  = saf37 }
+		date > 1960.2.10
+		date < 1960.5.1
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = saf37
+	}
+}
+news_event = {
+	id = saf.38
+	title = saf.38.t
+	desc = saf.38.d
+	picture = GFX_SharpevilleProtest
+	major = yes
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		tag = SAF
+		has_global_flag  = saf37
+		NOT = { has_global_flag  = saf38 }
+		date > 1960.2.10
+		date < 1960.5.1
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = saf38
+	}
+}
+news_event = {
+	id = saf.39
+	title = saf.39.t
+	desc = saf.39.d
+	picture = GFX_SharpevilleMassacre
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	immediate = {
+		play_song = SAF_14
+	}
+	trigger = {
+		tag = SAF
+		has_global_flag  = saf38
+		NOT = { has_global_flag = saf39 }
+		date > 1960.2.10
+		date < 1960.5.1
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = saf39
+	}
+}
+news_event = {
+	id = saf.40
+	title = saf.40.t
+	desc = saf.40.d
+	picture = GFX_SharpevilleMassacre
+	major = yes
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = SAF
+		has_global_flag  = saf39
+		NOT = { has_global_flag  = saf40 }
+		date > 1960.2.10
+		date < 1960.5.1
+	}
+	option = {
+		name = col.1.a
+		set_global_flag = saf40
+	}
+}

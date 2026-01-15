@@ -1,0 +1,29 @@
+
+state={
+	id=930
+	name="STATE_930" # Cape
+	manpower = 1637178
+
+	state_category = rural
+	resources={
+		iron=3
+	}
+	history={
+		set_state_flag = ethnics_Tswana
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		add_to_array = { this.state_ethnics_list = 169 }
+		owner = SAF
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 20 }
+		buildings = {
+			infrastructure = 4
+			air_base = 1
+		}
+		victory_points = { 10415 3 }
+		add_core_of = SAF
+	}
+
+	provinces={
+		10668 1509 12419 10697 5203 4528 10442 10415 14117 14118 13510
+	}
+}

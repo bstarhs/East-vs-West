@@ -1,0 +1,159 @@
+characters={
+	BRA_Joao_Goulart={
+		name=BRA_Joao_Goulart
+		portraits={
+			civilian={
+				large="gfx/leaders/BRA/Portrait_Brazil_Goulart.tga"
+				small="gfx/interface/ideas/idea_Joao_Goulart.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				pro_socialism socialist_reformism resolute_social_democrat Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			visible = {
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Joao_Goulart
+			allowed = {
+				original_tag = BRA
+			}
+			traits = { captain_of_industry }
+		}
+	}
+	BRA_Janio_Quadros={
+		name=BRA_Janio_Quadros
+		portraits={
+			civilian={
+				large="gfx/leaders/BRA/Portrait_Brazil_Janio_Quadros.tga"
+				small="gfx/interface/ideas/idea_Janio_Quadros.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				pro_socialism socialist_reformism resolute_social_democrat Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			visible = {
+				is_country_leader = no
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Janio_Quadros
+			allowed = {
+				original_tag = BRA
+			}
+			traits = { captain_of_industry }
+		}
+	}
+	BRA_Eduardo_Gomes = {
+		name = BRA_Eduardo_Gomes
+		portraits = {
+			army = {
+				large="gfx/leaders/BRA/Portrait_Brazil_Eduardo_Gomes.tga"
+				small="gfx/interface/ideas/idea_Eduardo_Gomes.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				socialist_reformism Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = theorist
+			idea_token = Eduardo_Gomes
+			ledger = air
+			allowed = {
+				original_tag = BRA
+			}
+			traits = {
+				air_air_combat_training_2
+			}
+				cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	BRA_Cafe_Filho={
+		name=BRA_Cafe_Filho
+		portraits={
+			civilian={
+				large="gfx/leaders/BRA/Portrait_Brazil_Cafe_Filho.tga"
+				small="gfx/interface/ideas/idea_Cafe_Filho.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				socialist_reformism Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			visible = {
+				is_country_leader = no
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Cafe_Filho
+			allowed = {
+				original_tag = BRA
+			}
+			traits = { captain_of_industry }
+		}
+	}
+	BRA_Juscelino_Kubitschek={
+		name=BRA_Juscelino_Kubitschek
+		portraits={
+			civilian={
+				large="gfx/leaders/BRA/Portrait_Brazil_Juscelino_Kubitschek.tga"
+				small="gfx/interface/ideas/idea_Juscelino_Kubitschek.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				socialist_reformism Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			visible = {
+				is_country_leader = no
+				date < 1968.1.1
+			}
+			slot = political_advisor
+			idea_token = Juscelino_Kubitschek
+			allowed = {
+				original_tag = BRA
+			}
+			traits = { captain_of_industry }
+		}
+	}
+	BRA_Vargas={
+		name=BRA_Vargas
+		portraits={
+			civilian={
+				large="gfx/leaders/BRA/Portrait_Brazil_Vargas.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+				anti_communist Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+	}
+}

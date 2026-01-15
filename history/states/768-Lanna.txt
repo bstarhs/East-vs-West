@@ -1,0 +1,47 @@
+
+state={
+	id=768
+	name="STATE_768"
+	manpower = 12422400
+	
+	state_category = large_town
+	
+	resources={
+		rubber=6
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_to_array = { this.state_ethnics_list = 163 }
+		set_state_flag = ethnics_Thai
+                              
+		owner = SIA
+		buildings = {
+			infrastructure = 2
+			school = 1
+			hospital = 1
+			industrial_complex = 3
+			farm_building = 3
+		}
+		victory_points = {
+			1488 8
+		}
+		victory_points = {
+			7353 5
+		}
+		victory_points = {
+			7531 2
+		}
+		victory_points = {
+			4496 4
+		}
+		add_core_of = SIA
+		1966.1.1 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+	provinces={
+		12345 7312 7353 7492 7559 7531 1253 8045 1488 7675 1990 10371 4496 
+	}
+}

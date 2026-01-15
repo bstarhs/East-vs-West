@@ -1,0 +1,40 @@
+
+state={
+	id=1046
+	name="STATE_1046" # Tlmecen
+	manpower = 811486
+	
+	state_category = town
+
+	history={
+		set_state_flag = ethnics_Maghreb
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 22 }
+		owner = FRA
+		add_core_of = ALG
+		buildings = {
+			farm_building = 1
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = { 7149 3 }
+		victory_points = { 10234 3 }
+		victory_points = { 12888 2 }
+		victory_points = { 9943 5 }
+		1954.7.3 = {
+			buildings = {
+				oilfield = 1
+			}
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1962.7.3 = {
+			owner = ALG
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+
+	provinces={
+		1141 10059 12034 12888 4970 5053 1967 7149 9943 
+	}
+}

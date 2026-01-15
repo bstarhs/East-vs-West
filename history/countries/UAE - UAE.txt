@@ -1,0 +1,113 @@
+﻿capital = 658
+set_country_flag = has_monarchs
+set_country_flag = british_colonies
+# Starting tech
+set_country_flag = gulf_states
+set_technology = {
+		oil_processing = 1
+	infantry_weapons = 1
+}
+set_country_flag = third_world
+set_country_flag = arabs_state
+
+set_country_flag = islam_state
+add_ideas = {
+	Sunni
+	partial_economic_mobilisation
+}
+
+set_cosmetic_tag = ABUDHABI
+set_convoys = 10
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	
+	set_technology = {
+		#doctrines
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+
+		#industry
+		basic_machine_tools = 1
+		medical1 = 1
+		improved_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+set_popularities = {
+	monarchism = 100
+}
+	set_politics = {
+		ruling_party = monarchism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+create_country_leader = {
+	name = "Shakhbut Zayed bin Sultan Nahyan"
+	desc = "POLITICS_SAID_BIN_TAIMUR_DESC"
+	picture = "gfx/leaders/UAE/Portrait_UAE_Shakhbut.tga"
+	expire = "1999.1.1"
+	ideology = monarchism
+	traits = {
+		#
+	}
+}
+
+1966.1.20 = {
+	add_to_array = { global.UNmember_list = FROM }
+	set_popularities = {
+		monarchism = 100
+	}
+	set_politics = {
+		ruling_party = monarchism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Zayed bin Sultan Al Nahyan"
+		
+		picture = "gfx/leaders/UAE/Portrait_UAE_Zayed_bin_Sultan_Al_Nahyan.tga"
+		expire = "1979.1.1"
+		ideology = monarchism
+		
+		traits = {
+		
+		}
+	}
+}
+1967.1.1 = {
+	complete_national_focus = common_24
+	set_cosmetic_tag = UAE
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+	arabs_league
+		OPEC
+	}
+}
+1970.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1981.1.1 = {
+	set_country_flag = china_diplomacy
+	add_ideas = GulfCC
+}

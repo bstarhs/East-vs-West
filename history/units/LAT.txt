@@ -1,0 +1,77 @@
+﻿division_template = {
+	name = "Kajnieku Divizija"			# Infantry Division
+	division_names_group = LAT_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Autotanku Pulks"
+	division_names_group = LAT_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		medium_armor = { x = 0 y = 1 }		
+		mechanized = { x = 1 y = 0 }	
+		mechanized = { x = 1 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+	}
+}
+units = {
+	######## LAND OOB ########
+	##### Latvijas Augstas Komandu #####
+	division = { # "1. Kurzemes Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9340
+		division_template = "Kajnieku Divizija"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "2. Vidzemes Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 9340
+		division_template = "Kajnieku Divizija"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "3. Zemgales Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 3
+		}
+		location = 310
+		division_template = "Kajnieku Divizija"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+	division = { # "4. Latgales Divizija"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 4
+		}
+		location = 265
+		division_template = "Autotanku Pulks"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+
+	}
+}

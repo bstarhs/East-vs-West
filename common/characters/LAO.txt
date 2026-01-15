@@ -1,0 +1,78 @@
+characters={
+	LAO_Phouma={
+		name=LAO_Phouma
+		portraits={
+			army={
+				large="gfx/leaders/LAO/Portrait_Laos_Phouma.tga"
+			}
+		}
+		country_leader={
+			ideology=monarchism
+			traits = {
+				pro_third_world
+			}
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	LAO_Kaysone_Phomvihane={
+		name=LAO_Kaysone_Phomvihane
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_miyamoto_kenji.dds"
+				large="gfx/leaders/LAO/Portrait_Laos_KaysonePhomvihane.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { smooth_talking_charmer }
+			expire = "1953.3.1.1"
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Kaysone_Phomvihane
+			allowed = {
+				original_tag = LAO
+			}
+			visible = {
+				has_government = communism
+			}
+			
+			traits = { communist_revolutionary }
+		}
+	}
+	LAO_Phoui_Sananikone={
+		name=LAO_Phoui_Sananikone
+		portraits={
+			army={
+				large="gfx/leaders/LAO/Portrait_Laos_Phoui_Sananikone.tga"
+			}
+		}
+		country_leader={
+			ideology=monarchism
+			traits = {
+				anti_communist
+			}
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	LAO_Phoumi_Nosavan={
+		name=LAO_Phoumi_Nosavan
+		portraits={
+			army={
+				large="gfx/leaders/LAO/Portrait_Laos_Phoumi_Nosavan.tga"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				anti_communist
+			}
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+}

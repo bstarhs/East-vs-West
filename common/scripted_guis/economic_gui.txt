@@ -1,0 +1,420 @@
+scripted_gui = {
+	economic_button = {
+		window_name = "economic_button_container"
+		
+		context_type = player_context
+		effects = {		
+		economic_button_click = {
+                set_variable = { show_economic_page = 1 }
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_economic }
+                set_variable = { show_economic = show }
+            }
+        }
+	}
+	economic_background = {
+		window_name = "economic_background_container"
+		context_type = player_context
+		visible = {
+				check_variable = { show_economic > 0.0 }
+		}
+		triggers = {
+			economic_in_war_visible = {
+				has_war = yes
+			}
+			economic_sanctions_visible = {
+				has_idea = sanctions
+			}
+		}
+		effects = {
+			close_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_economic }
+                set_variable = { show_economic = show }
+			}
+			revenue_button_click = {
+                set_variable = { show_economic_page = 1 }
+			}
+			tourism_button_click = {
+                set_variable = { show_economic_page = 3 }
+			}
+		}
+	}
+	tourism = {
+		window_name = "economic_tourism_container"
+		context_type = player_context
+		parent_window_name = "economic_background_container"
+		visible = {
+				check_variable = { show_economic_page = 3 }
+		}
+		triggers = {
+			GFX_PRC_tourism_visible = {
+				tag = PRC
+			}
+			tourism_Africa_visible = {
+				tag = TAZ
+			}
+			tourism_ARG_visible = {
+				tag = ARG
+			}
+			tourism_AST_visible = {
+				tag = AST
+			}
+			tourism_BRA_visible = {
+				tag = BRA
+			}
+			tourism_CAN_visible = {
+				tag = CAN
+			}
+			tourism_EGY_visible = {
+				tag = EGY
+			}
+			tourism_ENG_visible = {
+				tag = ENG
+			}
+			tourism_FIN_visible = {
+				tag = FIN
+			}
+			tourism_FRA_visible = {
+				tag = FRA
+			}
+			tourism_GRE_visible = {
+				tag = GRE
+			}
+			tourism_HOL_visible = {
+				tag = HOL
+			}
+			tourism_HUN_visible = {
+				tag = HUN
+			}
+			tourism_INS_visible = {
+				tag = INS
+			}
+			tourism_IRQ_visible = {
+				tag = IRQ
+			}
+			tourism_ITA_visible = {
+				tag = ITA
+			}
+			tourism_JAP_visible = {
+				tag = JAP
+			}
+			tourism_KOR_visible = {
+				tag = KOR
+			}
+			tourism_Magrib_visible = {
+				has_country_flag = maghrib_state
+			}
+			tourism_MALI_visible = {
+				tag = MLI
+			}
+			tourism_NOR_visible = {
+				tag = NOR
+			}
+			tourism_PER_visible = {
+				tag = PER
+			}
+			tourism_PHI_visible = {
+				tag = PHI
+			}
+			tourism_POL_visible = {
+				tag = POL
+			}
+			tourism_RAJ_visible = {
+				tag = IND
+			}
+			tourism_ROM_visible = {
+				tag = ROM
+			}
+			tourism_SAF_visible = {
+				tag = SAF
+			}
+			tourism_SIA_visible = {
+				tag = SIA
+			}
+			tourism_MALI_visible = {
+				tag = MLI
+			}
+		}
+	}
+	economic = {
+		window_name = "economic_system_container"
+		context_type = player_context
+		parent_window_name = "economic_background_container"
+		visible = {
+				check_variable = { show_economic_page = 1 }
+		}
+		effects = {
+		}
+		triggers = {
+			economic_INDOCHINA_visible = {
+				OR = {
+					tag = SVN
+					tag = CAM
+					tag = LAO
+				}
+				OR = {
+					is_subject_of = FRA
+					AND = {
+						tag = SVN
+						NOT = { has_completed_focus = SVN_dong }
+					}
+				}
+			}
+			economic_CUB_visible = {
+				tag = CUB
+			}
+			economic_NZL_visible = {
+				tag = NZL
+			}
+			economic_AST_visible = {
+				tag = AST
+			}
+			economic_MON_visible = {
+				tag = MON
+			}
+			economic_LBA_visible = {
+				tag = LBA
+			}
+			economic_SML_visible = {
+				tag = SML
+			}
+			economic_BUR_visible = {
+				tag = BUR
+			}
+			economic_JOR_visible = {
+				tag = JOR
+			}
+			economic_MOR_visible = {
+				tag = MOR
+			}
+			economic_MAL_visible = {
+				tag = MAL
+			}
+			economic_AFG_visible = {
+				tag = AFG
+			}
+			economic_ALB_visible = {
+				tag = ALB
+			}
+			economic_PLN_visible = {
+				tag = POL
+			}
+			economic_APR_visible = {
+				tag = ARG
+			}
+			economic_YUG_visible = {
+				tag = YUG
+			}
+			economic_BRL_visible = {
+				tag = BRL
+			}
+			economic_BGN_visible = {
+				tag = BUL
+			}
+			economic_VIN_visible = {
+				tag = VIN
+			}
+			economic_PRK_visible = {
+				tag = PRK
+			}
+			economic_DDR_visible = {
+				tag = DDR
+			}
+			economic_PHI_visible = {
+				tag = PHI
+			}
+			economic_KOR_visible = {
+				tag = KOR
+			}
+			economic_FIN_visible = {
+				tag = FIN
+			}
+			economic_FRA_visible = {
+				tag = FRA
+			}
+			economic_HOL_visible = {
+				tag = HOL
+			}
+			economic_CAN_visible = {
+				tag = CAN
+			}
+			economic_CZE_visible = {
+				tag = CZE
+			}
+			economic_ROM_visible = {
+				tag = ROM
+			}
+			economic_MEX_visible = {
+				tag = MEX
+			}
+			economic_SAF_visible = {
+				tag = SAF
+			}
+			economic_JAP_visible = {
+				tag = JAP
+			}
+			economic_CHI_visible = {
+				tag = CHI
+			}
+			economic_USD_visible = {
+				tag = USA
+			}
+			economic_CCP_visible = {
+				tag = PRC
+				NOT = { has_completed_focus = prc_RMB }
+			}
+			economic_RMB50_visible = {
+				tag = PRC
+				has_completed_focus = prc_RMB
+				date < 1960.1.1
+			}
+			economic_RMB_visible = {
+				tag = PRC
+				has_completed_focus = prc_RMB
+				date > 1960.1.1
+				date < 1980.1.1
+			}
+			economic_RMB80_visible = {
+				tag = PRC
+				has_completed_focus = prc_RMB
+				date > 1980.1.1
+			}
+			economic_SUR_visible = {
+				tag = SOV
+			}
+			economic_ENG_visible = {
+				tag = ENG
+			}
+			economic_TUR_visible = {
+				tag = TUR
+			}
+			economic_PAK_visible = {
+				tag = PAK
+			}
+			economic_WDR_visible = {
+				tag = WDR
+			}
+			economic_RAJ_visible = {
+				tag = IND
+			}
+			economic_GEO_visible = {
+				tag = GEO
+			}
+			economic_DEN_visible = {
+				tag = DEN
+			}
+			economic_CAM_visible = {
+				tag = CAM
+			}
+			economic_QAT_visible = {
+				tag = QAT
+			}
+			economic_LAO_mornach_visible = {
+				tag = LAO
+			}
+			economic_LEB_visible = {
+				tag = LEB
+			}
+			economic_IRE_visible = {
+				tag = IRE
+			}
+			economic_ANG_visible = {
+				tag = ANG
+			}
+			economic_OMA_visible = {
+				tag = OMA
+			}
+			economic_EGY_visible = {
+				tag = EGY
+			}
+			economic_ETH_visible = {
+				tag = ETH
+			}
+			economic_AUS_visible = {
+				tag = AUS
+			}
+			economic_PAR_visible = {
+				tag = PAR
+			}
+			economic_BRA_visible = {
+				tag = BRA
+			}
+			economic_BOL_visible = {
+				tag = BOL
+			}
+			economic_BRA_visible = {
+				tag = BRA
+			}
+			economic_PAR_visible = {
+				tag = PAR
+			}
+			economic_AUS_visible = {
+				tag = AUS
+			}
+			economic_CHL_visible = {
+				tag = CHL
+			}
+			economic_ENG_visible = {
+				tag = ENG
+			}
+			economic_INS_visible = {
+				tag = INS
+			}
+			economic_ITA_visible = {
+				tag = ITA
+			}
+			economic_PER_islam_visible = {
+				tag = PER
+				has_government = fascism
+			}
+			economic_PER_visible = {
+				tag = PER
+				has_government = monarchism
+			}
+			economic_IRQ_visible = {
+				tag = IRQ
+			}
+			economic_SYR_visible = {
+				tag = SYR
+			}
+			economic_HUN_visible = {
+				tag = HUN
+			}
+			economic_SIG_visible = {
+				tag = SIG
+			}
+			economic_GRE_visible = {
+				tag = GRE
+			}
+			economic_SPR_visible = {
+				tag = SPR
+			}
+			economic_VEN_visible = {
+				tag = VEN
+			}
+			economic_SIA_visible = {
+				tag = SIA
+			}
+			economic_SAU_visible = {
+				tag = SAU
+			}
+			economic_SWE_visible = {
+				tag = SWE
+			}
+			economic_POR_visible = {
+				tag = POR
+			}
+			economic_NOR_visible = {
+				tag = NOR
+			}
+			economic_SVN_visible = {
+				has_completed_focus = SVN_dong
+			}
+			economic_RHO_visible = {
+				tag = RHO
+			}
+		}			
+	}
+	
+}

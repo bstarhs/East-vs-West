@@ -1,0 +1,49 @@
+
+state={
+	id=38
+	name="STATE_38"
+	manpower=931955
+	resources={
+		iron=22
+	}
+	local_supplies=0.0
+	
+	state_category = town
+	
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 159 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Sweden
+		owner = SWE
+		victory_points = {
+			156 4
+		}
+		victory_points = {
+			11091 4
+		}
+		victory_points = {
+			9151 3
+		}
+		buildings = {
+			hospital = 1
+			farm_building = 3
+			school = 2
+			steel_making = 1
+			power_plant = 1
+			infrastructure = 4
+			industrial_complex = 1
+			air_base = 3
+			130 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		46 49 77 113 114 125 130 156 168 184 202 205 3005 3039 3045 3070 3108 3111 3148 3162 3191 6010 6023 6063 6067 6093 6123 6126 6129 6147 6185 6207 9035 9051 9066 9068 9088 9117 9141 9148 9151 9154 9171 9173 9182 9193 9229 11040 11049 11052 11053 11091 11116 11120 11123 11129 11147 11148 11185 11187 11197 11209 13099 13117 
+	}
+}

@@ -1,0 +1,164 @@
+add_namespace = lba
+#来自中国的支援
+news_event = {
+	id = lba.5
+	title = lba.5.t
+	desc = lba.5.d
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
+	trigger = {
+		date > 1969.9.1
+		date < 1969.12.1
+		tag = LBA
+	}
+	option = {
+		name = lba.5.a
+		set_politics = { ruling_party = neutrality }
+		create_country_leader = {
+			name = "Omar Mouammer al Gaddafi"
+			desc = ""
+			picture = "gfx/leaders/LBA/Portrait_Libya_Gaddafi.tga"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+	}
+}
+#来自中国的支援
+news_event = {
+	id = lba.6
+	title = lba.5.t
+	desc = lba.5.d
+	picture = GFX_liberation_Nanjing
+	is_triggered_only = yes
+	
+	option = {
+		name = lba.5.a
+		LBA = {
+			add_named_threat = { threat = 20 name = Gaddafi-expels-US }
+		}
+	}
+}
+
+#来自中国的支援
+news_event = {
+	id = lba.10
+	title = lba.5.t
+	desc = lba.5.d
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
+	trigger = {
+		date > 1986.4.1
+		date < 1986.12.1
+		LBA = { has_idea = Brotherly_Leader }
+		tag = USA
+	}
+	option = {
+		name = lba.5.a
+		USA = {
+			add_named_threat = { threat = 10 name = Bombing-Libya }
+		}
+		LBA = { news_event = { id = lba.11 } }
+	}
+}
+#利比亚受空袭
+news_event = {
+	id = lba.11
+	title = lba.5.t
+	desc = lba.5.d
+	picture = GFX_liberation_Nanjing
+	is_triggered_only = yes
+	option = {
+		name = lba.5.a
+		SOV = { news_event = { id = lba.13 } }
+	}
+	option = {
+		LBA = { news_event = { id = lba.12 } }
+	}
+}
+#空袭过后
+news_event = {
+	id = lba.12
+	title = lba.5.t
+	desc = lba.5.d
+	picture = GFX_liberation_Nanjing
+	is_triggered_only = yes
+	option = {
+		name = lba.5.a
+			448 = {
+				add_building_construction = { 
+				type = air_base
+				level = -6 
+				instant_build = yes }
+			}
+			LBA = {
+			add_political_power = -500
+			add_stability = -0.4
+			}
+	}
+}
+
+#1979石油繁荣
+news_event = {
+	id = lba.13
+	title = lba.13.t
+	desc = lba.5.d
+	picture = GFX_oilcrisis
+	fire_only_once = yes
+	trigger = {
+		PER = { has_war_with = IRQ }
+		ENG = { has_idea = OilCrisis }
+		has_idea = OPEC
+		NOT = { tag = PER }
+		NOT = { tag = IRQ }
+	}
+	option = {
+		name = lba.5.a
+		add_political_power = 500
+		add_stability = 0.1
+		add_ideas = oil_needed
+	}
+}
+
+
+
+#利比亚独立
+news_event = {
+	id = lba.40
+	title = lba.40.t
+	desc = lba.40.d
+	picture = GFX_IdrisI
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = ENG
+		country_exists = CYR
+		date > 1951.10.1
+		date < 1952.1.1
+	}
+	option = {
+		name = lba.5.a
+		play_song = LBA_2
+		if = { 
+			limit = { tag = ENG }
+			LBA = {
+				transfer_state = 448
+				transfer_state = 450
+				transfer_state = 661
+				transfer_state = 273
+				change_tag_from = CYR
+			}
+			LBA = {
+				annex_country = {
+					target = CYR
+					transfer_troops = yes
+				}
+			}
+		}
+	}
+}
+
+
+
+

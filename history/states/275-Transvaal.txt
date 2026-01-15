@@ -1,0 +1,50 @@
+
+state={
+	id=275
+	name="STATE_275" # Transvaal
+	manpower = 3680363
+	
+	state_category = city
+	
+	resources={
+		tungsten=80
+		copper=14
+		iron = 4
+		salt=19
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 20 }
+		add_to_array = { this.state_ethnics_list = 169 }
+		add_to_array = { this.state_ethnics_list = 124 }
+		add_to_array = { this.state_ethnics_list = 158 }
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = gold_production
+		set_state_flag = ethnics_Afrikaaners
+                               
+		owner = SAF
+		buildings = {
+			farm_building = 3
+			power_plant = 2
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 5
+			air_base = 3
+		}
+		victory_points = { 10400 10 }
+		victory_points = { 13280 10 }
+		victory_points = { 5106 4 }
+		victory_points = { 13301 4 }
+		victory_points = { 14154 3 }
+		victory_points = { 14139 3 }
+		victory_points = { 14150 2 }
+		victory_points = { 14138 2 }
+		add_core_of = SAF
+		add_core_of = TRS
+	}
+
+	provinces={
+		1688 2171 2213 5106 5217 10400 10566 13280 13291 13301 14133 14134 14135 14136 14137 14138 14139 14140 14141 14142 14143 14144 14145 14146 14147 14148 14149 14150 14151 14152 14153 14154
+	}
+}

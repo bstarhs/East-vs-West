@@ -1,0 +1,1866 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+focus_tree = {
+	id = neo_hindi_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = IND
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 55 y = 1500 }
+	focus = {
+		id = India_Constitution
+		icon = GFX_Constitution
+		cost = 5
+		x = 2
+		y = 0
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1949.12.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = raj.6 }
+			add_political_power = 300
+			remove_ideas = Commonwealth
+		}
+
+	}
+	focus = {
+		id = India_NCP
+		icon = GFX_goal_RAJ_NCP
+		cost = 10
+		prerequisite = { 
+			focus = India_Constitution
+		}
+		x = -2
+		y = 1	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_Socialist
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_NCP
+		}
+		x = 0
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_common_leader
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_NCP
+		}
+		x = -2
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_democratic
+		icon = GFX_goal_parliament
+		cost = 10
+		prerequisite = { 
+			focus = India_common_leader
+		}
+		x = -2
+		y = 3
+		completion_reward = {
+		}
+	}
+	
+	focus = { 
+		id = India_Gandhi
+		icon = GFX_goal_indira_nehru
+		cost = 10
+		prerequisite = { 
+			focus = India_NCP
+		}
+		x = -4
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_remove_syndicat
+		icon = GFX_goal_monarch_cabinet
+		cost = 10
+		prerequisite = { 
+			focus = India_Gandhi
+		}
+		x = -4
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_emergency_law
+		icon = GFX_focus_SOV_penal_battalions
+		cost = 10
+		prerequisite = { 
+			focus = India_remove_syndicat
+		}
+		x = -4
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_Hereditary
+		icon = GFX_goal_gandhi_brothers
+		cost = 10
+		prerequisite = { 
+			focus = India_emergency_law
+		}
+		x = -5
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_strike_oppose
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		cost = 10
+		prerequisite = { 
+			focus = India_emergency_law
+		}
+		x = -3
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_secret_police
+		icon = GFX_goal_apartheid
+		cost = 10
+		prerequisite = { 
+			focus = India_strike_oppose
+		}
+		x = -3
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_police_force
+		icon = GFX_goal_monarch_cabinet
+		cost = 10
+		prerequisite = { 
+			focus = India_strike_oppose
+		}
+		x = -5
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_Secularism
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_Socialist
+		}
+		x = 0
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_ban_caste
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_Secularism
+		}
+		x = 2
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_education
+		icon = GFX_goal_education
+		cost = 10
+		prerequisite = { 
+			focus = India_Secularism
+		}
+		x = 0
+		y = 4
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					hospital < 1
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			add_stability = 0.15
+			add_political_power = 100
+			add_to_variable = { influences = 80 }
+			custom_effect_tooltip = focus_tooltip_influence_80
+		}
+	}
+	focus = { 
+		id = India_IIT
+		icon = GFX_goal_IIT
+		cost = 10
+		prerequisite = { 
+			focus = India_education
+		}
+		x = -1
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_more_school
+		icon = GFX_focus_generic_military_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_education
+		}
+		x = 1
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_Hindi_langue
+		icon = GFX_goal_Hindi
+		cost = 10
+		prerequisite = { 
+			focus = India_more_school
+		}
+		x = 2
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_minor_contrl
+		icon = GFX_goal_IIT
+		cost = 10
+		prerequisite = { 
+			focus = India_Hindi_langue
+		}
+		x = 2
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_Bollywood
+		icon = GFX_goal_IIT
+		cost = 10
+		prerequisite = { 
+			focus = India_more_school
+		}
+		x = 4
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_dialect
+		icon = GFX_goal_india_dialect
+		cost = 10
+		prerequisite = { 
+			focus = India_more_school
+		}
+		x = 0
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_accept_islam
+		icon = GFX_goal_islam
+		cost = 10
+		prerequisite = { 
+			focus = India_dialect
+		}
+		x = 0
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_accept_bhuddism
+		icon = GFX_goal_IIT
+		cost = 10
+		prerequisite = { 
+			focus = India_dialect
+		}
+		x = -2
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_religion_peace
+		icon = GFX_goal_IIT
+		cost = 10
+		prerequisite = { 
+			focus = India_accept_islam
+		}
+		x = 0
+		y = 8
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_islam_diplo
+		icon = GFX_goal_diplo_saudi
+		cost = 10
+		prerequisite = { 
+			focus = India_accept_islam
+		}
+		x = 2
+		y = 8
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_female_right
+		icon = GFX_goal_rose
+		cost = 10
+		prerequisite = { 
+			focus = India_Secularism
+		}
+		x = -2
+		y = 4
+		completion_reward = {
+			add_political_power = 500
+		}
+	}
+	focus = { 
+		id = India_new_parties
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_Constitution
+		}
+		x = -8
+		y = 1	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_support_hinduism
+		icon = GFX_goal_hinduism
+		cost = 10
+		prerequisite = { 
+			focus = India_new_parties
+		}
+		x = -8
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_Rama_temple
+		icon = GFX_goal_India_RSS
+		cost = 10
+		prerequisite = { 
+			focus = India_support_hinduism
+		}
+		x = -10
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_RSS
+		icon = GFX_goal_RAJ_RSS
+		cost = 10
+		prerequisite = { 
+			focus = India_support_hinduism
+		}
+		x = -8
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_BJP
+		icon = GFX_goal_India_RSS
+		cost = 10
+		prerequisite = { 
+			focus = India_RSS
+		}
+		x = -8
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_BJP_dicatatorship
+		icon = GFX_goal_India_RSS
+		cost = 10
+		prerequisite = { 
+			focus = India_BJP
+		}
+		x = -8
+		y = 5	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_HInusim_educate
+		icon = GFX_goal_India_RSS
+		cost = 10
+		prerequisite = { 
+			focus = India_BJP
+		}
+		x = -10
+		y = 5	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_suprres_islam
+		icon = GFX_goal_India_RSS
+		cost = 10
+		prerequisite = { 
+			focus = India_HInusim_educate
+		}
+		x = -10
+		y = 6	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_support_sikhs
+		icon = GFX_goal_sikhism
+		cost = 10
+		prerequisite = { 
+			focus = India_new_parties
+		}
+		x = -6
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_diplomatic
+		icon = GFX_goal_diplo_india
+		cost = 10
+		prerequisite = { 
+			focus = India_Constitution
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1949.1.1
+			}
+		}
+		x = 36
+		y = 1	
+		completion_reward = {
+		}
+	}
+
+	focus = { 
+		id = India_Asia_game
+		icon = GFX_goal_third_world
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 80
+				date > 1950.5.1
+			}
+		}
+		x = 36
+		y = 2	
+		completion_reward = {
+			news_event = { id = raj.101 }
+		}
+	}
+	focus = { 
+		id = India_SEA
+		icon = GFX_goal_diplo_thailand
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		x = 38
+		y = 2	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SIA
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = BUR
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = PHI
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = MAL
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = INS
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_third_world
+		icon = GFX_goal_third_world
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		x = 42
+		y = 2	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = BUR
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = INS
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = EGY
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = YUG
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_non_aliged
+		icon = GFX_goal_non_aligned
+		cost = 10
+		prerequisite = { 
+			focus = India_third_world
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1961.2.1
+			}
+		}
+		x = 42
+		y = 3	
+		completion_reward = {
+			news_event = { id = raj.39 }
+			add_political_power = 200
+			set_global_flag = has_non_aliged
+			add_ideas = NonAligned
+			custom_effect_tooltip = set_non_aliged
+		}
+	}
+	focus = { 
+		id = India_pro_china
+		icon = GFX_goal_diplo_prc
+		cost = 10
+		prerequisite = { 
+			focus = India_third_world
+		}
+		x = 46
+		y = 3	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_china_coop
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		prerequisite = { 
+			focus = India_pro_china
+		}
+		x = 46
+		y = 4	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_grand_india
+		icon = GFX_goal_grand_india
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = 50
+				date > 1952.1.1
+			}
+		}
+		x = 32
+		y = 2	
+		completion_reward = {
+			news_event = { id = raj.100 }
+		}
+	}
+	focus = { 
+		id = India_per
+		icon = GFX_goal_diplo_iran
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		x = 26
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_AFG
+		icon = GFX_focus_generic_befriend_afghanistan
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		x = 28
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_himalaya
+		icon = GFX_goal_India_himalaya
+		cost = 10
+		prerequisite = { 
+			focus = India_grand_india
+		}
+		x = 32
+		y = 3	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = BHU
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = SKM
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = NEP
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_tibet
+		icon = GFX_goal_tibet_dplo
+		cost = 10
+		prerequisite = { 
+			focus = India_himalaya
+		}
+		x = 32
+		y = 4
+		completion_reward = {
+			add_opinion_modifier = {
+				target = TIB
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_tibet_revolt
+		icon = GFX_goal_tibet_rebels
+		cost = 10
+		prerequisite = { 
+			focus = India_tibet
+		}
+		x = 34
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_boycott_china
+		icon = GFX_goal_strike_china
+		cost = 10
+		prerequisite = { 
+			focus = India_tibet
+		}
+		x = 33
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_tibet_force
+		icon = GFX_goal_RAJ_tibetan_force
+		cost = 10
+		prerequisite = { 
+			focus = India_tibet
+		}
+		x = 32
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_sri_lanka
+		icon = GFX_goal_RAJ_ceylon
+		cost = 10
+		prerequisite = { 
+			focus = India_grand_india
+		}
+		x = 34
+		y = 3	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SRI
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_burmese_rebels
+		icon = GFX_goal_burma_rebels
+		cost = 10
+		prerequisite = { 
+			focus = India_grand_india
+		}
+		x = 36
+		y = 3	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SRI
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_maldives
+		icon = GFX_goal_India_ceylon
+		cost = 10
+		prerequisite = { 
+			focus = India_sri_lanka
+		}
+		x = 34
+		y = 4	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SRI
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_against_pakistan
+		icon = GFX_goal_against_pakistan
+		cost = 10
+		prerequisite = { 
+			focus = India_grand_india
+		}
+		x = 26
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_bangladesh
+		icon = GFX_goal_Bangladesh
+		cost = 10
+		prerequisite = { 
+			focus = India_against_pakistan
+		}
+		x = 28
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_annex_bangladesh
+		icon = GFX_goal_India_bangladesh
+		cost = 10
+		prerequisite = { 
+			focus = India_bangladesh
+		}
+		x = 28
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_kashmir_revolt
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_against_pakistan
+		}
+		x = 26
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_kashmir
+		icon = GFX_goal_map_kashmir
+		cost = 10
+		prerequisite = { 
+			focus = India_kashmir_revolt
+		}
+		x = 26
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_pakistani_revolt
+		icon = GFX_pakistan_rebels
+		cost = 10
+		prerequisite = { 
+			focus = India_kashmir_revolt
+		}
+		x = 24
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_kashmir_control
+		icon = GFX_focus_generic_milPRCry_academy
+		cost = 10
+		prerequisite = { 
+			focus = India_kashmir
+		}
+		x = 26
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_pro_socialism
+		icon = GFX_goal_socialist
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		x = 48
+		y = 2	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = SOV_support_africa
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = SOV_support_africa
+			}
+		}
+	}
+	focus = { 
+		id = India_pro_ENG
+		icon = GFX_goal_diplo_uk
+		cost = 10
+		prerequisite = { 
+			focus = India_diplomatic
+		}
+		x = 52
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_ENG_aid
+		icon = GFX_focus_mex_privatisation
+		cost = 10
+		prerequisite = { 
+			focus = India_pro_ENG
+		}
+		x = 51
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_ENG_support
+		icon = GFX_goal_socialist
+		cost = 10
+		prerequisite = { 
+			focus = India_pro_ENG
+		}
+		x = 53
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_pro_soviet
+		icon = GFX_soviet_relationship
+		cost = 10
+		prerequisite = { 
+			focus = India_pro_socialism
+		}
+		x = 48
+		y = 3	
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = SOV_support_africa
+			}
+			add_ideas = soviet_industry_advisitor_idea
+		}
+	}
+	focus = { 
+		id = India_comecon
+		icon = GFX_goal_comecon
+		cost = 10
+		prerequisite = { 
+			focus = India_pro_soviet
+		}
+		x = 49
+		y = 4	
+		available = {
+			SOV = { has_completed_focus = SOV_EconomicMutualAidCommittee }
+			NOT = { has_country_leader_with_trait = independent_red }
+		}
+		completion_reward = {
+			news_event = { id = gen.42 }
+			add_ideas = comecon
+		}
+	}
+	focus = { 
+		id = India_accept_communism
+		icon = GFX_focus_RAJ_seek_help_from_soviet
+		cost = 10
+		prerequisite = { 
+			focus = India_pro_soviet
+		}
+		x = 48
+		y = 5	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_economic
+		icon = GFX_goal_generic_construct_civilian
+		cost = 10
+		prerequisite = { 
+			focus = India_Constitution
+		}
+		x = 8
+		y = 1	
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					NOT = {
+						OR = {
+							has_dynamic_modifier = { modifier = state_desert_modifier }
+							has_state_category = wasteland
+							has_state_category = pastoral
+							has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+		}
+	}
+	focus = { 
+		id = India_5_plant
+		icon = GFX_goal_PRC_shenzhen
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 2
+		y = 2	
+		completion_reward = {
+			add_timed_idea = {
+				idea = five_years_plant
+				days = 500
+			}
+			add_to_variable = { influences = 80 } 
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+		}	
+	}
+	focus = { 
+		id = India_pass_economic
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = { 
+			focus = India_Socialist
+		}
+		prerequisite = { 
+			focus = India_5_plant
+		}
+		x = 2
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 8
+		y = 2	
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			set_technology = {
+				improved_machine_tools = 1
+				concentrated_industry = 1
+				dispersed_industry2 = 1
+				synth_oil_experiments = 1
+				oil_processing = 1
+				construction2 = 1
+				excavation2 = 1
+				power_generation1 = 1
+				electronic_mechanical_engineering = 1
+			}
+		}
+	}
+	focus = { 
+		id = India_manufacture1
+		icon = GFX_focus_generic_modernize_industry
+		cost = 10
+		prerequisite = { 
+			focus = India_industry
+		}
+		x = 8
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_oiwer_plant
+		icon = GFX_focus_generic_energy
+		cost = 10
+		prerequisite = { 
+			focus = India_industry
+		}
+		x = 10
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_manufacture2
+		icon = GFX_focus_generic_modernize_industry
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture1
+		}
+		x = 8
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_steel
+		icon = GFX_goal_steel
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture1
+		}
+		x = 10
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_manufacture3
+		icon = GFX_focus_generic_modernize_industry
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture2
+		}
+		x = 8
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = India_chemistry
+		icon = GFX_goal_militarist
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture2
+		}
+		x = 6
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_oil_produc
+		icon = GFX_goal_oil_produc
+		cost = 10
+		prerequisite = { 
+			focus = India_chemistry
+		}
+		x = 6
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_oil_sea
+		icon = GFX_focus_generic_offshore_oil_rig
+		cost = 10
+		prerequisite = { 
+			focus = India_chemistry
+		}
+		x = 6
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_nuclear
+		icon = GFX_goal_nuclear_plant
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture3
+		}
+		x = 8
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_electronic
+		icon = GFX_goal_electronic
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture3
+		}
+		x = 10
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_communication
+		icon = GFX_goal_industry
+		cost = 10
+		prerequisite = { 
+			focus = India_electronic
+		}
+		x = 10
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_develop_culcut
+		icon = GFX_goal_India_tata
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 6
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_neo_liberal
+		icon = GFX_goal_neoliberal
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 4
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_enterprise
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		prerequisite = { 
+			focus = India_neo_liberal
+		}
+		x = 4
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_strike_corrupt
+		icon = GFX_goal_mccarthyism
+		cost = 10
+		prerequisite = { 
+			focus = India_enterprise
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_market
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = { 
+			focus = India_strike_corrupt
+		}
+		x = 4
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_develop_mumbai
+		icon = GFX_goal_Maharashtra
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 10
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_develop_himalaya
+		icon = GFX_goal_India_tata
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 12
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_develop_east
+		icon = GFX_goal_develop_assam
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 14
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_develop_gujarat
+		icon = GFX_goal_develop_gujarat
+		cost = 10
+		prerequisite = { 
+			focus = India_industry
+		}
+		x = 6
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_develop_tamilnad
+		icon = GFX_goal_develop_tamil
+		cost = 10
+		prerequisite = { 
+			focus = India_industry
+		}
+		x = 12
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_tata
+		icon = GFX_goal_India_tata
+		cost = 10
+		prerequisite = { 
+			focus = India_manufacture1
+		}
+		x = 6
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_military_industry
+		icon = GFX_goal_militarist
+		cost = 10
+		prerequisite = { 
+			focus = India_industry
+		}
+		x = 14
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_military_2
+		icon = GFX_goal_militarist
+		cost = 10
+		prerequisite = { 
+			focus = India_military_industry
+		}
+		x = 14
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_military_3
+		icon = GFX_goal_militarist
+		cost = 10
+		prerequisite = { 
+			focus = India_military_2
+		}
+		x = 14
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_air_force
+		icon = GFX_goal_india_airforce
+		cost = 10
+		prerequisite = { 
+			focus = India_military_industry
+		}
+		x = 12
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_missile_tehcs
+		icon = GFX_focus_rocketry
+		cost = 10
+		prerequisite = { 
+			focus = India_military_3
+		}
+		prerequisite = { 
+			focus = India_air_force
+		}
+		x = 12
+		y = 6	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.05
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+	focus = { 
+		id = India_strategic_weapons
+		icon = GFX_focus_SWE_marauder_bombers
+		cost = 10
+		prerequisite = { 
+			focus = India_missile_tehcs
+		}
+		prerequisite = { 
+			focus = India_buddha
+		}
+		x = 14
+		y = 7	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+	focus = { 
+		id = India_space_project
+		icon = GFX_goal_ISRA
+		cost = 10
+		prerequisite = { 
+			focus = India_missile_tehcs
+		}
+		x = 12
+		y = 7	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = space
+			}
+		}
+	}
+	focus = { 
+		id = India_buddha
+		icon = GFX_goal_nuke
+		cost = 10
+		prerequisite = { 
+			focus = India_military_3
+		}
+		available = {
+			has_tech = atomic_research
+		}
+		x = 14
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = nuclear
+			}
+			set_technology = { nukes = 1 }
+			add_political_power = 80
+			add_to_variable = { influences = 180 }
+			add_named_threat = { threat = 0.1 name = India_atomicbomb_succese }
+			
+		}	
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				date > 1974.1.1
+			}
+		}
+	}
+	focus = { 
+		id = India_navy
+		icon = GFX_goal_RAJ_navy
+		cost = 10
+		prerequisite = { 
+			focus = India_military_industry
+		}
+		x = 18
+		y = 4	
+		completion_reward = {
+			navy_experience = 300
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = naval_equipment
+			}
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = ship_modules_tech
+			}		
+		}
+	}
+	focus = { 
+		id = India_navy_submarine
+		icon = GFX_goal_generic_navy_submarine
+		cost = 10
+		prerequisite = { 
+			focus = India_navy
+		}
+		x = 18
+		y = 5
+		completion_reward = {		
+		}
+	}
+	focus = { 
+		id = India_navy_carrier
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10
+		prerequisite = { 
+			focus = India_navy_submarine
+		}
+		x = 18
+		y = 6
+		completion_reward = {		
+		}
+	}
+	focus = { 
+		id = India_navy_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+		prerequisite = { 
+			focus = India_navy
+		}
+		x = 20
+		y = 5
+		completion_reward = {		
+		}
+	}
+	focus = { 
+		id = India_arabia_fleet
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 10
+		prerequisite = { 
+			focus = India_navy_port
+		}
+		x = 20
+		y = 6
+		completion_reward = {		
+		}
+	}
+	focus = { 
+		id = India_develop_andaman
+		icon = GFX_goal_India_navy
+		cost = 10
+		prerequisite = { 
+			focus = India_navy
+		}
+		x = 16
+		y = 5
+		completion_reward = {		
+		}
+	}
+	focus = { 
+		id = India_bangladesh_fleet
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 10
+		prerequisite = { 
+			focus = India_develop_andaman
+		}
+		x = 16
+		y = 6
+		completion_reward = {		
+		}
+	}
+	focus = { 
+		id = India_medic
+		icon = GFX_goal_welfare
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 18
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_medizines
+		icon = GFX_goal_medical
+		cost = 10
+		prerequisite = { 
+			focus = India_medic
+		}
+		x = 16
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_birth
+		icon = GFX_goal_PRC_baochan
+		cost = 10
+		prerequisite = { 
+			focus = India_medic
+		}
+		x = 18
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_agriculture
+		icon = GFX_focus_generic_farmland
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 20
+		y = 2	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = agriculture
+			}
+		}
+	}
+	focus = { 
+		id = India_infrasctructure
+		icon = GFX_goal_Hight_way
+		cost = 10
+		prerequisite = { 
+			focus = India_economic
+		}
+		x = 22
+		y = 2	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_touris
+		icon = GFX_goal_India_tourism
+		cost = 10
+		prerequisite = { 
+			focus = India_infrasctructure
+		}
+		x = 22
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_delhi_culcuta
+		icon = GFX_focus_generic_railroad
+		cost = 10
+		prerequisite = { 
+			focus = India_infrasctructure
+		}
+		x = 24
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_delhi_tamil
+		icon = GFX_focus_generic_railroad
+		cost = 10
+		prerequisite = { 
+			focus = India_delhi_culcuta
+		}
+		x = 22
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_delhi_mumbai
+		icon = GFX_focus_generic_railroad
+		cost = 10
+		prerequisite = { 
+			focus = India_delhi_culcuta
+		}
+		x = 24
+		y = 4	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_agri_machine
+		icon = GFX_goal_agriculture
+		cost = 10
+		prerequisite = { 
+			focus = India_agriculture
+		}
+		x = 20
+		y = 3	
+		completion_reward = {
+		}
+	}
+	focus = { 
+		id = India_green_revolution
+		icon = GFX_focus_generic_agricultural_subsidies
+		cost = 10
+		prerequisite = { 
+			focus = India_agri_machine
+		}
+		x = 20
+		y = 4	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.08
+				uses = 1
+				category = agriculture
+			}
+		}
+	}
+}

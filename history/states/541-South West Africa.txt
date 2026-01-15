@@ -1,0 +1,38 @@
+
+state={
+	id=541
+	name="STATE_541"
+	manpower = 462000
+	
+	state_category = wasteland
+	resources={
+		chromium=6
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		set_state_flag = ethnics_Ovambo
+		add_to_array = { this.state_ethnics_list = 95 }
+		add_to_array = { this.state_ethnics_list = 20 }
+		owner = SAF
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			8136 4
+		}
+		1968.10.14 = {
+			owner = OVA
+		}
+		1990.1.1 = {
+			owner = NAM
+		}
+		add_core_of = NAM
+		add_core_of = OVA
+	}
+
+	provinces={
+		8136 13913 13912 
+	}
+}

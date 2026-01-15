@@ -1,0 +1,50 @@
+state= {
+	id=606
+	name="STATE_606" # Anhui
+	manpower = 23265400
+	
+	state_category = city
+	resources={
+		copper=12
+	}
+
+	history= {
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Han
+		add_to_array = { this.state_ethnics_list = 1 }
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			farm_building = 4
+			hospital = 1
+			power_plant = 2
+			infrastructure = 4
+			industrial_complex = 3
+		}
+		victory_points = { 
+			7222 8
+		}
+		victory_points = { 
+			11916 5
+		}
+		victory_points = { 
+			9937 5
+		}
+		victory_points = { 
+			10040 2 
+		}
+		victory_points = { 1099 2 }
+		victory_points = { 1125 3 }
+		victory_points = { 1146 3 }
+		victory_points = { 1083 4 }
+		1949.10.25 = {
+		owner = PRC
+		}
+
+	}
+	
+	provinces={
+		1083 1099 1125 1146 1171 4079 4105 4173 4203 7035 7094 7104 7222 9937 10008 10017 10040 10044 10064 10079 11916 11937 11994 12019 12036 12061 9995 1121 11973 13144 1161 1001 4148 
+	}
+}

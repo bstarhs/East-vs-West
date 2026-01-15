@@ -1,0 +1,284 @@
+﻿capital = 306
+
+oob = "COL_1936"
+
+set_country_flag = latin_america
+set_country_flag = language_spannish
+set_country_flag = developmented
+add_ideas = {
+	Latin_Hacienda
+	service_by_requirement
+	UNmember
+	FruitCompany
+	Catholicism
+}
+set_country_flag = carribean_states
+	add_to_array = { global.UNmember_list = FROM }
+# Starting tech
+	activate_decision = Establishment_of_National_Museum
+	complete_national_focus = commons_5
+set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		radio_detection = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+		medical1 = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+set_country_flag = monroe_doctrine
+
+set_convoys = 10
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "COL_1947"
+	set_technology = {
+		interwar_artillery = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+set_convoys = 5
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic = 10
+		communism = 27
+		authoritarianism = 53
+		neutrality = 10
+	}
+
+create_country_leader = {
+	name = "Jorge Eliécer Gaitán"
+	picture = "gfx/leaders/COL/Portrait_Colombia_Jorge_Gaitan.tga"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		pro_socialism socialist_reformism resolute_social_democrat
+	}
+}
+
+
+	create_country_leader = {
+		name = "Luis Mariano Ospina Pérez"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Mariano.tga"
+		expire = "1965.1.1"
+		ideology = authoritarianism
+		traits = {
+			anti_communist dictator Developmentalism
+		}
+	}
+1945.1.1 = {
+	add_ideas = {
+		UNmember
+	}
+}
+1948.1.1 = {
+	set_global_flag = GaitanDeath
+	
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = LaVolencia
+	set_stability = 0.61
+	create_country_leader = {
+		name = "Laureano Gómez Castro"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Gomez_Castro.tga"
+		expire = "1949.1.1"
+		ideology = authoritarianism
+		traits = {
+			anti_communist dictator pro_america tratidional_trait tyrant
+		}
+	}
+}
+1953.1.1 = {
+
+	remove_ideas = LaVolencia
+	activate_decision = female_equality
+	set_popularities = {
+		democratic = 63
+		communism = 23
+		neutrality = 14
+	}
+	set_popularities = {
+		democratic = 10
+		communism = 35
+		authoritarianism = 20
+		neutrality = 35
+	}
+	set_politics = {
+		ruling_party = neutrality
+	}
+	set_stability = 0.61
+	create_country_leader = {
+		name = "Gustavo Rojas Pinilla"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Pinilla.tga"
+		expire = "1949.1.1"
+		ideology = despotism
+		traits = {
+			#
+		}
+	}
+}
+1958.1.1 = {
+	add_ideas = gaulle
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Alberto Lleras Camargo"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Camargo.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1962.1.1 = {
+	add_ideas = {
+		APLA
+	}
+	create_country_leader = {
+		name = "Guillermo León Valencia Muñoz"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Guillermo.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1967.1.1 = {
+	set_country_flag = female_finished
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+	create_country_leader = {
+		name = "Misael Pastrana Borrero"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Borrero.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1974.1.1 = {
+	create_country_leader = {
+		name = "Alfonso López Michelsen"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Michelsen.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1983.1.1 = {
+	set_country_flag = china_diplomacy
+	complete_national_focus = common_24
+	create_country_leader = {
+		name = "Belisario Betancur Cuartas"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Cuartas.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1986.1.1 = {
+	set_popularities = {
+		democratic = 54
+		communism = 26
+		neutrality = 20
+	}
+	create_country_leader = {
+		name = "Virgilio Barco Vargas"
+		desc = "POLITICS_GEORGI_DIMITROV_DESC"
+		picture = "gfx/leaders/COL/Portrait_Colombia_Virgilio.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}

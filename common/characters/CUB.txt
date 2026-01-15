@@ -1,0 +1,393 @@
+characters={
+	CUB_Eulogio_Cantillo={
+		name=CUB_Eulogio_Cantillo
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Eulogio_Cantillo.tga"
+				small="gfx/interface/ideas/idea_Eulogio_Cantillo.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				anti_communist pro_america corrupt_leader
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			visible={
+				has_government = neutrality
+			}
+			slot = political_advisor
+			idea_token = Eulogio_Cantillo
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				resistance_target = -0.15
+			}
+		}
+	}
+	CUB_Martin_Diaz_Tamayo={
+		name=CUB_Martin_Diaz_Tamayo
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Martin_Diaz_Tamayo.tga"
+				small="gfx/interface/ideas/idea_Martin_Diaz_Tamayo.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				anti_communist pro_america corrupt_leader
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			visible={
+				has_government = neutrality
+			}
+			slot = political_advisor
+			idea_token = Martin_Diaz_Tamayo
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				stability_factor = 0.12
+			}
+		}
+	}
+	CUB_Estaban_Ventura_Novo={
+		name=CUB_Estaban_Ventura_Novo
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Estaban_Ventura_Novo.tga"
+				small="gfx/interface/ideas/idea_Estaban_Ventura_Novo.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_government = neutrality
+			}
+			slot = political_advisor
+			idea_token = Estaban_Ventura_Novo
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				resistance_target = -0.12
+				stability_factor = 0.05
+			}
+		}
+	}
+	CUB_Meyer_Lansky={
+		name=CUB_Meyer_Lansky
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Meyer_Lansky.tga"
+				small="gfx/interface/ideas/idea_Meyer_Lansky.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_idea = CUB_casino
+			}
+			slot = political_advisor
+			idea_token = Meyer_Lansky
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				political_power_factor = 0.12
+			}
+		}
+	}
+	CUB_Rolando_Masferrer={
+		name=CUB_Rolando_Masferrer
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Rolando_Masferrer.tga"
+				small="gfx/interface/ideas/idea_Rolando_Masferrer.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_idea = CUB_casino
+			}
+			slot = political_advisor
+			idea_token = Rolando_Masferrer
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				resistance_damage_to_garrison_on_our_occupied_states = -0.3
+				stability_factor = 0.05
+				resistance_target = -0.05
+				political_power_factor = -0.06
+			}
+		}
+	}
+	CUB_Earl_Edward_Smith={
+		name=CUB_Earl_Edward_Smith
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Earl_Edward_Smith.tga"
+				small="gfx/interface/ideas/idea_Earl_Edward_Smith.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_government = neutrality
+			}
+			slot = political_advisor
+			idea_token = Earl_Edward_Smith
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				opinion_gain_monthly = 5
+			}
+		}
+	}
+	CUB_Osvaldo_Dorticos_Torrado={
+		name=CUB_Osvaldo_Dorticos_Torrado
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Osvaldo_Dorticos_Torrado.tga"
+				small="gfx/interface/ideas/idea_Osvaldo_Dorticos_Torrado.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Osvaldo_Dorticos_Torrado
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				political_power_factor = 0.2
+				opinion_gain_monthly = 0.12
+				drift_defence_factor = 0.05
+			}
+		}
+	}
+	CUB_Ana_Canizares={
+		name=CUB_Ana_Canizares
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Ana_Canizares.tga"
+				small="gfx/interface/ideas/idea_Ana_Canizares.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Ana_Canizares
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				production_speed_school_factor = 0.12
+			}
+		}
+	}
+	CUB_Vilma_Espin={
+		name=CUB_Vilma_Espin
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Vilma_Espin.tga"
+				small="gfx/interface/ideas/idea_Vilma_Espin.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Vilma_Espin
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				political_power_factor = 0.12
+			}
+		}
+	}
+	CUB_William_Morgan={
+		name=CUB_William_Morgan
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_William_Morgan.tga"
+			}
+		}
+		corps_commander={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			traits={  }
+			skill=2
+			attack_skill=3
+			defense_skill=4
+			planning_skill=2
+			logistics_skill=1
+			
+		}
+	}
+	CUB_Faure_Chomon={
+		name=CUB_Faure_Chomon
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Faure_Chomon.tga"
+				small="gfx/interface/ideas/idea_Faure_Chomon.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Faure_Chomon
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				experience_gain_army = 0.12
+			}
+		}
+	}
+	CUB_Che_Guevara={
+		name=CUB_Raul_Castro
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Che_Guevara.tga"
+				small="gfx/interface/ideas/idea_Che_Guevara.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Che_Guevara
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				political_power_factor = 0.12
+				stability_factor = 0.05
+			}
+		}
+	}
+	CUB_Raul_Castro={
+		name=CUB_Raul_Castro
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Raul_Castro.tga"
+				small="gfx/interface/ideas/idea_Raul_Castro.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Raul_Castro
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				master_ideology_drift = 0.02
+				stability_factor = 0.05
+			}
+		}
+	}
+	CUB_Eloy_Gutierrez_Menoyo={
+		name=CUB_Eloy_Gutierrez_Menoyo
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Eloy_Gutierrez_Menoyo.tga"
+				small="gfx/interface/ideas/idea_Eloy_Gutierrez_Menoyo.dds"
+			}
+		}
+		advisor={
+			visible={
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			slot = political_advisor
+			idea_token = Eloy_Gutierrez_Menoyo
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				master_ideology_drift = 0.02
+				stability_factor = 0.08
+			}
+		}
+	}
+	CUB_Mariano_Faget_Diaz={
+		name=CUB_Mariano_Faget_Diaz
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Mariano_Faget_Diaz.tga"
+				small="gfx/interface/ideas/idea_Mariano_Faget_Diaz.dds"
+			}
+		}
+		advisor={
+			visible={
+				has_government = neutrality
+			}
+			slot = political_advisor
+			idea_token = Mariano_Faget_Diaz
+			allowed  = {
+				original_tag = CUB
+			}
+			modifier  = {
+				neutrality_drift = 0.01
+				drift_defence_factor = 0.12
+			}
+		}
+	}
+	CUB_Fidel_Castro={
+		name=CUB_Fidel_Castro
+		portraits={
+			civilian={
+				large="gfx/leaders/CUB/Portrait_Cuba_Castro.tga"
+				small="GFX_idea_maurice_thorez"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+				pro_third_world popular_figurehead pro_soviet anti_america Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				pro_third_world popular_figurehead Developmentalism
+			}
+			expire="1997.1.1.1"
+		}
+	}
+}

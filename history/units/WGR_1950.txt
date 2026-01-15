@@ -1,0 +1,120 @@
+﻿division_template = {
+	name = "Infanteriebrigade"
+	division_names_group = GER_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Panzerbrigade"
+	division_names_group = GER_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 1 }			
+		motorized = { x = 2 y = 0 }	
+		motorized = { x = 2 y = 1 }
+	}
+}
+
+
+division_template = {
+	name = "Artilleriebataillon" 	
+	division_names_group = GER_MOT_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Fallschirmjäger Brigade"
+	division_names_group = GER_PAR_01
+	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	#1. Panzerdivision
+	division = {
+		name = "Panzerlehrbrigade 9"
+		location = 6263
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.5
+	}
+	division = {
+		name = "Panzerbrigade 21"
+		location = 3355
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "Panzergrenadierbrigade 13"
+		location = 692
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.5
+	}
+
+	division = {
+		name = "325. Artilleriebataillon"
+		location = 309
+		division_template = "Artilleriebataillon"
+		start_experience_factor = 0.5
+	}
+	#10. Panzerdivision
+	division = {
+		name = "Panzerbrigade 12"
+		location = 11497
+		division_template = "Panzerbrigade"
+		start_experience_factor = 0.5
+	}
+
+	division = {
+		name = "Gebirgsjägerbrigade 23"
+		location = 707
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.5
+	}
+	
+	division = {
+		name = "Panzergrenadierbrigade 37"
+		location = 9347
+		division_template = "Infanteriebrigade"
+		start_experience_factor = 0.5
+	}
+
+	division = {
+		name = "131. Artilleriebataillon"
+		location = 9557
+		division_template = "Artilleriebataillon"
+		start_experience_factor = 0.5
+	}
+
+	division = {
+		name = "345. Artilleriebataillon"
+		location = 9557
+		division_template = "Artilleriebataillon"
+		start_experience_factor = 0.5
+	}
+	#Division Schnelle Kräfte
+
+	division = {
+		name = "1. Luftlandebrigade"
+		location = 11531
+		division_template = "Fallschirmjäger Brigade"
+		start_experience_factor = 0.5
+	}
+	
+	#
+}
+

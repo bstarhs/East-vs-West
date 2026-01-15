@@ -1,0 +1,91 @@
+guiTypes = {
+   	containerWindowType = {
+		name = "message_popup_window"
+		size = { width = 100%% height = 100%% }
+		show_sound = diplomatic_notification
+        hide_sound = menu_close_window
+		instantTextBoxType = {
+			name = "title"
+			position = { x = -105 y = 26 }
+			textureFile = ""
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Title"
+			maxWidth = 210
+			maxHeight = 44
+			fixedsize = yes
+			multiline = yes
+			format = center
+			orientation = center_up
+		}
+		
+		iconType = {
+			name = "diplo_war_large_icon"
+			quadTextureSprite ="GFX_diplo_war_large_icon"
+			position = { x= 40 y = 26 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "sender_flag"
+			quadTextureSprite ="GFX_flag_medium"
+			position = { x= 36 y = 43 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="sender_flag_frame"
+			spriteType = "GFX_large_flag_frame"
+			scale = 0.75
+			position = { x= 33 y = 41 }
+		}
+
+
+		iconType = {
+			name = "diplo_war_large_icon2"
+			quadTextureSprite ="GFX_diplo_war_large_icon"
+			position = { x= 427 y = 26 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "receiver_flag"
+			quadTextureSprite ="GFX_flag_medium"
+			position = { x= -108 y = 43 }
+			Orientation = "UPPER_RIGHT"
+		}
+
+		iconType = {
+			name ="receiver_flag_frame"
+			spriteType = "GFX_large_flag_frame"
+			scale = 0.75
+			position = { x= -110 y = 41 }
+			Orientation = "UPPER_RIGHT"
+		}
+		instantTextBoxType = {
+			name = "message"
+			position = { x = 120 y = 76 }
+			textureFile = ""
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+			maxWidth = 308
+			maxHeight = 110
+			format = center
+			scrollbartype = "standardtext_slider"
+		}
+
+		iconType = {
+			name ="diplo_popup_bottom"
+			spriteType = "GFX_diplo_popup_bottom"
+			position = { x= 3 y = 849 }
+		}
+		
+		iconType = {
+			name = "timeout_progressbar"
+			spriteType = "GFX_popup_progressbar"
+			position = { x=120 y=273 }
+		}
+	}
+}

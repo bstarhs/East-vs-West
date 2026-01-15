@@ -1,0 +1,500 @@
+﻿add_namespace = phi
+
+#1948大选
+news_event = {
+	id = phi.1
+	title = phi.1.t
+	desc = phi.1.d
+	fire_only_once = yes
+	picture = GFX_Jaruzelski
+	trigger = {
+		tag = PHI
+		date > 1948.3.1
+		date < 1948.5.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+			promote_character = PHI_Elpidio_Quirino
+	}
+}
+#虎克军出现
+news_event = {
+	id = phi.2
+	title = phi.2.t
+	desc = phi.2.d
+	picture = GFX_Huakpalahap
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = PHI
+		date < 1955.1.1
+		communism > 0.1
+		NOT = { has_government = communism }
+		NOT = { has_idea = southeast_revolution }
+		OR = {
+			communism > 0.15
+			date > 1948.6.1
+		}
+	}
+	option = {
+		name = phi.1.a
+		if = {
+			limit = { tag = PHI }
+			624 = { add_resistance = 12 }
+			327 = { add_resistance = 12 }
+			598 = { add_resistance = 12 }
+			add_stability = -0.15
+			add_ideas = southeast_revolution
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+}
+#罗哈斯总统去世
+news_event = {
+	id = phi.3
+	title = phi.3.t
+	desc = phi.3.d
+	major = yes
+	picture = GFX_ElpidioQuirino
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = PHI
+		date > 1948.4.1
+		date < 1948.12.1
+		has_country_leader = { name = "Manuel Roxas" }
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		if = { 
+			limit = { tag = PHI }
+			promote_character = PHI_Elpidio_Quirino
+		}
+	}
+}
+news_event = {   #刺杀事件
+	id = phi.4
+	title = phi.4.t
+	desc = phi.4.d
+	picture = GFX_AuroraQuezon
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PHI
+		NOT = { has_global_flag = AuroraQuezon }
+		date > 1949.4.20
+		date < 1949.7.1
+		
+	}
+	option = {
+		name = phi.4.a
+		set_global_flag = AuroraQuezon
+		if = {
+			limit = { tag = PHI }
+			add_stability = -0.1
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+	}
+}
+#1990大选
+news_event = {
+	id = phi.5
+	title = phi.5.t
+	desc = phi.5.d
+	fire_only_once = yes
+	picture = GFX_RamonMagsaysay
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PHI
+		date > 1953.12.1
+		date < 1954.2.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		promote_character = PHI_Elpidio_Quirino
+	}
+	option = {
+		name = arg.40.a
+		news_event = { id = phi.40 }
+		promote_character = PHI_Ramon_Magsaysay
+	}
+}
+#1990大选
+news_event = {
+	id = phi.6
+	title = phi.6.t
+	desc = phi.6.d
+	major = yes
+	picture = GFX_MagsaysayCrash
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PHI
+		has_country_leader = {
+			character = PHI_Ramon_Magsaysay
+			ruling_only = yes
+		}
+		date > 1957.3.1
+		date < 1957.5.1
+		has_government = democratic
+	}
+	option = {
+		name = phi.6.a
+		if = {
+			limit = { tag = PHI }
+			retire_character = PHI_Ramon_Magsaysay
+			create_country_leader = {
+				name = "Carlos Polistico Garcia"
+				picture = "gfx/leaders/PHI/Portrait_Philippines_Carlos_Garcia.tga"
+				expire = "1988.1.1"
+				ideology = socialism
+				traits = {
+					pro_america
+				}
+			}
+		}
+	}
+}
+#1990大选
+news_event = {
+	id = phi.8
+	title = phi.8.t
+	desc = pol.5.d
+	fire_only_once = yes
+	picture = GFX_Jaruzelski
+	trigger = {
+		tag = PHI
+		date > 1959.3.1
+		date < 1959.5.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		create_country_leader = {
+			name = "Carlos Polistico Garcia"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/PHI/Portrait_Philippines_Carlos_Garcia.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+				pro_america
+			}
+		}
+	}
+}
+#1990大选
+news_event = {
+	id = phi.10
+	title = phi.10.t
+	desc = pol.5.d
+	fire_only_once = yes
+	picture = GFX_Jaruzelski
+	trigger = {
+		tag = PHI
+		date > 1961.12.1
+		date < 1962.1.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		create_country_leader = {
+			name = "Diosdado Macapagal"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/PHI/Portrait_Philippines_Diosdado_Macapagal.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+				pro_america
+			}
+		}
+	}
+}
+#马克斯大选
+news_event = {
+	id = phi.12
+	title = phi.12.t
+	desc = phi.12.d
+	fire_only_once = yes
+	picture = GFX_MarcosCometopower
+	trigger = {
+		tag = PHI
+		date > 1964.12.1
+		date < 1965.2.1
+		has_government = democratic
+	}
+	option = {
+		name = arg.40.a
+		news_event = { id = phi.13 }
+		create_country_leader = {
+			name = "Ferdinand Marcos"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/PHI/Portrait_Philippines_Ferdinand_Marcos.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+				anti_communist pro_america corrupt_leader popular_figurehead
+			}
+		}
+	}
+}
+#马科斯上台
+news_event = {
+	id = phi.13
+	title = phi.13.t
+	desc = phi.13.d
+	major = yes
+	picture = GFX_MarcosCometopower
+	is_triggered_only = yes
+	immediate = {
+		play_song = PHI_2
+	}
+	option = {
+		name = phi.13.a
+	}
+}
+##新人民军
+news_event = {
+	id = phi.15
+	title = phi.15.t
+	desc = phi.15.d
+	picture = GFX_guarrillas
+	fire_only_once = yes
+	trigger = {
+		AND = {
+			OR = {
+				has_government = neutrality
+				has_government = authoritarianism
+			}
+			NOT = { has_idea = southeast_revolution }
+			date > 1969.1.1
+			tag = PHI
+			has_stability < 0.6
+		}
+	} 
+
+	option = { 
+		name = latin.4.a
+		624 = { add_resistance = 12 }
+		327 = { add_resistance = 12 }
+		598 = { add_resistance = 12 }
+		add_ideas = southeast_revolution
+		add_stability = -0.2
+		add_popularity = {
+			ideology = communism
+			popularity = 0.2
+		}
+	}
+}
+#大选在即
+news_event = {
+	id = phi.18
+	title = phi.18.t
+	desc = phi.18.d
+	fire_only_once = yes
+	picture = GFX_NinoyAquino
+	trigger = {
+		tag = PHI
+		date > 1983.8.1
+		date < 1983.10.1
+		has_government = authoritarianism
+	}
+	option = {
+		name = arg.40.a
+		news_event = { id = phi.19 }
+	}
+}
+#阿基诺拒绝
+news_event = {
+	id = phi.19
+	title = phi.19.t
+	desc = phi.19.d
+	fire_only_once = yes
+	picture = GFX_NinoyAquino
+	is_triggered_only = yes
+	option = {
+		name = arg.40.a
+		add_stability = -0.5
+		add_ideas = AquinoDead
+		news_event = { id = phi.21 days = 20 }
+	}
+}
+#阿基诺遇刺
+news_event = {
+	id = phi.21
+	title = phi.21.t
+	desc = phi.21.d
+	major = yes
+	picture = GFX_AquinoAssassin
+	is_triggered_only = yes
+	option = {
+		name = arg.40.a
+	}
+}
+#大规模抗议
+news_event = {
+	id = phi.24
+	title = phi.24.t
+	desc = phi.24.d
+	fire_only_once = yes
+	picture = GFX_PhilippinesRevolution
+	trigger = {
+		tag = PHI
+		date > 1986.1.1
+		date < 1986.5.1
+		has_government = authoritarianism
+		has_stability < 0.6
+	}
+	option = {
+		name = arg.40.a
+		remove_ideas = AquinoDead
+		news_event = { id = phi.25 }
+		create_country_leader = {
+			name = "Corazon Aquino"
+			picture = "gfx/leaders/PHI/Portrait_Philippines_Corazon_Aquino.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+		set_politics = { ruling_party = democratic }
+	}
+}
+#马科斯下台
+news_event = {
+	id = phi.25
+	title = phi.25.t
+	desc = phi.25.d
+	major = yes
+	picture = GFX_CorazonAquino
+	is_triggered_only = yes
+	immediate = {
+		play_song = PHI_1
+	}
+	option = {
+		name = arg.40.a
+	}
+}
+#共产内战
+news_event = {
+	id = phi.30
+	title = phi.30.t
+	desc = phi.30.d
+	picture = GFX_Rebells_small
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = PHI
+		communism > 0.4
+		has_stability < 0.3
+		NOT = { has_government = communism }
+		any_state = { resistance > 80 }
+	}
+	option = {
+		name = gen.7.a
+		add_stability = -0.25
+		start_civil_war = {
+			ideology = communism
+			size = 0.4
+		}
+	}
+
+}
+#马格塞塞当选
+news_event = {
+	id = phi.40
+	title = phi.40.t
+	desc = phi.40.d
+	major = yes
+	picture = GFX_RamonMagsaysay
+	is_triggered_only = yes
+	option = {
+		name = arg.40.a
+	}
+}
+#虎克军谈判失败
+news_event = {
+	id = phi.50
+	title = phi.50.t
+	desc = phi.50.d
+	picture = GFX_LuisTaruc
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = PHI
+		date < 1949.12.1
+		communism > 0.05
+		NOT = { has_government = communism }
+		OR = {
+			communism > 0.15
+			date > 1948.6.1
+		}
+	}
+	option = {
+		name = phi.1.a
+		if = {
+			limit = { tag = PHI }
+			624 = { add_resistance = 12 }
+			327 = { add_resistance = 12 }
+			598 = { add_resistance = 12 }
+			add_stability = -0.15
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+}
+#陶苏格暴动
+news_event = {
+	id = phi.51
+	title = phi.51.t
+	desc = phi.51.d
+	picture = GFX_SouthEasrCom
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = PHI
+		date > 1948.10.20
+		date < 1949.12.1
+		NOT = { has_global_flag = phi51 }
+	}
+	option = {
+		name = phi.1.a
+		set_global_flag = phi51
+		if = {
+			limit = { tag = PHI }
+			956 = { add_resistance = 40 }
+			add_stability = -0.05
+		}
+	}
+}
+#非共投降
+news_event = {
+	id = phi.53
+	title = phi.53.t
+	desc = phi.53.d
+	major = yes
+	picture = GFX_HuakpalahapSurrender
+	is_triggered_only = yes
+	option = {
+		name = arg.40.a
+		if = {
+			limit = { tag = PHI }
+			956 = { add_resistance = -40 }
+			add_political_power = 400
+			add_stability = 0.2
+			remove_ideas = southeast_revolution
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+		}
+	}
+}

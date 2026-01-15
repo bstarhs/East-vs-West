@@ -1,0 +1,1984 @@
+scripted_gui = {
+	mines_button = {
+		window_name = "mines_button_container"
+		
+		context_type = player_context
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			mines_button_tips_visible = {
+				NOT = { check_variable = { mines_button_tips > 0 } }
+			}
+			mines_button_tips_arrow_visible = {
+				NOT = { check_variable = { mines_button_tips > 0 } }
+			}
+			alert_low_powers_visible = {
+				any_owned_state = { check_variable = { state_power_production < state_power_need } }
+			}
+			alert_foods_lacking_visible = {
+				any_owned_state = { check_variable = { this.state_food_production < this.state_food_low_limit } }
+			}
+		}
+		effects = {		
+			mines_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_mines }
+                set_variable = { show_mines = show }
+                set_variable = { show_mines_list = 1 }
+                set_variable = { mines_button_tips = 1 }
+            }
+			alert_low_powers_click = {
+				random_owned_state = {
+					limit = { check_variable = { state_power_production < state_power_need } }
+					root = { goto_state = prev }
+				}
+            }
+			alert_foods_lacking_click = {
+				random_owned_state = {
+					limit = { check_variable = { this.state_food_production < this.state_food_low_limit } }
+					root = { goto_state = prev }
+				}
+            }
+        }
+	}
+}
+scripted_gui = {
+	mines_system = {
+		window_name = "mines_system_container"
+		context_type = player_context
+		visible = {
+			check_variable = { show_mines > 0.0 }
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			comecon_icon_visible = {
+				has_idea = comecon
+			}
+			europe_icon_visible = {
+				has_idea = ECSC
+			}
+		}
+		effects = {
+			mines_button_click = {
+                set_variable = { show_mines_list = 1 }
+			}
+			agriculture_button_click = {
+                set_variable = { show_mines_list = 2 }
+			}
+			petreum_button_click = {
+                set_variable = { show_mines_list = 3 }
+			}
+			consumer_button_click = {
+                set_variable = { show_mines_list = 4 }
+			}
+			close_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_mines }
+                set_variable = { show_mines = show }
+			}
+		}
+	}
+}
+scripted_gui = {
+	mines_list_container = {
+		window_name = "mines_list_container"
+		context_type = player_context
+		parent_window_name = "mines_system_container"
+		visible = {
+			check_variable = { show_mines_list = 1 }
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			coal_lack_visible = {
+				check_variable = { resource@coal < nation_coal_coast }
+			}
+			rubber_lack_visible = {
+				check_variable = { resource@rubber < nation_rubber_coast }
+			}
+			Aluminum_lack_visible = {
+				check_variable = { resource@aluminium < nation_aluminium_coast }
+			}
+			tungsten_lack_visible = {
+				check_variable = { resource@tungsten < nation_tungsten_coast }
+			}
+			sanctions_icon_visible = {
+				has_idea = sanctions
+			}
+			OPEC_icon_visible = {
+				has_idea = OPEC
+			}
+			low_influence_icon_visible = {
+				has_idea = low_diplomacy
+			}
+			iron_lack_visible = {
+				check_variable = { resource@iron < 1 }
+			}
+			oil_lack_visible = {
+				has_dynamic_modifier = { modifier = oil_crisis }
+			}
+			aluminium_lack_visible = {
+				check_variable = { resource@aluminium < 0 }
+			}
+			copper_lack_visible = {
+				check_variable = { resource@copper < 0 }
+			}
+			
+			coal_input_click_enabled = {
+				NOT = {
+					has_country_flag = coal_input_monthly
+				}
+				NOT = {
+						has_country_flag = coal_transport_setting
+				}
+				
+			}
+			chromium_output_click_enabled = {
+				tag = YAK
+				
+			}
+			coal_output_click_enabled = {
+				NOT = { has_country_flag = coal_input_monthly }
+				NOT = {
+						has_country_flag = coal_transport_setting
+				}
+				
+			}
+			oil_input_click_enabled = {
+				NOT = { has_country_flag = oil_input_monthly }
+				
+			}
+			oil_output_click_enabled = {
+				NOT = { has_country_flag = oil_input_monthly }
+				
+			}
+			iron_input_click_enabled = {
+				NOT = { has_country_flag = iron_input_monthly }
+				
+			}
+			iron_output_click_enabled = {
+				NOT = { has_country_flag = iron_input_monthly }
+				
+			}
+			fuel_input_click_enabled = {
+				NOT = { has_country_flag = fuel_transport_monthly }
+				
+			}
+			fuel_output_click_enabled = {
+				NOT = { has_country_flag = fuel_transport_monthly }
+				
+			}
+			rubber_input_click_enabled = {
+				NOT = { has_country_flag = rubber_input_monthly }
+				
+			}
+			rubber_output_click_enabled = {
+				NOT = { has_country_flag = rubber_input_monthly }
+				
+			}
+			steel_input_click_enabled = {
+				NOT = { has_country_flag = steel_input_monthly }
+				
+			}
+			steel_output_click_enabled = {
+				NOT = { has_country_flag = steel_input_monthly }
+				
+			}
+			aluminium_input_click_enabled = {
+				NOT = { has_country_flag = aluminium_input_monthly }
+				
+			}
+			aluminium_output_click_enabled = {
+				NOT = { has_country_flag = aluminium_input_monthly }
+				
+			}
+			copper_input_click_enabled = {
+				NOT = { has_country_flag = copper_input_monthly }
+				
+			}
+			copper_output_click_enabled = {
+				NOT = { has_country_flag = copper_input_monthly }
+				
+			}
+		}
+		effects = {
+			tungsten_input_click = {
+				set_country_flag = tungsten_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			tungsten_output_click = {
+				set_country_flag = tungsten_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			coal_input_click = {
+				set_country_flag = coal_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			coal_output_click = {
+				set_country_flag = coal_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			oil_input_click = {
+				set_country_flag = oil_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			oil_output_click = {
+				set_country_flag = oil_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			iron_input_click = {
+				set_country_flag = iron_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			iron_output_click = {
+				set_country_flag = iron_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			coal_input_click = {
+				set_country_flag = coal_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			rubber_input_click = {
+				set_country_flag = rubber_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			rubber_output_click = {
+				set_country_flag = rubber_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			tungsten_input_click = {
+				set_country_flag = tungsten_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			aluminium_input_click = {
+				set_country_flag = aluminium_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			steel_input_click = {
+				set_country_flag = steel_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			copper_input_click = {
+				set_country_flag = copper_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+		}
+	}
+}
+scripted_gui = {
+	agriculture_list_container = {
+		window_name = "agriculture_list_container"
+		context_type = player_context
+		parent_window_name = "mines_system_container"
+		visible = {
+			check_variable = { show_mines_list = 2 }
+		}
+		triggers = {
+			food_input_click_enabled = {
+				NOT = { has_country_flag = food_input_monthly }
+			}
+			add_food_all_state_click_enabled = {
+				check_variable = { food_num > nation_food_cost }
+			}
+			sugar_input_click_enabled = {
+				NOT = { has_country_flag = sugar_input_monthly }
+				
+			}
+			banana_input_click_enabled = {
+				NOT = { has_country_flag = banana_input_monthly }
+				
+			}
+			cutton_input_click_enabled = {
+				NOT = { has_country_flag = cutton_input_monthly }
+				
+			}
+			salt_input_click_enabled = {
+				NOT = { has_country_flag = salt_input_monthly }
+			}
+			tobacco_input_click_enabled = {
+				NOT = { has_country_flag = tobacco_input_monthly }
+				
+			}
+			wood_input_click_enabled = {
+				NOT = { has_country_flag = wood_input_monthly }
+				
+			}
+		}
+		effects = {
+			add_food_all_state_click = {
+				news_event =  count.8
+				if = {
+					limit = { check_variable = { nation_food_free > 10 } }
+					news_event =  count.9
+				}
+            }
+			food_input_click = {
+				set_country_flag = food_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			coffee_input_click = {
+				set_country_flag = coffee_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			sugar_input_click = {
+				set_country_flag = sugar_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			tobacco_input_click = {
+				set_country_flag = tobacco_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			salt_input_click = {
+				set_country_flag = salt_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			wood_input_click = {
+				set_country_flag = wood_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			cutton_input_click = {
+				set_country_flag = cutton_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			wine_input_click = {
+				set_country_flag = wine_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			iron_input_click = {
+				set_country_flag = iron_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			agriculture_food_click = {
+				random_owned_state = {
+					limit = { check_variable = { this.state_food_production < this.state_food_low_limit } }
+					root = { goto_state = prev }
+				}
+			}
+		}
+	}
+	
+}
+scripted_gui = {
+	consumer_list_container = {
+		window_name = "consumer_list_container"
+		context_type = player_context
+		parent_window_name = "mines_system_container"
+		visible = {
+			check_variable = { show_mines_list = 4 }
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			comnet_add_click_enabled = {
+				check_variable = { civil_factory_use < num_of_civilian_factories }
+				check_variable = { cement_factory_modifier < 0.8 }
+				check_variable = { resource@steel > nation_steel_coast }
+				check_variable = { resource@rubber > 1 }
+				check_variable = { resource@aluminium > 1 }
+				check_variable = { wood_num > nation_wood_cost }
+			}
+			comnet_reduce_click_enabled = {
+				check_variable = { cement_factory > 0 }
+				check_variable = { civil_factory_use > 0 }
+			}
+			consumer_foods_add_click_enabled = {
+				check_variable = { civil_factory_use < num_of_civilian_factories }
+			}
+			consumer_foods_reduce_click_enabled = {
+				check_variable = { foods_factory > 0 }
+			}
+			auto_add_click_enabled = {
+				has_tech = auto_industry
+				check_variable = { civil_factory_use < num_of_civilian_factories }
+				NOT = { check_variable = { resource@steel < custom_steel_request } }
+				check_variable = { resource@rubber > 1 }
+				check_variable = { resource@steel > 1 }
+			}
+			computer_add_click_enabled = {
+				has_tech = auto_industry
+				check_variable = { civil_factory_use < num_of_civilian_factories }
+				check_variable = { resource@steel > nation_steel_coast }
+				check_variable = { resource@rubber > 1 }
+				check_variable = { resource@aluminium > 1 }
+			}
+			computer_reduce_click_enabled = {
+				check_variable = { civil_factory_use > 0 }
+				check_variable = { computer_factory > 0 }
+			}
+			auto_reduce_click_enabled = {
+				check_variable = { civil_factory_use > 0 }
+				check_variable = { auto_factory > 0 }
+			}
+			auto_add_visible = {
+				has_tech = auto_industry
+			}
+			auto_reduce_visible = {
+				has_tech = auto_industry
+			}
+			electronic_add_click_enabled = {
+				has_tech = laundry
+				check_variable = { civil_factory_use < num_of_civilian_factories }
+				check_variable = { resource@rubber > 1 }
+				check_variable = { resource@steel > custom_steel_request }
+				check_variable = { resource@copper > 1 }
+			}
+			electronic_reduce_click_enabled = {
+				check_variable = { civil_factory_use > 0 }
+				check_variable = { electronic_factory > 0 }
+			}
+			electronic_add_visible = {
+				has_tech = laundry
+			}
+			electronic_reduce_visible = {
+				has_tech = laundry
+			}
+			auto_lack_visible = {
+				check_variable = { consumer_auto < auto_request_60 }
+			}
+			computer_lack_visible = {
+				check_variable = { consumer_computer < computer_request }
+			}
+			electronic_lack_visible = {
+				check_variable = { electronic_free < 0 }
+			}
+			auto_input_click_enabled = {
+				NOT = { has_country_flag = auto_input_monthly }
+            }
+			textile_add_click_enabled = {
+				check_variable = { civil_factory_use < num_of_civilian_factories }
+				check_variable = { cutton_factory_cost < nation_cutton_wool }
+			}
+			textile_reduce_click_enabled = {
+				check_variable = { textile_factory > 0 }
+			}
+		}
+		effects = {
+			auto_input_click = {
+				set_country_flag = auto_transport_setting
+				set_country_flag = mines_transport_setting
+            }
+			electronic_input_click = {
+				set_country_flag = electronic_transport_setting
+				set_country_flag = mines_transport_setting
+            }
+			textile_input_click = {
+				set_country_flag = textile_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+			comnet_reduce_click = {
+				add_to_variable = { cement_factory_modifier = -0.02 }
+				add_to_variable = { civil_factory_use = -1 }
+				add_to_variable = { cement_factory = -1 }
+				add_to_variable = { custom_steel_request = -0.4 }
+				add_to_variable = { custom_aluminium_request = -0.2 }
+				add_to_variable = { custom_rubber_request = -0.2 }
+				add_to_variable = { nation_wood_cost = -1.5 }
+				add_to_variable = { custom_copper_request = -1 }
+            }
+			comnet_add_click = {
+				add_to_variable = { cement_factory_modifier = 0.02 }
+				add_to_variable = { civil_factory_use = 1 }
+				add_to_variable = { cement_factory = 1 }
+				add_to_variable = { custom_steel_request = 0.4 }
+				add_to_variable = { custom_aluminium_request = 0.2 }
+				add_to_variable = { nation_wood_cost = 1.5 }
+				add_to_variable = { custom_copper_request = 1 }
+				add_to_variable = { custom_rubber_request = 0.2 }
+				add_dynamic_modifier = { modifier = cement_modifier }
+            }
+			
+			consumer_foods_add_click = {
+				add_to_variable = { foods_factory_modifier = 3 }
+				add_to_variable = { civil_factory_use = 1 }
+				add_to_variable = { food_factory_coast = 2 }
+				add_to_variable = { foods_factory = 1 }
+				add_to_variable = { factory_sugar_cost = 0.5 }
+				
+				if = {
+					limit = { has_idea = partial_economic_mobilisation }
+					add_to_variable = { foods_factory_modifier = 2 }
+				}
+            }
+			consumer_foods_reduce_click = {
+				add_to_variable = { foods_factory_modifier = -3 }
+				add_to_variable = { civil_factory_use = -1 }
+				add_to_variable = { food_factory_coast = -2 }
+				add_to_variable = { foods_factory = -1 }
+				add_to_variable = { factory_sugar_cost = -0.5 }
+				if = {
+					limit = { has_idea = partial_economic_mobilisation }
+					add_to_variable = { foods_factory_modifier = -2 }
+				}
+            }
+			auto_tips_click = {
+				country_event = { id = eco.7 }
+            }
+			computer_add_click = {
+				add_to_variable = { civil_factory_use = 1 }
+				add_to_variable = { computer_factory = 1 }
+				add_to_variable = { custom_steel_request = 3 }
+				add_to_variable = { custom_aluminium_request = 1 }
+				add_to_variable = { custom_rubber_request = 1 }
+				add_to_variable = { custom_copper_request = 2 }
+            }
+			computer_reduce_click = {
+				add_to_variable = { civil_factory_use = -1 }
+				add_to_variable = { computer_factory = -1 }
+				add_to_variable = { custom_steel_request = -3 }
+				add_to_variable = { custom_aluminium_request = -1 }
+				add_to_variable = { custom_rubber_request = -1 }
+				add_to_variable = { custom_copper_request = -2 }
+            }
+			
+			auto_add_click = {
+				add_to_variable = { civil_factory_use = 1 }
+				add_to_variable = { auto_factory = 1 }
+				add_to_variable = { custom_steel_request = 4 }
+				add_to_variable = { custom_aluminium_request = 3 }
+				add_to_variable = { custom_rubber_request = 2 }
+				add_to_variable = { custom_copper_request = 2 }
+            }
+			auto_reduce_click = {
+				add_to_variable = { civil_factory_use = -1 }
+				add_to_variable = { auto_factory = -1 }
+				add_to_variable = { custom_steel_request = -4 }
+				add_to_variable = { custom_aluminium_request = -3 }
+				add_to_variable = { custom_rubber_request = -2 }
+				add_to_variable = { custom_copper_request = -2 }
+            }
+			electronic_add_click = {
+				add_to_variable = { civil_factory_use = 1 }
+				add_to_variable = { electronic_factory = 1 }
+				add_to_variable = { custom_steel_request = 2 }
+				add_to_variable = { custom_copper_request = 3 }
+				add_to_variable = { custom_aluminium_request = 2 }
+				add_to_variable = { custom_rubber_request = 1 }
+            }
+			electronic_reduce_click = {
+				add_to_variable = { civil_factory_use = -1 }
+				add_to_variable = { electronic_factory = -1 }
+				add_to_variable = { custom_steel_request = -2 }
+				add_to_variable = { custom_copper_request = -3 }
+				add_to_variable = { custom_aluminium_request = -2 }
+				add_to_variable = { custom_rubber_request = -1 }
+            }
+			textile_add_click = {
+				add_to_variable = { civil_factory_use = 1 }
+				add_to_variable = { textile_factory = 1 }
+				add_to_variable = { cutton_factory_cost = 2 }
+            }
+			textile_reduce_click = {
+				add_to_variable = { civil_factory_use = -1 }
+				add_to_variable = { textile_factory = -1 }
+				add_to_variable = { cutton_factory_cost = -2 }
+            }
+		}
+	}
+}
+scripted_gui = {
+	oil_list_container = {
+		window_name = "oil_list_container"
+		context_type = player_context
+		parent_window_name = "mines_system_container"
+		visible = {
+			check_variable = { show_mines_list = 3 }
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			fuel_input_click_enabled = {
+				NOT = { has_country_flag = fuel_transport_monthly }
+			}
+			oil_lack_visible = {
+				has_dynamic_modifier = { modifier = oil_crisis }
+			}
+		}
+		effects = {
+			fuel_input_click = {
+				set_country_flag = fuel_transport_setting
+				set_country_flag = mines_transport_setting
+			}
+		}
+	}
+	
+}
+scripted_gui = {
+	mines_transport_container = {
+		window_name = "mines_transport_container"
+		context_type = player_context
+		parent_window_name = "mines_list_container"
+		visible = {
+			has_country_flag = mines_transport_setting
+		}
+		triggers = {
+			ComeconTips_visible = {
+				has_idea = comecon
+			}
+			EUROTips_visible = {
+				has_idea = ECSC
+			}
+			transport_economic_SUR_visible = {
+				has_government = communism
+			}
+			transport_economic_USD_visible = {
+				NOT = { has_government = communism }
+			}
+			sanctionTips_visible = {
+				has_idea = sanctions
+			}
+		}
+		ai_enabled = { always = no }
+		effects = {
+			mine_transport_close_click = {
+				clr_country_flag = coal_transport_setting
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = oil_transport_setting
+				clr_country_flag = steel_transport_setting
+				clr_country_flag = rubber_transport_setting
+				clr_country_flag = iron_transport_setting
+				clr_country_flag = aluminium_transport_setting
+				clr_country_flag = copper_transport_setting
+				clr_country_flag = tungsten_transport_setting
+				clr_country_flag = auto_transport_setting
+				clr_country_flag = electronic_transport_setting
+				clr_country_flag = fuel_transport_setting
+				clr_country_flag = food_transport_setting
+				clr_country_flag = textile_transport_setting
+				clr_country_flag = coffee_transport_setting
+				clr_country_flag = wine_transport_setting
+				clr_country_flag = cutton_transport_setting
+				clr_country_flag = salt_transport_setting
+				clr_country_flag = wood_transport_setting
+				clr_country_flag = sugar_transport_setting
+				clr_country_flag = tobacco_transport_setting
+			}
+		}
+	}
+}
+scripted_gui = {
+	coal_input_container = {
+		window_name = "coal_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = coal_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			coal_input_reduce_click_enabled = {
+				check_variable = { coal_input_setting > 0 }
+			}
+			coal_output_reduce_click_enabled = {
+				check_variable = { coal_output_setting > 0 }
+			}
+		}
+		effects = {
+			coal_input_add_click = {
+				add_to_variable = { coal_input_setting = 5 }
+			}
+			coal_input_reduce_click = {
+				add_to_variable = { coal_input_setting = -5 }
+			}
+			coal_output_add_click = {
+				add_to_variable = { coal_output_setting = 5 }
+			}
+			coal_output_reduce_click = {
+				add_to_variable = { coal_output_setting = -5 }
+			}
+			coal_import_confirm_click = {
+					set_variable = { coal_input = 0 }
+					set_variable = { coal_output = 0 }
+				add_to_variable = { coal_input = coal_input_setting }
+				add_to_variable = { coal_output = coal_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = coal_transport_setting
+				add_dynamic_modifier = { modifier = coal_input_modifiers }
+				add_to_variable = { nation_coal_coast = coal_output }
+				if = {
+					limit = { check_variable = { coal_input_setting > 0 } }
+					set_country_flag = coal_input_monthly
+				}
+				if = {
+					limit = { check_variable = { coal_output_setting > 0 } }
+					set_country_flag = coal_input_monthly
+				}
+				news_event = { id = count.90 }
+			}
+		}
+	}
+}
+scripted_gui = {
+	iron_input_container = {
+		window_name = "iron_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = iron_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			iron_input_reduce_click_enabled = {
+				check_variable = { iron_input_setting > 0 }
+			}
+			iron_output_reduce_click_enabled = {
+				check_variable = { iron_output_setting > 0 }
+			}
+		}
+		effects = {
+			iron_input_add_click = {
+				add_to_variable = { iron_input_setting = 5 }
+			}
+			iron_input_reduce_click = {
+				add_to_variable = { iron_input_setting = -5 }
+			}
+			iron_output_add_click = {
+				add_to_variable = { iron_output_setting = 5 }
+			}
+			iron_output_reduce_click = {
+				add_to_variable = { iron_output_setting = -5 }
+			}
+			iron_import_confirm_click = {
+					set_variable = { iron_input = 0 }
+					set_variable = { iron_output = 0 }
+				add_to_variable = { iron_input = iron_input_setting }
+				add_to_variable = { iron_output = iron_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = iron_transport_setting
+				add_dynamic_modifier = { modifier = iron_input_modifiers }
+				add_to_variable = { nation_iron_coast = iron_output }
+				if = {
+					limit = { check_variable = { iron_input_setting > 0 } }
+					set_country_flag = iron_input_monthly
+				}
+				if = {
+					limit = { check_variable = { iron_output_setting > 0 } }
+					set_country_flag = iron_input_monthly
+				}
+				news_event = { id = count.91 }
+			}
+		}
+	}
+}
+scripted_gui = {
+	oil_input_container = {
+		window_name = "oil_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		visible = {
+			has_country_flag = oil_transport_setting
+		}
+		triggers = {
+			oil_input_reduce_click_enabled = {
+				check_variable = { oil_input_setting > 0 }
+			}
+			oil_output_reduce_click_enabled = {
+				check_variable = { oil_output_setting > 0 }
+			}
+		}
+		effects = {
+			oil_input_add_click = {
+				add_to_variable = { oil_input_setting = 5 }
+			}
+			oil_input_reduce_click = {
+				add_to_variable = { oil_input_setting = -5 }
+			}
+			oil_output_add_click = {
+				add_to_variable = { oil_output_setting = 5 }
+			}
+			oil_output_reduce_click = {
+				add_to_variable = { oil_output_setting = -5 }
+			}
+			oil_import_confirm_click = {
+					set_variable = { oil_input = 0 }
+					set_variable = { oil_output = 0 }
+				add_to_variable = { oil_input = oil_input_setting }
+				add_to_variable = { oil_output = oil_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = oil_transport_setting
+				add_dynamic_modifier = { modifier = oil_input_modifiers }
+				add_to_variable = { nation_oil_coast = oil_output }
+				if = {
+					limit = { check_variable = { oil_input_setting > 0 } }
+					set_country_flag = oil_input_monthly
+				}
+				if = {
+					limit = { check_variable = { oil_output_setting > 0 } }
+					set_country_flag = oil_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	rubber_input_container = {
+		window_name = "rubber_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = rubber_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		ai_weights = {
+			rubber_input_add_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						add = 50
+						check_variable = { resource@rubber < 1 }
+					}
+				}
+			}
+			rubber_output_add_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						add = 60
+						check_variable = { resource@rubber > 80 }
+						check_variable = { rubber_output_setting < resource@rubber }
+					}
+					modifier = {
+						add = 60
+						check_variable = { resource@rubber > 200 }
+						check_variable = { resource@rubber < 300 }
+						check_variable = { rubber_output_setting < resource@rubber }
+					}
+					modifier = {
+						add = -200
+						check_variable = { rubber_output_setting > resource@rubber }
+					}
+				}
+			}
+			rubber_import_confirm_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber < 0 }
+						check_variable = { resource@rubber > -20 }
+						check_variable = { rubber_input_setting > 15 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber > -25 }
+						check_variable = { resource@rubber < 1 }
+						check_variable = { rubber_input_setting > 20 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber > -50 }
+						check_variable = { resource@rubber < -25 }
+						check_variable = { rubber_input_setting > 50 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber < -50 }
+						check_variable = { rubber_input_setting > 60 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber < -100 }
+						check_variable = { resource@rubber > -150 }
+						check_variable = { rubber_input_setting > 120 }
+					}
+					modifier = {
+						add = -500
+						check_variable = { resource@rubber < 0 }
+						check_variable = { rubber_input_setting < 20 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber < 150 }
+						check_variable = { resource@rubber > 80 }
+						check_variable = { rubber_output_setting > 60 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber < 200 }
+						check_variable = { resource@rubber > 150 }
+						check_variable = { rubber_output_setting > 150 }
+					}
+					modifier = {
+						add = 100
+						check_variable = { resource@rubber < 300 }
+						check_variable = { resource@rubber > 200 }
+						check_variable = { rubber_output_setting > 200 }
+					}
+				}
+			}
+		}
+		triggers = {
+			rubber_input_reduce_click_enabled = {
+				check_variable = { rubber_input_setting > 0 }
+			}
+			rubber_output_reduce_click_enabled = {
+				check_variable = { rubber_output_setting > 0 }
+			}
+		}
+		effects = {
+			rubber_input_add_click = {
+				add_to_variable = { rubber_input_setting = 5 }
+			}
+			rubber_input_reduce_click = {
+				add_to_variable = { rubber_input_setting = -5 }
+			}
+			rubber_output_add_click = {
+				add_to_variable = { rubber_output_setting = 5 }
+			}
+			rubber_output_reduce_click = {
+				add_to_variable = { rubber_output_setting = -5 }
+			}
+			rubber_import_confirm_click = {
+					set_variable = { rubber_input = 0 }
+					set_variable = { rubber_output = 0 }
+				add_to_variable = { rubber_input = rubber_input_setting }
+				add_to_variable = { rubber_output = rubber_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = rubber_transport_setting
+				add_dynamic_modifier = { modifier = rubber_input_modifiers }
+				add_to_variable = { nation_rubber_coast = rubber_output }
+				if = {
+					limit = { check_variable = { rubber_input_setting > 0 } }
+					set_country_flag = rubber_input_monthly
+				}
+				if = {
+					limit = { check_variable = { rubber_output_setting > 0 } }
+					set_country_flag = rubber_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	steel_input_container = {
+		window_name = "steel_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = steel_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			steel_input_reduce_click_enabled = {
+				check_variable = { steel_input_setting > 0 }
+			}
+			steel_output_reduce_click_enabled = {
+				check_variable = { steel_output_setting > 0 }
+			}
+			steel_output_add_click_enabled = {
+				check_variable = { resource@steel > 0 }
+			}
+		}
+		effects = {
+			steel_input_add_click = {
+				add_to_variable = { steel_input_setting = 5 }
+			}
+			steel_input_reduce_click = {
+				add_to_variable = { steel_input_setting = -5 }
+			}
+			steel_output_add_click = {
+				add_to_variable = { steel_output_setting = 5 }
+			}
+			steel_output_reduce_click = {
+				add_to_variable = { steel_output_setting = -5 }
+			}
+			steel_import_confirm_click = {
+					set_variable = { steel_input = 0 }
+					set_variable = { steel_output = 0 }
+				add_to_variable = { steel_input = steel_input_setting }
+				add_to_variable = { steel_output = steel_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = steel_transport_setting
+				add_dynamic_modifier = { modifier = steel_input_modifiers }
+				add_to_variable = { nation_steel_coast = steel_output }
+				if = {
+					limit = { check_variable = { steel_input_setting > 0 } }
+					set_country_flag = steel_input_monthly
+				}
+				if = {
+					limit = { check_variable = { steel_output_setting > 0 } }
+					set_country_flag = steel_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	aluminium_input_container = {
+		window_name = "aluminium_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = aluminium_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			aluminium_input_reduce_click_enabled = {
+				check_variable = { aluminium_input_setting > 0 }
+			}
+			aluminium_output_reduce_click_enabled = {
+				check_variable = { aluminium_output_setting > 0 }
+			}
+			aluminium_output_add_click_enabled = {
+				check_variable = { resource@aluminium > 0 }
+			}
+		}
+		effects = {
+			aluminium_input_add_click = {
+				add_to_variable = { aluminium_input_setting = 5 }
+			}
+			aluminium_input_reduce_click = {
+				add_to_variable = { aluminium_input_setting = -5 }
+			}
+			aluminium_output_add_click = {
+				add_to_variable = { aluminium_output_setting = 5 }
+			}
+			aluminium_output_reduce_click = {
+				add_to_variable = { aluminium_output_setting = -5 }
+			}
+			aluminium_import_confirm_click = {
+					set_variable = { aluminium_input = 0 }
+					set_variable = { aluminium_output = 0 }
+				add_to_variable = { aluminium_input = aluminium_input_setting }
+				add_to_variable = { aluminium_output = aluminium_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = aluminium_transport_setting
+				add_dynamic_modifier = { modifier = aluminium_input_modifiers }
+				add_to_variable = { nation_aluminium_coast = aluminium_output }
+				if = {
+					limit = { check_variable = { aluminium_input_setting > 0 } }
+					set_country_flag = aluminium_input_monthly
+				}
+				if = {
+					limit = { check_variable = { aluminium_output_setting > 0 } }
+					set_country_flag = aluminium_input_monthly
+				}
+				news_event = { id = count.93 }
+			}
+		}
+	}
+}
+scripted_gui = {
+	textile_input_container = {
+		window_name = "textile_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = textile_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			textile_input_reduce_click_enabled = {
+				check_variable = { textile_input_setting > 0 }
+			}
+			textile_output_reduce_click_enabled = {
+				check_variable = { textile_output_setting > 0 }
+			}
+			textile_output_add_click_enabled = {
+				check_variable = { textile_free > 0 }
+			}
+		}
+		effects = {
+			textile_input_add_click = {
+				add_to_variable = { textile_input_setting = 5 }
+			}
+			textile_input_reduce_click = {
+				add_to_variable = { textile_input_setting = -5 }
+			}
+			textile_output_add_click = {
+				add_to_variable = { textile_output_setting = 5 }
+			}
+			textile_output_reduce_click = {
+				add_to_variable = { textile_output_setting = -5 }
+			}
+			textile_import_confirm_click = {
+					set_variable = { textile_input = 0 }
+					set_variable = { textile_output = 0 }
+				add_to_variable = { textile_input = textile_input_setting }
+				add_to_variable = { textile_output = textile_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = textile_transport_setting
+				add_to_variable = { nation_textile_coast = textile_output }
+				if = {
+					limit = { check_variable = { textile_input_setting > 0 } }
+					set_country_flag = textile_input_monthly
+				}
+				if = {
+					limit = { check_variable = { textile_output_setting > 0 } }
+					set_country_flag = textile_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	coffee_input_container = {
+		window_name = "coffee_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = coffee_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			coffee_input_reduce_click_enabled = {
+				check_variable = { coffee_input_setting > 0 }
+			}
+			coffee_output_reduce_click_enabled = {
+				check_variable = { coffee_output_setting > 0 }
+			}
+			coffee_output_add_click_enabled = {
+				check_variable = { nation_coffee_free > 0 }
+			}
+		}
+		effects = {
+			coffee_input_add_click = {
+				add_to_variable = { coffee_input_setting = 5 }
+			}
+			coffee_input_reduce_click = {
+				add_to_variable = { coffee_input_setting = -5 }
+			}
+			coffee_output_add_click = {
+				add_to_variable = { coffee_output_setting = 5 }
+			}
+			coffee_output_reduce_click = {
+				add_to_variable = { coffee_output_setting = -5 }
+			}
+			coffee_import_confirm_click = {
+					set_variable = { coffee_input = 0 }
+					set_variable = { coffee_output = 0 }
+				add_to_variable = { coffee_input = coffee_input_setting }
+				add_to_variable = { coffee_output = coffee_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = coffee_transport_setting
+				add_to_variable = { nation_coffee_cost = coffee_output }
+				news_event = { id = count.12 }
+				if = {
+					limit = { check_variable = { coffee_input_setting > 0 } }
+					set_country_flag = coffee_input_monthly
+				}
+				if = {
+					limit = { check_variable = { coffee_output_setting > 0 } }
+					set_country_flag = coffee_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	sugar_input_container = {
+		window_name = "sugar_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = sugar_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			sugar_input_reduce_click_enabled = {
+				check_variable = { sugar_input_setting > 0 }
+			}
+			sugar_output_reduce_click_enabled = {
+				check_variable = { sugar_output_setting > 0 }
+			}
+			sugar_output_add_click_enabled = {
+				check_variable = { nation_sugar_free > 0 }
+			}
+		}
+		effects = {
+			sugar_input_add_click = {
+				add_to_variable = { sugar_input_setting = 5 }
+			}
+			sugar_input_reduce_click = {
+				add_to_variable = { sugar_input_setting = -5 }
+			}
+			sugar_output_add_click = {
+				add_to_variable = { sugar_output_setting = 5 }
+			}
+			sugar_output_reduce_click = {
+				add_to_variable = { sugar_output_setting = -5 }
+			}
+			sugar_import_confirm_click = {
+					set_variable = { sugar_input = 0 }
+					set_variable = { sugar_output = 0 }
+				add_to_variable = { sugar_input = sugar_input_setting }
+				add_to_variable = { sugar_output = sugar_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = sugar_transport_setting
+				add_to_variable = { nation_sugar_cost = sugar_output }
+				news_event = { id = count.12 }
+				if = {
+					limit = { check_variable = { sugar_input_setting > 0 } }
+					set_country_flag = sugar_input_monthly
+				}
+				if = {
+					limit = { check_variable = { sugar_output_setting > 0 } }
+					set_country_flag = sugar_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	tobacco_input_container = {
+		window_name = "tobacco_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = tobacco_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			tobacco_input_reduce_click_enabled = {
+				check_variable = { tobacco_input_setting > 0 }
+			}
+			tobacco_output_reduce_click_enabled = {
+				check_variable = { tobacco_output_setting > 0 }
+			}
+			tobacco_output_add_click_enabled = {
+				check_variable = { nation_tobacco_free > 0 }
+			}
+		}
+		effects = {
+			tobacco_input_add_click = {
+				add_to_variable = { tobacco_input_setting = 5 }
+			}
+			tobacco_input_reduce_click = {
+				add_to_variable = { tobacco_input_setting = -5 }
+			}
+			tobacco_output_add_click = {
+				add_to_variable = { tobacco_output_setting = 5 }
+			}
+			tobacco_output_reduce_click = {
+				add_to_variable = { tobacco_output_setting = -5 }
+			}
+			tobacco_import_confirm_click = {
+					set_variable = { tobacco_input = 0 }
+					set_variable = { tobacco_output = 0 }
+				add_to_variable = { tobacco_input = tobacco_input_setting }
+				add_to_variable = { tobacco_output = tobacco_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = tobacco_transport_setting
+				add_to_variable = { nation_tobacco_cost = tobacco_output }
+				news_event = { id = count.41 }
+				if = {
+					limit = { check_variable = { tobacco_input_setting > 0 } }
+					set_country_flag = tobacco_input_monthly
+				}
+				if = {
+					limit = { check_variable = { tobacco_output_setting > 0 } }
+					set_country_flag = tobacco_input_monthly
+				}
+			}
+		}
+	}
+}
+
+
+scripted_gui = {
+	cutton_input_container = {
+		window_name = "cutton_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = cutton_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			cutton_input_reduce_click_enabled = {
+				check_variable = { cutton_input_setting > 0 }
+			}
+			cutton_output_reduce_click_enabled = {
+				check_variable = { cutton_output_setting > 0 }
+			}
+			cutton_output_add_click_enabled = {
+				check_variable = { nation_cutton_free > 0 }
+			}
+		}
+		effects = {
+			cutton_input_add_click = {
+				add_to_variable = { cutton_input_setting = 5 }
+			}
+			cutton_input_reduce_click = {
+				add_to_variable = { cutton_input_setting = -5 }
+			}
+			cutton_output_add_click = {
+				add_to_variable = { cutton_output_setting = 5 }
+			}
+			cutton_output_reduce_click = {
+				add_to_variable = { cutton_output_setting = -5 }
+			}
+			cutton_import_confirm_click = {
+					set_variable = { cutton_input = 0 }
+					set_variable = { cutton_output = 0 }
+				add_to_variable = { cutton_input = cutton_input_setting }
+				add_to_variable = { cutton_output = cutton_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = cutton_transport_setting
+				add_to_variable = { nation_cutton_cost = cutton_output }
+				if = {
+					limit = { check_variable = { cutton_input_setting > 0 } }
+					set_country_flag = cutton_input_monthly
+				}
+				if = {
+					limit = { check_variable = { cutton_output_setting > 0 } }
+					set_country_flag = cutton_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	salt_input_container = {
+		window_name = "salt_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = salt_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			salt_input_reduce_click_enabled = {
+				check_variable = { salt_input_setting > 0 }
+			}
+			salt_output_reduce_click_enabled = {
+				check_variable = { salt_output_setting > 0 }
+			}
+			salt_output_add_click_enabled = {
+				check_variable = { resource@salt > 0 }
+			}
+		}
+		effects = {
+			salt_input_add_click = {
+				add_to_variable = { salt_input_setting = 5 }
+			}
+			salt_input_reduce_click = {
+				add_to_variable = { salt_input_setting = -5 }
+			}
+			salt_output_add_click = {
+				add_to_variable = { salt_output_setting = 5 }
+			}
+			salt_output_reduce_click = {
+				add_to_variable = { salt_output_setting = -5 }
+			}
+			salt_import_confirm_click = {
+					set_variable = { salt_input = 0 }
+					set_variable = { salt_output = 0 }
+				add_to_variable = { salt_input = salt_input_setting }
+				add_to_variable = { salt_output = salt_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = salt_transport_setting
+				news_event = { id = count.78 }
+				if = {
+					limit = { check_variable = { salt_input_setting > 0 } }
+					set_country_flag = salt_input_monthly
+				}
+				if = {
+					limit = { check_variable = { salt_output_setting > 0 } }
+					set_country_flag = salt_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	wood_input_container = {
+		window_name = "wood_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = wood_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			wood_input_reduce_click_enabled = {
+				check_variable = { wood_input_setting > 0 }
+			}
+			wood_output_reduce_click_enabled = {
+				check_variable = { wood_output_setting > 0 }
+			}
+			wood_output_add_click_enabled = {
+				check_variable = { resource@wood > 0 }
+			}
+		}
+		effects = {
+			wood_input_add_click = {
+				add_to_variable = { wood_input_setting = 5 }
+			}
+			wood_input_reduce_click = {
+				add_to_variable = { wood_input_setting = -5 }
+			}
+			wood_output_add_click = {
+				add_to_variable = { wood_output_setting = 5 }
+			}
+			wood_output_reduce_click = {
+				add_to_variable = { wood_output_setting = -5 }
+			}
+			wood_import_confirm_click = {
+					set_variable = { wood_input = 0 }
+					set_variable = { wood_output = 0 }
+				add_to_variable = { wood_input = wood_input_setting }
+				add_to_variable = { wood_output = wood_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = wood_transport_setting
+				add_to_variable = { nation_wood_cost = wood_output }
+				if = {
+					limit = { check_variable = { wood_input_setting > 0 } }
+					set_country_flag = wood_input_monthly
+				}
+				if = {
+					limit = { check_variable = { wood_output_setting > 0 } }
+					set_country_flag = wood_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	wine_input_container = {
+		window_name = "wine_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = wine_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			wine_input_reduce_click_enabled = {
+				check_variable = { wine_input_setting > 0 }
+			}
+			wine_output_reduce_click_enabled = {
+				check_variable = { wine_output_setting > 0 }
+			}
+			wine_output_add_click_enabled = {
+				check_variable = { nation_wine_free > 0 }
+			}
+		}
+		effects = {
+			wine_input_add_click = {
+				add_to_variable = { wine_input_setting = 5 }
+			}
+			wine_input_reduce_click = {
+				add_to_variable = { wine_input_setting = -5 }
+			}
+			wine_output_add_click = {
+				add_to_variable = { wine_output_setting = 5 }
+			}
+			wine_output_reduce_click = {
+				add_to_variable = { wine_output_setting = -5 }
+			}
+			wine_import_confirm_click = {
+					set_variable = { wine_input = 0 }
+					set_variable = { wine_output = 0 }
+				add_to_variable = { wine_input = wine_input_setting }
+				add_to_variable = { wine_output = wine_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = wine_transport_setting
+				add_to_variable = { nation_wine_cost = wine_output }
+				if = {
+					limit = { check_variable = { wine_input_setting > 0 } }
+					set_country_flag = wine_input_monthly
+				}
+				if = {
+					limit = { check_variable = { wine_output_setting > 0 } }
+					set_country_flag = wine_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	food_input_container = {
+		window_name = "food_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = food_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			food_input_reduce_click_enabled = {
+				check_variable = { food_input_setting > 0 }
+			}
+			food_output_reduce_click_enabled = {
+				check_variable = { food_output_setting > 0 }
+			}
+			food_output_add_click_enabled = {
+				check_variable = { nation_food_free > 0 }
+			}
+		}
+		effects = {
+			food_input_add_click = {
+				add_to_variable = { food_input_setting = 5 }
+			}
+			food_input_reduce_click = {
+				add_to_variable = { food_input_setting = -5 }
+			}
+			food_output_add_click = {
+				add_to_variable = { food_output_setting = 5 }
+			}
+			food_output_reduce_click = {
+				add_to_variable = { food_output_setting = -5 }
+			}
+			food_import_confirm_click = {
+					set_variable = { food_input = 0 }
+					set_variable = { food_output = 0 }
+				add_to_variable = { food_input = food_input_setting }
+				add_to_variable = { food_output = food_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = food_transport_setting
+				add_dynamic_modifier = { modifier = food_input_modifiers }
+				add_to_variable = { nation_food_cost = food_output }
+				if = {
+					limit = { check_variable = { food_input_setting > 0 } }
+					set_country_flag = food_input_monthly
+				}
+				if = {
+					limit = { check_variable = { food_output_setting > 0 } }
+					set_country_flag = food_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	copper_input_container = {
+		window_name = "copper_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = copper_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			copper_input_reduce_click_enabled = {
+				check_variable = { copper_input_setting > 0 }
+			}
+			copper_output_reduce_click_enabled = {
+				check_variable = { copper_output_setting > 0 }
+			}
+		}
+		effects = {
+			copper_input_add_click = {
+				add_to_variable = { copper_input_setting = 5 }
+			}
+			copper_input_reduce_click = {
+				add_to_variable = { copper_input_setting = -5 }
+			}
+			copper_output_add_click = {
+				add_to_variable = { copper_output_setting = 5 }
+			}
+			copper_output_reduce_click = {
+				add_to_variable = { copper_output_setting = -5 }
+			}
+			copper_import_confirm_click = {
+					set_variable = { copper_input = 0 }
+					set_variable = { copper_output = 0 }
+				add_to_variable = { copper_input = copper_input_setting }
+				add_to_variable = { copper_output = copper_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = copper_transport_setting
+				add_dynamic_modifier = { modifier = copper_input_modifiers }
+				add_to_variable = { nation_copper_coast = copper_output }
+				if = {
+					limit = { check_variable = { copper_input_setting > 0 } }
+					set_country_flag = copper_input_monthly
+				}
+				if = {
+					limit = { check_variable = { copper_output_setting > 0 } }
+					set_country_flag = copper_input_monthly
+				}
+				news_event = { id = count.92 }
+			}
+		}
+	}
+}
+scripted_gui = {
+	tungsten_input_container = {
+		window_name = "tungsten_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = tungsten_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			tungsten_input_reduce_click_enabled = {
+				check_variable = { tungsten_input_setting > 0 }
+			}
+			tungsten_output_reduce_click_enabled = {
+				check_variable = { tungsten_output_setting > 0 }
+			}
+		}
+		effects = {
+			tungsten_input_add_click = {
+				add_to_variable = { tungsten_input_setting = 5 }
+			}
+			tungsten_input_reduce_click = {
+				add_to_variable = { tungsten_input_setting = -5 }
+			}
+			tungsten_output_add_click = {
+				add_to_variable = { tungsten_output_setting = 5 }
+			}
+			tungsten_output_reduce_click = {
+				add_to_variable = { tungsten_output_setting = -5 }
+			}
+			tungsten_import_confirm_click = {
+					set_variable = { tungsten_input = 0 }
+					set_variable = { tungsten_output = 0 }
+				add_to_variable = { tungsten_input = tungsten_input_setting }
+				add_to_variable = { tungsten_output = tungsten_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = tungsten_transport_setting
+				add_dynamic_modifier = { modifier = tungsten_input_modifiers }
+				add_to_variable = { nation_tungsten_coast = tungsten_output }
+				if = {
+					limit = { check_variable = { tungsten_input_setting > 0 } }
+					set_country_flag = tungsten_input_monthly
+				}
+				if = {
+					limit = { check_variable = { tungsten_output_setting > 0 } }
+					set_country_flag = tungsten_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	tungsten_input_container = {
+		window_name = "tungsten_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = tungsten_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			tungsten_input_reduce_click_enabled = {
+				check_variable = { tungsten_input_setting > 0 }
+			}
+			tungsten_output_reduce_click_enabled = {
+				check_variable = { tungsten_output_setting > 0 }
+			}
+		}
+		effects = {
+			tungsten_input_add_click = {
+				add_to_variable = { tungsten_input_setting = 5 }
+			}
+			tungsten_input_reduce_click = {
+				add_to_variable = { tungsten_input_setting = -5 }
+			}
+			tungsten_output_add_click = {
+				add_to_variable = { tungsten_output_setting = 5 }
+			}
+			tungsten_output_reduce_click = {
+				add_to_variable = { tungsten_output_setting = -5 }
+			}
+			tungsten_import_confirm_click = {
+					set_variable = { tungsten_input = 0 }
+					set_variable = { tungsten_output = 0 }
+				add_to_variable = { tungsten_input = tungsten_input_setting }
+				add_to_variable = { tungsten_output = tungsten_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = tungsten_transport_setting
+				add_dynamic_modifier = { modifier = tungsten_input_modifiers }
+				add_to_variable = { nation_tungsten_coast = tungsten_output }
+				if = {
+					limit = { check_variable = { tungsten_input_setting > 0 } }
+					set_country_flag = tungsten_input_monthly
+				}
+				if = {
+					limit = { check_variable = { tungsten_output_setting > 0 } }
+					set_country_flag = tungsten_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	fuel_input_container = {
+		window_name = "fuel_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = fuel_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			fuel_input_reduce_click_enabled = {
+				check_variable = { fuel_input_setting > 0 }
+			}
+			fuel_output_reduce_click_enabled = {
+				check_variable = { fuel_output_setting > 0 }
+			}
+			fuel_output_add_click_enabled = {
+				check_variable = { fuel_k > 50 }
+				NOT = { has_dynamic_modifier = { modifier = fuel_crisis } }
+			}
+		}
+		effects = {
+			fuel_input_add_click = {
+				add_to_variable = { fuel_input_setting = 5 }
+			}
+			fuel_input_reduce_click = {
+				add_to_variable = { fuel_input_setting = -5 }
+			}
+			fuel_output_add_click = {
+				add_to_variable = { fuel_output_setting = 5 }
+			}
+			fuel_output_reduce_click = {
+				add_to_variable = { fuel_output_setting = -5 }
+			}
+			fuel_import_confirm_click = {
+					set_variable = { fuel_input = 0 }
+					set_variable = { fuel_output = 0 }
+				add_to_variable = { fuel_input = fuel_input_setting }
+				add_to_variable = { fuel_output = fuel_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = fuel_transport_setting
+				add_dynamic_modifier = { modifier = fuel_input_modifiers }
+				add_to_variable = { nation_fuel_coast = fuel_output }
+				if = {
+					limit = { check_variable = { fuel_input_setting > 0 } }
+					set_country_flag = fuel_transport_monthly
+				}
+				if = {
+					limit = { check_variable = { fuel_output_setting > 0 } }
+					set_country_flag = fuel_transport_monthly
+					set_variable = { fuel_output_modifier_num = fuel_output_setting }
+					multiply_variable = { this.fuel_output_modifier_num = -1 }
+					add_dynamic_modifier = { modifier = fuel_output_modifiers }
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	auto_input_container = {
+		window_name = "auto_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = auto_transport_setting
+		}
+		triggers = {
+			auto_input_reduce_click_enabled = {
+				check_variable = { auto_input_setting > 0 }
+			}
+			auto_output_add_click_enabled = {
+				check_variable = { consumer_auto > auto_request }
+				check_variable = { consumer_auto > auto_output_setting }
+				has_tech = auto_industry
+			}
+			auto_output_reduce_click_enabled = {
+				check_variable = { auto_output_setting > 0 }
+				has_tech = auto_industry
+			}
+		}
+		effects = {
+			auto_input_add_click = {
+				add_to_variable = { auto_input_setting = 5 }
+			}
+			auto_input_reduce_click = {
+				add_to_variable = { auto_input_setting = -5 }
+			}
+			auto_output_add_click = {
+				add_to_variable = { auto_output_setting = 5 }
+			}
+			auto_output_reduce_click = {
+				add_to_variable = { auto_output_setting = -5 }
+			}
+			auto_import_confirm_click = {
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = auto_transport_setting
+				news_event = { id = count.95 }
+				news_event = { id = count.96 }
+				if = {
+					limit = { check_variable = { auto_input_setting > 0 } }
+					set_country_flag = auto_input_monthly
+				}
+				if = {
+					limit = { check_variable = { auto_output_setting > 0 } }
+					set_country_flag = auto_input_monthly
+				}
+			}
+		}
+	}
+}
+scripted_gui = {
+	electronic_input_container = {
+		window_name = "electronic_input_container"
+		context_type = player_context
+		parent_window_name = "mines_transport_container"
+		visible = {
+			has_country_flag = electronic_transport_setting
+		}
+		ai_enabled = { always = yes }
+		ai_test_interval = 10
+		ai_check = {
+			date > 1945.1.1
+		}
+		triggers = {
+			electronic_input_reduce_click_enabled = {
+				check_variable = { electronic_input_setting > 0 }
+			}
+			electronic_output_add_click_enabled = {
+				check_variable = { consumer_electronic > electronic_output_setting }
+				check_variable = { electronic_free > electronic_output_setting }
+				has_tech = laundry
+			}
+			electronic_output_reduce_click_enabled = {
+				check_variable = { electronic_output_setting > 0 }
+				has_tech = laundry
+			}
+		}
+		ai_weights = {
+			electronic_input_add_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						add = 50
+						check_variable = { nation_electronic_free < -2 }
+						check_variable = { electronic_input_setting < 20 }
+					}
+					modifier = {
+						add = -50
+						check_variable = { nation_electronic_free > 0 }
+					}
+				}
+			}
+			electronic_import_confirm_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						add = 500
+						check_variable = { electronic_input_setting > 10 }
+					}
+				}
+			}
+		}
+		effects = {
+			electronic_input_add_click = {
+				add_to_variable = { electronic_input_setting = 5 }
+			}
+			electronic_input_reduce_click = {
+				add_to_variable = { electronic_input_setting = -5 }
+			}
+			electronic_output_add_click = {
+				add_to_variable = { electronic_output_setting = 5 }
+			}
+			electronic_output_reduce_click = {
+				add_to_variable = { electronic_output_setting = -5 }
+			}
+			electronic_import_confirm_click = {
+					set_variable = { electronic_input = 0 }
+					set_variable = { electronic_output = 0 }
+				add_to_variable = { consumer_electronic = electronic_input_setting }
+				add_to_variable = { electronic_request = electronic_output_setting }  
+				clr_country_flag = mines_transport_setting
+				clr_country_flag = electronic_transport_setting
+				add_to_variable = { nation_electronic_coast = electronic_output }
+				if = {
+					limit = { check_variable = { electronic_input_setting > 0 } }
+					set_country_flag = electronic_input_monthly
+				}
+				if = {
+					limit = { check_variable = { electronic_output_setting > 0 } }
+					set_country_flag = electronic_input_monthly
+				}
+			}
+		}
+	}
+}

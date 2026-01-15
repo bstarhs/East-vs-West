@@ -1,0 +1,37 @@
+
+state={
+	id=1045
+	name="STATE_1045" # Algiers
+	manpower = 1089944
+	state_category = large_town
+	resources={
+		iron=12
+	}
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Maghreb
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_to_array = { this.state_ethnics_list = 22 }
+		add_to_array = { this.state_ethnics_list = 70 }
+		owner = FRA
+		add_core_of = ALG
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		buildings = {
+			farm_building = 1
+			industrial_complex = 1
+			school = 1
+			infrastructure = 4
+		}
+		victory_points = { 1013 4 }
+		victory_points = { 11923 3 }
+		victory_points = { 7132 8 }
+		1962.7.3 = {
+			owner = ALG
+		}
+	}
+
+	provinces={
+		1013 12760 11923 7132 4116 
+	}
+}

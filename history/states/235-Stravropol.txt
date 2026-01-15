@@ -1,0 +1,44 @@
+
+state={
+	id=235
+	name="STATE_235"
+	manpower = 1316516
+	state_category=large_town
+	resources={
+		tungsten=12
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		victory_points = { 11696 6 }
+		victory_points = { 11633 6 }
+		victory_points = { 6750 3 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		set_state_flag = sugar_production
+		set_state_flag = SOV_corn_states
+		owner = SOV
+		set_state_flag = ethnics_Russian
+		buildings = {
+			power_plant = 1
+			farm_building = 2
+			infrastructure = 4
+			air_base = 2
+		}
+		1955.1.1 = {
+			buildings = {
+				farm_building = 3
+				power_plant = 2
+				industrial_complex = 2
+			}
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		add_core_of = SOV
+	}
+
+	provinces={
+		714 731 748 3748 6702 6718 6733 6750 6753 9688 9705 9707 9722 9726 9742 11633 11661 11678 11690 11693 11694 11696 11727 
+	}
+}

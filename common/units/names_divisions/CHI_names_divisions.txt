@@ -1,0 +1,762 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+CHI_INF_01 = {
+	name = "Infantry Unit"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%d Division" }			# Chinese "corps" were division-strength units (2-3 Chinese "divisions" = 2-3 HOI4 regiments)
+		2 = { "%d Division" }
+		3 = { "%d Division" }
+		4 = { "%d Division" }
+		9 = { "%d Division" }
+		12 = { "%d Division" }
+		13 = { "%d Division" }
+		14 = { "%d Division" }
+		17 = { "%d Division" }
+		18 = { "%d Division" }
+		25 = { "%d Division" }
+		39 = { "%d Division" }
+		40 = { "%d Division" }
+		43 = { "%d Division" }
+		52 = { "%d Division" }
+		54 = { "%d Division" }
+		73 = { "%d Division" }
+		74 = { "%d Division" }
+		403 = { "3 Infantry Division" }		# German-trained divisions (traditional division strength)
+		406 = { "6 Infantry Division" }		
+		409 = { "9 Infantry Division" }		
+		414 = { "14 Infantry Division" }		
+		436 = { "36 Infantry Division" }		
+		487 = { "87 Infantry Division" }		
+		488 = { "88 Infantry Division" }		
+		498 = { "Peixun Division" }		
+		402 = { "2 Infantry Division" }		
+		404 = { "4 Infantry Division" }		
+		410 = { "10 Infantry Division" }		
+		411 = { "11 Infantry Division" }		
+		425 = { "25 Infantry Division" }		
+		427 = { "27 Infantry Division" }		
+		457 = { "57 Infantry Division" }		
+		467 = { "67 Infantry Division" }		
+		480 = { "80 Infantry Division" }		
+		483 = { "83 Infantry Division" }		
+		489 = { "89 Infantry Division" }		
+		499 = { "Shui Jing Tuan" }		
+		6 = { "%d Division" }
+		7 = { "%d Division" }
+		8 = { "%d Division" }
+		10 = { "%d Division" }
+		15 = { "%d Division" }
+		16 = { "%d Division" }
+		19 = { "%d Division" }
+		20 = { "%d Division" }
+		21 = { "%d Division" }
+		22 = { "%d Division" }
+		23 = { "%d Division" }
+		26 = { "%d Division" }
+		28 = { "%d Division" }
+		29 = { "%d Division" }
+		30 = { "%d Division" }
+		31 = { "%d Division" }
+		32 = { "%d Division" }
+		33 = { "%d Division" }
+		34 = { "%d Division" }
+		35 = { "%d Division" }
+		37 = { "%d Division" }
+		38 = { "%d Division" }
+		41 = { "%d Division" }
+		42 = { "%d Division" }
+		44 = { "%d Division" }
+		45 = { "%d Division" }
+		46 = { "%d Division" }
+		47 = { "%d Division" }
+		48 = { "%d Division" }
+		49 = { "%d Division" }
+		51 = { "%d Division" }
+		53 = { "%d Division" }
+		55 = { "%d Division" }
+		56 = { "%d Division" }
+		57 = { "%d Division" }
+		59 = { "%d Division" }
+		60 = { "%d Division" }
+		61 = { "%d Division" }
+		62 = { "%d Division" }
+		63 = { "%d Division" }
+		64 = { "%d Division" }
+		65 = { "%d Division" }
+		66 = { "%d Division" }
+		67 = { "%d Division" }
+		68 = { "%d Division" }
+		70 = { "%d Division" }
+		71 = { "%d Division" }
+		72 = { "%d Division" }
+		75 = { "%d Division" }
+		76 = { "%d Division" }
+		77 = { "%d Division" }
+		78 = { "%d Division" }
+		79 = { "%d Division" }
+		80 = { "%d Division" }
+		81 = { "%d Division" }
+		82 = { "%d Division" }
+		83 = { "%d Division" }
+		84 = { "%d Division" }
+		85 = { "%d Division" }
+		86 = { "%d Division" }
+		87 = { "%d Division" }
+		89 = { "%d Division" }
+		92 = { "%d Division" }
+		93 = { "%d Division" }
+		94 = { "%d Division" }
+		98 = { "%d Division" }
+		201 = { "New 1 Division" }
+		5 = { "%d Division" }
+		27 = { "%d Division" }
+		50 = { "%d Division" }
+		58 = { "%d Division" }
+		69 = { "%d Division" }
+		90 = { "%d Division" }
+		91 = { "%d Division" }
+		96 = { "%d Division" }
+		99 = { "%d Division" }
+		100 = { "%d Division" }
+		202 = { "New 2 Division" }
+		203 = { "New 3 Division" }
+		205 = { "New 5 Division" }
+		206 = { "New 6 Division" }
+		36 = { "%d Division" }
+		301 = { "1 Division Linshi" }
+		302 = { "2 Division Linshi" }
+		430 = { "New 30 Infantry Division" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "New 38 Infantry Division" }		
+		422 = { "New 22 Infantry Division" }		
+		450 = { "50 Infantry Division" }		
+		88 = { "%d Division" }
+		207 = { "New 7 Division" }
+		304 = { "4 Division Linshi" }
+		305 = { "5 Division Linshi" }
+		309 = { "9 Division Linshi" }
+		11 = { "%d Division" }
+		95 = { "%d Division" }
+		208 = { "New 8 Division" }
+		303 = { "3 Division Linshi" }
+		315 = { "15 Division Linshi" }
+		209 = { "New 9 Division" }			# fictional additional corps here
+		210 = { "New 10 Division" }
+		211 = { "New 11 Division" }
+		212 = { "New 12 Division" }
+		213 = { "New 13 Division" }
+		214 = { "New 14 Division" }
+		215 = { "New 15 Division" }
+		306 = { "6 Division Linshi" }
+		307 = { "7 Division Linshi" }
+		308 = { "8 Division Linshi" }
+		310 = { "9 Division Linshi" }
+		311 = { "10 Division Linshi" }
+		312 = { "11 Division Linshi" }
+		313 = { "12 Division Linshi" }
+		314 = { "13 Division Linshi" }
+	}
+}
+
+CHI_CAV_01 = 
+{
+	name = "Cavalry Unit"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Cavalry Jun"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%d Cavalry Jun" }
+		2 = { "%d Cavalry Jun" }
+		3 = { "%d Cavalry Jun" }
+		4 = { "%d Cavalry Jun" }
+		6 = { "%d Cavalry Jun" }
+		5 = { "%d Cavalry Jun" }
+		101 = { "New 1 Cavalry Jun" }
+		102 = { "New 2 Cavalry Jun" }
+		103 = { "New 3 Cavalry Jun" }
+		104 = { "New 4 Cavalry Jun" }
+		7 = { "%d Cavalry Jun" }
+		8 = { "%d Cavalry Jun" }
+		9 = { "%d Cavalry Jun" }
+		10 = { "%d Cavalry Jun" }
+	}
+}
+
+CHI_ART_01 = 
+{
+	name = "Artillery Division"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "artillery_brigade""mot_artillery_brigade" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Artillery Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		500 = { "200 Artillery Division" }		# only historical motorized division for NRA
+		430 = { "New 30 Artillery Division" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "New 38 Artillery Division" }		
+		422 = { "New 22 Artillery Division" }		
+		414 = { "14 Artillery Division" }		
+		450 = { "50 Artillery Division" }		
+		403 = { "3 Artillery Division" }			# German-trained divisions (traditional division strength)
+		406 = { "6 Artillery Division" }		
+		409 = { "9 Artillery Division" }		
+		436 = { "36 Artillery Division" }		
+		487 = { "87 Artillery Division" }		
+		488 = { "88 Artillery Division" }		
+		402 = { "2 Artillery Division" }		
+		404 = { "4 Artillery Division" }		
+		410 = { "10 Artillery Division" }		
+		411 = { "11 Artillery Division" }		
+		425 = { "25 Artillery Division" }		
+		427 = { "27 Artillery Division" }		
+		457 = { "57 Artillery Division" }		
+		467 = { "67 Artillery Division" }		
+		480 = { "80 Artillery Division" }		
+		483 = { "83 Artillery Division" }		
+		489 = { "89 Artillery Division" }		
+		5 = { "%d Artillery Division" }						# fictional names for motorized corps
+		1 = { "%d Artillery Division" }						
+		2 = { "%d Artillery Division" }
+		3 = { "%d Artillery Division" }
+		4 = { "%d Artillery Division" }
+		9 = { "%d Artillery Division" }
+		12 = { "%d Artillery Division" }
+		13 = { "%d Artillery Division" }
+		14 = { "%d Artillery Division" }
+		17 = { "%d Artillery Division" }
+		18 = { "%d Artillery Division" }
+		6 = { "%d Artillery Division" }
+		7 = { "%d Artillery Division" }
+		8 = { "%d Artillery Division" }
+		10 = { "%d Artillery Division" }
+		15 = { "%d Artillery Division" }
+		16 = { "%d Artillery Division" }
+		19 = { "%d Artillery Division" }
+		20 = { "%d Artillery Division" }
+		11 = { "%d Artillery Division" }
+	}
+}
+CHI_MOT_01 = 
+{
+	name = "Motorized Unit"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Motorized Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		500 = { "200 Artillery Division" }		# only historical motorized division for NRA
+		430 = { "New 30 Artillery Division" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "New 38 Artillery Division" }		
+		422 = { "New 22 Artillery Division" }		
+		414 = { "14 Artillery Division" }		
+		450 = { "50 Artillery Division" }		
+		403 = { "3 Artillery Division" }			# German-trained divisions (traditional division strength)
+		406 = { "6 Artillery Division" }		
+		409 = { "9 Artillery Division" }		
+		436 = { "36 Artillery Division" }		
+		487 = { "87 Artillery Division" }		
+		488 = { "88 Artillery Division" }		
+		402 = { "2 Artillery Division" }		
+		404 = { "4 Artillery Division" }		
+		410 = { "10 Artillery Division" }		
+		411 = { "11 Artillery Division" }		
+		425 = { "25 Artillery Division" }		
+		427 = { "27 Artillery Division" }		
+		457 = { "57 Artillery Division" }		
+		467 = { "67 Artillery Division" }		
+		480 = { "80 Artillery Division" }		
+		483 = { "83 Artillery Division" }		
+		489 = { "89 Artillery Division" }		
+		5 = { "%d Motorized Division" }						# fictional names for motorized corps
+		1 = { "%d Motorized Division" }						
+		2 = { "%d Motorized Division" }
+		3 = { "%d Motorized Division" }
+		4 = { "%d Motorized Division" }
+		9 = { "%d Motorized Division" }
+		12 = { "%d Motorized Division" }
+		13 = { "%d Motorized Division" }
+		14 = { "%d Motorized Division" }
+		17 = { "%d Motorized Division" }
+		18 = { "%d Motorized Division" }
+		6 = { "%d Motorized Division" }
+		7 = { "%d Motorized Division" }
+		8 = { "%d Motorized Division" }
+		10 = { "%d Motorized Division" }
+		15 = { "%d Motorized Division" }
+		16 = { "%d Motorized Division" }
+		19 = { "%d Motorized Division" }
+		20 = { "%d Motorized Division" }
+		11 = { "%d Motorized Division" }
+	}
+}
+
+CHI_MEC_01 = 
+{
+	name = "Mechanized Unit"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Mechanized Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		500 = { "200 Mechanized Infantry Division" }
+		430 = { "New 30 Mechanized Infantry Division" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "New 38 Mechanized Infantry Division" }		
+		422 = { "New 22 Mechanized Infantry Division" }		
+		414 = { "14 Mechanized Infantry Division" }		
+		450 = { "50 Mechanized Infantry Division" }		
+		403 = { "3 Mechanized Infantry Division" }			# German-trained divisions (traditional division strength)
+		406 = { "6 Mechanized Infantry Division" }		
+		409 = { "9 Mechanized Infantry Division" }		
+		436 = { "36 Mechanized Infantry Division" }		
+		487 = { "87 Mechanized Infantry Division" }		
+		488 = { "88 Mechanized Infantry Division" }		
+		402 = { "2 Mechanized Infantry Division" }		
+		404 = { "4 Mechanized Infantry Division" }		
+		410 = { "10 Mechanized Infantry Division" }		
+		411 = { "11 Mechanized Infantry Division" }		
+		425 = { "25 Mechanized Infantry Division" }		
+		427 = { "27 Mechanized Infantry Division" }		
+		457 = { "57 Mechanized Infantry Division" }		
+		467 = { "67 Mechanized Infantry Division" }		
+		480 = { "80 Mechanized Infantry Division" }		
+		483 = { "83 Mechanized Infantry Division" }		
+		489 = { "89 Mechanized Infantry Division" }		
+		5 = { "%d Mechanized Division" }				# fictional names for mechanized corps
+		1 = { "%d Mechanized Division" }						
+		2 = { "%d Mechanized Division" }
+		3 = { "%d Mechanized Division" }
+		4 = { "%d Mechanized Division" }
+		9 = { "%d Mechanized Division" }
+		12 = { "%d Mechanized Division" }
+		13 = { "%d Mechanized Division" }
+		14 = { "%d Mechanized Division" }
+		17 = { "%d Mechanized Division" }
+		18 = { "%d Mechanized Division" }
+		6 = { "%d Mechanized Division" }
+		7 = { "%d Mechanized Division" }
+		8 = { "%d Mechanized Division" }
+		10 = { "%d Mechanized Division" }
+		15 = { "%d Mechanized Division" }
+		16 = { "%d Mechanized Division" }
+		19 = { "%d Mechanized Division" }
+		20 = { "%d Mechanized Division" }
+		11 = { "%d Mechanized Division" }
+	}
+}
+
+CHI_ARM_01 = 
+{
+	name = "Armored Unit"
+
+	for_countries = { CHI SHX GXC YUN XSM SIK }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Armored Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%d Armored Division" }
+		2 = { "%d Armored Division" }
+		3 = { "%d Armored Division" }
+		4 = { "%d Armored Division" }
+		5 = { "%d Armored Division" }
+		6 = { "%d Armored Division" }
+		7 = { "%d Armored Division" }
+		8 = { "%d Armored Division" }
+		9 = { "%d Armored Division" }
+		10 = { "%d Armored Division" }
+		11 = { "%d Armored Division" }
+		12 = { "%d Armored Division" }
+		13 = { "%d Armored Division" }
+		14 = { "%d Armored Division" }
+		15 = { "%d Armored Division" }
+	}
+}
+
+CHI_PAR_01 = 
+{
+	name = "Paratrooper Unit"
+
+	for_countries = { CHI SHX GXC YUN XSM SIK }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Paratrooper Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%d Paratrooper Division" }
+		2 = { "%d Paratrooper Division" }
+		3 = { "%d Paratrooper Division" }
+		4 = { "%d Paratrooper Division" }
+		5 = { "%d Paratrooper Division" }
+		6 = { "%d Paratrooper Division" }
+		7 = { "%d Paratrooper Division" }
+		8 = { "%d Paratrooper Division" }
+		9 = { "%d Paratrooper Division" }
+		10 = { "%d Paratrooper Division" }
+	}
+}
+
+CHI_MAR_01 = 
+{
+	name = "Marine Unit"
+
+	for_countries = { CHI SHX GXC YUN XSM SIK }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Marine Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%d Marine Division" }
+		2 = { "%d Marine Division" }
+		3 = { "%d Marine Division" }
+		4 = { "%d Marine Division" }
+		5 = { "%d Marine Division" }
+		6 = { "%d Marine Division" }
+		7 = { "%d Marine Division" }
+		8 = { "%d Marine Division" }
+		9 = { "%d Marine Division" }
+		10 = { "%d Marine Division" }
+	}
+}
+
+CHI_MNT_01 = 
+{
+	name = "Mountain Unit"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Division"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		430 = { "New 30 Infantry Division" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "New 38 Infantry Division" }		
+		422 = { "New 22 Infantry Division" }		
+		414 = { "14 Infantry Division" }		
+		450 = { "50 Infantry Division" }		
+		403 = { "3 Infantry Division" }		# German-trained divisions (traditional division strength)
+		406 = { "6 Infantry Division" }		
+		409 = { "9 Infantry Division" }		
+		436 = { "36 Infantry Division" }		
+		487 = { "87 Infantry Division" }		
+		488 = { "88 Infantry Division" }		
+		498 = { "Peixun Division" }		
+		402 = { "2 Infantry Division" }		
+		404 = { "4 Infantry Division" }		
+		410 = { "10 Infantry Division" }		
+		411 = { "11 Infantry Division" }		
+		425 = { "25 Infantry Division" }		
+		427 = { "27 Infantry Division" }		
+		457 = { "57 Infantry Division" }		
+		467 = { "67 Infantry Division" }		
+		480 = { "80 Infantry Division" }		
+		483 = { "83 Infantry Division" }		
+		489 = { "89 Infantry Division" }		
+		499 = { "Shui Jing Tuan" }		
+		1 = { "%d Division" }			# Chinese "corps" were division-strength units (2-3 Chinese "divisions" = 2-3 HOI4 regiments)
+		2 = { "%d Division" }
+		3 = { "%d Division" }
+		4 = { "%d Division" }
+		9 = { "%d Division" }
+		12 = { "%d Division" }
+		13 = { "%d Division" }
+		14 = { "%d Division" }
+		17 = { "%d Division" }
+		18 = { "%d Division" }
+		25 = { "%d Division" }
+		39 = { "%d Division" }
+		40 = { "%d Division" }
+		43 = { "%d Division" }
+		52 = { "%d Division" }
+		54 = { "%d Division" }
+		73 = { "%d Division" }
+		74 = { "%d Division" }
+		6 = { "%d Division" }
+		7 = { "%d Division" }
+		8 = { "%d Division" }
+		10 = { "%d Division" }
+		15 = { "%d Division" }
+		16 = { "%d Division" }
+		19 = { "%d Division" }
+		20 = { "%d Division" }
+		21 = { "%d Division" }
+		22 = { "%d Division" }
+		23 = { "%d Division" }
+		26 = { "%d Division" }
+		28 = { "%d Division" }
+		29 = { "%d Division" }
+		30 = { "%d Division" }
+		31 = { "%d Division" }
+		32 = { "%d Division" }
+		33 = { "%d Division" }
+		34 = { "%d Division" }
+		35 = { "%d Division" }
+		37 = { "%d Division" }
+		38 = { "%d Division" }
+		41 = { "%d Division" }
+		42 = { "%d Division" }
+		44 = { "%d Division" }
+		45 = { "%d Division" }
+		46 = { "%d Division" }
+		47 = { "%d Division" }
+		48 = { "%d Division" }
+		49 = { "%d Division" }
+		51 = { "%d Division" }
+		53 = { "%d Division" }
+		55 = { "%d Division" }
+		56 = { "%d Division" }
+		57 = { "%d Division" }
+		59 = { "%d Division" }
+		60 = { "%d Division" }
+		61 = { "%d Division" }
+		62 = { "%d Division" }
+		63 = { "%d Division" }
+		64 = { "%d Division" }
+		65 = { "%d Division" }
+		66 = { "%d Division" }
+		67 = { "%d Division" }
+		68 = { "%d Division" }
+		70 = { "%d Division" }
+		71 = { "%d Division" }
+		72 = { "%d Division" }
+		75 = { "%d Division" }
+		76 = { "%d Division" }
+		77 = { "%d Division" }
+		78 = { "%d Division" }
+		79 = { "%d Division" }
+		80 = { "%d Division" }
+		81 = { "%d Division" }
+		82 = { "%d Division" }
+		83 = { "%d Division" }
+		84 = { "%d Division" }
+		85 = { "%d Division" }
+		86 = { "%d Division" }
+		87 = { "%d Division" }
+		89 = { "%d Division" }
+		92 = { "%d Division" }
+		93 = { "%d Division" }
+		94 = { "%d Division" }
+		98 = { "%d Division" }
+		201 = { "New 1 Division" }
+		5 = { "%d Division" }
+		27 = { "%d Division" }
+		50 = { "%d Division" }
+		58 = { "%d Division" }
+		69 = { "%d Division" }
+		90 = { "%d Division" }
+		91 = { "%d Division" }
+		96 = { "%d Division" }
+		99 = { "%d Division" }
+		100 = { "%d Division" }
+		202 = { "New 2 Division" }
+		203 = { "New 3 Division" }
+		205 = { "New 5 Division" }
+		206 = { "New 6 Division" }
+		36 = { "%d Division" }
+		88 = { "%d Division" }
+		207 = { "New 7 Division" }
+		11 = { "%d Division" }
+		95 = { "%d Division" }
+		208 = { "New 8 Division" }
+		209 = { "New 9 Division" }			# fictional additional corps here
+		210 = { "New 10 Division" }
+		211 = { "New 11 Division" }
+		212 = { "New 12 Division" }
+		213 = { "New 13 Division" }
+		214 = { "New 14 Division" }
+		215 = { "New 15 Division" }
+	}
+}
+
+CHI_GAR_01 = 
+{
+	name = "Garrison Unit"
+
+	for_countries = { CHI GXC DOB SHX }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "%d Baoan Zongdui"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		101 = { "Shanghai Guradian" }		# All fictional names for local militias
+		102 = { "1 Fujian Guradian" }
+		103 = { "1 Nanking Guradian" }
+		104 = { "Wuhan Guradian" }
+		105 = { "Qingdao Guradian" }
+		106 = { "Henan Sheng Jun" }
+		107 = { "Anhui Sheng Jun" }
+		108 = { "Gansu Sheng Jun" }
+		109 = { "Shandong Sheng Jun" }
+		110 = { "Jiangsu Sheng Jun" }
+		111 = { "Hubei Sheng Jun" }
+		112 = { "2 Nanking Guradian" }
+		113 = { "2 Fujian Guradian" }
+		114 = { "3 Fujian Guradian" }
+		115 = { "Jiangxi Sheng Jun" }
+		116 = { "Zhejiang Sheng Jun" }
+		117 = { "Hunan Sheng Jun" }
+		118 = { "Fujian Sheng Jun" }
+		119 = { "2 Nanking Guradian" }
+		126 = { "3 Nanking Guradian" }
+		127 = { "4 Nanking Guradian" }
+		120 = { "Tiennan Guradian" }
+		121 = { "Hophei Guradian" }
+		122 = { "Chahar Guradian" }
+		123 = { "Chun-ai Guradian" }
+		124 = { "Hunan Guradian" }
+		125 = { "Hubei Guradian" }
+		1 = { "%d Baoan Zongdui" }
+		2 = { "%d Baoan Zongdui" }
+		3 = { "%d Baoan Zongdui" }
+		4 = { "%d Baoan Zongdui" }
+		5 = { "%d Baoan Zongdui" }
+		6 = { "%d Baoan Zongdui" }
+		7 = { "%d Baoan Zongdui" }
+		8 = { "%d Baoan Zongdui" }
+		9 = { "%d Baoan Zongdui" }
+		10 = { "%d Baoan Zongdui" }
+		11 = { "%d Baoan Zongdui" }
+		12 = { "%d Baoan Zongdui" }
+		13 = { "%d Baoan Zongdui" }
+		14 = { "%d Baoan Zongdui" }
+		15 = { "%d Baoan Zongdui" }
+		16 = { "%d Baoan Zongdui" }
+		17 = { "%d Baoan Zongdui" }
+		18 = { "%d Baoan Zongdui" }
+		19 = { "%d Baoan Zongdui" }
+		20 = { "%d Baoan Zongdui" }
+	}
+}
+

@@ -1,0 +1,37 @@
+
+state={
+	id=979
+	name="STATE_979" #Mozambique
+	manpower = 125000
+	state_category = town
+	resources={
+		iron = 12
+		coal = 8
+	}
+	history={
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Tsonga
+		owner = POR
+		add_to_array = { this.state_ethnics_list = 165 }
+		buildings = {
+			farm_building = 3
+			infrastructure = 3
+			industrial_complex = 2
+			5212 = {
+				naval_base = 2
+			}
+		}
+		victory_points = {
+			5212 6
+		}
+		add_core_of = MZB
+		1974.6.25 = {
+		owner = MZB
+		}
+	}
+
+	provinces={
+		5212 13460 5177 2193 13272 
+	}
+}

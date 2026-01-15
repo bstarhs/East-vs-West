@@ -1,0 +1,62 @@
+
+state={
+	id=55
+	name="STATE_55"
+	manpower = 3798235
+
+	state_category = large_city
+	local_supplies=0.0
+	resources={
+		coal=20
+		phosphate=11
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		set_state_flag = sugar_production
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Deutscher
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 63 }
+		add_core_of = HES
+		add_core_of = RHI
+		owner = USA
+		controller = USA
+		buildings = {
+			school = 1
+			hospital = 1
+			power_plant = 2
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+			farm_building = 5
+		}
+		victory_points = { 3524 5 }
+		victory_points = { 11445 5 }
+		victory_points = {
+			6488 10
+		}
+		victory_points = {
+			564 3
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		1949.5.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = WDR
+			add_core_of = DDR
+		}
+		1954.8.17 = {
+		add_to_variable = { state_tourist = 20 }
+			buildings = {
+				anti_air_building = 2
+			}
+		}
+
+
+	}
+
+	provinces={
+		564 3397 3524 6488 6549 9486 9524 9547 11445 11533 
+	}
+}

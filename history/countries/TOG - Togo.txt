@@ -1,0 +1,100 @@
+﻿capital = 660
+
+oob = "ALL"
+
+set_research_slots = 2
+	set_cosmetic_tag = TOG_FRA
+set_convoys = 60
+set_stability = 0.75
+
+	activate_decision = female_equality
+set_country_flag = french_colonies
+set_technology = {
+	infantry_weapons = 1
+	
+	
+	early_bomber = 1
+}
+set_country_flag = african_state
+set_country_flag = west_africa
+
+
+	set_popularities = {
+		democratic = 80
+		communism = 10
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1945.12.1"
+	election_frequency = 60
+	elections_allowed = yes
+}
+	
+create_country_leader = {
+	name = "Sylvanus Olympio"
+	desc = "POLITICIAN_NAM_SAM_NUJOMA_DESC"
+	picture = "gfx/leaders/TOG/Portrait_Togo_Sylvanus_Olympio.tga"
+	expire = "2020.1.1"
+	ideology = socialism
+	
+	traits = {
+	
+	}
+}
+1960.1.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	set_cosmetic_tag = TOG
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+}
+1963.1.20 = {
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	create_country_leader = {
+		name = "Nicolas Grunitzky"
+		
+		picture = "gfx/leaders/TOG/Portrait_Togo_Nicolas_Grunitzky.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1967.3.12 = {
+	set_popularities = {
+		democratic = 20
+		communism = 10
+		neutrality = 70
+	}
+	set_politics = {
+		
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Gnassingbé Eyadéma"
+		
+		picture = "gfx/leaders/TOG/Portrait_Togo_Eyadema.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1973.1.20 = {
+	add_ideas = {
+		NonAligned
+	}
+	set_country_flag = china_diplomacy
+}
+

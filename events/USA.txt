@@ -1,0 +1,5454 @@
+﻿add_namespace = usa
+#杜鲁门主义
+news_event = {
+	id = usa.1
+	title = usatext.1.t
+	desc = usatext.1.d
+	picture = GFX_Trumen
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+#是否接受美国保护
+country_event = {
+	id = usa.4
+	title = usatext.4.t
+	desc = usatext.4.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			factor = 10
+		}
+		name = usatext.4.a
+		USA = {
+			give_guarantee = ROOT
+			add_to_variable = { influences = 20 }
+			country_event = { id = usa.5 }
+		}
+		give_military_access = USA
+		add_war_support = 0.12
+		add_political_power = 300
+		army_experience = 300
+		if = {
+			limit = { tag = CHI }
+			news_event = { id = roc.40 }
+		}
+	}
+	option = {
+			ai_chance = {
+				factor = 0
+			}
+		name = usatext.4.b
+	}
+}
+#接受美国保护
+country_event = {
+	id = usa.5
+	title = usatext.5.t
+	desc = usatext.5.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#马歇尔计划
+country_event = {
+	id = usa.8
+	title = usatext.8.t
+	desc = usatext.8.d
+	picture = GFX_MarshallPlan
+	is_triggered_only = yes
+	option = {
+		##接受
+		name = usatext.8.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 50
+				tag = ISR
+			}
+			modifier = {
+				add = 50
+				is_in_faction_with = USA
+			}
+		}
+		add_ideas = Marshall
+		add_political_power = 400
+		news_event = { id = usa.9 }
+		USA = { news_event = { id = usa.9 } }
+		custom_effect_tooltip = total_from_aid_80
+		add_to_variable = { this.total_from_aid = 80 }
+		if = {
+			limit = { communism > 0.15 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+		}
+		add_to_variable = { THIS.US_gov_aid_opinion = 12 }
+		add_to_variable = { THIS.US_public_aid_opinion = 7 }
+	}
+	option = {
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				OR = {
+					has_country_flag = US_cancel_aid
+					has_country_leader_with_trait = pro_soviet
+					has_country_leader_with_trait = anti_america
+					has_government = fascism
+					has_government = communism
+				}
+			}
+		}
+		name = usatext.8.b
+		USA = { country_event = { id = usa.97 } }
+	}
+}
+#接受马歇尔计划
+country_event = {
+	id = usa.9
+	title = usatext.9.t
+	desc = usatext.9.d
+	picture = GFX_MarshallPlan
+	is_triggered_only = yes
+	option = {
+		name = usatext.9.a
+	}
+}
+#北约成立
+news_event = {
+	id = usa.10
+	title = usatext.10.t
+	desc = usatext.10.d
+	picture = GFX_NATO
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = usatext.10.a
+	}
+}
+#梦露
+news_event = {
+	id = usa.11
+	title = usatext.11.t
+	desc = usatext.11.d
+	picture = GFX_Monroe
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1953.1.1
+		date < 1954.1.1
+	}
+	option = { 
+		name = usatext.8.a
+	}
+}
+#梦露
+news_event = {
+	id = usa.12
+	title = usatext.12.t
+	desc = usatext.12.d
+	picture = GFX_MonroeKorea
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1954.2.1
+		date < 1954.4.1
+		NOT = { has_global_flag = usa12 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa12
+		}
+	}
+}
+news_event = {
+	id = usa.13
+	title = usatext.13.t
+	desc = usatext.13.d
+	picture = GFX_MonroeKids
+	fire_only_once = yes
+	trigger = {
+		has_idea = NegroMovement
+		tag = USA
+		date > 1955.1.1
+		date < 1960.1.1
+	}
+	option = { 
+		name = usatext.8.a
+	}
+}
+news_event = {
+	id = usa.14
+	title = usatext.14.t
+	desc = usatext.14.d
+	picture = GFX_MonroeKids
+	fire_only_once = yes
+	trigger = {
+		has_idea = NegroMovement
+		tag = USA
+		date > 1955.1.1
+		date < 1960.1.1
+	}
+	option = { 
+		name = usatext.8.a
+	}
+}
+news_event = {
+	id = usa.15
+	title = usatext.15.t
+	desc = usatext.15.d
+	picture = GFX_MarshallPlan
+	is_triggered_only = yes
+	option = {
+		name = usatext.8.a
+	}
+}
+news_event = {
+	id = usa.18
+	title = usatext.18.t
+	desc = usatext.18.d
+	picture = GFX_MonroeDead
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = usatext.18.a
+		set_country_flag = monroedead
+	}
+}
+#蒙哥马利电车事件
+news_event = {
+	id = usa.20
+	title = usatext.20.t
+	desc = usatext.20.d
+	picture = GFX_Montgomery
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1955.11.1
+		date < 1956.1.1
+	}
+	option = {
+		name = usatext.20.a
+		add_political_power = -20
+		add_stability = -0.12
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.05
+		}
+		add_ideas = NegroMovement
+		
+	}
+	option = {
+		name = usatext.20.a
+		#镇压
+		news_event = { id = usa.147 }
+		add_political_power = -120
+		add_stability = -0.25
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.15
+		}
+		set_country_flag = BlackRevo
+		add_to_variable = { influences = -200 }
+		
+	}
+}
+#黑人骚乱
+news_event = {
+	id = usa.21
+	title = usatext.21.t
+	desc = usatext.21.d
+	picture = GFX_Montgomery
+	trigger = {
+		tag = USA
+		has_idea = NegroMovement
+	}
+	mean_time_to_happen = {
+		days = 120
+	}
+	option = { 
+		name = usatext.21.a
+		add_political_power = -20
+		add_stability = -0.02
+		add_to_variable = { influences = -5 }
+	}
+}
+
+#我有一个梦想
+news_event = {
+	id = usa.22
+	title = usatext.22.t
+	desc = usatext.22.d
+	picture = GFX_MartinLutherKing
+	fire_only_once = yes
+	major = yes
+	immediate = {
+		play_song = USA_15
+	}
+	trigger = {
+		date > 1963.8.1
+		date < 1964.1.1
+		USA = { has_idea = NegroMovement }
+	}
+	option = { 
+		name = usatext.22.a
+		
+	}
+}
+#与黑人会谈
+news_event = {
+	id = usa.23
+	title = usatext.23.t
+	desc = usatext.23.d
+	picture = GFX_MartinLutherKingWithKennedy
+	is_triggered_only = yes
+	option = { 
+		name = usatext.8.a
+		add_stability = 0.2
+		add_to_variable = { influences = 50 }
+		
+	}
+}
+#反歧视法案
+news_event = {
+	id = usa.24
+	title = usatext.24.t
+	desc = usatext.24.d
+	picture = GFX_MartinLutherKingWithKennedy
+	is_triggered_only = yes
+	option = {
+		name = usatext.24.a
+		add_stability = 0.2
+		remove_ideas = NegroMovement
+		add_to_variable = { influences = 80 }
+		
+	}
+}
+#美洲进步同盟
+news_event = {
+	id = usa.25
+	title = usatext.25.t
+	desc = usatext.25.d
+	picture = GFX_APLA
+	is_triggered_only = yes
+	option = {
+		name = usatext.25.a
+		add_ideas = APLA
+		news_event = { id = usa.15 }
+		USA = { news_event = { id = usa.15 } }
+		if = {
+			limit = { communism > 0.3 }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+		add_political_power = 180
+		USA = {
+			add_to_variable = { influences = 8 }
+		}
+	}
+}
+
+
+# 肯尼迪的命运 (HIDDEN)
+
+news_event = {
+	id = usa.26
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1963.10.1
+		date < 1964.1.1
+		has_country_leader = { name = "Jonh F. Kennedy" }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		random_list = {
+			80 = {
+				news_event = { id = usa.27 }
+				add_stability = -0.2
+				add_to_variable = { influences = -50 }
+				create_country_leader = {
+					name = "Lyndon Baines Johnson"
+					desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+					picture = "gfx/leaders/USA/Portrait_USA_Lyndon_Johnson.tga"
+					expire = "1988.1.1"
+					ideology = liberalism
+					traits = { dealbroker silent_workhorse headstrong }
+				}
+			}
+			20 = {
+				news_event = { id = usa.28 }
+			}
+		}
+	}
+}
+#肯尼迪遇刺
+news_event = {
+	id = usa.27
+	title = usatext.27.t
+	desc = usatext.27.d
+	picture = GFX_KennedyKill
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = KennedyDead
+	}
+	option = {
+	name = usatext.27.a
+	}
+	option = {
+	name = usatext.27.b
+	}
+}
+#肯尼迪逃过一劫
+news_event = {
+	id = usa.28
+	title = usatext.28.t
+	desc = usatext.28.d
+	picture = GFX_KennedyLive
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+#登月
+news_event = {
+	id = usa.29
+	title = usatext.29.t
+	desc = usatext.29.d
+	picture = GFX_KennedySpeech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = USA_29
+	}
+	option = {
+		name = usatext.29.a
+		if = {
+			limit = { tag = USA }
+			add_ideas = Appolo_idea
+		}
+	}
+}
+
+#反越战运动
+news_event = {
+	id = usa.30
+	title = usatext.30.t
+	desc = usatext.30.d
+	picture = GFX_AgainstWar
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = Total_Vietnam_War
+	}
+	mean_time_to_happen = {
+		days = 80
+	}
+	immediate = {
+		if = {
+			limit = { NOT = {has_idea = anti_vietnam_war } }
+			scoped_play_song = "play_song = USA_5"
+			
+		}
+	}
+	option = { 
+		name = usatext.8.a
+		if = { 
+			limit = { tag = USA }
+		add_to_variable = { influences = -5 }
+		add_political_power = -20
+		add_ideas = anti_vietnam_war
+		add_stability = -0.01
+		add_war_support = -0.03
+		}
+	}
+}
+#肯特大学惨案
+news_event = {
+	id = usa.31
+	title = usatext.31.t
+	desc = usatext.31.d
+	picture = GFX_Kent_Shootings
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1970.1.1
+		date < 1970.10.1
+		USA = { has_idea = anti_vietnam_war }
+	}
+	immediate = {
+		play_song = USA_14
+	}
+	option = { 
+		name = usatext.8.a
+		if = { 
+			limit = { tag = USA }
+			add_stability = -0.2
+			add_war_support = -0.2
+			add_to_variable = { influences = -80 }
+		}
+	}
+}
+
+#埃森豪主义
+news_event = {
+	id = usa.32
+	title = usatext.32.t
+	desc = usatext.32.d
+	picture = GFX_Eisenhower
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = usatext.32.a
+	}
+}
+#埃森豪主义
+news_event = {
+	id = usa.33
+	title = usatext.33.t
+	desc = usatext.33.d
+	picture = GFX_EisenhowerKhrushchev
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = usatext.33.a
+	}
+}
+#多米诺骨牌
+news_event = {
+	id = usa.34
+	title = usatext.34.t
+	desc = usatext.34.d
+	picture = GFX_EisenhowerKhrushchev
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = usatext.33.a
+	}
+}
+#与台湾关系法
+news_event = {
+	id = usa.35
+	title = usatext.35.t
+	desc = usatext.35.d
+	picture = GFX_ROCArmy1980s
+	major = yes
+	is_triggered_only = yes
+	option = { 
+		name = usatext.33.a
+	}
+}
+#民主党支持率下跌
+news_event = {
+	id = usa.36
+	title = usatext.36.t
+	desc = usatext.36.d
+	picture = GFX_MartinLutherKingWithKennedy
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = USA
+		has_completed_focus = Civil_rights_equality
+		has_idea = NewDealCoalition
+	}
+	option = { 
+		name = usatext.33.a
+		remove_ideas = NewDealCoalition
+	}
+}
+#水门事件
+news_event = {
+	id = usa.40
+	title = usatext.40.t
+	desc = usatext.3.d
+	picture = GFX_WaterGate
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1974.8.1
+		date < 1974.10.1
+		has_country_leader = { name = "Richard Milhous Nixon" }
+	}
+	option = {
+		name = usatext.3.a
+		news_event = { id = usa.41 }
+			create_country_leader = {
+				name = "Gerald Rudolph Ford"
+				picture = "gfx/leaders/USA/Portrait_USA_Ford.tga"
+				expire = "1988.1.1"
+				ideology = socialism
+				traits = {
+				}
+			}
+		add_to_variable = { influences = -40 }
+	}
+}
+#尼克松辞职
+news_event = {
+	id = usa.41
+	title = usatext.41.t
+	desc = usatext.41.d
+	picture = GFX_NixonOut
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+
+#军事顾问团
+country_event = {
+	id = usa.45
+	title = usatext.45.t
+	desc = usatext.45.d
+	picture = GFX_USadvisor_small
+	is_triggered_only = yes
+	option = {
+		name = usatext.3.a
+		ai_chance = {
+			factor = 10
+		}
+		USA = { country_event = { id = usa.97 } }
+	}
+	option = {
+		ai_chance = {
+			factor = 60
+		}
+		army_experience = 200
+		add_political_power = 100
+		set_country_flag = usa_army_advisor
+		news_event = { id = usa.47 }
+		name = usatext.3.a
+	}
+}
+country_event = {
+	id = usa.46
+	title = usatext.46.t
+	desc = usatext.46.d
+	picture = GFX_USadvisor_small
+	is_triggered_only = yes
+	option = {
+		name = usatext.3.a
+		ai_chance = {
+			factor = 10
+		}
+		FROM = { country_event = { id = usa.48 } }
+	}
+	option = {
+		ai_chance = {
+			factor = 60
+		}
+		FROM = { 
+			army_experience = 200
+			add_political_power = 100
+			set_country_flag = usa_army_advisor
+			news_event = { id = usa.49 }
+		}
+	}
+}
+news_event = {
+	id = usa.47
+	title = usatext.47.t
+	desc = usatext.47.d
+	picture = GFX_USAdvisors
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+country_event = {
+	id = usa.48
+	title = usatext.48.t
+	desc = usatext.48.d
+	picture = GFX_USadvisor_small
+	is_triggered_only = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+news_event = {
+	id = usa.49
+	title = usatext.49.t
+	desc = usatext.49.d
+	picture = GFX_USAdvisors
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+
+#联合国大厦落成
+news_event = {
+	id = usa.50
+	title = usatext.50.t
+	desc = usatext.50.d
+	picture = GFX_UNbuilding
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.3.a
+	}
+}
+
+#黎巴嫩人质事件
+news_event = {
+	id = usa.60
+	title = usatext.60.t
+	desc = usatext.8.d
+	picture = GFX_hostage
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1985.1.1
+		date < 1986.1.1
+	}
+	option = { 
+		name = usatext.8.a
+		set_country_flag = lebanon_hostage
+	}
+}
+#世界自由文化大会
+news_event = {
+	id = usa.70
+	title = usatext.70.t
+	desc = usatext.70.d
+	picture = GFX_CongressForCulturalFreedom
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = usatext.8.a
+	}
+}
+#和平信息中心
+news_event = {
+	id = usa.71
+	title = usatext.71.t
+	desc = usatext.71.d
+	picture = GFX_WEDuBois
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1950.4.1
+		date < 1952.1.1
+		has_global_flag = sov522
+		NOT = { has_global_flag = usa71 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa71
+	}
+}
+news_event = {
+	id = usa.72
+	title = usatext.72.t
+	desc = usatext.72.d
+	picture = GFX_WEDuBois
+	mean_time_to_happen = { days = 11 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1951.4.1
+		date < 1952.1.1
+		has_global_flag = usa71
+		KOR = { has_war_with = PRK }
+		NOT = { has_global_flag = usa72 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa72
+	}
+}
+##梅特斯基爆炸案
+news_event = {
+	id = usa.80
+	title = usatext.80.t
+	desc = usatext.80.d
+	picture = GFX_NewYorkPhoneBomb
+	mean_time_to_happen = { days = 11 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1951.3.1
+		date < 1951.5.1
+		NOT = { has_global_flag = usa80 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa80
+	}
+}
+news_event = {
+	id = usa.81
+	title = usatext.81.t
+	desc = usatext.81.d
+	picture = GFX_NewYorkPhoneBomb
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1951.9.1
+		date < 1951.10.1
+		has_global_flag = usa80
+		NOT = { has_global_flag = usa81 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa81
+	}
+}
+news_event = {
+	id = usa.82
+	title = usatext.82.t
+	desc = usatext.82.d
+	picture = GFX_FPLetter
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1951.9.1
+		date < 1951.11.1
+		has_global_flag = usa81
+		NOT = { has_global_flag = usa82 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa82
+	}
+}
+news_event = {
+	id = usa.83
+	title = usatext.83.t
+	desc = usatext.83.d
+	picture = GFX_NewYorkStationBomb
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1954.3.1
+		date < 1954.5.1
+		has_global_flag = usa82
+		NOT = { has_global_flag = usa83 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa83
+	}
+}
+news_event = {
+	id = usa.84
+	title = usatext.84.t
+	desc = usatext.84.d
+	picture = GFX_BomberNews
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1954.3.1
+		date < 1954.5.1
+		has_global_flag = usa83
+		NOT = { has_global_flag = usa84 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa84
+	}
+}
+news_event = {
+	id = usa.85
+	title = usatext.85.t
+	desc = usatext.85.d
+	picture = GFX_BombParamount
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1954.11.1
+		date < 1955.1.1
+		has_global_flag = usa84
+		NOT = { has_global_flag = usa85 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa85
+	}
+}
+news_event = {
+	id = usa.86
+	title = usatext.86.t
+	desc = usatext.86.d
+	picture = GFX_BomberNews
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1955.2.1
+		date < 1956.3.1
+		has_global_flag = usa85
+		NOT = { has_global_flag = usa86 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa86
+	}
+}
+news_event = {
+	id = usa.87
+	title = usatext.87.t
+	desc = usatext.87.d
+	picture = GFX_MeteskyArrest
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1957.2.1
+		date < 1957.3.1
+		has_global_flag = usa86
+		NOT = { has_global_flag = usa87 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa87
+	}
+}
+news_event = {
+	id = usa.88
+	title = usatext.88.t
+	desc = usatext.88.d
+	picture = GFX_MeteskyTrail
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1957.5.1
+		date < 1957.6.1
+		has_global_flag = usa87
+		NOT = { has_global_flag = usa88 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa88
+	}
+}
+
+#加州独立
+news_event = {
+	id = usa.91
+	title = usatext.91.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		has_stability < 0.2
+		378 = { is_controlled_by = USA }
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		CLF = {
+			transfer_state = 378
+			transfer_state = 876
+			load_oob = "CLF_Independence"
+		}
+		USA = {
+			declare_war_on = { target = CLF type = annex_everything }
+		}
+		
+	}
+}
+#夏威夷独立
+news_event = {
+	id = usa.92
+	title = usatext.92.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		has_stability < 0.2
+		629 = { is_controlled_by = USA }
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		HWI = {
+			transfer_state = 629
+			transfer_state = 630
+			transfer_state = 631
+		}
+		USA = {
+			declare_war_on = { target = HWI type = annex_everything }
+		}
+		
+	}
+}
+#KKK宣言
+news_event = {
+	id = usa.93
+	title = usatext.93.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		neutrality > 0.2
+		has_stability < 0.5
+		has_completed_focus = Civil_rights_equality
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		
+	}
+}
+# 卡尔福特
+news_event = {
+	id = usa.95
+	title = usatext.95.t
+	desc = usatext.96.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		add_political_power = -500
+		361 = {
+			set_demilitarized_zone = yes
+		}
+	}
+	
+	option = {
+		name = news.51.a
+		add_ideas = Calvert
+		add_stability = -0.50
+		add_to_variable = { influences = -120 }
+		random_list = {
+			60 = { news_event = { id = sov.32 } }
+			40 = { news_event = { id = sov.33 } }
+		}
+	}
+}
+#是否加入北约
+country_event = {
+	id = usa.96
+	title = usatext.96.t
+	desc = usatext.96.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = { 
+		name = usatext.96.a
+		ai_chance = {
+			factor = 10
+		}
+		news_event = { id = gen.50 }
+		USA = { 
+			add_to_faction = ROOT
+			add_to_variable = { influences = 20 }
+			country_event = { id = usa.5 } 
+		}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+	}
+	option = { 
+		ai_chance = {
+			factor = 0
+		}
+		name = usatext.96.b
+		USA = { country_event = { id = usa.97 } }
+	}
+}
+#拒绝
+country_event = {
+	id = usa.97
+	title = usatext.97.t
+	desc = usatext.97.d
+	 picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = { 
+		name = usatext.97.a
+		add_to_variable = { influences = -20 }
+	}
+}
+#建议成立北约
+news_event = {
+	id = usa.98
+	title = usatext.98.t
+	desc = usatext.98.d
+	 picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = { 
+		name = usatext.8.a
+			USA = {
+				add_to_variable = { influences = 120 }
+				add_to_faction = USA
+				add_to_faction = FROM
+			}
+	}
+}
+#罗森堡事件
+news_event = {
+	id = usa.99
+	title = usatext.99.t
+	desc = usatext.99.d
+	picture = GFX_Rosenberg
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1951.1.1
+		date < 1953.1.1
+		has_idea = McCarthyism_idea
+	}
+	option = {
+		name = usatext.8.a
+		add_political_power = -100
+		add_stability = -0.02
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		news_event = { id = usa.100 }
+	}
+}
+#罗森堡事件
+news_event = {
+	id = usa.100
+	title = usatext.100.t
+	desc = usatext.100.d
+	picture = GFX_Rosenberg
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.8.a
+	}
+}
+#罗森堡事件
+news_event = {
+	id = usa.101
+	title = usatext.101.t
+	desc = usatext.101.d
+	picture = GFX_Rosenberg
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.8.a
+	}
+}
+#麦卡锡
+news_event = {
+	id = usa.103
+	title = usatext.103.t
+	desc = usatext.103.d
+	picture = GFX_McCarthyism_event
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1951.1.1
+		date < 1953.1.1
+	}
+	option = {
+		name = usatext.103.a
+		if = {
+			limit = { tag = USA }
+			add_political_power = -100
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_ideas = McCarthyism_idea
+		}
+	}
+}
+#麦卡锡
+news_event = {
+	id = usa.104
+	title = usatext.104.t
+	desc = usatext.104.d
+	picture = GFX_McCarthyism
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1958.1.1
+		date < 1959.1.1
+	}
+	option = {
+		name = usatext.8.a
+		if = {
+			limit = { tag = USA }
+			remove_ideas = McCarthyism_idea
+		}
+	}
+}
+#赦免越战逃兵
+news_event = {
+	id = usa.105
+	title = usatext.105.t
+	desc = usatext.105.d
+	picture = GFX_FlowerPower
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.8.a
+	}
+}
+#嬉皮士文化兴盛
+news_event = {
+	id = usa.106
+	title = usatext.106.t
+	desc = usatext.106.d
+	picture = GFX_Hippies
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.105.a
+	}
+}
+#绿色和平组织
+news_event = {
+	id = usa.107
+	title = usatext.107.t
+	desc = usatext.107.d
+	picture = GFX_Hippies
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.105.a
+	}
+}
+#马丁路德金遇刺
+news_event = {
+	id = usa.108
+	title = usatext.108.t
+	desc = usatext.108.d
+	picture = GFX_KingAssassin
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.108.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.109 days = 1 }
+			add_stability = -0.2
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.12
+			}
+		}
+	}
+}
+#马丁路德金遇刺骚乱
+news_event = {
+	id = usa.109
+	title = usatext.109.t
+	desc = usatext.109.d
+	picture = GFX_USAriot
+	is_triggered_only = yes
+	option = {
+		name = usatext.108.a
+		add_stability = -0.2
+		361 = { add_resistance = 15 }
+		395 = { add_resistance = 15 }
+		373 = { add_resistance = 15 }
+		383 = { add_resistance = 15 }
+		393 = { add_resistance = 15 }
+		360 = { add_resistance = 15 }
+		358 = { add_resistance = 15 }
+		369 = { add_resistance = 15 }
+		396 = { add_resistance = 15 }
+		261 = { add_resistance = 15 }
+		362 = { add_resistance = 15 }
+		363 = { add_resistance = 15 }
+	}
+}
+#特种战争
+news_event = {
+	id = usa.110
+	title = usatext.110.t
+	desc = usatext.110.d
+	picture = GFX_ARVN
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.110.a
+	}
+}
+#邀请加入美洲国家组织
+news_event = {
+	id = usa.111
+	title = usatext.111.t
+	desc = usatext.111.d
+	picture = GFX_APLA_event
+	is_triggered_only = yes
+	option = {
+		name = usatext.111.a
+		news_event = { id = usa.112 }
+		add_ideas = APLA
+	}
+}
+#邀请加入美洲国家组织
+news_event = {
+	id = usa.112
+	title = usatext.112.t
+	desc = usatext.112.d
+	picture = GFX_APLA_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}
+#关岛主义
+news_event = {
+	id = usa.113
+	title = usatext.113.t
+	desc = usatext.113.d
+	picture = GFX_USarmyInVietnam
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}
+#星球大战计划
+news_event = {
+	id = usa.114
+	title = usatext.114.t
+	desc = usatext.114.d
+	picture = GFX_SDI_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}
+#邪恶帝国
+news_event = {
+	id = usa.115
+	title = usatext.115.t
+	desc = usatext.115.d
+	picture = GFX_Reagan
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		has_country_flag = evil_empire
+	}
+	option = {
+		name = usatext.108.a
+		if = {
+			limit = { tag = USA }
+			clr_country_flag = evil_empire
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+}
+#长电报
+news_event = {
+	id = usa.116
+	title = usatext.116.t
+	desc = usatext.116.d
+	picture = GFX_GeorgeKennan
+	major = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1947.7.1
+		date < 1947.12.1
+		tag = USA
+		NOT = { has_global_flag = GeorgeKennan }
+	}
+	option = {
+		name = usatext.112.a
+		set_global_flag = GeorgeKennan
+		if = {
+			limit = { tag = USA }
+			add_political_power = 200
+		}
+	}
+}
+#世界人权宣言
+news_event = {
+	id = usa.117
+	title = usatext.117.t
+	desc = usatext.117.d
+	picture = GFX_UDHR
+	major = yes
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		date > 1948.5.1
+		date < 1948.12.1
+		tag = USA
+		NOT = { has_global_flag = UDHR }
+	}
+	option = {
+		name = usatext.112.a
+		set_global_flag = UDHR
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+	}
+}
+#美国空军成立
+news_event = {
+	id = usa.118
+	title = usatext.118.t
+	desc = usatext.118.d
+	picture = GFX_F86
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.118.a
+	}
+}
+#表态支持民权改革
+news_event = {
+	id = usa.119
+	title = usatext.119.t
+	desc = usatext.119.d
+	picture = GFX_BlacksMovement
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+#行政命令9981号
+news_event = {
+	id = usa.120
+	title = usatext.120.t
+	desc = usatext.120.d
+	picture = GFX_BlacksMovement
+	major = yes
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {   #阿尔杰·希斯
+	id = usa.121
+	title = usatext.121.t
+	desc = usatext.121.d
+	picture = GFX_AlgerHiss
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = AlgerHiss }
+		date > 1948.8.20
+		date < 1948.12.1
+		
+	}
+	option = {
+		name = jap.96.a
+		set_global_flag = AlgerHiss
+		add_stability = -0.02
+	}
+}
+#接受美国保护
+news_event = {
+	id = usa.122
+	title = usatext.122.t
+	desc = usatext.122.d
+	picture = GFX_MarshallAid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#麦克阿瑟
+news_event = {
+	id = usa.123
+	title = usatext.123.t
+	desc = usatext.123.d
+	picture = GFX_McArthur
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.124
+	title = usatext.124.t
+	desc = usatext.124.d
+	picture = GFX_TheTwilightZone
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.125
+	title = usatext.125.t
+	desc = usatext.125.d
+	picture = GFX_TheTwilightZone
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = TheTwilightZone }
+		date > 1959.1.1
+		date < 1960.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = TheTwilightZone
+	}
+}
+news_event = {
+	id = usa.126
+	title = usatext.126.t
+	desc = usatext.126.d
+	picture = GFX_Snoopy
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = Snoopy }
+		date > 1950.1.1
+		date < 1951.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = Snoopy
+	}
+}
+news_event = {
+	id = usa.127
+	title = usatext.127.t
+	desc = usatext.127.d
+	picture = GFX_McDonald
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = McDonald }
+		date > 1954.1.1
+		date < 1955.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = McDonald
+	}
+}
+news_event = {
+	id = usa.128
+	title = usatext.128.t
+	desc = usatext.128.d
+	picture = GFX_Kentucky
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = Kentucky }
+		date > 1952.1.1
+		date < 1953.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = Kentucky
+	}
+}
+news_event = {
+	id = usa.129
+	title = usatext.129.t
+	desc = usatext.129.d
+	picture = GFX_Playboy
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = Playboy }
+		date > 1953.1.1
+		date < 1954.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = Playboy
+	}
+}
+news_event = {
+	id = usa.130
+	title = usatext.130.t
+	desc = usatext.130.d
+	picture = GFX_BravoCastle
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.131
+	title = usatext.131.t
+	desc = usatext.131.d
+	picture = GFX_DuckCover
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = japanoverture
+	}
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.132
+	title = usatext.132.t
+	desc = usatext.132.d
+	picture = GFX_PeterPan
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = PeterPan }
+		date > 1952.2.1
+		date < 1954.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = PeterPan
+	}
+}
+news_event = {
+	id = usa.133
+	title = usatext.133.t
+	desc = usatext.133.d
+	picture = GFX_MarshallAid
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = RomanHoliday }
+		date > 1953.8.1
+		date < 1954.2.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = RomanHoliday
+	}
+}
+news_event = {
+	id = usa.134
+	title = usatext.134.t
+	desc = usatext.134.d
+	picture = GFX_MarshallAid
+	major = yes
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = FromHeretoEternity }
+		date > 1954.3.1
+		date < 1954.7.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = FromHeretoEternity
+	}
+}
+news_event = {
+	id = usa.135
+	title = usatext.135.t
+	desc = usatext.135.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = TuringDeath }
+		date > 1954.6.1
+		date < 1954.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = TuringDeath
+	}
+}
+news_event = {
+	id = usa.136
+	title = usatext.136.t
+	desc = usatext.136.d
+	picture = GFX_Einstein
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = Manifesto }
+		date > 1955.1.1
+		date < 1955.4.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = Manifesto
+	}
+}
+news_event = {
+	id = usa.137
+	title = usatext.137.t
+	desc = usatext.137.d
+	picture = GFX_Einstein
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = EinsteinDeath }
+		date > 1955.4.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = EinsteinDeath
+	}
+}
+news_event = {
+	id = usa.138
+	title = usatext.138.t
+	desc = usatext.138.d
+	picture = GFX_BravoCastle
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.139
+	title = usatext.139.t
+	desc = usatext.139.d
+	picture = GFX_LittleRichard
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = LittleRichard }
+		date > 1955.4.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = LittleRichard
+	}
+}
+news_event = {
+	id = usa.140
+	title = usatext.140.t
+	desc = usatext.140.d
+	picture = GFX_ElvisPresley
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	immediate = {
+		play_song = USA_13
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = Presley }
+		date > 1954.7.1
+		date < 1954.9.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = Presley
+	}
+}
+#托皮卡教育局案
+news_event = {
+	id = usa.141
+	title = usatext.141.t
+	desc = usatext.141.d
+	picture = GFX_OliverBrown
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = OliverBrown }
+		has_idea = jimmClound_ideas
+		date > 1954.5.1
+		date < 1954.10.1
+	}
+	option = {
+		name = usatext.19.a
+		ai_chance = {
+			factor = 25	
+		}
+		set_country_flag = OliverBrown
+		set_country_flag = OliverBrownWin
+		news_event = { id = usa.143 }
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.06
+		}
+		add_stability = 0.05
+	}
+	option = {
+		name = usatext.19.a
+		ai_chance = {
+			factor = 0
+		}
+		set_country_flag = OliverBrown
+		set_country_flag = BlackRevo
+		news_event = { id = usa.142 }
+		add_stability = -0.08
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.06
+		}
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.03
+		}
+	}
+}
+news_event = {
+	id = usa.142
+	title = usatext.142.t
+	desc = usatext.142.d
+	picture = GFX_OliverBrown
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.143
+	title = usatext.143.t
+	desc = usatext.143.d
+	picture = GFX_OliverBrown
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.144
+	title = usatext.144.t
+	desc = usatext.144.d
+	picture = GFX_GeorgeWallance
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = SouthernSenatorsBoycott }
+		has_country_flag = OliverBrownWin
+		date > 1957.4.1
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = SouthernSenatorsBoycott
+		add_stability = -0.02
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.02
+		}
+	}
+}
+news_event = {
+	id = usa.145
+	title = usatext.145.t
+	desc = usatext.145.d
+	picture = GFX_LittleRock
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = LIttleRockRoit }
+		has_country_flag = OliverBrownWin
+		date > 1957.9.1
+		date < 1959.9.1
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = LIttleRockRoit
+		news_event = { id = usa.146 }
+		372 = { add_resistance = 15 }
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.03
+		}
+		add_stability = -0.1
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = LIttleRockRoit
+		news_event = { id = usa.147 }
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = -0.02
+		}
+		add_political_power = -200
+		add_stability = -0.12
+	}
+}
+news_event = {
+	id = usa.146
+	title = usatext.146.t
+	desc = usatext.146.d
+	picture = GFX_LittleRock
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.06
+			add_political_power = -100
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.147
+	title = usatext.147.t
+	desc = usatext.147.d
+	picture = GFX_LittleRock
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = USA }
+			add_stability = 0.04
+			add_political_power = 100
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.148
+	title = usatext.148.t
+	desc = usatext.148.d
+	picture = GFX_USAriot
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { has_completed_focus = USA_strike_civil_right }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.149
+	title = usatext.149.t
+	desc = usatext.149.d
+	picture = GFX_OliverBrown
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = AcceptTopica }
+		has_country_flag = OliverBrownWin
+		date > 1956.4.1
+		date < 1956.12.2
+	}
+	option = {
+		name = usatext.19.a
+		if = {
+			limit = { tag = USA }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+		set_country_flag = AcceptTopica
+	}
+}
+news_event = {
+	id = usa.150
+	title = usatext.150.t
+	desc = usatext.150.d
+	picture = GFX_GeorgeWallance
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = BoycottTopica }
+		has_country_flag = OliverBrownWin
+		date > 1956.5.1
+		date < 1956.12.2
+	}
+	option = {
+		name = usatext.19.a
+		if = {
+			limit = { tag = USA }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+			set_country_flag = BoycottTopica
+		}
+	}
+}
+news_event = {
+	id = usa.151
+	title = usatext.151.t
+	desc = usatext.151.d
+	picture = GFX_HenryWallance
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.152
+	title = usatext.152.t
+	desc = usatext.152.d
+	picture = GFX_GeorgeWallance
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.153
+	title = usatext.153.t
+	desc = usatext.153.d
+	picture = GFX_KKK_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.154
+	title = usatext.154.t
+	desc = usatext.154.d
+	picture = GFX_GeorgeWallance
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.155
+	title = usatext.155.t
+	desc = usatext.155.d
+	picture = GFX_GusHall
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.156
+	title = usatext.156.t
+	desc = usatext.156.d
+	picture = GFX_GusHall
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.157
+	title = usatext.157.t
+	desc = usatext.157.d
+	picture = GFX_USAElect1960
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.158
+	title = usatext.158.t
+	desc = usatext.158.d
+	picture = GFX_Strom_Thurmond
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.159
+	title = usatext.159.t
+	desc = usatext.159.d
+	picture = GFX_Strom_Thurmond
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = Dixecratic }
+		date > 1948.4.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = Dixecratic
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.05
+		}
+	}
+}
+news_event = {
+	id = usa.160
+	title = usatext.160.t
+	desc = usatext.160.d
+	picture = GFX_Strom_Thurmond
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.161
+	title = usatext.161.t
+	desc = usatext.161.d
+	picture = GFX_JimCrow
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.162
+	title = usatext.162.t
+	desc = usatext.162.d
+	picture = GFX_JimCrow
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.163
+	title = usatext.163.t
+	desc = usatext.163.d
+	picture = GFX_BlacksMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.164
+	title = usatext.164.t
+	desc = usatext.164.d
+	picture = GFX_BlacksMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.165
+	title = usatext.165.t
+	desc = usatext.165.d
+	picture = GFX_BlacksMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.166
+	title = usatext.166.t
+	desc = usatext.166.d
+	picture = GFX_BlacksMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.167
+	title = usatext.167.t
+	desc = usatext.167.d
+	picture = GFX_BlacksMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.168
+	title = usatext.168.t
+	desc = usatext.168.d
+	picture = GFX_BlacksMovement
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		OR = {
+			tag = CAN
+			tag = ENG
+			tag = SOV
+			tag = FRA
+			tag = PRC
+			tag = MEX
+		}
+		NOT = { has_country_flag = UsaBlackAswer }
+		USA = {
+			OR = {
+				has_country_flag = BlackRevo
+				has_completed_focus = Anti_negro
+			}
+		}
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = UsaBlackAswer
+		news_event = { id = usa.169 }
+	}
+}
+news_event = {
+	id = usa.169
+	title = usatext.169.t
+	desc = usatext.169.d
+	picture = GFX_BlacksMovement
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.170
+	title = usatext.170.t
+	desc = usatext.170.d
+	picture = GFX_BlacksMovement
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		has_country_flag = BlackRevo
+	}
+	option = {
+		name = gen.13.a
+		add_stability = -0.03
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.03
+		}
+	}
+	option = {
+		name = gen.13.b
+		news_event = { id = usa.171 }
+		add_stability = -0.01
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.02
+		}
+	}
+}
+
+news_event = {
+	id = usa.171
+	title = usatext.171.t
+	desc = usatext.171.d
+	picture = GFX_USAriot
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 0
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+	}
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				has_country_leader_with_trait = anti_america
+			}
+		}
+		if = {
+			limit = { has_idea = UNmember }
+			
+			news_event = { id = usa.172 }
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = SOV
+					tag = PRC
+					tag = CUB
+				}
+			}
+			USA = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.02
+				}
+				
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.172
+	title = usatext.172.t
+	desc = usatext.172.d
+	picture = GFX_USAriot
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.173
+	title = usatext.173.t
+	desc = usatext.173.d
+	picture = GFX_McCarthyism
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.174
+	title = usatext.174.t
+	desc = usatext.174.d
+	picture = GFX_McCarthyism
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.175
+	title = usatext.175.t
+	desc = usatext.175.d
+	picture = GFX_McCarthyism
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.176
+	title = usatext.176.t
+	desc = usatext.176.d
+	picture = GFX_MarshallAid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.177
+	title = usatext.177.t
+	desc = usatext.177.d
+	picture = GFX_Hippies
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.178
+	title = usatext.178.t
+	desc = usatext.178.d
+	picture = GFX_AmericanChurch
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.179
+	title = usatext.179.t
+	desc = usatext.179.d
+	picture = GFX_AmericanChurch
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.180
+	title = usatext.180.t
+	desc = usatext.180.d
+	picture = GFX_AmericanChurch
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.181
+	title = usatext.181.t
+	desc = usatext.181.d
+	picture = GFX_Disneyland
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.182
+	title = usatext.182.t
+	desc = usatext.182.d
+	picture = GFX_USAcongress
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.183
+	title = usatext.183.t
+	desc = usatext.183.d
+	picture = GFX_USAcongress
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.184
+	title = usatext.184.t
+	desc = usatext.184.d
+	picture = GFX_USAcongress
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.185
+	title = usatext.185.t
+	desc = usatext.185.d
+	picture = GFX_USAcongress
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.186
+	title = usatext.186.t
+	desc = usatext.186.d
+	picture = GFX_USAcongress
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.187
+	title = usatext.187.t
+	desc = usatext.187.d
+	picture = GFX_LGBT_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.188
+	title = usatext.188.t
+	desc = usatext.188.d
+	picture = GFX_LGBT_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.189
+	title = usatext.189.t
+	desc = usatext.189.d
+	picture = GFX_Hightway
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.190
+	title = usatext.190.t
+	desc = usatext.190.d
+	picture = GFX_KennedySpeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.191
+	title = usatext.191.t
+	desc = usatext.191.d
+	picture = GFX_LBJ
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.192
+	title = usatext.192.t
+	desc = usatext.192.d
+	picture = GFX_FRS
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+
+news_event = {
+	id = usa.193
+	title = usatext.193.t
+	desc = usatext.193.d
+	picture = GFX_kkk_revolts
+	mean_time_to_happen = { days = 50 }
+	trigger = {
+		tag = USA
+		has_completed_focus = Civil_rights_equality
+		OR = {
+			authoritarianism > 0.2
+			has_stability < 0.6
+		}
+	}
+	option = {
+		name = usatext.19.a
+		add_stability = -0.02
+		random_owned_state = {
+			limit = { is_core_of = CSA }
+			add_resistance = 20
+		}
+		random_owned_state = {
+			limit = { is_core_of = CSA }
+			add_resistance = 20
+		}
+		random_owned_state = {
+			limit = { is_core_of = CSA }
+			add_resistance = 20
+		}
+		random_owned_state = {
+			limit = { is_core_of = CSA }
+			add_resistance = 20
+		}
+		random_owned_state = {
+			limit = { is_core_of = CSA }
+			add_resistance = 20
+		}
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.06
+		}
+	}
+}
+news_event = {
+	id = usa.194
+	title = usatext.194.t
+	desc = usatext.194.d
+	picture = GFX_kkk_revolts
+	mean_time_to_happen = { days = 25 }
+	trigger = {
+		tag = USA
+		NOT = { has_idea = jimmClound_ideas }
+		OR = {
+			authoritarianism > 0.1
+			date < 1968.1.1
+		}
+	}
+	option = {
+		name = usatext.19.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.01
+		}
+	}
+}
+news_event = {
+	id = usa.195
+	title = usatext.195.t
+	desc = usatext.195.d
+	picture = GFX_kkk_revolts
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_idea = jimmClound_ideas }
+		authoritarianism > 0.25
+		has_stability < 0.6
+		date < 1975.1.1
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.12
+			}
+			add_ideas = KKK_Revolt
+		}
+	}
+}
+news_event = {
+	id = usa.196
+	title = usatext.196.t
+	desc = usatext.196.d
+	picture = GFX_BlakcPanthers
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = jimmClound_ideas
+		communism > 0.12
+		has_stability < 0.6
+		date < 1975.1.1
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.12
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+			add_ideas = Blakcs_Revolution
+		}
+	}
+}
+news_event = {
+	id = usa.197
+	title = usatext.197.t
+	desc = usatext.197.d
+	picture = GFX_BlakcPanthers
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.198
+	title = usatext.198.t
+	desc = usatext.198.d
+	picture = GFX_MarshallAid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.199
+	title = usatext.199.t
+	desc = usatext.199.d
+	picture = GFX_MarshallAid
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.200
+	title = usatext.200.t
+	desc = usatext.200.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.201
+	title = usatext.201.t
+	desc = usatext.201.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.202
+	title = usatext.202.t
+	desc = usatext.202.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+
+news_event = {
+	id = usa.203
+	title = usatext.203.t
+	desc = usatext.203.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_government = communism }
+				has_country_flag = southeastasia
+			}
+			news_event = { id = usa.204 }
+			set_country_flag = SEATO_agree
+			add_to_variable = { global.SEATO_agree = 1 }
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 100
+				has_country_leader_with_trait = pro_third_world
+			}
+		}
+		name = usatext.5.a
+		if = {
+			limit = {
+				NOT = { has_government = communism }
+				has_country_flag = southeastasia
+			}
+			news_event = { id = usa.206 }
+		}
+	}
+}
+news_event = {
+	id = usa.204
+	title = usatext.204.t
+	desc = usatext.204.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.205
+	title = usatext.205.t
+	desc = usatext.205.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.206
+	title = usatext.206.t
+	desc = usatext.206.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.207
+	title = usatext.207.t
+	desc = usatext.207.d
+	picture = GFX_Eisenhower
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		OR = {
+			tag = SIA
+			tag = PHI
+		}
+		has_country_flag = southeastasia
+		check_variable = { global.SEATO_agree > 1 }
+		NOT = { has_idea = SEATO }
+	}
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { has_country_flag = southeastasia }
+			add_ideas = SEATO
+			add_political_power = 100
+			add_popularity = { ideology = communism popularity = -0.01 }
+			add_stability = 0.05
+		}
+	}
+}
+#北约通用但
+news_event = {
+	id = usa.210
+	title = usatext.210.t
+	desc = usatext.210.d
+	picture = GFX_Trumen
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = FROM
+				is_subject = no
+			}
+			news_event = { id = usa.211 }
+			add_ideas = us_762mm_modifier
+		}
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = FROM
+				is_subject = no
+			}
+			news_event = { id = usa.212 }
+		}
+	}
+}
+news_event = {
+	id = usa.211
+	title = usatext.211.t
+	desc = usatext.211.d
+	picture = GFX_Trumen
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = usa.212
+	title = usatext.212.t
+	desc = usatext.212.d
+	picture = GFX_Trumen
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = usa.213
+	title = usatext.213.t
+	desc = usatext.213.d
+	picture = GFX_EugeneStoner
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = usatext.1.a
+		if = {
+			limit = {
+				is_in_faction_with = USA
+				is_subject = no
+			}
+			remove_ideas = us_762mm_modifier
+		}
+	}
+}
+news_event = {
+	id = usa.214
+	title = usatext.214.t
+	desc = usatext.214.d
+	picture = GFX_MartinLutherKing
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = usa214 }
+		date > 1956.3.1
+		date < 1956.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = usa214
+		if = {
+			limit = { has_completed_focus = USA_strike_civil_right }
+			add_political_power = 90
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.215
+	title = usatext.215.t
+	desc = usatext.215.d
+	picture = GFX_ILoveLucy
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = usa215 }
+		date > 1951.10.1
+		date < 1951.12.2
+	}
+	immediate = {
+		play_song = USA_59
+	}
+	option = {
+		name = usatext.215.a
+		set_country_flag = usa215
+	}
+}
+news_event = {
+	id = usa.216
+	title = usatext.216.t
+	desc = usatext.216.d
+	picture = GFX_JamesDean
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = usa216 }
+		date > 1955.10.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = usa216
+	}
+}
+news_event = {
+	id = usa.217
+	title = usatext.217.t
+	desc = usatext.217.d
+	picture = GFX_UDHR
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = usa217 }
+		date > 1952.7.1
+		date < 1952.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = usa217
+			custom_effect_tooltip = usa217tool
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = developmented
+					has_country_flag = gen250
+				}
+			}
+			custom_effect_tooltip = focus_tooltip_influence_200
+			add_political_power = 200
+			add_popularity = { ideology = communism popularity = 0.02 }
+			add_stability = 0.02
+		}
+	}
+}
+news_event = {
+	id = usa.220
+	title = usatext.220.t
+	desc = usatext.220.d
+	picture = GFX_1956ArizonaAircrash
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_country_flag = usa220 }
+		date > 1956.6.1
+		date < 1956.7.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = usa220
+	}
+}
+news_event = {
+	id = usa.221
+	title = usatext.221.t
+	desc = usatext.221.d
+	picture = GFX_OletaYates
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = McCarthyism_idea
+		NOT = { has_country_flag = usa221 }
+		date > 1956.10.1
+		date < 1956.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = usa221
+	}
+}
+news_event = {
+	id = usa.222
+	title = usatext.222.t
+	desc = usatext.222.d
+	picture = GFX_OletaYates
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = McCarthyism_idea
+		has_country_flag = usa221
+		NOT = { has_country_flag = usa222 }
+		date > 1956.10.1
+		date < 1956.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_country_flag = usa222
+	}
+}
+news_event = {
+	id = usa.223
+	title = usatext.223.t
+	desc = usatext.223.d
+	picture = GFX_OletaYates
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = USA
+		has_idea = McCarthyism_idea
+		has_country_flag = usa222
+		NOT = { has_country_flag = usa223 }
+		date > 1957.6.1
+		date < 1957.9.2
+	}
+	option = {
+		name = usatext.19.a
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = usa223
+		news_event = { id = usa.224 }
+		add_stability = 0.01
+		add_political_power = 100
+		add_popularity = { ideology = communism popularity = 0.02 }
+		add_popularity = { ideology = authoritarianism popularity = -0.01 }
+	}
+	option = {
+		name = usatext.19.a
+		ai_chance = {
+			factor = 0
+		}
+		set_country_flag = usa223
+		news_event = { id = usa.225 }
+		add_stability = -0.01
+		add_political_power = 100
+		add_popularity = { ideology = communism popularity = -0.02 }
+		add_popularity = { ideology = authoritarianism popularity = 0.02 }
+	}
+}
+news_event = {
+	id = usa.224
+	title = usatext.224.t
+	desc = usatext.224.d
+	picture = GFX_EarlWarren
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = usa.225
+	title = usatext.225.t
+	desc = usatext.225.d
+	picture = GFX_EdgarHoover
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+		if = {
+			limit = { tag = USA }
+			add_stability = 0.01
+			add_political_power = 90
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+#阿拉斯加精神健康法案
+news_event = {
+	id = usa.226
+	title = usatext.226.t
+	desc = usatext.226.d
+	picture = GFX_GFX_BuildingBrazilia
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa226 }
+		date > 1955.10.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa226
+	}
+}
+news_event = {
+	id = usa.227
+	title = usatext.227.t
+	desc = usatext.227.d
+	picture = GFX_Fluoridation
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = McCarthyism_idea
+		NOT = { has_global_flag = usa227 }
+		date > 1956.2.1
+		date < 1956.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa227
+		if = {
+			limit = { tag = USA }
+			add_political_power = -50
+		}
+	}
+}
+news_event = {
+	id = usa.228
+	title = usatext.228.t
+	desc = usatext.228.d
+	picture = GFX_Fluoridation
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = McCarthyism_idea
+		NOT = { has_global_flag = usa228 }
+		date > 1956.2.1
+		date < 1962.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa228
+		if = {
+			limit = { tag = USA }
+			add_political_power = -50
+		}
+	}
+}
+news_event = {
+	id = usa.229
+	title = usatext.229.t
+	desc = usatext.229.d
+	picture = GFX_McCarthyism_event
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_idea = McCarthyism_idea
+		NOT = { has_global_flag = usa229 }
+		date > 1954.2.1
+		date < 1955.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa229
+		if = {
+			limit = { tag = USA }
+			add_stability = 0.01
+			add_political_power = 90
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+#卡森金娜
+news_event = {
+	id = usa.230
+	title = usatext.230.t
+	desc = usatext.230.d
+	picture = GFX_Kasenkina
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_completed_focus = US_fucus_WGR
+		NOT = { has_global_flag = usa230 }
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa230
+	}
+}
+news_event = {
+	id = usa.231
+	title = usatext.231.t
+	desc = usatext.231.d
+	picture = GFX_Kasenkina
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa231 }
+		has_global_flag = usa230
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa231
+	}
+}
+news_event = {
+	id = usa.232
+	title = usatext.232.t
+	desc = usatext.232.d
+	picture = GFX_KasenkinaRescue
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa232 }
+		has_global_flag = usa231
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa232
+	}
+}
+news_event = {
+	id = usa.233
+	title = usatext.233.t
+	desc = usatext.233.d
+	picture = GFX_KasenkinaKinapp
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa233 }
+		has_global_flag = usa232
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa233
+	}
+}
+news_event = {
+	id = usa.234
+	title = usatext.234.t
+	desc = usatext.234.d
+	picture = GFX_KasenkinaKinapp
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa234 }
+		has_global_flag = usa233
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa234
+	}
+}
+news_event = {
+	id = usa.235
+	title = usatext.235.t
+	desc = usatext.235.d
+	picture = GFX_KasenkinaSuicide
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa235 }
+		has_global_flag = usa234
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa235
+	}
+}
+news_event = {
+	id = usa.236
+	title = usatext.236.t
+	desc = usatext.236.d
+	picture = GFX_KasenkinaSuicide
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa236 }
+		has_global_flag = usa235
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa236
+		set_global_flag = usa237
+		news_event = { id = usa.237 }
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa236
+		set_global_flag = usa240
+		news_event = { id = usa.240 }
+	}
+}
+news_event = {
+	id = usa.237
+	title = usa.237.t
+	desc = usa.237.d
+	picture = GFX_KasenkinaLeave
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.116.a
+	}
+
+}
+news_event = {
+	id = usa.238
+	title = usatext.238.t
+	desc = usatext.238.d
+	picture = GFX_KasenkinaLeave
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa238 }
+		has_global_flag = usa237
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa238
+	}
+}
+news_event = {
+	id = usa.239
+	title = usatext.239.t
+	desc = usatext.239.d
+	picture = GFX_KasenkinaLeave
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa239 }
+		has_global_flag = usa238
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa239
+	}
+}
+news_event = {
+	id = usa.240
+	title = usa.240.t
+	desc = usa.240.d
+	picture = GFX_KasenkinaLeave
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.116.a
+	}
+
+}
+news_event = {
+	id = usa.241
+	title = usatext.241.t
+	desc = usatext.241.d
+	picture = GFX_KasenkinaLeave
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = USA
+		has_completed_focus = US_fucus_WGR
+		NOT = { has_global_flag = usa241 }
+		has_global_flag = usa240
+		date > 1948.10.1
+		date < 1949.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa241
+	}
+}
+news_event = {
+	id = usa.242
+	title = usatext.242.t
+	desc = usatext.242.d
+	picture = GFX_ElizabethGurleyFlynn
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa242 }
+		date > 1951.3.1
+		date < 1951.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa242
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.01
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.243
+	title = usatext.243.t
+	desc = usatext.243.d
+	picture = GFX_ConservatismWeman
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa243 }
+		has_completed_focus = USA_anti_commie_group
+		date > 1952.3.1
+		date < 1952.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa243
+		if = {
+			limit = { tag = USA }
+			add_stability = 0.02
+			add_political_power = 150
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.244
+	title = usatext.244.t
+	desc = usatext.244.d
+	picture = GFX_ConservatismWeman
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa244 }
+		date > 1949.3.1
+		date < 1949.5.2
+		has_completed_focus = USA_anti_commie_group
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa244
+		if = {
+			limit = { tag = USA }
+			add_stability = 0.02
+			add_political_power = 150
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.245
+	title = usatext.245.t
+	desc = usatext.245.d
+	picture = GFX_MargaretChaseSmith
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa245 }
+		has_idea = McCarthyism_idea
+		date > 1950.3.1
+		date < 1950.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa245
+	}
+}
+news_event = {
+	id = usa.246
+	title = usatext.246.t
+	desc = usatext.246.d
+	picture = GFX_EdwardMurrow
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa246 }
+		has_idea = McCarthyism_idea
+		date > 1953.10.1
+		date < 1953.11.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa246
+	}
+}
+news_event = {
+	id = usa.247
+	title = usatext.247.t
+	desc = usatext.247.d
+	picture = GFX_EdwardMurrow
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa247 }
+		has_idea = McCarthyism_idea
+		date > 1954.3.1
+		date < 1954.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa247
+	}
+}
+news_event = {
+	id = usa.248
+	title = usatext.248.t
+	desc = usatext.248.d
+	picture = GFX_McCarthyHearings
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa248 }
+		has_idea = McCarthyism_idea
+		date > 1954.4.1
+		date < 1954.6.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa248
+	}
+}
+
+#波音707
+news_event = {
+	id = usa.250
+	title = usatext.250.t
+	desc = usatext.250.d
+	picture = GFX_Boeing707
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa250 }
+		date > 1955.7.1
+		date < 1956.1.1
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa250
+	}
+}
+news_event = {
+	id = usa.251
+	title = usatext.251.t
+	desc = usatext.251.d
+	picture = GFX_Boeing707
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa251 }
+		date > 1957.11.1
+		date < 1958.1.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa251
+	}
+}
+news_event = {
+	id = usa.252
+	title = usatext.252.t
+	desc = usatext.252.d
+	picture = GFX_LesterHunt
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa252 }
+		date > 1949.11.1
+		date < 1950.1.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa252
+	}
+}
+news_event = {
+	id = usa.253
+	title = usatext.253.t
+	desc = usatext.253.d
+	picture = GFX_LesterHunt
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa253 }
+		date > 1953.5.1
+		date < 1953.7.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa253
+	}
+}
+news_event = {
+	id = usa.254
+	title = usatext.254.t
+	desc = usatext.254.d
+	picture = GFX_LesterHunt
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa252 }
+		date > 1954.5.1
+		date < 1954.7.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa252
+	}
+}
+
+news_event = {
+	id = usa.255
+	title = usatext.255.t
+	desc = usatext.255.d
+	picture = GFX_McCarthyism_event
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa255 }
+		has_idea = McCarthyism_idea
+		date > 1957.1.1
+		date < 1957.3.2
+	}
+	option = {
+		name = usatext.255.a
+		set_global_flag = usa255
+		if = {
+			limit = { tag = USA }
+			retire_character = USA_joseph_mccarthy
+			remove_ideas = McCarthyism_idea
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+}
+news_event = {
+	id = usa.256
+	title = usatext.256.t
+	desc = usatext.256.d
+	picture = GFX_AmericaNuclearPlant
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa256 }
+		is_ai = yes
+		date > 1958.4.1
+		date < 1958.8.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = usa256
+		if = {
+			limit = { tag = USA }
+			add_stability = 0.03
+		}
+	}
+}
+
+news_event = {
+	id = usa.257
+	title = usatext.257.t
+	desc = usatext.257.d
+	picture = GFX_AmericaNuclearPlant
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.258
+	title = usatext.258.t
+	desc = usatext.258.d
+	picture = GFX_GilbertLab
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa258 }
+		date > 1950.4.1
+		date < 1950.8.2
+	}
+	option = {
+		name = usatext.258.a
+		set_global_flag = usa258
+	}
+}
+news_event = {
+	id = usa.259
+	title = usatext.259.t
+	desc = usatext.259.d
+	picture = GFX_AtomicAge
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			tag = USA
+			is_in_faction_with = USA
+		}
+		NOT = { has_country_flag = usa259 }
+		date > 1950.4.1
+		date < 1960.8.2
+	}
+	option = {
+		name = usatext.259.a
+		set_country_flag = usa259
+	}
+}
+
+news_event = {
+	id = usa.260
+	title = usatext.260.t
+	desc = usatext.260.d
+	picture = GFX_ThemMovie
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa260 }
+		date > 1954.6.1
+		date < 1954.8.2
+	}
+	option = {
+		name = usatext.259.a
+		set_global_flag = usa260
+	}
+}
+news_event = {
+	id = usa.261
+	title = usatext.261.t
+	desc = usatext.261.d
+	picture = GFX_Fahrenheit451
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = usa261 }
+		date > 1953.10.1
+		date < 1953.11.2
+	}
+	option = {
+		name = usatext.259.a
+		set_global_flag = usa261
+	}
+}
+
+news_event = {
+	id = usa.262
+	title = usatext.262.t
+	desc = usatext.262.d
+	picture = GFX_USPolice
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1949.2.1
+		date < 1957.3.1
+		has_idea = McCarthyism_idea
+		NOT = { has_global_flag = USA262 }
+	}
+	option = {
+		name = usatext.262.a
+		set_global_flag = USA262
+	}
+}
+news_event = {
+	id = usa.263
+	title = usatext.263.t
+	desc = usatext.263.d
+	picture = GFX_EisenhowerWin
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1952.2.1
+		OR = {
+			date < 1952.11.1
+			date > 1956.11.1
+		}
+		date < 1957.3.1
+		has_idea = jimmClound_ideas
+		NOT = { has_global_flag = USA263 }
+	}
+	option = {
+		name = usatext.263.a
+		set_global_flag = USA263
+	}
+}
+news_event = {
+	id = usa.264
+	title = usatext.264.t
+	desc = usatext.264.d
+	picture = GFX_JohnVonNeumann
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.2.1
+		date < 1957.4.1
+		NOT = { has_global_flag = USA264 }
+	}
+	option = {
+		name = usatext.263.a
+		set_global_flag = USA264
+	}
+}
+news_event = {
+	id = usa.265
+	title = usatext.265.t
+	desc = usatext.265.d
+	picture = GFX_RiverKwai
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.10.1
+		date < 1958.12.1
+		NOT = { has_global_flag = USA265 }
+	}
+	option = {
+		name = usatext.263.a
+		set_global_flag = USA265
+	}
+}
+news_event = {
+	id = usa.266
+	title = usatext.266.t
+	desc = usatext.266.d
+	picture = GFX_1958AlaskaEarthquake
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.7.1
+		date < 1958.9.1
+		NOT = { has_global_flag = USA266 }
+	}
+	option = {
+		name = usatext.263.a
+		set_global_flag = USA266
+	}
+}
+news_event = {
+	id = usa.267
+	title = usatext.267.t
+	desc = usatext.267.d
+	picture = GFX_MartinLutherKing
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1957.1.1
+		date < 1957.3.1
+		NOT = { has_global_flag = USA267 }
+	}
+	option = {
+		name = usatext.263.a
+		set_global_flag = USA267
+		if = {
+			limit = { tag = USA }
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.268
+	title = usatext.268.t
+	desc = usatext.268.d
+	picture = GFX_PrestonsburgBusCrash
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.2.1
+		date < 1958.3.1
+		NOT = { has_global_flag = usa268 }
+	}
+	option = {
+		name = usatext.263.a
+		set_global_flag = usa268
+	}
+}
+country_event = {
+	id = usa.270
+	title = usatext.270.t
+	desc = usatext.270.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+		ai_chance = {
+			factor = 0
+		}
+		USA = { country_event = usa.271 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		ai_chance = {
+			factor = 50
+		}
+		add_ideas = NORAD
+		USA = { add_ideas = NORAD }
+		news_event = usa.272
+	}
+}
+country_event = {
+	id = usa.271
+	title = usatext.271.t
+	desc = usatext.271.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+news_event = {
+	id = usa.272
+	title = usatext.272.t
+	desc = usatext.272.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+
+news_event = {
+	id = usa.273
+	title = usatext.273.t
+	desc = usatext.273.d
+	picture = GFX_MarsBluffBomb
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.3.1
+		date < 1958.4.1
+		has_tech = strategic_bomber2
+		NOT = { has_global_flag = usa273 }
+	}
+	option = {
+		name = usatext.273.a
+		set_global_flag = usa273
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.01
+			add_political_power = -120
+		}
+	}
+}
+
+
+country_event = {
+	id = usa.274
+	title = usatext.274.t
+	desc = usatext.274.d
+	picture = GFX_nuclear_research
+	is_triggered_only = yes
+	option = {
+			ai_chance = {
+				factor = 10
+			}
+		name = usatext.273.a
+		add_political_power = 300
+		FROM = {
+			country_event = usa.276
+			set_country_flag = InternationalAtomic
+		}
+	}
+	option = {
+			ai_chance = {
+				factor = 0
+			}
+		name = usatext.273.a
+		FROM = {
+			country_event = usa.275
+		}
+	}
+}
+country_event = {
+	id = usa.275
+	title = usatext.275.t
+	desc = usatext.275.d
+	picture = GFX_nuclear_research
+	is_triggered_only = yes
+	option = {
+		name = usatext.273.a
+	}
+}
+country_event = {
+	id = usa.276
+	title = usatext.276.t
+	desc = usatext.276.d
+	picture = GFX_nuclear_research
+	is_triggered_only = yes
+	option = {
+		name = usatext.273.a
+	}
+}
+
+country_event = {
+	id = usa.280
+	title = usatext.280.t
+	desc = usatext.280.d
+	picture = GFX_PGM19Samll
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				tag = FRA
+			}
+		}
+		USA = { country_event = usa.281 }
+	}
+	option = {	#支持政变
+		name = usatext.1.a
+		ai_chance = {
+			base = 50
+		}
+		set_country_flag = US_missile_base_employment
+		USA = { news_event = usa.282 }
+		news_event = usa.282
+	}
+}
+country_event = {
+	id = usa.281
+	title = usatext.281.t
+	desc = usatext.281.d
+	picture = GFX_DegaulleSmall
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+country_event = {
+	id = usa.282
+	title = usatext.282.t
+	desc = usatext.282.d
+	picture = GFX_PGM19Samll
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = usatext.1.a
+	}
+}
+
+news_event = {
+	id = usa.285
+	title = usatext.285.t
+	desc = usatext.285.d
+	picture = GFX_JohnDulles
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1959.5.1
+		date < 1959.6.1
+		has_character = USA_JohnDulles
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			retire_character = USA_JohnDulles
+		}
+	}
+}
+news_event = {
+	id = usa.286
+	title = usatext.286.t
+	desc = usatext.286.d
+	picture = GFX_Kennedy
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1952.5.1
+		date < 1952.6.1
+		NOT = { has_character = USA_Kennedy }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			recruit_character = USA_Kennedy
+		}
+	}
+}
+news_event = {
+	id = usa.287
+	title = usatext.287.t
+	desc = usatext.287.d
+	picture = GFX_CivilDefence
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.273.a
+	}
+}
+news_event = {
+	id = usa.288
+	title = usatext.288.t
+	desc = usatext.288.d
+	picture = GFX_CONELRAD_news
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.273.a
+	}
+}
+news_event = {
+	id = usa.289
+	title = usatext.289.t
+	desc = usatext.289.d
+	picture = GFX_AtomicVegas
+	is_triggered_only = yes
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa289
+		}
+	}
+}
+news_event = {
+	id = usa.290
+	title = usatext.290.t
+	desc = usatext.290.d
+	picture = GFX_AtomicVegas
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1952.5.1
+		date < 1959.6.1
+		has_completed_focus = us_atomic_vegas
+		NOT = { has_global_flag = usa290 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa290
+		}
+	}
+}
+news_event = {
+	id = usa.291
+	title = usatext.291.t
+	desc = usatext.291.d
+	picture = GFX_MissAtomic
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1952.5.1
+		date < 1959.6.1
+		has_completed_focus = us_atomic_vegas
+		has_global_flag = usa290
+		NOT = { has_global_flag = usa291 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa291
+		}
+	}
+}
+news_event = {
+	id = usa.292
+	title = usatext.292.t
+	desc = usatext.292.d
+	picture = GFX_TheCrickets
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1957.5.1
+		date < 1957.8.1
+		NOT = { has_global_flag = usa292 }
+	}
+	immediate = {
+		play_song = USA_61
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa292
+		}
+	}
+}
+news_event = {
+	id = usa.293
+	title = usatext.293.t
+	desc = usatext.293.d
+	picture = GFX_CricketsCrash
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1959.2.1
+		date < 1959.4.1
+		NOT = { has_global_flag = usa293 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa293
+		}
+	}
+}
+news_event = {
+	id = usa.294
+	title = usatext.294.t
+	desc = usatext.294.d
+	picture = GFX_IzolaCurry
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.9.1
+		date < 1958.11.1
+		NOT = { has_global_flag = usa294 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.05
+			add_political_power = -60
+			set_global_flag = usa294
+		}
+	}
+}
+news_event = {
+	id = usa.295
+	title = usatext.295.t
+	desc = usatext.295.d
+	picture = GFX_IzolaCurry
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1958.2.1
+		date < 1958.5.1
+		NOT = { has_global_flag = usa295 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa295
+		}
+	}
+}
+
+###梦露
+news_event = {
+	id = usa.300
+	title = usatext.300.t
+	desc = usatext.300.d
+	picture = GFX_SevenYearItch
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1955.6.1
+		date < 1955.8.1
+		NOT = { has_global_flag = usa300 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa300
+		}
+	}
+}
+news_event = {
+	id = usa.301
+	title = usatext.301.t
+	desc = usatext.301.d
+	picture = GFX_MonroeMiller
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1956.6.10
+		date < 1956.7.1
+		NOT = { has_global_flag = usa301 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa301
+		}
+	}
+}
+news_event = {
+	id = usa.302
+	title = usatext.302.t
+	desc = usatext.302.d
+	picture = GFX_AuthorMiller
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1957.3.10
+		date < 1957.4.1
+		has_idea = McCarthyism_idea
+		NOT = { has_global_flag = usa302 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa302
+		}
+	}
+}
+news_event = {
+	id = usa.303
+	title = usatext.303.t
+	desc = usatext.303.d
+	picture = GFX_MonroeAttendCourt
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.3.10
+		date < 1957.5.1
+		has_idea = McCarthyism_idea
+		has_global_flag = usa303
+		NOT = { has_global_flag = usa303 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa303
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa303
+			set_global_flag = usa303a
+		}
+	}
+}
+news_event = {
+	id = usa.304
+	title = usatext.304.t
+	desc = usatext.304.d
+	picture = GFX_MonroeArrest
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.3.10
+		date < 1957.4.1
+		has_global_flag = usa303a
+		NOT = { has_global_flag = usa304 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa304
+		}
+	}
+}
+news_event = {
+	id = usa.305
+	title = usatext.305.t
+	desc = usatext.305.d
+	picture = GFX_MonroeArrest
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.3.10
+		date < 1957.4.1
+		has_global_flag = usa304
+		NOT = { has_global_flag = usa305 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa305
+		}
+	}
+}
+news_event = {
+	id = usa.306
+	title = usatext.306.t
+	desc = usatext.306.d
+	picture = GFX_PrinceandtheShowgirl
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.6.10
+		date < 1957.8.1
+		NOT = { has_global_flag = usa305 }
+		NOT = { has_global_flag = usa306 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa306
+		}
+	}
+}
+news_event = {
+	id = usa.307
+	title = usatext.307.t
+	desc = usatext.307.d
+	picture = GFX_NightToRemember
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1958.6.20
+		date < 1958.8.1
+		NOT = { has_global_flag = usa306 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa306
+		}
+	}
+}
+##黑白暴力
+news_event = {
+	id = usa.310
+	title = usatext.310.t
+	desc = usatext.310.d
+	picture = GFX_RobertFranklinWilliams
+	major = yes
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.4.20
+		date < 1957.6.1
+		has_idea = NegroMovement
+		NOT = { has_global_flag = usa310 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa310
+		}
+	}
+}
+news_event = {
+	id = usa.311
+	title = usatext.311.t
+	desc = usatext.311.d
+	picture = GFX_ArmedBlacks
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.10.10
+		date < 1957.11.1
+		has_idea = NegroMovement
+		has_global_flag = usa310
+		NOT = { has_global_flag = usa311 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.312 }
+			set_global_flag = usa311
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.313 }
+			set_global_flag = usa311
+		}
+	}
+}
+news_event = {
+	id = usa.312
+	title = usatext.312.t
+	desc = usatext.312.d
+	picture = GFX_ArmedBlacks
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.313
+	title = usatext.313.t
+	desc = usatext.313.d
+	picture = GFX_ArmedBlacks
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_to_variable = { influences = 20 }
+		custom_effect_tooltip = focus_tooltip_influence_-20
+		if = {
+			limit = { has_completed_focus = USA_strike_civil_right }
+			add_political_power = 20
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.01
+			}
+		}
+	}
+}
+
+news_event = {
+	id = usa.314
+	title = usatext.314.t
+	desc = usatext.314.d
+	picture = GFX_BattleHayes
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.1.10
+		date < 1958.3.1
+		has_idea = NegroMovement
+		has_global_flag = usa310
+		NOT = { has_global_flag = usa311 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.315 }
+			set_global_flag = usa311
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.316 }
+			set_global_flag = usa311
+		}
+	}
+}
+news_event = {
+	id = usa.315
+	title = usatext.315.t
+	desc = usatext.315.d
+	picture = GFX_BattleHayes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.316
+	title = usatext.316.t
+	desc = usatext.316.d
+	picture = GFX_BattleHayes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_stability = -0.04
+		add_to_variable = { influences = 20 }
+		custom_effect_tooltip = focus_tooltip_influence_-20
+		if = {
+			limit = { has_completed_focus = USA_strike_civil_right }
+			add_political_power = 60
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.02
+			}
+		}
+	}
+}
+#达科姆事件
+news_event = {
+	id = usa.320
+	title = usatext.320.t
+	desc = usatext.320.d
+	picture = GFX_BattleHayes
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1958.1.10
+		date < 1958.3.1
+		has_idea = NegroMovement
+		NOT = { has_global_flag = usa320 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.321 }
+			set_global_flag = usa320
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			news_event = { id = usa.322 }
+			set_global_flag = usa320
+		}
+	}
+}
+news_event = {
+	id = usa.321
+	title = usatext.321.t
+	desc = usatext.321.d
+	picture = GFX_BattleHayes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.322
+	title = usatext.322.t
+	desc = usatext.322.d
+	picture = GFX_BattleHayes
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+#静坐抗议
+news_event = {
+	id = usa.325
+	title = usatext.325.t
+	desc = usatext.325.d
+	picture = GFX_SitInProtest
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = USA
+		date > 1960.1.10
+		date < 1960.12.1
+		has_idea = NegroMovement
+		has_global_flag = usa320
+		NOT = { has_global_flag = usa325 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa325
+			add_political_power = -20
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.326
+	title = usatext.326.t
+	desc = usatext.326.d
+	picture = GFX_SitInProtest
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = USA
+		date > 1960.1.10
+		date < 1960.12.1
+		has_idea = NegroMovement
+		has_global_flag = usa325
+		NOT = { has_global_flag = usa326 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa326
+			add_political_power = -20
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa330
+			news_event = usa.330
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = usa.327
+	title = usatext.327.t
+	desc = usatext.327.d
+	picture = GFX_SitInProtest2
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = USA
+		date > 1960.1.10
+		date < 1960.12.1
+		has_idea = NegroMovement
+		has_global_flag = usa326
+		NOT = { has_global_flag = usa327 }
+		NOT = { has_global_flag = usa330 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa327
+			add_political_power = -20
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa330
+			news_event = usa.330
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = usa.328
+	title = usatext.328.t
+	desc = usatext.328.d
+	picture = GFX_SitInProtest3
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = USA
+		date > 1960.1.10
+		date < 1960.12.1
+		has_idea = NegroMovement
+		has_global_flag = usa327
+		NOT = { has_global_flag = usa328 }
+		NOT = { has_global_flag = usa330 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa328
+			add_political_power = -20
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa330
+			news_event = usa.330
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = usa.329
+	title = usatext.329.t
+	desc = usatext.329.d
+	picture = GFX_EllaJosephineBaker
+	mean_time_to_happen = { days = 12 }
+	trigger = {
+		tag = USA
+		date > 1960.1.10
+		date < 1960.12.1
+		has_idea = NegroMovement
+		has_global_flag = usa325
+		NOT = { has_global_flag = usa329 }
+		NOT = { has_global_flag = usa330 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa329
+			add_political_power = -20
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.01
+			}
+		}
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa330
+			news_event = usa.330
+			add_stability = -0.12
+		}
+	}
+}
+news_event = {
+	id = usa.330
+	title = usatext.330.t
+	desc = usatext.330.d
+	picture = GFX_BlackArrest
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		if = {
+			limit = { tag = USA }
+			add_to_variable = { influences = -50 }
+			custom_effect_tooltip = focus_tooltip_influence_-50
+			set_global_flag = usa330
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.08
+			}
+			add_stability = -0.12
+		}
+		if = {
+			limit = { has_completed_focus = USA_strike_civil_right }
+			add_political_power = 60
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.08
+			}
+		}
+	}
+}
+
+news_event = {
+	id = usa.331
+	title = usatext.331.t
+	desc = usatext.331.d
+	picture = GFX_KKK_event
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = USA
+		date > 1957.2.10
+		date < 1957.3.1
+		has_idea = NegroMovement
+		NOT = { has_global_flag = usa331 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa331
+			add_stability = -0.04
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = usa.332
+	title = usatext.332.t
+	desc = usatext.332.d
+	picture = GFX_EarlWarren
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+##核试验
+country_event = {
+	id = usa.340
+	title = usatext.340.t
+	desc = usatext.340.d
+	picture = GFX_NukeTest
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_tech_bonus = {
+			bonus = 0.05
+			uses = 1
+			category = cat_strategic_bomber
+		}
+	}
+}
+country_event = {
+	id = usa.341
+	title = usatext.341.t
+	desc = usatext.341.d
+	picture = GFX_NukeTest
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+country_event = {
+	id = usa.342
+	title = usatext.342.t
+	desc = usatext.342.d
+	picture = GFX_NukeTest
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_tech_bonus = {
+			bonus = 0.05
+			uses = 1
+			category = nuke
+		}
+	}
+}
+country_event = {
+	id = usa.343
+	title = usatext.343.t
+	desc = usatext.343.d
+	picture = GFX_NukeTest
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+country_event = {
+	id = usa.344
+	title = usatext.344.t
+	desc = usatext.344.d
+	picture = GFX_OperationDesertRock
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_tech_bonus = {
+			bonus = 0.05
+			uses = 1
+			category = nuke
+		}
+	}
+}
+country_event = {
+	id = usa.345
+	title = usatext.345.t
+	desc = usatext.345.d
+	picture = GFX_OperationDesertRock
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+country_event = {
+	id = usa.346
+	title = usatext.346.t
+	desc = usatext.346.d
+	picture = GFX_PGM19
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		add_tech_bonus = {
+			bonus = 0.05
+			uses = 1
+			category = rocketry
+		}
+	}
+}
+country_event = {
+	id = usa.347
+	title = usatext.347.t
+	desc = usatext.347.d
+	picture = GFX_PGM19
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.350
+	title = usatext.350.t
+	desc = usatext.350.d
+	picture = GFX_IBM1401
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = usa.351
+	title = usatext.351.t
+	desc = usatext.351.d
+	picture = GFX_IBM7094
+	mean_time_to_happen = { days = 20 }
+	immediate = {
+		play_song = USA_69
+	}
+	trigger = {
+		tag = USA
+		date > 1961.2.10
+		date < 1961.10.1
+		has_tech = medium_computer
+		NOT = { has_global_flag = usa351 }
+	}
+	option = {
+		name = usatext.273.a
+		if = {
+			limit = { tag = USA }
+			set_global_flag = usa351
+		}
+	}
+}
+news_event = {
+	id = usa.356
+	title = usatext.356.t
+	desc = usatext.356.d
+	picture = GFX_MassiveResistance
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1956.2.1
+		date < 1956.4.1
+		has_country_flag = OliverBrownWin
+		NOT = { has_global_flag = usa356 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa356
+	}
+}
+news_event = {
+	id = usa.357
+	title = usatext.357.t
+	desc = usatext.357.d
+	picture = GFX_MassiveResistance
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1956.9.1
+		date < 1956.11.1
+		has_country_flag = usa356
+		NOT = { has_global_flag = usa357 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa357
+	}
+}
+news_event = {
+	id = usa.358
+	title = usatext.358.t
+	desc = usatext.358.d
+	picture = GFX_EisenhowerSigh
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = USA
+		focus_progress = {
+			focus = USA_anti_racist
+			progress > 0.0
+		}
+		NOT = { has_completed_focus = USA_anti_racist }
+		NOT = { has_global_flag = usa358 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa358
+	}
+}
+news_event = {
+	id = usa.359
+	title = usatext.359.t
+	desc = usatext.359.d
+	picture = GFX_Strom_Thurmond
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = USA
+		focus_progress = {
+			focus = USA_anti_racist
+			progress > 0.6
+		}
+		NOT = { has_completed_focus = USA_anti_racist }
+		NOT = { has_global_flag = usa359 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa359
+	}
+}
+news_event = {
+	id = usa.360
+	title = usatext.360.t
+	desc = usatext.360.d
+	picture = GFX_EisenhowerSigh
+	is_triggered_only = yes
+	option = { 
+		name = usatext.8.a
+		news_event = usa.362
+		add_stability = 0.15
+		add_political_power = 200
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = -0.02
+		}
+	}
+}
+news_event = {
+	id = usa.362
+	title = usatext.362.t
+	desc = usatext.362.d
+	picture = GFX_EisenhowerSigh
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa362
+	}
+}
+news_event = {
+	id = usa.363
+	title = usatext.363.t
+	desc = usatext.363.d
+	picture = GFX_NixonMartin
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = USA
+		has_global_flag = usa362
+		NOT = { has_global_flag = usa363 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa363
+	}
+}
+
+news_event = {
+	id = usa.365
+	title = usatext.365.t
+	desc = usatext.365.d
+	picture = GFX_EdwardMurrow
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1958.7.1
+		date < 1958.11.1
+		has_country_flag = usa356
+		NOT = { has_global_flag = usa365 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa365
+	}
+}
+
+
+news_event = {
+	id = usa.367
+	title = usatext.367.t
+	desc = usatext.367.d
+	picture = GFX_NSSavanna
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = usatext.8.a
+	}
+}
+
+
+
+##建州
+news_event = {
+	id = usa.370
+	title = usatext.370.t
+	desc = usatext.370.d
+	picture = GFX_AlaskaCommunity
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		date > 1949.7.1
+		date < 1949.11.1
+		NOT = { has_global_flag = usa370 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa370
+	}
+}
+news_event = {
+	id = usa.371
+	title = usatext.371.t
+	desc = usatext.371.d
+	picture = GFX_AlaskaCommunity
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		focus_progress = {
+			focus = us_annex_alaska_hawaii
+			progress > 0.3
+		}
+		NOT = { has_global_flag = usa370 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa370
+	}
+}
+news_event = {
+	id = usa.372
+	title = usatext.372.t
+	desc = usatext.372.d
+	picture = GFX_AlaskaJoin
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa372
+	}
+}
+news_event = {
+	id = usa.373
+	title = usatext.373.t
+	desc = usatext.373.d
+	picture = GFX_HawaiiJoin
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		focus_progress = {
+			focus = us_annex_alaska_hawaii
+			progress > 0.5
+		}
+		NOT = { has_global_flag = usa370 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa370
+	}
+}
+news_event = {
+	id = usa.374
+	title = usatext.374.t
+	desc = usatext.374.d
+	picture = GFX_AlaskaCommunity
+	major = yes
+	mean_time_to_happen = { days = 11 }
+	trigger = {
+		tag = USA
+		focus_progress = {
+			focus = us_annex_alaska_hawaii
+			progress > 0.7
+		}
+		NOT = { has_global_flag = usa370 }
+	}
+	option = { 
+		name = usatext.8.a
+		set_global_flag = usa370
+	}
+}
+
+################################################
+
+country_event = {
+	id = usa.998
+	title = usatext.998.t
+	desc = usatext.998.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+		play_song = CSA_2
+		set_politics = { ruling_party = authoritarianism }
+create_country_leader = {
+	name = "George Wallance"
+	desc = "POLITICS_ALEJANDRO_LERROUX_DESC"
+	picture = "gfx/leaders/USA/Portrait_USA_George_Wallace.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		#
+	}
+}
+	}
+}
+
+news_event = {
+	id = usa.999
+	title = usatext.205.t
+	desc = usatext.205.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	option = {
+		name = usatext.5.a
+		play_song = CSA_1
+		every_state = { 
+			limit = {
+				OR = {
+				is_core_of = CSA
+				is_claimed_by = CSA
+				}
+			}
+			transfer_state_to = CSA
+			add_core_of = CSA
+		}
+		CSA = {
+			inherit_technology = WDR
+			load_oob = "CSA"
+			add_ideas = CSA_shounting
+			army_experience = 500
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 100000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = machine_gun
+				amount = 60000
+				producer = USA
+			}
+		}
+		USA = {
+			declare_war_on = { target = CSA type = annex_everything }
+		}
+	}
+}

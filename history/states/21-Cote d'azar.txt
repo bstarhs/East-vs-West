@@ -1,0 +1,70 @@
+
+state={
+	id=21
+	name="STATE_21" # Provence
+	manpower = 2060400
+	resources={
+		aluminium=23
+		copper=14
+		salt=7
+	}
+	local_supplies=0.0
+
+	state_category = large_city
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = FRA
+		add_to_array = { this.state_ethnics_list = 70 }
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 128 }
+		set_state_flag = ethnics_Octavian
+		add_core_of = OCC
+		victory_points = {
+			911 6 
+		}
+		victory_points = {
+			958 4
+		}
+		victory_points = {
+			11834 10
+		}
+		buildings = {
+			school = 1
+			hospital = 1
+			farm_building = 2
+			infrastructure = 6
+			industrial_complex = 4
+			dockyard = 4
+			steel_making = 2
+			arms_factory = 5
+			synthetic_refinery = 4
+			air_base = 10
+			911 = {
+				naval_base = 10
+				coastal_bunker = 1
+			}
+			11834 = {
+				naval_base = 3
+				coastal_bunker = 1
+			}
+		}
+		add_core_of = FRA
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+				industrial_complex = 7
+			}
+		}
+		1962.1.1 = {
+			buildings = {
+				synthetic_refinery = 2
+			}
+		}
+	}
+
+	provinces={
+		911 956 958 3762 3928 11834 11849 11875 
+	}
+}

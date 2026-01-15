@@ -1,0 +1,425 @@
+﻿capital = 112
+
+	set_variable = { this.education = 78 }
+set_country_flag = main_country
+set_country_flag = west_euro_state
+oob = "POR_1948"
+	recruit_character = POR_Maria_Pintasilgo
+	recruit_character = POR_Mario_Soarez
+	recruit_character = POR_Vasco_Goncalves
+	recruit_character = POR_Antonio_Guterres
+set_country_flag = developmented
+set_country_flag = language_portuguese
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+add_ideas = {
+	closed_economy
+	POR_Estado_Novo
+	service_by_requirement
+	Catholicism
+	governed_economic
+}
+		create_equipment_variant = {
+			name = "Afonso de Albuquerque class"
+			type = destroyer_1
+			parent_version = 0
+				upgrades = {
+					ship_torpedo_upgrade = 2
+					destroyer_engine_upgrade = 3
+					ship_ASW_upgrade = 2
+					ship_anti_air_upgrade = 2
+				}
+			obsolete = yes
+		}
+set_research_slots = 3
+	complete_national_focus = common_medic
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	complete_national_focus = common_9
+	complete_national_focus = common_10
+	complete_national_focus = common_4
+	complete_national_focus = common_11
+	complete_national_focus = common_23
+	complete_national_focus = common_63
+	complete_national_focus = common_56
+	complete_national_focus = common_57
+	complete_national_focus = common_74
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+	add_political_power = 1198
+
+set_convoys = 50
+	set_popularities = {
+		democratic = 10
+		authoritarianism = 78
+		communism = 12
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_convoys = 100
+set_stability = 0.8
+
+
+create_country_leader = {
+	name = "Antonio De Oliveira Salazar"
+	desc = "POLITICS_ANTÓNIO_DE_OLIVEIRA_SALAZAR_DESC"
+	picture = "gfx/leaders/POR/Portrait_Portugal_Salazar.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		dictator colonist tratidional_trait
+	}
+}
+
+create_country_leader = {
+	name = "Bento Gonçalves"
+	desc = "POLITICS_BENTO_GONCALVES_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_5.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+create_corps_commander = {
+	name = "José Vicente de Freitas"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+	traits = {  }
+	skill = 3
+
+}
+1949.1.1= {
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	complete_national_focus = common_13
+	complete_national_focus = commons_5
+	complete_national_focus = common_14
+	add_ideas = nato_spirit
+	complete_national_focus = Focus_Goverment_reform
+}
+1955.1.1 = {
+	complete_national_focus = steel_produc
+	complete_national_focus = common_51
+	add_ideas = {
+		UNmember
+	}
+	set_technology = {
+		laundry = 1
+		frozen_food = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		decimetric_radar = 1
+		construction2 = 1
+		rocket_engines = 1
+		telegraph = 1
+		machine_gun2 = 1
+		spaa1 = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+	}
+}
+1960.1.20 = {
+	set_technology = {
+		spaa1 = 1
+		sp_artillery1 = 1
+		
+		vaccum_tube = 1
+		basic_heavy_tank = 1
+		napalm = 1
+		rubber_processing = 1
+		trans_helicopter_1 = 1
+		improved_medium_tank = 1
+		fuel_refining = 1
+	}
+}
+1964.3.12 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = WDR
+	}
+	set_global_flag = angola_war
+	create_equipment_variant = {
+		name = "João Belo-class"
+		type = ship_hull_light_2
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+	set_technology = {
+		spaa1 = 1
+		CAS3 = 1
+		fighter2 = 1
+		improved_decimetric_radar = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		excavation3 = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		power_generation2 = 1
+		cable_television = 1
+		construction3 = 1
+		auto_industry = 1
+	}
+	complete_national_focus = common_75
+	add_ideas = {
+		colonist_war
+	}
+	declare_war_on = {
+		target = ANG
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = UTA
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = FNA
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = MZB
+		type = annex_everything
+	}
+	set_popularities = {
+		democratic = 15
+		authoritarianism = 75
+		communism = 10
+	}
+oob = "POR_1964"
+}
+1970.3.20 = {
+	create_equipment_variant = {
+		name = "Albacora-class"			# represents Debakrist, B class, L-55 sub
+		type = submarine_2
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+		obsolete = yes
+	}
+	set_technology = {
+		machine_gun2 = 1
+		fuel_refining2 = 1
+		fighter3 = 1
+		improved_rubber_processing = 1
+		improved_heavy_tank = 1
+		advanced_infantry_weapons = 1
+		improved_infantry_weapons = 1
+	}
+	remove_ideas = POR_Estado_Novo
+	add_ideas = salazardeath
+	create_country_leader = {
+		name = "Marcello Alves Caetano"
+		
+		picture = "gfx/leaders/POR/Portrait_Portugal_Alves_Caetano.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		traits = {
+			colonist
+		}
+	}
+}
+1974.3.12 = {
+	diplomatic_relation = { country = ANG relation = war_relation active = no }
+	diplomatic_relation = { country = MZB relation = war_relation active = no }
+	diplomatic_relation = { country = UTA relation = war_relation active = no }
+	set_technology = {
+		mechanised_infantry2 = 1
+	}
+	remove_ideas = colonist_war
+	remove_ideas = salazardeath
+	set_popularities = {
+		democratic = 70
+		authoritarianism = 15
+		communism = 15
+	}
+	add_ideas = civilian_economy
+	complete_national_focus = common_3
+	oob = "POR_1977"
+
+	set_politics = {
+		
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+
+1976.3.20 = {
+	add_ideas = limited_exports
+oob = "POR_1978"
+	create_country_leader = {
+		name = "Atonio Eanes"
+		
+		picture = "gfx/leaders/POR/Portrait_Portugal_Eanes.tga"
+		expire = "1997.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1983.3.20 = {
+	set_country_flag = female_finished
+	set_country_flag = china_diplomacy
+	set_technology = {
+		infantry_at2 = 1
+		CAS4 = 1
+		advanced_medium_tank = 1
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+	}
+	add_ideas = {
+		ECSC
+	}
+	create_country_leader = {
+		name = "Mario Soares"
+		
+		picture = "gfx/leaders/POR/Portrait_Portugal_Soares.tga"
+		expire = "1997.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1986.3.20 = {
+	create_country_leader = {
+		name = "Aníbal António Cavaco Silva"
+		
+		picture = "gfx/leaders/POR/Portrait_Portugal_Cavaco_Silva.tga"
+		expire = "1997.1.1"
+		ideology = conservatism
+		
+		traits = {
+			neoliberal 
+		}
+	}
+}

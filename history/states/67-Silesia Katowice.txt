@@ -1,0 +1,36 @@
+
+state={
+	id=67
+	name="STATE_67"
+	manpower = 1402591
+	resources={
+		iron=12
+		aluminium=5
+	}
+	local_supplies=0.0
+	state_category = city
+
+	history={
+		add_core_of = SIL
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Polish
+		add_to_array = { this.state_ethnics_list = 136 }
+		owner = POL
+		add_core_of = WDR
+		victory_points = { 9511 3 }
+		victory_points = { 11467 8 }
+		buildings = {
+			school = 1
+			hospital = 1
+			infrastructure = 6
+			power_plant = 1
+			synthetic_refinery = 2
+			industrial_complex = 4
+		}
+		add_core_of = POL
+	}
+
+	provinces={
+		479 6512 9457 9511 11467 
+	}
+}

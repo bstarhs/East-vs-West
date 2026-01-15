@@ -1,0 +1,191 @@
+﻿add_namespace = hol
+
+#1948
+news_event = {
+	id = hol.1
+	title = hol.1.t
+	desc = hol.1.d
+	picture = GFX_hol
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = HOL
+		date > 1948.3.1
+		date < 1949.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = hol.10.a
+		ai_chance = {
+			factor = 80	
+		}
+		create_country_leader = {
+			name = "Willem Drees"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/HOL/Portrait_Netherlands_Willem_Drees.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+news_event = {
+	id = hol.2
+	title = hol.2.t
+	desc = hol.2.d
+	picture = GFX_Juliana
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1948.8.1
+		date < 1948.10.1
+		NOT = { has_idea = Juliana }
+		has_idea = Wilhelmina
+		tag = HOL
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = HOL }
+			remove_ideas = Wilhelmina
+			add_ideas = Juliana
+			add_political_power = 200
+			add_war_support = 0.2
+		}
+	}
+
+}
+news_event = {
+	id = hol.3
+	title = hol.3.t
+	desc = hol.3.d
+	picture = GFX_HolandFlood
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = HOL
+		date > 1953.1.20
+		date < 1953.2.1
+		NOT = { has_global_flag = hol3 }
+	}
+	option = {
+		name = den.1.a
+		set_global_flag = hol3
+		if = {
+			limit = { tag = HOL }
+			add_stability = -0.15
+			add_political_power = -200
+			7 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 2
+				}
+				damage_building = {
+					type = farm_building
+					damage = 2
+				}
+			}
+			36 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 2
+				}
+				damage_building = {
+					type = farm_building
+					damage = 2
+				}
+			}
+		}
+		if = {
+			limit = { tag = BEL }
+			add_political_power = -200
+			6 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 2
+				}
+				damage_building = {
+					type = farm_building
+					damage = 2
+				}
+			}
+		}
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -200
+			125 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 2
+				}
+				damage_building = {
+					type = farm_building
+					damage = 2
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = hol.4
+	title = hol.4.t
+	desc = hol.4.d
+	picture = GFX_HolandFlood
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = HOL
+		has_global_flag = hol3
+		NOT = { has_global_flag = hol4 }
+	}
+	option = {
+		name = hol.10.a
+		set_global_flag = hol4
+	}
+}
+news_event = {
+	id = hol.20
+	title = hol.20.t
+	desc = hol.20.d
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+			tag = HOL
+			tag = IND
+		}
+		HOL = { has_war_with = IND }
+		date > 1947.5.20
+		date < 1949.3.20
+		NOT = { has_country_flag = hol20 }
+	}
+	option = {
+		name = hol.10.a
+		set_country_flag = hol20
+	}
+}
+
+

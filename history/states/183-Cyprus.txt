@@ -1,0 +1,41 @@
+state= {
+	id=183
+	name="STATE_183"
+	manpower = 347959
+	
+	state_category = rural
+	resources={
+		copper=4
+	}
+
+	history=
+	{
+		owner = ENG
+		set_state_flag = ethnics_Greeks
+		add_to_array = { this.state_ethnics_list = 74 }
+		add_core_of = CYP
+		add_dynamic_modifier = { modifier = fish_production }
+		add_claim_by = GRE
+		victory_points = { 7193 8 }
+		victory_points = { 13901 3 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 4
+			air_base = 1
+			11984 = {
+				naval_base = 2
+			}
+		}
+		1954.8.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1960.8.23 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			remove_claim_by = GRE
+			owner = CYP
+		}
+
+	}
+	provinces= { 7193 11984 13900 13901 13902 }
+}

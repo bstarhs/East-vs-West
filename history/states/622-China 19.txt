@@ -1,0 +1,91 @@
+state=
+{
+	id=622
+	name="STATE_622" # Shaanxi
+	manpower = 7906200
+	
+	state_category = city
+	
+	resources={
+		tungsten=3
+	}
+	history=
+	{
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		 
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 9 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Han
+		owner = PRC
+		add_core_of = PRC
+		add_core_of = CHI
+		victory_points = {
+			12356 5
+		}
+		victory_points = {
+			10733 4
+		}
+		victory_points = {
+			4295 3
+		}
+		victory_points = {
+			7659 2
+		}
+		victory_points = {
+			5007 3
+		}
+		victory_points = {
+			12156 4
+		}
+		victory_points = {
+			7301 10
+		}
+		buildings = {
+			power_plant = 1
+			farm_building = 2
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 3
+			10733 = {
+				bunker = 2
+			}
+			12156 = {
+				bunker = 2
+			}
+			5007 = {
+				bunker = 2
+			}
+			
+		}
+		1938.10.25 = {		
+			CHI = {
+				set_province_controller = 10733
+				set_province_controller = 12156
+				set_province_controller = 5007
+				set_province_controller = 2006
+				set_province_controller = 1976
+				set_province_controller = 7301
+				set_province_controller = 12713
+				set_province_controller = 5092
+				set_province_controller = 7406
+				set_province_controller = 4256
+				set_province_controller = 10257
+				set_province_controller = 4295
+				set_province_controller = 4167
+				set_province_controller = 7418
+				set_province_controller = 7208
+			} 			
+		}
+		1949.4.24 = {
+		controller = PRC
+		}
+		1980.4.24 = {
+			add_to_variable = { state_tourist = 20 }
+		}
+	}
+	provinces={
+		517 1458 1976 2006 4167 4256 4295 4939 5007 5092 7208 7301 7314 7406 7418 7659 8049 10257 10733 10880 12156 12356 12713 
+	}
+}

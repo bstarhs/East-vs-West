@@ -1,0 +1,541 @@
+technologies = {
+	
+	dispersed_industry = {
+		enable_building = {
+			building = farm_building
+			level = 4
+		}
+		path = {
+			leads_to_tech = dispersed_industry2 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = husbandry_feed 
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = can_foods
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		folder = {
+			name = civic_folder
+			position = { x = 4 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+		
+		ai_research_weights = {
+			defensive = -1.0
+		}
+	}
+	
+	can_foods = {
+		research_cost = 4
+		start_year = 1940
+		on_research_complete = {
+			custom_effect_tooltip = can_foods_tech
+		}
+		folder = {
+			name = civic_folder
+			position = { x = 8 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	dispersed_industry2 = {
+		on_research_complete = {
+			custom_effect_tooltip = dispersed_industry2_tool
+		}
+		dependencies = {
+			fuel_silos = 1
+			
+		}
+		path = {
+			leads_to_tech = dispersed_industry3 
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = dispersed_industry4 
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1960
+		
+		folder = {
+			name = civic_folder
+			position = { x = 4 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+		
+		ai_research_weights = {
+			defensive = -1.0
+		}
+	}
+	
+	dispersed_industry3 = {
+		on_research_complete = {
+			modify_building_resources = {
+				building = farm_building
+				resource = food
+				amount = 1
+			}
+		}
+		
+		research_cost = 2
+		start_year = 1960
+		
+		path = {
+			leads_to_tech = dispersed_industry5 
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = civic_folder
+			position = { x = 6 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1		
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+		
+		ai_research_weights = {
+			defensive = -1.0
+		}
+	}
+	
+	dispersed_industry4 = {
+		dependencies = {
+			laundry = 1
+			auto_industry = 1
+			
+		}
+		on_research_complete = {
+			modify_building_resources = {
+				building = farm_building
+				resource = food
+				amount = 3
+			}
+		}
+		
+		path = {
+			leads_to_tech = frozen_food
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = digital_agriculture
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = civic_folder
+			position = { x = 2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+		
+		ai_research_weights = {
+			defensive = -1.0
+		}
+	}
+	husbandry_feed = {
+		path = {
+			leads_to_tech = husbandry_tech
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = fishing_net
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1950
+		
+		folder = {
+			name = civic_folder
+			position = { x = 0 y = 2 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	fishing_net = {
+		research_cost = 2
+		start_year = 1950
+		
+		folder = {
+			name = civic_folder
+			position = { x = -2 y = 4 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	husbandry_tech = {
+		enable_building = {
+			building = farm_building
+			level = 8
+		}
+		path = {
+			leads_to_tech = digital_agriculture
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = animal_doc
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 1950
+		
+		folder = {
+			name = civic_folder
+			position = { x = 0 y = 4 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	animal_doc = {
+		dependencies = {
+			medical2 = 1
+        }
+		on_research_complete = {
+			custom_effect_tooltip = frozen_tips
+		}
+		
+		research_cost = 2
+		start_year = 1950
+		
+		folder = {
+			name = civic_folder
+			position = { x = -1 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	digital_agriculture = {
+		dependencies = {
+			laundry = 1
+        }
+		on_research_complete = {
+			custom_effect_tooltip = frozen_tips
+		}
+		
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = civic_folder
+			position = { x = 1 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	frozen_food = {
+		dependencies = {
+			laundry = 1
+        }
+		on_research_complete = {
+			custom_effect_tooltip = frozen_tips
+		}
+		
+		research_cost = 2
+		start_year = 1970
+		
+		folder = {
+			name = civic_folder
+			position = { x = 3 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+	}
+	
+	
+	dispersed_industry5 = {
+		on_research_complete = {
+		}
+		research_cost = 2
+		start_year = 1980
+		
+		folder = {
+			name = civic_folder
+			position = { x = 6 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			industry
+			agriculture
+		}
+		
+		ai_research_weights = {
+			defensive = -1.0
+		}
+	}
+
+	medical1 = {
+		enable_building = {
+			building = hospital
+			level = 4
+		}
+		path = {
+			leads_to_tech = medical2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1945
+		
+		folder = {
+			name = civic_folder
+			position = { x = 8 y = 0 }
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}
+	medical2 = {
+		dependencies = {
+			fuel_silos = 1
+		}
+		path = {
+			leads_to_tech = medical3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = medical4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1955
+		
+		folder = {
+			name = civic_folder
+			position = { x = 8 y = 2 }
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}		
+	medical3 = {
+		attrition = -0.15
+		category_all_infantry = {
+			casualty_trickleback = 0.1
+		}
+		path = {
+			leads_to_tech = medical5
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = cell_tech
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1940
+		folder = {
+			name = civic_folder
+			position = { x = 8 y = 4 }
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}		
+	medical6 = {
+		attrition = -0.15
+		category_all_infantry = {
+			casualty_trickleback = 0.1
+		}
+		
+		research_cost = 1.5
+		start_year = 1970
+		
+		folder = {
+			name = civic_folder
+			position = { x = 8 y = 8 }
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}	
+	cell_tech = {
+		on_research_complete = {
+			custom_effect_tooltip = cell_tech_tip
+		}
+		path = {
+			leads_to_tech = DNA_tech
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		start_year = 1970
+		folder = {
+			name = civic_folder
+			position = { x = 6 y = 6 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}	
+	DNA_tech = {
+		on_research_complete = {
+			custom_effect_tooltip = DNA_tech_tip
+			if = {
+				limit = {
+					all_other_country = {
+						NOT = { has_tech = DNA_tech }
+					}
+				}
+				add_political_power = 400
+				news_event = { id = research.6 }
+				add_to_variable = { influences = 100 }
+				custom_effect_tooltip = focus_tooltip_influence_100
+			}
+        }
+		research_cost = 1.5
+		start_year = 1970
+		folder = {
+			name = civic_folder
+			position = { x = 6 y = 8 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}	
+	medical5 = {
+		attrition = -0.15
+		category_all_infantry = {
+			casualty_trickleback = 0.1
+		}
+		path = {
+			leads_to_tech = medical6
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1955
+		
+		folder = {
+			name = civic_folder
+			position = { x = 8 y = 6 }
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}	
+	medical4 = {
+		
+		path = {
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 1955
+		
+		folder = {
+			name = civic_folder
+			position = { x = 10 y = 4 }
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+		categories = {
+			medical
+		}	
+	}	
+}

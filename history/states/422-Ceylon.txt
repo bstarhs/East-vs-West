@@ -1,0 +1,42 @@
+state={
+	id=422
+	name="STATE_422"
+	manpower = 4523450
+	
+	state_category = town
+
+	resources={
+		rubber=16
+	}
+
+	history={
+		owner = ENG
+		set_state_flag = ethnics_Sinhalan
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 151 }
+		add_core_of = SRI
+		1948.2.4 = {
+			owner = SRI
+		}
+		buildings = {
+			hospital = 1
+			farm_building = 3
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 3
+			7260 = {
+				naval_base = 3
+				coastal_bunker = 3
+			}
+		}
+		victory_points = { 7260 8 }
+		victory_points = { 14049 2 }
+		victory_points = { 14047 5 }
+		victory_points = { 14046 3 }
+	}
+	
+	provinces={
+		7344 10287 1213 4219 7260 12258 14046 14047 14048 14049 
+	}
+}

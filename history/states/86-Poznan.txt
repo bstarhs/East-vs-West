@@ -1,0 +1,49 @@
+state={
+	id=86
+	name="STATE_86"
+	manpower = 2106500
+	
+	
+	state_category = city
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Polish
+		add_to_array = { this.state_ethnics_list = 136 }
+                               
+		owner = POL
+		victory_points = {
+			6558 12
+		}
+		buildings = {
+			infrastructure = 6
+			hospital = 1
+			industrial_complex = 2
+			11232 = {
+				bunker = 1
+
+			}
+			9532 = {
+				bunker = 1
+
+			}
+			3381 = {
+				bunker = 1
+
+			}
+			air_base = 3
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+				hospital = 2
+			}
+		}
+		add_core_of = POL
+	}
+
+	provinces={
+		17 243 388 3381 3460 3532 6558 9532 11232 
+	}
+}

@@ -1,0 +1,49 @@
+ideas = {
+
+	country = {
+		HK_handover = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = HK_handover
+			modifier = {
+			}
+		}
+		grand_excape = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = grand_excape
+			modifier = {
+				political_power_cost = 0.4
+				stability_factor = -0.12
+			}
+		}
+		ICAC = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = ICAC
+			modifier = {
+				custom_modifier_tooltip = ICAC_tool
+			}
+		}
+		HKN_corrupt = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = corrupt
+			modifier = {
+				surrender_limit = -0.1
+				political_power_cost = 0.4
+				stability_factor = -0.05
+			}
+		}
+		HKN_New_downtown = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = construction
+			modifier = {
+				custom_modifier_tooltip = HKN_New_downtown_tool
+				political_power_cost = 0.12
+				production_speed_buildings_factor = 0.15
+			}
+		}
+	}
+}

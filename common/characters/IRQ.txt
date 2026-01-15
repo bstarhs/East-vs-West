@@ -1,0 +1,241 @@
+characters={
+	IRQ_Husain_al_Radi={
+		name=IRQ_Husain_al_Radi
+		portraits={
+			civilian={
+				large="gfx/leaders/IRQ/Portrait_Iraq_Husain_al_Radi.tga"
+				small="gfx/interface/ideas/idea_Husain_al_Radi.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { independent_red ideological_crusader socialist_reformism pro_soviet dictator }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Husain_al_Radi
+			allowed = {
+				original_tag = IRQ
+			}
+			traits = {
+				
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IRQ_Saddam_Hssein={
+		name=IRQ_Saddam_Hssein
+		portraits={
+			civilian={
+				large="gfx/leaders/IRQ/Portrait_Iraq_Saddam.tga"
+				small="gfx/interface/ideas/idea_saddam.dds"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits={ independent compassionate_gentleman arabs_nationalism jefe dictator   }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Saddam_Hssein
+			allowed = {
+				original_tag = IRQ
+				NOT = { has_country_flag = irq77 }
+			}
+			traits = {
+				backroom_backstabber
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IRQ_Ali_Jawdat_Al_Ayyubi={
+		name=IRQ_Ali_Jawdat_Al_Ayyubi
+		portraits={
+			civilian={
+				large="gfx/leaders/IRQ/Portrait_Iraq_Ali_Jawdat_Al_Ayyubi.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits={ independent compassionate_gentleman pro_america anti_communist  }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+	IRQ_Abdul_Wahab_al_Shawaf={
+		name=IRQ_Abdul_Wahab_al_Shawaf
+		portraits={
+			army={
+				large="gfx/leaders/IRQ/Portrait_Iraq_Abdul_Wahab_al_Shawaf.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits={ independent anti_communist}
+			expire="1979.1.1.1"
+			id=-1
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	IRQ_Abdul_Karim_Qasim={
+		name=IRQ_Abdul_Karim_Qasim
+		portraits={
+			army={
+				large="gfx/leaders/IRQ/Portrait_Iraq_Qasim.tga"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits={ pro_soviet technocrat jefe }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		corps_commander={
+			visible={
+				date < 1958.1.1
+			}
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	IRQ_IzzatIbrahim_al_Douri={
+		name=IRQ_IzzatIbrahim_al_Douri
+		portraits={
+			army={
+				large="gfx/leaders/IRQ/Portrait_Iraq_IzzatIbrahim_al_Douri.tga"
+			}
+			civilian={
+				small="GFX_idea_IzzatIbrahim_al_Douri"
+			}
+		}
+		corps_commander={
+			visible={
+				date > 1968.1.1
+			}
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+		advisor={
+			visible={
+				date > 1963.1.1
+			}
+			slot = political_advisor
+			idea_token = IRQ_IzzatIbrahim_al_Douri
+			allowed = {
+				original_tag = IRQ
+			}
+			traits = {
+				backroom_backstabber dictator
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IRQ_HassanAlMajid={
+		name=IRQ_HassanAlMajid
+		portraits={
+			army={
+				large="gfx/leaders/IRQ/Portrait_Iraq_HassanAlMajid.tga"
+			}
+			civilian={
+				small="GFX_idea_HassanAlMajid"
+			}
+		}
+		corps_commander={
+			visible={
+				date > 1968.1.1
+			}
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+		advisor={
+			visible={
+				date > 1963.1.1
+			}
+			slot = political_advisor
+			idea_token = IRQ_HassanAlMajid
+			allowed = {
+				original_tag = IRQ
+			}
+			traits = {
+				prince_of_terror
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IRQ_taha_yassin_ramadan={
+		name=IRQ_taha_yassin_ramadan
+		portraits={
+			army={
+				large="gfx/leaders/IRQ/Portrait_Iraq_taha_yassin_ramadan.tga"
+				small="GFX_idea_taha_yassin_ramadan"
+			}
+		}
+		corps_commander={
+			visible={
+				date > 1975.1.1
+			}
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+		advisor={
+			visible={
+				date > 1975.1.1
+			}
+			slot = army_chief
+			idea_token = IRQ_taha_yassin_ramadan
+			allowed = {
+				original_tag = IRQ
+			}
+			traits = {
+				quartermaster_general
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+}

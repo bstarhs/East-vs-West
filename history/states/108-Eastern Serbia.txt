@@ -1,0 +1,55 @@
+
+state={
+	id=108
+	name="STATE_108" # Morava
+	manpower = 1533000
+	
+	state_category = city
+	
+	resources={
+		iron=7
+		copper=5
+		coal=12
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Serbian
+		add_to_array = { this.state_ethnics_list = 147 }
+		set_state_flag = wine_production
+		owner = YUG
+		victory_points = { 9906 6 }
+		victory_points = { 9602 5 }
+		victory_points = { 6970 4 }
+		buildings = {
+			hospital = 1
+			school = 1
+			industrial_complex = 2
+			power_plant = 1
+			farm_building = 2
+			infrastructure = 4
+		}
+		add_core_of = YUG
+		add_core_of = SER 
+		1962.8.23 = {
+			buildings = {
+				industrial_complex = 6
+				farm_building = 4
+				power_plant = 3
+				dam_plant = 1
+				synthetic_refinery = 2
+				rubber_factory = 2
+			}
+		}
+		1972.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+	}
+
+	provinces={
+		630 6970 6998 9602 9756 9890 9906 11887 11857 11868 11832 6634 
+	}
+}

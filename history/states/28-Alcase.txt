@@ -1,0 +1,58 @@
+
+state={
+	id=28
+	name="STATE_28" # Alsace-Lorraine
+	manpower = 1915600
+	
+	state_category = city
+	local_supplies=0.0
+	resources={
+		iron=23
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = FRA
+		set_state_flag = wine_production
+		set_state_flag = ethnics_Alsace
+		add_to_array = { this.state_ethnics_list = 63 }
+		add_to_array = { this.state_ethnics_list = 70 }
+		victory_points = { 678 5 }
+		victory_points = { 9503 10 }
+		victory_points = { 9559 10 }
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 2
+			steel_making = 3
+			power_plant = 4
+			infrastructure = 7
+			arms_factory = 5
+			industrial_complex = 3
+			9503 = {
+				bunker = 10
+
+			}
+			anti_air_building = 5
+			air_base = 5
+
+		}
+		add_core_of = FRA
+		add_core_of = ALS
+		1954.8.17 = {
+			set_state_category = large_city
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+				industrial_complex = 10
+			}
+		}
+		1986.8.23 = {
+			buildings = { nuclear_reactor = 1 }
+		}
+	}
+
+	provinces={
+		549 678 1346 3629 6529 9503 9559 11502 
+	}
+}

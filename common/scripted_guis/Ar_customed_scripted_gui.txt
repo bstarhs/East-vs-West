@@ -1,0 +1,19 @@
+scripted_gui = {
+
+	ARGUI = {
+		window_name = "ARTHER_GUI_container"
+		visible = {
+			NOT = { is_subject = yes }
+		}
+		context_type = player_context
+		effects = {		
+		ARTHER_GUI_bg_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_recommended_shop }
+                set_variable = { show_recommended_shop = show }
+            }
+        }
+	}
+	
+}
+

@@ -1,0 +1,45 @@
+
+characters = {      
+	SOV_Eduward_Shevardnadze = {
+		name = SOV_Eduward_Shevardnadze
+		portraits = {
+			civilian = {
+				small="gfx/interface/ideas/idea_Shevardnadze.dds"
+				large="gfx/leaders/GEO/Portrait_Soviet_Shevardnadze.tga"
+			}
+		}
+		country_leader={
+			ideology=liberalism 
+			traits = {
+				pro_america
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Shevardnadze
+			allowed = {
+				tag = SOV
+			}
+			visible = {
+				date > 1985.10.1
+			}
+			traits = { compassionate_gentleman }
+		}
+	}
+	GEO_Zviad_Gamsakhurdia = {
+		name = GEO_Zviad_Gamsakhurdia
+		portraits = {
+			civilian = {
+				small="gfx/interface/ideas/idea_Shevardnadze.dds"
+				large="gfx/leaders/GEO/Portrait_Georgia_Zviad_Gamsakhurdia.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				pro_america
+			}
+			expire="1997.1.1.1"
+		}
+	}
+}

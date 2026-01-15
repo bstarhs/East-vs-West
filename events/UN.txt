@@ -1,0 +1,655 @@
+add_namespace = un
+news_event = {
+	id = un.1
+	title = un.1.t
+	desc = un.1.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = un.1.a
+		FROM = {
+			add_to_variable = { join_un_vote = 1 }
+		}
+		if = {
+			limit = {
+				date > 1945.1.1
+				date < 1955.1.1
+				FROM = { check_variable = { join_un_vote > 15 } }
+			}
+			FROM = {
+				news_event = { id = un.2 days = 3 }
+				set_variable = { join_un_vote_no = 0 }
+				set_variable = { join_un_vote = 0 }
+				add_ideas = UNmember
+			}
+		}
+		if = {
+			limit = {
+				date > 1955.1.1
+				FROM = { check_variable = { join_un_vote > 20 } }
+			}
+			FROM = {
+				news_event = { id = un.2 days = 3 }
+				set_variable = { join_un_vote_no = 0 }
+				set_variable = { join_un_vote = 0 }
+				add_ideas = UNmember
+			}
+		}
+		if = {
+			limit = { tag = FROM }
+			add_to_array = { global.UNmember_list = FROM }
+		}
+	}
+}
+
+news_event = {
+	id = un.2
+	title = un.2.t
+	desc = un.2.d
+	picture = GFX_UN1955
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = un.2.a
+	}
+
+}
+news_event = {
+	id = un.3
+	title = un.3.t
+	desc = un.3.d
+	picture = GFX_UN
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = un.1.a
+		}
+
+}
+news_event = {
+	id = un.4
+	title = un.4.t
+	desc = un.3.d
+	picture = GFX_UN
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = un.1.a
+			add_ideas = UNCKorea
+		}
+
+}
+news_event = {
+	id = un.5
+	title = un.5.t
+	desc = un.5.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		check_variable = { influences < 120 }
+		NOT = { has_idea = low_diplomacy }
+	}
+	option = {
+		name = un.1.a
+			every_other_country = {
+				add_opinion_modifier = {
+				target = FROM
+				modifier = low_influence
+				}
+			}
+			add_ideas = low_diplomacy
+		}
+
+}
+news_event = {
+	id = un.6
+	title = un.6.t
+	desc = un.6.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+	check_variable = { influences > 120 }
+	has_idea = low_diplomacy
+	}
+	option = {
+		name = un.1.a
+			every_other_country = {
+				remove_opinion_modifier = {
+				target = FROM
+				modifier = low_influence
+				}
+			}
+			remove_ideas = low_diplomacy
+		}
+
+}
+news_event = {
+	id = un.7
+	title = un.7.t
+	desc = un.7.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		NOT = {
+			OR = {
+						has_government = fascism
+						has_idea = ETArevolt
+						has_idea = tiananmen
+						has_idea = zenkyouto
+						is_subject = yes
+						is_puppet = yes
+						has_idea = white_terror
+						has_idea = colonist_war
+						has_idea = sanctions
+						has_idea = debt_crisis
+						has_idea = geonocide
+						has_idea = apartheid
+						has_idea = corrupt
+						has_idea = isolated
+						has_idea = muslin_reballion
+						has_idea = tot_economic_mobilisation
+						has_idea = scraping_the_barrel
+						has_idea = redkhmer
+						has_country_leader_with_trait = tyrant
+						has_stability < 0.5
+			}
+		}
+		check_variable = { influences > 350 }
+		NOT = { has_idea = good_diplomacy }
+	}
+	option = {
+		name = un.7.a
+			every_other_country = {
+				add_opinion_modifier = {
+				target = FROM
+				modifier = high_influence
+				}
+			}
+			add_ideas = good_diplomacy
+		}
+
+}
+news_event = {
+	id = un.8
+	title = un.8.t
+	desc = un.8.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+	check_variable = { influences < 300 }
+	has_idea = good_diplomacy
+	}
+	option = {
+		name = un.1.a
+			every_other_country = {
+				remove_opinion_modifier = {
+				target = FROM
+				modifier = high_influence
+				}
+			}
+			remove_ideas = good_diplomacy
+		}
+
+}
+country_event = {
+	id = un.9
+	title = un.9.t
+	desc = un.9.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+		add_to_variable = { education = 5 } 
+		add_to_variable = { health = 5 } 
+		set_country_flag = UN_techsupport	
+		hidden_effect = {		
+		country_event = {
+			id = un.10
+			days = 365
+			}
+		}
+	}
+}
+country_event = {
+	id = un.10
+	title = un.10.t
+	desc = un.10.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+		add_to_variable = { education = -2 } 
+		add_to_variable = { health = -2 } 
+		clr_country_flag = UN_techsupport			
+	}
+}
+#被经济制裁
+country_event = {
+	id = un.11
+	title = un.11.t
+	desc = un.11.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.11.a
+		every_other_country = {
+			if = {
+				limit = { has_country_flag = UNSC }
+				country_event = { id = un.12 }
+			}
+		}
+	}
+}
+#投票
+country_event = {
+	id = un.12
+	title = un.12.t
+	desc = un.12.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = { #赞成
+		name = un.12.a
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				has_war_with = GER
+				factor = 0
+			}
+		}
+		FROM = { add_to_variable = { unsc_sanctions_vote = 1 } }
+		if = {
+			limit = { FROM = { check_variable = { unsc_sanctions_vote > 2 } } }
+			FROM = {
+				country_event = { id = un.13 days = 2 }
+				set_variable = { unsc_sanctions_vote_no = 0 }
+				set_variable = { unsc_sanctions_vote = 0 }
+				add_to_variable = { influences = -60 }
+				add_ideas = sanctions
+			}
+		}
+	}
+	option = {
+		name = un.12.b #反对
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				add = 10
+				has_opinion = {
+					target = FROM
+					value > 30
+				}
+			}
+			modifier = {
+				add = 10
+				has_guaranteed = FROM
+			}
+			modifier = {
+				add = 10
+				is_ally_with = FROM
+			}
+		}
+		FROM = { add_to_variable = { unsc_sanctions_vote_no = 1 } }
+		if = {
+			limit = { FROM = { check_variable = { unsc_sanctions_vote_no > 2 } } }
+			FROM = {
+				country_event = { id = un.14 days = 2 }
+				set_variable = { unsc_sanctions_vote_no = 0 }
+				set_variable = { unsc_sanctions_vote = 0 }
+			}
+		}
+	}
+}
+country_event = {
+	id = un.13
+	title = un.13.t
+	desc = un.13.d
+	picture = GFX_UN_conference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.13.a
+	}
+}
+country_event = {
+	id = un.14
+	title = un.14.t
+	desc = un.14.d
+	picture = GFX_UN_conference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.13.a
+	}
+}
+###联合国贷款
+country_event = {
+	id = un.15
+	title = un.15.t
+	desc = un.15.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+		add_political_power = 500
+		set_country_flag = UN_techdebt	
+		hidden_effect = {		
+		country_event = {
+			id = un.16
+			days = 365
+			}
+		}
+	}
+}
+country_event = {
+	id = un.16
+	title = un.16.t
+	desc = un.16.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.1.a
+		add_political_power = -650
+		clr_country_flag = UN_techdebt	
+	}
+}
+#被谴责人权
+country_event = {
+	id = un.17
+	title = un.17.t
+	desc = un.17.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.11.a
+		every_other_country = {
+			if = {
+				limit = { has_country_flag = UNSC }
+				country_event = { id = un.18 }
+			}
+		}
+	}
+}
+#投票
+country_event = {
+	id = un.18
+	title = un.18.t
+	desc = un.18.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.18.a
+		ai_chance = { 
+			factor = 1
+			
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 30
+				}
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_country_flag = dom6 }
+				add = 80
+			}
+		}
+		FROM = { add_to_variable = { unsc_condemn_vote = 1 } }
+		if = {
+			limit = { FROM = { check_variable = { unsc_condemn_vote > 3 } } }
+			FROM = {
+				country_event = { id = un.19 days = 2 }
+				set_variable = { unsc_condemn_vote_no = 0 }
+				set_variable = { unsc_condemn_vote = 0 }
+				add_to_variable = { influences = -100 }
+				if = {
+					limit = {
+						FROM = {
+							tag = DOM
+							has_country_flag = dom6
+						}
+						VEN = { has_government = democratic }
+					}
+					news_event = { id = dom.8 days = 10 }
+				}
+			}
+		}
+	}
+	option = {
+		name = un.18.b
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 30
+				}
+				factor = 10
+			}
+		}
+		FROM = { add_to_variable = { unsc_condemn_vote_no = 1 } }
+		if = {
+			limit = { FROM = { check_variable = { unsc_condemn_vote_no > 3 } } }
+			FROM = {
+				country_event = { id = un.20 days = 2 }
+				set_variable = { unsc_condemn_vote_no = 0 }
+				set_variable = { unsc_condemn_vote = 0 }
+			}
+		}
+	}
+}
+country_event = {
+	id = un.19
+	title = un.19.t
+	desc = un.19.d
+	picture = GFX_UN_conference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.19.a
+	}
+}
+country_event = {
+	id = un.20
+	title = un.20.t
+	desc = un.20.d
+	picture = GFX_UN_conference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = un.13.a
+	}
+}
+
+#全球讲话
+country_event = {
+	id = un.21
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		country_event = { id = un.21 days = 200 }
+		set_global_flag = UN_speech_launched	
+		random_country = {
+			limit = {
+				date > 1948.1.1
+				has_idea = UNmember
+				has_war = no
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1955.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1955.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1960.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1960.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1970.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1980.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+		random_country = {
+			limit = {
+				date > 1980.1.1
+				NOT = {
+					OR = {
+						has_idea = low_diplomacy
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+				has_idea = UNmember
+				has_war = no
+				check_variable = { influences > 350 }
+			}
+			country_event = { id = un.22 }
+		}
+	}
+}
+#全球讲话显示事件
+country_event = {
+	id = un.22
+	title = un.22.t
+	desc = un.22.d
+	picture = GFX_UN_conference
+	is_triggered_only = yes
+	option = {
+		name = un.22.a  #和平
+		add_to_variable = { influences = 80 }
+		news_event = { id = un.23 }
+		every_neighbor_country = {
+			limit = {
+				has_war = no
+			}
+			add_opinion_modifier = {
+				target = FROM
+				modifier = relation_improved
+			}
+		}
+		
+	}
+	option = {
+		name = un.22.b  #经济
+		add_to_variable = { influences = 40 }
+		add_political_power = 200
+		news_event = { id = un.24 }
+	}
+}
+#全球讲话显示事件
+news_event = {
+	id = un.23
+	title = un.23.t
+	desc = un.23.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}
+news_event = {
+	id = un.24
+	title = un.24.t
+	desc = un.24.d
+	major = yes
+	picture = GFX_UN
+	is_triggered_only = yes
+	option = { 
+		name = un.23.a
+	}
+}

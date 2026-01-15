@@ -1,0 +1,69 @@
+
+state={
+	id=617
+	name="STATE_617" # Urumqi
+	manpower = 1780500
+	
+	state_category = town
+	resources={
+		oil=2
+		coal = 8
+	}
+
+	history={
+		set_state_flag = ethnics_Ughurs
+		set_state_flag = cutton_production
+		add_to_array = { this.state_ethnics_list = 10 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_to_array = { this.state_ethnics_list = 8 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+		1949.10.12 = {
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = SIK
+		}
+		buildings = {
+			power_plant = 1
+			hospital = 1
+			infrastructure = 3
+			farm_building = 1
+		}
+		victory_points = {
+			4709 8
+		}
+		victory_points = { 4680 4 }
+		victory_points = { 7792 3 }
+		victory_points = { 13555 3 }
+		1954.10.12 = {
+			buildings = {
+				industrial_complex = 2
+			}
+		}
+		1964.10.12 = {
+			buildings = {
+				power_plant = 2
+				industrial_complex = 2
+				farm_building = 2
+				air_base = 1
+			}
+		}
+		1975.10.12 = {
+			
+			buildings = {
+				industrial_complex = 3
+				farm_building = 3
+				air_base = 3
+			}
+		}
+
+	}
+
+	provinces={
+		4709 4770 7702 7792 7850 10545 13554 13555
+	}
+}

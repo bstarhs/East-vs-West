@@ -1,0 +1,942 @@
+﻿capital = 611
+
+set_war_support = 0.9
+set_country_flag = main_country
+set_country_flag = chinese_states
+set_country_flag = eastasia
+	set_variable = { this.education = 27 }
+create_intelligence_agency = yes
+recruit_character = PRC_deng_xiao_ping
+recruit_character = PRC_zhu_de
+recruit_character = PRC_mao_zedong
+recruit_character = PRC_chen_yi
+recruit_character = PRC_peng_dehuai
+recruit_character = PRC_lin_biao
+recruit_character = PRC_zhou_enlai
+recruit_character = PRC_Luo_RuiChing
+recruit_character = PRC_Luo_RongHuan
+recruit_character = PRC_ye_jianying
+recruit_character = PRC_chen_geng
+recruit_character = PRC_zhang_guohua
+recruit_character = PRC_Liu_XingYuan
+recruit_character = PRC_su_yu
+recruit_character = PRC_Kang_Sheng
+recruit_character = PRC_Tan_Zhenlin
+recruit_character = PRC_Li_Da
+recruit_character = PRC_Wang_Zhen
+recruit_character = PRC_Liu_Huaqing
+recruit_character = PRC_Zhang_Aiping
+recruit_character = PRC_ZhangWanNian
+recruit_character = PRC_Wei_GuoQing
+recruit_character = PRC_liu_shaoqi
+recruit_character = PRC_gaogang
+recruit_character = PRC_Xie_FuZhi
+recruit_character = PRC_Li_XienNien
+recruit_character = PRC_nie_rongzhen
+			recruit_character = PRC_Hua_LuoGeng
+			recruit_character = PRC_WanLi
+			recruit_character = PRC_Jiang_ZeMin
+			recruit_character = PRC_Xi_ZhongXun
+			recruit_character = PRC_Hu_YaoBang
+			recruit_character = PRC_Zhao_ZiYang
+			recruit_character = PRC_ChenYun
+			recruit_character = PRC_Qiao_GuanHua
+			recruit_character = PRC_Song_ShiLun
+			recruit_character = PRC_liu_bocheng
+			recruit_character = PRC_Liu_YaLou
+			recruit_character = PRC_Tan_Zheng
+			recruit_character = PRC_Ren_BiShi
+			recruit_character = PRC_Huang_KeCheng
+			recruit_character = PRC_Li_Tao
+recruit_character = PRC_Peng_Zhen
+recruit_character = PRC_Wang_DongXing
+recruit_character = PRC_Guo_MoRuo
+# Starting tech
+create_intelligence_agency = yes
+set_global_flag = china_civil_war
+set_technology = {
+		excavation1 = 1
+	infantry_weapons = 1
+	tech_support = 1	
+	gw_artillery = 1
+	interwar_antiair = 1	
+	tech_engineers = 1
+	tech_recon = 1
+	
+	gwtank = 1
+	
+	superior_firepower = 1
+	
+	
+	
+		medical1 = 1
+	tech_mountaineers = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	
+	machine_gun1 = 1
+	
+	basic_militia = 1
+	dispersed_industry = 1
+	propaganda_war = 1
+	people_warfare = 1
+	morale_1 = 1
+	morale_2 = 1
+	morale_3 = 1
+	infantry_training = 1
+	military_instructor = 1
+	guerrilla_doctrine = 1
+	military_office = 1
+	infantry_training_2 = 1
+	infantry_training_3 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	intelligence_analysis = 1
+	fuel_silos = 1
+	artilelery_doctrine = 1
+	
+	street_fight = 1
+	army_aviation = 1
+}
+set_convoys = 50
+	add_opinion_modifier = {
+		target = CHI
+		modifier = disappinion
+	}
+add_ideas = {
+	harmonious
+	low_welfare
+	service_by_requirement
+	libiration
+	war_economy
+	Secularism
+	PRC_lin_biao
+	PRC_zhou_enlai
+	PRC_ye_jianying_military
+	Li_Tao
+}
+set_popularities = {
+	democratic = 16
+	communism = 82
+	neutrality = 2
+}
+set_politics = {
+	
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 40000
+		producer = PRC
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 12000
+		producer = MAN
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = CHI
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = CZE
+	}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 4000
+    producer = CHI
+}
+add_named_threat = { threat = 3 name = China-Civil-War }
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+	promote_character = {
+		character = PRC_mao_zedong
+		ideology = marxism
+	}
+create_country_leader = {
+	name = "Li Chi-Shen"
+	picture = "gfx/leaders/PRC/Portrait_China_Mao_Zedong.tga"
+	expire = "1968.1.1"
+	ideology = labourparty
+	traits = {
+		
+	}
+}
+create_operative_leader = {
+	name = "E Mei Feng"
+	GFX = "gfx/leaders/PRC/Portrait_China_Yu_ZeCheng.tga"
+	traits = { operative_infiltrator operative_natural_orator }
+	bypass_recruitment = yes
+	nationalities = { CHI }
+}
+oob = "PRC_1947"
+1949.1.1 = {
+	set_country_flag = NJ_liberate
+	set_country_flag = GZ_liberate
+	set_country_flag = Changchun_liberate
+	set_country_flag = Shenyang_liberate
+	set_country_flag = Kaifeng_liberate
+	set_country_flag = Xuzhou_liberate
+	set_country_flag = Chongching_liberate
+	set_country_flag = Shanghai_Liberate
+	set_country_flag = CZE_experts_allow
+		set_global_flag = YangtzeIncident
+		set_global_flag = AmethystIncident
+oob = "PRC_1950"
+	add_opinion_modifier = {
+		target = KOR
+		modifier = disappinion
+	}
+	set_stability = 0.82
+	add_political_power = 500
+	activate_decision = create_radio_station
+	set_technology = {
+		army_aviation = 1
+		telegraph = 1
+		early_fighter = 1
+		excavation1 = 1
+		construction1 = 1
+		
+		paratroopers = 1
+		tech_military_police = 1
+		tech_maintenance_company = 1
+		basic_machine_tools = 1
+		indirect_fire_support = 1
+		forward_observers = 1
+		infan_gun_coor = 1
+		
+		independet_airforce = 1
+		supress_war = 1
+	
+		power_generation1 = 1
+	}
+	complete_national_focus = prc23
+	complete_national_focus = prc2
+	complete_national_focus = prc_autonomies
+	complete_national_focus = prc_sinkiang
+	complete_national_focus = prc_pla
+	complete_national_focus = prc0
+	complete_national_focus = prc_RMB
+	complete_national_focus = prc1
+	complete_national_focus = prc_jiaofei
+	complete_national_focus = prc_talk_warlords
+	complete_national_focus = prc24
+	complete_national_focus = prc17
+	diplomatic_relation = { country = YUN relation = war_relation active = no }
+	set_global_flag = liberate_SHANGHAI
+}
+
+
+1951.1.1 = {
+	set_country_flag = SovietAdvisorAllow
+	set_autonomy = {
+		target = TIB
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	TIB = { set_politics = { ruling_party = monarchism } }
+	clr_global_flag = china_civil_war
+	set_country_flag = China_liberate
+	recruit_character = TIB_Panchen_Erdini
+	recruit_character = PRC_Deng_Jiaxian
+	recruit_character = PRC_Xu_ShiYou
+	retire_character = PRC_Ren_BiShi
+	set_technology = {
+		medical2 = 1
+		motorize_doctrine = 1
+		airforce_college = 1
+		airforce_train = 1
+		electrolytic_aluminum = 1
+		construction2 = 1
+	}
+	complete_national_focus = PRC_develop_jet
+	complete_national_focus = PRC_female_movements
+	complete_national_focus = PRC_liberate_tibet
+	complete_national_focus = prc48
+	activate_decision = PRC_magang
+	activate_decision = PRC_beigang
+	activate_decision = PRC_baotou
+	activate_decision = PRC_angang
+	complete_national_focus = prc26
+	complete_national_focus = prc6
+	complete_national_focus = prc_food_note_focus
+	give_guarantee = PRK
+	add_ideas = {
+		soviet_industry_advisitor_idea
+		PRC_zhou_enlai
+		PRC_Luo_RuiChing
+		three_anti_idea
+		soviet_military_advisitor_idea
+		CHI_coast_blocked
+		Guo_MoRuo
+	}
+	remove_ideas = landreform
+}
+1955.1.1 = {
+		add_political_power = 4000
+	set_global_flag = prc320
+	activate_decision = PRC_wuhan_briadge_decis
+	activate_decision = PRC_xinjiang_railway
+	activate_decision = PRC_magang
+	remove_decision = PRC_wuhan_briadge_decis
+	remove_decision = PRC_sichuan_railway
+	remove_ideas = {
+		Li_Tao
+		three_anti_idea
+	}
+	add_timed_idea = {
+		idea = PRC_construction_spirit
+		days = 400
+	}
+	activate_decision = PRC_yuehan_railway
+	activate_decision = PRC_sinkiang_names
+	activate_decision = PRC_mongol_names
+	activate_decision = PRC_longhai_railway
+	activate_decision = PRC_guangxi_railway
+	set_variable = { this.education = 46 }
+	set_country_flag = tiananmen_square_builded
+	set_global_flag = JF_decis_ended
+	oob = "PRC_1956"
+	recruit_character = PRC_Qian_xuesen
+	add_ideas = ChinaFvieYearsPlant
+	remove_ideas = libiration
+	set_technology = {
+		excavation2 = 1
+		oil_processing = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		laundry = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		power_generation1 = 1
+	basic_train = 1
+	vehicle_artillery = 1
+		helmet = 1
+	electronic_mechanical_engineering = 1
+	decimetric_radar = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+		tech_engineers2 = 1
+		tech_recon2 = 1
+		synth_oil_experiments = 1
+		concentrated_industry = 1
+		improved_machine_tools = 1
+		fighter1 = 1
+		motorised_infantry = 1
+		depth_defense = 1
+	rocket_engines = 1
+		aluminum_tech = 1
+		laser_weapon = 1
+		marines = 1
+	atomic_research = 1
+		basic_medium_tank = 1
+		infantry_weapons1 = 1
+		dispersed_industry2 = 1
+		mine_bomb = 1
+		supersonic_engine = 1
+		space_research = 1
+	}
+	complete_national_focus = prc0
+	complete_national_focus = prc1
+	complete_national_focus = prc5
+	complete_national_focus = prc4
+	complete_national_focus = prc10
+	complete_national_focus = prc11
+	complete_national_focus = prc13
+	complete_national_focus = prc20
+	complete_national_focus = prc19
+	complete_national_focus = prc12
+	complete_national_focus = prc46
+	complete_national_focus = prc47
+	complete_national_focus = prc49
+	complete_national_focus = prc50
+	complete_national_focus = prc15
+	complete_national_focus = prc84
+	capital = 608
+}
+1959.1.20 = {
+	clr_country_flag = SovietAdvisorAllow
+	clr_country_flag = CZE_experts_allow
+	set_country_flag = LitangRevolt
+	set_global_flag = PRC_build_leap_ship
+	set_global_flag = JF_deci_clear_oppium_ended
+	set_global_flag = PRC_build_canton_expo
+	set_global_flag = PRC_build_shanghai_expo
+	complete_national_focus = prc28
+	complete_national_focus = prc_hanned
+	remove_ideas = {
+		soviet_military_advisitor_idea
+		landreform
+	}
+	retire_character = PRC_Huang_KeCheng
+	remove_decision = PRC_beigang
+	remove_decision = PRC_magang
+	remove_decision = PRC_zhuzhou_refinery
+	remove_decision = PRC_datong_coal
+	remove_decision = PRC_luoyang_manufactures
+	remove_decision = PRC_power_plants_project
+	activate_decision = Sanmen_dam
+	end_puppet = TIB
+	complete_national_focus = prc81
+	complete_national_focus = PRC_medic_construction
+	set_country_flag = developmented
+	add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = Establishment_of_National_Museum
+	complete_national_focus = pla_navy_focus
+	complete_national_focus = prc28
+	complete_national_focus = prc27
+	complete_national_focus = prc16
+	complete_national_focus = prc_great_steel
+	complete_national_focus = PRC_satllite_movements
+	activate_decision = create_TV_station
+	
+	set_technology = {
+		transport_1 = 1
+		basic_helicopter = 1
+		strategic_bomber1 = 1
+		CAS5 = 1
+		assembly_line = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		fighter1 = 1
+		vaccum_tube = 1
+		auto_industry = 1
+		trans_helicopter_1 = 1
+		cable_television = 1
+		early_computer = 1
+		aluminum_tech = 1
+		tech_logistics_company2 = 1
+		machine_gun2 = 1
+		radio_detection = 1
+		fighter2 = 1
+		infantry_at = 1
+		basic_heavy_tank = 1
+		rubber_processing = 1
+		guided_missile = 1
+		infantry_weapons2 = 1
+		improved_medium_tank = 1
+		improved_infantry_weapons = 1
+		mechanised_infantry = 1
+		motorize_doctrine = 1
+		motorized_transport = 1
+		armor_doctrine = 1
+		artillery1 = 1
+		at_missile_1 = 1
+		spaa2 = 1
+		antiair3 = 1
+		improved_oil_processing = 1
+		medical3 = 1
+		medical4 = 1
+	}
+	remove_ideas = {
+		ChinaFvieYearsPlant
+		soviet_industry_advisitor_idea
+		PRC_construction_spirit
+	}
+	add_ideas = {
+		hight_welfare
+		PeoplesCommuni
+		four_clears
+		GreatLeapForward_ideas
+	}
+	complete_national_focus = prc14
+	complete_national_focus = prc8
+	promote_character = PRC_Liu_Shaoqi
+}
+1964.1.1 = {
+	promote_character = {
+		character = PRC_liu_shaoqi
+		ideology = marxism
+	}
+	remove_decision = PRC_xinjiang_railway
+	remove_decision = Sanmen_dam
+	remove_ideas = landreform
+	add_to_array = { global.nuke_states_list = FROM }
+	retire_character = PRC_Luo_RongHuan
+	remove_ideas = anti_right
+	
+	remove_ideas = GreatSteelIdeas
+	remove_ideas = Products_sattlite
+	complete_national_focus = PRC_dazhai
+	complete_national_focus = prc53
+	complete_national_focus = prc25
+	complete_national_focus = prc3
+	set_technology = {
+		Semiconductor = 1
+		transistor = 1
+	napalm = 1
+	rocket_vehicle = 1
+	medium_computer = 1
+	spaa1 = 1
+	
+		medical5 = 1
+	mechanised_infantry2 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	early_fighter = 1
+	dispersed_industry4 = 1
+	
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_destroyer = 1
+	
+	early_ship_hull_cruiser = 1
+	aa_missile_1 = 1
+	atomic_research = 1
+	nukes = 1
+	transport = 1
+	
+	radio = 1
+	
+	fuel_refining = 1
+	atomic_research = 1
+	nukes = 1
+	strategic_bomber2 = 1
+	antiair1 = 1
+		fire_control_methods_1 = 1
+	}
+	give_guarantee = ALB
+	add_nuclear_bombs = 7
+	complete_national_focus = prc51
+	add_ideas = {
+		hasnuke
+	}
+	add_timed_idea = {
+		idea = LeiFengIdeas
+		days = 180
+	}
+	remove_ideas = GreatLeapForward_ideas
+	remove_ideas = PeoplesCommuni
+}
+
+1966.5.1 = {
+	set_technology = {
+		transport_2 = 1
+		transport_plane1 = 1
+		basic_ship_hull_cruiser = 1
+	}
+	set_variable = { this.nukes_limit = 120 }
+	complete_national_focus = prc33
+	complete_national_focus = prc_cr_team
+	retire_character = PRC_Luo_RuiChing
+	retire_character = PRC_Li_XienNien
+	retire_character = PRC_Li_Tao
+	recruit_character = PRC_Hua_Guofeng
+	set_country_flag = launch_vehicle_succes
+	retire_character = PRC_Liu_Shaoqi
+	retire_character = PRC_Guo_MoRuo
+	promote_character = {
+		character = PRC_mao_zedong
+		ideology = marxism
+	}
+	set_country_leader_portrait = {
+		ideology = communism
+		portrait = GFX_MaoZeDong_old
+	}
+	set_convoys = 80
+	complete_national_focus = prc29
+	add_ideas = {
+		extensive_conscription
+		redguard
+		PRC_Zhang_Chun_Qiao
+		PRC_Jiang_Qing
+		SovietChinaConflit
+		Cultrue_Revolution
+		Anti_religious
+	}
+	set_technology = {
+		aim_missile_1 = 1
+		CAS2 = 1
+		
+	}
+	remove_ideas = four_clears
+	remove_ideas = LeiFengIdeas
+}
+1971.1.1 = {
+	complete_national_focus = prc34
+	complete_national_focus = prc67
+	complete_national_focus = PRC_students_tu_rural
+	complete_national_focus = prc71
+	complete_national_focus = prc_revolution_Africa
+		recruit_character = PRC_Chi_Haotian
+	set_country_flag = WangHongWen
+	set_country_flag = Satellite_succes
+	set_technology = {
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		improved_medium_battery = 1
+		tech_Satellite = 1
+		thermonuclear = 1
+		infantry_at2 = 1
+		improved_rubber_processing = 1
+		CAS4 = 1
+		strategic_bomber3 = 1
+	}
+	add_opinion_modifier = {
+		target = SOV
+		modifier = PRC_SOV_conflict
+	}
+	add_opinion_modifier = {
+		target = MON
+		modifier = PRC_SOV_conflict
+	}
+	add_opinion_modifier = {
+		target = VIN
+		modifier = PRC_SOV_conflict
+	}
+	complete_national_focus = prc55
+	complete_national_focus = prc31
+	complete_national_focus = prc64
+	complete_national_focus = prc56
+	complete_national_focus = prc30
+	add_ideas = {
+		Wang_Hong_Wen
+		UNmember
+		Qiao_GuanHua
+	}
+	remove_ideas = {
+		CHI_coast_blocked
+	}
+	set_country_flag = UNSC
+}
+1972.1.20 = {
+		create_equipment_variant = {
+			name = "053 Class"
+			type = ship_hull_light_3
+				name_group = PRC_CITIES
+				parent_version = 0
+				modules = {
+					fixed_ship_battery_slot = ship_light_battery_2
+					fixed_ship_anti_air_slot = ship_anti_air_1
+					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+					fixed_ship_radar_slot = empty
+					fixed_ship_engine_slot = light_ship_engine_2
+					fixed_ship_torpedo_slot = ship_torpedo_2
+					mid_1_custom_slot = ship_torpedo_2
+					rear_1_custom_slot = ship_depth_charge_1
+				}
+		}
+	activate_decision = PRC_UN
+	complete_national_focus = prc60
+	set_technology = {
+		tech_engineers3 = 1
+		tech_recon3 = 1
+		machine_gun3 = 1
+		spaa2 = 1
+		improved_destroyer = 1
+		fighter3 = 1
+		construction3 = 1
+		concentrated_industry2 = 1
+		tech_logistics_company3 = 1
+		improved_heavy_tank = 1
+		advanced_machine_tools = 1
+		laundry = 1
+		improved_infantry_weapons_2 = 1
+		midrange_missile = 1
+		integrated_circuit = 1
+		medium_computer = 1
+		computer_consol = 1
+		trans_helicopter_2 = 1
+	}
+	remove_ideas = PRC_lin_biao
+	add_nuclear_bombs = 28
+}
+1976.1.20 = {
+	remove_ideas = redguard
+	add_nuclear_bombs = 181
+	complete_national_focus = prc60
+	retire_character = PRC_mao_zedong
+	retire_character = PRC_Jiang_Qing
+	retire_character = PRC_Zhang_Chun_Qiao
+	retire_character = PRC_Wang_Hong_Wen
+	promote_character = PRC_Hua_Guofeng
+	recruit_character = PRC_Li_XienNien
+	set_country_flag = stop_output
+	remove_ideas = {
+		PRC_ye_jianying_military
+		PRC_zhou_enlai
+		Qiao_GuanHua
+	}
+	add_ideas = {
+		PRC_ye_jianying
+	}
+	add_ideas = Death_Mao
+	create_country_leader = {
+		name = "Wei Jing-Sheng"
+		
+		picture = "gfx/leaders/PRC/Portrait_China_Wei_Jingsheng.tga"
+		expire = "1997.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+		create_equipment_variant = {
+			name = "053H"
+			type = ship_hull_cruiser_2
+			parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery_3
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = cruiser_ship_engine_2
+				fixed_ship_armor_slot = ship_armor_cruiser_1
+				fixed_ship_secondaries_slot = dp_ship_secondaries_3
+				front_1_custom_slot = empty
+				mid_1_custom_slot = ship_anti_air_1
+				mid_2_custom_slot = ship_torpedo_1
+				rear_1_custom_slot = dp_light_battery_3
+			}
+		}
+	set_oob = "PRC_1977"
+	set_naval_oob = "PRC_1977_naval"
+}
+1978.12.20 = {
+	diplomatic_relation = {
+		country = ALB
+		relation = guarantee
+		active = no
+	}
+	promote_character = PRC_deng_xiao_ping
+	set_variable = { this.education = 56 }
+	set_technology = {
+		fuel_refining2 = 1
+		aa_missile_2 = 1
+		excavation3 = 1
+		dispersed_industry4 = 1
+		micro_computer = 1
+		basic_secondary_battery = 1
+		improved_ship_hull_cruiser = 1
+	}
+	set_popularities = {
+		democratic = 3
+		communism = 95
+		authoritarianism = 2
+	}
+	set_convoys = 140
+	add_opinion_modifier = {
+		target = JAP
+		modifier = PRC_pro_west
+	}
+	add_opinion_modifier = {
+		target = USA
+		modifier = PRC_pro_west
+	}
+	add_opinion_modifier = {
+		target = ENG
+		modifier = PRC_pro_west
+	}
+	add_opinion_modifier = {
+		target = FRA
+		modifier = PRC_pro_west
+	}
+	add_opinion_modifier = {
+		target = WDR
+		modifier = PRC_pro_west
+	}
+	complete_national_focus = prc55
+	complete_national_focus = prc72
+	complete_national_focus = prc_sanxian
+	complete_national_focus = prc56
+	complete_national_focus = prc28
+	complete_national_focus = prc39
+	complete_national_focus = prc40
+	complete_national_focus = prc42
+	complete_national_focus = prc31
+	add_ideas = {
+		Openreform
+		partial_economic_mobilisation
+		Secularism
+		Xu_ShiYou
+	}
+	remove_ideas = Cultrue_Revolution
+	remove_ideas = Death_Mao
+	
+}
+1981.3.12 = {
+	remove_ideas = PRC_ye_jianying
+	remove_ideas = Dazhai_idea
+	set_stability = 0.82
+	set_popularities = {
+		democratic = 10
+		communism = 87
+		authoritarianism = 3
+	}
+	diplomatic_relation = {
+		country = CAM
+		relation = guarantee
+		active = no
+	}
+	retire_character = PRC_Hua_Guofeng
+	recruit_character = PRC_Qian_QiChen
+	add_nuclear_bombs = 221
+	complete_national_focus = prc42
+	complete_national_focus = prc45
+	complete_national_focus = prc7
+	complete_national_focus = prc9
+	complete_national_focus = prc75
+	set_technology = {
+	at_missile_2 = 1
+		husbandry_feed = 1
+		tech_engineers4 = 1
+		fighter4 = 1
+		dispersed_industry3 = 1
+		advanced_heavy_tank = 1
+		frozen_food = 1
+		power_cable = 1
+		advanced_infantry_weapons = 1
+		tech_military_police2 = 1
+		ICBM_missile = 1
+		sp_artillery1 = 1
+		sp_artillery2 = 1
+		tech_recon4 = 1
+	}
+	add_ideas = {
+		PRC_ChenYun
+		PRC_Xi_ZhongXun
+		PRC_Hu_YaoBang
+		Jiang_ZeMin
+		oncechild
+		mid_welfare
+		corrupt
+	}
+}
+1985.1.1 = {
+	add_named_threat = {
+		threat = -6
+		name = PRC_eng_deceration
+	}
+	add_ideas = limited_conscription
+	activate_decision = PRC_tibet_railway
+	complete_national_focus = prc61
+	complete_national_focus = prc41
+	complete_national_focus = prc44
+	recruit_character = PRC_Hu_Jintao
+	recruit_character = PRC_Li_Peng
+	set_popularities = {
+		democratic = 18
+		communism = 72
+		neutrality = 10
+	}
+}
+1988.3.12 = {
+	set_popularities = {
+	democratic = 22
+	communism = 73
+	authoritarianism = 5
+	}
+	add_ideas = {
+		PRC_Zhao_ZiYang
+		Li_Peng
+		Qian_QiChen
+	}
+	set_technology = {
+		trans_helicopter_3 = 1
+		tac_missile1 = 1
+	CAS5 = 1
+	at_missile_3 = 1
+	personal_computer = 1
+	mechanized_aa_missile_2 = 1
+		improved_light_tank = 1
+		integrated_circuit = 1
+		advanced_ship_hull_light = 1
+		communie_Satellite = 1
+		sp_artillery2 = 1
+		sp_artillery2 = 1
+		internet = 1
+		advanced_light_tank = 1
+		machine_gun4 = 1
+		concentrated_industry3 = 1
+		electric_arc_furnace_steel = 1
+		advanced_medium_tank = 1
+		mechanised_infantry3 = 1
+		CAS3 = 1
+	}
+	recruit_character = PRC_Li_RuiHuan
+}
+1989.12.12 = {
+	add_to_array = { global.sanctioned_countries_list = FROM }
+	retire_character = PRC_deng_xiao_ping
+	promote_character = PRC_Jiang_ZeMin
+	set_technology = {
+		tac_missile2 = 1
+	}
+	add_named_threat = {
+		threat = 8
+		name = tiananmen
+	}
+	create_equipment_variant = {
+		name = "Type 052"
+		type = light_cruiser_2
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_torpedo_2
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	set_variable = { this.education = 72 }
+	remove_ideas = {
+		PRC_Hu_YaoBang
+		PRC_Zhao_ZiYang
+		SovietChinaConflit
+		Jiang_ZeMin
+		PRC_ChenYun
+		PRC_Xi_ZhongXun
+	}
+	add_ideas = {
+		tiananmen
+		Li_RuiHuan
+	}
+}

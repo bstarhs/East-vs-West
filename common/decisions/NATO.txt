@@ -1,0 +1,34 @@
+Warsaw_Pact = {
+	NATO_invide  = {
+		icon = GFX_decision_NATO
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		visible = {
+			tag = USA
+		}
+		days_re_enable = 180
+		target_trigger = {
+			FROM = {
+				is_in_faction = no
+				OR = {
+					is_guaranteed_by = USA
+					has_government = communism
+				}
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+
+		complete_effect = {
+			FROM = { country_event = { id = usa.96 } }
+		}
+	
+	}
+}

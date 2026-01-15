@@ -1,0 +1,39 @@
+state={
+	id=1010
+	
+	state_category = town
+	
+	name="STATE_1010"
+	resources={
+		copper=24
+		iron=6
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Zambian
+		add_to_array = { this.state_ethnics_list = 147 }
+		add_to_array = { this.state_ethnics_list = 169 }
+		buildings = {
+			hospital = 1
+			infrastructure = 3
+			farm_building = 1
+		}
+		add_core_of = ZAM
+		owner = ZAM
+		1953.8.23 = {
+			owner = RHO
+		}
+		1964.8.23 = {
+			owner = ZAM
+		}
+		victory_points = { 13325 10 }
+		victory_points = { 14164 4 }
+	}
+
+	provinces={
+		 13325 12504 13234 5199 14162 14163 14164 14165 14166 14167 14169 14172 14176
+	}
+	manpower=4155400
+	buildings_max_level_factor=1.000
+}

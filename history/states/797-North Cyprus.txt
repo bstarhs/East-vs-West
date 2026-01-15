@@ -1,0 +1,39 @@
+state= {
+	id=797
+	name="STATE_797"
+	manpower = 347959
+	
+	state_category = rural
+	resources={
+		tungsten=4
+	}
+
+	history= {
+		set_state_flag = ethnics_Turkish
+		owner = ENG
+		add_dynamic_modifier = { modifier = fish_production }
+		add_core_of = CYP
+		add_claim_by = GRE
+		add_to_array = { this.state_ethnics_list = 74 }
+		victory_points = { 13257 2 }
+		victory_points = { 13903 6 }
+		victory_points = { 13258 5 }
+		buildings = {
+			13257 = {
+				naval_base = 2
+			}
+			infrastructure = 4
+			air_base = 1
+		}
+		1960.8.23 = {
+			remove_claim_by = GRE
+			owner = CYP
+		}
+		1974.8.23 = {  
+		add_core_of = NCY
+			owner = NCY
+		}
+
+	}
+	provinces= { 13257 13258 13903 }
+}

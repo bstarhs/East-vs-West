@@ -1,0 +1,307 @@
+﻿add_namespace = bul
+
+#季米特洛夫去世
+news_event = {
+	id = bul.9
+	title = bul.9.t
+	desc = bul.9.d
+	fire_only_once = yes
+	picture = GFX_BulgariaElec
+	trigger = {
+		tag = BUL
+		date > 1949.9.19
+		date < 1949.11.21
+		BUL = { has_government = communism }
+	}
+	option = {
+		ai_chance = {
+			factor = 15
+		}
+		name = bul.9.b
+		trigger = { has_character = BUL_Chelvenkov }
+		promote_character = {
+			character = BUL_Chelvenkov
+			ideology = marxism
+		} 
+		news_event = { id = bul.10 }
+		if = {
+			limit = { has_country_flag = titoist_rise }
+			add_political_power = -200
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+			modifier = {
+				add = 20
+				has_country_flag = titoist_rise
+			}
+		}
+		if = {
+			limit = { has_country_flag = titoist_rise }
+			add_political_power = 200
+		}
+		name = bul.9.b
+		trigger = { has_character = BUL_Traycho_Kostov }
+		promote_character = {
+			character = BUL_Traycho_Kostov
+			ideology = marxism
+		} 
+		news_event = { id = bul.10 }
+	}
+}
+
+news_event = {
+	id = bul.10
+	title = bul.10.t
+	desc = bul.10.d
+	picture = GFX_BulgariaElec
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.22.a
+	}
+}
+
+#契尔文科夫下台
+news_event = {
+	id = bul.22
+	title = bul.22.t
+	desc = bul.22.d
+	fire_only_once = yes
+	picture = GFX_BulgariaElec
+	trigger = {
+	tag = BUL
+	SOV = { has_completed_focus = SOV_New_idea }
+	has_government = communism
+	date < 1986.1.1
+	}
+	option = {
+		name = bul.22.b
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+	}
+	option = {
+		name = bul.22.b
+		create_country_leader = {
+			name = "Angel Solakov" 
+			desc = "Portrait_Poland_Gomulka.tga" 
+			picture = "gfx/leaders/BUL/Portrait_BUL_Angel_Solakov.tga" 
+			expire = "2000.1.1" 
+			ideology = leninism 
+			traits = {
+				socialist_reformism
+			} 
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.2
+		}
+		clr_country_flag = Zhivkov
+	}
+}
+#民盟抗议
+news_event = {
+	id = bul.25
+	title = bul.25.t
+	desc = bul.25.d
+	picture = GFX_Bulgaria1989
+	fire_only_once = yes
+	trigger = {
+		tag = BUL
+		date > 1990.1.19
+		communism < 0.6
+		BUL = { has_government = communism }
+		POL = { has_government = democratic }
+	}
+	option = {	#日夫科夫辞职
+		name = bul.25.a
+		create_country_leader = {
+			name = "Peter Mladenov" 
+			desc = "Portrait_Poland_Gomulka.tga" 
+			picture = "gfx/leaders/BUL/Portrait_Bulgaria_Dladenov.tga" 
+			expire = "2000.1.1" 
+			ideology = leninism 
+			traits = {} 
+		}
+		create_country_leader = {
+			name = "Zhelyu Zhelev"
+			picture = "gfx/leaders/BUL/Portrait_Bulgaria_Zhelyu_Zhelev.tga"
+			ideology = liberalism
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+		set_country_flag = Dladenov
+		news_event = { id = bul.27 }
+	}
+	option = {	#拒绝
+		name = bul.25.b
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_stability = -0.1
+		create_country_leader = {
+			name = "Zhelyu Zhelev"
+			picture = "gfx/leaders/BUL/Portrait_Bulgaria_Zhelyu_Zhelev.tga"
+			ideology = liberalism
+		}
+	}
+}
+
+#民盟不合作
+news_event = {
+	id = bul.27
+	title = bul.27.t
+	desc = bul.27.d
+	fire_only_once = yes
+	picture = GFX_Bulgaria1989
+	is_triggered_only = yes
+	option = {	#日夫科夫辞职
+		name = bul.27.a
+		create_country_leader = {
+			name = "Zhelyu Zhelev"
+			picture = "gfx/leaders/BUL/Portrait_Bulgaria_Zhelyu_Zhelev.tga"
+			ideology = liberalism
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.2
+		}
+		set_politics = { ruling_party = democratic }
+	}
+	option = {	#拒绝
+		name = bul.27.b
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_stability = -0.3
+	}
+}
+#铁托事件
+country_event = {
+	id = bul.30
+	title = bultext.30.t
+	desc = bul.30.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	picture = GFX_PolElection
+	trigger = {
+		tag = BUL
+		YUG = { has_idea = SovietChinaConflit }
+		date < 1949.12.1
+	}
+	option = {
+		name = bul.30.a
+			ai_chance = {
+				factor = 60
+			}
+		set_country_flag = BulTitoNo
+		news_event = { id = bul.31 }
+		retire_character = BUL_Traycho_Kostov
+	}
+	option = {
+		name = bul.30.b
+			ai_chance = {
+				factor = 10
+			}
+		set_country_flag = BulTitoYes
+		set_country_flag = TitoYes
+		retire_character = BUL_Chelvenkov
+		news_event = { id = bul.32 }
+	}
+}
+news_event = {
+	id = bul.31
+	title = bul.31.t
+	desc = bul.31.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bul.21.b1
+		if = {
+			limit = { tag = BUL }
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+			add_stability = -0.08
+		}
+		
+	}
+}
+news_event = {
+	id = bul.32
+	title = bul.32.t
+	desc = bul.32.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = bul.21.b1
+		if = {
+			limit = { tag = BUL }
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+			add_stability = 0.08
+		}
+		if = {
+			limit = {
+				is_neighbor_of = BUL
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+		}
+	}
+}
+#保共六大
+country_event = {
+	id = bul.35
+	title = bul.35.t
+	desc = bul.35.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 12 }
+	picture = GFX_PolElection
+	trigger = {
+		tag = BUL
+		SOV = { has_completed_focus = SOV_RemovingStalinization }
+		NOT = { has_global_flag = bul35 }
+		date > 1954.5.1
+		date < 1955.8.1
+	}
+	option = {
+		name = bul.30.a
+			ai_chance = {
+				factor = 60
+			}
+		news_event = { id = bul.36 }
+		retire_character = BUL_Chelvenkov
+				promote_character = {
+					character = BUL_Zhivkov
+					ideology = marxism
+				}
+	}
+}
+news_event = {
+	id = bul.36
+	title = bul.36.t
+	desc = bul.36.d
+	picture = GFX_TodorZhivkov
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.22.a
+	}
+}

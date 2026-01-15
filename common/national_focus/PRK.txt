@@ -1,0 +1,2182 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+focus_tree = {
+	id = PRK_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRK
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 55 y = 1500 }
+	focus = {
+		id = PRK_DemocraticRepublic
+		icon = GFX_goal_PRK_DemocraticRepublic
+		cost = 6
+		x = 8
+		y = 0
+		completion_reward = {
+			set_cosmetic_tag = PRK
+		}
+
+	}
+	focus = {
+		id = PRK_Nodongdang
+		icon = GFX_goal_Nodongdang
+		cost = 6
+		x = 6
+		y = 1
+		prerequisite = {
+			focus = PRK_DemocraticRepublic
+		}
+		completion_reward = {
+			news_event = { id = prk.56 }
+		}
+	}
+	focus = {
+		id = PRK_KOR_pla
+		icon = GFX_goal_prk_army
+		cost = 6
+		x = 18
+		y = 1
+		prerequisite = {
+			focus = PRK_DemocraticRepublic
+		}
+		completion_reward = {
+			army_experience = 300
+		}
+	}
+	focus = {
+		id = PRK_economic
+		icon = GFX_goal_prk_construction
+		cost = 15
+		x = 26
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_DemocraticRepublic
+		}
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			add_stability = 0.1
+			add_political_power = 500
+		}
+	}
+	focus = {
+		id = PRK_medic
+		icon = GFX_goal_PRC_economic_reform
+		cost = 15
+		x = 24
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_DemocraticRepublic
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					hospital < 1
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_education
+		icon = GFX_goal_PRC_economic_reform
+		cost = 20
+		x = 28
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_DemocraticRepublic
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					school < 1
+				}
+				add_building_construction = {
+					type = school
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_pyeongyang
+		icon = GFX_goal_pyeongyang
+		cost = 40
+		x = 28
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_economic
+		}
+		completion_reward = {
+			527 = {
+				set_state_category = large_city
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_39office
+		icon = GFX_goal_buisness_clan
+		cost = 6
+		x = 26
+		y = 2
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_economic
+		}
+	}
+	focus = {
+		id = PRK_chonlima
+		icon = GFX_goal_chonlima
+		cost = 20
+		x = 28
+		y = 3
+		prerequisite = {
+			focus = PRK_pyeongyang
+		}
+		completion_reward = {
+			news_event = { id = prk.89 }
+			add_to_variable = { influences = 80 } 
+			add_political_power = 300
+			add_timed_idea = {
+				idea = PRK_chonlima_idea
+				days = 500
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 3 }
+					NOT = {
+						has_state_category = tiny_island
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = infrastructure level = 2 }
+				add_building_construction = { type = industrial_complex level = 3 }
+				add_building_construction = { type = power_plant level = 1 }
+			}
+		}	
+	}
+	focus = {
+		id = PRK_naseon
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 6
+		x = 27
+		y = 4
+		prerequisite = {
+			focus = PRK_chonlima
+		}
+		completion_reward = {
+			787 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_cheongsanri
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		cost = 6
+		x = 31
+		y = 4
+		prerequisite = {
+			focus = PRK_pyeongan
+			focus = PRK_PRC_relation
+		}
+		completion_reward = {
+			news_event = { id = prk.90 }
+			add_ideas = PRK_chonsanli_idea
+		}
+	}
+	focus = {
+		id = PRK_daean
+		icon = GFX_goal_angang_model
+		cost = 6
+		x = 31
+		y = 6
+		prerequisite = {
+			focus = PRK_cheongsanri
+		}
+		completion_reward = {
+			news_event = { id = prk.91 }
+		}
+	}
+	focus = {
+		id = PRK_uilju
+		icon = GFX_goal_PRC_economic_reform
+		cost = 6
+		x = 29
+		y = 4
+		prerequisite = {
+			focus = PRK_chonlima
+		}
+		completion_reward = {
+			786 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_oil
+		icon = GFX_goal_oil_produc
+		cost = 6
+		x = 28
+		y = 5
+		available = {
+			has_tech = oil_processing
+		}
+		prerequisite = {
+			focus = PRK_uilju
+			focus = PRK_naseon
+		}
+	}
+	focus = {
+		id = PRK_kaesung
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 6
+		x = 30
+		y = 5
+		prerequisite = {
+			focus = PRK_uilju
+		}
+		completion_reward = {
+			744 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_plastic
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 6
+		x = 28
+		y = 6
+		available = {
+			has_tech = improved_rubber_processing
+		}
+		prerequisite = {
+			focus = PRK_oil
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_manufacture1
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 20
+		x = 24
+		y = 2
+		available = {
+			has_war = no
+			has_tech = basic_machine_tools
+		}
+		prerequisite = {
+			focus = PRK_economic
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					has_dynamic_modifier = { modifier = oil_modifiers }
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_manufacture2
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 25
+		x = 24
+		y = 3
+		available = {
+			has_war = no
+			has_tech = improved_machine_tools
+		}
+		prerequisite = {
+			focus = PRK_manufacture1
+		}
+		completion_reward = {
+			add_research_slot = 1
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					has_dynamic_modifier = { modifier = oil_modifiers }
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_hydroplant
+		icon = GFX_focus_generic_hydroelectric_energy
+		cost = 20
+		x = 26
+		y = 3
+		available = {
+			has_tech = construction3
+		}
+		prerequisite = {
+			focus = PRK_manufacture1
+		}
+		completion_reward = {
+			786 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_minerals
+		icon = GFX_focus_generic_mining_industry
+		cost = 10
+		x = 26
+		y = 5
+		available = {
+			has_tech = excavation2
+		}
+		prerequisite = {
+			focus = PRK_hydroplant
+		}
+		prerequisite = {
+			focus = PRK_chonlima
+		}
+		completion_reward = {
+			787 = {
+				add_resource = {
+					type = coal
+					amount = 12
+				}
+			}
+		}	
+	}
+	focus = {
+		id = PRK_steel
+		icon = GFX_goal_steel
+		cost = 10
+		x = 26
+		y = 6
+		available = {
+			has_tech = concentrated_industry5
+		}
+		prerequisite = {
+			focus = PRK_minerals
+		}
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			786 = {
+				add_building_construction = {
+					type = steel_making
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_sunglae
+		icon = GFX_goal_tourism
+		cost = 10
+		x = 26
+		y = 7
+		prerequisite = {
+			focus = PRK_steel
+		}
+	}
+	focus = {
+		id = PRK_manufacture3
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 35
+		x = 24
+		y = 4
+		prerequisite = {
+			focus = PRK_manufacture2
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 3
+						include_locked = yes
+					}
+					is_in_home_area = yes
+					has_dynamic_modifier = { modifier = oil_modifiers }
+				}
+				add_building_construction = {
+					type = oilfield
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_electro
+		icon = GFX_goal_electronic
+		cost = 20
+		x = 24
+		y = 5 
+		prerequisite = {
+			focus = PRK_manufacture3
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+				name = electronic
+				ahead_reduction = 1
+				category = electronics
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = focus_electro_tool
+		}
+	}
+	focus = {
+		id = PRK_military_industry1
+		icon = GFX_goal_militarist
+		cost = 15
+		x = 22
+		y = 2
+		available = {
+			has_tech = basic_machine_tools
+		}
+		prerequisite = {
+			focus = PRK_economic
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = large_city
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = large_city
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_military_industry2
+		icon = GFX_goal_militarist
+		cost = 10
+		x = 22
+		y = 3
+		available = {
+			has_tech = improved_machine_tools
+		}
+		prerequisite = {
+			focus = PRK_military_industry1
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = large_city
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = large_city
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_military_industry3
+		icon = GFX_goal_militarist
+		cost = 10
+		x = 22
+		y = 4
+		prerequisite = {
+			focus = PRK_military_industry2
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = large_city
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					owner = { num_of_controlled_states > 2 }
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = metropolis
+						has_state_category = large_city
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_space
+		icon = GFX_goal_sputnik1
+		cost = 10
+		x = 22
+		y = 5
+		prerequisite = {
+			focus = PRK_military_industry3
+		}
+		completion_reward = {
+			news_event = { id = gen.64 }
+			add_tech_bonus = {
+				name = focus_space_explore
+				bonus = 1.0
+				uses = 1
+				category = space
+			}
+		}
+	}
+	focus = {
+		id = PRK_nuclear
+		icon = GFX_goal_focus_Nuke
+		cost = 10
+		x = 20
+		y = 4
+		prerequisite = {
+			focus = PRK_military_industry2
+		}
+		completion_reward = {
+			news_event = { id = prk.88 }
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = PRK_nuke
+		icon = GFX_goal_nuke
+		cost = 10
+		x = 20
+		y = 5
+		prerequisite = {
+			focus = PRK_nuclear
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuke
+			}
+		}
+	}
+	focus = {
+		id = PRK_agriculture
+		icon = GFX_focus_generic_agricultural_subsidies
+		cost = 20
+		x = 30
+		y = 2
+		prerequisite = {
+			focus = PRK_economic
+		}
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = rural
+					}
+				}
+				add_building_construction = {
+					type = farm_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = rural
+					}
+				}
+				add_building_construction = {
+					type = farm_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = rural
+					}
+				}
+				add_building_construction = {
+					type = farm_building
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_pyeongan
+		icon = GFX_goal_agriculture
+		cost = 6
+		x = 30
+		y = 3
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_agriculture
+		}
+		completion_reward = {
+			786 = {
+				set_state_category = large_town
+				add_building_construction = {
+					type = farm_building
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_diplomatic
+		icon = GFX_goal_diplo_dprk
+		cost = 3
+		x = 36
+		y = 1
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_DemocraticRepublic
+		}
+	}
+	focus = {
+		id = PRK_SOV_relation
+		icon = GFX_soviet_relationship
+		cost = 6
+		x = 36
+		y = 2
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_diplomatic
+		}
+		completion_reward = {
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = independent_red
+			}
+			modifier = {
+				factor = 1
+				has_completed_focus = common_28
+			}
+			modifier = {
+				add = 40
+				SOV = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				SOV = { check_variable = { influences < 100 } }
+			}
+		}
+	}
+	focus = {
+		id = PRK_third_world
+		icon = GFX_goal_third_world
+		cost = 6
+		x = 40
+		y = 2
+		prerequisite = {
+			focus = PRK_diplomatic
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = pro_third_world
+			}
+			modifier = {
+				add = 10
+				has_country_leader_with_trait = african_nationalism
+			}
+			modifier = {
+				add = 2
+				has_country_leader_with_trait = pro_socialism
+			}
+			modifier = {
+				add = -20
+				has_idea = banana_inc
+			}
+			modifier = {
+				add = -40
+				USA = { check_variable = { influences > 3000 } }
+			}
+			modifier = {
+				add = 40
+				USA = { check_variable = { influences < 100 } }
+			}
+			modifier = {
+				add = -5
+				has_country_leader_with_trait = pro_america
+			}
+			modifier = {
+				add = -20
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		completion_reward = {
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+	focus = {
+		id = PRK_support_jcp
+		icon = GFX_goal_communist_japan
+		cost = 6
+		x = 40
+		y = 3
+		prerequisite = {
+			focus = PRK_third_world
+		}
+		completion_reward = {
+			news_event = { id = prk.106 }
+			JAP = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_japan
+		icon = GFX_goal_diplo_japan
+		cost = 6
+		x = 42
+		y = 3
+		prerequisite = {
+			focus = PRK_third_world
+		}
+		completion_reward = {
+			JAP = {
+				news_event = { id = prk.107 }
+				news_event = { id = prk.108 }
+			}
+		}
+	}
+	focus = {
+		id = PRK_europe
+		icon = GFX_goal_organized_euro
+		cost = 6
+		x = 42
+		y = 4
+		prerequisite = {
+			focus = PRK_japan
+		}
+		completion_reward = {
+			ENG = {
+				news_event = { id = prk.107 }
+				news_event = { id = prk.108 }
+			}
+			FRA = {
+				news_event = { id = prk.108 }
+			}
+		}
+	}
+	focus = {
+		id = PRK_american
+		icon = GFX_goal_diplo_usa
+		cost = 6
+		x = 42
+		y = 5
+		prerequisite = {
+			focus = PRK_europe
+		}
+	}
+	focus = {
+		id = PRK_reforming
+		icon = GFX_goal_neoliberal
+		cost = 6
+		x = 44
+		y = 5
+		prerequisite = {
+			focus = PRK_europe
+		}
+	}
+	focus = {
+		id = PRK_agriculture_group
+		icon = GFX_focus_generic_agricultural_subsidies
+		cost = 6
+		x = 44
+		y = 6
+		prerequisite = {
+			focus = PRK_reforming
+		}
+	}
+	focus = {
+		id = PRK_companies_law
+		icon = GFX_focus_generic_university_2
+		cost = 6
+		x = 46
+		y = 6
+		prerequisite = {
+			focus = PRK_reforming
+		}
+	}
+	focus = {
+		id = PRK_auto_pride
+		icon = GFX_focus_ITA_devaluate_the_lire
+		cost = 6
+		x = 46
+		y = 7
+		prerequisite = {
+			focus = PRK_companies_law
+		}
+	}
+	focus = {
+		id = PRK_nason_zone
+		icon = GFX_focus_generic_refit_civilian_ships
+		cost = 6
+		x = 48
+		y = 7
+		prerequisite = {
+			focus = PRK_companies_law
+		}
+		completion_reward = {
+			787 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_anti_colonies
+		icon = GFX_goal_SAF_revolt
+		cost = 6
+		x = 38
+		y = 3
+		prerequisite = {
+			focus = PRK_third_world
+		}
+		prerequisite = {
+			focus = PRK_south_east_asia
+		}
+		completion_reward = {
+			every_other_country = {
+				news_event = { id = gen.81 }
+				limit = {
+					has_idea = ColonyWar
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+			custom_effect_tooltip = focus_tooltip_influence_100
+			add_to_variable = { influences = 100 }
+		}
+	}
+	focus = {
+		id = PRK_africa
+		icon = GFX_goal_African_horn
+		cost = 6
+		x = 38
+		y = 4
+		prerequisite = {
+			focus = PRK_anti_colonies
+		}
+		completion_reward = {
+			custom_effect_tooltip = focus_tooltip_influence_50
+			add_to_variable = { influences = 50 }
+			news_event = { id = prk.103 }
+			every_other_country = {
+				limit = {
+					has_country_flag = african_state
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_expanded_juche
+		icon = GFX_goal_third_world
+		cost = 6
+		x = 38
+		y = 5
+		prerequisite = {
+			focus = PRK_africa
+		}
+		completion_reward = {
+			news_event = { id = prk.104 }
+		}
+	}
+	focus = {
+		id = PRK_south_east_asia
+		icon = GFX_goal_diplo_vietnam
+		cost = 3
+		x = 38
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_diplomatic
+		}
+	}
+	focus = {
+		id = PRK_socialist_dip
+		icon = GFX_goal_WarsawPact
+		cost = 6
+		x = 34
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_diplomatic
+		}
+	}
+	focus = {
+		id = PRK_korean_ussr
+		icon = GFX_goal_prk_immigrate
+		cost = 6
+		x = 36
+		y = 3
+		prerequisite = {
+			focus = PRK_SOV_relation
+		}
+		completion_reward = {
+			news_event = { id = prk.97 }
+		}
+	}
+	focus = {
+		id = PRK_STRIKE_china
+		icon = GFX_goal_strike_china
+		cost = 6
+		x = 34
+		y = 3
+		ai_will_do = {
+			factor = 0
+		}
+		prerequisite = {
+			focus = PRK_SOV_relation
+		}
+		completion_reward = {
+			news_event = { id = prk.100 }
+		}
+	}
+	focus = {
+		id = PRK_gando
+		icon = GFX_goal_yeonbyeon
+		cost = 6
+		x = 34
+		y = 4
+		ai_will_do = {
+			factor = 0
+		}
+		prerequisite = {
+			focus = PRK_STRIKE_china
+		}
+		completion_reward = {
+			add_state_core = 968
+			add_political_power = 80
+			news_event = { id = prk.102 }
+		}
+	}
+	focus = {
+		id = PRK_seongun
+		icon = GFX_goal_prk_army
+		cost = 6
+		x = 18
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		prerequisite = {
+			focus = PRK_KOR_pla
+		}
+		completion_reward = {
+			news_event = { id = prk.87 }
+			add_ideas = all_adults_serve
+			add_ideas = PRK_seongun_idea
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = PRK_air_force
+		icon = GFX_goal_prk_airforce
+		cost = 6
+		x = 20
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_KOR_pla
+		}
+		completion_reward = {
+			set_technology = {
+				independet_airforce = 1
+			}
+			air_experience = 100
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = PRK_missile
+		icon = GFX_focus_rocketry
+		cost = 6
+		x = 20
+		y = 3
+		available = {
+			has_tech = transistor
+		}
+		prerequisite = {
+			focus = PRK_air_force
+		}
+		prerequisite = {
+			focus = PRK_military_industry1
+		}
+		completion_reward = {
+			custom_effect_tooltip = common_missile_tool
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.2
+				category = space
+			}
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 1.5
+				category = rocketry
+			}
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+	focus = {
+		id = PRK_navy
+		icon = GFX_goal_prk_navy
+		cost = 6
+		x = 18
+		y = 3
+		available = {
+			has_tech = improved_machine_tools
+			has_tech = construction2
+		}
+		prerequisite = {
+			focus = PRK_military_industry1
+		}
+		completion_reward = {
+			navy_experience = 180	
+			if = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+					}
+				}
+			}	
+			if = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+	focus = {
+		id = PRK_port
+		icon = GFX_goal_prk_army
+		cost = 6
+		x = 18
+		y = 4
+		prerequisite = {
+			focus = PRK_navy
+		}
+	}
+	focus = {
+		id = PRK_submarine
+		icon = GFX_goal_generic_navy_submarine
+		cost = 6
+		x = 18
+		y = 4
+		prerequisite = {
+			focus = PRK_port
+		}
+	}
+	focus = {
+		id = PRK_security_office
+		icon = GFX_goal_prk_nkvd
+		cost = 6
+		x = 16
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1955.1.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_KOR_pla
+		}
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_political_power = -100
+				add_popularity = {
+					ideology = communism
+					popularity = 0.12
+				}
+		}
+	}
+	focus = {
+		id = PRK_spies
+		icon = GFX_goal_nationalism_speak
+		cost = 6
+		x = 16
+		y = 3
+		prerequisite = {
+			focus = PRK_security_office
+		}
+		completion_reward = {
+			news_event = { id = prk.82 }
+		}
+	}
+	focus = {
+		id = PRK_outhner_movement
+		icon = GFX_goal_seoul_spring
+		cost = 6
+		x = 16
+		y = 4
+		prerequisite = {
+			focus = PRK_spies
+		}
+		completion_reward = {
+			KOR = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.12
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_namlodang
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		cost = 6
+		x = 17
+		y = 5
+		prerequisite = {
+			focus = PRK_outhner_movement
+		}
+		completion_reward = {
+			KOR = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_contact_south
+		icon = GFX_goal_korea_federation
+		cost = 6
+		x = 15
+		y = 5
+		prerequisite = {
+			focus = PRK_outhner_movement
+		}
+		completion_reward = {
+			KOR = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.12
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_choseonjok
+		icon = GFX_goal_PRC_PLA
+		cost = 2
+		x = 32
+		y = 2
+		prerequisite = {
+			focus = PRK_diplomatic
+		}
+		completion_reward = {
+			news_event = { id = prk.93 }
+		}
+	}
+	focus = {
+		id = PRK_PRC_relation
+		icon = GFX_goal_diplo_prc
+		cost = 6
+		x = 32
+		y = 3
+		prerequisite = {
+			focus = PRK_choseonjok
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				PRC = { check_variable = { influences > 300 } }
+			}
+			modifier = {
+				add = -40
+				PRC = { check_variable = { influences < 200 } }
+			}
+			modifier = {
+				add = -40
+				PRC = { has_idea = SovietChinaConflit }
+				is_in_faction_with = SOV
+			}
+		}
+		completion_reward = {
+			news_event = { id = prk.96 }
+			add_political_power = 30
+			add_opinion_modifier = {
+				target = PRC
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = PRK_yanan
+		icon = GFX_goal_PRC_zaofan
+		cost = 6
+		x = 6
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_Nodongdang
+		}
+		completion_reward = {
+			news_event = { id = prk.66 }
+		}
+	}
+	focus = {
+		id = PRK_maoist
+		icon = GFX_goal_PRC_zaofan
+		cost = 6
+		x = 6
+		y = 3
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_yanan
+		}
+	}
+	focus = {
+		id = PRK_talk_southern
+		icon = GFX_goal_diplo_rok
+		cost = 6
+		x = 4
+		y = 2
+		available = {
+			has_war = no
+			country_exists = KOR
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		prerequisite = {
+			focus = PRK_Nodongdang
+		}
+		completion_reward = {
+			KOR = { news_event = { id = prk.63 } }
+		}
+	}
+	focus = {
+		id = PRK_korea_federate
+		icon = GFX_goal_korea_federation
+		cost = 6
+		x = 4
+		y = 4
+		available = {
+			has_war = no
+			country_exists = KOR
+		}
+		prerequisite = {
+			focus = PRK_sun_policy
+		}
+	}
+	focus = {
+		id = PRK_tongilgyeo
+		icon = GFX_goal_dongilgyeo
+		cost = 6
+		x = 2
+		y = 3
+		prerequisite = {
+			focus = PRK_talk_southern
+		}
+		completion_reward = {
+			news_event = { id = prk.54 }
+		}
+	}
+	focus = {
+		id = PRK_sun_policy
+		icon = GFX_goal_korea_federation
+		cost = 6
+		x = 4
+		y = 3
+		prerequisite = {
+			focus = PRK_talk_southern
+		}
+	}
+	focus = {
+		id = PRK_pteonghwa_auto
+		icon = GFX_goal_tourism
+		cost = 6
+		x = 1
+		y = 4
+		prerequisite = {
+			focus = PRK_tongilgyeo
+		}
+	}
+	focus = {
+		id = PRK_kim_ilsung_focus
+		icon = GFX_goal_kim_ilsung
+		cost = 6
+		x = 10
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_Nodongdang
+		}
+		completion_reward = {
+			news_event = { id = prk.70 }
+		}
+	}
+	focus = {
+		id = PRK_korea_war
+		icon = GFX_goal_korean_military_govern
+		cost = 5
+		x = 14
+		y = 2
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				date > 1950.2.1
+				date < 1952.6.1 
+			}
+			modifier = {
+				add = -100 
+				date > 1980.6.1
+			}
+		}
+		prerequisite = {
+			focus = PRK_Nodongdang
+		}
+		prerequisite = {
+			focus = PRK_KOR_pla
+		}
+		completion_reward = {
+			set_global_flag = korea_war
+			add_named_threat = { threat = 20 name = Korean_War }
+			declare_war_on = {
+				target = KOR
+				type = annex_everything
+			}
+			add_stability = 0.3
+			add_war_support = 0.6
+			news_event = { id = prk.4 }
+			KOR = {
+				add_stability = -0.3
+				add_dynamic_modifier = { modifier = suprise_attack_modifier }
+			}
+			add_ideas = PRK_liberate_war
+			play_song = KOR_3
+		}
+	}
+	focus = {
+		id = PRK_line
+		icon = GFX_focus_SWE_hedgehog_defense
+		cost = 6
+		x = 12
+		y = 3
+		prerequisite = {
+			focus = PRK_korea_war
+		}
+		completion_reward = {
+			745 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+			}
+			744 = {
+				set_building_level = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 1
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRK_escape
+		icon = GFX_goal_mccarthyism
+		cost = 6
+		x = 12
+		y = 4
+		prerequisite = {
+			focus = PRK_line
+		}
+		completion_reward = {
+			news_event = { id = prk.80 }
+		}
+	}
+	focus = {
+		id = PRK_united
+		icon = GFX_goal_tongil
+		cost = 6
+		x = 14
+		y = 3
+		prerequisite = {
+			focus = PRK_korea_war
+		}
+		available = {
+			has_war = no
+			controls_province = 7125
+			controls_province = 13370
+			controls_province = 12060
+			controls_province = 1054
+			controls_province = 12085
+			controls_province = 12011
+		}
+		completion_reward = {
+			news_event = { id = prk.77 }
+			white_peace = KOR
+			add_stability = 0.4
+			transfer_state = 525
+			transfer_state = 750
+			transfer_state = 783
+			transfer_state = 751
+		}
+	}
+	focus = {
+		id = PRK_supress_south
+		icon = GFX_goal_massacre
+		cost = 6
+		x = 14
+		y = 4
+		prerequisite = {
+			focus = PRK_united
+		}
+		completion_reward = {
+			news_event = { id = prk.79 }
+		}
+	}
+	focus = {
+		id = PRK_kim_2
+		icon = GFX_goal_kim_2
+		cost = 6
+		x = 8
+		y = 4
+		prerequisite = {
+			focus = PRK_juche
+		}
+		completion_reward = {
+			news_event = { id = prk.75 }
+		}
+	}
+	focus = {
+		id = PRK_strike_yanan
+		icon = GFX_goal_handcuffs
+		cost = 6
+		x = 8
+		y = 3
+		prerequisite = {
+			focus = PRK_kim_ilsung_focus
+		}
+		completion_reward = {
+			news_event = { id = prk.69 }
+		}
+	}
+	focus = {
+		id = PRK_juche
+		icon = GFX_goal_juche
+		cost = 6
+		x = 10
+		y = 3
+		prerequisite = {
+			focus = PRK_kim_ilsung_focus
+		}
+		completion_reward = {
+			add_ideas = PRK_juche_idea
+			news_event = { id = prk.73 }
+		}
+	}
+	focus = {
+		id = PRK_nationalism
+		icon = GFX_goal_juche
+		cost = 6
+		x = 10
+		y = 4
+		prerequisite = {
+			focus = PRK_juche
+		}
+		completion_reward = {
+			news_event = { id = prk.74 }
+		}
+	}
+	focus = {
+		id = PRK_historic
+		icon = GFX_goal_dangun
+		cost = 6
+		x = 10
+		y = 5
+		prerequisite = {
+			focus = PRK_nationalism
+		}
+		completion_reward = {
+			news_event = { id = prk.76 }
+		}
+	}
+	focus = {
+		id = PRK_PeoplesRepublic
+		icon = GFX_goal_PRK_DemocraticRepublic
+		cost = 6
+		x = 0
+		y = 0
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+	focus = {
+		id = PRK_kimkoo
+		icon = GFX_goal_democracy_korea
+		cost = 6
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 0
+		}
+		prerequisite = {
+			focus = PRK_PeoplesRepublic
+		}
+		available = {
+			KOR = {
+				NOT = { has_completed_focus = KOR_Rhee_gov }
+			}
+		}
+		completion_reward = {
+			news_event = { id = prk.57 }
+		}
+
+	}
+	focus = {
+		id = PRK_peace_united
+		icon = GFX_goal_KOR_PRK
+		cost = 6
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = PRK_kimkoo
+		}
+
+	}
+	focus = {
+		id = PRK_humanity
+		icon = GFX_goal_support_democracy
+		cost = 6
+		x = -2
+		y = 2
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = PRK_kimkoo
+		}
+
+	}
+	focus = {
+		id = PRK_democrat
+		icon = GFX_goal_democracy_korea
+		cost = 6
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = PRK_humanity
+		}
+		completion_reward = {
+			news_event = { id = prk.50 }
+		}
+	}
+	focus = {
+		id = PRK_election
+		icon = GFX_goal_vote
+		cost = 6
+		x = -2
+		y = 4
+		prerequisite = {
+			focus = PRK_democrat
+		}
+		completion_reward = {
+			news_event = { id = prk.51 }
+		}
+	}
+	focus = {
+		id = PRK_choson_democrat
+		icon = GFX_goal_choson_democrat
+		cost = 6
+		x = -1
+		y = 5
+		prerequisite = {
+			focus = PRK_election
+		}
+		completion_reward = {
+			news_event = { id = prk.52 }
+		}
+	}
+}

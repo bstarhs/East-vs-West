@@ -1,0 +1,50 @@
+state={
+	id=968
+	name="STATE_968"
+	manpower=52241
+	buildings_max_level_factor=1.000
+	state_category = rural
+	resources={
+		coal = 4
+	}
+
+	history={
+		victory_points = {
+			3944 2
+		}
+		victory_points = {
+			944 3
+		}
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 7 }
+		add_to_array = { this.state_ethnics_list = 14 }
+		set_state_flag = ethnics_Korean
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_claim_by = MAN
+		buildings = {
+			farm_building = 1
+			school = 1
+			infrastructure = 2
+		}
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = PRC
+		1962.8.17 = {
+			set_state_category = town
+			buildings = {
+				school = 1
+				hospital = 1
+				farm_building = 2
+				infrastructure = 3
+				industrial_complex = 1
+			}
+		}
+
+	}
+
+	provinces={
+		3944 9897 944 6964 973 6806 3929 11823 927 9883 9928 3947 11862 
+	}
+}

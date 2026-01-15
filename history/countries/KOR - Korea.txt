@@ -1,0 +1,471 @@
+﻿capital = 525 #South Korea - Seoul or Busan
+set_country_flag = eastasia
+set_country_flag = main_country
+set_country_flag = has_monarchs
+	recruit_character = KOR_Kim_HeungIl
+	recruit_character = KOR_Yi_HyeongGeun
+	recruit_character = KOR_Baek_SunYup
+	recruit_character = KOR_Heo_SamSu
+	recruit_character = KOR_Shim_Yeong
+	recruit_character = KOR_Yi_ByongCheol
+	recruit_character = KOR_Chung_Ju_Yung
+	recruit_character = KOR_Chung_IkKwan
+	recruit_character = KOR_Kim_Koo
+	recruit_character = KOR_Syngman_Rhee
+	recruit_character = KOR_Cho_bungam
+	recruit_character = KOR_Heo_Jeong
+	recruit_character = KOR_Cho_ByeongOk
+	recruit_character = KOR_Shin_HyeongJun
+	recruit_character = KOR_Shin_SeongMo
+	recruit_character = KOR_Jang_DouYeong
+	recruit_character = KOR_Kim_JongOu
+	recruit_character = KOR_Yu_JaeHeung
+	
+	set_variable = { this.education = 38 }
+# Starting tech
+set_stability = 0.7
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = USA
+	}
+set_war_support = 0.6
+	set_technology = {
+		excavation1 = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	early_bomber = 1
+	
+	
+	early_ship_hull_light = 1
+	
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+		medical1 = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+}
+			add_to_variable = { CUB.US_gov_aid_opinion = 25 }
+			add_to_variable = { CUB.US_public_aid_opinion = 15 }
+
+	add_ideas = {
+		partial_economic_mobilisation
+		scraping_the_barrel
+		corrupt
+		southeast_revolution
+		korean_christ
+		korean_culture
+	}
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+set_convoys = 5
+	set_popularities = {
+		democratic = 75
+		communism = 10
+		neutrality = 15
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Military Government in Korea"
+	picture = "gfx/leaders/KOR/Portrait_Kim_Koo.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		independent
+	}
+}
+
+diplomatic_relation = {
+	relation = military_access
+	country = USA
+	active = yes
+}
+1948.1.20 = {
+	oob = "KOR_1948"
+	promote_character = KOR_Syngman_Rhee
+	retire_character = KOR_Kim_Koo
+	activate_decision = female_equality
+	add_opinion_modifier = {
+		target = PRK
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = PRC
+		modifier = disappinion
+	}
+	complete_national_focus = KOR_Army
+	complete_national_focus = KOR_NewGovernment
+	complete_national_focus = KOR_AntiCommunist
+	complete_national_focus = KOR_economic
+	complete_national_focus = KOR_land_reform
+	complete_national_focus = KOR_airforce
+	complete_national_focus = KOR_navy
+	complete_national_focus = KOR_Rhee_gov
+	complete_national_focus = KOR_Security_law
+	complete_national_focus = KOR_bodo_union
+	set_popularities = {
+		democratic = 15
+		communism = 5
+		authoritarianism = 80
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Syngman Rhee"
+		
+		picture = "gfx/leaders/KOR/Portrait_Korea_Syngman_Rhee.tga"
+		expire = "1963.1.1"
+		ideology = authoritarianism
+		traits = { pro_america anti_communist conservative_nationalist
+		
+		}
+	}
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+		motorize_doctrine = 1
+		tech_military_police = 1
+		army_aviation = 1
+	}
+}
+1953.1.1 = {
+	add_ideas = Marshall
+	recruit_character = KOR_Park_Chunghee
+	activate_decision = Establishment_of_National_Museum
+	complete_national_focus = KOR_Japanese_officers
+	complete_national_focus = KOR_jayudang
+	complete_national_focus = KOR_Rhee_Line
+	complete_national_focus = KOR_rhee_rule
+	set_technology = {
+	construction1 = 1
+	fighter1 = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+		basic_light_tank = 1
+	power_generation1 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	}
+	set_popularities = {
+		democratic = 23
+		communism = 12
+		neutrality = 15
+		authoritarianism = 50
+	}
+	add_ideas = rok_parliament
+}
+1960.5.20 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 6000
+		producer = USA
+	}
+	retire_character = KOR_Cho_ByeongOk
+	retire_character = KOR_Syngman_Rhee
+	set_variable = { this.education = 41 }
+	add_opinion_modifier = {
+		target = CHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = JAP
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = PHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = SVN
+		modifier = ally_asia
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	remove_ideas = southeast_revolution
+	set_technology = {
+	basic_train = 1
+		excavation2 = 1
+		concentrated_industry = 1
+		improved_machine_tools = 1
+		marines = 1
+		
+		infantry_weapons1 = 1
+		marines2 = 1
+		mechanised_infantry = 1
+		basic_medium_tank = 1
+		dispersed_industry2 = 1
+		infantry_weapons2 = 1
+		spaa1 = 1
+	}
+	create_country_leader = {
+		name = "Yun Po-Sun"
+		
+		picture = "gfx/leaders/KOR/Portrait_Korea_Yun_Posun.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = { 
+		pro_america
+		}
+	}
+}
+1961.3.12 = {
+	retire_character = KOR_Choi_InGyu
+	recruit_character = KOR_Kim_JaeGyu
+	recruit_character = KOR_Chun_Doohwan
+	complete_national_focus = KOR_629deceration
+	complete_national_focus = KOR_Military_goverment
+	complete_national_focus = KOR_KCIA
+	set_popularities = {
+		democratic = 20
+		communism = 4
+		neutrality = 76
+	}
+	add_ideas = {
+		KCIA
+		Kim_JaeGyu
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Kim Dae-jung"
+		
+		picture = "gfx/leaders/KOR/Portrait_Korea_Kim_Daejung.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1964.1.1 = {
+	set_popularities = {
+		democratic = 42
+		communism = 2
+		neutrality = 56
+	}
+	oob = "KOR_1965"
+	complete_national_focus = KOR_economic_plan
+	complete_national_focus = KOR_pro_chebal
+	complete_national_focus = KOR_Nationalism
+	complete_national_focus = KOR_Vietnam
+	remove_ideas = corrupt
+	set_technology = {
+		concentrated_industry4 = 1
+	aluminum_tech = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		trans_helicopter_1 = 1
+	concentrated_industry2 = 1
+		radio_detection = 1
+	construction2 = 1
+	fighter2 = 1
+	}
+	add_ideas = kor_industrial_pionners
+}
+1968.1.1 = {
+	set_country_flag = kor_jap_relation
+	set_variable = { this.education = 48 }
+	set_technology = {
+		vaccum_tube = 1
+	}
+	set_popularities = {
+		democratic = 42
+		communism = 2
+		neutrality = 56
+	}
+	complete_national_focus = KOR_semaul
+	complete_national_focus = KOR_gyeongbu_hightway
+	complete_national_focus = KOR_Jap_relation
+	complete_national_focus = KOR_Ulsin_constitution
+	complete_national_focus = KOR_electronic
+	complete_national_focus = KOR_steel_making
+}
+1974.1.1 = {
+	oob = "KOR_1970"
+	complete_national_focus = KOR_NorthNegosiation
+	set_technology = {
+		concentrated_industry3 = 1
+		frozen_food = 1
+		advanced_machine_tools = 1
+		dispersed_industry3 = 1
+		laundry = 1
+		paratroopers = 1
+		improved_infantry_weapons = 1
+	}
+}
+1977.1.1 = {
+	set_country_flag = female_finished
+	set_variable = { this.education = 55 }
+	set_popularities = {
+		democratic = 42
+		communism = 2
+		neutrality = 56
+	}
+	add_ideas =  {
+		KoreanProtest
+	}
+	set_technology = {
+		Semiconductor = 1
+		excavation3 = 1
+		transistor = 1
+		dispersed_industry4 = 1
+		construction3 = 1
+		fighter3 = 1
+		spaa2 = 1
+		improved_heavy_tank = 1
+	}
+}
+1981.1.1 = {
+	remove_ideas =Marshall
+	create_equipment_variant = {
+		name = "Ulsan Class"
+		type = ship_hull_light_3
+		parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_1
+				fixed_ship_anti_air_slot = empty
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = light_ship_engine_1
+				fixed_ship_torpedo_slot = ship_torpedo_1
+				mid_1_custom_slot = ship_torpedo_1
+				rear_1_custom_slot = ship_depth_charge_1
+			}
+		obsolete = yes
+	}
+	set_variable = { this.education = 62 }
+	retire_character = KOR_Park_Chunghee
+	complete_national_focus = KOR_Seoul_spring
+	complete_national_focus = KOR_3Spolicy
+	add_ideas = {
+		Olympic
+		civilian_economy
+	}
+	remove_ideas = Saemaul
+	remove_ideas = Kim_JaeGyu
+	remove_ideas = KoreanProtest
+	set_technology = {
+		improved_medium_tank = 1
+		basic_heavy_tank = 1
+		mechanised_infantry2 = 1
+		electric_arc_furnace_steel = 1
+	}
+	set_popularities = {
+		democratic = 36
+		communism = 5
+		neutrality = 59
+	}
+	promote_character = KOR_Chun_Doohwan
+}
+1988.3.12 = {
+	remove_ideas = kor_industrial_pionners
+	create_equipment_variant = {
+		name = "King Gwang-kae-to Class"
+		type = ship_hull_light_4
+		parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_1
+				fixed_ship_anti_air_slot = empty
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = light_ship_engine_1
+				fixed_ship_torpedo_slot = ship_torpedo_1
+				mid_1_custom_slot = ship_torpedo_1
+				rear_1_custom_slot = ship_depth_charge_1
+			}
+		obsolete = yes
+	}
+	set_variable = { this.education = 71 }
+	complete_national_focus = KOR_NorthNegosiation
+	complete_national_focus = KOR_Northern_Policy
+	complete_national_focus = KOR_629deceration
+	remove_ideas = Olympic
+	set_technology = {
+		integrated_circuit = 1
+		advanced_infantry_weapons = 1
+		advanced_medium_tank = 1
+		mechanised_infantry3 = 1
+	}
+	set_popularities = {
+		democratic = 72
+		communism = 2
+		neutrality = 26
+	}
+	set_politics = {
+		ruling_party = democratic
+	}
+	create_country_leader = {
+		name = "Roh Tae-Woo"
+		
+		picture = "gfx/leaders/KOR/Portrait_Korea_Roh_Tae-woo.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		pro_america compassionate_gentleman political_dancer
+		}
+	}
+}

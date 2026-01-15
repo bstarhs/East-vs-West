@@ -1,0 +1,83 @@
+ideas = {
+	country = {
+		pushituni_tribal = {
+			allowed = { always = yes }
+
+			picture = pushituni_tribal
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.1
+				political_power_cost = 0.25
+				political_power_factor = -0.25
+				war_support_factor = -0.4
+				resistance_decay = 0.25
+				production_speed_buildings_factor = -0.3
+				no_compliance_gain = 1
+				compliance_growth = -0.3
+			}
+		}
+	}
+	political_advisor = {
+		daoud_khan = {
+			allowed = {
+				tag = AFG
+			}
+			visible = {
+				date > 1950.1.1
+				date < 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		yusuf_khan = {
+			allowed = {
+				tag = AFG
+			}
+			visible = {
+				date > 1960.1.1
+				date < 1975.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Hashim_Maiwandwal = {
+			allowed = {
+				tag = AFG
+			}
+			visible = {
+				date > 1960.1.1
+				date < 1975.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Anahita_Ratebzad = {
+			allowed = {
+				tag = AFG
+			}
+			visible = {
+				date > 1970.1.1
+				date < 1990.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		Burhanuddin_Rabbani = {
+			allowed = {
+				tag = AFG
+			}
+			visible = {
+				date > 1970.1.1
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+}

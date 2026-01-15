@@ -1,0 +1,90 @@
+political_actions = {
+	
+	PER_tanker = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = PER
+		}
+
+		cost = 50
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+			has_war_with = IRQ
+		}
+		days_remove = 30
+		complete_effect = {
+			IRQ = {
+				country_event = { id = irq.23 }
+			}
+		}
+	}
+	
+	PER_holy_war = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = PER
+		}
+
+		cost = 200
+		ai_will_do = {
+			factor = 1
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+			has_government = fascism 
+			has_war_with = IRQ
+		}
+
+		complete_effect = {
+			add_war_support = 0.6
+			add_stability = 0.4
+		}
+
+	
+	}
+	PER_iran_gate = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = PER
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1986.11.1
+						date < 1986.12.1
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = iran_gate
+		}
+
+		complete_effect = {
+			news_event = { id = per.25 }
+			USA = {  add_named_threat = { threat = 15 name = 伊朗门丑闻 } }
+		}
+
+	
+	}
+}

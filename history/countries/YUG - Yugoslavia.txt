@@ -1,0 +1,323 @@
+﻿capital = 107
+
+set_country_flag = main_country
+set_country_flag = orthodox_state
+set_research_slots = 2
+
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+recruit_character = YUG_Aleksandar_Rankovic
+add_ideas = {
+		harmonious
+		hight_welfare
+		service_by_requirement
+		UNmember
+		Aleksandar_Rankovic
+		Secularism
+}
+	set_variable = { this.education = 68 }
+
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = female_equality
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+}
+
+	add_political_power = 1198
+	oob = "YUG_1947"
+set_convoys = 10
+
+	set_popularities = {
+		democratic = 20
+		communism = 60
+		neutrality = 20
+	}
+	set_politics = {
+		
+		ruling_party = communism
+		last_election = "1938.12.1"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+set_stability = 0.6
+
+	create_country_leader = {
+		name = "Josip Broz Tito"
+		
+		picture = "gfx/leaders/YUG/Portrait_Yugoslavia_Tito.tga"
+		expire = "1997.1.1"
+		ideology = leninism
+		
+		traits = {
+		independent socialist_reformism independent_red pro_third_world
+		}
+	}
+
+create_corps_commander = {
+	name = "Vladimir Cukavac"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_4.dds"
+	traits = {   }
+	skill = 3
+
+}
+
+create_corps_commander = {
+	name = "Ivan Gosnjak"
+	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
+	traits = { urban_assault_specialist }
+	skill = 3
+	
+}
+1949.1.20 = {
+	set_country_flag = female_finished
+	add_ideas = {
+		SovietChinaConflit
+	}
+	complete_national_focus = YUG_autonomic
+	complete_national_focus = YUG_anti_grand_serbian
+	complete_national_focus = YUG_army
+	complete_national_focus = YUG_land_reform
+	set_country_flag = israel_diplomacy
+}	
+1953.1.20 = {
+	complete_national_focus = YUG_social_management
+	remove_ideas = SovietChinaConflit
+	complete_national_focus = YUG_1947_plant
+	add_ideas = YUG_balkan_treaty_ideas
+}
+1955.1.1 = {
+	set_technology = {
+		frozen_food = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		decimetric_radar = 1
+		construction2 = 1
+		rocket_engines = 1
+		machine_gun2 = 1
+		spaa1 = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+	}
+	set_country_flag = developmented
+	set_country_flag = china_diplomacy
+}
+1957.1.20 = {
+	complete_national_focus = YUG_non_alieged
+	complete_national_focus = YUG_medic
+	complete_national_focus = YUG_1957_plant
+}
+1961.1.20 = {
+	remove_ideas = YUG_balkan_treaty_ideas
+	complete_national_focus = YUG_Smederevo_steel
+	complete_national_focus = YUG_labor_management
+	set_technology = {
+		telegraph = 1
+		spaa1 = 1
+		sp_artillery1 = 1
+		
+		vaccum_tube = 1
+		basic_heavy_tank = 1
+		napalm = 1
+		rubber_processing = 1
+		improved_medium_tank = 1
+		fuel_refining = 1
+	}
+	add_ideas = {
+		NonAligned
+	}
+}
+1965.1.20 = {
+	retire_character = YUG_Aleksandar_Rankovic
+	remove_ideas = Aleksandar_Rankovic
+	set_technology = {
+		cable_television = 1
+		CAS3 = 1
+		fighter2 = 1
+		improved_decimetric_radar = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		excavation3 = 1
+		construction3 = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		power_generation2 = 1
+		auto_industry = 1
+	}
+}
+1971.1.20 = {
+	set_technology = {
+		machine_gun2 = 1
+		fuel_refining2 = 1
+		fighter3 = 1
+		improved_rubber_processing = 1
+		improved_heavy_tank = 1
+		improved_infantry_weapons = 1
+	}
+	complete_national_focus = YUG_croatian_spring
+	
+}
+1974.1.20 = {
+	set_technology = {
+		Semiconductor = 1
+	}
+}
+1980.1.20 = {
+	set_technology = {
+		infantry_at2 = 1
+		CAS4 = 1
+		micro_computer = 1
+	}
+	add_ideas = {
+		Olympic
+	}
+	create_country_leader = {
+		name = "Fedarial Presidency"
+		
+		picture = "gfx/leaders/YUG/Portrait_Yugoslavia_Presidency.tga"
+		expire = "1997.1.1"
+		ideology = leninism
+		
+		traits = {
+			socialist_reformism
+		}
+	}
+}
+1985.1.1 = {
+	set_technology = {
+		advanced_infantry_weapons = 1
+		advanced_medium_tank = 1
+		personal_computer = 1
+	}
+	recruit_character = YUG_Milosovich
+	remove_ideas = Olympic
+}
+1988.1.1 = {
+	complete_national_focus = YUG_grand_serbian
+	complete_national_focus = YUG_serbs_parliament
+	set_technology = {
+		advanced_heavy_tank = 1
+		fighter4 = 1
+	}
+}
+1990.1.20 = {
+	oob = "YUG_1992"
+	add_to_array = { global.sanctioned_countries_list = FROM }
+	add_ideas = yugoslavia_collape_ideas
+	set_global_flag = yugoslavia_civilwar
+	set_popularities = {
+		democratic = 30
+		communism = 4
+		authoritarianism = 56
+		neutrality = 10
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1931.11.8"
+		election_frequency = 72
+		elections_allowed = yes
+	}
+			promote_character = {
+				character = YUG_Milosovich
+				ideology = authoritarianism
+			}
+}

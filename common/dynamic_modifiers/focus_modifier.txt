@@ -1,0 +1,294 @@
+##核动力民用船
+nuclear_convoy_modifiers = {
+	enable = { always = yes }
+	naval_accidents_chance = -0.12
+}
+##辐射国策
+us_NuclearAuto_modifiers = {
+	enable = { always = yes }
+	country_resource_cost_chromium = auto_factory
+	custom_modifier_tooltip = us_NuclearAuto_tool
+}
+##女性改革
+female_educate_modifiers = {
+	enable = { always = yes }
+	drift_defence_factor = 0.05
+	political_power_cost = -0.02
+	compliance_growth = 0.01
+	stability_factor = 0.04
+	democratic_acceptance = 50
+	political_power_factor = 0.12
+	production_speed_school_factor = 0.25 
+}
+
+korea_war_agress_modifiers = {
+	enable = { always = yes }
+	ai_focus_aggressive_factor = 0.9	
+	ai_focus_defense_factor = -0.9
+}
+korea_war_not_agress_modifiers = {
+	enable = { always = yes }
+	ai_focus_aggressive_factor = -9.9	
+	ai_focus_defense_factor = 9.9
+}
+
+environmental_protection_modifiers = {
+	enable = { always = yes }
+	drift_defence_factor = 0.05
+	political_power_cost = 0.02
+	compliance_growth = 0.12
+	production_speed_buildings_factor = -0.12 
+	production_speed_hospital_factor = 0.25 
+	custom_modifier_tooltip = focus_tooltip_heath_need_-12
+}
+foreign_companies_modifiers = {
+	enable = { always = yes }
+	drift_defence_factor = -0.05
+	political_power_cost = -0.06
+}
+focus_special_forces_modifiers = {
+	enable = { always = yes }
+	resistance_target = -0.12
+	drift_defence_factor = 0.02
+	experience_gain_army_factor = -0.04
+	operation_make_resistance_contacts_risk = -0.15
+	intelligence_agency_defense = 0.3
+	operation_cost = -0.12
+	special_forces_training_time_factor = -0.12
+}
+companies_nationalized_modifiers = {
+	enable = { always = yes }
+	compliance_growth = 0.2
+	drift_defence_factor = 0.05
+	political_power_cost = 0.12
+	industrial_concern_cost_factor = -0.25
+}
+SOV_judgement_reformed = {
+	enable = { always = yes }
+	compliance_growth = 0.2
+	drift_defence_factor = 0.05
+	political_power_cost = -0.12
+	political_power_factor = -0.02
+}
+high_stability_modifiers = {
+	enable = { always = yes }
+	resistance_target = -0.2
+	compliance_growth = 0.25
+	drift_defence_factor = 0.25
+	political_power_cost = -0.15
+}
+construct_modifiers = {
+	enable = { always = yes }
+	production_speed_infrastructure_factor = 0.15 
+	production_speed_buildings_factor = 0.12 
+}
+civic_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_infrastructure_factor = 0.15 
+	production_speed_hospital_factor = 0.25 
+	production_speed_school_factor = 0.25 
+	production_speed_power_plant_factor = 0.12
+	production_speed_industrial_complex_factor = 0.15
+	production_speed_arms_factory_factor = -0.12
+}
+military_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_industrial_complex_factor = -0.18
+	production_speed_infrastructure_factor = 0.15 
+	production_speed_arms_factory_factor = 0.15
+	production_speed_air_base_factor = 0.12
+	production_speed_naval_base_factor = 0.12
+	production_speed_dockyard_factor = 0.12
+	production_speed_power_plant_factor = 0.12
+	production_speed_rocket_site_factor = 0.12
+}
+refinery_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_power_plant_factor = 0.12
+	production_speed_synthetic_refinery_factor = 0.15
+	production_speed_fuel_silo_factor = 0.15
+	production_speed_oilfield_factor = 0.12
+	production_speed_rubber_factory_factor = 0.15
+}
+heavy_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_infrastructure_factor = 0.15 
+	production_speed_power_plant_factor = 0.18
+	production_speed_synthetic_refinery_factor = 0.12
+	production_speed_fuel_silo_factor = 0.12
+	production_speed_rubber_factory_factor = 0.12
+	production_speed_steel_making_factor = 0.18
+	production_speed_industrial_complex_factor = 0.12
+}
+steel_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_power_plant_factor = 0.12
+	production_speed_steel_making_factor = 0.15
+}
+electro_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_power_plant_factor = 0.12
+	production_speed_industrial_complex_factor = 0.12
+}
+power_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_power_plant_factor = 0.25
+}
+railway_construct_modifiers = {
+	enable = { always = yes }
+	production_speed_rail_way_factor = 0.25
+}
+
+
+KOREA_war_attack_modifier = {
+	enable = { always = yes }
+	army_org_factor = 0.6
+	land_reinforce_rate = 0.8
+	supply_factor = 0.6
+	army_morale_factor = 0.6
+	supply_consumption_factor = -0.8
+	army_speed_factor = 0.4
+	army_attack_factor = 0.2
+	breakthrough_factor = 0.2
+}
+health_nationalized_modifier = {
+	enable = { always = yes }
+	production_speed_hospital_factor = 0.12 
+	production_cost_hospital_factor = -0.12 
+	political_power_cost = 0.12
+	drift_defence_factor = 0.4
+}
+railway_nationalized_modifier = {
+	enable = { always = yes }
+	production_speed_rail_way_factor = 0.12 
+	production_cost_rail_way_factor = -0.12 
+	production_speed_infrastructure_factor = 0.12 
+	production_cost_infrastructure_factor = -0.12 
+	political_power_cost = 0.12
+}
+FoodPrise_modifier = {
+	enable = { always = yes }
+	local_resources = -0.3
+	political_power_factor = -0.05
+}
+enterprise_reform_modifier = {
+	enable = { always = yes }
+	local_resources = -0.3
+	political_power_factor = -0.05
+}
+medal_war_modifier = {
+	enable = { always = yes }
+	army_morale_factor = 0.15
+	army_org_factor = 0.3
+}
+volunteer_fix_modifier = {
+	enable = { always = yes }
+	send_volunteer_divisions_required = -0.9
+	send_volunteer_factor = 0.8
+	air_volunteer_cap = 100
+	ai_focus_aggressive_factor = 0.8
+}
+test_super_modifiers = {
+	enable = { always = yes }
+	icon = GFX_idea_POL_disjointed_industry
+		ai_focus_aggressive_factor = 10.8
+		drift_defence_factor = -1
+		land_reinforce_rate = 5.5
+		supply_consumption_factor = -5.5
+		army_org_factor = 10.6
+		war_support_factor = 9
+		army_morale_factor = 9.3
+		research_speed_factor = 20.5
+		weekly_manpower = 9999
+		army_attack_factor = 3.6
+		army_attack_speed_factor = 3.5
+		army_defence_factor = 4.5
+		production_factory_efficiency_gain_factor = 9.5 
+				training_time_army_factor = -0.9
+				production_lack_of_resource_penalty_factor = -9.5 
+				production_speed_buildings_factor = 7.5 
+				attrition = -9
+				truck_attrition = -9.3
+				local_non_core_manpower = 9.3
+				local_supplies = 9.3
+}
+REFORGER_modifiers = {
+	enable = { always = yes }
+	convoy_raiding_efficiency_factor = 0.5
+	convoy_escort_efficiency = 0.2
+}
+hight_unemployee_modifiers = {
+	enable = { always = yes }
+	drift_defence_factor = 0.05
+}
+middle_unemployee_modifiers = {
+	enable = { always = yes }
+	drift_defence_factor = 0.03
+}
+work_injurd_modifiers = {
+	enable = { always = yes }
+	custom_modifier_tooltip = add_factory_cost_tool
+	drift_defence_factor = 0.03
+}
+retire_age_modifiers = {
+	enable = { always = yes }
+	industrial_capacity_factory = -0.05
+	industrial_capacity_dockyard = -0.05
+	drift_defence_factor = 0.03
+}
+hight_salary_modifiers = {
+	enable = { always = yes }
+	custom_modifier_tooltip = add_factory_cost_tool
+	drift_defence_factor = 0.08
+}
+middle_salary_modifiers = {
+	enable = { always = yes }
+	custom_modifier_tooltip = add_factory_cost_tool
+	drift_defence_factor = 0.05
+}
+abortion_modifiers = {
+	enable = { always = yes }
+	drift_defence_factor = 0.12
+}
+middle_healthcare_modifiers = {
+	enable = { always = yes }
+	production_speed_hospital_factor = 0.1
+	drift_defence_factor = 0.05
+}
+high_healthcare_modifiers = {
+	enable = { always = yes }
+	production_speed_hospital_factor = 0.2
+	drift_defence_factor = 0.08
+}
+students_to_rural_modifiers_rural = {
+	enable = { always = yes }
+	production_speed_buildings_factor = 0.3
+}
+students_to_rural_modifiers_cities = {
+	enable = { always = yes }
+	state_resources_factor = -0.2
+	production_speed_buildings_factor = -0.3
+}
+nuke_production_modifiers = {
+	enable = { always = yes }
+	nuclear_production_factor = nuke_produc_speed
+}
+eight_hour_work_modifiers = {
+	enable = { always = yes }
+	industrial_capacity_factory = -0.1
+	industrial_capacity_dockyard = -0.1
+}
+worktime_12_modifiers = {
+	enable = { always = yes }
+	industrial_capacity_factory = -0.05
+	industrial_capacity_dockyard = -0.05
+}
+childes_labour_modifiers = {
+	enable = { always = yes }
+	industrial_capacity_factory = -0.1
+	industrial_capacity_dockyard = -0.1
+}
+youth_work_modifiers = {
+	enable = { always = yes }
+	production_speed_buildings_factor = 0.12
+}

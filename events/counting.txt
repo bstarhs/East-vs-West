@@ -1,0 +1,2718 @@
+﻿add_namespace = count
+#电力计算
+news_event = {
+	id = count.1
+	hidden = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		has_tech = basic_machine_tools
+		any_state = {
+			OR = {
+				power_plant > 0
+				dam_plant > 0
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+			set_variable = { power = 0 }
+			every_owned_state = {
+				if = {
+					limit = {
+						check_variable = { this.state_power_need > 0 }
+					}
+					set_variable = { this.state_power_need = 0 }
+					set_variable = { this.heavy_industry_need = 0 }
+				}
+			}
+			every_owned_state = {
+				if = {
+					limit = {
+						check_variable = { this.state_power_production > 0 }
+					}
+					set_variable = { this.state_power_production = 0 }
+					set_variable = { this.plant_power = 0 }
+				}
+			}
+			every_owned_state = {
+				#计算电力需求
+				if = {
+					limit = {
+						OR = {
+							has_state_category = pastoral
+							has_state_category = rural
+							has_state_category = town
+							has_state_category = large_town
+						}
+						owner = { has_tech = dispersed_industry4 }
+					}
+					add_to_variable = { state_power_need = 2 }
+				}
+			}
+			every_owned_state = {
+				if = {
+					limit = { has_state_category = rural }
+					add_to_variable = { state_power_need = 1 }
+				}
+				if = {
+					limit = { has_state_category = town }
+					add_to_variable = { state_power_need = 2 }
+				}
+				if = {
+					limit = { has_state_category = large_town }
+					add_to_variable = { state_power_need = 4 }
+				}
+				if = {
+					limit = { has_state_category = city }
+					add_to_variable = { state_power_need = 8 }
+				}
+				if = {
+					limit = { has_state_category = large_city }
+					add_to_variable = { state_power_need = 10 }
+				}
+				if = {
+					limit = { has_state_category = metropolis }
+					add_to_variable = { state_power_need = 10 }
+				}
+				if = {
+					limit = { has_state_category = megalopolis }
+					add_to_variable = { state_power_need = 12 }
+				}
+			}
+			every_owned_state = {
+				if = {
+					limit = { owner = { has_tech = advanced_machine_tools } }
+					add_to_variable = { heavy_industry_need = building_level@industrial_complex }
+				}
+			}
+			every_owned_state = {
+				if = {
+					limit = {
+						OR = {
+							synthetic_refinery > 0
+							steel_making > 0
+						}
+					}
+					add_to_variable = { heavy_industry_need = building_level@synthetic_refinery }
+					add_to_variable = { heavy_industry_need = building_level@steel_making }
+				}
+				add_to_variable = { state_power_need = heavy_industry_need }
+			}
+			##发电
+			every_owned_state = {
+				if = {
+					limit = {
+						owner = {
+							has_tech = power_generation1
+							has_fuel > 400
+							has_dynamic_modifier = { modifier = power_general_fuel }
+						}
+					}
+					add_to_variable = { this.plant_power = this.resource@power }
+					add_to_variable = { this.plant_power = this.building_level@power_plant }
+				}
+				if = {
+					limit = {
+						owner = {
+							has_tech = power_generation1
+							check_variable = { resource@coal < 1 } 
+							NOT = { has_dynamic_modifier = { modifier = power_general_fuel } }
+						}
+					}
+					
+					add_to_variable = { this.plant_power = this.resource@power }
+					multiply_variable = { this.plant_power = 0.3 }
+				}
+				if = {
+					limit = {
+						owner = {
+							has_tech = power_generation1
+							check_variable = { resource@coal > 0 } 
+							NOT = { has_dynamic_modifier = { modifier = power_general_fuel } }
+						}
+					}
+					add_to_variable = { this.plant_power = this.resource@power }
+				}
+			}
+			#核能发电
+			if = {
+				limit = {
+					has_tech = nuclear_plant_1
+					chromium > 4
+					
+				}
+				every_owned_state = {
+					limit = {
+						check_variable = { this.building_level@nuclear_reactor > 0 }
+					}
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+					add_to_variable = { this.plant_power = this.building_level@nuclear_reactor }
+				}
+			}
+			#电力相邻补充
+			every_owned_state = {
+				if = {
+					limit = {
+						check_variable = { this.plant_power < state_power_need }
+						check_variable = { this.infrastructure_level > 1 }
+						owner = {
+							has_tech = construction2
+						}
+					}
+					set_variable = { this.state_power_neighber = 0 }
+					every_neighbor_state = {
+						if = {
+							limit = {
+								check_variable = { this.building_level@nuclear_reactor < 1 }
+								check_variable = { this.plant_power > this.state_power_need }
+								check_variable = { THIS.controller = PREV.controller }
+							}
+							add_to_variable = { PREV.state_power_neighber = 0.6 }
+						}
+					}
+					every_neighbor_state = {
+						if = {
+							limit = {
+								check_variable = { this.building_level@nuclear_reactor > 0 }
+								check_variable = { this.plant_power > this.state_power_need }
+								check_variable = { THIS.controller = PREV.controller }
+							}
+							add_to_variable = { PREV.state_power_neighber = building_level@nuclear_reactor }
+							add_to_variable = { PREV.state_power_neighber = building_level@nuclear_reactor }
+							add_to_variable = { PREV.state_power_neighber = building_level@nuclear_reactor }
+						}
+					}
+				}
+			}
+			#省份总电力产出
+			every_owned_state = {
+				add_to_variable = { this.state_power_production = this.plant_power }
+				add_to_variable = { this.state_power_production = this.state_power_neighber }
+			}
+			#消耗煤炭
+			set_variable = { this.powerplant_coal_coast = 0 }
+			every_owned_state = {
+				limit = { check_variable = { this.plant_power > 0} }
+				add_to_variable = { prev.powerplant_coal_coast = this.building_level@power_plant }
+			}
+			multiply_variable = { this.powerplant_coal_coast = 0.5 }
+			#满足电力数量
+			every_owned_state = {
+				limit = {
+					OR = {
+						check_variable = { state_power_production > state_power_need }
+					}
+				}
+				add_to_variable = { PREV.power = 1 }
+			}
+	}
+}
+#粮食计算
+news_event = {
+	id = count.2
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		has_tech = dispersed_industry
+		any_state = {
+			farm_building > 0
+		}
+	}
+	option = {
+		name = news.51.a
+		#粮食需求
+		every_owned_state = {
+			if = {
+				limit = { check_variable = { state_food_need > 0 } }
+				set_variable = { state_food_need = 0 }
+			}
+		}
+		every_owned_state = {
+				####
+				if = {
+					limit = { has_state_category = pastoral }
+					set_variable = { urban_need = 2 }
+				}
+				if = {
+					limit = { has_state_category = small_island }
+					set_variable = { urban_need = 1 }
+				}
+				if = {
+					limit = { has_state_category = rural }
+					set_variable = { urban_need = 4 }
+				}
+				####
+				if = {
+					limit = { has_state_category = town }
+					set_variable = { urban_need = 8 }
+				}
+				if = {
+					limit = { has_state_category = large_town }
+					set_variable = { urban_need = 10 }
+				}
+				####
+				if = {
+					limit = { has_state_category = city }
+					set_variable = { urban_need = 12 }
+				}
+				if = {
+					limit = { has_state_category = large_city }
+					set_variable = { urban_need = 14 }
+				}
+				####
+				if = {
+					limit = { has_state_category = megalopolis }
+					set_variable = { urban_need = 16 }
+				}
+				####
+				if = {
+					limit = { has_state_category = metropolis }
+					set_variable = { urban_need = 20 }
+				}
+				####
+				if = {
+					limit = { has_dynamic_modifier = { modifier = rice_food_production } }
+					multiply_variable = { this.urban_need = 2 }
+				}
+				
+			}
+			##工业建筑食品需求
+			every_owned_state = {
+				set_variable = { this.factories_foods_need = 0 }
+				add_to_variable = { this.factories_foods_need = this.building_level@industrial_complex }
+				add_to_variable = { this.factories_foods_need = this.building_level@arms_factory }
+				add_to_variable = { this.factories_foods_need = this.building_level@dockyard }
+				add_to_variable = { this.factories_foods_need = this.building_level@power_plant }
+				multiply_variable = { this.factories_foods_need = 0.5 }
+				add_to_variable = { this.factories_foods_need = this.building_level@synthetic_refinery }
+				add_to_variable = { this.factories_foods_need = this.building_level@oilfield }
+				add_to_variable = { this.factories_foods_need = this.building_level@steel_making }
+				add_to_variable = { this.factories_foods_need = this.building_level@steel_making }
+				add_to_variable = { this.factories_foods_need = this.building_level@rubber_factory }
+				add_to_variable = { this.factories_foods_need = this.building_level@dam_plant }
+			}
+			##政策影响食品需求
+			if = {
+				limit = { has_idea = war_economy }
+				every_owned_state = {
+					if = {
+						limit = { check_variable = { this.factories_foods_need > 0 } }
+						multiply_variable = { this.factories_foods_need = 1.5 }
+					}
+				}
+			}
+			##磷酸盐加成
+			if = {
+				limit = {
+					has_tech = dispersed_industry2
+					check_variable = { phosphate > num_owned_states }
+					any_owned_state = {
+						NOT = { has_dynamic_modifier = { modifier = state_phosphate_modifiers } }
+					}
+				}
+				every_owned_state = {
+					if = {
+					limit = {
+						NOT = { has_dynamic_modifier = { modifier = state_phosphate_modifiers } }
+						}
+						add_dynamic_modifier = { modifier = state_phosphate_modifiers }
+					}
+				}
+			}
+			##殖民地加成
+			if = {
+				limit = {
+					check_variable = { this.food_from_colonies > 0 }
+				}
+				add_to_variable = { food_num = food_from_colonies }
+			}
+			##食品需求总计算
+			every_owned_state = {
+				add_to_variable = { state_food_need = urban_need }
+				add_to_variable = { this.state_food_need = this.factories_foods_need }
+				if = {
+					limit = { has_dynamic_modifier = { modifier = rice_food_production } }
+					multiply_variable = { this.state_food_need = 1.25 }
+				}
+			}
+			##buff影响的食物需求
+			if = {
+				limit = { has_idea = PeoplesCommuni }
+				every_owned_state = { multiply_variable = { state_food_need = 1.5 } }
+			}
+			if = {
+				limit = { has_completed_focus = prc9 }
+				every_owned_state = { multiply_variable = { state_food_need = 0.8 } }
+			}
+			##计算相邻粮食
+			every_owned_state = {
+				if = {
+					limit = { check_variable = { this.state_food_neighber > 0 } }
+					add_to_variable = { this.state_food_production = this.state_food_neighber }
+				}
+			}
+			##计算调配粮食
+			every_owned_state = {
+				if = {
+					limit = { check_variable = { state_food_added < 0 } }
+					multiply_variable = { state_food_added = -1 }
+				}
+			}
+			#省份总粮食产出
+			every_owned_state = {
+				set_variable = { this.state_food_production = 0 }
+				add_to_variable = { this.state_food_production = this.resource@food }
+			}
+			if = {
+				limit = { ROOT = { has_idea = AgriculturalCooperatives } }
+				every_owned_state = { multiply_variable = { state_food_production = 1.3 } }
+			}
+			every_owned_state = {
+				if = {
+					limit = {
+						check_variable = { this.state_food_production < state_food_need }
+						check_variable = { this.infrastructure_level > 1 }
+					}
+					every_neighbor_state = {
+						limit = {
+							check_variable = { this.state_food_production > this.state_food_need }
+							check_variable = { THIS.controller = PREV.controller }
+						}
+						add_to_variable = { PREV.state_food_neighber = 1 }
+						if = {
+							limit = {
+								check_variable = { this.state_food_production > this.state_food_need }
+								check_variable = { this.state_food_production > 20 }
+								check_variable = { THIS.controller = PREV.controller }
+							}
+							add_to_variable = { PREV.state_food_neighber = 2 }
+						}
+					}
+				}
+			}
+			#食物相邻补充
+			every_owned_state = {
+				if = {
+					limit = {
+						check_variable = { this.state_food_neighber > 0 }
+					}
+					set_variable = { this.state_food_neighber = 0 }
+				}
+			}
+			#海产计算
+			if = {
+				limit = {
+					check_variable = { this.fish_num > 0 }
+				}
+				set_variable = { this.fish_num = 0 }
+			}
+			every_owned_state = {
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = fish_production }
+					}
+					set_variable = { this.state_fish_num = 0 }
+					add_to_variable = { this.state_fish_num = 3 }
+					add_to_variable = { this.state_fish_num = building_level@dockyard }
+					add_to_variable = { this.state_fish_num = building_level@dockyard }
+					if = {
+						limit = { PREV = { has_completed_focus = common_fishing_1 } }
+						multiply_variable = { this.state_fish_num = 1.25 }
+					}
+					if = {
+						limit = { PREV = { has_completed_focus = common_fishing_2 } }
+						multiply_variable = { this.state_fish_num = 1.25 }
+					}
+					add_to_variable = { this.state_food_production = state_fish_num }
+					add_to_variable = { PREV.fish_num = this.state_fish_num }
+				}
+			}
+			##buff影响的食物产量
+			if = {
+				limit = { has_idea = PeoplesCommuni }
+				every_owned_state = { multiply_variable = { state_fish_num = 0.8 } }
+			}
+			if = {
+				limit = { has_idea = war_economy }
+				every_owned_state = { multiply_variable = { state_fish_num = 0.8 } }
+			}
+			#粮食转运计算
+			every_owned_state = {
+				if = {
+					limit = { check_variable = { state_food_added > 0 } }
+					add_to_variable = { state_food_production = state_food_added }
+				}
+			}
+			##饥荒条件
+			every_owned_state = {
+				limit = {
+					check_variable = { this.state_food_production < this.state_food_need }
+				}
+				set_variable = { this.state_food_low_limit = state_food_need }
+				multiply_variable = { this.state_food_low_limit = 0.6 }
+			}
+			##扣除进入储存的粮食
+			every_owned_state = {
+				if = {
+					limit = { check_variable = { this.foods_to_save > 0 } }
+					subtract_from_variable = { this.nation_food_cost = this.foods_to_save }
+				}
+			}
+			##粮食满足的省份计算
+			
+			set_variable = { food = 0 }
+			every_owned_state = {
+				limit = {
+					NOT = {
+					check_variable = { this.state_food_production < this.state_food_low_limit }
+					}
+				}
+				add_to_variable = { PREV.food = 1 }
+			}
+		#粮食库存计算
+		set_variable = { food_num = 0 }
+		every_owned_state = {
+			add_to_variable = { PREV.food_num = state_food_production }
+		}
+		#粮食消耗计算
+		set_variable = { nation_food_cost = 0 }
+		every_owned_state = {
+			add_to_variable = { PREV.nation_food_cost = state_food_need }
+		}
+			if = {
+				limit = { check_variable = { total_state_food_neighber > 0 } }
+				add_to_variable = { nation_food_cost = total_state_food_neighber }
+			}
+		set_variable = { nation_food_free = food_num }
+		subtract_from_variable = { nation_food_free = nation_food_cost }
+		#大饥荒
+		if = {
+			limit = {
+				tag = PRC
+				has_idea = PeoplesCommuni
+				has_idea = GreatLeapForward_ideas
+			}
+			every_owned_state = {
+				if = {
+					limit = { has_state_flag = great_farmines }
+					multiply_variable = { state_food_production = 0.2 }
+				}
+			}
+		}
+	}
+}
+#保健计算
+news_event = {
+	id = count.3
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		has_tech = medical1
+		any_state = {
+			hospital > 0
+		}
+	}
+	option = {
+		name = news.51.a
+	#保健需求
+			every_owned_state = {
+				if = {
+					limit = { check_variable = { state_health_need > 0 } }
+					set_variable = { state_industry_health_need = 0 }
+					set_variable = { state_civil_health_need = 0 }
+				}
+			}
+			every_owned_state = {
+				if = {
+					limit = { has_state_category = rural }
+					add_to_variable = { state_civil_health_need = 2 }
+				}
+				if = {
+					limit = { has_state_category = town }
+					add_to_variable = { state_civil_health_need = 3 }
+				}
+				if = {
+					limit = { has_state_category = large_town }
+					add_to_variable = { state_civil_health_need = 4 }
+				}
+				if = {
+					limit = { has_state_category = city }
+					add_to_variable = { state_civil_health_need = 5 }
+				}
+				if = {
+					limit = { has_state_category = large_city }
+					add_to_variable = { state_civil_health_need = 6 }
+				}
+				if = {
+					limit = { has_state_category = metropolis }
+					add_to_variable = { state_civil_health_need = 8 }
+				}
+				if = {
+					limit = { has_state_category = megalopolis }
+					add_to_variable = { state_civil_health_need = 8 }
+				}
+				else_if = {
+					limit = { has_dynamic_modifier = { modifier = state_cold_modifier } }
+					multiply_variable = { state_civil_health_need = 0.8 }
+				}
+				add_to_variable = { state_industry_health_need = building_level@steel_making }
+				add_to_variable = { state_industry_health_need = building_level@synthetic_refinery }
+				multiply_variable = { state_industry_health_need = 0.2 }
+				add_to_variable = { state_health_need = state_industry_health_need }
+				add_to_variable = { state_health_need = state_civil_health_need }
+			}
+	#保健供给
+			every_owned_state = {
+				if = {
+					limit = {
+						hospital > 0
+					}
+					set_variable = { state_health_production = 0 }
+					add_to_variable = { state_health_production = building_level@hospital }
+					multiply_variable = { state_health_production = 4 }
+				}
+			}
+			if = {
+				limit = { has_idea = no_welfare }
+				every_owned_state = {
+					multiply_variable = { state_health_production = 0.2 }
+				}
+			}
+			if = {
+				limit = { has_idea = low_welfare }
+				every_owned_state = {
+					multiply_variable = { state_health_production = 0.6 }
+				}
+			}
+			if = {
+				limit = { has_idea = hight_welfare }
+				every_owned_state = {
+					multiply_variable = { state_health_production = 1.2 }
+				}
+			}
+			if = {
+				limit = { has_idea = welfare_state }
+				every_owned_state = {
+					multiply_variable = { state_health_production = 1.5 }
+				}
+			}
+			if = {
+				limit = { has_country_flag = medical_college }
+				every_owned_state = {
+					multiply_variable = { state_health_production = 1.2 }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = rural_medic
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							has_state_category = rural
+							has_state_category = pastoral
+							has_state_category = town
+						}
+					}
+					multiply_variable = { state_health_production = 1.2 }
+				}
+			}
+	}
+}
+#教育计算
+news_event = {
+	id = count.4
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		any_state = {
+			school > 0
+		}
+	}
+	option = {
+		name = news.51.a
+	#教育需求
+			every_owned_state = { 
+				if = {
+					limit = { check_variable = { state_educate_need > 0 } }
+					set_variable = { state_educate_need = 0 }
+				}
+			}
+			every_owned_state = { 
+				if = {
+					limit = { has_state_category = rural }
+					add_to_variable = { state_educate_need = 2 }
+				}
+				if = {
+					limit = { has_state_category = town }
+					add_to_variable = { state_educate_need = 3 }
+				}
+				if = {
+					limit = { has_state_category = large_town }
+					add_to_variable = { state_educate_need = 4 }
+				}
+				if = {
+					limit = { has_state_category = city }
+					add_to_variable = { state_educate_need = 5 }
+				}
+				if = {
+					limit = { has_state_category = large_city }
+					add_to_variable = { state_educate_need = 5 }
+				}
+				if = {
+					limit = { has_state_category = metropolis }
+					add_to_variable = { state_educate_need = 6 }
+				}
+				if = {
+					limit = { has_state_category = megalopolis }
+					add_to_variable = { state_educate_need = 6 }
+				}
+			}
+	#教育供给#
+			every_owned_state = {
+				set_variable = { state_educate_production = 0 }
+				add_to_variable = { state_educate_production = building_level@school }
+				multiply_variable = { state_educate_production = 3 }
+			}
+	#初始识字率修正#
+			if = {
+				limit = {
+					has_country_flag = african_state
+					check_variable = { this.education < 5 }
+				}
+				set_variable = { this.education = 13 }
+			}
+			if = {
+				limit = {
+					has_country_flag = developmented
+					check_variable = { this.education < 10 }
+				}
+				set_variable = { this.education = 53 }
+			}
+	#识字率计算#
+		ROOT = {
+			set_variable = { education_rate_up = 0 }
+			set_variable = { educatet_states = 0 }
+			every_owned_state = {
+				limit = {
+					NOT = {
+						check_variable = { this.state_educate_production < state_educate_need }
+					}
+				}
+				add_to_variable = { prev.educatet_states = 1 }
+			}
+			set_variable = { education_rate_up = educatet_states }
+			divide_variable = { THIS.education_rate_up = controlled_states }
+			multiply_variable = { THIS.education_rate_up = 0.2 }
+		}
+		add_to_variable = { education = education_rate_up }
+	}
+}
+#高稳定buff计算
+news_event = {
+	id = count.5
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		OR = {
+			AND = {
+				has_stability > 0.75
+				NOT = { has_dynamic_modifier = { modifier = high_stability_modifiers } }
+			}
+			AND = {
+				has_stability < 0.7
+				has_dynamic_modifier = { modifier = high_stability_modifiers }
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+		if = {
+			limit = {
+				has_stability > 0.75
+				NOT = { has_dynamic_modifier = { modifier = high_stability_modifiers } }
+			}
+			add_dynamic_modifier = { modifier = high_stability_modifiers }
+		}
+		if = {
+			limit = {
+				has_stability < 0.7
+				has_dynamic_modifier = { modifier = high_stability_modifiers }
+			}
+			remove_dynamic_modifier = { modifier = high_stability_modifiers }
+		}
+	}
+}
+#停电计算
+news_event = {
+	id = count.6
+	hidden = yes
+	mean_time_to_happen = {
+		days = 25
+	}
+	trigger = {
+		OR = {
+			any_state = {
+				check_variable = { state_power_need > 0 }
+				check_variable = { state_power_production < state_power_need }
+			}
+			any_state = {
+				has_dynamic_modifier = { modifier = low_power_modifiers }
+			}
+			any_state = {
+				has_dynamic_modifier = { modifier = no_power_modifiers }
+			}
+			any_state = {
+				has_dynamic_modifier = { modifier = lack_power_modifiers }
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+			every_owned_state = {
+					if = {
+						limit = {
+							OR = {
+								check_variable = { state_power_production > state_power_need }
+								check_variable = { state_power_production = state_power_need }
+							}
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = low_power_modifiers } }
+							remove_dynamic_modifier = { modifier = low_power_modifiers }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = lack_power_modifiers } }
+							remove_dynamic_modifier = { modifier = lack_power_modifiers }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = no_power_modifiers } }
+							remove_dynamic_modifier = { modifier = no_power_modifiers }
+						}
+					}
+				if = {
+					limit = {
+						check_variable = { state_power_production < state_power_need }
+						NOT = { has_state_category = enclave }
+						NOT = { has_state_category = tiny_island }
+						NOT = { has_state_category = wasteland }
+						NOT = { has_state_category = pastoral }
+					}
+					set_variable = { this.power_needs_70 > state_power_need }
+					multiply_variable = { this.power_needs_70 > 0.7 }
+					set_variable = { this.power_needs_40 > state_power_need }
+					multiply_variable = { this.power_needs_40 > 0.4 }
+					if = {
+						limit = {
+							check_variable = { state_power_production < state_power_need }
+							check_variable = { state_power_production > power_needs_70 }
+							NOT = { has_dynamic_modifier = { modifier = lack_power_modifiers } }
+						}
+						add_dynamic_modifier = { modifier = lack_power_modifiers }
+						if = {
+							limit = { has_dynamic_modifier = { modifier = low_power_modifiers } }
+							remove_dynamic_modifier = { modifier = low_power_modifiers }
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { state_power_production < power_needs_70 }
+							check_variable = { state_power_production > power_needs_40 }
+							NOT = { has_dynamic_modifier = { modifier = low_power_modifiers } }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = lack_power_modifiers } }
+							remove_dynamic_modifier = { modifier = lack_power_modifiers }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = no_power_modifiers } }
+							remove_dynamic_modifier = { modifier = no_power_modifiers }
+						}
+						add_dynamic_modifier = { modifier = low_power_modifiers }
+					}
+					if = {
+						limit = {
+							check_variable = { state_power_production < power_needs_40 }
+							NOT = { has_dynamic_modifier = { modifier = no_power_modifiers } }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = low_power_modifiers } }
+							remove_dynamic_modifier = { modifier = low_power_modifiers }
+						}
+						add_dynamic_modifier = { modifier = no_power_modifiers }
+					}
+				}
+			}
+	}
+}
+#缺粮计算
+news_event = {
+	id = count.7
+	hidden = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		OR = {
+			any_state = {
+				check_variable = { state_food_need > 0 }
+				check_variable = { state_food_production < state_food_need }
+			}
+			any_state = {
+				has_dynamic_modifier = { modifier = low_foods_modifiers }
+			}
+			any_state = {
+				has_dynamic_modifier = { modifier = no_foods_modifiers }
+			}
+			any_state = {
+				has_dynamic_modifier = { modifier = lack_foods_modifiers }
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+			every_owned_state = {
+					if = {
+						limit = {
+							OR = {
+								check_variable = { state_food_production > state_food_need }
+								check_variable = { state_food_production = state_food_need }
+							}
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = low_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = low_foods_modifiers }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = lack_foods_modifiers }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = no_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = no_foods_modifiers }
+						}
+					}
+				if = {
+					limit = {
+						check_variable = { state_food_production < state_food_need }
+						NOT = { has_state_category = enclave }
+						NOT = { has_state_category = tiny_island }
+						NOT = { has_state_category = wasteland }
+						NOT = { has_state_category = pastoral }
+					}
+					set_variable = { this.power_needs_70 > state_food_need }
+					multiply_variable = { this.power_needs_70 > 0.7 }
+					set_variable = { this.power_needs_40 > state_food_need }
+					multiply_variable = { this.power_needs_40 > 0.4 }
+					if = {
+						limit = {
+							check_variable = { state_food_production < state_food_need }
+							check_variable = { state_food_production > power_needs_70 }
+							NOT = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
+						}
+						add_dynamic_modifier = { modifier = lack_foods_modifiers }
+						if = {
+							limit = { has_dynamic_modifier = { modifier = low_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = low_foods_modifiers }
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { state_food_production < power_needs_70 }
+							check_variable = { state_food_production > power_needs_40 }
+							NOT = { has_dynamic_modifier = { modifier = low_foods_modifiers } }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = lack_foods_modifiers }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = no_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = no_foods_modifiers }
+						}
+						add_dynamic_modifier = { modifier = low_foods_modifiers }
+					}
+					if = {
+						limit = {
+							check_variable = { state_food_production < power_needs_40 }
+							NOT = { has_dynamic_modifier = { modifier = no_foods_modifiers } }
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = low_foods_modifiers } }
+							remove_dynamic_modifier = { modifier = low_foods_modifiers }
+						}
+						add_dynamic_modifier = { modifier = no_foods_modifiers }
+					}
+				}
+			}
+	}
+}
+#粮食自动库存
+news_event = {
+	id = count.8
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		any_state = {
+			check_variable = { state_food_production > state_food_need }
+		}
+		OR = {
+			is_ai = yes
+			NOT = { has_country_flag = count_event_8 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_country_flag = count_event_8
+		#粮食自动库存
+		set_variable = { nation_food_free = 0 }
+		set_variable = { nation_food_cost = 0 }
+		every_owned_state = {
+			if = {
+				limit = { check_variable = { resource@food > state_food_need } }
+				set_variable = { foods_to_save = resource@food }
+				subtract_from_variable = { foods_to_save = state_food_need }
+			}
+			add_to_variable = { PREV.nation_food_cost = state_food_need }
+		}
+		add_to_variable = { nation_food_free = food_num }
+		subtract_from_variable = { nation_food_free = nation_food_cost }
+	}
+}
+#粮食自动补给
+news_event = {
+	id = count.9
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		check_variable = { food_num > 10 }
+		any_state = {
+			check_variable = { state_food_production < state_food_need }
+		}
+		OR = {
+			is_ai = yes
+			has_country_flag = count_event_8
+			NOT = { has_country_flag = count_event_9 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_country_flag = count_event_9
+		every_owned_state = {
+			if = {
+				limit = {
+					owner = { check_variable = { food_num > 10 } }
+					check_variable = { state_food_production < state_food_need }
+					OR = {
+						has_state_category = megalopolis
+						has_state_category = metropolis
+					}
+				}
+				set_variable = { state_food_added = state_food_need }
+				subtract_from_variable = { state_food_added = state_food_production }
+				add_to_variable = { state_food_production = state_food_added }
+				add_to_variable = { PREV.nation_food_cost = state_food_added }
+				owner = { 
+					set_variable = { nation_food_free = food_num }
+					subtract_from_variable = { nation_food_free = nation_food_cost }
+				}
+			}
+		}
+		every_owned_state = {
+			if = {
+				limit = {
+					owner = { check_variable = { food_num > 10 } }
+					check_variable = { state_food_production < state_food_need }
+					OR = {
+						has_state_category = large_city
+						has_state_category = city
+					}
+				}
+				set_variable = { state_food_added = state_food_need }
+				subtract_from_variable = { state_food_added = state_food_production }
+				add_to_variable = { state_food_production = state_food_added }
+				add_to_variable = { PREV.nation_food_cost = state_food_added }
+				owner = { 
+					set_variable = { nation_food_free = food_num }
+					subtract_from_variable = { nation_food_free = nation_food_cost }
+				}
+			}
+		}
+		every_owned_state = {
+			if = {
+				limit = {
+					owner = { check_variable = { food_num > 10 } }
+					check_variable = { state_food_production < state_food_need }
+					OR = {
+						has_state_category = large_town
+						has_state_category = town
+					}
+				}
+				set_variable = { state_food_added = state_food_need }
+				subtract_from_variable = { state_food_added = state_food_production }
+				add_to_variable = { state_food_production = state_food_added }
+				add_to_variable = { PREV.nation_food_cost = state_food_added }
+				owner = { 
+					set_variable = { nation_food_free = food_num }
+					subtract_from_variable = { nation_food_free = nation_food_cost }
+				}
+			}
+		}
+		every_owned_state = {
+			if = {
+				limit = {
+					owner = { check_variable = { food_num > 10 } }
+					check_variable = { state_food_production < state_food_need }
+					OR = {
+						has_state_category = rural
+					}
+				}
+				set_variable = { state_food_added = state_food_need }
+				subtract_from_variable = { state_food_added = state_food_production }
+				add_to_variable = { state_food_production = state_food_added }
+				add_to_variable = { PREV.nation_food_cost = state_food_added }
+				owner = { 
+					set_variable = { nation_food_free = food_num }
+					subtract_from_variable = { nation_food_free = nation_food_cost }
+				}
+			}
+		}
+	}
+}
+#计算机计算
+news_event = {
+	id = count.10
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		has_tech = medium_computer
+	}
+	option = {
+		name = news.51.a
+		if = {
+			limit = { 
+				check_variable = { computer_factory > 0 }
+			}
+			set_variable = { consumer_computer = computer_factory }
+			multiply_variable = { consumer_computer = 5 }
+		}
+		set_variable = { computer_request = 0 }
+		every_owned_state = {
+			if = {
+				limit = { has_state_category = large_town }
+				add_to_variable = { PREV.computer_request = 1 }
+			}
+			if = {
+				limit = { has_state_category = city }
+				add_to_variable = { PREV.computer_request = 2 }
+			}
+			if = {
+				limit = { has_state_category = large_city }
+				add_to_variable = { PREV.computer_request = 3 }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { has_tech = micro_computer }
+			}
+			multiply_variable = { computer_request = 0.2 }
+		}
+		if = {
+			limit = { 
+				has_tech = personal_computer
+			}
+			multiply_variable = { computer_request = 1.4 }
+		}
+		if = {
+			limit = { 
+				has_idea = ogas_1_ideas
+			}
+			multiply_variable = { computer_request = 1.15 }
+		}
+		if = {
+			limit = { 
+				check_variable = { consumer_computer > computer_request }
+			}
+			set_country_flag = computer_enough
+		}
+	}
+}
+#咖啡
+news_event = {
+	id = count.11
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+			any_state = { has_state_flag = coffee_production }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { coffee_num = 0 }
+		every_controlled_state = {
+			limit = { has_state_flag = coffee_production }
+			add_to_variable = { PREV.coffee_num = building_level@farm_building }
+		}
+		multiply_variable = { coffee_num = 3 }
+		if = {
+			limit = { has_idea = Latin_Hacienda }
+			multiply_variable = { coffee_num = 1.4 }
+		}
+		if = {
+			limit = { tag = BRA }
+			multiply_variable = { coffee_num = 1.2 }
+		}
+		set_variable = { nation_coffee_free = coffee_num }
+		subtract_from_variable = { nation_coffee_free = nation_coffee_cost }
+		subtract_from_variable = { nation_coffee_free = coffee_output_setting }
+		if = {
+			limit = {
+				all_other_country = {
+					check_variable = { ROOT.coffee_output_setting < FROM.coffee_output_setting }
+				}
+			}
+			set_variable = { global.coffee_top = FROM }
+		}
+	}
+}
+#咖啡出口计算
+news_event = {
+	id = count.12
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { coffee_output > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { coffee_output_gain = coffee_output }
+		multiply_variable = { coffee_output_gain = 0.5 }
+	}
+}
+#蔗糖
+news_event = {
+	id = count.20
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+			any_state = { has_state_flag = sugar_production }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { sugar_num = 0 }
+		every_controlled_state = {
+			limit = { has_state_flag = sugar_production }
+			add_to_variable = { PREV.sugar_num = building_level@farm_building }
+		}
+		multiply_variable = { sugar_num = 4 }
+		if = {
+			limit = { has_idea = Latin_Hacienda }
+			multiply_variable = { sugar_num = 1.6 }
+		}
+		set_variable = { nation_sugar_free = sugar_num }
+		subtract_from_variable = { nation_sugar_free = nation_sugar_cost }
+		subtract_from_variable = { nation_sugar_free = sugar_output_setting }
+	}
+}
+#糖消耗
+news_event = {
+	id = count.21
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+		name = news.51.a
+		set_variable = { nation_sugar_cost = 0 }
+		every_controlled_state = {
+			limit = { has_state_category = rural }
+			add_to_variable = { PREV.nation_sugar_cost = 1 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = town }
+			add_to_variable = { PREV.nation_sugar_cost = 2 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_town }
+			add_to_variable = { PREV.nation_sugar_cost = 3 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = city }
+			add_to_variable = { PREV.nation_sugar_cost = 4 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_city }
+			add_to_variable = { PREV.nation_sugar_cost = 5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = megalopolis }
+			add_to_variable = { PREV.nation_sugar_cost = 6 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = metropolis }
+			add_to_variable = { PREV.nation_sugar_cost = 6 }
+		}
+		set_variable = { sugar_request_70 = nation_sugar_cost }
+		multiply_variable = { sugar_request_70 = 0.7 }
+		set_variable = { sugar_request_50 = nation_sugar_cost }
+		multiply_variable = { sugar_request_50 = 0.5 }
+		set_variable = { nation_sugar_free = sugar_num }
+		subtract_from_variable = { nation_sugar_free = nation_sugar_cost }
+		subtract_from_variable = { nation_sugar_free = sugar_output_setting }
+	}
+}
+#糖出口计算
+news_event = {
+	id = count.22
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { sugar_output > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { coffee_sugar_gain = sugar_output }
+		multiply_variable = { sugar_output_gain = 0.5 }
+	}
+}
+#羊绒和棉花
+news_event = {
+	id = count.30
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+			any_state = { has_state_flag = cutton_production }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { cutton_num = 0 }
+		every_controlled_state = {
+			limit = { has_state_flag = cutton_production }
+			add_to_variable = { PREV.cutton_num = building_level@farm_building }
+		}
+		every_controlled_state = {
+			limit = { has_dynamic_modifier = { modifier = state_hill_modifier } }
+			add_to_variable = { PREV.cutton_num = 2 }
+		}
+		multiply_variable = { cutton_num = 3 }
+		if = {
+			limit = { has_idea = Latin_Hacienda }
+			multiply_variable = { cutton_num = 1.6 }
+		}
+		set_variable = { nation_cutton_wool = 0 }
+		add_to_variable = { nation_cutton_wool = cutton_num }
+		set_variable = { nation_cutton_free = nation_cutton_wool }
+		subtract_from_variable = { nation_cutton_free = nation_cutton_cost }
+		subtract_from_variable = { nation_cutton_free = cutton_output_setting }
+	}
+}
+#棉花出口计算
+news_event = {
+	id = count.31
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { cutton_output > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { cutton_output_gain = cutton_output }
+		multiply_variable = { cutton_output_gain = 0.6 }
+	}
+}
+#烟草
+news_event = {
+	id = count.40
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+			any_state = { has_state_flag = tobacco_production }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { tobacco_num = 0 }
+		every_controlled_state = {
+			limit = { has_state_flag = tobacco_production }
+			add_to_variable = { PREV.tobacco_num = building_level@plantation }
+		}
+		multiply_variable = { tobacco_num = 3 }
+		if = {
+			limit = { has_idea = Latin_Hacienda }
+			multiply_variable = { tobacco_num = 1.6 }
+		}
+		if = {
+			limit = { has_idea_with_trait = cigaratte_concern }
+			multiply_variable = { tobacco_num = 2 }
+		}
+		set_variable = { nation_tobacco_free = tobacco_num }
+		subtract_from_variable = { nation_tobacco_free = nation_tobacco_cost }
+		subtract_from_variable = { nation_tobacco_free = tobacco_output_setting }
+	}
+}
+#烟草进出口计算
+news_event = {
+	id = count.41
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { tobacco_output > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { tobacco_output_gain = tobacco_output }
+		multiply_variable = { tobacco_output_gain = 0.6 }
+	}
+}
+#酒
+news_event = {
+	id = count.50
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+			any_state = { has_state_flag = wine_production }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { wine_num = 0 }
+		every_controlled_state = {
+			limit = { has_state_flag = wine_production }
+			add_to_variable = { PREV.wine_num = building_level@farm_building }
+		}
+		multiply_variable = { wine_num = 2 }
+		if = {
+			limit = { has_idea = Latin_Hacienda }
+			multiply_variable = { wine_num = 1.6 }
+		}
+		set_variable = { nation_wine_free = wine_num }
+		subtract_from_variable = { nation_wine_free = nation_wine_cost }
+		subtract_from_variable = { nation_wine_free = wine_output_setting }
+	}
+}
+#木材
+news_event = {
+	id = count.60
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+			any_state = { has_dynamic_modifier = { modifier = state_forest_modifier } }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { wood_num = 0 }
+		every_controlled_state = {
+			limit = {
+				has_dynamic_modifier = { modifier = state_forest_modifier }
+				has_state_category = rural
+			}
+			add_to_variable = { PREV.wood_num = 10 }
+		}
+		every_controlled_state = {
+			limit = {
+				has_dynamic_modifier = { modifier = state_forest_modifier }
+				has_state_category = town
+			}
+			add_to_variable = { PREV.wood_num = 8 }
+		}
+		every_controlled_state = {
+			limit = {
+				has_dynamic_modifier = { modifier = state_forest_modifier }
+				has_state_category = large_town
+			}
+			add_to_variable = { PREV.wood_num = 5 }
+		}
+		every_controlled_state = {
+			limit = {
+				has_dynamic_modifier = { modifier = state_forest_modifier }
+				has_state_category = city
+			}
+			add_to_variable = { PREV.wood_num = 4 }
+		}
+		every_controlled_state = {
+			limit = {
+				has_dynamic_modifier = { modifier = state_forest_modifier }
+				has_state_category = large_city
+			}
+			add_to_variable = { PREV.wood_num = 3 }
+		}
+	}
+}
+#热带水果
+news_event = {
+	id = count.65
+	hidden = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+			any_state = { has_state_flag = banana_production }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { banana_num = 0 }
+		every_controlled_state = {
+			limit = { has_state_flag = banana_production }
+			add_to_variable = { PREV.banana_num = building_level@plantation }
+			add_to_variable = { PREV.banana_num = building_level@plantation }
+			add_to_variable = { PREV.banana_num = building_level@plantation }
+			add_to_variable = { PREV.banana_num = building_level@farm_building }
+		}
+		if = {
+			limit = { has_idea = Latin_Hacienda }
+			multiply_variable = { banana_num = 1.4 }
+		}
+		set_variable = { nation_banana_free = banana_num }
+		subtract_from_variable = { nation_banana_free = nation_banana_cost }
+		subtract_from_variable = { nation_banana_free = banana_output_setting }
+	}
+}
+#烟热带水果进出口计算
+news_event = {
+	id = count.66
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { banana_output > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { banana_output_gain = banana_output }
+		multiply_variable = { banana_output_gain = 0.6 }
+	}
+}
+#纺织品生产
+news_event = {
+	id = count.70
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { textile_factory > 0 }
+		check_variable = { textile_request > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { consumer_textile = textile_factory }
+		multiply_variable = { consumer_textile = 4 }
+		if = {
+			limit = { has_tech = improved_machine_tools }
+			multiply_variable = { consumer_textile = 1.25 }
+		}
+	}
+}
+#纺织品需求
+news_event = {
+	id = count.71
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+		name = news.51.a
+		set_variable = { textile_request = 0 }
+		every_controlled_state = {
+			limit = { has_state_category = tiny_island }
+			add_to_variable = { PREV.textile_request = 1 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = rural }
+			add_to_variable = { PREV.textile_request = 2 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = town }
+			add_to_variable = { PREV.textile_request = 3 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_town }
+			add_to_variable = { PREV.textile_request = 4 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = city }
+			add_to_variable = { PREV.textile_request = 5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_city }
+			add_to_variable = { PREV.textile_request = 6 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = megalopolis }
+			add_to_variable = { PREV.textile_request = 6 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = metropolis }
+			add_to_variable = { PREV.textile_request = 6 }
+		}
+		every_controlled_state = {
+			limit = { has_dynamic_modifier = { modifier = state_cold_modifier } }
+			add_to_variable = { PREV.textile_request = 1.5 }
+		}
+		every_controlled_state = {
+			limit = { has_dynamic_modifier = { modifier = state_savannah_modifier } }
+			add_to_variable = { PREV.textile_request = -1 }
+		}
+		set_variable = { textile_request_70 = textile_request }
+		multiply_variable = { textile_request_70 = 0.7 }
+		set_variable = { textile_request_50 = textile_request }
+		multiply_variable = { textile_request_50 = 0.5 }
+	}
+}
+#盐出口计算
+news_event = {
+	id = count.78
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { salt_output > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { salt_output_gain = salt_output }
+		multiply_variable = { salt_output_gain = 0.6 }
+	}
+}
+#盐消耗
+news_event = {
+	id = count.79
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+		name = news.51.a
+		set_variable = { nation_salt_cost = 0 }
+		every_controlled_state = {
+			limit = { has_state_category = rural }
+			add_to_variable = { PREV.nation_salt_cost = 1 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = town }
+			add_to_variable = { PREV.nation_salt_cost = 2 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_town }
+			add_to_variable = { PREV.nation_salt_cost = 3 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = city }
+			add_to_variable = { PREV.nation_salt_cost = 4 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_city }
+			add_to_variable = { PREV.nation_salt_cost = 5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = megalopolis }
+			add_to_variable = { PREV.nation_salt_cost = 6 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = metropolis }
+			add_to_variable = { PREV.nation_salt_cost = 6 }
+		}
+		set_variable = { salt_request_70 = nation_salt_cost }
+		multiply_variable = { salt_request_70 = 0.7 }
+		set_variable = { salt_request_50 = nation_salt_cost }
+		multiply_variable = { salt_request_50 = 0.5 }
+		set_variable = { nation_salt_free = resource@salt }
+		subtract_from_variable = { nation_salt_free = nation_salt_cost }
+		subtract_from_variable = { nation_salt_free = salt_output_setting }
+	}
+}
+#烟草消耗
+news_event = {
+	id = count.80
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		NOT = { has_country_flag = islam_state }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { nation_tobacco_cost = 0 }
+		every_controlled_state = {
+			limit = { has_state_category = rural }
+			add_to_variable = { PREV.nation_tobacco_cost = 0.5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = town }
+			add_to_variable = { PREV.nation_tobacco_cost = 1.5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_town }
+			add_to_variable = { PREV.nation_tobacco_cost = 2 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = city }
+			add_to_variable = { PREV.nation_tobacco_cost = 3 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_city }
+			add_to_variable = { PREV.nation_tobacco_cost = 4 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = megalopolis }
+			add_to_variable = { PREV.nation_tobacco_cost = 5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = metropolis }
+			add_to_variable = { PREV.nation_tobacco_cost = 5 }
+		}
+		set_variable = { tobacco_request_50 = nation_tobacco_cost }
+		multiply_variable = { tobacco_request_50 = 0.5 }
+		set_variable = { nation_tobacco_free = tobacco_num }
+		subtract_from_variable = { nation_tobacco_free = nation_tobacco_cost }
+		subtract_from_variable = { nation_tobacco_free = tobacco_output_setting }
+	}
+}
+#铁矿消耗
+news_event = {
+	id = count.88
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { iron_output > 0 }
+			any_owned_state = {
+				steel_making > 0
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { nation_iron_coast = 0 }
+		set_variable = { steel_making_iron_coast = 0 }
+		every_controlled_state = {
+			limit = { steel_making > 0 }
+			add_to_variable = { PREV.steel_making_iron_coast = building_level@steel_making }
+			add_to_variable = { PREV.steel_making_iron_coast = building_level@steel_making }
+			add_to_variable = { PREV.steel_making_iron_coast = building_level@steel_making }
+			add_to_variable = { PREV.steel_making_iron_coast = building_level@steel_making }
+			add_to_variable = { PREV.steel_making_iron_coast = building_level@steel_making }
+		}
+		add_to_variable = { nation_iron_coast = iron_output }
+		add_to_variable = { nation_iron_coast = steel_making_iron_coast }
+	}
+}
+#煤炭消耗
+news_event = {
+	id = count.89
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { powerplant_coal_coast > 0 }
+			check_variable = { coal_output > 0 }
+			any_owned_state = {
+				steel_making > 0
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { nation_coal_coast = 0 }
+		set_variable = { steelmaking_coal_coast = 0 }
+		every_controlled_state = {
+			limit = { steel_making > 0 }
+			add_to_variable = { PREV.steelmaking_coal_coast = building_level@steel_making }
+			add_to_variable = { PREV.steelmaking_coal_coast = building_level@steel_making }
+			add_to_variable = { PREV.steelmaking_coal_coast = building_level@steel_making }
+		}
+		if = {
+			limit = { has_dynamic_modifier = { modifier = power_general_fuel } }
+			multiply_variable = { powerplant_coal_coast = 0.2 }
+		}
+		add_to_variable = { nation_coal_coast = powerplant_coal_coast }
+		add_to_variable = { nation_coal_coast = coal_output }
+		add_to_variable = { nation_coal_coast = steelmaking_coal_coast }
+	}
+}
+#煤矿贸易计算
+news_event = {
+	id = count.90
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { coal_output > 0 }
+			check_variable = { coal_input > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { coal_output_gain = coal_output }
+		multiply_variable = { coal_output_gain = 0.6 }
+		set_variable = { coal_input_cost = coal_input }
+		multiply_variable = { coal_input_cost = 0.6 }
+	}
+}
+#铁矿贸易计算
+news_event = {
+	id = count.91
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { iron_output > 0 }
+			check_variable = { iron_input > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { iron_output_gain = iron_output }
+		set_variable = { iron_input_cost = iron_input }
+	}
+}
+#铜矿贸易计算
+news_event = {
+	id = count.92
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { copper_output > 0 }
+			check_variable = { copper_input > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { copper_output_gain = copper_output }
+		multiply_variable = { copper_output_gain = 0.5 }
+		set_variable = { copper_input_cost = copper_input }
+		multiply_variable = { copper_input_cost = 0.5 }
+	}
+}
+#铝贸易计算
+news_event = {
+	id = count.93
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { aluminium_output > 0 }
+			check_variable = { aluminium_input > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { aluminium_output_gain = aluminium_output }
+		multiply_variable = { aluminium_output_gain = 0.8 }
+		set_variable = { aluminium_input_cost = aluminium_input }
+		multiply_variable = { aluminium_input_cost = 0.8 }
+	}
+}
+#石油贸易计算
+news_event = {
+	id = count.94
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { oil_output > 0 }
+			check_variable = { oil_input > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { oil_output_gain = oil_output }
+		multiply_variable = { oil_output_gain = 1.2 }
+		set_variable = { oil_input_cost = oil_input }
+		multiply_variable = { oil_input_cost = 1.2 }
+	}
+}
+#汽车出口计算
+news_event = {
+	id = count.95
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { auto_output_setting > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { auto_output_gain = auto_output_setting }
+		multiply_variable = { auto_output_gain = 4 }
+	}
+}
+#汽车需求计算
+news_event = {
+	id = count.96
+	hidden = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		has_tech = basic_machine_tools
+		has_tech = construction2
+		capital_scope = {
+			infrastructure > 0
+			NOT = {
+				has_state_category = tiny_island
+				has_state_category = enclave
+			}
+		}
+	}
+	option = {
+		name = news.51.a
+			set_variable = { auto_request = 0 }
+			set_variable = { auto_request_80 = 0 }	
+			set_variable = { auto_request_60 = 0 }		
+			every_owned_state = {
+				if = {
+					limit = {
+						infrastructure > 2
+						NOT = {
+							has_state_category = tiny_island
+							has_state_category = enclave
+						}
+					}
+					add_to_variable = { PREV.auto_request = this.infrastructure_level }
+				}
+			}
+			multiply_variable = { auto_request = 0.5 }
+			add_to_variable = { auto_request = auto_output_setting }
+			set_variable = { auto_request_80 = auto_request }
+			multiply_variable = { auto_request_80 = 0.8 }
+			set_variable = { auto_request_60 = auto_request }
+			multiply_variable = { auto_request_60 = 0.6 }
+			set_variable = { auto_free = 0 }
+			add_to_variable = { auto_free = consumer_auto }
+			subtract_from_variable = { auto_free = auto_request }
+			if = {
+				limit = {
+					check_variable = { consumer_auto > auto_request_80 }
+					NOT = { has_dynamic_modifier = { modifier = auto_effect_modifier } }
+				}
+				add_dynamic_modifier = { modifier = auto_effect_modifier }
+			}
+			if = {
+				limit = {
+					check_variable = { consumer_auto < auto_request_80 }
+					 has_dynamic_modifier = { modifier = auto_effect_modifier }
+				}
+				remove_dynamic_modifier = { modifier = auto_effect_modifier }
+			}
+			if = {
+				limit = {
+					check_variable = { consumer_auto > auto_request_60 }
+					has_dynamic_modifier = { modifier = autos_low_modifiers }
+				}
+				remove_dynamic_modifier = { modifier = autos_low_modifiers }
+			}
+			if = {
+				limit = {
+					check_variable = { consumer_auto < auto_request_60 }
+					NOT = { has_dynamic_modifier = { modifier = autos_low_modifiers } }
+				}
+				add_dynamic_modifier = { modifier = autos_low_modifiers }
+			}
+	}
+}
+#汽车生产计算
+news_event = {
+	id = count.97
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { auto_factory > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { consumer_auto = auto_factory }
+		multiply_variable = { consumer_auto = 6 }
+		if = {
+			limit = { has_idea_with_trait = auto_manufacturer }
+			multiply_variable = { consumer_auto = 1.5 }
+		}
+			set_variable = { auto_free = 0 }
+			add_to_variable = { auto_free = consumer_auto }
+			subtract_from_variable = { auto_free = auto_request }
+	}
+}
+#电子生产计算
+news_event = {
+	id = count.98
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		check_variable = { electronic_factory > 0 }
+	}
+	option = {
+		name = news.51.a
+		set_variable = { consumer_electronic = electronic_factory }
+		multiply_variable = { consumer_electronic = 5 }
+		if = {
+			limit = { has_idea_with_trait = electronic_manufacturer }
+			multiply_variable = { consumer_auto = 1.6 }
+		}
+		if = {
+			limit = { has_idea = partial_economic_mobilisation }
+			multiply_variable = { consumer_auto = 1.2 }
+		}
+			set_variable = { electronic_free = 0 }
+			add_to_variable = { electronic_free = consumer_electronic }
+			subtract_from_variable = { electronic_free = electronic_request }
+	}
+}
+#电子需求计算
+news_event = {
+	id = count.99
+	hidden = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_tech = basic_machine_tools
+	}
+	option = {
+		name = news.51.a
+			set_variable = { electronic_request = 0 }
+			set_variable = { electronic_request_80 = 0 }	
+			set_variable = { electronic_request_60 = 0 }		
+		every_controlled_state = {
+			limit = { has_state_category = rural }
+			add_to_variable = { PREV.electronic_request = 0.2 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = town }
+			add_to_variable = { PREV.electronic_request = 1 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_town }
+			add_to_variable = { PREV.electronic_request = 1.2 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = city }
+			add_to_variable = { PREV.electronic_request = 3 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = large_city }
+			add_to_variable = { PREV.electronic_request = 4 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = megalopolis }
+			add_to_variable = { PREV.electronic_request = 5 }
+		}
+		every_controlled_state = {
+			limit = { has_state_category = metropolis }
+			add_to_variable = { PREV.electronic_request = 5 }
+		}
+			multiply_variable = { electronic_request = 0.5 }
+			add_to_variable = { electronic_request = auto_output_setting }
+			set_variable = { electronic_request = electronic_request }
+			multiply_variable = { electronic_request_80 = 0.8 }
+			set_variable = { electronic_request_60 = electronic_request }
+			multiply_variable = { electronic_request_60 = 0.6 }
+			set_variable = { electronic_free = 0 }
+			add_to_variable = { electronic_free = consumer_electronic }
+			subtract_from_variable = { electronic_free = electronic_request }
+	}
+}
+#产品出口总计算
+news_event = {
+	id = count.100
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { coffee_output_gain > 0 }
+			check_variable = { salt_output_gain > 0 }
+			check_variable = { cutton_output_gain > 0 }
+			check_variable = { aluminium_output > 0 }
+			check_variable = { copper_output_gain > 0 }
+			check_variable = { iron_output_gain > 0 }
+			check_variable = { coal_output_gain > 0 }
+			check_variable = { oil_output_gain > 0 }
+			check_variable = { auto_output_gain > 0 }
+			check_variable = { tobacco_output_gain > 0 }
+			check_variable = { sugar_output_gain > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { total_output = 0 }
+		add_to_variable = { total_output = copper_output_gain }
+		add_to_variable = { total_output = iron_output_gain }
+		add_to_variable = { total_output = aluminium_output }
+		add_to_variable = { total_output = coal_output_gain }
+		add_to_variable = { total_output = coffee_output_gain }
+		add_to_variable = { total_output = salt_output_gain }
+		add_to_variable = { total_output = cutton_output_gain }
+		add_to_variable = { total_output = oil_output_gain }
+		add_to_variable = { total_output = auto_output_gain }
+		add_to_variable = { total_output = tobacco_output_gain }
+		add_to_variable = { total_output = sugar_output_gain }
+	}
+}
+#矿物进口总计算
+news_event = {
+	id = count.101
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { copper_input_cost > 0 }
+			check_variable = { iron_input_cost > 0 }
+			check_variable = { coal_input_cost > 0 }
+			check_variable = { aluminium_input_cost > 0 }
+			check_variable = { oil_input_cost > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { total_input = 0 }
+		add_to_variable = { total_input = copper_input_cost }
+		add_to_variable = { total_input = iron_input_cost }
+		add_to_variable = { total_input = coal_input_cost }
+		add_to_variable = { total_input = aluminium_input_cost }
+		add_to_variable = { total_input = oil_input_cost }
+	}
+}
+#矿物自动出口
+news_event = {
+	id = count.102
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		is_ai = yes
+		OR = {
+			coal > 30
+			iron > 30
+			copper > 30
+			aluminium > 20
+			oil > 10
+		}
+		NOT = {
+			has_idea = sanctions
+			has_idea = tot_economic_mobilisation
+			has_idea = all_adults_serve
+			has_idea = scraping_the_barrel
+			has_idea = isolated
+		}
+	}
+	option = {
+		name = news.51.a
+		if = {
+			limit = { coal > nation_coal_coast }
+			set_variable = { coal_output_setting = resource@coal }
+			subtract_from_variable = { coal_output_setting = nation_coal_coast }
+			subtract_from_variable = { coal_output_setting = 10 }
+			set_variable = { coal_output = coal_output_setting }
+			news_event = { id = count.90 }
+		}
+		if = {
+			limit = { coal < nation_coal_coast }
+			set_variable = { coal_output = 0 }
+			news_event = { id = count.90 }
+		}
+		if = {
+			limit = { iron > nation_iron_coast }
+			set_variable = { iron_output_setting = resource@iron }
+			subtract_from_variable = { iron_output_setting = nation_iron_coast }
+			subtract_from_variable = { iron_output_setting = 10 }
+			set_variable = { iron_output = iron_output_setting }
+			news_event = { id = count.91 }
+		}
+		if = {
+			limit = { iron < nation_iron_coast }
+			set_variable = { iron_output = 0 }
+			news_event = { id = count.91 }
+		}
+		if = {
+			limit = { copper > nation_copper_coast }
+			set_variable = { copper_output_setting = resource@copper }
+			subtract_from_variable = { copper_output_setting = nation_copper_coast }
+			subtract_from_variable = { copper_output_setting = 10 }
+			set_variable = { copper_output = copper_output_setting }
+			news_event = { id = count.92 }
+		}
+		if = {
+			limit = { copper < nation_copper_coast }
+			set_variable = { copper_output = 0 }
+			news_event = { id = count.92 }
+		}
+		if = {
+			limit = { aluminium > nation_aluminium_coast }
+			set_variable = { aluminium_output_setting = resource@aluminium }
+			subtract_from_variable = { aluminium_output_setting = nation_aluminium_coast }
+			subtract_from_variable = { aluminium_output_setting = 10 }
+			set_variable = { aluminium_output = aluminium_output_setting }
+			news_event = { id = count.93 }
+		}
+		if = {
+			limit = { aluminium < nation_aluminium_coast }
+			set_variable = { aluminium_output = 0 }
+			news_event = { id = count.93 }
+		}
+		if = {
+			limit = { oil > nation_oil_coast }
+			set_variable = { oil_output_setting = resource@oil }
+			subtract_from_variable = { oil_output_setting = nation_oil_coast }
+			subtract_from_variable = { oil_output_setting = 10 }
+			set_variable = { oil_output = oil_output_setting }
+			news_event = { id = count.91 }
+		}
+		if = {
+			limit = { oil < nation_oil_coast }
+			set_variable = { oil_output = 0 }
+			news_event = { id = count.91 }
+		}
+	}
+}
+#矿物自动进口
+news_event = {
+	id = count.103
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		is_ai = yes
+		OR = {
+			coal < 0
+		}
+		NOT = {
+			has_idea = sanctions
+			has_idea = tot_economic_mobilisation
+			has_idea = all_adults_serve
+			has_idea = scraping_the_barrel
+			has_idea = isolated
+		}
+	}
+	option = {
+		name = news.51.a
+		if = {
+			limit = { coal < nation_coal_coast }
+			set_variable = { coal_input_setting = nation_coal_coast }
+			subtract_from_variable = { coal_output_setting = coal }
+			add_to_variable = { coal_output_setting = 4 }
+			set_variable = { coal_input = coal_input_setting }
+			news_event = { id = count.90 }
+		}
+		if = {
+			limit = { coal > coal_input_setting }
+			set_variable = { coal_input = 0 }
+			set_variable = { coal_input_setting = 0 }
+			news_event = { id = count.90 }
+		}
+	}
+}
+#石油消耗
+news_event = {
+	id = count.104
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		OR = {
+			check_variable = { oil_output > 0 }
+			any_owned_state = { rubber_factory > 0 }
+			any_owned_state = { synthetic_refinery > 0 }
+		}
+	}
+	option = {
+		name = news.51.a
+		set_variable = { nation_oil_coast = 0 }
+		set_variable = { synthetic_oil_coast = 0 }
+		set_variable = { rubber_oil_coast = 0 }
+		every_controlled_state = {
+			limit = { rubber_factory > 0 }
+			add_to_variable = { PREV.rubber_oil_coast = building_level@rubber_factory }
+			add_to_variable = { PREV.rubber_oil_coast = building_level@rubber_factory }
+		}
+		every_controlled_state = {
+			limit = { check_variable = { synthetic_oil_coast > 0 } }
+			add_to_variable = { PREV.synthetic_oil_coast = building_level@synthetic_refinery }
+			add_to_variable = { PREV.synthetic_oil_coast = building_level@synthetic_refinery }
+		}
+		add_to_variable = { nation_oil_coast = synthetic_oil_coast }
+		add_to_variable = { nation_oil_coast = rubber_factory }
+		add_to_variable = { nation_oil_coast = oil_output }
+	}
+}
+#财政收入
+news_event = {
+	id = count.150
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+		name = news.51.a
+			clr_country_flag = coal_input_monthly
+			clr_country_flag = iron_input_monthly
+			clr_country_flag = oil_input_monthly
+			clr_country_flag = rubber_input_monthly
+			clr_country_flag = steel_input_monthly
+			clr_country_flag = fuel_transport_monthly
+			clr_country_flag = aluminium_input_monthly
+			clr_country_flag = food_input_monthly
+			clr_country_flag = auto_input_monthly
+			clr_country_flag = textile_input_monthly
+			clr_country_flag = copper_input_monthly
+			clr_country_flag = coffee_input_monthly
+			set_variable = { this.total_tax = 0 }
+			set_variable = { this.total_revenue = 0 }
+			#民用工厂税#
+			set_variable = { this.civilian_factories_tax = 0 }
+			set_variable = { this.farm_tax = 0 }
+			set_variable = { this.electronic_factory_tax = 0 }
+			set_variable = { this.auto_factory_tax = 0 }
+			every_controlled_state = {
+				limit = { farm_building > 0 }
+				add_to_variable = { prev.farm_tax = building_level@farm_building }
+			}
+			every_controlled_state = {
+				limit = { has_state_flag = banana_production }
+				add_to_variable = { prev.farm_tax = building_level@plantation }
+			}
+			multiply_variable = { this.farm_tax = 2 }
+			add_to_variable = { this.total_tax = this.farm_tax }
+			add_to_variable = { this.electronic_factory_tax = electronic_factory }
+			multiply_variable = { this.electronic_factory_tax = 2 }
+			add_to_variable = { this.auto_factory_tax = auto_factory }
+			multiply_variable = { this.auto_factory_tax = 4 }
+			add_to_variable = { this.civilian_factories_tax = auto_factory_tax }
+			add_to_variable = { this.civilian_factories_tax = electronic_factory_tax }
+			add_to_variable = { this.civilian_factories_tax = textile_factory }
+			add_to_variable = { this.civilian_factories_tax = foods_factory }
+			add_to_variable = { this.total_tax = this.civilian_factories_tax }
+			#汽车消费税#
+			if = {
+				limit = { check_variable = { consumer_auto < auto_request } }
+				set_variable = { this.consumer_auto_tax = this.consumer_auto }
+			}
+			if = {
+				limit = { check_variable = { consumer_auto > auto_request } }
+				set_variable = { this.consumer_auto_tax = this.auto_request }
+			}
+			if = {
+				limit = { check_variable = { consumer_auto_tax > 0 } }
+				add_to_variable = { this.total_tax = this.consumer_auto_tax }
+			}
+			##黄金##
+			##出口##
+			#低声望惩罚#
+			if = {
+				limit = { has_idea = low_diplomacy }
+				multiply_variable = { total_output = 0.75 }
+			}
+			##汽车##
+			set_variable = { auto_output_gain = 0 }
+			add_to_variable = { auto_output_gain = auto_output_setting }
+			multiply_variable = { auto_output_gain = 5 }
+			add_to_variable = { this.total_output = auto_output_gain }
+			##服装##
+			set_variable = { textile_output_gain = 0 }
+			add_to_variable = { textile_output_gain = textile_output_setting }
+			add_to_variable = { this.total_output = textile_output_gain }
+			##烟草##
+			add_to_variable = { this.total_output = tobacco_output_gain }
+			##电子##
+			set_variable = { electronic_output_gain = 0 }
+			add_to_variable = { electronic_output_gain = electronic_output_setting }
+			multiply_variable = { electronic_output_gain = 3 }
+			add_to_variable = { this.total_output = electronic_output_gain }
+			##计算机##
+			set_variable = { computer_output_gain = 0 }
+			add_to_variable = { computer_output_gain = computer_output_setting }
+			multiply_variable = { computer_output_gain = 6 }
+			add_to_variable = { this.total_output = computer_output_gain }
+			##援助##
+			add_to_variable = { this.total_revenue = total_from_aid }
+			##旅游业##
+			set_variable = { this.total_tourist = 0 }
+			set_variable = { this.final_tourist = 0 }
+			every_controlled_state = {
+				add_to_variable = { prev.total_tourist = state_tourist }
+			}
+			add_to_variable = { this.final_tourist = this.total_tourist }
+			multiply_variable = { final_tourist = tourist_faction }
+			add_to_variable = { this.final_tourist = this.total_tourist }
+			if = {
+				limit = { has_idea = civilian_economy }
+				multiply_variable = { total_output = 1.3 }
+			}
+			##计算##
+			add_to_variable = { this.total_revenue = total_output }
+			add_to_variable = { this.total_revenue = total_tax }
+			add_to_variable = { this.total_revenue = final_tourist }
+			##计算##
+			set_variable = { this.total_RE = 0 }
+			add_to_variable = { this.total_RE = total_revenue }
+			subtract_from_variable = { this.total_RE = total_expenditure }
+	}
+}
+#财政支出
+news_event = {
+	id = count.151
+	hidden = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+			##军费##
+			set_variable = { this.coast_divisions = this.num_divisions }
+			multiply_variable = { this.coast_divisions = 1.2 }
+			set_variable = { this.total_militarycost = this.coast_divisions }
+			if = {
+				limit = { has_idea = disarmed_nation }
+				multiply_variable = { total_militarycost = 0.8 }
+			}
+			if = {
+				limit = { has_idea = volunteer_only }
+				multiply_variable = { total_militarycost = 1.0 }
+			}
+			if = {
+				limit = { has_idea = limited_conscription }
+				multiply_variable = { total_militarycost = 1.2 }
+			}
+			if = {
+				limit = { has_idea = extensive_conscription }
+				multiply_variable = { total_militarycost = 1.5 }
+			}
+			if = {
+				limit = { has_idea = service_by_requirement }
+				multiply_variable = { total_militarycost = 1.8 }
+			}
+			if = {
+				limit = { has_idea = scraping_the_barrel }
+				multiply_variable = { total_militarycost = 2.0 }
+			}
+			##设施##
+			set_variable = { this.total_buildingcost = 0 }
+			set_variable = { this.factory_buildingcost = 0 }
+			set_variable = { this.plant_buildingcost = 0 }
+			every_controlled_state = {
+				add_to_variable = { prev.factory_buildingcost = building_level@industrial_complex }
+				add_to_variable = { prev.factory_buildingcost = arms_factory_level }
+				add_to_variable = { prev.factory_buildingcost = building_level@steel_making }
+				add_to_variable = { prev.factory_buildingcost = building_level@synthetic_refinery }
+				add_to_variable = { prev.plant_buildingcost = building_level@dam_plant }
+				add_to_variable = { prev.plant_buildingcost = building_level@power_plant }
+			}
+			multiply_variable = { factory_buildingcost = 0.6 }
+			multiply_variable = { plant_buildingcost = 0.4 }
+			add_to_variable = { this.total_buildingcost = factory_buildingcost }
+			add_to_variable = { this.total_buildingcost = plant_buildingcost }
+			if = {
+				limit = { has_idea = low_economic_mobilisation }
+				multiply_variable = { total_buildingcost = 0.6 }
+			}
+			if = {
+				limit = { has_idea = governed_economic }
+				multiply_variable = { total_buildingcost = 0.4 }
+			}
+			if = {
+				limit = { has_idea = civilian_economy }
+				multiply_variable = { total_buildingcost = 0.2 }
+			}
+			##军费##
+			if = {
+				limit = { has_idea = civilian_economy }
+				multiply_variable = { total_militarycost = 0.8 }
+			}
+			if = {
+				limit = { has_idea = low_economic_mobilisation }
+				multiply_variable = { total_militarycost = 1.2 }
+			}
+			if = {
+				limit = { has_idea = war_economy }
+				multiply_variable = { total_militarycost = 1.6 }
+			}
+			##进口##
+			set_variable = { this.total_input = 0 }
+			add_to_variable = { this.total_input = this.rubber_input }
+			##矿产##
+			set_variable = { this.mineral_input = 0 }
+			add_to_variable = { this.mineral_input  = this.oil_input }
+			add_to_variable = { this.mineral_input  = this.iron_input }
+			add_to_variable = { this.mineral_input  = this.steel_input }
+			add_to_variable = { this.mineral_input  = this.aluminium_input }
+			add_to_variable = { this.mineral_input  = this.coal_input }
+			multiply_variable = { mineral_input = 2 }
+			if = {
+				limit = { has_idea = comecon }
+				multiply_variable = { mineral_input = 0.7 }
+			}
+			if = {
+				limit = { has_idea = ECSC }
+				multiply_variable = { mineral_input = 0.6 }
+			}
+			if = {
+				limit = { has_global_flag = oil_crisis }
+				multiply_variable = { this.oil_input = 1.4 }
+			}
+			if = {
+				limit = { has_idea = comecon }
+				multiply_variable = { this.oil_input = 0.7 }
+			}
+			#总计进口#
+			add_to_variable = { this.total_input = this.mineral_input  }
+			#原油进口#
+			set_variable = { this.fuel_input_cost = 0 }
+			add_to_variable = { this.fuel_input_cost = this.fuel_input }
+			add_to_variable = { this.total_input = this.fuel_input_cost }
+			if = {
+				limit = { has_global_flag = oil_crisis }
+				multiply_variable = { this.fuel_input_cost = 1.4 }
+			}
+			if = {
+				limit = { has_idea = comecon }
+				multiply_variable = { this.fuel_input_cost = 0.7 }
+			}
+			#低声望惩罚#
+			if = {
+				limit = { has_idea = low_diplomacy }
+				multiply_variable = { total_input = 1.2 }
+			}
+			##福利##
+			set_variable = { this.total_welfare_expenditure = 0 }
+			every_controlled_state = {
+				limit = { owner = { NOT = { has_idea = no_welfare } } }
+				if = {
+					limit = { has_state_category = pastoral }
+					add_to_variable = { prev.total_welfare_expenditure = 1 }
+				}
+				if = {
+					limit = { has_state_category = rural }
+					add_to_variable = { prev.total_welfare_expenditure = 2 }
+				}
+				if = {
+					limit = { has_state_category = town }
+					add_to_variable = { prev.total_welfare_expenditure = 3 }
+				}
+				if = {
+					limit = { has_state_category = large_town }
+					add_to_variable = { prev.total_welfare_expenditure = 5 }
+				}
+				if = {
+					limit = { has_state_category = city }
+					add_to_variable = { prev.total_welfare_expenditure = 5 }
+				}
+				if = {
+					limit = { has_state_category = large_city }
+					add_to_variable = { prev.total_welfare_expenditure = 6 }
+				}
+				if = {
+					limit = { has_state_category = metropolis }
+					add_to_variable = { prev.total_welfare_expenditure = 7 }
+				}
+				if = {
+					limit = { has_state_category = megalopolis }
+					add_to_variable = { prev.total_welfare_expenditure = 7 }
+				}
+			}
+			if = {
+				limit = { has_idea = mid_welfare }
+				multiply_variable = { this.total_welfare_expenditure = 0.6 }
+			}
+			if = {
+				limit = { has_idea = low_welfare }
+				multiply_variable = { this.total_welfare_expenditure = 0.3 }
+			}
+			if = {
+				limit = { has_idea = welfare_state }
+				multiply_variable = { this.total_welfare_expenditure = 1.2 }
+			}
+			##外交惩罚
+			##总计##
+			set_variable = { this.total_expenditure = 0 }
+			add_to_variable = { this.total_expenditure = total_welfare_expenditure }
+			add_to_variable = { this.total_expenditure = total_buildingcost }
+			add_to_variable = { this.total_expenditure = total_militarycost }
+			add_to_variable = { this.total_expenditure = total_input }
+			add_to_variable = { this.total_expenditure = total_to_ppower }
+			##计算##
+			set_variable = { this.total_RE = 0 }
+			add_to_variable = { this.total_RE = total_revenue }
+			subtract_from_variable = { this.total_RE = total_expenditure }
+	}
+}
+#给宗主国送东西
+news_event = {
+	id = count.200
+	hidden = yes
+	mean_time_to_happen = {
+		days = 12
+	}
+	trigger = {
+		check_variable = { food_num > 10 }
+		any_state = {
+			check_variable = { state_food_production < state_food_need }
+		}
+		OR = {
+			is_ai = yes
+			NOT = { has_country_flag = count_event_9 }
+		}
+	}
+	option = {
+		name = news.51.a
+		if = {
+			limit = {
+				num_subjects > 0
+					
+			}
+				set_variable = { iron_from_colonies = 0 }
+				set_variable = { rubber_from_colonies = 0 }
+				set_variable = { oil_from_colonies = 0 }
+				set_variable = { coal_from_colonies = 0 }
+				set_variable = { food_from_colonies = 0 }
+				every_subject_country = {
+					set_variable = { steel_to_colonies = 0 }
+					set_variable = { rubber_to_colonies = 0 }
+					set_variable = { oil_to_colonies = 0 }
+					set_variable = { coal_to_colonies = 0 }
+					set_variable = { food_to_colonies = 0 }
+					#煤#
+					set_variable = { coal_to_colonies = resource@coal }
+					multiply_variable = { coal_to_colonies = 0.4 }
+					add_to_variable = { FROM.coal_from_colonies = this.coal_to_colonies }
+					#铁#
+					set_variable = { iron_to_colonies = resource@iron }
+					multiply_variable = { iron_to_colonies = 0.4 }
+					add_to_variable = { FROM.iron_from_colonies = this.iron_to_colonies }
+					#橡胶#
+					set_variable = { rubber_to_colonies = resource@rubber }
+					multiply_variable = { rubber_to_colonies = 0.4 }
+					add_to_variable = { FROM.rubber_from_colonies = this.rubber_to_colonies }
+					#石油#
+					set_variable = { oil_to_colonies = resource@oil }
+					multiply_variable = { oil_to_colonies = 0.4 }
+					add_to_variable = { FROM.oil_from_colonies = this.oil_to_colonies }
+					#粮食#
+					set_variable = { food_to_colonies = resource@food }
+					multiply_variable = { food_to_colonies = 0.4 }
+					add_to_variable = { FROM.food_from_colonies = this.food_to_colonies }
+				}
+				if = {
+					limit = { check_variable = { coal_from_colonies > 0 } }
+					add_dynamic_modifier = { modifier = colonies_coal_modifiers }
+				}
+				if = {
+					limit = { check_variable = { iron_from_colonies > 0 } }
+					add_dynamic_modifier = { modifier = colonies_iron_modifiers }
+				}
+				if = {
+					limit = { check_variable = { oil_from_colonies > 0 } }
+					add_dynamic_modifier = { modifier = colonies_oil_modifiers }
+				}
+				if = {
+					limit = { check_variable = { rubber_from_colonies > 0 } }
+					add_dynamic_modifier = { modifier = colonies_rubber_modifiers }
+				}
+		}
+	}
+}
+#计算开局的消费品资源消耗
+news_event = {
+	id = count.210
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = news.51.a
+		if = {
+			limit = { check_variable = { auto_factory > 0 } }
+			add_to_variable = { custom_steel_request = auto_factory }
+			add_to_variable = { custom_steel_request = auto_factory }
+			add_to_variable = { custom_steel_request = auto_factory }
+			add_to_variable = { custom_steel_request = auto_factory }
+			add_to_variable = { custom_aluminium_request = auto_factory }
+			add_to_variable = { custom_aluminium_request = auto_factory }
+			add_to_variable = { custom_aluminium_request = auto_factory }
+			add_to_variable = { custom_copper_request = auto_factory }
+			add_to_variable = { custom_copper_request = auto_factory }
+			add_to_variable = { custom_copper_request = auto_factory }
+			add_to_variable = { custom_rubber_request = auto_factory }
+			add_to_variable = { custom_rubber_request = auto_factory }
+		}
+		if = {
+			limit = { check_variable = { electronic_factory > 0 } }
+			add_to_variable = { custom_steel_request = electronic_factory }
+			add_to_variable = { custom_steel_request = electronic_factory }
+			add_to_variable = { custom_aluminium_request = electronic_factory }
+			add_to_variable = { custom_aluminium_request = electronic_factory }
+			add_to_variable = { custom_copper_request = electronic_factory }
+			add_to_variable = { custom_copper_request = electronic_factory }
+			add_to_variable = { custom_copper_request = electronic_factory }
+			add_to_variable = { custom_rubber_request = electronic_factory }
+		}
+		if = {
+			limit = { check_variable = { textile_factory > 0 } }
+			add_to_variable = { cutton_factory_cost = textile_factory }
+			add_to_variable = { cutton_factory_cost = textile_factory }
+		}
+	}
+}

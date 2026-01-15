@@ -1,0 +1,51 @@
+state={
+	id=1035
+	name="STATE_1035"
+	resources={
+		rubber=3
+	}
+
+	history={
+		set_state_flag = ethnics_Vietnamese
+		add_to_array = { this.state_ethnics_list = 15 }
+		add_to_array = { this.state_ethnics_list = 18 }
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+                               
+		owner = FRA
+		add_core_of = VIN
+		add_core_of = SVN
+		add_core_of = CAM
+		1948.6.14 = {
+			owner = SVN
+		}
+		buildings = {
+			farm_building = 3
+			infrastructure = 2
+		}
+		1960.5.23 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+			add_resistance = 60
+		}
+		1962.5.23 = {
+			add_dynamic_modifier = { modifier = strategic_valley_modifier }
+		}
+		1975.5.23 = {
+			add_resistance = -100
+			owner = VIN
+			remove_dynamic_modifier = { modifier = strategic_valley_modifier }
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		victory_points = { 1423 2 }
+		victory_points = { 12133 3 }
+		victory_points = { 4223 2 }
+		victory_points = { 4341 2 }
+	}
+	provinces={
+		12288 1423 12133 4223 4284 7331 7303 4341 
+	}
+	manpower=1245000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

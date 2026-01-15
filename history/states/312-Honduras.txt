@@ -1,0 +1,45 @@
+state=
+{
+	id=312
+	name="STATE_312"
+	manpower=859761
+	resources={
+
+		tungsten=1
+
+	}
+	
+	state_category = town
+	history={
+                              
+	                owner = HON
+		set_state_flag = ethnics_CenturalAmerican
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = coffee_production
+		add_to_array = { this.state_ethnics_list = 117 }
+		buildings = {
+			infrastructure = 4
+			arms_factory = 1
+			industrial_complex = 2 
+			air_base = 1
+			8017 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = HON
+		victory_points = {
+			12865 8
+		}
+		victory_points = {
+			8017 4
+		}
+		victory_points = {
+			13483 3
+		}
+
+	}
+	provinces={
+		8017 12865 13483 13485 13514 13515 13516 13517
+	}
+}

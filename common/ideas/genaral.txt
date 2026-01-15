@@ -1,0 +1,1270 @@
+ideas = {
+	country = {
+		common_land_reform_modifier = {
+			allowed = { always = yes }
+			picture = FRA_republique_legacy
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 0.25
+				stability_factor = 0.2
+				political_power_cost = -0.12
+				resistance_target = -0.15
+				communism_drift = -0.01
+			}
+		}
+		common_education_reform_modifier = {
+			allowed = { always = yes }
+			picture = FRA_republique_legacy
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 0.25
+				stability_factor = 0.2
+				political_power_cost = -0.12
+				resistance_target = -0.15
+				fascism_drift = -0.01
+			}
+		}
+		common_female_right_modifier = {
+			allowed = { always = yes }
+			picture = FRA_republique_legacy
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 0.25
+				stability_factor = 0.2
+				political_power_cost = -0.12
+				resistance_target = -0.15
+				fascism_drift = -0.01
+			}
+		}
+		militarist_politician = {
+			allowed = { always = yes }
+			picture = generic_manpower_bonus
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = 0.3
+				stability_factor = 0.26
+				political_power_cost = 0.12
+				army_leader_cost_factor = -0.12
+				custom_modifier_tooltip = SDI_idea_tool
+			}
+		}
+		AgriculturalCollectivization = {
+			allowed = { always = yes }
+			picture = AgriculturalCollectivization
+			removal_cost = -1
+			modifier = {
+				production_speed_farm_building_factor = 0.15
+				custom_modifier_tooltip = PeoplesCommuni_tip
+				temporary_state_resource_food = 5
+			}
+		}
+		five_years_plant = {
+		
+			allowed = { always = no }
+
+			picture = GFX_idea_five_years_plant
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.1 #-0.1
+				production_factory_max_efficiency_factor = 0.15 #0.05
+				production_speed_industrial_complex_factor = 0.15 #0.05
+				industrial_concern_cost_factor = -0.15 #-0.15
+			}
+		}
+		
+		grand_purge = {
+		
+			allowed = { always = no }
+
+			picture = SOV_purged_junior_army_officers
+			removal_cost = -1
+			modifier = {
+				army_org_factor = -0.1
+				max_dig_in_factor = -0.15
+				supply_consumption_factor = 0.1
+				land_doctrine_cost_factor = 0.2
+			}
+		}
+		mid_education = {
+		
+			allowed = { always = no }
+
+			picture = low_education
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = -0.2
+				stability_factor = 0.15
+				political_power_gain = -0.15
+				war_support_factor = -0.1
+				research_speed_factor = -0.2
+				training_time_factor = 0.12
+				army_org_factor = -0.12
+			}
+		}
+		low_education = {
+		
+			allowed = { always = no }
+
+			picture = low_education
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = -0.12
+				stability_factor = 0.25
+				political_power_gain = -0.25
+				war_support_factor = -0.15
+				research_speed_factor = -0.4
+				training_time_factor = 0.2
+				army_org_factor = -0.2
+				custom_modifier_tooltip = low_education_tool
+			}
+		}
+		ColonyWar = {
+			picture = ColonyWar
+			allowed = { always = no }
+
+			picture = colonist_war
+			removal_cost = -1
+			cancel = {
+				NOT = { has_war = yes }
+			}
+			modifier = {
+				send_volunteer_divisions_required = -0.9
+				join_faction_tension = 1
+				ai_get_ally_desire_factor = -200
+				training_time_factor = -0.5
+				army_org_factor = 0.5
+				war_support_weekly = 0.05
+				army_core_defence_factor = 0.4
+				surrender_limit = 0.02
+			}
+		}
+		colonist_war = {
+		
+			picture = colonist_war
+			allowed = { always = no }
+			cancel = {
+				NOT = { has_war = yes }
+			}
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				ai_call_ally_desire_factor = -500
+				army_org_factor = -0.05
+				war_support_factor = -0.12
+			}
+		}
+		nato_spirit = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+				NOT = {
+					is_in_faction_with = USA
+				}
+				
+			}
+			picture = nato_spirit
+			removal_cost = -1
+			modifier = {
+				ai_get_ally_desire_factor = -999
+				drift_defence_factor = 0.1
+				democratic_acceptance = 30
+				war_support_factor = 0.2
+				communism_acceptance = -30
+			}
+		}
+		GulfCC = {
+			allowed = {
+				always = no
+			}
+			picture = african_union
+			cancel = {
+				NOT = { is_subject = yes }
+			}
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		african_union = {
+			allowed = {
+				always = no
+			}
+			picture = african_union
+			cancel = {
+				NOT = { is_subject = yes }
+			}
+			removal_cost = -1
+			modifier = {
+				communism_acceptance = 10
+			}
+		}
+		african_independent = {
+			allowed = {
+				always = no
+			}
+			picture = african
+			cancel = {
+				NOT = { is_subject = yes }
+			}
+			removal_cost = -1
+			modifier = {
+				opinion_gain_monthly = -0.2
+				annex_cost_factor = 0.1
+				boost_ideology_mission_factor = -0.3
+				democratic_acceptance = -30
+				operation_outcome = -0.4
+				operation_infiltrate_cost = 0.4
+				subversive_activites_upkeep = 0.2
+				political_power_cost = 0.2
+				decryption_power_factor = -0.1
+			}
+		}
+		neutrality_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			cancel = {
+				has_war = yes
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				#generate_wargoal_tension = 1.00
+				join_faction_tension = 1.00
+				#lend_lease_tension = 0.50
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				ai_badass_factor = 0.01    # Will receive 1% of the threat from others
+				ai_get_ally_desire_factor = -100
+			}
+		}
+
+		FruitCompany = {
+			picture = FruitCompany
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+				date > 1970.1.1
+			}
+			visible = {
+				date < 1970.1.1
+			}
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = FruitCompany_tool
+				stability_factor = -0.2
+				political_power_factor = -0.3
+				drift_defence_factor = -0.3
+			}
+		}
+		low_diplomacy = {
+			picture = isolated
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				opinion_gain_monthly = -0.4
+				boost_ideology_mission_factor = -0.3
+				democratic_acceptance = -40
+				communism_acceptance = -40
+				neutrality_acceptance = -40
+				operation_outcome = -0.4
+				operation_infiltrate_cost = 0.4
+				subversive_activites_upkeep = 0.2
+				political_power_cost = 0.5
+				political_power_factor = -0.3
+				decryption_power_factor = -0.1
+			}
+		}
+		good_diplomacy = {
+			picture = goldUN
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				opinion_gain_monthly = 0.2
+				boost_ideology_mission_factor = 0.3
+				democratic_acceptance = 20
+				communism_acceptance = 20
+				neutrality_acceptance = 20
+				operation_outcome = 0.4
+				political_power_factor = 0.3
+				operation_infiltrate_cost = -0.4
+				subversive_activites_upkeep = -0.2
+				political_power_cost = -0.2
+				decryption_power_factor = 0.1
+			}
+		}
+		Olympic = {
+			picture = Olympic
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				enemy_declare_war_tension = 0.6
+				generate_wargoal_tension = 0.3
+				justify_war_goal_time = 0.2
+				lend_lease_tension = -0.1
+				political_power_cost = 0.22
+				opinion_gain_monthly_factor = 0.2
+			}
+		}
+		white_terror = {
+			picture = white_terror
+			allowed = {
+				always = no
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+				resistance_target = -0.15
+				drift_defence_factor = 1
+				political_power_cost = 0.5
+				
+			}
+		}
+		Safe_minister = {
+			picture = FIN_maan_turva
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.2
+				operative_slot = 2
+			}
+		}
+		miner = {
+			picture = generic_local_self_management
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_factor = 0.3
+			}
+		}
+		corrupt = {
+			picture = corrupt
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				resistance_decay = -0.3
+				resistance_growth = 0.3
+				surrender_limit = -0.1
+				local_resources_factor = -0.3
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+				conscription_factor = -0.2
+				political_power_cost = 0.4
+				stability_factor = -0.05
+				consumer_goods_factor = 0.2
+			}
+		}
+		isolated = {
+			allowed = {
+				always = yes
+			}
+
+			picture = isolated
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				generate_wargoal_tension = 0.3
+				justify_war_goal_time = 0.2
+				lend_lease_tension = -0.1
+				opinion_gain_monthly_factor = -0.4
+			}
+			removal_cost = -1
+		}
+		muslim_protest = {
+			allowed = {
+				always = yes
+			}
+
+			picture = IslamProtest
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+				OR = {
+					has_government = fascism
+				}
+				OR = {
+					has_idea = muslin_reballion
+				}
+			}
+			visible  = {
+				NOT = {
+					has_idea = muslin_reballion
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				resistance_target = 0.03
+				political_power_cost = 0.05
+				fascism_drift = 0.02
+				stability_factor = -0.12
+			}
+		}
+		localism = {
+			allowed = {
+				always = yes
+			}
+
+			picture = localism
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.1
+				army_leader_cost_factor = 0.1
+				conversion_cost_civ_to_mil_factor = 0.1
+				conversion_cost_mil_to_civ_factor = 0.1
+			}
+		}
+		tropico = {
+			allowed = {
+				always = yes
+			}
+
+			picture = tropico
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		Commonwealth = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = Commonwealth
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		sanctions = {
+			allowed = {
+				always = no
+			}
+			picture = sanctions
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				political_power_gain = -0.06
+				stability_factor = -0.04
+				war_support_factor = -0.2
+				resistance_target = 0.05
+			}
+		}
+		oil_needed = {
+			
+			allowed = {
+				always = no # Triggered via event
+			}
+
+			picture = oil
+			
+			modifier = {
+				political_power_gain = 0.8
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		debt_crisis = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = debt_crisis
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				stability_factor = -0.2
+				political_power_gain = -0.2
+				resistance_target = 0.08
+			}
+		}
+
+		Red_Brigade = {
+			
+			allowed = {
+				always = no
+			}
+			cancel = {
+				OR = {
+					has_government = communism
+					communism < 0.1
+					has_stability > 0.95
+				}
+				communism < 0.15
+				has_stability > 0.8
+			}
+
+			picture = Red_Brigade
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.15
+				resistance_target = 0.15
+				communism_drift = 0.01
+			}
+		}
+
+		banana_inc = {
+			
+			allowed = {
+				always = no
+			}
+
+			picture = banana
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.02
+				political_power_gain = -0.1
+			}
+		}
+
+
+		southeast_revolution = {
+			
+			allowed = {
+				always = no
+			}
+
+			picture = VietCong
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				OR = {
+					has_government = communism
+					communism < 0.05
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				communism_drift = 0.02
+				resistance_decay = -0.2
+				resistance_growth = 0.2
+				stability_factor = -0.12
+				resistance_target = 0.15
+			}
+		}
+
+		monarch_reballion = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = muslin_reballion
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				stability_factor = -0.2
+				political_power_gain = -0.1
+				fascism_drift = 0.01
+				monarchism_drift = 0.02
+				resistance_target = 0.5
+			}
+		}
+		muslin_reballion = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = muslin_reballion
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			modifier = {
+				custom_modifier_tooltip = influence_limit_300
+				stability_factor = -0.2
+				political_power_gain = -0.1
+				fascism_drift = 0.02
+				resistance_target = 0.5
+			}
+		}
+		gaulle = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				OR = {
+				has_government = communism
+				has_stability > 0.8
+				communism < 0.1
+				}
+			}
+			visible = {
+				NOT = { has_government = communism }
+			}
+			picture = LatinGuerrilla
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				communism_drift = 0.01
+				stability_factor = -0.02
+				political_power_gain = -0.1
+				resistance_target = 0.5
+			}
+		}
+
+
+		jungle_war = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = AK47
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.02
+				political_power_gain = -0.1
+				resistance_target = 0.5
+			}
+		}
+
+
+		plant = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = anti_soviet_pact
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				democratic_drift = 0.05
+			}
+		}
+
+
+		pan_personal = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = pan_personal
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				production_speed_infrastructure_factor = -0.1
+			}
+		}
+
+		pan_states = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = anti_soviet_pact
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.1
+				production_speed_infrastructure_factor = 0.1
+			}
+		}
+
+		new_ecnomic = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = generic_democratic_drift_bonus
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_weekly = 0.01
+				political_power_gain = 0.02
+				army_morale_factor = 0.15
+			}
+		}
+		NKVD = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = NKDV
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				subversive_activites_upkeep = -0.5
+				land_reinforce_rate = 0.3
+				drift_defence_factor = 0.8
+				operative_slot = 2
+				resistance_target = -0.15
+			}
+		}
+
+		economic_trans = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = economic_trans
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.3
+			}
+		}
+
+		personal_worship = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = personal_worship
+			cancel = {
+				NOT = {
+				has_government = communism
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				communism_drift = 0.1
+				democratic_acceptance = -50
+				stability_factor = 0.05
+				operative_slot = 1
+				drift_defence_factor = 0.12
+				political_power_cost = 0.12
+			}
+		}
+
+		mujahedeen = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = muslin_reballion
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				army_core_defence_factor = 0.4
+				supply_consumption_factor = -0.5
+				training_time_army_factor = -0.6
+				army_org_factor = 0.2
+				war_support_factor = 0.4
+				resistance_damage_to_garrison_on_our_occupied_states = 0.8
+				resistance_target_on_our_occupied_states = 0.5
+			}
+		}
+
+		UNmember = {
+			
+			allowed = {
+				always = yes
+			}
+
+			picture = UNmember
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.02
+				stability_factor = 0.02
+			}
+		}
+		hasnuke = {
+			picture = nuke
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				subversive_activites_upkeep = -0.2
+			}
+		}
+	}
+	industrial_concern = {
+		focus_infantry_equipment_manufacturer = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_completed_focus = common_develop_weapons
+			}
+			
+			cost = 150
+			removal_cost = 10
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+		focus_artillery_manufacturer = {
+			
+			picture = generic_artillery_manufacturer_2
+
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_completed_focus = common_develop_weapons
+			}
+			
+			cost = 150
+			removal_cost = 10
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+		}
+		usa_industry_advisitor_idea = {
+			picture = AmericanAdviser
+			cost = 250
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				NOT = {
+					OR = {
+					tag = USA 
+					tag = ENG
+					tag = FRA
+					}
+				}
+				OR = {
+					has_idea = APLA
+					has_idea = Marshall
+					has_country_flag = UsaAdvisorAllow
+				}
+			}
+			research_bonus = {
+				industry = 0.2
+				land_doctrine = 0.15
+			}
+			modifier = {
+				communism_drift = -0.02
+				production_speed_buildings_factor = 0.08
+			}
+		}
+		eng_industry_advisitor_idea = {
+			picture = BritishAdviser
+			cost = 250
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				NOT = {
+					OR = {
+					tag = USA 
+					tag = ENG
+					tag = FRA
+					}
+				}
+				OR = {
+					is_in_faction_with = ENG
+					has_country_flag = EngAdvisorAllow
+				}
+			}
+			research_bonus = {
+				industry = 0.2
+				land_doctrine = 0.15
+			}
+			modifier = {
+				communism_drift = -0.02
+				production_speed_buildings_factor = 0.08
+			}
+		}
+		soviet_industry_advisitor_idea = {
+			picture = SovietAdviser
+			cost = 250
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				OR = {
+					has_country_flag = SovietAdvisorAllow
+					is_in_faction_with = SOV
+				}
+				NOT = { has_idea = SovietChinaConflit }
+				NOT = { tag = SOV }
+			}
+			research_bonus = {
+				industry = 0.35
+				land_doctrine = 0.2
+			}
+			modifier = {
+				communism_drift = 0.03
+				production_speed_buildings_factor = 0.12
+				political_power_factor = -0.01
+			}
+		}
+		focus_naval_manufacturer = {
+			picture = generic_naval_manufacturer_1
+			cost = 250
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_completed_focus = common_77
+			}
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { naval_manufacturer }
+		}
+		focus_electro_manufacturer = {
+			picture = generic_industrial_concern_2
+			cost = 250
+			allowed_civil_war = {
+				always = no
+			}
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_completed_focus = focus_electro
+			}
+			research_bonus = {
+				electronics = 0.15
+			}
+		}
+		focus_missile_manufacturer = {
+			picture = generic_air_manufacturer_1
+			cost = 250
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_completed_focus = common_missile
+			}
+			research_bonus = {
+				missile = 0.15
+			}
+		}
+		soviet_military_advisitor_idea = {
+			picture = soviet_advisitor
+			allowed = {
+				always = yes
+			}
+			cost = 300
+			modifier = {
+				experience_gain_army_factor = 0.2
+				air_mission_xp_gain_factor = 0.1
+			}
+			visible = {
+				OR = {
+					has_country_flag = sov_army_advisor
+					is_in_faction_with = SOV
+				}
+				NOT = { tag = SOV }
+				NOT = { has_idea = SovietChinaConflit }
+			}
+			research_bonus = {
+				land_doctrine = 0.2
+				air_doctrine = 0.10
+			}
+		}
+		french_military_advisitor_idea = {
+			picture = kepi
+			modifier = {
+				experience_gain_army_factor = 0.3
+			}
+			cost = 300
+			allowed = {
+				always = yes
+			}
+			visible = {
+				NOT = {
+					OR = {
+					tag = USA 
+					tag = ENG
+					tag = FRA
+					}
+				}
+				OR = {
+					has_country_flag = french_advisor
+					is_in_faction_with = FRA
+				}
+			}
+			research_bonus = {
+				land_doctrine = 0.12
+			}
+		}
+		china_military_advisitor_idea = {
+			picture = cap65
+			modifier = {
+				experience_gain_army_factor = 0.3
+			}
+			cost = 300
+			allowed = {
+				always = yes
+			}
+			visible = {
+				OR = {
+					has_country_flag = prc_advisor
+				}
+			}
+			research_bonus = {
+				land_doctrine = 0.12
+			}
+		}
+		usa_military_advisitor_idea = {
+			picture = beret
+			modifier = {
+				experience_gain_army_factor = 0.25
+				air_mission_xp_gain_factor = 0.25
+				resistance_growth = -0.3
+			}
+			cost = 300
+			allowed = {
+				always = yes
+			}
+			visible = {
+				NOT = {
+					OR = {
+					tag = USA 
+					tag = ENG
+					tag = FRA
+					}
+				}
+				has_country_flag = usa_army_advisor
+			}
+			research_bonus = {
+				land_doctrine = 0.10
+				air_doctrine = 0.15
+			}
+		}
+		CZE_experts = {
+			picture = CZE_experts
+			cost = 60
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_country_flag = CZE_experts_allow
+			}
+			research_bonus = {
+				industry = 0.05
+				electronics = 0.02
+				auto_techs = 0.05
+				electro_power_tech = 0.03
+			}
+		}
+		DDR_experts = {
+			picture = DDR_experts
+			cost = 60
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_country_flag = DDR_experts_allow
+			}
+			research_bonus = {
+				industry = 0.02
+				electronics = 0.02
+				synth_resources = 0.05
+			}
+		}
+		ROM_experts = {
+			picture = ROM_experts
+			cost = 60
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_country_flag = ROM_experts_allow
+			}
+			research_bonus = {
+				industry = 0.01
+				synth_resources = 0.06
+			}
+		}
+		POL_experts = {
+			picture = POL_experts
+			cost = 60
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_country_flag = POL_experts_allow
+			}
+			research_bonus = {
+				industry = 0.01
+				railway_tech = 0.05
+				excavation_tech = 0.05
+			}
+		}
+		HUN_experts = {
+			picture = HUN_experts
+			cost = 60
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			visible = {
+				has_country_flag = HUN_experts_allow
+			}
+			research_bonus = {
+				industry = 0.02
+				electronics = 0.02
+				synth_resources = 0.05
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+
+state={
+	id=471
+	name="STATE_471" # Northwestern Canada
+	manpower = 27681
+	
+	state_category = wasteland
+	resources={
+		tungsten = 18
+	}
+
+	history={
+		set_state_flag = ethnics_Haida
+		add_dynamic_modifier = { modifier = state_cold_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+                              
+		owner = CAN
+		add_to_array = { this.state_ethnics_list = 46 }
+		buildings = {
+			farm_building = 2
+			infrastructure = 1
+			10548 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			12571 5 
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		917 1411 1799 1872 3606 4678 7869 7891 10548 12508 12571 5403
+	}
+}

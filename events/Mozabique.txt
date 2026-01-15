@@ -1,0 +1,30 @@
+﻿add_namespace = moz
+
+#罗锝西亚自治领
+news_event = {
+	id = moz.6
+	title = moz.6.t
+	desc = moz.6.d
+	picture = GFX_Isreal1948
+	fire_only_once = yes
+	trigger = {
+		tag = POR
+		date > 1962.1.1
+		has_stability < 0.6
+		544 = { is_controlled_by = POR }
+	}
+	option = {
+		name = isr.1.b
+		MZB = {
+			transfer_state = 544
+			load_oob = "MZB_1965"
+		}
+		POR = {
+			declare_war_on = {
+			target = MZB
+			type = annex_everything
+			}
+		}
+	}
+
+}

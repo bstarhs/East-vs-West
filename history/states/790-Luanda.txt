@@ -1,0 +1,80 @@
+
+state={
+	id=790
+	name="STATE_790"
+	manpower = 3225000
+	
+	state_category = town
+	resources={
+		rubber=12
+	}
+	history={
+		set_state_flag = ethnics_Bakongo
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 32 }
+		add_to_array = { this.state_ethnics_list = 51 }
+		owner = POR
+		add_claim_by = POR
+		add_core_of = ANG
+		victory_points = {
+			8219 2
+		}
+		victory_points = {
+			13536 3
+		}
+		victory_points = {
+			13617 2
+		}
+		victory_points = {
+			13533 10
+		}
+		buildings = {
+			air_base = 2
+			infrastructure = 4
+			school = 1
+			hospital = 1
+			power_plant = 1
+			industrial_complex = 4
+			farm_building = 2
+			13533 = {
+				naval_base = 3
+			}
+		}
+		1955.11.10 = {
+			add_dynamic_modifier = { modifier = oil_modifiers }
+		}
+		1960.11.10 = {
+			add_core_of = POR
+			remove_claim_by = POR
+			POR = {
+				set_province_controller = 5158
+				set_province_controller = 8248
+				set_province_controller = 8219
+			} 	
+			buildings = {
+				infrastructure = 6
+				oilfield = 1
+			}
+		}
+		1964.11.10 = {
+			add_core_of = FNA
+			add_core_of = UTA
+			owner = ANG	
+			POR = {
+				set_province_controller = 8248
+				set_province_controller = 13533
+				set_province_controller = 5158
+				set_province_controller = 13241
+				set_province_controller = 12981
+			} 
+		}
+		1974.11.10 = {
+			owner = ANG
+			remove_core_of = POR
+		}
+	}
+
+	provinces={
+		5158 8219 8248 12981 13241 13242 13244 13533 13535 13536 13616 13617 13618
+	}
+}

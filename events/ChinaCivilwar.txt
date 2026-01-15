@@ -1,0 +1,1218 @@
+﻿add_namespace = chinawar
+#解放北平
+news_event = {
+	id = chinawar.1
+	title = chinawar.1.t
+	desc = chinawar.1.d
+	picture = GFX_liberation_Nanjing
+	is_triggered_only = yes
+	option = {
+		name = chinawar.3.a
+		if = {
+			limit = { tag = PRC }
+			JSU = {
+				set_state_controller = 598
+				set_state_controller = 606
+				set_politics = { ruling_party = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.4
+				}
+			}
+			GXC = {
+				set_state_controller = 599
+				set_state_controller = 594
+				set_politics = { ruling_party = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.4
+				}
+			}
+			CTN = {
+				create_country_leader = {
+					name = "Huang Yong-Sheng"
+					picture = "gfx/leaders/CTN/Portrait_Canton_Huang_YongSheng.tga"
+					expire = "1988.1.1"
+					ideology = stalinism
+					traits = {
+						anti_religion_trait
+					}
+				}
+				set_state_controller = 593
+				set_state_controller = 592
+				set_state_controller = 591
+				set_politics = { ruling_party = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.4
+				}
+			}
+			SHN = {
+				create_country_leader = {
+					name = "Wang Hong-Wen"
+					picture = "gfx/leaders/PRC/Portrait_China_Wang_Hongwen.tga"
+					expire = "1988.1.1"
+					ideology = stalinism
+					traits = {
+						anti_religion_trait
+					}
+				}
+				set_state_controller = 613
+				set_politics = { ruling_party = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.4
+				}
+			}
+		}
+	}
+}
+news_event = {   #卢汉起义
+	id = chinawar.2
+	title = chinawar.2.t
+	desc = chinawar.2.d
+	picture = GFX_LuHan
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = PRC
+		controls_province = 11913
+		has_war_with = CHI
+		CHI = { controls_province = 1319 }
+		NOT = { has_country_flag = luhan_revolve }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		if = {
+			limit = { tag = PRC }
+			transfer_state = 325
+			load_oob = "YUN_1949"
+			set_country_flag = luhan_revolve
+		}
+	}
+}
+news_event = {   #卢汉起义
+	id = chinawar.3
+	title = chinawar.3.t
+	desc = chinawar.3.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = PRC
+		OR = {
+			controls_province = 11886
+			controls_province = 3900
+			controls_province = 6837
+			controls_province = 9835
+		}
+		has_war_with = DOB
+		NOT = { has_global_flag = liberate_jinzhjou }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = liberate_jinzhjou
+		if = {
+			limit = { tag = DOB }
+			every_country_division = { set_unit_organization = 0.02 }
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = chinawar.4
+	title = chinawar.4.t
+	desc = chinawar.4.d
+	picture = GFX_ROCArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = CHI
+		controls_province = 11886
+		has_war_with = PRC
+		NOT = { has_global_flag = occupied_yanan }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = occupied_yanan
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.3
+			add_war_support = 0.3
+			add_popularity = { ideology = ROOT popularity = 0.15 }
+			every_country_division = { set_unit_organization = 0.6 }
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = chinawar.5
+	title = chinawar.5.t
+	desc = chinawar.5.d
+	picture = GFX_liberation_Sinkiang
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = PRC
+		controls_province = 7971
+		controls_province = 11913
+		has_war_with = CHI
+		NOT = { has_global_flag = sinjiang_liberate }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = sinjiang_liberate
+		if = {
+			limit = { tag = PRC }
+			transfer_state = 617
+			transfer_state = 948
+			transfer_state = 950
+		}
+	}
+}
+news_event = {   #攻占延安
+	id = chinawar.6
+	title = chinawar.6.t
+	desc = chinawar.6.d
+	picture = GFX_LiZongren
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #北塔山事件
+	id = chinawar.7
+	title = chinawar.7.t
+	desc = chinawar.7.d
+	picture = GFX_ChinaCivilWAR1940
+	major = yes
+	mean_time_to_happen = {
+		days = 300
+	}
+	trigger = {
+		tag = CHI
+		XSM = { controls_province = 12671 }
+		MON = { controls_province = 1855 }
+		date < 1950.1.1
+		
+	}
+	option = {
+		name = chinawar.7.a
+		if = {
+			limit = { tag = CHI }
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 785
+				num_provinces = 4
+				on_win = chinawar.9
+				on_lose = chinawar.8
+			}
+				
+			defender = {
+				state = 948
+				num_provinces = 4
+				on_win = chinawar.8
+				on_lose = chinawar.9
+			}
+		}
+		}
+	}
+}
+news_event = {   #国军胜利
+	id = chinawar.8
+	title = chinawar.8.t
+	desc = chinawar.8.d
+	picture = GFX_ChinaCivilWAR1940
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #外蒙
+	id = chinawar.9
+	title = chinawar.9.t
+	desc = chinawar.9.d
+	picture = GFX_ChinaCivilWAR1940
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #外蒙
+	id = chinawar.10
+	title = chinawar.10.t
+	desc = chinawar.10.d
+	picture = GFX_TaniHisao
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CHI
+		NOT = { has_global_flag = TaniHisao }
+		date > 1947.4.1
+		date < 1948.1.1
+		
+	}
+	option = {
+		name = chinawar.10.a
+		set_global_flag = TaniHisao
+	}
+}
+news_event = {   #解放上海
+	id = chinawar.11
+	title = chinawar.11.t
+	desc = chinawar.11.d
+	picture = GFX_Shanghai_Liberate
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = PRC
+		controls_province = 7014
+		has_war_with = CHI
+		NOT = { has_global_flag = liberate_SHANGHAI }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = liberate_SHANGHAI
+	}
+}
+news_event = {   #朱自清趋势
+	id = chinawar.12
+	title = chinawar.12.t
+	desc = chinawar.12.d
+	picture = GFX_ZhuZiChing
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CHI
+		NOT = { has_global_flag = ZhuZiChing }
+		date > 1948.8.1
+		date < 1949.1.1
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = ZhuZiChing
+	}
+}
+news_event = {   #动员戡乱临时条款
+	id = chinawar.13
+	title = chinawar.13.t
+	desc = chinawar.13.d
+	picture = GFX_ChiangKaiShek
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #民革成立
+	id = chinawar.14
+	title = chinawar.14.t
+	desc = chinawar.14.d
+	picture = GFX_Minge
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CHI
+		NOT = { has_global_flag = Minge }
+		date > 1947.11.1
+		date < 1948.1.1
+		
+	}
+	option = {
+		name = chinawar.14.a
+		set_global_flag = Minge
+	}
+}
+news_event = {   #中华民国行宪
+	id = chinawar.15
+	title = chinawar.15.t
+	desc = chinawar.15.d
+	picture = GFX_ROCconstitution
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #中华民国行宪
+	id = chinawar.17
+	title = chinawar.17.t
+	desc = chinawar.17.d
+	picture = GFX_ROCconstitution
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #上海执行经济管制
+	id = chinawar.18
+	title = chinawar.18.t
+	desc = chinawar.18.d
+	picture = GFX_ChiangChinKuoYoung
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #反对奸商群众运动
+	id = chinawar.19
+	title = chinawar.19.t
+	desc = chinawar.19.d
+	picture = GFX_ShanghaiEconomic
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #杨子公司案
+	id = chinawar.20
+	title = chinawar.20.t
+	desc = chinawar.20.d
+	picture = GFX_ChiangChinKuoYoung
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = CHI
+		has_completed_focus = CHI_shanghai_affair
+	}
+	option = {
+		name = chinawar.3.a
+		news_event = { id = chinawar.21 }
+	}
+	option = {
+		name = chinawar.3.a
+		news_event = { id = chinawar.22 }
+	}
+}
+news_event = {   #上海失败
+	id = chinawar.21
+	title = chinawar.21.t
+	desc = chinawar.21.d
+	picture = GFX_ShanghaiEconomic
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+		if = {
+			limit = { tag = CHI }
+			add_stability = -0.4
+			add_political_power = -500
+			add_war_support = -0.2
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.3
+			}
+		}
+	}
+}
+news_event = {   #反对奸商群众运动
+	id = chinawar.22
+	title = chinawar.22.t
+	desc = chinawar.22.d
+	picture = GFX_ShanghaiEconomic
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+		if = {
+			limit = { tag = CHI }
+			add_stability = 0.15
+			add_political_power = 500
+			add_war_support = 0.2
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+		}
+	}
+}
+news_event = {   #紫石英号
+	id = chinawar.28
+	title = chinawar.28.t
+	desc = chinawar.28.d
+	picture = GFX_Amethyst
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = PRC
+		controls_province = 4148
+		has_war_with = CHI
+		NOT = { has_global_flag = YangtzeIncident }
+		
+	}
+	option = {
+		name = chinawar.28.a
+		ai_chance = {
+			factor = 80
+		}
+		set_global_flag = YangtzeIncident
+		set_global_flag = AmethystIncident
+		random_list = {
+			90 = { news_event = { id = chinawar.30 days = 10 } }
+			10 = { news_event = { id = chinawar.29 days = 10 } }
+		}
+	}
+	option = {
+		name = chinawar.28.a
+		ai_chance = {
+			factor = 2
+		}
+		set_global_flag = YangtzeIncident
+		news_event = { id = chinawar.31 days = 10 }
+	}
+}
+news_event = {   #击沉紫石英号
+	id = chinawar.29
+	title = chinawar.29.t
+	desc = chinawar.29.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+		set_global_flag = AmethystSunk
+		if = {
+			limit = { tag = ENG }
+			add_political_power = -80
+		}
+		if = {
+			limit = { tag = PRC }
+			add_named_threat = { threat = 4 name = AmethystIncident }
+			add_war_support = 0.12
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+}
+news_event = {   #紫石英号逃离
+	id = chinawar.30
+	title = chinawar.30.t
+	desc = chinawar.30.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+	}
+}
+news_event = {   #紫石英号进入
+	id = chinawar.31
+	title = chinawar.31.t
+	desc = chinawar.31.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		if = {
+			limit = { tag = PRC }
+			add_political_power = -80
+			add_war_support = -0.12
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+		name = chinawar.28.a
+	}
+}
+news_event = {   #攻占海南
+	id = chinawar.40
+	title = chinawar.40.t
+	desc = chinawar.40.d
+	picture = GFX_ChinaCivilWAR1940
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = PRC
+		controls_province = 994
+		controls_province = 1070
+		has_war_with = CHI
+		NOT = { has_global_flag = hainan_liberate }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = hainan_liberate
+		if = {
+			limit = { tag = PRC }
+			transfer_state = 591
+		}
+	}
+}
+news_event = {   #金圆券
+	id = chinawar.50
+	title = chinawar.50.t
+	desc = chinawar.50.d
+	picture = GFX_Amethyst
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		is_subject_of = CHI
+		has_completed_focus = CHI_gold_currency
+		NOT = { has_country_flag = AskJinYuan }
+	}
+	option = {
+		name = chinawar.28.a
+		set_country_flag = AskJinYuan
+		news_event = { id = chinawar.51 }
+	}
+	option = {
+		name = chinawar.28.a
+		set_country_flag = AskJinYuan
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.51
+	title = chinawar.51.t
+	desc = chinawar.51.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+	}
+}
+#去拿一台
+news_event = {
+	id = chinawar.52
+	title = chinawar.52.t
+	desc = chinawar.52.d
+	picture = GFX_KAL007
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = YUN
+			has_government = neutrality
+			date > 1948.1.1
+			date < 1948.5.1
+			NOT = { has_country_flag = YunnanMovement }
+	}
+	option = {
+		name = kor.198.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.12
+		}
+		set_country_flag = YunnanMovement 
+		news_event = { id = chinawar.53 }
+	}
+	option = {
+		name = kor.198.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.08
+		}
+		set_country_flag = YunnanMovement 
+		news_event = { id = chinawar.54 }
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.53
+	title = chinawar.53.t
+	desc = chinawar.53.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.54
+	title = chinawar.54.t
+	desc = chinawar.54.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			news_event = { id = chinawar.55 }
+		}
+	}
+}
+news_event = {   #南京不满
+	id = chinawar.55
+	title = chinawar.55.t
+	desc = chinawar.55.d
+	picture = GFX_Amethyst
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.08
+		}
+	}
+}
+news_event = {   #龙云
+	id = chinawar.56
+	title = chinawar.56.t
+	desc = chinawar.56.d
+	picture = GFX_Minge
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = YUN
+		NOT = { has_global_flag = LongYun }
+		date > 1948.11.1
+		date < 1948.1.1
+		
+	}
+	option = {
+		name = chinawar.14.a
+		if = {
+			limit = { tag = YUN }
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.25
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.012
+			}
+		}
+		set_global_flag = LongYun
+	}
+}
+news_event = {   #云南不稳定
+	id = chinawar.57
+	title = chinawar.57.t
+	desc = chinawar.57.d
+	picture = GFX_Minge
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = CHI
+		NOT = { has_war_with = YUN }
+		YUN = {
+			is_subject_of = CHI
+			neutrality < 0.5
+		}
+	}
+	option = {
+		name = chinawar.14.a
+		end_puppet = YUN
+		declare_war_on = {
+			target = YUN
+			type = annex_everything
+		}
+			news_event = { id = chinawar.58 }
+		set_global_flag = InvadeYunnan
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.58
+	title = chinawar.58.t
+	desc = chinawar.58.d
+	picture = GFX_Amethyst
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+	}
+}
+news_event = {   #中共邀请
+	id = chinawar.59
+	title = chinawar.59.t
+	desc = chinawar.59.d
+	picture = GFX_Minge
+	is_triggered_only = yes
+	option = {
+		name = chinawar.14.a
+		PRC = {
+			set_autonomy = {
+				target = ROOT
+				autonomous_state = autonomy_dominion
+				freedom_level = 0.4
+			}
+		}
+		news_event = { id = chinawar.60 }
+	}
+	option = {
+		name = chinawar.28.a
+		news_event = { id = chinawar.61 }
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.62
+	title = chinawar.62.t
+	desc = chinawar.62.d
+	picture = GFX_Amethyst
+	major = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		is_subject_of = PRC
+		NOT = { 
+			tag = TIB
+			tag = SIK
+		}
+		PRC = { has_completed_focus = prc24 }
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = PRC }
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+		}
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.70
+	title = chinawar.70.t
+	desc = chinawar.70.d
+	picture = GFX_GoldenBank
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = chinawar.28.a
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.71
+	title = chinawar.71.t
+	desc = chinawar.71.d
+	picture = GFX_GoldenBank
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = CHI
+		check_variable = { golden_bank_var < 6 }
+		has_idea = golden_notes_ideas
+	}
+	option = {
+		name = chinawar.28.a
+		ai_chance = { factor = 0 }
+		add_political_power = -200
+		add_to_variable = { golden_bank_var = 1 }
+	}
+	option = {
+		name = chinawar.28.a
+		ai_chance = { factor = 20 }
+		add_to_variable = { golden_bank_var = -1 }
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.72
+	title = chinawar.72.t
+	desc = chinawar.72.d
+	picture = GFX_GoldenBank
+	major = yes
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = CHI
+		check_variable = { golden_bank_var > 6 }
+		has_idea = golden_notes_ideas
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			remove_ideas = golden_notes_ideas
+			add_war_support = 0.4
+			add_political_power = 400
+			add_popularity = { ideology = ROOT popularity = 0.15 }
+			add_stability = 0.25
+		}
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.73
+	title = chinawar.73.t
+	desc = chinawar.73.d
+	picture = GFX_GoldenBank
+	major = yes
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		tag = CHI
+		check_variable = { golden_bank_var < 0 }
+		has_idea = golden_notes_ideas
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -100
+		}
+	}
+}
+news_event = {   #拒绝金圆券
+	id = chinawar.74
+	title = chinawar.74.t
+	desc = chinawar.74.d
+	picture = GFX_GoldenBank
+	major = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = CHI
+		check_variable = { golden_bank_var < -3 }
+		has_idea = golden_notes_ideas
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			remove_ideas = golden_notes_ideas
+			add_ideas = CHI_financial_broken
+			add_war_support = -0.4
+			add_political_power = -600
+			add_popularity = { ideology = ROOT popularity = -0.08 }
+			add_stability = -0.3
+		}
+	}
+}
+news_event = {   #陈布雷自沙
+	id = chinawar.80
+	title = chinawar.80.t
+	desc = chinawar.80.d
+	picture = GFX_ChenBulei
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = CHI
+		PRC = { controls_province = 1236 }
+		has_character = CHI_Chen_BuLei
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			retire_character = CHI_Chen_BuLei
+			add_war_support = -0.01
+		}
+	}
+}
+news_event = {   #张灵甫阵亡
+	id = chinawar.81
+	title = chinawar.81.t
+	desc = chinawar.81.d
+	picture = GFX_ZhangLingFu
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = CHI
+		PRC = { controls_province = 1236 }
+		has_character = CHI_Chang_LingFu
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			retire_character = CHI_Chang_LingFu
+			add_war_support = -0.02
+		}
+	}
+}
+news_event = {   #杨百韬阵亡
+	id = chinawar.82
+	title = chinawar.82.t
+	desc = chinawar.82.d
+	picture = GFX_Amethyst
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = CHI
+		PRC = { controls_province = 1236 }
+		has_character = CHI_HwangBaiTao
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			retire_character = CHI_Chang_LingFu
+			add_war_support = -0.02
+		}
+	}
+}
+news_event = {   #杜聿明被俘
+	id = chinawar.83
+	title = chinawar.83.t
+	desc = chinawar.83.d
+	picture = GFX_TuYumingPOV
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = CHI
+		PRC = { controls_province = 1236 }
+		has_character = CHI_tu_yuming
+	}
+	option = {
+		name = chinawar.28.a
+		if = {
+			limit = { tag = CHI }
+			retire_character = CHI_tu_yuming
+			retire_character = CHI_huang_wei
+			retire_character = CHI_Yang_BoTao
+			add_war_support = -0.08
+		}
+	}
+}
+
+
+news_event = {
+	id = chinawar.86
+	title = chinawar.86.t
+	desc = chinawar.86.d
+	picture = GFX_ChinaCivilWAR1940
+	mean_time_to_happen = {
+		days = 15
+	}
+	major = yes
+	trigger = {
+		tag = PRC
+		has_war_with = CHI
+		date < 1949.9.1
+		NOT = { has_global_flag = chinawar86 }
+	}
+	option = {
+		name = chinawar.90.a
+		set_global_flag = chinawar86
+	}
+}
+news_event = {
+	id = chinawar.87
+	title = chinawar.87.t
+	desc = chinawar.87.d
+	picture = GFX_HayashiYaichirou
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = PRC
+		has_completed_focus = prc17
+		date < 1949.12.1
+		NOT = { has_global_flag = chinawar87 }
+	}
+	option = {
+		name = chinawar.90.a
+		set_global_flag = chinawar87
+	}
+}
+news_event = {   #杜聿明被俘
+	id = chinawar.90
+	title = chinawar.90.t
+	desc = chinawar.90.d
+	picture = GFX_OldPeking
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = PRC
+		controls_province = 9843
+		date < 1950.1.1
+		NOT = { has_country_flag = chinawar90 }
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar90
+	}
+}
+news_event = {
+	id = chinawar.91
+	title = chinawar.91.t
+	desc = chinawar.91.d
+	picture = GFX_GoldenBank
+	mean_time_to_happen = {
+		days = 9
+	}
+	trigger = {
+		OR = {
+			tag = CHI
+			tag = PRC
+		}
+		NOT = { has_country_flag = chinawar91 }
+		CHI = {
+			check_variable = { golden_bank_var < -2 }
+			has_idea = golden_notes_ideas
+		}
+		date < 1949.12.1
+	}
+	option = {
+		name = chinawar.91.a
+		set_country_flag = chinawar91
+	}
+}
+news_event = {
+	id = chinawar.92
+	title = chinawar.92.t
+	desc = chinawar.92.d
+	picture = GFX_OldShanghai
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		OR = {
+			tag = CHI
+			tag = PRC
+		}
+		NOT = { has_country_flag = chinawar92 }
+		PRC = {
+			OR = {
+				controls_province = 1089
+				controls_province = 11982
+				controls_province = 7120
+			}
+		}
+		date < 1949.12.1
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar92
+	}
+}
+news_event = {
+	id = chinawar.93
+	title = chinawar.93.t
+	desc = chinawar.93.d
+	picture = GFX_OldShanghai
+	mean_time_to_happen = {
+		days = 3
+	}
+	immediate = {
+		play_song = CHI_14
+	}
+	trigger = {
+		OR = {
+			tag = CHI
+			tag = PRC
+		}
+		NOT = { has_country_flag = chinawar93 }
+		PRC = {
+			controls_province = 11913
+			controls_province = 7191
+		}
+		date < 1949.12.1
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar93
+	}
+}
+news_event = {
+	id = chinawar.94
+	title = chinawar.94.t
+	desc = chinawar.94.d
+	picture = GFX_OldShanghai
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		OR = {
+			tag = CHI
+			tag = PRC
+		}
+		NOT = { has_country_flag = chinawar94 }
+		PRC = {
+			controls_province = 7014
+		}
+		date < 1949.12.1
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar94
+	}
+}
+news_event = {
+	id = chinawar.95
+	title = chinawar.95.t
+	desc = chinawar.95.d
+	picture = GFX_HmongChina
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = chinawar95 }
+		controls_province = 4504
+		date < 1955.12.1
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar95
+	}
+}
+news_event = {
+	id = chinawar.96
+	title = chinawar.96.t
+	desc = chinawar.96.d
+	picture = GFX_HmongChina
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = PRC
+		NOT = { has_country_flag = chinawar96 }
+		controls_province = 10757
+		date > 1951.6.1
+		date < 1951.9.1
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar96
+	}
+}

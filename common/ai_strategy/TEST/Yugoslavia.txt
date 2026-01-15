@@ -1,0 +1,30 @@
+
+KKE_suppoert = {
+	enable = {
+		KKE = { has_war_with = GRE }
+		OR = {
+			tag = BUL
+			tag = YUG
+			tag = ALB
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = "KKE"	
+		value = 200
+	}
+}
+GRE_suppoert = {
+	enable = {
+		KKE = { has_war_with = GRE }
+		OR = {
+			tag = ENG
+			tag = USA
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = "GRE"	
+		value = 200
+	}
+}

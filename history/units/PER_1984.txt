@@ -1,0 +1,286 @@
+﻿
+division_template = {
+	name = "Infantry Division"	
+	division_names_group = PER_MOT_01	
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Pasdaran Islam"		
+	division_names_group = PER_MOT_01	
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Armor Division" 	
+	division_names_group = PER_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# BT-7 tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }	
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 } 		
+	}
+}
+division_template = {
+	name = "Mountain division"
+	division_names_group = PER_MNT_01
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+	}
+}
+division_template = {
+	name = "Marine Division" 
+	division_names_group = PER_MAR_01	
+
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+}
+
+units = {
+	division = {
+		name = "Marine Division"	
+		location = 7982
+		division_template = "Marine Division"			
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	#Tehran
+	division = {
+		name = "Pasdaran Islam"			
+		location = 10837  
+		division_template = "Pasdaran Islam"					
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "Pasdaran Islam"			
+		location = 10837  
+		division_template = "Pasdaran Islam"					
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "Pasdaran Islam"			
+		location = 10837  
+		division_template = "Pasdaran Islam"					
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "1tt Division"
+		location = 10837  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "1tt Division"
+		location = 13250 
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "1tt Division"
+		location = 13250 
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "1tt Division"
+		location = 13250 
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "2nd Division"
+		location = 10837  
+		division_template = "Mountain division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	#Abadan HQ
+	division = {
+		name = "3rd Division"
+		location = 7953  
+		division_template = "Armor Division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "4th Division"
+		location = 7953  
+		division_template = "Armor Division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "5th Division"
+		location = 7953  
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "5th Division"
+		location = 7953  
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "5th Division"
+		location = 7953  
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "5th Division"
+		location = 7953  
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "6th Division"
+		location = 7953  
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "7th Division"
+		location = 7953  
+		division_template = "Armor Division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "8th Division"
+		location = 7953  
+		division_template = "Infantry Division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	#Yazd
+	division = {
+		name = "9th Division"
+		location = 1963  
+		division_template = "Mountain division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "10th Division"
+		location = 1963  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "11th Division"
+		location = 1963  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	#Bam
+	division = {
+		name = "12th Division"
+		location = 12809  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "13th Division"
+		location = 12809  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	#5th army Arak
+	division = {
+		name = "24th Division"
+		location = 12773  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "25th Division"
+		location = 12773  
+		division_template = "Armor Division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "26th Division"
+		location = 12773  
+		division_template = "Armor Division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	#Kashan
+	division = {
+		name = "27th Division"
+		location = 4943  
+		division_template = "Infantry Division"			
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "28th Division"
+		location = 4943  
+		division_template = "Mountain division"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.6
+	}
+}
+
+air_wings = {
+	### Royal Iranian Air Force ###
+	266 = {
+		fighter_equipment_0 =  { owner = "PER" amount = 72 }		# 1st Air Group -- Hawker Furys
+		CAS_equipment_1 =  { owner = "PER" amount = 48 }			# 2nd, 3rd Air Groups -- Hawker Hinds, Audaxes
+	}
+}
+
+
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "PER"
+		}
+		requested_factories = 1
+		progress = 0.51
+		efficiency = 100
+	}
+}

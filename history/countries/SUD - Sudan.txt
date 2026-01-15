@@ -1,0 +1,166 @@
+﻿capital = 551
+
+oob = "ALL"
+
+set_country_flag = third_world
+set_country_flag = arabs_state
+set_country_flag = british_colonies
+# Starting tech
+set_cosmetic_tag = ENGSUD
+
+set_technology = {
+	oil_processing = 1
+	infantry_weapons = 1
+	tech_mountaineers = 1
+}
+
+			set_variable = { this.education = 28 }
+set_country_flag = islam_state
+add_ideas = {
+	low_education
+	Sunni
+
+
+}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	set_technology = {
+		infantry_weapons = 1
+		tech_mountaineers = 1
+
+		#doctrines
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		construction1 = 1
+		dispersed_industry = 1
+	}
+}
+
+	set_popularities = {
+		democratic = 55
+		communism = 10
+		neutrality = 35
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Saiyid Ismail al-Azhari"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "gfx/leaders/SUD/Portrait_Sudan_Ismail_al-Azhari.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Ibrahim Abboud"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "gfx/leaders/SUD/Portrait_Sudan_Ibrahim_Abboud.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}
+1958.1.20 = {
+	set_cosmetic_tag = SUD
+	set_country_flag = china_diplomacy
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+	arabs_league
+		UNmember
+	}
+}
+1964.1.20 = {
+add_ideas = {
+	militarist_politician
+}
+	complete_national_focus = common_24
+	activate_decision = female_equality
+	set_popularities = {
+		fascism = 6
+		communism = 26
+		neutrality = 68
+	}
+	create_country_leader = {
+	name = "National sovereignty Committee"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "no"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+			#
+		}
+	}
+}
+
+1969.1.20 = {
+	complete_national_focus = steel_produc
+	set_cosmetic_tag = SUD_1970
+	create_country_leader = {
+		name = "Gaafar Nimeiry"
+		
+		picture = "gfx/leaders/SUD/Portrait_Sudan_Gaafar.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { 
+			Developmentalism pro_soviet pro_china arabs_nationalism
+		}
+	}
+	add_ideas = {
+		IslamOrg
+	}
+}
+1973.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	swap_ruler_traits = { remove = pro_soviet add = pro_america }
+}
+1983.1.1 = {
+	declare_war_on = {
+		target = SSD
+		type = annex_everything
+	}
+}
+1985.1.20 = {
+	create_country_leader = {
+		name = "Ahmed al-Mirghani"
+		
+		picture = "gfx/leaders/SUD/Portrait_Sudan_Ahmed.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}

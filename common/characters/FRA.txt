@@ -1,0 +1,1422 @@
+characters={
+	FRA_Christian_Pineau={
+		name=FRA_Christian_Pineau
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Christian_Pineau.dds"
+				large="gfx/leaders/FRA/Portrait_France_Christian_Pineau.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Christian_Pineau
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+			visible = {
+				date > 1962.1.1
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Alain_Savary={
+		name=FRA_Alain_Savary
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Alain_Savary.dds"
+				large="gfx/leaders/FRA/Portrait_France_Alain_Savary.tga"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Alain_Savary
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+			visible = {
+				date > 1962.1.1
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_HenriVI = {
+		name=FRA_HenriVI
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_HenriVI.tga"
+				small="gfx/interface/ideas/idea_HenriVI.dds"
+			}
+		}
+		country_leader={
+			ideology=monarchism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = HenriVI
+			allowed  = {
+				original_tag  = FRA
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_NapoleonVI = {
+		name=FRA_NapoleonVI
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_NapoleonVI.tga"
+				small="gfx/interface/ideas/idea_NapoleonVI.dds"
+			}
+		}
+		country_leader={
+			ideology=monarchism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = NapoleonVI
+			allowed  = {
+				original_tag  = FRA
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_maurice_thorez={
+		name=FRA_maurice_thorez
+		portraits={
+			army={
+				small="GFX_idea_maurice_thorez"
+			}
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Maurice_Thorez.tga"
+				small="GFX_idea_maurice_thorez"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+				pro_third_world
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = maurice_thorez
+			allowed  = {
+				original_tag  = FRA
+			}
+			visible = {
+				date < 1964.1.1
+			}
+			traits  = {
+				communist_revolutionary 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Jacques_Soustelle={
+		name=FRA_Jacques_Soustelle
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Jacques_Soustelle.tga"
+				small="gfx/interface/ideas/idea_Jacques_Soustelle.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1992.1.1
+			}
+			slot = political_advisor
+			idea_token = Jacques_Soustelle
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+			}
+		}
+	}
+	FRA_Andre_Morice={
+		name=FRA_Andre_Morice
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Andre_Morice.tga"
+				small="gfx/interface/ideas/idea_Andre_Morice.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1992.1.1
+			}
+			slot = political_advisor
+			idea_token = Andre_Morice
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+			}
+		}
+	}
+	FRA_Pierre_Messmer={
+		name=FRA_Pierre_Messmer
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Pierre_Messmer.tga"
+				small="gfx/interface/ideas/idea_Pierre_Messmer.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1992.1.1
+			}
+			slot = political_advisor
+			idea_token = Pierre_Messmer
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+			}
+		}
+	}
+	FRA_Gaston_Defferre={
+		name=FRA_Gaston_Defferre
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Gaston_Defferre.tga"
+				small="gfx/interface/ideas/idea_Gaston_Defferre.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1992.1.1
+			}
+			slot = political_advisor
+			idea_token = Gaston_Defferre
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+			}
+		}
+	}
+	FRA_Maurice_Papon={
+		name=FRA_Maurice_Papon
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Maurice_Papon.tga"
+				small="gfx/interface/ideas/idea_Maurice_Papon.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1992.1.1
+			}
+			slot = political_advisor
+			idea_token = Maurice_Papon
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.25
+				stability_factor = 0.15
+				authoritarianism_drift = 0.01
+			}
+		}
+	}
+	FRA_Raoul_Salan={
+		name=FRA_Raoul_Salan
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Raoul_Salan.tga"
+				small="gfx/interface/ideas/idea_Raoul_Salan.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Marcel_Bigeard
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_Marcel_Bigeard={
+		name=FRA_Marcel_Bigeard
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Marcel_Bigeard.tga"
+				small="gfx/interface/ideas/idea_Marcel_Bigeard.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Marcel_Bigeard
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_Roger_Trinquie={
+		name=FRA_Roger_Trinquie
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Roger_Trinquie.tga"
+				small="gfx/interface/ideas/idea_Roger_Trinquie.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Roger_Trinquie
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_Paul_Aussaresses={
+		name=FRA_Paul_Aussaresses
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Paul_Aussaresses.tga"
+				small="gfx/interface/ideas/idea_Paul_Aussaresses.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Paul_Aussaresses
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_Fernand_Gambiez={
+		name=FRA_Fernand_Gambiez
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Fernand_Gambiez.tga"
+				small="gfx/interface/ideas/idea_Fernand_Gambiez.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Fernand_Gambiez
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_Jacques_Massu={
+		name=FRA_Jacques_Massu
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Jacques_Massu.tga"
+				small="gfx/interface/ideas/idea_Jacques_Massu.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Jacques_Massu
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_jean_de_lattre_de_tassigny={
+		name=FRA_jean_de_lattre_de_tassigny
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Jean_de_Lattre.tga"
+				small="gfx/interface/ideas/idea_Jean_de_Lattre.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1952.1.1
+			}
+			slot = high_command
+			idea_token = Jean_de_Lattre
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				experience_gain_army_factor = 0.12
+				resistance_target = -0.16
+				compliance_gain = 0.12
+				army_defence_against_minor_factor = 0.12
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1952.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+
+	FRA_Philippe_De_Gaulle={
+		name=FRA_Philippe_De_Gaulle
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Philippe_De_Gaulle.tga"
+				small="gfx/interface/ideas/idea_Philippe_De_Gaulle.dds"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = Philippe_De_Gaulle
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				navy_chief_commerce_raiding_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+			research_bonus = {
+				cv_tech = 0.25
+			}
+		}
+		
+		navy_leader={
+			traits={ }
+			skill=5
+			attack_skill=3
+			defense_skill=3
+			maneuvering_skill=5
+			coordination_skill=5
+			legacy_id=0
+		}
+	}
+	FRA_Maurice_Challe={
+		name=FRA_Maurice_Challe
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Maurice_Challe.tga"
+				small="gfx/interface/ideas/idea_Maurice_Challe.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = high_command
+			idea_token = Maurice_Challe
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			modifier = {
+				resistance_target = -0.15
+				compliance_gain = 0.15
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1970.1.1
+			}
+			traits={ brilliant_strategist cavalry_officer war_hero trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	FRA_Poujade={
+		name=FRA_Poujade
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Poujade.tga"
+				small="gfx/interface/ideas/idea_Poujade.dds"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Poujade
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = -0.01
+				authoritarianism_drift = 0.01
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Maurice_Feltin={
+		name=FRA_Maurice_Feltin
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Maurice_Feltin.tga"
+				small="gfx/interface/ideas/idea_Maurice_Feltin.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Maurice_Feltin
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				stability_factor = 0.1
+				resistance_target = -0.12
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Achille_Lienart={
+		name=FRA_Achille_Lienart
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Achille_Lienart.tga"
+				small="gfx/interface/ideas/idea_Achille_Lienart.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Achille_Lienart
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				stability_factor = 0.15
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Pierre_Marie_Gallois={
+		name=FRA_Pierre_Marie_Gallois
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Pierre_Marie_Gallois.tga"
+				small="gfx/interface/ideas/idea_Pierre_Marie_Gallois.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Pierre_Marie_Gallois
+			ledger = civilian
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				nuclear = 0.12
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+	FRA_Pierre_Auger={
+		name=FRA_Pierre_Auger
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Pierre_Auger.tga"
+				small="gfx/interface/ideas/idea_Pierre_Auger.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1972.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Pierre_Auger
+			ledger = civilian
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				space = 0.12
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+	FRA_Frederic_Joliot_Curie={
+		name=FRA_Frederic_Joliot_Curie
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Frederic_Joliot_Curie.tga"
+				small="gfx/interface/ideas/idea_Frederic_Joliot_Curie.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = Frederic_Joliot_Curie
+			ledger = civilian
+			allowed = {
+				original_tag = FRA
+			}
+			research_bonus = {
+				nuclear = 0.12
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+	FRA_Jacques_Sauvageot={
+		name=FRA_Jacques_Sauvageot
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Jacques_Sauvageot.tga"
+				small="gfx/interface/ideas/idea_Jacques_Sauvageot.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Jacques_Sauvageot
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = 0.02
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_henri_curiel={
+		name=FRA_henri_curiel
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_henri_curiel.tga"
+				small="gfx/interface/ideas/idea_henri_curiel.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = henri_curiel
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = 0.02
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Georges_Marchais={
+		name=FRA_Georges_Marchais
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Georges_Marchais.tga"
+				small="gfx/interface/ideas/idea_Georges_Marchais.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Georges_Marchais
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = 0.01
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Jean_Sartre={
+		name=FRA_Jean_Sartre
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Jean_Sartre.tga"
+				small="gfx/interface/ideas/idea_Jean_Sartre.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Jean_Sartre
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = 0.01
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Jacques_Duclos={
+		name=FRA_Jacques_Duclos
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Jacques_Duclos.tga"
+				small="gfx/interface/ideas/idea_Jacques_Duclos.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Jacques_Duclos
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = 0.02
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Charles_Bettelheim={
+		name=FRA_Charles_Bettelheim
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Charles_Bettelheim.tga"
+				small="gfx/interface/ideas/idea_Charles_Bettelheim.dds"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Charles_Bettelheim
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = 0.02
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Pierre_Sidos={
+		name=FRA_Pierre_Sidos
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Pierre_Sidos.tga"
+				small="gfx/interface/ideas/idea_Pierre_Sidos.dds"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Pierre_Sidos
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				authoritarianism_drift = 0.04
+			}
+			traits = {
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Le_Pon={
+		name=FRA_Le_Pon
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Le_Pon.tga"
+				small="GFX_idea_Le_Pon"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_Le_Pon
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				communism_drift = -0.01
+				fascism_drift = -0.01
+				authoritarianism_drift = 0.02
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Mitterrand={
+		name=FRA_Mitterrand
+		portraits={
+			civilian={
+				small="GFX_idea_Mitterrand"
+				large="gfx/leaders/FRA/Portrait_France_Francois_Mitterrand.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_Mitterrand
+			allowed  = {
+				original_tag  = FRA
+			}
+			modifier = {
+				political_power_cost = -0.12
+			}
+			visible = {
+				date > 1962.1.1
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_rene_pleven={
+		name=FRA_rene_pleven
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_rene_pleven.tga"
+				small="gfx/interface/ideas/idea_rene_pleven.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_rene_pleven
+			allowed  = {
+				original_tag  = FRA
+			}
+			visible = {
+				date < 1970.1.1
+				has_government  = democratic 
+			}
+			modifier = {
+				political_power_gain = 0.02
+			}
+			do_effect  = {
+				not = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+	FRA_Chirac={
+		name=FRA_Chirac
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Chirac.tga"
+				small="GFX_idea_Chirac"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_Chirac
+			allowed  = {
+				original_tag  = FRA
+			}
+			visible = {
+				date > 1962.1.1
+			}
+			modifier = {
+				political_power_gain = 0.02
+				production_speed_buildings_factor = 0.12
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Michel_Debre={
+		name=FRA_Michel_Debre
+		portraits={
+			civilian={
+				small="GFX_idea_Michel_Debre"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_Michel_Debre
+			allowed  = {
+				original_tag  = FRA
+			}
+			visible = {
+				date > 1962.1.1
+			}
+			modifier = {
+				political_power_gain = 0.02
+				resistance_target = -0.05
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Pierre_Mendes={
+		name=FRA_Pierre_Mendes
+		portraits={
+			civilian={
+				small="GFX_idea_Pierre_Mendes"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_Pierre_Mendes
+			allowed  = {
+				original_tag  = FRA
+			}
+			visible = {
+				date < 1968.1.1
+			}
+			modifier = {
+				war_support_factor = -0.2
+				stability_factor = 0.15
+			}
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	FRA_Michel_Roquejeoffre={
+		name=FRA_Michel_Roquejeoffre
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_France_Michel_Roquejeoffre.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1985.1.1
+			}
+			traits={ armor_officer }
+			skill=4
+			attack_skill=3
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	FRA_alphonse_juin={
+		name=FRA_alphonse_juin
+		portraits={
+			army={
+				large=GFX_portrait_FRA_alphonse_juin
+				small=GFX_portrait_FRA_alphonse_juin_small
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1967.1.1
+			}
+			traits={ career_officer trait_cautious armor_officer }
+			skill=4
+			attack_skill=3
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	FRA_alphonse_georges={
+		name=FRA_alphonse_georges
+		portraits={
+			army={
+				small="GFX_idea_alphonse_georges"
+			}
+			army={
+				large=GFX_portrait_FRA_alphonse_georges
+			}
+		}
+		advisor={
+			visible = {
+				date < 1951.1.1
+			}
+			slot = army_chief
+			idea_token = alphonse_georges
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_chief_maneuver_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		field_marshal={
+			visible = {
+				date < 1951.1.1
+			}
+			traits={ old_guard trait_cautious defensive_doctrine }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+	FRA_philippe_leclerc={
+		name=FRA_philippe_leclerc
+		portraits={
+			army={
+				small="GFX_idea_philippe_leclerc"
+			}
+			army={
+				large=GFX_portrait_FRA_philippe_leclerc
+			}
+		}
+		advisor={
+			visible = {
+				date < 1947.11.1
+			}
+			slot = high_command
+			idea_token = philippe_leclerc
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		corps_commander={
+			visible = {
+				date < 1947.11.1
+			}
+			traits={ career_officer trait_reckless armor_officer }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+
+	FRA_henri_giraud={
+		name=FRA_henri_giraud
+		portraits={
+			army={
+				small="GFX_idea_henri_giraud"
+			}
+			army={
+				large=GFX_portrait_FRA_henri_giraud
+			}
+		}
+		advisor={
+			visible = {
+				date < 1949.11.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = henri_giraud
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			ai_will_do = {
+				factor = 1.000
+				modifier = {
+					factor = 0.000
+					GER = {
+						is_ai = yes
+					}
+					date < 1939.08.01
+				}
+			}
+			traits = {
+				military_theorist
+			}
+		}
+		
+		corps_commander={
+			visible = {
+				date < 1949.11.1
+			}
+			traits={ career_officer trait_cautious infantry_officer trickster }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+	### THEORISTS ###
+
+
+	FRA_charles_de_gaulle={
+		name=FRA_De_gaulle
+		portraits={
+			army={
+				small="GFX_idea_charles_de_gaulle"
+				large="gfx/leaders/FRA/Portrait_France_De_Gaulle.tga"
+			}
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_De_Gaulle.tga"
+				small="GFX_idea_charles_de_gaulle"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits = {
+				euroism popular_figurehead pro_third_world jefe old_figurehead
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	# Giraud up there
+
+	FRA_victor_denain={
+		name=FRA_victor_denain
+		portraits={
+			army={
+				small="GFX_idea_victor_denain"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1952.11.1
+			}
+			cost = 150
+			
+			slot = theorist
+			idea_token = victor_denain
+			ledger = air
+			allowed = {
+				original_tag = FRA
+			}
+			
+			traits = {
+				assault_avaition
+			}
+		}
+	}
+
+}

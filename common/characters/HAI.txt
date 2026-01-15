@@ -1,0 +1,69 @@
+characters={
+	HAI_Paul_Magloire={
+		name=HAI_Paul_Magloire
+		portraits={
+			civilian={
+				large="gfx/leaders/HAI/Portrait_Haiti_Paul_Magloire.tga"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits={ pro_america anti_communist technocrat jefe }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+	HAI_Daniel_Fignole ={
+		name=HAI_Daniel_Fignole
+		portraits = {
+			civilian={
+				large="gfx/leaders/HAI/Portrait_Haiti_Daniel_Fignole.tga"
+				small="gfx/interface/ideas/idea_Francois_Duvalie.dds"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits = {
+				pro_socialism socialist_reformism resolute_social_democrat
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	HAI_Francois_Duvalie ={
+		name=HAI_Francois_Duvalie
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Francois_Duvalie.dds"
+				large="gfx/leaders/HAI/Portrait_Haiti_Francois_Duvalie.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				anti_communist dictator tyrant corrupt_leader
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Francois_Duvalie
+			allowed  = {
+				original_tag  = HAI
+			}
+			visible = {
+				date < 1970.1.1
+				is_country_leader = no
+			}
+			modifier = {
+				production_speed_hospital_factor = 0.25
+			}
+			ai_will_do  = {
+				factor  = 0
+				modifier = {
+					add = 50
+					date > 1951.1.1
+				}
+			}
+		}
+	}
+}

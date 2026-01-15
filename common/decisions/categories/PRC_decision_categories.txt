@@ -1,0 +1,70 @@
+
+PRC_korea_war_decis = {
+	icon = decision_category_SOV_permanent_revolution
+	picture = GFX_decision_PRC_korea_war_decis
+	priority = {
+		base = 40
+	}
+	visible = {
+		tag = PRC
+	}
+}
+JF_deci = {
+	icon = generic_construction
+	picture = GFX_decision_MAL_emergency_category
+	priority = {
+		base = 30
+	}
+	visible = {
+		has_completed_focus = prc_jiaofei
+	}
+}
+PRC_output_revolution = {
+	icon = generic_construction
+	visible = {
+	}
+}
+HK_construction = {
+	icon = generic_construction
+	visible = {
+	}
+}
+PRC_peking_construct = {
+	icon = decision_category_SOV_permanent_revolution
+	picture = GFX_decision_PRC_peking_construct
+	priority = {
+		base = 25
+	}
+	visible = {
+		has_completed_focus = prc4
+		tag = PRC
+	}
+}
+PRC_great_leap_forwards_decis = {
+	icon = infiltration
+	picture = GFX_decision_PRC_great_leap_forwards_decis
+	priority = {
+		base = 30
+	}
+	visible = {
+		has_idea = GreatLeapForward_ideas
+	}
+}
+PRC_construction = {
+	icon = infiltration
+	picture = GFX_decision_PRC_construction_category
+	priority = {
+		base = 30
+	}
+	visible = {
+		has_completed_focus = prc4
+		date < 1968.1.1
+	}
+}
+
+PRC_Culture_Revolution = {
+	icon = GFX_deci_category_cw
+	picture = GFX_deci_category_cw
+	visible = {
+	}
+}

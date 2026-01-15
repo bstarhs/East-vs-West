@@ -1,0 +1,435 @@
+﻿capital = 276
+
+oob = "CAN_1936"
+
+set_country_flag = main_country
+set_research_slots = 1
+set_country_flag = developmented
+set_country_flag = language_english
+set_country_flag = monroe_doctrine
+set_country_flag = commonwealth
+set_country_flag = british_colonies
+	set_country_flag = female_finished
+
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+# Starting tech
+	activate_decision = Establishment_of_National_Museum
+	complete_national_focus = steel_produc
+	complete_national_focus = common_weman_right
+	complete_national_focus = common_13
+	activate_decision = create_radio_station
+	complete_national_focus = common_61
+	set_country_flag = gen230
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	transport = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+		transport_plane1 = 1
+		streamlined_line = 1
+		assembly_line = 1
+	fuel_silos = 1
+	basic_battery = 1
+	gasmask = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	medical2 = 1
+	medical3 = 1
+	medical4 = 1
+	medical5 = 1
+	transport_1 = 1
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	decimetric_radar = 1
+	military_college = 1
+	vaccum_tube = 1
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	antiair1 = 1
+	basic_destroyer = 1
+	napalm = 1
+	#doctrines
+	tech_recon = 1
+	electrolytic_aluminum = 1
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	rubber_processing = 1
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	fuel_refining = 1
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+		telegraph = 1
+		laundry = 1
+}
+if = {
+	limit = { has_dlc = "Together for Victory" }
+	set_cosmetic_tag = CAN_UK
+
+	add_to_tech_sharing_group = commonwealth_research
+}
+set_cosmetic_tag = CAN
+1939.1.1 = {
+	add_political_power = 1198
+	
+	
+
+	add_ideas = {
+		hight_welfare
+		service_by_requirement
+		UNmember
+		Anglicanism	
+	}
+
+	
+	oob = "CAN_1947"
+}
+
+	set_popularities = {
+		democratic = 92
+		communism = 8
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.10.14"
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Mackenzie King"
+	desc = "POLITICS_MACKENZIE_KING_DESC"
+	picture = "gfx/leaders/CAN/Portrait_Canada_Mackenzie.tga"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Adrien Arcand"
+	desc = "POLITICS_ADRIEN_ARCAND_DESC"
+	picture = "GFX_CAN_adrien_arcand"
+	expire = "1965.1.1"
+	ideology = nazism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Tim Buck"
+	desc = "POLITICS_TIM_BUCK_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "J. S. Woodsworth"
+	desc = "POLITICS_JS_WOODSWORTH_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_4.dds"
+	expire = "1965.1.1"
+	ideology = centrism
+	traits = {
+		#
+	}
+}
+
+recruit_character = CAN_John_Diefenbaker
+set_convoys = 100
+set_stability = 0.9
+
+### Ship Variants ###
+
+create_equipment_variant = {
+	name = "Sanguenay Class"
+	type = destroyer_1
+	upgrades = {
+		ship_torpedo_upgrade = 1
+		destroyer_engine_upgrade = 1
+		ship_ASW_upgrade = 1
+		ship_anti_air_upgrade = 1
+	}
+}
+	add_ideas = {
+		UNmember
+		low_economic_mobilisation
+	}
+	complete_national_focus = common_63
+	complete_national_focus = common_1
+	complete_national_focus = common_74
+	complete_national_focus = common_3
+	complete_national_focus = common_23
+	complete_national_focus = common_61
+	complete_national_focus = common_64
+	complete_national_focus = commons_5
+	
+1948.1.20 = {
+	complete_national_focus = common_13
+	complete_national_focus = common_14
+	add_ideas = nato_spirit
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Louis St Laurent"
+		
+		picture = "gfx/leaders/CAN/Portrait_Canada_Louis_StLaurent.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+			ideological_crusader silent_workhorse pro_america Developmentalism
+		}
+	}
+}
+1952.1.20 = {
+	complete_national_focus = oil_produc
+	complete_national_focus = common_15
+	complete_national_focus = common_17
+	complete_national_focus = common_8
+	complete_national_focus = common_67
+}
+1954.1.20 = {
+	set_technology = {
+		fighter1 = 1
+		basic_helicopter = 1
+		air_gun = 1
+		basic_ship_hull_light = 1
+		dispersed_industry4 = 1
+	}
+	add_ideas = Elizabeth_young
+}
+1957.1.20 = {
+oob = "CAN_1960"
+	set_technology = {
+		machine_gun2 = 1
+		tech_recon2 = 1
+		basic_ship_hull_cruiser = 1
+		CAS2 = 1
+		tech_logistics_company2 = 1
+		basic_medium_tank = 1
+		aa_missile_1 = 1
+		improved_rubber_processing = 1
+		husbandry_feed = 1
+		early_computer = 1
+	}
+	complete_national_focus = common_medic
+	complete_national_focus = common_75
+	promote_character = CAN_John_Diefenbaker
+	add_ideas = CAN_red_flags
+}
+1963.1.20 = {
+	retire_character = CAN_John_Diefenbaker
+	set_country_flag = Satellite_succes
+	set_cosmetic_tag = CAN_1964
+	remove_ideas = CAN_red_flags
+	set_technology = {
+		fighter2 = 1
+		excavation3 = 1
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+		mechanised_infantry2 = 1
+		improved_light_tank = 1
+		spaa1 = 1
+		trans_helicopter_1 = 1
+		halicopter_machinegun = 1
+		laser_weapon = 1
+		at_missile_1 = 1
+		improved_ship_hull_light = 1
+		basic_secondary_battery = 1
+		basic_heavy_battery = 1
+		Semiconductor = 1
+	}
+	create_country_leader = {
+		name = "Lester Pearson"
+		
+		picture = "gfx/leaders/CAN/Portrait_Canada_Lester_Pearson.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+}
+1968.1.20 = {
+	add_ideas = {
+		Commonwealth
+	}
+	set_country_flag = china_diplomacy
+	complete_national_focus = common_65
+	complete_national_focus = common_68
+	complete_national_focus = common_76
+	complete_national_focus = common_21
+	add_ideas = {
+		QuebecCrisis
+	}
+	set_technology = {
+		fighter3 = 1
+		CAS3 = 1
+		land_guidance = 1
+		trans_helicopter_2 = 1
+		basic_heavy_tank = 1
+		aluminum_tech = 1
+		transistor = 1
+		medium_computer = 1
+	}
+	set_popularities = {
+		democratic = 75
+		communism = 25
+	}
+	add_ideas = {
+		harmonious
+	}
+	create_country_leader = {
+		name = "Pierre Trudeau"
+		
+		picture = "gfx/leaders/CAN/Portrait_Canada_Pierre_Trudeau.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+}
+1975.1.1 = {
+	set_technology = {
+		improved_heavy_battery = 1
+		at_missile_2 = 1
+		mechanized_aa_missile_1 = 1
+		improved_heavy_tank = 1
+		improved_medium_tank = 1
+		advanced_ship_hull_light = 1
+		advanced_machine_tools = 1
+		integrated_circuit = 1
+	}
+}
+1980.1.1 = {
+	set_technology = {
+		advanced_medium_tank = 1
+		infraed_homing = 1
+		micro_computer = 1
+		computer_consol = 1
+	}
+	remove_ideas = QuebecCrisis
+}
+1984.9.20 = {
+	set_technology = {
+		fighter4 = 1
+		CAS4 = 1
+		personal_computer = 1
+		mechanised_infantry3 = 1
+		aa_missile_3 = 1
+	}
+	set_popularities = {
+		democratic = 85
+		communism = 15
+	}
+	create_country_leader = {
+		name = "Martin Brian Mulroney"
+		
+		picture = "gfx/leaders/CAN/Portrait_Canada_Brian_Mulroney.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+}
+1988.1.1 = {
+	set_technology = {
+		advanced_heavy_tank = 1
+		trans_helicopter_3 = 1
+	}
+}
+1991.1.1 = {
+	set_technology = {
+		assembly_line_production = 1
+	}
+}

@@ -1,0 +1,51 @@
+
+state={
+	id=172
+	name="STATE_172"
+	manpower = 1794880
+	
+	state_category = town
+	
+	resources={
+		iron=22
+	}
+
+	history={
+		set_state_flag = sugar_production
+		set_state_flag = ethnics_Basque
+		add_to_array = { this.state_ethnics_list = 36 }
+		add_to_array = { this.state_ethnics_list = 47 }
+		owner = SPR
+		victory_points = {
+			740 6
+		}
+		buildings = {
+			hospital = 1
+			farm_building = 2
+			infrastructure = 4
+			arms_factory = 1
+			power_plant = 1
+			industrial_complex = 2
+			steel_making = 1
+			air_base = 1
+			740 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = SPR
+		add_core_of = BAS
+		1960.1.4 = {
+			buildings = {
+				steel_making = 1
+				power_plant = 2
+				infrastructure = 6
+				industrial_complex = 4
+				arms_factory = 2
+			}
+		}
+	}
+
+	provinces={
+		738 740 3735 6756 9703 11688 
+	}
+}

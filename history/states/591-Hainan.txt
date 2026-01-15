@@ -1,0 +1,46 @@
+state={
+	id=591
+	name="STATE_591"
+	manpower = 4350000
+	state_category = town
+
+	resources={
+		iron = 25
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 5 }
+		owner = CHI
+		set_state_flag = banana_production
+		set_state_flag = ethnics_Minnan
+		add_core_of = CHI
+		add_core_of = PRC
+		add_dynamic_modifier = { modifier = fish_production }
+		add_claim_by = CTN
+		1949.10.25 = {
+		owner = CTN
+		}
+		1950.10.25 = {
+		owner = PRC
+		}
+		victory_points = {
+			1070 3 
+		}
+		victory_points = {
+			994 2
+		}
+		
+		buildings = {
+			infrastructure = 2
+			farm_building = 2
+			air_base = 1
+
+		}
+
+	}
+
+	provinces={
+		994 1038 1070 11963 11990 14250
+	}
+}

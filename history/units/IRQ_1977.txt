@@ -1,0 +1,170 @@
+﻿division_template = {
+	name = "Alfurqat Almasha"	
+	division_names_group = EGY_MOT_01	
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armored Division" 
+	division_names_group = EGY_ARM_01			
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		heavy_armor = { x = 2 y = 0 }
+		heavy_armor = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+
+units = {
+	##### Royal Iraqi Army #####
+	division = {
+		name = "7 Alfurqat"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 6826
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.9
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "11 Alfurqat"
+		location = 6826
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.9
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "6 Alfurqat"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 10793
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.9
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "9 Alfurqat"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 8001
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.9
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "10 Alfurqat"
+		location = 2097
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "2 Alfurqat"
+		location = 3916
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "4 Alfurqat"
+		location =10106
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "8 Alfurqat"
+		location = 5014
+		division_template = "Alfurqat Almasha"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "3rd Armored Division"
+		location = 8123
+		division_template = "Armored Division"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "12th Armored Division"
+		location = 10811
+		division_template = "Armored Division"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "1st Mechanized Division "
+		location = 2004
+		division_template = "Armored Division"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+	division = {
+		name = "5th Mechanized Division "
+		location = 2089
+		division_template = "Armored Division"	
+		start_experience_factor = 0.7
+		start_equipment_factor = 1
+
+	}
+}
+
+
+air_wings = {
+	### Royal Iraqi Air Force (RIrAF)
+	291 = {
+		fighter_equipment_2 =  { owner = "IRQ"  amount = 40 }	
+		CAS_equipment_2 =  { owner = "IRQ"  amount = 60 }		# 2nd Squadron -- Gladiator, Breda Ba.65
+	}
+}
+
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "IRQ"
+		}
+		requested_factories = 1
+		progress = 0.38
+		efficiency = 100
+	}
+}

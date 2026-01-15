@@ -1,0 +1,38 @@
+
+state={
+	id=910
+	name="STATE_910"
+	manpower = 30000
+	
+	state_category = rural
+
+	resources={
+		salt=21
+	}
+	history={
+		set_state_flag = ethnics_Australian
+		add_to_array = { this.state_ethnics_list = 29 }
+		add_to_array = { this.state_ethnics_list = 19 }
+                              
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = AST
+		buildings = {
+			infrastructure = 3
+
+		}
+		victory_points = {
+			8152 4
+		}
+		victory_points = {
+			4645 3
+		}
+		victory_points = {
+			1540 3
+		}
+		add_core_of = AST
+	}
+
+	provinces={
+		2201 8152 5125 10971 4645 12323 1511 1540 
+	}
+}

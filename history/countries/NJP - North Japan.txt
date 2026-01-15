@@ -1,0 +1,85 @@
+﻿capital = 533
+	activate_decision = female_equality
+			set_variable = { this.education = 56 }
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	set_technology = {
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	tech_support = 1
+	tech_recon = 1
+
+	basic_militia = 1
+		medical1 = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+		motorize_doctrine = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+	add_ideas = {
+		hight_welfare
+		service_by_requirement
+		Anti_religious
+		war_economy
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	set_popularities = {
+		democratic = 6
+		communism = 92
+		neutrality = 2
+	}
+set_politics = {
+	ruling_party = communism
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+
+create_country_leader = {
+	name = "Miyamoto Kenji"
+	picture = "gfx/leaders/NJP/Portrait_njp_Miyamoto_young.tga"
+	expire = "1965.1.1"
+	ideology = leninism
+	traits = {
+	}
+}
+1968.1.20 = {
+	complete_national_focus = steel_produc
+}
+1984.3.29 = {
+	create_country_leader = {
+		name = "Fuwa Tetsuzo"
+		picture = "gfx/leaders/NJP/Portrait_njp_Fuwa_Tetsuzo.tga"
+		expire = "2050.1.1"
+	ideology = leninism
+		
+		traits = {
+		}
+	}
+}

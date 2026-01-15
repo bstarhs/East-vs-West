@@ -1,0 +1,782 @@
+﻿add_namespace = bur
+news_event = {
+	id = bur.1
+	title = bur.1.t
+	desc = bur.1.d
+	picture = GFX_news_event_ANZAC_day
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		date > 1947.7.1
+		date < 1948.1.1
+		NOT = {
+			country_exists = BUR
+			has_global_flag = AungsanDead
+		}
+	}
+	immediate = {
+		set_global_flag = AungsanDead
+	}
+	option = {
+		name = bur.1.a
+		if = {
+			limit = { tag = ENG }
+			BUR = {
+				create_country_leader = {
+					name = "U Nu"
+					desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+					picture = "gfx/leaders/BUR/Portrait_Burma_Unu.tga"
+					expire = "1988.1.1"
+					ideology = socialism
+					traits = {
+						pro_third_world
+					}
+				}
+			}
+		}
+	}
+}
+#缅甸独立
+news_event = {
+	id = bur.3
+	title = bur.3.t
+	desc = bur.3.d
+	picture = GFX_BurmaIndependent
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		play_song = BUR_1
+	}
+	trigger = {	
+		date > 1948.1.1
+		date < 1948.8.30
+		tag = ENG
+		controls_province = 1330
+	}
+	option = {
+		name = bur.3.a
+		if = {
+			limit = { tag = ENG }
+			BUR = {
+				transfer_state = 759
+				transfer_state = 765
+				transfer_state = 640
+				transfer_state = 288
+				transfer_state = 798
+				transfer_state = 835
+				transfer_state = 836
+				transfer_state = 971
+				transfer_state = 972
+				transfer_state = 973
+			}
+		}
+	}
+}
+#克伦暴动随机概率
+news_event = {
+	id = bur.4
+	hidden = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = BUR
+		has_stability < 0.8
+		owns_state = 972
+		OR = {
+			has_idea = gaulle
+			has_idea = jungle_war
+			has_idea = southeast_revolution
+			has_idea = Red_Brigade
+		}
+		NOT = { has_government = communism }
+	}
+	option = {	
+		name = gen.27.a
+		random_list = {
+			40 = { 
+				modifier = {
+					add = 10
+					has_war_support > 0.6
+				}
+				modifier = {
+					add = 10
+					has_idea_with_trait = prince_of_terror
+				}
+				modifier = {
+					add = 20
+					check_variable = { num_divisions > owned_states }
+				}
+				modifier = {
+					add = 20
+					communism < 0.3
+				}
+				modifier = {
+					add = 20
+					has_government = neutrality
+					neutrality > 0.5
+				}
+				modifier = {
+					add = 20
+					has_government = democratic
+					democratic > 0.5
+				}
+				modifier = {
+					add = 10
+					has_army_experience > 100
+				}
+			}
+			40 = { 
+				modifier = {
+					add = 10
+					has_war_support < 0.4
+				}
+				modifier = {
+					add = 20
+					has_idea = sanctions
+				}
+				modifier = {
+					add = 20
+					communism > 0.5
+				}
+				modifier = {
+					add = 20
+					check_variable = { num_divisions < owned_states }
+				}
+				modifier = {
+					add = 10
+					has_stability < 0.4
+				}
+				modifier = {
+					add = 100
+					date < 1950.1.1
+				}
+				news_event = {	id = gen.29 } 
+			}
+			40 = { 
+				
+			}
+		}
+	}
+}
+#克伦邦发生暴动
+news_event = {
+	id = bur.5
+	title = bur.5.t
+	desc = bur.5.d
+	picture = GFX_SouthEasrCom
+	is_triggered_only = yes
+	option = {	
+		name = gen.30.a
+		972 = { add_resistance = 20 }
+		if = {
+			limit = {
+				972 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}				
+			972 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+#克伦起义
+news_event = {
+	id = bur.6
+	title =bur.6.t
+	desc = bur.6.d
+	picture = GFX_DienBienphu
+	mean_time_to_happen = {
+		days = 50
+	}
+	trigger = {
+		tag = BUR
+		NOT = { country_exists = KRE }
+		972 = { resistance > 80 }
+		owns_state = 972
+	}
+	option = {
+		name = vin.1.a
+		972 = { add_resistance = -60 }
+		add_stability = -0.2
+			add_political_power = -200
+		KRE = {
+			transfer_state = 972
+		}
+		declare_war_on = {
+			target = KRE
+			type = annex_everything
+		}
+		news_event = {	id = bur.7 } 
+	}
+	option = {
+		name = vin.2.a
+		972 = { add_resistance = -60 }
+		KRE = {
+			transfer_state = 972
+		}
+		news_event = {	id = bur.8 } 
+	}
+}
+news_event = {
+	id = bur.7
+	title = bur.7.t
+	desc = bur.7.d
+	picture = GFX_DienBienphu
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.8
+	title = bur.8.t
+	desc = bur.8.d
+	picture = GFX_DienBienphu
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+
+
+
+news_event = {
+	id = bur.10
+	title = bur.10.t
+	desc = bur.10.d
+	picture = GFX_SalweenRiver
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = bur.11 days = 5 }
+		}
+	}
+	option = {	
+		name = gen.46.a
+		ai_chance = { factor = 0 }
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = bur.12 days = 5 }
+		}
+	}
+}
+news_event = {
+	id = bur.11
+	title = bur.11.t
+	desc = bur.11.d
+	picture = GFX_SalweenRiver
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.12
+	title = bur.12.t
+	desc = bur.12.d
+	picture = GFX_SalweenRiver
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		if = {
+			limit = {
+				OR = {
+				tag = USA
+				tag = ENG
+				tag = BUR
+				tag = SIA
+				tag = IND
+				tag = PHI
+				tag = MAL
+				}
+			}
+			news_event = { id = bur.13 days = 3 }
+		}
+	}
+}
+news_event = {
+	id = bur.13
+	title = bur.13.t
+	desc = bur.13.d
+	picture = GFX_SalweenRiver
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.14
+	title = bur.14.t
+	desc = bur.14.d
+	picture = GFX_YunnanFair
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.15
+	title = bur.15.t
+	desc = bur.15.d
+	picture = GFX_YunnanFair
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+
+##猛卯地区之争
+country_event = {
+	id = bur.16
+	title = bur.16.t
+	desc = bur.16.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+		trigger = { tag = PRC }
+	}
+	option = {	
+		name = gen.46.a
+		trigger = { tag = BUR }
+		ai_chance = { factor = 0 }
+		PRC = { country_event = { id = bur.17 days = 2 } }
+	}
+	option = {	
+		name = gen.46.a
+		ai_chance = { factor = 10 }
+		trigger = { tag = BUR }
+		PRC = { country_event = { id = bur.18 days = 2 } }
+	}
+}
+country_event = {
+	id = bur.17
+	title = bur.17.t
+	desc = bur.17.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+		set_global_flag = PRC_burma_border_mengmao
+	}
+}
+country_event = {
+	id = bur.18
+	title = bur.18.t
+	desc = bur.18.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+		ai_chance = { factor = 10 }
+		set_global_flag = PRC_burma_border_mengmao
+		add_political_power = -50
+		country_event = { id = bur.19 }
+		BUR = { country_event = { id = bur.19 days = 2 } }
+	}
+	option = {	
+		name = gen.46.a
+		ai_chance = { factor = 0 }
+		country_event = { id = bur.20 }
+		BUR = { country_event = { id = bur.20 days = 2 } }
+	}
+}
+country_event = {
+	id = bur.19
+	title = bur.19.t
+	desc = bur.19.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+country_event = {
+	id = bur.20
+	title = bur.20.t
+	desc = bur.20.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+###班老
+country_event = {
+	id = bur.21
+	title = bur.21.t
+	desc = bur.21.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+		trigger = { tag = PRC }
+	}
+	option = {	
+		name = gen.46.a
+		trigger = { tag = BUR }
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 20
+				date > 1959.1.1
+			}
+		}
+		PRC = { country_event = { id = bur.22 days = 2 } }
+	}
+	option = {	
+		name = gen.46.a
+		trigger = { tag = BUR }
+		ai_chance = { factor = 10 }
+		PRC = { country_event = { id = bur.23 days = 2 } }
+	}
+}
+country_event = {
+	id = bur.22
+	title = bur.22.t
+	desc = bur.22.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+		set_global_flag = PRC_burma_border_banlao
+	}
+}
+country_event = {
+	id = bur.23
+	title = bur.23.t
+	desc = bur.23.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+		set_global_flag = PRC_burma_border_banlao
+		add_political_power = -250
+		country_event = { id = bur.24 }
+		BUR = { country_event = { id = bur.24 days = 2 } }
+	}
+	option = {	
+		name = gen.46.a
+		country_event = { id = bur.25 }
+		BUR = { country_event = { id = bur.25 days = 2 } }
+	}
+}
+country_event = {
+	id = bur.24
+	title = bur.24.t
+	desc = bur.24.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+country_event = {
+	id = bur.25
+	title = bur.25.t
+	desc = bur.25.d
+	picture = GFX_YunnanBurmaBorder
+	is_triggered_only = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.26
+	title = bur.26.t
+	desc = bur.26.d
+	picture = GFX_ChinaBurmaBorderTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+
+news_event = {
+	id = bur.30
+	title = bur.30.t
+	desc = bur.30.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = bur.31 days = 3 }
+		}
+	}
+	option = {	
+		ai_chance = { factor = 0 }
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.31
+	title = bur.31.t
+	desc = bur.31.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1960.1.1
+			}
+		}
+		if = {
+			limit = { tag = CHI }
+			news_event = { id = bur.32 days = 2 }
+		}
+	}
+	option = {	
+		name = gen.46.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = -20
+				date > 1960.1.1
+			}
+		}
+		if = {
+			limit = { tag = CHI }
+			add_political_power = -200
+			news_event = { id = bur.33 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = bur.32
+	title = bur.32.t
+	desc = bur.32.d
+	picture = GFX_UN
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1960.1.1
+			}
+		}
+		if = {
+			limit = { tag = YUN }
+			news_event = { id = bur.34 days = 2 }
+		}
+	}
+	option = {	
+		name = gen.46.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = -20
+				date > 1960.1.1
+			}
+		}
+		if = {
+			limit = { tag = YUN }
+			news_event = { id = bur.35 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = bur.33
+	title = bur.33.t
+	desc = bur.33.d
+	picture = GFX_ChinaBurmaBorderTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+news_event = {
+	id = bur.34
+	title = bur.34.t
+	desc = bur.34.d
+	picture = GFX_ChinaBurmaBorderTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		if = {
+			limit = { tag = BUR }
+			annex_country = {
+				target = YUN
+				transfer_troops = no
+			}
+		}
+	}
+}
+news_event = {
+	id = bur.35
+	title = bur.35.t
+	desc = bur.35.d
+	picture = GFX_ChinaBurmaBorderTreaty
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+		if = {
+			limit = { tag = BUR }
+			declare_war_on = {
+				target = YUN
+				type = annex_everything
+			}
+		}
+	}
+}
+news_event = {
+	id = bur.36
+	title = bur.36.t
+	desc = bur.36.d
+	picture = GFX_SalweenRiver
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = gen.46.a
+	}
+}
+
+
+
+
+
+
+#奈温组织政府
+country_event = {
+	id = bur.40
+	title = bur.40.t
+	desc = bur.40.d
+	picture = GFX_UNeWin
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = bur.3.a
+			BUR = {
+				create_country_leader = {
+					name = "Ne Win"
+					desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+					picture = "gfx/leaders/BUR/Portrait_Burma_NeWin.tga"
+					expire = "1979.1.1"
+					ideology = socialism
+					traits = {
+					}
+				}
+			}
+		}
+}
+#奈温政变
+country_event = {
+	id = bur.50
+	title = bur.50.t
+	desc = bur.50.d
+	picture = GFX_BurmaCoup1962
+	fire_only_once = yes
+	trigger = {	
+		tag = BUR
+		has_stability < 0.5
+	}
+	option = {
+		name = bur.3.a
+		set_politics = { ruling_party = neutrality }
+		create_country_leader = {
+			name = "Ne Win"
+			picture = "gfx/leaders/BUR/Portrait_Burma_NeWin.tga"
+			expire = "1979.1.1"
+			ideology = centrism
+			traits = {
+				anti_communist jefe dictator
+			}
+		}
+	}
+}
+#掸邦叛乱
+news_event = {
+	id = bur.60
+	title = usa.60.t
+	desc = usa.60.d
+	picture = GFX_Kunsha
+	fire_only_once = yes
+	trigger = {
+		tag = BUR
+		has_idea = Burmese_civilwar
+		has_stability < 0.5
+		798 = {
+			resistance > 60
+			is_owned_by = BUR
+		}
+	}
+	option = { 
+		name = usa.8.a
+		SHA = {
+			transfer_state = 798
+			load_oob = "SHA_Independence"
+		}
+		
+	}
+}
+#缅共叛乱
+news_event = {
+	id = bur.70
+	title = bur.70.t
+	desc = bur.70.d
+	picture = GFX_BurmaRebels
+	fire_only_once = yes
+	trigger = {
+		tag = BUR
+		has_stability < 0.6
+		communism > 0.3
+		NOT = {
+			has_idea = gaulle
+			has_government = communism
+		}
+	}
+	option = { 
+		name = usa.8.a
+		add_ideas = gaulle
+		add_stability = -0.2
+	}
+}
+#缅共瓦解
+news_event = {
+	id = bur.80
+	title = bur.80.t
+	desc = bur.80.d
+	picture = GFX_BurmaRebels
+	fire_only_once = yes
+	trigger = {
+		tag = BUR
+		communism < 0.2
+		has_idea = gaulle
+		NOT = {
+			has_government = communism
+		}
+	}
+	option = { 
+		name = usa.8.a
+		remove_ideas = gaulle
+		add_stability = 0.2
+	}
+}

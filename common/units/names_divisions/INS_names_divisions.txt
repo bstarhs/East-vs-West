@@ -1,0 +1,303 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+INS_MOT_01 = 
+{
+	name = "Divisi Infanteri "
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry""motorized" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Kostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%de Kostrad" }
+		2 = { "%de Kostrad" }
+		3 = { "%de Kostrad" }
+		4 = { "%de Kostrad" }
+		5 = { "%de Kostrad" }
+		6 = { "%de Kostrad" }
+		7 = { "%de Kostrad" }
+		8 = { "%de Kostrad" }
+		101 = { "Lichte Kostrad" }		
+		102 = { "Peel Kostrad" }		
+		9 = { "%de Kostrad" }
+		10 = { "%de Kostrad" }
+		11 = { "%de Kostrad" }
+		12 = { "%de Kostrad" }
+		13 = { "%de Kostrad" }
+		14 = { "%de Kostrad" }
+		15 = { "%de Kostrad" }
+		16 = { "%de Kostrad" }
+		17 = { "%de Kostrad" }
+		18 = { "%de Kostrad" }
+		19 = { "%de Kostrad" }
+		20 = { "%de Kostrad" }		
+	}
+}
+
+INS_CAV_01 = 
+{
+	name = "Divisi Kavaleri"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Divisi Kavaleri"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%de Divisi Kavaleri" }
+		2 = { "%de Divisi Kavaleri" }
+		3 = { "%de Divisi Kavaleri" }
+		4 = { "%de Divisi Kavaleri" }
+		5 = { "%de Divisi Kavaleri" }
+		6 = { "%de Divisi Kavaleri" }
+		7 = { "%de Divisi Kavaleri" }
+		8 = { "%de Divisi Kavaleri" }
+		9 = { "%de Divisi Kavaleri" }
+		10 = { "%de Divisi Kavaleri" }
+	}
+}
+INS_MEC_01 = 
+{
+	name = "Infanteri mekanis Kostrad"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Infanteri mekanis Kostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		101 = { "Lichte Kostrad" }		
+		1 = { "%de Infanteri mekanis Kostrad" }
+		2 = { "%de Infanteri mekanis Kostrad" }
+		3 = { "%de Infanteri mekanis Kostrad" }
+		4 = { "%de Infanteri mekanis Kostrad" }
+		5 = { "%de Infanteri mekanis Kostrad" }
+		6 = { "%de Infanteri mekanis Kostrad" }
+		7 = { "%de Infanteri mekanis Kostrad" }
+		8 = { "%de Infanteri mekanis Kostrad" }
+		9 = { "%de Infanteri mekanis Kostrad" }
+		10 = { "%de Infanteri mekanis Kostrad" }
+	}
+}
+
+INS_ARM_01 = 
+{
+	name = "Tank Kostrad"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Tank Kostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%de Tank Kostrad" }
+		2 = { "%de Tank Kostrad" }
+		3 = { "%de Tank Kostrad" }
+		4 = { "%de Tank Kostrad" }
+		5 = { "%de Tank Kostrad" }
+		6 = { "%de Tank Kostrad" }
+		7 = { "%de Tank Kostrad" }
+		8 = { "%de Tank Kostrad" }
+		9 = { "%de Tank Kostrad" }
+		10 = { "%de Tank Kostrad" }
+	}
+}
+
+INS_PAR_01 = 
+{
+	name = "Paratrooper Kostrad"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Paratrooper Kostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%de Paratrooper Kostrad" }
+		2 = { "%de Paratrooper Kostrad" }
+		3 = { "%de Paratrooper Kostrad" }
+		4 = { "%de Paratrooper Kostrad" }
+		5 = { "%de Paratrooper Kostrad" }
+		6 = { "%de Paratrooper Kostrad" }
+		7 = { "%de Paratrooper Kostrad" }
+		8 = { "%de Paratrooper Kostrad" }
+		9 = { "%de Paratrooper Kostrad" }
+		10 = { "%de Paratrooper Kostrad" }
+	}
+}
+
+INS_MAR_01 = 
+{
+	name = "Marine Division"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de MariniersKostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%de Mariniersdiv. 'Zwarte Duivels'" }
+		2 = { "%de MariniersKostrad" }
+		3 = { "%de MariniersKostrad" }
+		4 = { "%de MariniersKostrad" }
+		5 = { "%de MariniersKostrad" }
+		6 = { "%de MariniersKostrad" }
+		7 = { "%de MariniersKostrad" }
+		8 = { "%de MariniersKostrad" }
+		9 = { "%de MariniersKostrad" }
+		10 = { "%de MariniersKostrad" }
+	}
+}
+
+INS_MNT_01 = 
+{
+	name = "Mountain Division"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Kostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "%de Kostrad" }
+		2 = { "%de Kostrad" }
+		3 = { "%de Kostrad" }
+		4 = { "%de Kostrad" }
+		5 = { "%de Kostrad" }
+		6 = { "%de Kostrad" }
+		7 = { "%de Kostrad" }
+		8 = { "%de Kostrad" }
+		9 = { "%de Kostrad" }
+		10 = { "%de Kostrad" }
+	}
+}
+
+INS_GAR_01 = 
+{
+	name = "Garrison Division"
+
+	for_countries = { INS SRW ACE PUA MLC PTN }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { INS_MOT_01 }
+
+	fallback_name = "%de Vesting Kostrad"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		102 = { "Peel Kostrad" }		
+		103 = { "'Oostfront' Vesting Holland" }		# quasi-fictional divisions (historical names, but ahistorical strength)
+		104 = { "'Westfront' Vesting Holland" }		
+		105 = { "Kostrad Spui" }		
+		106 = { "Kostrad Kil" }		
+		107 = { "Territoriaal Bevel. Overijssel" }		
+		108 = { "Territoriaal Bevel. Friesland" }		
+		109 = { "Territoriaal Bevel. Zuid-Limburg" }		
+		110 = { "Stelling Den Helder" }		
+		111 = { "Stelling  Amsterdam" }		
+		112 = { "Stelling Rotterdam " }		
+		113 = { "Stelling 's Gravenhage" }		
+		114 = { "Stelling Utrecht" }		
+		115 = { "Stelling Soesterberg" }		
+	}
+}

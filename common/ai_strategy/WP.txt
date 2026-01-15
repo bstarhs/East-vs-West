@@ -1,0 +1,182 @@
+
+sov_invade_usa = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_war_with = USA
+		OR = {
+			ENG = { has_capitulated = yes }
+			ENG = { has_government = communism }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = north_america
+		value = 220
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "CAN"
+		value = 180
+	}
+	ai_strategy = {
+		type = invade
+		id = "USA"
+		value = 180
+	}
+}
+sov_invade_jap = {
+	abort_when_not_enabled = yes
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		has_war_with = JAP
+	}
+	
+	ai_strategy = {
+		type = antagonize
+		id = "JAP"
+		value = 200
+	}	
+	ai_strategy = {
+		type = declare_war
+		id = "JAP"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "JAP"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = "JAP"
+		value = 200
+	}
+}
+sov_invade_europe = {
+	allowed = {
+		OR = {
+			is_in_faction_with = SOV
+			tag = SOV
+		}
+	}
+	enable = {
+		has_war_with = WDR
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invasion_unit_request
+		country_trigger = { always = yes }
+
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "WDR"
+		value = 600
+	}
+	ai_strategy = {
+		type = conquer
+		id = "WDR"
+		value = 600
+	}
+	ai_strategy = {
+		type = invade
+		id = "ENG"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = "ENG"
+		value = 200
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 54
+		state = 57
+		state = 51
+		value = 300
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 59
+		state = 55
+		state = 54
+		value = 500
+	}
+}
+wp_DDR_garrison = {
+	enable = {
+		tag = SOV
+		is_in_faction_with = DDR
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			60
+			64
+			61
+		}
+	}
+}
+wp_CZE_garrison = {
+	enable = {
+		tag = SOV
+		is_in_faction_with = CZE
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = {
+			69
+			9
+		}
+	}
+}
+wp_AFG_garrison = {
+	enable = {
+		tag = SOV
+		is_in_faction_with = AFG
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			267
+		}
+	}
+}
+wp_fareast_garrison = {
+	enable = {
+		tag = SOV
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			409
+			537
+			560
+		}
+	}
+}

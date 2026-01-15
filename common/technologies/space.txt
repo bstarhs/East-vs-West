@@ -1,0 +1,706 @@
+technologies = {
+	space_research = {
+		dependencies = {
+			guided_missile = 1
+			early_computer = 1
+			component = 1
+			telegraph = 1
+			rubber_product_techs_1 = 1
+			medical3 = 1
+        }
+		path = {
+			leads_to_tech = rocket_vehicle
+			research_cost_coeff = 1
+		}
+		on_research_complete = {
+			custom_effect_tooltip = add_space_power_30
+			add_to_variable = { this.space_power = 30 }
+			add_to_variable = { this.max_pp_add_sp = 100 }
+			set_variable = { this.max_space_power = 50 } 
+        }
+        show_effect_as_desc = yes
+		
+		start_year = 1945
+		research_cost = 5
+		
+		folder = {
+			name = space_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 50
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 50
+				NOT = { has_country_flag = main_country }
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	rocket_vehicle = {
+		dependencies = {
+			fighter_electro = 1
+			air_guide = 1
+			polymer = 1
+			component = 1
+        }
+		on_research_complete = {
+			custom_effect_tooltip = add_space_power_30
+			add_to_variable = { this.space_power = 50 }
+			add_to_variable = { this.max_pp_add_sp = 20 }
+			set_variable = { this.max_space_power = 150 } 
+        }
+		path = {
+			leads_to_tech = tech_Satellite
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = rocket_engine
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = land_center
+			research_cost_coeff = 1
+		}
+		start_year = 1955
+		research_cost = 5
+		
+		folder = {
+			name = space_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1950.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	rocket_engine = {
+		start_year = 1960
+		research_cost = 5
+		dependencies = {
+			vaccum_tube = 1
+        }
+		path = {
+			leads_to_tech = tech_spacemanned
+			research_cost_coeff = 1
+		}
+		on_research_complete = {
+			custom_effect_tooltip = add_space_power_30
+			add_to_variable = { this.space_power = 50 }
+			set_variable = { this.max_space_power = 180 } 
+        }
+		folder = {
+			name = space_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1950.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	tech_spacemanned = {
+		start_year = 1958
+		research_cost = 5
+		
+		dependencies = {
+			early_computer = 1
+        }
+		on_research_complete = {
+			custom_effect_tooltip = add_space_power_30
+			add_to_variable = { this.space_power = 50 }
+			add_to_variable = { this.max_pp_add_sp = 20 }
+			set_variable = { this.max_space_power = 200 } 
+        }
+		path = {
+			leads_to_tech = adv_cockpit
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = astronaut_uniform
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1950.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	astronaut_uniform = {
+		start_year = 1962
+		research_cost = 5
+		
+		folder = {
+			name = space_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1960.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	adv_cockpit = {
+		start_year = 1965
+		research_cost = 5
+		dependencies = {
+			integrated_circuit = 1
+        }
+		path = {
+			leads_to_tech = solar_power
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = capsule_recover
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1962.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	solar_power = {
+		start_year = 1955
+		research_cost = 5
+		path = {
+			leads_to_tech = modularization
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = -1 y = 10 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1970.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	capsule_recover = {
+		start_year = 1958
+		research_cost = 5
+		path = {
+			leads_to_tech = modularization
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = moon_landing
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = 1 y = 10 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1965.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	moon_landing = {
+		dependencies = {
+			basic_language = 1
+        }
+		start_year = 1965
+		research_cost = 5
+		folder = {
+			name = space_folder
+			position = { x = 1 y = 12 }
+		}
+		path = {
+			leads_to_tech = lunar_rover
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1962.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	modularization = {
+		start_year = 1965
+		research_cost = 5
+		dependencies = {
+			micro_computer = 1
+        }
+		path = {
+			leads_to_tech = space_station
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = lunar_rover
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = -1 y = 12 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1970.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	space_station = {
+		start_year = 1968
+		research_cost = 5
+		path = {
+			leads_to_tech = space_shuttle
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = space_live
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = space_telescope
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = -1 y = 14 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1965.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	space_telescope = {
+		start_year = 1968
+		research_cost = 5
+		path = {
+			leads_to_tech = space_live
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = 3 y = 14 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1970.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	lunar_rover = {
+		start_year = 1968
+		research_cost = 5
+		path = {
+			leads_to_tech = space_live
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = 1 y = 14 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1970.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	space_shuttle = {
+		start_year = 1975
+		research_cost = 5
+		folder = {
+			name = space_folder
+			position = { x = -3 y = 16 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		categories = {
+			space
+		}
+	}
+	space_live = {
+		start_year = 1975
+		research_cost = 5
+		folder = {
+			name = space_folder
+			position = { x = -1 y = 16 }
+		}
+		path = {
+			leads_to_tech = anti_gravity
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		categories = {
+			space
+		}
+	}
+	anti_gravity = {
+		start_year = 1975
+		research_cost = 5
+		folder = {
+			name = space_folder
+			position = { x = -1 y = 18 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		categories = {
+			space
+		}
+	}
+	land_center = {
+		dependencies = {
+			transistor = 1
+        }
+		start_year = 1955
+		research_cost = 5
+		
+		path = {
+			leads_to_tech = command_center
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = 6 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		categories = {
+			space
+		}
+	}
+	command_center = {
+		start_year = 1960
+		research_cost = 5
+		folder = {
+			name = space_folder
+			position = { x = 6 y = 8 }
+		}
+		
+		path = {
+			leads_to_tech = radio_telescope
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		categories = {
+			space
+		}
+	}
+	radio_telescope = {
+		start_year = 1960
+		research_cost = 5
+		folder = {
+			name = space_folder
+			position = { x = 6 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		categories = {
+			space
+		}
+	}
+	tech_Satellite = {
+		on_research_complete = {
+			custom_effect_tooltip = add_space_power_30
+			add_to_variable = { this.space_power = 50 }
+			set_variable = { this.max_space_power = 250 } 
+        }
+		path = {
+			leads_to_tech = communie_Satellite
+			research_cost_coeff = 1
+		}
+		dependencies = {
+			early_computer = 1
+        }
+		
+		start_year = 1955
+		research_cost = 5
+		
+		folder = {
+			name = space_folder
+			position = { x = -8 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1955.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	communie_Satellite = {
+		dependencies = {
+			early_computer = 1
+        }
+		start_year = 1955
+		research_cost = 5
+		path = {
+			leads_to_tech = reconnaissance_satellite
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = space_folder
+			position = { x = -8 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1955.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	reconnaissance_satellite = {
+		dependencies = {
+			basic_language = 1
+        }
+		start_year = 1960
+		research_cost = 5
+		
+		folder = {
+			name = space_folder
+			position = { x = -8 y = 10 }
+		}
+		path = {
+			leads_to_tech = probe
+			research_cost_coeff = 1
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1955.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+	probe = {
+		start_year = 1960
+		research_cost = 5
+		
+		folder = {
+			name = space_folder
+			position = { x = -8 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				OR = {
+					tag = SOV
+					tag = USA
+				}
+			}
+			modifier = {
+				factor = 200
+				date > 1955.1.1
+			}
+		}
+		categories = {
+			space
+		}
+	}
+}

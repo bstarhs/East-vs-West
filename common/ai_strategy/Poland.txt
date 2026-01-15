@@ -1,0 +1,40 @@
+
+USA_support_Solidarity = {
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		POL = { has_idea = Solidarnosc }
+		num_of_operatives > 2
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_boost_resistance
+		value = 2500
+		operation_target = POL
+	}
+	
+	ai_strategy = {
+		type = operation_equipment_priority
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = POL
+		num_operatives = 2
+		state = 10
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = POL
+		state = 10
+	}
+}

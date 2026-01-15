@@ -1,0 +1,169 @@
+﻿capital = 781
+
+oob = "ALL"
+set_cosmetic_tag = CAF_FRA
+set_research_slots = 1
+set_convoys = 500
+set_stability = 0.75
+
+set_country_flag = language_french
+set_country_flag = african_state
+set_country_flag = equatorial_africa
+set_country_flag = third_world
+
+add_ideas = {
+	low_education
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+}
+set_country_flag = language_french
+set_country_flag = french_colonies
+set_country_flag = african_state
+set_technology = {
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+	set_popularities = {
+		democratic = 65
+		communism = 20
+		neutrality = 15
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1997.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+create_country_leader = {
+	name = "French Equatoria Africa governor"
+	desc = "POLITICS_MAO_ZEDONG_DESC"
+	picture = "gfx/leaders/CAF/Portrait_Equatoria_governor.tga"
+	expire = "1976.1.1"
+	ideology = conservatism
+	traits = {
+	}
+}
+1954.1.1 = {
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+}
+1960.8.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	capital = 771
+	set_cosmetic_tag = CAF
+	oob = "CAF_1962"
+	complete_national_focus = common_24
+	create_country_leader = {
+		name = "David Dacko"
+		picture = "gfx/leaders/CAF/Portrait_CAF_Dacko.tga"
+		expire = "1976.1.1"
+		ideology = conservatism
+		traits = {
+			pro_france
+		}
+	}
+	add_ideas = {
+		UNmember
+		ThiefEconomic
+	}
+	add_to_array = { global.UNmember_list = FROM }
+}
+1964.3.12 = {
+}
+1976.3.12 = {
+	set_popularities = {
+		democratic = 20
+		communism = 17
+		monarchism = 63
+	}
+	set_politics = {
+		ruling_party = monarchism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_country_flag = has_monarchs
+	create_country_leader = {
+		name = "Jeon Bokassa"
+		
+		picture = "gfx/leaders/CAF/Portrait_CAF_Bokassa.tga"
+		expire = "2050.1.1"
+		ideology = monarchism
+		
+		traits = { tyrant pro_france corrupt_leader personal_worship
+		
+		}
+	}
+}
+1964.1.20 = {
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+	france_colony
+		NonAligned
+	}
+}
+
+1979.9.3 = {
+	set_popularities = {
+		democratic = 70
+		communism = 3
+		neutrality = 27
+	}
+	set_politics = {
+	ruling_party = democratic
+	last_election = "1965.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+	}
+}
+
+1986.1.20 = {
+	create_country_leader = {
+		name = "Aderea Kolingba"
+		
+		picture = "gfx/leaders/CAF/Portrait_CAF_Kolingba.tga"
+		expire = "1988.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}

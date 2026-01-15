@@ -1,0 +1,41 @@
+
+state={
+	id=313
+	name="STATE_313"
+	manpower = 1771000
+	resources={
+		tungsten=6
+	}
+	
+	state_category = town
+
+	history={
+		set_state_flag = ethnics_CenturalAmerican
+		set_state_flag = coffee_production
+		set_state_flag = banana_production
+		owner = GUA
+		add_to_array = { this.state_ethnics_list = 117 }
+		buildings = {
+			infrastructure = 4
+			farm_building = 2
+			industrial_complex = 2 
+			air_base = 1
+			10886 = {
+				naval_base = 1
+			}
+			13085 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = GUA
+		victory_points = {
+			10886 10
+		}
+
+	}
+
+	provinces={
+		10886 13085
+	}
+	
+}

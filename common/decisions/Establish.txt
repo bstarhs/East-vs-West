@@ -1,0 +1,243 @@
+formable_nations = {
+	
+	Grand_west_africa = {
+		fire_only_once = yes
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			is_subject = no
+			has_country_flag = west_africa
+			NOT = { has_cosmetic_tag = WEAF }
+			controls_province = 4927
+			controls_province = 10836
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = WEAF
+		}
+
+	
+	}
+}
+construction_catrgory = {
+	
+	up_state_town = {
+		icon = decision_generic_construction
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			OR = {
+				has_country_flag = african_state
+			}
+		}
+		available = {
+			has_tech = concentrated_industry2
+		}
+		days_remove = 200
+		cost = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				infrastructure > 3
+				check_variable = { this.state_educate_production > state_educate_need }
+				check_variable = { this.state_health_production > state_health_need }
+				check_variable = { this.state_power_production > state_power_need }
+				check_variable = { this.state_food_production > state_food_need }
+				OR = {
+					has_state_category = pastoral
+					has_state_category = rural
+				}
+			}
+		}
+		remove_effect = {
+			FROM = { set_state_category = town }
+		}
+	}
+	up_state_cities = {
+		icon = decision_generic_construction
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 200
+		cost = 200
+		state_target = yes
+		available = {
+			has_tech = concentrated_industry2
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				infrastructure > 6
+				check_variable = { this.state_educate_production > state_educate_need }
+				check_variable = { this.state_health_production > state_health_need }
+				check_variable = { this.state_power_production > state_power_need }
+				check_variable = { this.state_food_production > state_food_need }
+				OR = {
+					has_state_category = town
+				}
+			}
+		}
+		remove_effect = {
+			FROM = { set_state_category = city }
+		}
+	}
+}
+remove_capital = {
+	MZB_cityname = {
+
+		icon = generic_research
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+			tag = KYR
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			544 = { is_controlled_by = MZB }
+		}
+
+		complete_effect = {
+			set_province_name = { id = 8245 name = VICTORY_POINTS_8245_mozambique }
+		}
+
+	}
+	BYZ_decition = {
+
+		icon = generic_research
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+			tag = GRE
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			341 = { is_controlled_by = GRE }
+		}
+
+		complete_effect = {
+		set_cosmetic_tag = BYZ
+			set_capital = { state = 341 }
+		set_province_name = { id = 9833 name = VICTORY_POINTS_Constantinopolis }
+		set_province_name = { id = 11747 name = VICTORY_POINTS_Ancyra }
+		set_province_name = { id = 9861 name = VICTORY_POINTS_Iconium }
+		set_province_name = { id = 12029 name = VICTORY_POINTS_Antioch }
+		set_province_name = { id = 11842 name = VICTORY_POINTS_Adrianople }
+		set_province_name = { id = 4112 name = VICTORY_POINTS_Smyrna }
+		set_province_name = { id = 947 name = VICTORY_POINTS_Prousa }
+		set_province_name = { id = 9893 name = VICTORY_POINTS_Antep }
+		set_province_name = { id = 4512 name = VICTORY_POINTS_Amida }
+		set_province_name = { id = 3951 name = VICTORY_POINTS_Dorylaeum }
+		set_province_name = { id = 10056 name = VICTORY_POINTS_Hadrianopolis }
+		set_province_name = { id = 11811 name = VICTORY_POINTS_Nicomedia }
+		set_province_name = { id = 6938 name = VICTORY_POINTS_Komnenon }
+		set_province_name = { id = 11853 name = VICTORY_POINTS_Theodosiopolis }
+		set_province_name = { id = 10041 name = VICTORY_POINTS_Attouda }
+		set_province_name = { id = 9878 name = VICTORY_POINTS_Nicopolis }
+		set_province_name = { id = 9887 name = VICTORY_POINTS_Dardanellia }
+		set_province_name = { id = 1005 name = VICTORY_POINTS_Attaleia }
+		set_province_name = { id = 10122 name = VICTORY_POINTS_Halicarnassus }
+		set_province_name = { id = 3856 name = VICTORY_POINTS_Cotyaeum }
+		set_province_name = { id = 3851 name = VICTORY_POINTS_Nicaea }
+		set_province_name = { id = 3807 name = VICTORY_POINTS_Caesarea }
+		set_province_name = { id = 6813 name = VICTORY_POINTS_Germanicea }
+		set_province_name = { id = 890 name = VICTORY_POINTS_Nicomedia }
+		set_province_name = { id = 9878 name = VICTORY_POINTS_Yerznka }
+		}
+
+	}
+	KYR_bishkek = {
+
+		icon = generic_research
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+			tag = KYR
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			732 = { is_controlled_by = KYR }
+		}
+
+		complete_effect = {
+			set_province_name = { id = 12583 name = VICTORY_POINTS_12583_bishkek }
+		}
+
+	}
+	removing_capital = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+		fire_only_once = yes
+		days_remove = 500
+		visible = {
+			OR = {
+				has_country_flag = african_state
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {	
+				is_capital = no
+				is_owned_by = ROOT
+				check_variable = { this.state_educate_production > state_educate_need }
+				check_variable = { this.state_health_production > state_health_need }
+				check_variable = { this.state_power_production > state_power_need }
+				check_variable = { this.state_food_production > state_food_need }
+				NOT = {
+					OR = {
+						has_state_category = pastoral
+						has_state_category = enclave
+						has_state_category = wasteland
+						has_state_category = tiny_island
+					}
+				}
+			}
+		}
+		complete_effect = {
+			set_capital = {state = FROM }
+		}
+	}
+}

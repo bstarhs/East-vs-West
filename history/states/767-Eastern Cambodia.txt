@@ -1,0 +1,38 @@
+state={
+	id=767
+	name="STATE_767"
+	manpower = 5245000
+	buildings_max_level_factor = 1.000
+	state_category = rural
+	history = {
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Khmer
+		add_to_array = { this.state_ethnics_list = 94 }
+		owner = FRA
+		add_core_of = CAM
+		victory_points = {
+			7645 3
+		}
+		victory_points = {
+			12260 4
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 1
+		}
+		1948.11.9 = {
+			owner = CAM
+		}
+		1960.5.23 = {
+			add_dynamic_modifier = { modifier = HCMTrail_modifier }
+		}
+		1975.5.23 = {
+			remove_dynamic_modifier = { modifier = HCMTrail_modifier }
+		}
+	}
+	provinces={
+		12167 7645 12260 4596 10204 1620 4330 10261 1577 10453 
+	}
+}

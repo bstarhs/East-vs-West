@@ -1,0 +1,127 @@
+﻿add_namespace = par
+#来自中国的支援
+news_event = {
+	id = par.3
+	title = par.3.t
+	desc = par.3.d
+	picture = GFX_ParaguayJunta
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = PAR
+		has_government = neutrality
+		date < 1950.1.16
+	}
+	
+	option = {
+		name = par.5.a
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.04
+		}
+	}
+}
+news_event = {
+	id = par.4
+	title = par.4.t
+	desc = par.4.d
+	picture = GFX_ParaguayJunta
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = PAR
+		has_government = neutrality
+		date < 1950.1.16
+	}
+	
+	option = {
+		name = par.5.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.04
+		}
+	}
+}
+news_event = {
+	id = par.5
+	title = par.5.t
+	desc = par.5.d
+	picture = GFX_ParaguayJunta
+	mean_time_to_happen = { days = 60 }
+	trigger = {
+		tag = PAR
+		has_government = neutrality
+		date < 1950.1.16
+	}
+	
+	option = {
+		name = par.5.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.04
+		}
+	}
+}
+news_event = {
+	id = par.6
+	title = par.6.t
+	desc = par.6.d
+	picture = GFX_ParaguayJunta
+	fire_only_once = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = PAR
+		has_government = neutrality
+		date < 1950.1.16
+		neutrality < 0.4
+		has_war = no
+	}
+	
+	option = {
+		name = par.5.a
+		news_event = { id = par.7 }
+		promote_character = PAR_rafael_franco
+		set_politics = { ruling_party = authoritarianism }
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.4
+		}
+	}
+	option = {
+		name = par.5.a
+		promote_character = PAR_rafael_franco
+		start_civil_war = {
+			ideology = authoritarianism
+			size = 0.6
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.3
+		}
+		news_event = { id = par.8 }
+	}
+}
+#变迁之风
+news_event = {
+	id = par.7
+	title = par.7.t
+	desc = par.7.d
+	picture = GFX_ParaguayJunta
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = par.7.a
+	}
+
+}
+#变迁之风
+news_event = {
+	id = par.8
+	title = par.8.t
+	desc = par.8.d
+	picture = GFX_ParaguayJunta
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = par.7.a
+	}
+
+}

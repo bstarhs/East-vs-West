@@ -1,0 +1,43 @@
+
+state={
+	id=369
+	name="STATE_369"
+	manpower = 2614588
+	
+	state_category = city
+	resources={
+		coal=11
+		copper=17
+	}
+
+
+	history={
+		set_state_flag = ethnics_Yankee
+		add_to_array = { this.state_ethnics_list = 174 }
+		add_to_array = { this.state_ethnics_list = 175 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = tobacco_production
+                              
+		owner = USA
+		buildings = {
+			hospital = 2
+			infrastructure = 5
+			power_plant = 2
+			industrial_complex = 3
+			farm_building = 4
+			school = 2
+			air_base = 4
+		}
+		add_core_of = USA
+		victory_points = { 6696 8 }
+		victory_points = { 9727 5 }
+		victory_points = { 1445 4 }
+		victory_points = { 10727 4 }
+		victory_points = { 10586 2 }
+
+	}
+
+	provinces={
+		1445 1582 4402 4452 4988 6696 6974 7547 9727 10586 10727 12568 12637 12709 
+	}
+}

@@ -1,0 +1,41 @@
+
+SOV_nuclear_plan = {
+	name = "SOV right opposition cooperative plan"
+	desc = ""
+
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		original_tag = SOV
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+	}
+
+	research = {
+		nuclear = 999.0
+	}
+
+	ideas = {
+
+	}
+	traits = {
+		
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

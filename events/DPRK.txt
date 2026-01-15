@@ -1,0 +1,1686 @@
+﻿add_namespace = prk
+news_event = {
+	id = prk.1
+	title = prk.1.t
+	desc = prk.1.d
+	picture = GFX_ROK_independent
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		play_song = PRK_1
+	}
+
+}
+
+#使者被杀
+news_event = {
+	id = prk.3
+	title = prk.3.t
+	desc = prk.3.d
+	picture = GFX_KPA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		add_war_support = 0.6
+		news_event = { id = prk.4 }
+		declare_war_on = {
+			target = KOR
+			type = puppet_wargoal_focus 
+		}
+	}
+
+}
+news_event = {
+	id = prk.4
+	title = prk.4.t
+	desc = prk.4.d
+	picture = GFX_KPA1950
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = video_korea_war
+	}
+	option = {
+		name = prk.4.a
+	}
+
+}
+news_event = {
+	id = prk.5
+	title = prk.5.t
+	desc = prk.5.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = { tag = USA }
+			news_event = { id = prk.6 days = 1 }
+		}
+	}
+	option = {
+		name = prk.4.a
+	}
+
+}
+news_event = {
+	id = prk.6
+	title = prk.6.t
+	desc = prk.6.d
+	picture = GFX_UN
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+		if = {
+			limit = { tag = USA }
+			add_ideas = UN_troops
+			KOR = { add_ideas = UNSC_83 }
+		}
+	}
+
+}
+#占领汉城
+news_event = {
+	id = prk.7
+	title = prk.7.t
+	desc = prk.7.d
+	picture = GFX_KPA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.4.a
+		set_global_flag = prk7
+		if = {
+			limit = {
+				tag = USA 
+				has_political_power < 200
+			}
+			add_political_power = 1000
+		}
+	}
+}
+news_event = {
+	id = prk.8
+	title = prk.8.t
+	desc = prk.8.d
+	picture = GFX_KPA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.8.a
+	}
+
+}
+news_event = {
+	id = prk.9
+	title = prk.9.t
+	desc = prk.9.d
+	picture = GFX_UsKorea
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.9.a
+		if = {
+			limit = { tag = PRC }
+			add_political_power = 200
+		}
+	}
+
+}
+news_event = {
+	id = prk.10
+	title = prk.10.t
+	desc = prk.10.d
+	picture = GFX_OccupyPyeongyang
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+		if = {
+			limit = { tag = PRK }
+			set_capital = { state = 787 }
+		}
+	}
+}
+news_event = {
+	id = prk.11
+	title = prk.11.t
+	desc = prk.11.d
+	picture = GFX_KPA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.12
+	title = prk.12.t
+	desc = prk.12.d
+	picture = GFX_KPA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.15
+	title = prk.15.t
+	desc = prk.15.d
+	picture = GFX_KoreaWarPLA
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = PRC
+		has_idea = SupportKorea
+		date > 1950.10.1
+		PRK = { controls_province = 4052 }
+		NOT = { has_dynamic_modifier = { modifier = KOREA_war_attack_modifier } }
+		KOR = {
+			OR = {
+			controls_province = 9981
+			controls_province = 4004
+			controls_province = 12040
+			}
+		}
+	}
+	option = {
+		name = prk.10.a
+		news_event = { id = prk.16 }
+		add_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		PRK = { add_dynamic_modifier = { modifier = KOREA_war_attack_modifier } }
+	}
+}
+news_event = {
+	id = prk.16
+	title = prk.16.t
+	desc = prk.16.d
+	picture = GFX_KoreaWarPLA
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.17
+	title = prk.17.t
+	desc = prk.17.d
+	picture = GFX_UsKorea
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = USA
+		PRC = { has_idea = SupportKorea }
+		date > 1950.10.1
+		PRK = {
+			OR = {
+			controls_province = 13545
+			controls_province = 13546
+			controls_province = 1148
+			}
+		}
+		NOT = { has_dynamic_modifier = { modifier = KOREA_war_attack_modifier } }
+	}
+	option = {
+		name = prk.10.a
+		news_event = { id = prk.18 }
+		add_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		KOR = { add_dynamic_modifier = { modifier = KOREA_war_attack_modifier } }
+	}
+}
+news_event = {
+	id = prk.18
+	title = prk.18.t
+	desc = prk.18.d
+	picture = GFX_UsKorea
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+#毛岸英在朝鲜战场牺牲
+news_event = {
+	id = prk.19
+	title = prk.19.t
+	desc = prk.19.d
+	picture = GFX_Mao_AnYing
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.20
+	title = prk.20.t
+	desc = prk.20.d
+	picture = GFX_Mao_AnYing
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.21
+	title = prk.21.t
+	desc = prk.21.d
+	picture = GFX_UsKorea
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+#朝鲜战争开始初步谈判
+news_event = {
+	id = prk.22
+	title = prk.22.t
+	desc = prk.22.d
+	picture = GFX_KoreanWarNegotiation
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prk.10.a
+	}
+}
+#有关战俘释放问题
+news_event = {
+	id = prk.23
+	title = prk.23.t
+	desc = prk.23.d
+	picture = GFX_KoreanWarNegotiation
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		PRK = { has_war_with = KOR }
+		has_idea = SupportKorea
+		has_global_flag = KoreaNego
+	}
+	option = {
+		name = kor.12.a  #接受
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 100
+				date > 1953.1.1
+			}
+		}
+		set_global_flag = KoreaNegoDone
+		set_global_flag = KoreaPOVtoTW
+		news_event = { id = prk.25 }
+	}
+	option = {
+		name = kor.12.a  #拒绝
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 100
+				date < 1952.1.1
+			}
+		}
+		news_event = { id = prk.24 }
+	}
+}
+news_event = {
+	id = prk.24
+	title = prk.24.t
+	desc = prk.24.d
+	picture = GFX_KoreanWarNegotiation
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.25
+	title = prk.25.t
+	desc = prk.25.d
+	picture = GFX_KoreanWarNegotiation
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = prk.10.a
+	}
+}
+news_event = {
+	id = prk.29
+	title = prk.29.t
+	desc = prk.29.d
+	picture = GFX_KoreanWarNegotiation
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = PRK
+		has_global_flag = KoreaNegoDone
+		has_war_with = KOR
+	}
+	major = yes
+	immediate = {
+		play_song = KOR_19
+	}
+	option = {
+		name = prk.10.a
+		if = {
+			limit = { tag = PRK }
+			white_peace = KOR
+			clr_global_flag = KoreaNego
+			clr_global_flag = KoreaNegoDone
+			add_stability = 0.3
+			remove_ideas = PRK_liberate_war
+		}
+		if = {
+			limit = { tag = KOR }
+			add_stability = 0.3
+		}
+		if = {
+			limit = { tag = USA }
+			remove_ideas = UN_troops
+		}
+		if = {
+			limit = { tag = PRC }
+			add_stability = 0.3
+			retire_character = SOV_Stepan_Krasovsky
+		}
+	}
+}
+news_event = {
+	id = prk.30
+	title = prk.30.t
+	desc = prk.30.d
+	picture = GFX_KoreaWarPLA
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = PRC
+		has_idea = SupportKorea
+		has_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		PRK = {
+			controls_province = 13545
+			controls_province = 13546
+			controls_province = 13267
+			controls_province = 1148
+		}
+	}
+	option = {
+		name = prk.10.a
+		if = {
+			limit = { tag = PRC }
+			remove_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		}
+		if = {
+			limit = { tag = PRK }
+			remove_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		}
+	}
+}
+news_event = {
+	id = prk.32
+	title = prk.32.t
+	desc = prk.32.d
+	picture = GFX_KoreaWarPLA
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = USA
+		has_idea = UN_troops
+		has_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		KOR = {
+			OR = {
+			controls_province = 13546
+			controls_province = 13545
+			controls_province = 1148
+			controls_province = 4004
+			controls_province = 11958
+			controls_province = 12040
+			}
+		}
+	}
+	option = {
+		name = prk.10.a
+		if = {
+			limit = { tag = USA }
+			remove_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		}
+		if = {
+			limit = { tag = KOR }
+			remove_dynamic_modifier = { modifier = KOREA_war_attack_modifier }
+		}
+	}
+}
+#提供米格战斗机
+country_event = {
+	id = prk.40
+	title = prk.40.t
+	desc = prk.40.d
+	picture = GFX_Mig15Small
+	mean_time_to_happen = { days = 120 }
+	trigger = {
+		tag = SOV
+		PRC = { has_idea = SupportKorea }
+		PRK = { has_war_with = KOR }
+		date > 1950.10.10
+		date < 1953.1.1
+	}
+	option = {
+		name = prk.10.a
+		SOV_Stepan_Krasovsky = {
+			set_nationality = PRC
+		}
+		PRK = { country_event = prk.41 }
+		PRC = { country_event = prk.41 }
+	}
+}
+country_event = {
+	id = prk.41
+	title = prk.41.t
+	desc = prk.41.d
+	picture = GFX_Mig15Small
+	is_triggered_only = yes
+	option = {
+		name = prk.10.a
+		air_experience = 120
+		add_equipment_to_stockpile = {
+			type = fighter_equipment_1
+			amount = 400
+			producer = SOV
+		}	
+	}
+}
+
+
+
+
+
+#北朝鲜宣布成立民主政府
+news_event = {
+	id = prk.50
+	title = prk.50.t
+	desc = prk.50.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜准备进行民主选举
+news_event = {
+	id = prk.51
+	title = prk.51.t
+	desc = prk.51.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜社会民主党政府成立
+news_event = {
+	id = prk.52
+	title = prk.52.t
+	desc = prk.52.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜共产党政府成立
+news_event = {
+	id = prk.53
+	title = prk.53.t
+	desc = prk.53.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜政府与统一教进行接触
+news_event = {
+	id = prk.54
+	title = prk.54.t
+	desc = prk.54.d
+	picture = GFX_Tongilgyeo
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#平和汽车公司成立
+news_event = {
+	id = prk.55
+	title = prk.55.t
+	desc = prk.55.d
+	picture = GFX_ROK_independent
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜劳动党宣布成立
+news_event = {
+	id = prk.56
+	title = prk.56.t
+	desc = prk.56.d
+	picture = GFX_PRK_party_1950s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#北朝鲜政府向南方发出倡议
+news_event = {
+	id = prk.57
+	title = prk.57.t
+	desc = prk.57.d
+	picture = GFX_KimKooKimIlSUng
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南韩接受北方的倡议
+news_event = {
+	id = prk.58
+	title = prk.58.t
+	desc = prk.58.d
+	picture = GFX_KimKooKimIlSUng
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南韩成拒绝北方的倡议
+news_event = {
+	id = prk.59
+	title = prk.59.t
+	desc = prk.59.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南北朝鲜召开和平统一大会
+news_event = {
+	id = prk.60
+	title = prk.60.t
+	desc = prk.60.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南朝鲜退出和平统一方案
+news_event = {
+	id = prk.61
+	title = prk.61.t
+	desc = prk.61.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南北朝鲜联合政府正式成立
+news_event = {
+	id = prk.62
+	title = prk.62.t
+	desc = prk.62.d
+	picture = GFX_KoreaConference
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#北方提出与我们进行对话
+news_event = {
+	id = prk.63
+	title = prk.63.t
+	desc = prk.63.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南北朝鲜进行外交对话
+news_event = {
+	id = prk.64
+	title = prk.64.t
+	desc = prk.64.d
+	picture = GFX_KoreanTalk
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南方拒绝与我们进行对话
+news_event = {
+	id = prk.65
+	title = prk.65.t
+	desc = prk.65.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜延安派崛起
+news_event = {
+	id = prk.66
+	title = prk.66.t
+	desc = prk.66.d
+	picture = GFX_YeonAnPae
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜劳动党大会
+news_event = {
+	id = prk.67
+	title = prk.67.t
+	desc = prk.67.d
+	picture = GFX_PRK_party_1960s
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = PRK
+		has_government = communism
+		date > 1956.8.1
+		date < 1956.9.21
+		SOV = { has_completed_focus = SOV_RemovingStalinization }
+		NOT = { has_global_flag = prk67 }
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = prk67
+		news_event = { id = prk.69 }
+	}
+
+}
+#当选朝鲜劳动党总书记
+news_event = {
+	id = prk.68
+	title = prk.68.t
+	desc = prk.68.d
+	picture = GFX_PRK_party_1960s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#金日成的崛起
+news_event = {
+	id = prk.69
+	title = prk.69.t
+	desc = prk.69.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+	}
+
+}
+#金日成的崛起
+news_event = {
+	id = prk.70
+	title = prk.70.t
+	desc = prk.70.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜发生政治变动
+news_event = {
+	id = prk.71
+	title = prk.71.t
+	desc = prk.71.d
+	picture = GFX_PRK_party_1960s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜爆发动乱
+news_event = {
+	id = prk.72
+	title = prk.72.t
+	desc = prk.72.d
+	picture = GFX_PRK_party_1960s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#金日成提出主体思想理论
+news_event = {
+	id = prk.73
+	title = prk.73.t
+	desc = prk.73.d
+	picture = GFX_KimPropaganda
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { PRK = { is_ai = no } }
+			play_song = PRK_2
+		}
+	}
+
+}
+#朝鲜政府提出新的历史观点
+news_event = {
+	id = prk.74
+	title = prk.74.t
+	desc = prk.74.d
+	picture = GFX_Dangun
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#金正日进入朝鲜政府
+news_event = {
+	id = prk.75
+	title = prk.75.t
+	desc = prk.75.d
+	picture = GFX_KimJungIl
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜政府宣布檀君为朝鲜民族之主
+news_event = {
+	id = prk.76
+	title = prk.76.t
+	desc = prk.76.d
+	picture = GFX_Dangun
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜民主主义人民共和国宣布国家统一
+news_event = {
+	id = prk.77
+	title = prk.77.t
+	desc = prk.77.d
+	picture = GFX_DPRKFound
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		play_song = PRK_7
+	}
+
+}
+#朝鲜宣布迁都汉城
+news_event = {
+	id = prk.78
+	title = prk.78.t
+	desc = prk.78.d
+	picture = GFX_KimSpeech
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜宣布南方进入紧急状态
+news_event = {
+	id = prk.79
+	title = prk.79.t
+	desc = prk.79.d
+	picture = GFX_KPAarmy
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#北朝鲜宣布严惩脱北南逃行为
+news_event = {
+	id = prk.80
+	title = prk.80.t
+	desc = prk.80.d
+	picture = GFX_KPAarmy
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南北边境发生大规模南逃事件
+news_event = {
+	id = prk.81
+	title = prk.81.t
+	desc = prk.81.d
+	picture = GFX_KoreanRefugee
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#我方已取得对南方的渗透
+news_event = {
+	id = prk.811
+	title = prk.10.t
+	desc = prk.10.d
+	picture = GFX_KoreaProtest1970s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#我们可以支持南方学生运动
+news_event = {
+	id = prk.82
+	title = prk.82.t
+	desc = prk.82.d
+	picture = GFX_KoreaProtest1970s
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#我们可以支持南方劳工运动
+news_event = {
+	id = prk.83
+	title = prk.83.t
+	desc = prk.83.d
+	picture = GFX_KoreaProtest1970s
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#我们可以支持南方市民起义
+news_event = {
+	id = prk.84
+	title = prk.84.t
+	desc = prk.84.d
+	picture = GFX_GwangjuUprising
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#我们可以支持南方民主运动
+news_event = {
+	id = prk.85
+	title = prk.85.t
+	desc = prk.85.d
+	picture = GFX_KoreaDemocratic
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#我们可以支持南方民主运动
+news_event = {
+	id = prk.86
+	title = prk.86.t
+	desc = prk.86.d
+	picture = GFX_KoreaDemocratic
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜政府宣布实行先军政治
+news_event = {
+	id = prk.87
+	title = prk.87.t
+	desc = prk.87.d
+	picture = GFX_SeonGun
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { PRK = { is_ai = no } }
+			play_song = PRK_5
+		}
+	}
+
+}
+#朝鲜开始研发核能
+news_event = {
+	id = prk.88
+	title = prk.88.t
+	desc = prk.88.d
+	picture = GFX_Nuke
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜宣布发起千里马运动
+news_event = {
+	id = prk.89
+	title = prk.89.t
+	desc = prk.89.d
+	picture = GFX_Chonrima
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { PRK = { is_ai = no } }
+			play_song = PRK_9
+		}
+	}
+
+}
+#朝鲜政府发起青山里运动
+news_event = {
+	id = prk.90
+	title = prk.90.t
+	desc = prk.90.d
+	picture = GFX_agriculture_event
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜政府提出大安模式
+news_event = {
+	id = prk.91
+	title = prk.91.t
+	desc = prk.91.d
+	picture = GFX_agriculture_event
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#粮食发生减产
+news_event = {
+	id = prk.92
+	title = prk.92.t
+	desc = prk.92.d
+	picture = GFX_agriculture_event
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜提出我国朝鲜族战士加入该国军队
+news_event = {
+	id = prk.93
+	title = prk.93.t
+	desc = prk.93.d
+	picture = GFX_PLA1950
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#中国政府同意朝鲜族士兵回归
+news_event = {
+	id = prk.94
+	title = prk.94.t
+	desc = prk.94.d
+	picture = GFX_PLA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#中国政府拒绝朝鲜族士兵回归
+news_event = {
+	id = prk.95
+	title = prk.95.t
+	desc = prk.95.d
+	picture = GFX_PLA1950
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜领导人访问我国
+news_event = {
+	id = prk.96
+	title = prk.96.t
+	desc = prk.96.d
+	picture = GFX_KimMao
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜提出我国朝鲜族居民回国
+news_event = {
+	id = prk.97
+	title = prk.97.t
+	desc = prk.97.d
+	picture = GFX_KOreanUSSR
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#苏联政府同意朝鲜族居民回归
+news_event = {
+	id = prk.98
+	title = prk.98.t
+	desc = prk.98.d
+	picture = GFX_KOreanUSSR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#苏联政府拒绝朝鲜族居民回归
+news_event = {
+	id = prk.99
+	title = prk.99.t
+	desc = prk.99.d
+	picture = GFX_KOreanUSSR
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜声明批判中国修正主义
+news_event = {
+	id = prk.100
+	title = prk.100.t
+	desc = prk.100.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#中国中断对朝鲜的援助
+news_event = {
+	id = prk.101
+	title = prk.101.t
+	desc = prk.101.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜发表关于延边领土问题的声明
+news_event = {
+	id = prk.102
+	title = prk.102.t
+	desc = prk.102.d
+	picture = GFX_KimIlsong
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜宣布对非洲国家进行援助
+news_event = {
+	id = prk.103
+	title = prk.103.t
+	desc = prk.103.d
+	picture = GFX_PrkAfrica
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜宣布成立主体思想国际研讨协会
+news_event = {
+	id = prk.104
+	title = prk.104.t
+	desc = prk.104.d
+	picture = GFX_PrkAfrica
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#几内亚诗人歌颂伟大的金日成同志
+news_event = {
+	id = prk.105
+	title = prk.105.t
+	desc = prk.105.d
+	picture = GFX_PrkAfrica
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜领导人与会见日本共产党领袖
+news_event = {
+	id = prk.106
+	title = prk.106.t
+	desc = prk.106.d
+	picture = GFX_KimIlsongMinobe
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜政府提出与日本改善关系
+news_event = {
+	id = prk.107
+	title = prk.107.t
+	desc = prk.107.d
+	picture = GFX_PRKflag
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#朝鲜希望与我国建立外交关系
+news_event = {
+	id = prk.108
+	title = prk.108.t
+	desc = prk.108.d
+	picture = GFX_PRKflag
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#日本宣布与朝鲜建立外交关系
+news_event = {
+	id = prk.109
+	title = prk.109.t
+	desc = prk.109.d
+	picture = GFX_PRKflag
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#日本拒绝与朝鲜建立外交关系
+news_event = {
+	id = prk.110
+	title = prk.110.t
+	desc = prk.110.d
+	picture = GFX_PRKflag
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#日本与北韩建交
+news_event = {
+	id = prk.112
+	title = prk.112.t
+	desc = prk.112.d
+	picture = GFX_PRKflag
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#南韩抗议日本与北朝鲜建立外交关系
+news_event = {
+	id = prk.113
+	title = prk.113.t
+	desc = prk.113.d
+	picture = GFX_PRKflag
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#北朝鲜宣布进行经济改革
+news_event = {
+	id = prk.114
+	title = prk.114.t
+	desc = prk.114.d
+	picture = GFX_ROK_independent
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#北朝鲜宣布进行农业改革
+news_event = {
+	id = prk.115
+	title = prk.115.t
+	desc = prk.115.d
+	picture = GFX_ROK_independent
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		}
+
+}
+#美国对中共军队进行核威慑
+news_event = {
+	id = prk.120
+	title = prk.120.t
+	desc = prk.120.d
+	picture = GFX_Eisenhower
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = KoreaWarNukeThreat }
+		PRK  = { has_war_with = KOR }
+		PRK  = { controls_province = 7125 }
+		PRK = {
+			has_volunteers_amount_from = {
+				tag = PRC
+				count > 2
+			}
+		}
+		KOR = {
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 0
+			}
+		}
+	}
+	option = {
+		name = prk.1.a
+		news_event = { id = prk.121 }
+		set_global_flag = KoreaWarNukeThreat
+	}
+
+}
+news_event = {
+	id = prk.121
+	title = prk.121.t
+	desc = prk.121.d
+	picture = GFX_Eisenhower
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { tag = PRC }
+			add_war_support = -0.12
+		}
+	}
+
+}
+#仁川登陆
+news_event = {
+	id = prk.122
+	title = prk.122.t
+	desc = prk.122.d
+	picture = GFX_IncheonLanding
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { tag = KOR }
+			525 = { set_state_controller_to = KOR }
+		}
+	}
+
+}
+#朝鲜正在对南方策划战争
+news_event = {
+	id = prk.125
+	title = prk.125.t
+	desc = prk.125.d
+	picture = GFX_KimStalin
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		OR = {
+			tag = SOV
+			tag = PRC
+		}
+		NOT = { has_country_flag = prk125 }
+		PRK = {
+			focus_progress = {
+				focus = PRK_korea_war
+				progress > 0.3
+			}			
+		}
+	}
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { tag = SOV }
+			PRK = { news_event = { id = prk.126 } }
+		}
+		if = {
+			limit = { tag = PRC }
+			PRK = { news_event = { id = prk.128 } }
+		}
+		set_country_flag = prk125
+	}
+	option = {
+		name = prk.1.a
+		if = {
+			limit = { tag = SOV }
+			PRK = { news_event = { id = prk.127 } }
+		}
+		if = {
+			limit = { tag = PRC }
+			PRK = { news_event = { id = prk.129 } }
+		}
+		set_country_flag = prk125
+	}
+
+}
+news_event = {
+	id = prk.126
+	title = prk.126.t
+	desc = prk.126.d
+	picture = GFX_Agriculture
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+	}
+}
+news_event = {
+	id = prk.127
+	title = prk.127.t
+	desc = prk.127.d
+	picture = GFX_Agriculture
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+	}
+}
+news_event = {
+	id = prk.128
+	title = prk.128.t
+	desc = prk.128.d
+	picture = GFX_MaoWriting
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+	}
+}
+news_event = {
+	id = prk.129
+	title = prk.129.t
+	desc = prk.129.d
+	picture = GFX_MaoWriting
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+	}
+}
+news_event = {
+	id = prk.130
+	title = prk.130.t
+	desc = prk.130.d
+	picture = GFX_ZhouEnLai
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		ai_chance = {
+			base = 10
+		}
+		PRC = { news_event = { id = prk.130 } }
+	}
+	option = {
+		name = prk.1.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 100
+				KOR = {
+					OR = {
+						controls_province = 4052
+						controls_province = 7171
+					}
+				}
+			}
+		}
+		PRC = { news_event = { id = prk.132 } }
+	}
+}
+news_event = {
+	id = prk.131
+	title = prk.131.t
+	desc = prk.131.d
+	picture = GFX_KoreaWarPLA
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+	}
+}
+news_event = {
+	id = prk.132
+	title = prk.132.t
+	desc = prk.132.d
+	picture = GFX_KoreaWarPLA
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		news_event = { id = kor.12 }
+		add_ideas = SupportKorea
+		add_war_support = 0.2
+	}
+}
+news_event = {
+	id = prk.135
+	title = prk.135.t
+	desc = prk.135.d
+	picture = GFX_Eisenhower
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prk.1.a
+		set_global_flag = prk135
+		if = {
+			limit = { tag = KOR }
+			add_war_support = -0.05
+		}
+	}
+
+}
+country_event = {
+	id = prk.136
+	title = prk.136.t
+	desc = prk.136.d
+	picture = GFX_PLA1940Small
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = USA
+		PRK  = { has_war_with = KOR }
+		has_global_flag = prk135
+	}
+	option = {
+		name = prk.1.a
+	}
+
+}
+news_event = {
+	id = prk.137
+	title = prk.137.t
+	desc = prk.137.d
+	picture = GFX_KoreanWarJet
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = PRC
+		KOR  = {
+			has_war_with = PRK
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 0
+			}
+		}
+		USA = {
+			OR = {
+				is_ai = yes
+				num_planes_stationed_in_regions = {
+					value > 0
+					regions = { 123 321 }
+				}
+			}
+		}
+		NOT = { has_global_flag = prk137 }
+	}
+	option = {
+		name = prk.1.a
+		set_global_flag = prk137
+	}
+}
+##派遣空军顾问
+country_event = {
+	id = prk.138
+	title = prk.138.t
+	desc = prk.138.d
+	picture = GFX_PLA1940Small
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = USA
+		has_global_flag = PRC_korea_war_border_guard_decis
+		OR = {
+			network_strength = {
+				target = PRC
+				value > 20
+			}
+			num_planes_stationed_in_regions = {
+				value > 0
+				regions = { 123 321 }
+			}
+		}
+		NOT = { has_global_flag = prk138 }
+	}
+	option = {
+		name = prk.1.a
+		set_global_flag = prk138
+	}
+}

@@ -1,0 +1,34 @@
+
+state={
+	id=175
+	name="STATE_175"
+	manpower = 848903
+	
+	state_category = rural
+	resources={
+		coal=23
+		copper=17
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Castile
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 115 }
+		victory_points = { 9778 5 }
+		owner = SPR
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			industrial_complex = 1
+			power_plant = 1
+			infrastructure = 6
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		888 942 3891 3945 3953 6800 6832 6879 6896 9757 9778 9828 9852 9881 11742 11812 11863 12081 
+	}
+}

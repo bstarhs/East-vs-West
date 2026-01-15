@@ -1,0 +1,33 @@
+state=
+{
+	id=164
+	name="STATE_164"
+	manpower = 120000
+	
+	state_category = small_island
+	
+	history=
+	{
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = GRE
+		set_state_flag = ethnics_Greeks
+		add_to_array = { this.state_ethnics_list = 74 }
+		victory_points = {
+			10007 5
+		}
+		buildings = {
+			hospital = 1
+			infrastructure = 5
+			air_base = 1
+			10007 = {
+				naval_base = 4
+			}
+			7003 = {
+				naval_base = 1
+			}
+		}
+	}
+	provinces=
+	{
+7003 10007 	}
+}

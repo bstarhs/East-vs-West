@@ -1,0 +1,81 @@
+finicial_add = {
+	finicial_add_USA = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 150
+		days_re_enable = 180
+		visible = {
+			tag = USA
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_opinion = {
+						target = USA
+						value > 30
+					}
+					has_idea = APLA
+				}
+				check_variable = { total_revenue > 9999 }
+				NOT = {
+					OR = {
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = anti_america
+						has_government = fascism
+					}
+				}
+				FROM = { check_variable = { total_from_aid < 500 } }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 80
+				FROM = { has_war = yes }
+			}
+			modifier = {
+				add = 50
+				FROM = { check_variable = { total_revenue < 10 } }
+			}
+			modifier = {
+				add = -500
+				check_variable = { total_revenue < 100 }
+			}
+			modifier = {
+				add = -500
+				FROM = { check_variable = { total_revenue > 50 } }
+			}
+			modifier = {
+				add = -100
+				FROM = { 
+					has_opinion = {
+						target = USA
+						value < 20
+					}
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_political_power = 300
+				custom_effect_tooltip = total_from_aid_80
+				add_to_variable = { this.total_from_aid = 80 }
+				add_opinion_modifier = {
+					target = USA
+					modifier = finicial_add_opinion
+				}
+			}
+			if = {
+				limit = { has_idea = APLA }
+				add_political_power = 200
+				custom_effect_tooltip = total_from_aid_80
+				add_to_variable = { this.total_from_aid = 80 }
+			}
+		}
+	}
+}
+USA_military_aid = {
+}

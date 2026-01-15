@@ -1,0 +1,67 @@
+characters={
+	SAF_Andries_Treurnicht={
+		name=SAF_Andries_Treurnicht
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Andries_Treurnicht.dds"
+			}
+		}
+		advisor = {
+			visible = {
+				date > 1960.1.1
+			}
+			slot = political_advisor
+			idea_token = Andries_Treurnicht
+			allowed = {
+				original_tag = SAF
+			}
+			modifier = {
+				compliance_growth_on_our_occupied_states = 0.5
+				political_power_factor = 0.12
+			}
+		}
+	}
+	SAF_Eben_Donges={
+		name=SAF_Eben_Donges
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Eben_Donges.dds"
+			}
+		}
+		advisor = {
+			visible = {
+				date > 1960.1.1
+			}
+			slot = political_advisor
+			idea_token = Eben_Donges
+			allowed = {
+				original_tag = SAF
+			}
+			modifier = {
+				compliance_growth_on_our_occupied_states = 0.5
+				stability_factor = 0.15
+			}
+		}
+	}
+	SAF_Pik_Botha={
+		name=SAF_Pik_Botha
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Pik_Botha.dds"
+			}
+		}
+		advisor = {
+			visible = {
+				date > 1960.1.1
+			}
+			slot = political_advisor
+			idea_token = Pik_Botha
+			allowed = {
+				original_tag = SAF
+			}
+			modifier = {
+				opinion_gain_monthly_same_ideology = 2
+			}
+		}
+	}
+}

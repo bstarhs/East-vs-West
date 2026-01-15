@@ -1,0 +1,144 @@
+﻿capital = 316
+
+oob = "COS_1936"
+
+set_country_flag = latin_america
+set_country_flag = language_spannish
+set_country_flag = centural_america
+recruit_character = COS_Jose_Ferrer
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+	add_to_array = { global.UNmember_list = FROM }
+set_country_flag = monroe_doctrine
+
+set_convoys = 10
+add_ideas = {
+		UNmember
+	FruitCompany
+	Catholicism
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "COS_1947"
+	set_technology = {
+		infantry_weapons1 = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+	set_popularities = {
+		democratic = 30
+		communism = 4
+		authoritarianism = 56
+		neutrality = 10
+	}
+set_politics = {
+	
+	ruling_party = authoritarianism
+	last_election = "1932.2.14"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Rafael Michalski"
+	picture = "gfx/leaders/COS/Portrait_COS_Michalski.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		#
+	}
+}
+create_country_leader = {
+	name = "Otilio Ulate Blanco"
+	picture = "gfx/leaders/COS/Portrait_COS_Otilio_Blanco.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+		promote_character = COS_Jose_Ferrer
+1949.1.1 = {
+	set_popularities = {
+		authoritarianism = 15
+		communism = 15
+		democratic = 70
+	}
+	set_politics = {
+		ruling_party = democratic
+	}
+}
+1961.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		APLA
+	}
+}
+1967.1.1 = {
+	remove_ideas = APLA
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+}
+1983.1.1 = {
+	create_country_leader = {
+		name = "Luis Alberto Monge"
+		picture = "gfx/leaders/COS/Portrait_Guatemala_Luis_Monge.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1986.1.1 = {
+	create_country_leader = {
+		name = "Oscar Arias Sánchez"
+		picture = "gfx/leaders/COS/Portrait_COS_Oscar_Arias_Sanchez.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}
+1986.1.1 = {
+	create_country_leader = {
+		name = "Rafael Ángel Calderón Fournier"
+		picture = "gfx/leaders/COS/Portrait_COS_Rafael_Angel.tga"
+		expire = "1949.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}

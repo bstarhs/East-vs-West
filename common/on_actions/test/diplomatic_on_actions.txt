@@ -1,0 +1,123 @@
+﻿on_actions = {
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { influences < 200 }
+					NOT = { has_idea = low_diplomacy }
+					NOT = { has_idea = isolated }
+					NOT = { has_country_flag = influence_faction }
+				}
+				set_country_flag = influence_faction
+				set_variable = { influences = 200 }
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			if = {
+				limit = { has_country_leader_with_trait = anti_america }
+				add_opinion_modifier = {
+				target = USA
+				modifier = leader_anti_america
+				}
+				USA = {
+				add_opinion_modifier = {
+				target = FROM
+				modifier = leader_anti_america
+					}
+				}
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+		every_country = {
+			limit = {
+				has_country_leader_with_trait = pro_third_world
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+					has_country_leader_with_trait = pro_third_world
+					has_country_leader_with_trait = african_nationalism
+					}
+				}
+				add_ai_strategy = {
+					type = befriend
+					id = PREV
+					value = 200
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_leader_with_trait = anti_america
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+					has_country_leader_with_trait = anti_america
+					}
+				}
+				add_ai_strategy = {
+					type = befriend
+					id = PREV
+					value = 200
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_leader_with_trait = anti_communist
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+					has_country_leader_with_trait = anti_communist
+					}
+				}
+				add_ai_strategy = {
+					type = befriend
+					id = PREV
+					value = 200
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_leader_with_trait = pro_soviet
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+					has_country_leader_with_trait = pro_soviet
+					}
+				}
+				add_ai_strategy = {
+					type = befriend
+					id = PREV
+					value = 200
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_leader_with_trait = independent_red
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+					has_country_leader_with_trait = independent_red
+					}
+				}
+				add_ai_strategy = {
+					type = befriend
+					id = PREV
+					value = 200
+				}
+			}
+		}
+	}
+	}
+}

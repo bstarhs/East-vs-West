@@ -1,0 +1,147 @@
+ideas = {
+
+	country = {
+		ISR_armed_organized_ideas = {
+			allowed = {
+				always = no
+			}
+
+			picture = ISR_armed_organized_ideas
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				army_morale_factor = -0.1
+				war_support_factor = -0.12
+			}
+		}
+		ISR_loose_treaty = {
+			allowed = {
+				always = no
+			}
+
+			picture = ISR_loose_treaty
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				join_faction_tension = 1.00
+				justify_war_goal_time = 1
+				lend_lease_tension = 0.50
+				generate_wargoal_tension = 1.00
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				ai_badass_factor = 0.01
+				minimum_training_level = 0.3 
+				industry_air_damage_factor = -0.1
+				army_morale_factor = -0.1
+			}
+		}
+		PLObase = {
+			allowed = {
+				always = yes
+			}
+			picture = PLObase
+			
+			modifier = {
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		PLOrevolt = {
+			allowed = {
+				always = yes
+			}
+			picture = PLOrevolt
+			modifier = {
+				custom_modifier_tooltip = PLOrevolt_tool
+				political_power_gain = -0.2
+				stability_factor = -0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		Haredi = {
+			
+			allowed = {
+				always = yes
+			}
+			picture = EST_democratic_opposition
+			modifier = {
+				stability_factor = 0.25
+				drift_defence_factor = 0.4
+				resistance_growth = -0.12
+				conscription_factor = -0.15
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		Zionism = {
+			
+			allowed = {
+				always = yes
+			}
+			picture = Zionism
+			modifier = {
+				training_time_army_factor = -0.3
+				army_org_factor = 0.4
+				army_morale_factor = 0.35
+				war_support_factor = 0.2
+				join_faction_tension = 10
+				stability_factor = 0.3
+				ai_get_ally_desire_factor = -500
+				army_core_defence_factor = 0.8
+				army_core_attack_factor = 0.15
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+	}
+	industrial_concern = {
+		IMI = {
+
+			
+			allowed = {
+				original_tag = ISR
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.2
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+	political_advisor = {
+		Golda_Meir = {
+			allowed = {
+				original_tag = ISR
+			}
+			traits = { compassionate_gentleman }
+		}
+	}	
+}

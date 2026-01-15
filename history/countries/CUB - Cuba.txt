@@ -1,0 +1,358 @@
+﻿capital = 315
+
+oob = "CUB_1936"
+
+set_country_flag = language_spannish
+set_country_flag = carribean_states
+set_country_flag = latin_america
+set_country_flag = main_country
+# Starting tech
+	set_variable = { this.education = 26 }
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+
+	complete_national_focus = commons_5
+set_convoys = 20
+add_ideas = {
+	service_by_requirement
+	tropico
+	Catholicism
+	corrupt
+	FruitCompany
+	Latin_Hacienda
+	Montecristo
+	CUB_mafia_ideas
+}
+1939.1.1 = {
+	add_political_power = 1198
+	oob = "CUB_1947"
+}
+	set_party_name = {
+		ideology = democratic
+		long_name = CUB_autientico_party
+		name = CUB_autientico_party
+	}
+
+create_country_leader = {
+	name = "José Agripino Barnety Vinagres"
+	desc = "POLITICS_JOSE_AGRIPINO_BARNET_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_2.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
+	create_country_leader = {
+		name = "Fulgencio Batista"
+		
+		picture = "gfx/leaders/CUB/Portrait_Cuba_Fulgencio_Batista.tga"
+		expire = "1979.1.1"
+		ideology = despotism
+		
+		traits = {
+			anti_communist pro_america corrupt_leader
+		}
+	}
+set_popularities = {
+	democratic = 52
+	communism = 8
+	neutrality = 40
+}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.10.14"
+	elections_allowed = yes
+}
+recruit_character = CUB_Fidel_Castro
+recruit_character = CUB_William_Morgan
+recruit_character = CUB_Ana_Canizares
+recruit_character = CUB_Estaban_Ventura_Novo
+recruit_character = CUB_Osvaldo_Dorticos_Torrado
+1945.1.1 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1200
+		producer = USA
+	}
+	add_ideas = {
+		UNmember
+		Marshall
+	}
+	set_country_flag = usa_advisor
+}
+			add_to_variable = { CUB.US_gov_aid_opinion = 12 }
+			add_to_variable = { CUB.US_public_aid_opinion = 5 }
+
+1947.1.1 = {
+	create_country_leader = {
+		name = "Ramón Grau"
+		
+		picture = "gfx/leaders/CUB/Portrait_Cuba_Ramon_Grau.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+		
+		}
+	}
+}
+1949.1.20 = {
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Carlos Socarras"
+		
+		picture = "gfx/leaders/CUB/Portrait_Cuba_Carlos_Socarras.tga"
+		expire = "1979.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1955.1.20 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = BEL
+	}
+	recruit_character = CUB_Eulogio_Cantillo
+	recruit_character = CUB_Martin_Diaz_Tamayo
+	recruit_character = CUB_Meyer_Lansky
+	recruit_character = CUB_Rolando_Masferrer
+	recruit_character = CUB_Mariano_Faget_Diaz
+	recruit_character = CUB_Earl_Edward_Smith
+	create_intelligence_agency = yes
+	set_popularities = {
+		democratic = 16
+		communism = 8
+		neutrality = 76
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.10"
+		election_frequency = 48  
+		elections_allowed = yes
+	}
+	complete_national_focus = common_63
+	add_ideas = {
+		CUB_casino
+		usa_military_advisitor_idea
+	}
+	recruit_character = CUB_Fidel_Castro
+	promote_character = {
+		character = CUB_Fidel_Castro
+		ideology = authoritarianism
+	}
+	set_party_name = {
+		ideology = authoritarianism
+		long_name = CUB_M267_party
+		name = CUB_M267_party
+	}
+	set_party_name = {
+		ideology = democratic
+		long_name = CUB_revolucion_director_party
+		name = CUB_revolucion_director_party
+	}
+}
+1959.1.1 = {
+	set_country_flag = SOV_missile_base_employment
+	retire_character = CUB_Eulogio_Cantillo
+	retire_character = CUB_Martin_Diaz_Tamayo
+	retire_character = CUB_Meyer_Lansky
+	retire_character = CUB_Rolando_Masferrer
+	retire_character = CUB_Mariano_Faget_Diaz
+	retire_character = CUB_Earl_Edward_Smith
+	retire_character = CUB_William_Morgan
+	
+	recruit_character = CUB_Vilma_Espin
+	recruit_character = CUB_Raul_Castro
+	recruit_character = CUB_Faure_Chomon
+	recruit_character = CUB_Che_Guevara
+	recruit_character = CUB_Eloy_Gutierrez_Menoyo
+			set_variable = { CUB.US_gov_aid_opinion = 0 }
+			set_variable = { CUB.US_public_aid_opinion = 6 }
+	activate_decision = CUB_deportation_casino_decis
+	activate_decision = CUB_deportation_mafia_decis
+	activate_decision = CUB_deportation_hotel_decis
+	activate_decision = CUB_deportation_plantation_decis
+	activate_decision = CUB_revolucion_visit_us
+	activate_decision = CUB_revolucion_finished
+	activate_decision = CUB_revolucion_nationalized_cigar_decis
+	remove_ideas = {
+		Marshall
+		CUB_mafia_ideas
+		FruitCompany
+		corrupt
+		usa_military_advisitor_idea
+		La
+	}
+	promote_character = {
+		character = CUB_Fidel_Castro
+		ideology = authoritarianism
+	}
+	set_country_flag = CUB_revolucion_finished
+	set_country_flag = china_diplomacy
+	add_ideas = {
+		hight_welfare
+		war_economy
+		comecon
+	}
+	add_political_power = 1198
+	set_popularities = {
+		democratic = 20
+		communism = 80
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	complete_national_focus = common_73
+
+}
+1962.1.1 = {
+	clr_country_flag = SOV_missile_base_employment
+	set_popularities = {
+		democratic = 2
+		communism = 98
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	promote_character = {
+		character = CUB_Fidel_Castro
+		ideology = marxism
+	}
+	remove_ideas = CUB_casino
+	complete_national_focus = common_medic
+	complete_national_focus = common_24
+}
+1967.1.1 = {
+	set_country_flag = female_finished
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_variable = { this.education = 56 }
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+	set_global_flag = GuevaraDeath
+}
+1979.1.20 = {
+	add_ideas = {
+		NonAligned
+	}
+	retire_character = CUB_Osvaldo_Dorticos_Torrado
+}

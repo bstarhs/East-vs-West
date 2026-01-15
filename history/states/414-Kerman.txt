@@ -1,0 +1,37 @@
+
+state={
+	id=414
+	name="STATE_414"
+	manpower = 486013
+	
+	state_category = rural
+	resources={
+		copper=17
+	}
+	history={
+		set_state_flag = ethnics_Persian
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		add_dynamic_modifier = { modifier = state_modifier_kanr }
+		add_to_array = { this.state_ethnics_list = 134 }
+		owner = PER
+		buildings = {
+			hospital = 1
+			infrastructure = 1
+		}
+		victory_points = {
+			10913 6
+		}
+		victory_points = {
+			12809 4
+		}
+		victory_points = {
+			12863 2
+		}
+		add_core_of = PER
+	}
+
+	provinces={
+		1986 10913 11249 12809 12895 12863 12780 
+	}
+}

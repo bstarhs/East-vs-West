@@ -1,0 +1,37 @@
+
+state={
+	id=509
+	name="STATE_509" # Chaco Australis
+	manpower = 704241
+	
+	state_category = town
+	
+	resources={
+		tungsten=46
+		iron=8
+	}
+
+	history={
+		set_state_flag = cutton_production
+		set_state_flag = ethnics_Argentina
+		add_to_array = { this.state_ethnics_list = 25 }
+		add_to_array = { this.state_ethnics_list = 75 }
+		owner = ARG
+		buildings = {
+			farm_building = 2
+			infrastructure = 3
+			industrial_complex = 1
+		}
+		victory_points = {
+			2106 5
+		}
+		victory_points = {
+			8255 4
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		2106 2208 5143 5213 8169 8255 10965 10986 13416 13417 
+	}
+}

@@ -1,0 +1,47 @@
+
+state={
+	id=433
+	name="STATE_433" # Rajasthan
+	manpower = 11786000
+	
+	state_category = town
+	resources={
+		tungsten=42
+		coal = 18
+	}
+
+	history={
+		set_state_flag = cutton_production
+		set_state_flag = ethnics_Hindustan
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		add_to_array = { this.state_ethnics_list = 80 }
+		owner = ENG
+		add_core_of = IND
+		1949.10.25 = {
+		owner = IND
+		}
+		buildings = {
+			infrastructure = 3
+			farm_building = 3
+			industrial_complex = 1
+		}
+		victory_points = {
+			4984 5 
+		}
+		victory_points = {
+			13718 3
+		}
+		victory_points = {
+			13717 6
+		}
+		victory_points = {
+			12876 4
+		}
+
+
+	}
+
+	provinces={
+		1908 4149 4984 7998 10847 10866 12041 12718 12844 12876 12886 13717 13718
+	}
+}

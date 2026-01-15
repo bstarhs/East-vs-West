@@ -1,0 +1,60 @@
+
+state={
+	id=60
+	name="STATE_60"
+	manpower = 3005214
+	resources={
+		iron=20
+		coal = 28
+		copper = 11
+	}
+	local_supplies=0.0
+	
+	state_category = city
+
+	history={
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		add_dynamic_modifier = { modifier = hight_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Deutscher
+		add_to_array = { this.state_ethnics_list = 63 }
+		set_state_flag = wine_production
+		set_state_flag = sugar_production
+		owner = SOV
+		victory_points = { 6524 5 }
+		victory_points = { 6582 2 }
+		victory_points = { 538 4 }
+		buildings = {
+			school = 1
+			hospital = 1
+			power_plant = 2
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 1
+			farm_building = 1
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		add_core_of = SAX
+		1947.8.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = DDR
+			add_core_of = WDR
+		}
+		1952.8.23 = {
+			buildings = {
+			power_plant = 3
+			industrial_complex = 5
+			farm_building = 3
+			}
+		}
+		1990.8.23 = {
+			owner = WDR
+		}
+
+	}
+
+	provinces={
+		425 482 538 3500 3561 6501 6524 6582 9497 
+	}
+}

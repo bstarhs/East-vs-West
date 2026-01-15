@@ -1,0 +1,175 @@
+claim_categories = {
+	grand_bulgaria = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			TAG = BUL
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability < 0.1
+			}
+		}
+		complete_effect = {
+			add_state_claim = 184
+			add_state_claim = 341
+			add_state_claim = 106
+		}
+	}
+	grand_romania = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			TAG = ROM
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability < 0.1
+			}
+		}
+		complete_effect = {
+			add_state_claim = 80
+			add_state_claim = 78
+			add_state_claim = 74
+		}
+	}
+	grand_hungary = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			TAG = HUN
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability < 0.1
+			}
+		}
+		complete_effect = {
+			add_state_claim = 71
+			add_state_claim = 664
+			add_state_claim = 70
+			add_state_claim = 73
+			add_state_claim = 83
+			add_state_claim = 82
+			add_state_claim = 76
+			add_state_claim = 84
+			add_state_claim = 45
+			add_state_claim = 109
+			add_state_claim = 102
+			add_state_claim = 103
+		}
+	}
+	grand_finland = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			TAG = FIN
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability < 0.1
+			}
+		}
+		complete_effect = {
+			add_state_claim = 722
+			add_state_claim = 213
+			add_state_claim = 215
+			add_state_claim = 147
+			add_state_claim = 216
+			add_state_claim = 146
+		}
+	}
+	grand_hellen = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			TAG = GRE
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability < 0.1
+			}
+		}
+		complete_effect = {
+			add_state_claim = 341
+			add_state_claim = 340
+			add_state_claim = 215
+			add_state_claim = 342
+			add_state_claim = 797
+			add_state_claim = 183
+			add_state_claim = 838
+			add_state_claim = 339
+		}
+	}
+	grand_mongol = {
+		fire_only_once = yes
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			always = yes
+		}
+		cost = 20
+		visible = {
+			OR = {
+			TAG = MON
+			TAG = MEN
+			TAG = MAN
+			TAG = YAK
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 10
+				has_stability < 0.1
+			}
+		}
+		complete_effect = {
+			add_state_claim = 330
+			add_state_claim = 785
+			add_state_claim = 714
+			add_state_claim = 715
+			add_state_claim = 612
+			add_state_claim = 611
+			add_state_claim = 621
+			add_state_claim = 616
+			add_state_claim = 329
+			add_state_claim = 563
+			add_state_claim = 564
+			add_state_claim = 565
+			add_state_claim = 566
+			add_state_claim = 567
+			add_state_claim = 574
+			add_state_claim = 575
+		}
+	}
+}

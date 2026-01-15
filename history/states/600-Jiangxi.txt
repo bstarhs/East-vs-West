@@ -1,0 +1,52 @@
+state=
+{
+	id=600
+	name="STATE_600"
+	manpower = 15820400
+	state_category = town
+	resources={
+		iron=12
+		tungsten=46
+		copper = 24
+	}
+	history=
+	{
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		set_state_flag = east_china_states
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Han
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		1948.8.23 = {
+		owner = PRC
+		add_core_of = CHI
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			power_plant = 2
+			infrastructure = 3
+			industrial_complex = 2
+		}
+		victory_points = { 
+			3992 8
+		}
+		victory_points = { 
+			10114 4 
+		}
+		victory_points = { 7199 3 }
+		victory_points = { 1153 3 }
+		victory_points = { 1066 3 }
+		victory_points = { 11961 2 }
+		victory_points = { 10057 2 }
+		victory_points = { 12495 2 }
+
+	}
+
+	provinces={
+		1053 1066 1110 1153 1628 3992 4038 4081 4083 4156 4183 4185 7004 7007 7054 7172 7199 7653 9942 9984 10057 10112 10114 10501 11945 11961 11988 12030 12495 13141 
+	}
+}

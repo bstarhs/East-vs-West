@@ -1,0 +1,35 @@
+
+state={
+	id=449
+	name="STATE_449" # El Agheila
+	manpower = 40431
+	
+	state_category = rural
+	history={
+		
+		set_state_flag = ethnics_Maghreb
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = CYR
+		add_core_of = CYR
+		victory_points = { 11046 5 }
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = LBA
+		1951.12.24 = {
+		owner = LBA
+		}
+		1961.12.24 = {
+			buildings = {
+				oilfield = 3
+				synthetic_refinery = 3
+			}
+		}
+	}
+
+	provinces={
+		1041 1198 4047 4057 10046 10117 12088 4200 7076 7136 8069 13073 
+	}
+}

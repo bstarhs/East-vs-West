@@ -1,0 +1,468 @@
+﻿division_template = {
+	name = "Light Brigade"			
+	division_names_group = ENG_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+        mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+		mechanized = { x = 2 y = 2 }
+	}
+	support = {
+       	engineer = { x = 0 y = 0 }
+       	recon = { x = 0 y = 1 }
+       	artillery = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Motorised Division" 	
+	division_names_group = ENG_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+	    motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+	    motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+        recon = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Airmobile Brigade" 	
+	division_names_group = ENG_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armour Division" 
+	division_names_group = ENG_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# Cruiser Tanks Mks I, II
+	    medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# Light Tanks Mk VI
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+	}
+	support = {
+	 	recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Armor Brigade"		
+	division_names_group = ENG_ARM_02	
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# Cruiser Tanks Mks I, II
+	    medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# Light Tanks Mk VI
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+        recon = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Colonial Garrison"	
+	division_names_group = ENG_COL_01
+	regiments = { 
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	division_names_group = ENG_MAR_01
+	name = "Marine Brigade"	
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+	priority = 2
+}
+division_template = {
+	name = "Artillery Brigade" 	
+	division_names_group = ENG_MEC_01
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+
+####### OOB #######
+units = {
+	# 1 corp in Germany #
+	division = {	
+		name = "7th Armor Division"
+		location = 6377
+		division_template = "Armour Division" 
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "12th Armor Division"
+		location = 6377
+		division_template = "Armour Division" 
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "22th Armor Division"
+		location = 6377
+		division_template = "Armour Division" 
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "4th Armor Division"
+		location = 495
+		division_template = "Armour Division" 
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "6th Armor Division"
+		location = 495
+		division_template = "Armour Division" 
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "33th Armor brigade"
+		location = 495
+		division_template = "Armor Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "11th Armor brigade"
+		location = 9509
+		division_template = "Armor Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "20th Armor brigade"
+		location = 9509
+		division_template = "Armor Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "19th Light brigade"
+		location = 11374
+		division_template = "Armor Brigade" 	
+		start_experience_factor = 0.7
+	}
+	## 2nd light division
+	division = {	
+		name = "15th Light brigade"
+		location = 9379
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "24th Airmobile Brigade"
+		location = 9379
+		division_template = "Airmobile Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "49th Light brigade"
+		location = 11279
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "1st Artillery Brigade"
+		location = 9509
+		division_template = "Artillery Brigade" 	
+		start_experience_factor = 0.7
+	}
+	##
+	division = {	
+		name = "Royal Scots Dragon guard"
+		location = 3379
+		division_template = "Armor Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Royal Armoured corp"
+		location = 3422
+		division_template = "Armor Brigade" 	
+		start_experience_factor = 0.7
+	}
+	
+	division = {	
+		name = "Royal guards"
+		location = 6103
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Lancaster Brigade"
+		location = 9322
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "York Brigade"
+		location = 9322
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Northern Ireland Brigade"
+		location = 9322
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	#Scots division
+	division = {	
+		name = "Highland Brigade"
+		location = 200
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Lowland Brigade"
+		location = 200
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	#prince wales division
+	division = {	
+		name = "Mercia Brigade"
+		location = 311
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Wales Brigade"
+		location = 311
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Wessex Brigade"
+		location = 311
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	#queens division
+	division = {	
+		name = "Home counties Brigade"
+		location = 11221
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Fusilier Brigade"
+		location = 11221
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "East Anglia Brigade"
+		location = 11221
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	#light division
+	division = {	
+		name = "Light Brigade"
+		location = 6351
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Green jacky Brigade"
+		location = 6351
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	
+	division = {	
+		name = "Royal Regiment of Artillery"
+		location = 6351
+		division_template = "Artillery Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Royal Gurkha Regiment"
+		location = 7371
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Royal Giblatar Regiment"
+		location = 4135
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Royal Hong Kong Regiment"
+		location = 10062
+		division_template = "Light Brigade" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Bermuda Regiment"
+		location = 13010
+		division_template = "Colonial Garrison" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "Falklands Regiment"
+		location = 12960
+		division_template = "Colonial Garrison" 	
+		start_experience_factor = 0.7
+	}
+	division = {	
+		name = "West Indies Regiment"
+		location = 4450
+		division_template = "Colonial Garrison" 	
+		start_experience_factor = 0.7
+	}
+	
+	############  navy  #########
+	fleet = {
+		name = "Third Fleet"
+		naval_base = 3379
+		task_force = {				
+			name = "First Fleet"
+			location = 3379
+			ship = { name = "HMS Sheffield" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Cardiff" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Coventry" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Newcastle" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Glasgow" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Birmingham" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+		}
+		task_force = {				
+			name = "Third Fleet"
+			location = 3379
+			ship = { name = "HMS Nottingham" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Liverpool" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Southampton" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+			ship = { name = "HMS Exeter" definition = destroyer equipment = { light_cruiser_3 = { amount = 1 owner = ENG version_name = "Sheffield class" } } }
+		}	
+	}
+	
+}
+air_wings = {
+	129 = { 														# Middlesex
+		### No. 11 Fighter Command (CO: ) ###
+		fighter_equipment_1 = { owner = "ENG" amount = 144 }			# I/No. 11 Fighter Group -- Hurricane I's
+	}
+	130 = { 														# York, Essex
+		### No. 11 Fighter Command ###
+		fighter_equipment_1 = { owner = "ENG" amount = 72 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "ENG" amount = 72 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		### No. 4 Bomber Command (CO: ) ###
+	}	
+	127 = { 														# Nottingham, Sussex
+		### No. 12 Fighter Command (CO: ) ###
+		fighter_equipment_1 = { owner = "ENG" amount = 72 }			# I/No. 12 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "ENG" amount = 96 }			# II/No. 12 Fighter Group -- Spitfire I's
+		### No. 16 Coastal Group (CO: ) ###
+	}	
+	131 = { 														# Newcastle
+		### No. 13 Fighter Command (CO: ) ###
+		fighter_equipment_2 = { owner = "ENG" amount = 96 }			# I/No. 13 Fighter Group -- Spitfire I's
+	}
+	125 = { 														# East Anglia 
+		### Advanced Air Striking Force (CO: Barratt) -- en route to FRA ###		
+		CAS_equipment_1 = { owner = "ENG" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_1 = { owner = "ENG" amount = 96 }			# BEF Air Component -- Hurricane I's
+		### No. 2 Bomber Command (CO: ) ###
+		CAS_equipment_2 = { owner = "ENG" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+
+}
+
+
+	#########################
+	## STARTING PRODUCTION ##
+	#########################
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "ENG"
+		}
+		requested_factories = 7
+		progress = 0.1
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "ENG" 
+		}
+		requested_factories = 2
+		progress = 0.3
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = light_tank_equipment_2
+			creator = "ENG" 
+		}
+		requested_factories = 2
+		progress = 0.4
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_2
+			creator = "ENG" 
+		}
+		requested_factories = 1
+		progress = 0.15
+		efficiency = 100
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = strat_bomber_equipment_1
+			creator = "ENG" 
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 100
+	}
+
+	
+}
+	#####################

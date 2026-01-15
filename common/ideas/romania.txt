@@ -1,0 +1,76 @@
+ideas = {
+
+	country = {
+		ROM_micheal_under_control = {
+			picture = ROM_micheal_under_control
+			allowed = { always = yes }
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+			}
+		}
+		ROM_SovRom_company = {
+			picture = ROM_SovRom_company
+			allowed = { always = yes }
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+			}
+		}
+		Axis_problem_ideas = {
+
+			picture = Axis_problem_ideas
+			allowed = { always = yes }
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				opinion_gain_monthly = -0.2
+				democratic_acceptance = -20
+				communism_acceptance = -20
+			}
+		}
+		ROM_Carpathian_Stalin = {
+
+			picture = anti_soviet_pact
+			
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			
+			modifier = {
+				democratic_acceptance = 50
+			}
+		}
+	}
+	industrial_concern = {
+		designer = yes
+		ROM_dacia = {
+			picture = dacia
+						
+			allowed = {
+				original_tag = ROM
+			}
+			visible = {
+				has_completed_focus = common_63
+			}
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			
+			traits = { motorized_equipment_manufacturer auto_manufacturer }
+		}
+		
+	}
+}

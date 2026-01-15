@@ -1,0 +1,385 @@
+﻿capital = 47
+
+oob = "GRE_1947"
+
+set_research_slots = 2
+
+	set_variable = { this.education = 62 }
+set_country_flag = west_euro_state
+set_country_flag = has_monarchs
+set_country_flag = developmented
+set_country_flag = orthodox_state
+recruit_character = GRE_Andreas_Papandreou
+recruit_character = GRE_Georgios_Papandreou
+recruit_character = GRE_Tzanis_Tzannetakis
+recruit_character = GRE_Theodoros_Pangalos
+recruit_character = GRE_Konstantinos_Mitsotakis
+recruit_character = GRE_Antonis_Tritsi
+recruit_character = GRE_Giorgos_Rallis
+recruit_character = GRE_Konstantinos
+recruit_character = GRE_Alexander_Papagos
+add_ideas = {
+	limited_conscription
+	Red_Brigade
+	UNmember
+	Orthodox
+	limited_exports
+}
+	add_to_array = { global.UNmember_list = FROM }
+declare_war_on = {
+	target = KKE
+	type = annex_everything
+}
+set_stability = 0.23
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	set_technology = {
+		excavation1 = 1
+		oil_processing = 1
+		army_aviation = 1
+		medical1 = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	tech_support = 1		
+	tech_recon = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_cruiser = 1
+	
+	transport = 1
+
+	basic_militia = 1
+		motorised_infantry = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	streamlined_line = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+		radio_detection = 1
+	naval_dock = 1
+	naval_recruit = 1
+	military_college = 1
+	medical2 = 1
+	medical3 = 1
+	artilelery_doctrine = 1
+		gasmask = 1
+		infantry_at = 1
+	machine_gun1 = 1
+		can_foods = 1
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	complete_national_focus = common_63
+
+set_convoys = 10
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	set_technology = {
+		tech_support = 1		
+		tech_engineers = 1
+		early_fighter = 1
+		early_bomber = 1
+		CAS1 = 1
+		naval_bomber1 = 1
+		gw_artillery = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		infantry_weapons2 = 1
+		
+		basic_destroyer = 1
+
+		#doctrines
+		
+		
+		fuel_silos = 1
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		marines = 1
+		tech_military_police = 1
+		tech_maintenance_company = 1
+		gw_artillery = 1
+		gwtank = 1
+
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		tech_signal_company = 1
+		tech_logistics_company = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		dispersed_industry3 = 1
+		tech_field_hospital = 1
+	}
+}
+
+
+set_cosmetic_tag = GRE_MORNACHY
+	set_popularities = {
+		democratic = 10
+		communism = 40
+		monarchism = 50
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1935.6.9"
+	election_frequency = 12
+	elections_allowed = yes # none after offset 1
+}
+set_stability = 0.9
+
+
+create_country_leader = {
+	name = "Markos Vafeiadis"
+	desc = "POLITICS_MARKOS_VAFIADIS_DESC"
+	picture = "gfx/leaders/GRE/Portrait_Greece_Vafeiadis.tga"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "George II"
+	desc = "POLITICS_KONSTANTINOS_TSALDARIS_DESC"
+	picture = "gfx/leaders/GRE/Portrait_Greece_George_II.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		#
+	}
+}
+1949.1.20 = {
+	add_ideas = GRE_Paul
+	set_technology = {
+		motorize_doctrine = 1
+	}
+	add_ideas = cyprus_quest
+	create_country_leader = {
+		name = "Paul"
+		
+		picture = "gfx/leaders/GRE/Portrait_Greece_Paul.tga"
+		expire = "1988.1.1"
+		ideology = monarchism
+		
+		traits = {
+		
+		}
+	}
+	complete_national_focus = commons_5
+}
+1955.1.20 = {
+	retire_character = GRE_Alexander_Papagos
+	set_country_flag = female_finished
+	complete_national_focus = common_weman_right
+	oob = "GRE_1955"
+	set_technology = {
+		excavation2 = 1
+		rubber_processing = 1
+		concentrated_industry5 = 1
+		machine_gun2 = 1
+		mechanised_infantry = 1
+		tech_logistics_company2 = 1
+		tech_signal_company2 = 1
+		basic_medium_tank = 1
+		rocket_engines = 1
+		fighter1 = 1
+		CAS2 = 1
+		basic_helicopter = 1
+	}
+	complete_national_focus = common_medic
+	add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = female_equality
+	complete_national_focus = common_14
+	add_ideas = nato_spirit
+	remove_ideas = Red_Brigade
+	set_popularities = {
+		communism = 18
+		democratic = 72
+		neutrality = 10
+	}
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	promote_character = GRE_Konstantinos
+}
+1960.1.1 = {
+	set_variable = { this.education = 78 }
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_technology = {
+		tech_recon2 = 1
+		basic_light_tank = 1
+		air_gun = 1
+		trans_helicopter_1 = 1
+		improved_rubber_processing = 1
+		construction3 = 1
+		vaccum_tube = 1
+		laundry = 1
+	}
+	remove_ideas = cyprus_quest
+}
+1964.1.20 = {
+	set_technology = {
+		excavation3 = 1
+		fighter2 = 1
+		improved_medium_tank = 1
+		tech_engineers2 = 1
+		tech_military_police2 = 1
+		improved_infantry_weapons = 1
+		CAS3 = 1
+		napalm = 1
+		halicopter_machinegun = 1
+		basic_heavy_tank = 1
+		laser_weapon = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		concentrated_industry2 = 1
+		aluminum_tech = 1
+		frozen_food = 1
+	}
+	remove_ideas = GRE_Paul
+	add_ideas = {
+		ConstantineII
+	}
+}
+1967.1.20 = {
+	complete_national_focus = steel_produc
+	set_popularities = {
+		democratic = 24
+		communism = 20
+		neutrality = 56
+	}
+	set_technology = {
+		construction4 = 1
+		dispersed_industry4 = 1
+		motorised_infantry_2 = 1
+		infantry_at2 = 1
+		tech_logistics_company3 = 1
+		tech_signal_company3 = 1
+		aluminum_tech = 1
+		land_guidance = 1
+		air_chaff = 1
+		halicopter_rocket_net = 1
+		trans_helicopter_2 = 1
+		auto_industry = 1
+		electrolytic_aluminum = 1
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Georgios Papadopoulos"
+		
+		picture = "gfx/leaders/GRE/Portrait_Greece_Georgios_Papadopoulos.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		traits = {
+		dictator anti_communist
+		}
+	}
+}
+1974.3.12 = {
+	set_variable = { this.education = 81 }
+	set_country_flag = china_diplomacy
+	set_technology = {
+		machine_gun3 = 1
+		pattern = 1
+		fighter3 = 1
+		mechanised_infantry2 = 1
+		tech_recon3 = 1
+		tech_engineers3 = 1
+		tech_field_hospital2 = 1
+		spaa2 = 1
+		improved_light_tank = 1
+		advanced_infantry_weapons = 1
+		CAS4 = 1
+		halicopter_at_missile = 1
+		improved_heavy_tank = 1
+		infraed_homing = 1
+		aa_missile_2 = 1
+		at_missile_2 = 1
+		mechanized_aa_missile_1 = 1
+	}
+	remove_ideas = ConstantineII
+	set_popularities = {
+		democratic = 65
+		communism = 30
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_cosmetic_tag = GRE
+}
+1981.1.20 = {
+	add_ideas = {
+		ECSC
+	}
+	set_technology = {
+		vest = 1
+		supersonic_engine = 1
+		Semiconductor = 1
+		transistor = 1
+	}
+	create_country_leader = {
+		name = "Andreas Papandreou"
+		picture = "gfx/leaders/GRE/Portrait_Greece_Andreas_Papandreou.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		traits = {
+			democratic_reformer silent_workhorse social_reformer
+		}
+	}
+}
+1986.3.12 = {
+	set_technology = {
+		assembly_line_production = 1
+		advanced_heavy_tank = 1
+		fighter4 = 1
+		advanced_light_tank = 1
+		advanced_medium_tank = 1
+		mechanised_infantry3 = 1
+		micro_computer = 1
+	}

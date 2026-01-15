@@ -1,0 +1,59 @@
+
+state={
+	id=294
+	name="STATE_294"
+	manpower = 369000
+	
+	state_category = rural
+	
+	resources={
+		oil=12
+	}
+
+	history={
+		set_state_flag = ethnics_Arabs
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_to_array = { this.state_ethnics_list = 24 }
+		owner = OMA
+		buildings = {
+			farm_building = 1
+			industrial_complex = 2
+			infrastructure = 2
+			arms_factory = 1
+			10760 = {
+				naval_base = 3
+			}
+		}
+		victory_points = {
+			10760 10
+		}
+		victory_points = {
+			13477 6
+		}
+		victory_points = {
+			13391 4
+		}
+		victory_points = {
+			2103 6
+		}
+		victory_points = {
+			8020 5
+		}
+		1980.8.23 = {
+			buildings = {
+				industrial_complex = 6
+				infrastructure = 5
+				farm_building = 2
+				10760 = {
+					naval_base = 2
+				}
+			}
+		}
+		add_core_of = OMA
+	}
+
+	provinces={
+		1947 2018 2059 2103 4993 5049 8002 8020 10760 13387 13385 13388 13391 13476 13477
+	}
+}

@@ -1,0 +1,39 @@
+state={
+	id=676
+	name="STATE_676"
+	manpower = 1182741
+	
+	state_category = town
+	
+	resources={
+		oil=10
+	}
+
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Kurdish
+		owner = IRQ
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_to_array = { this.state_ethnics_list = 97 }
+		add_to_array = { this.state_ethnics_list = 167 }
+		buildings = {
+			farm_building = 2
+			infrastructure = 3
+			arms_factory = 1
+		}
+		victory_points = {
+			10106 8
+		}
+		victory_points = {
+			10804 2
+		}
+		add_core_of = IRQ
+		add_core_of = KUR
+		add_core_of = ASY
+	}
+	
+	provinces={
+		1600 1938 10106 10804 12372 13784 13787
+	}
+}

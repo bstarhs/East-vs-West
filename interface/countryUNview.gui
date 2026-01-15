@@ -1,0 +1,294 @@
+guiTypes = {
+	containerWindowType = {
+		name = "recommended_shop_container"
+		position = {x = 200 y = 100 }
+		size = { width = 1508 height = 900 }
+		moveable = yes
+		background = {
+			name = "Background"
+			spriteType = "GFX_recommended_shop"
+		}
+		
+		instantTextboxType = {
+			name = "recommended_shop_headline"
+			position = {x=14 y=6}
+			font = "hoi_18mbs"
+			text = ""
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+		}
+		buttonType = {
+			name = "shop_headhunting_1" 
+			position = {x=320 y=700}	
+			spriteType = "GFX_shop_headhunting_1"
+			pdx_tooltip = "UN_techsupport"
+			pdx_tooltip_delayed = "UN_techsupport_DESC"
+		}
+		buttonType = {
+			name = "shop_headhunting_2" 
+			position = {x=400 y=700}	
+			spriteType = "GFX_shop_headhunting_2"
+			pdx_tooltip = "UN_loan"
+			pdx_tooltip_delayed = "UN_loan_DESC"
+		}
+		buttonType = {
+			name = "shop_prime_access" 
+			position = {x=480 y=700}	
+			spriteType = "GFX_shop_prime_access"
+			pdx_tooltip = "UN_militarysupport"
+			pdx_tooltip_delayed = "UN_militarysupport_DESC"
+		}
+		iconType = {
+			name = "UNSC_SOV_flag"
+			spriteType = "GFX_UN_SOV" 
+			position = { x = 260 y = 265 }
+			pdx_tooltip = "SOV_UNSC_title"
+			pdx_tooltip_delayed = "UNSC_text"
+			scale = 0.1
+		}
+		iconType = {
+			name = "UNSC_USA_flag"
+			spriteType = "GFX_UN_USA" 
+			position = { x = 400 y = 265 }
+			pdx_tooltip = "USA_UNSC_title"
+			pdx_tooltip_delayed = "UNSC_text"
+			scale = 0.1
+		}
+		iconType = {
+			name = "UNSC_UK_flag"
+			spriteType = "GFX_UN_UK" 
+			position = { x = 540 y = 265 }
+			pdx_tooltip = "UK_UNSC_title"
+			pdx_tooltip_delayed = "UNSC_text"
+			scale = 0.1
+		}
+		iconType = {
+			name = "UNSC_FRA_flag"
+			spriteType = "GFX_UN_FRA" 
+			position = { x = 680 y = 265 }
+			pdx_tooltip = "FRA_UNSC_title"
+			pdx_tooltip_delayed = "UNSC_text"
+			scale = 0.1
+		}
+		iconType = {
+			name = "UNSC_PRC_flag"
+			spriteType = "GFX_UN_PRC" 
+			position = { x = 820 y = 265 }
+			pdx_tooltip = "PRC_UNSC_title"
+			pdx_tooltip_delayed = "UNSC_text"
+			scale = 0.1
+		}
+		iconType = {
+			name = "UNSC_ROC_flag"
+			spriteType = "GFX_UN_ROC" 
+			position = { x = 820 y = 265 }
+			pdx_tooltip = "ROC_UNSC_title"
+			pdx_tooltip_delayed = "UNSC_text"
+			scale = 0.1
+		}
+		###秘书长
+		iconType = {
+			name = "UN_Trygve_Lie"
+			spriteType = "GFX_UN_Trygve_Lie" 
+			position = { x = 850 y = 85 }
+			pdx_tooltip = "UN_Trygve_Lie"
+			scale = 0.6
+		}
+		iconType = {
+			name = "UN_Dag_Hammarskjold"
+			spriteType = "GFX_UN_Dag_Hammarskjold" 
+			position = { x = 850 y = 85 }
+			pdx_tooltip = "UN_Dag_Hammarskjold"
+			scale = 0.6
+		}
+		iconType = {
+			name = "UN_U_Thant"
+			spriteType = "GFX_UN_U_Thant" 
+			position = { x = 850 y = 85 }
+			pdx_tooltip = "UN_U_Thant"
+			scale = 0.6
+		}
+		iconType = {
+			name = "UN_Kurt_Waldheim"
+			spriteType = "GFX_UN_Kurt_Waldheim" 
+			position = { x = 850 y = 85 }
+			pdx_tooltip = "UN_Kurt_Waldheim"
+			scale = 0.6
+		}
+		iconType = {
+			name = "UN_Perez_de_Cuellar"
+			spriteType = "GFX_UN_Perez_de_Cuellar" 
+			position = { x = 850 y = 85 }
+			pdx_tooltip = "UN_Perez_de_Cuellar"
+			scale = 0.6
+		}
+		iconType = {
+			name = "UN_Boutros_Ghali"
+			spriteType = "GFX_UN_Boutros_Ghali" 
+			position = { x = 850 y = 85 }
+			pdx_tooltip = "UN_Boutros_Ghali"
+			scale = 0.6
+		}
+		
+			gridBoxType = {
+				name = "un_nations_list_grid"
+				position = { x = 00 y = 200} 
+				size = { width = 700 height = 40 }
+				format = "UPPER_CENTER"
+				slotsize = { width = 45 height = 40 }
+				max_slots_horizontal = 22
+				add_horizontal = yes
+			}
+			gridBoxType = {
+				name = "un_treaty_list_grid"
+				position = { x = 805 y = 45} 
+				size = { width = 700 height = 40 }
+				format = "UPPER_CENTER"
+				slotsize = { width = 45 height = 30 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+			gridBoxType = {
+				name = "sanctioned_nations_list_grid"
+				position = { x = 805 y = 334} 
+				size = { width = 700 height = 40 }
+				format = "UPPER_CENTER"
+				slotsize = { width = 45 height = 40 }
+				max_slots_horizontal = 7
+				add_horizontal = yes
+			}
+			instantTextBoxType = {
+				name ="sanctions_title"
+				position = { x = 1155 y = 305} 
+				font = "hoi_30header"
+				text = "sanctions"
+				format = left
+				maxWidth = 300
+				maxHeight = 24
+				fixedsize =	no
+			}
+			instantTextBoxType = {
+				name ="un_treaty_title"
+				position = { x = 1155 y = 8} 
+				font = "hoi_30header"
+				text = "un_treaty_title"
+				format = left
+				maxWidth = 300
+				maxHeight = 24
+				fixedsize =	no
+			}
+			iconType = {
+				name = "UN_NO_MEMBER"
+				spriteType = "GFX_UN_NOvisible" 
+				position = { x = -6 y = 0 }
+			}
+			iconType = {
+				name = "my_flag"
+				quadTextureSprite = "GFX_player_flag_large"
+				position = { x = 60 y = 73 }
+				Orientation = "UPPER_LEFT"
+			}
+			instantTextBoxType = {
+			name ="NOT_UN_text"
+			position = { x = 280 y = 320}
+			font = "hoi_36header"
+			text = "NOT_UN_text"
+			format = center
+			maxWidth = 800
+			maxHeight = 24
+			fixedsize =	no
+			}
+			buttonType = {
+				name = "UN_close_button"
+				position = {x= 1430 y = 0 }
+				spriteType = "GFX_closebutton"
+				shortcut = "ESCAPE"
+				clicksound = click_close
+			}
+			iconType = {
+				name = "ARTHER_GUI_icon"
+				spriteType = "GFX_hechengyu" 
+				position = { x = 60 y = 198 }
+			
+				pdx_tooltip = "influence_title"
+				pdx_tooltip_delayed = "influence_text"
+			}
+			instantTextBoxType = {
+				name ="my_state_name"
+				position = { x = 60 y = 160 }
+				font = "hoi_30header"
+				text = "[?THIS.GetName]"
+				format = left
+				maxWidth = 300
+				maxHeight = 24
+				fixedsize =	no
+			}
+			instantTextBoxType = {
+				name ="ARTHER_GUI_text"
+				position = { x = 88 y = 198 }
+				font = "hoi_18mbs"
+				text = "[?influences]"
+				format = left
+				maxWidth = 46
+				maxHeight = 24
+				fixedsize =	no
+			}
+		}
+		containerWindowType = {
+			name = "nations_grid_entry"
+			position = { x = -200 y = 200} 
+			size = { width = 300 height = 30 }
+			scale = 1.8
+			iconType = {
+				name = "flag"
+				quadTextureSprite = "GFX_flag_small"
+				position = { x = 10 y = 0 }
+				Orientation = "UPPER_CENTER"
+				pdx_tooltip = "member_name"
+				pdx_tooltip_delayed = "UN_member_detail"
+			}
+	}
+		containerWindowType = {
+			name = "sanctioned_countries_grid_entry"
+			position = { x = 00 y = 00} 
+			size = { width = 300 height = 30 }
+			scale = 1.8
+			iconType = {
+				name = "flag"
+				quadTextureSprite = "GFX_flag_small"
+				position = { x = 10 y = 0 }
+				Orientation = "UPPER_CENTER"
+				pdx_tooltip = "under_sanctioned_desc"
+			}
+			iconType = {
+				name = "locked_icon"
+				quadTextureSprite = "GFX_locked_icon"
+				position = { x = 15 y = 8 }
+				Orientation = "UPPER_CENTER"
+				scale = 0.4
+				pdx_tooltip = "under_sanctioned_desc"
+			}
+	}
+		containerWindowType = {
+			name = "un_treaty_entry"
+			position = { x = 15 y = 00} 
+			size = { width = 320 height = 10 }
+			instantTextboxType = {
+				name = "un_treaty_list"
+				position = { x = 25 y = 5 }
+				font = "hoi_18mbs"
+				text = "[get_un_treaty]"
+				maxWidth = 320
+				maxHeight = 100
+				format = left
+			}
+			iconType = {
+				name = "locked_icon"
+				quadTextureSprite = "GFX_decision_category_generic"
+				scale = 0.7
+				position = { x = 0 y = 0 }
+				Orientation = "UPPER_CENTER"
+			}
+	}
+}

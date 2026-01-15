@@ -1,0 +1,43 @@
+
+state={
+	id=251
+	name="STATE_251"
+	manpower = 1391819
+	
+	state_category = town
+
+	history={
+		owner = SOV
+		set_state_flag = SOV_corn_states
+		set_state_flag = ethnics_Russian
+		add_to_array = { this.state_ethnics_list = 143 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		victory_points = {
+			11225 8
+		}
+		victory_points = {
+			9299 4
+		}
+		buildings = {
+			power_plant = 2
+			oilfield = 1
+			farm_building = 1
+			infrastructure = 5
+			arms_factory = 2
+			air_base = 1
+		}
+		add_core_of = SOV
+		1957.1.1 = {
+			set_state_category = city
+			buildings = {
+				dam_plant = 3
+				arms_factory = 3
+			}
+		}
+	}
+
+	provinces={
+		298 338 339 365 393 497 3216 6275 6404 9243 9271 9299 9365 9391 11225 11256 11281 11348 11377 
+	}
+}

@@ -1,0 +1,134 @@
+﻿add_namespace = ban
+#孟加拉国独立
+country_event = {
+	id = ban.1
+	title = ban.1.t
+	desc = ban.1.d
+	picture = GFX_RajPakWar1970
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PAK
+		has_stability < 0.6
+		date > 1971.2.24
+		date < 1975.2.24
+		owns_state = 430
+		NOT = { country_exists = BAN }
+	}
+	option = {
+		name = zim.1.a
+			BAN = {
+				set_state_owner = 430
+				load_oob = "BAN"
+				add_war_support = 0.8
+			}
+			PAK = {
+			news_event = { id = ban.3 }
+			declare_war_on = { target = BAN type = annex_everything }
+			}
+			IND = { news_event = { id = ban.2 } }
+	}
+	option = {
+		name = zim.1.a
+			BAN = {
+				transfer_state = 430
+			}
+	}
+}
+news_event = {
+	id = ban.2
+	title = ban.2.t
+	desc = ban.2.d
+	
+	picture = GFX_RajPakWar1970
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ban.2.a
+		give_guarantee = BAN
+		add_to_war = {
+			targeted_alliance = BAN
+			enemy = PAK
+			hostility_reason = asked_to_join
+		}
+		add_political_power = 100
+		news_event = { id = ban.4 }
+	}
+	
+	option = {
+		name = ban.2.b
+		add_political_power = -100
+	}
+}
+news_event = {
+	id = ban.3
+	title = ban.3.t
+	desc = ban.3.d
+	picture = GFX_RajPakWar1970
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ban.2.b
+	}
+}
+news_event = {
+	id = ban.4
+	title = ban.4.t
+	desc = ban.4.d
+	picture = GFX_RajPakWar1970
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ban.2.b
+	}
+}
+news_event = {
+	id = ban.5
+	title = ban.5.t
+	desc = ban.5.d
+	picture = GFX_RajPakWar1970
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ban.2.b
+		if = {
+			limit = {tag = PAK }
+			add_war_support = -0.5
+		}
+	}
+}
+news_event = {
+	id = ban.6
+	title = ban.6.t
+	desc = ban.6.d
+	picture = GFX_RajPakWar1970
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = PAK
+		has_country_flag = lost_bangladesh
+		has_war_support < 0.6
+	}
+	option = {
+		name = ban.2.b
+		news_event = { id = ban.7 }
+		white_peace = IND
+		white_peace = BAN
+		BAN = {
+			transfer_state = 430
+		}
+	}
+}
+news_event = {
+	id = ban.7
+	title = ban.7.t
+	desc = ban.7.d
+	picture = GFX_RajPakWar1970
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ban.2.b
+	}
+}

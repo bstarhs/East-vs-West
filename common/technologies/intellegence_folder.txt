@@ -1,0 +1,622 @@
+technologies = {
+	spies_tech = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		agency_upgrade_time = -0.15
+		operative_slot = 3
+		path = {
+			leads_to_tech = fake_identity
+			research_cost_coeff = 1
+		}	
+		path = {
+			leads_to_tech = assassination
+			research_cost_coeff = 1
+		}	
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 0 y = 0 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	assassination = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		path = {
+			leads_to_tech = silence_pistol
+			research_cost_coeff = 1
+		}	
+		path = {
+			leads_to_tech = special_unit
+			research_cost_coeff = 1
+		}	
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -4 y = 2 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	silence_pistol = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		own_operative_detection_chance_factor = -0.12
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -2 y = 4 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	special_unit = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		intel_network_gain = 1
+		research_cost = 1.5
+		path = {
+			leads_to_tech = action_planned
+			research_cost_coeff = 1
+		}	
+		path = {
+			leads_to_tech = special_unit_train
+			research_cost_coeff = 1
+		}	
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -6 y = 4 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	special_unit_train = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		intel_network_gain = 1
+		research_cost = 1.5
+		path = {
+			leads_to_tech = action_train
+			research_cost_coeff = 1
+		}	
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -6 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	action_train = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -6 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	action_planned = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		intel_network_gain = 1
+		operation_cost = -0.15
+		path = {
+			leads_to_tech = nuke_spies
+			research_cost_coeff = 1
+		}	
+		path = {
+			leads_to_tech = destroy_action
+			research_cost_coeff = 1
+		}	
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -4 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	destroy_action = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -2 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	nuke_spies = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = -4 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	fake_identity = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		operation_cost = -0.15
+		own_operative_detection_chance_factor = -0.2
+		path = {
+			leads_to_tech = social_skiil
+			research_cost_coeff = 1
+		}	
+		path = {
+			leads_to_tech = secret_base
+			research_cost_coeff = 1
+		}	
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 0 y = 2 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	secret_base = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		intel_network_gain = 1
+		doctrine = yes	
+		research_cost = 1.5
+		operation_cost = -0.15
+		path = {
+			leads_to_tech = base_moveing
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 0 y = 4 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	base_moveing = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		own_operative_detection_chance_factor = -0.2
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 0 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	social_skiil = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		intel_network_gain = 1
+		operation_cost = -0.15
+		boost_ideology_mission_factor = 0.1
+		path = {
+			leads_to_tech = puppet_organization
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = bribe
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = communicate_tool
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = interrogate
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 4 y = 4 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	interrogate = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		enemy_operative_capture_chance_factor = 0.3
+		enemy_operative_detection_chance = 15
+		path = {
+			leads_to_tech = veritaserum
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = will_power
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 2 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	will_power = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		own_operative_detection_chance_factor = -0.25
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 0 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	veritaserum = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		enemy_operative_capture_chance_factor = 0.5
+		enemy_operative_detection_chance = 15
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 2 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	bribe = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		intel_network_gain = 1
+		research_cost = 1.5
+		boost_ideology_mission_factor = 0.1
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 6 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	puppet_organization = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		intel_network_gain = 1
+		boost_ideology_mission_factor = 0.15
+		doctrine = yes	
+		path = {
+			leads_to_tech = secret_media
+			research_cost_coeff = 1
+		}
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 4 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	secret_media = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		intel_network_gain = 1
+		doctrine = yes	
+		research_cost = 1.5
+		boost_ideology_mission_factor = 0.15
+		path = {
+			leads_to_tech = media_control
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 4 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	media_control = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		intel_network_gain = 1
+		boost_ideology_mission_factor = 0.15
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 4 y = 10 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	communicate_tool = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		intel_network_gain = 1
+		path = {
+			leads_to_tech = intellegence_share
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = electro_communicate_tool
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = code_tech
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 8 y = 6 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	electro_communicate_tool = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		intel_network_gain = 1.4
+		path = {
+			leads_to_tech = eavesdropper
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = minor_camera
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 10 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	minor_camera = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		enemy_operative_capture_chance_factor = 0.3
+		enemy_operative_detection_chance = 15
+		path = {
+			leads_to_tech = supervisory
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 12 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	eavesdropper = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		enemy_operative_intel_extraction_rate = 0.2
+		enemy_operative_capture_chance_factor = 0.3
+		enemy_operative_detection_chance = 15
+		path = {
+			leads_to_tech = supervisory
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 10 y = 10 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	supervisory = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		enemy_operative_intel_extraction_rate = 0.2
+		enemy_operative_detection_chance = 15
+		enemy_operative_capture_chance_factor = 0.3
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 12 y = 10 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	code_tech = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		path = {
+			leads_to_tech = update_code
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 8 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	update_code = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 8 y = 10 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	intellegence_share = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		research_cost = 1.5
+		intel_network_gain = 1.2
+		path = {
+			leads_to_tech = duble_agences
+			research_cost_coeff = 1
+		}
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 6 y = 8 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	duble_agences = {
+		xp_research_type = army
+		xp_unlock_cost = 150	
+		doctrine = yes	
+		enemy_operative_recruitment_chance = 0.3
+		research_cost = 1.5
+		categories = {
+			intellegence
+		}
+		folder = {
+			name = intellegence_folder
+			position = { x = 6 y = 10 }
+		}	
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

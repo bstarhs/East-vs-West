@@ -1,0 +1,390 @@
+﻿capital = 7
+
+set_country_flag = west_euro_state
+set_research_slots = 2
+set_war_support = 0.9
+set_country_flag = developmented
+	set_country_flag = female_finished
+set_country_flag = has_monarchs
+	complete_national_focus = common_61
+	complete_national_focus = common_weman_right
+	set_country_flag = gen230
+add_ideas = {
+	colonist_war
+	Calvinists
+	Wilhelmina
+	HOL_gateway_to_europe
+}
+	set_autonomy = {
+		target = PTN
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	create_equipment_variant = {
+		name = "Hertog Hendrik Class"			
+		type = ship_hull_light_1
+		name_group = HOL_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+set_country_flag = main_country
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	complete_national_focus = steel_produc
+	
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	complete_national_focus = common_medic
+	complete_national_focus = common_63
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+		basic_medium_tank = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	marines = 1
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+
+	set_variable = { this.education = 81 }
+# DIPLOMACY
+	set_autonomy = {
+		target = INS
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+
+
+1939.1.1 = {
+	add_ideas = {
+		limited_conscription
+	}
+
+	add_political_power = 1198
+	
+	#generic focuses
+	oob = "HOL_1947"
+}
+
+	set_popularities = {
+		democratic = 91
+		communism = 7
+		neutrality = 2
+	}
+	complete_national_focus = common_63
+set_politics = {
+	ruling_party = democratic
+	last_election = "1933.4.26"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_convoys = 500
+set_stability = 0.75
+
+create_country_leader = {
+	name = "Louis Beel"
+	desc = "POLITICS_DIRK_JAN_DE_GEER_DESC"
+	picture = "gfx/leaders/HOL/Portrait_Netherlands_Louis_Beel.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Anton Mussert"
+	desc = "POLITICS_ANTON_MUSSERT_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_4.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Paul Groot"
+	desc = "POLITICS_LOU_DE_VISSER_DESC"
+	picture = "gfx/leaders/HOL/Portrait_Netherlands_Paul_Groot.tga"
+	expire = "1965.1.1"
+	ideology = leninism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Hendrikus Coljin"
+	desc = "POLITICS_HENDRIKUS_COLJIN_DESC"
+	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+	expire = "1965.1.1"
+	ideology = centrism
+	traits = {
+		#
+	}
+}
+
+
+### Ship Variants ###
+
+create_equipment_variant = {
+	name = "K-XIV Class"
+	type = submarine_1
+	upgrades = {
+		ship_reliability_upgrade = 2
+		sub_engine_upgrade = 2
+		sub_stealth_upgrade = 2
+		sub_torpedo_upgrade = 2
+	}
+}
+1945.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+}
+1948.1.20 = {
+	add_ideas =Marshall
+	end_puppet = KEN
+	end_puppet = INS
+	complete_national_focus = common_14
+	complete_national_focus = commons_5
+	remove_ideas = Wilhelmina
+	remove_ideas = colonist_war
+	add_ideas = {
+		Juliana
+		nato_spirit
+	}
+	create_country_leader = {
+		name = "Willem Drees"
+		
+		picture = "gfx/leaders/HOL/Portrait_Netherlands_Willem_Drees.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+	diplomatic_relation = { country = INS relation = war_relation active = no }
+}
+1950.1.1 = {
+	oob = "HOL_1950"
+	complete_national_focus = common_3
+	complete_national_focus = common_64
+	complete_national_focus = common_13
+	end_puppet = INS
+}
+1951.1.20 = {
+	add_ideas = {
+		ECSC
+	}
+}
+1956.1.20 = {
+	remove_ideas =Marshall
+	set_technology = {
+		marines2 = 1
+		basic_medium_tank = 1
+	}
+	complete_national_focus = common_3
+}
+1963.1.20 = {
+	oob = "HOL_1965"
+	set_technology = {
+		improved_medium_tank = 1
+		spaa1 = 1
+		spaa1 = 1
+		basic_medium_tank = 1
+	}
+	create_country_leader = {
+		name = "Victor Marijnen"
+		
+		picture = "gfx/leaders/HOL/Portrait_Netherlands_Victor_Marijnen.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1967.1.20 = {
+	create_country_leader = {
+		name = "Marcus Bakker"
+		
+		picture = "gfx/leaders/HOL/Portrait_Netherlands_Marcus_Bakker.tga"
+		expire = "1988.1.1"
+		ideology = leninism
+		
+		traits = {
+		
+		}
+	}
+}
+1973.1.20 = {
+	set_country_flag = china_diplomacy
+	set_country_flag = Satellite_succes
+	set_technology = {
+		Semiconductor = 1
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+		transistor = 1
+	}
+	create_country_leader = {
+		name = "Joop Den Uyl"
+		
+		picture = "gfx/leaders/HOL/Portrait_Netherlands_Joop_den_Uyl.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	remove_ideas = Juliana
+	add_ideas = {
+		Beatrix
+	}
+	create_country_leader = {
+		name = "伊娜·布劳威尔"
+		
+		picture = "gfx/leaders/HOL/Portrait_Netherlands_Ina_Brouwer.tga"
+		expire = "1988.1.1"
+		ideology = leninism
+		
+		traits = {
+		
+		}
+	}
+}	
+1982.1.20 = {
+	create_country_leader = {
+		name = "Ruud Lubbers"
+		
+		picture = "gfx/leaders/HOL/Portrait_Netherlands_Ruud_Lubbers.tga"
+		expire = "1988.1.1"
+		ideology = conservatism
+		
+		traits = {
+		
+		}
+	}
+}

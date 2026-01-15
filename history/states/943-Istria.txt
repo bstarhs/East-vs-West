@@ -1,0 +1,46 @@
+
+state={
+	id=943
+	name="STATE_943" # Croatia
+	manpower = 2224400
+	
+	state_category = rural
+	resources={
+		aluminium=5
+	}
+	history={
+		set_state_flag = ethnics_Croatia
+		add_to_array = { this.state_ethnics_list = 57 }
+		add_to_array = { this.state_ethnics_list = 87 }
+		owner = YUG
+		add_claim_by = ITA
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			school = 1
+			infrastructure = 4
+			industrial_complex = 1
+			power_plant = 1
+			11735 = {
+				naval_base = 2
+
+			}
+		}
+		victory_points = {
+			11735 4
+		}
+		victory_points = { 11564 4 }
+		add_core_of = YUG
+		add_core_of = CRO
+		1956.1.4 = {
+			remove_claim_by = ITA
+		}
+		1990.8.23 = {
+			owner = CRO
+		}
+	}
+
+	provinces={
+		11564 11735 
+	}
+}

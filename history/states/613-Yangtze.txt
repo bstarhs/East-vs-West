@@ -1,0 +1,84 @@
+
+state={
+	id=613
+	name="STATE_613" # Shanghai
+	manpower = 17305100
+	
+	state_category=metropolis
+	local_supplies=0.0
+	
+	history={
+		set_state_flag = ethnics_Han
+		set_state_flag = east_china_states
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			farm_building = 3
+			power_plant = 4
+			infrastructure = 6
+			industrial_complex = 7
+			air_base = 6
+			dockyard = 2
+			rubber_factory = 2
+			hospital = 2
+			7014 = {
+				naval_base = 6
+				coastal_bunker = 1
+				bunker = 4
+			}
+			11913 = {
+				bunker = 5
+			}
+		}
+		victory_points = { 11913 18 }
+		victory_points = { 7014 15 }
+		victory_points = { 12052 3 }
+		victory_points = { 10034 5 }
+		victory_points = { 10076 3 }
+		victory_points = { 11982 3 }
+		victory_points = { 4091 3 }
+		victory_points = { 7120 2 }
+		victory_points = { 996 2 }
+		victory_points = { 1089 2 }
+		1949.10.25 = {
+		buildings = {
+			radar_station = 1
+		}
+		owner = PRC
+		}
+		1955.8.23 = {
+			buildings = {
+				industrial_complex = 6
+			}
+		}
+		1960.10.14 = {
+			buildings = {
+				fuel_silo = 3
+				hospital = 3
+			}
+		}
+		1967.10.14 = {
+			set_state_flag = PRC_Revolutionary_community
+		}
+		1978.10.14 = {
+			buildings = {
+				hospital = 3
+				industrial_complex = 8
+			}
+		}
+		1980.8.23 = {
+			buildings = {
+				industrial_complex = 9
+			}
+		}
+
+
+	}
+
+	provinces={
+		996 1089 4091 7014 7120 10034 10076 11913 11928 11982 12052 12076 13142 
+	}
+}

@@ -1,0 +1,154 @@
+﻿capital = 608
+
+oob = "SHX_1946"
+
+set_country_flag = chinese_states
+	set_cosmetic_tag = SHX_CHI
+set_stability = 0.7
+set_war_support = 0.6
+# Starting tech
+	set_technology = {
+	steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+		medical1 = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_maintenance_company = 1
+	morale_1 = 1
+	delay = 1
+	infantry_training_2 = 1
+	military_instructor = 1
+	battle_trench = 1
+	tech_signal_company = 1
+	machine_gun1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_mountaineers = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	CAS1 = 1
+	construction1 = 1
+	marines = 1
+	paratroopers = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	
+	power_generation1 = 1
+}
+add_ideas = {
+	CHI_warlords_spirits
+	all_adults_serve
+	usa_advisors
+	corrupt
+	closed_economy
+	CHI_civil_war_deserters
+	partial_economic_mobilisation
+	assimilation
+	Secularism
+	low_welfare
+}
+set_war_support = 0.6
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 14000
+    producer = CHI
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 1200
+    producer = CHI
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+
+	set_technology = {
+		#doctrines
+		
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		fuel_silos = 1
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+	}
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 100
+}
+add_ideas = {
+	service_by_requirement
+}
+
+create_country_leader = {
+	name = "Fu Zuo-Yi"
+	desc = "POLITICS_YAN XISHAN_DESC"
+	picture = "gfx/leaders/SHX/Portrait_Fu_Zuoyi.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		stout_defender
+	}
+}
+
+create_corps_commander = {
+	name = "Wang Jingguo"
+	portrait_path = "gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+	traits = { politically_connected }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}

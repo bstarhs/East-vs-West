@@ -1,0 +1,731 @@
+﻿add_namespace = sia
+news_event = {
+	id = sia.1
+	title = sia.1.t
+	desc = sia.1.d
+	picture = GFX_ThaiArmy1940s
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1947.10.1
+		date < 1947.12.1
+	}
+	option = {
+		name = sia.1.a
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Khuang Abhaiwongse"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Khuang_Abhaiwongse.tga"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {  }
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+		}
+		news_event = { id = sia.30 }
+	}
+}
+news_event = {
+	id = sia.30
+	title = sia.30.t
+	desc = sia.30.d
+	picture = GFX_ThaiArmy1940s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}
+news_event = {
+	id = sia.2
+	title = sia.2.t
+	desc = sia.2.d
+	picture = GFX_ThaiGoverment1950s
+	is_triggered_only = yes
+	trigger = {
+		tag = SIA
+		date > 1947.12.1
+		date < 1948.5.1
+	}
+	immediate = {
+		set_country_flag = new_xianfahappend
+	}
+	option = {
+		name = sia.2.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.1
+		}
+	}
+	option = {
+		name = sia.2.b
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+	}
+}
+##颂堪上台
+news_event = {
+	id = sia.3
+	title = sia.3.t
+	desc = sia.3.d
+	picture = GFX_ThaiArmy1940s
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1948.1.1
+		date < 1948.12.1
+		has_country_flag = new_xianfahappend
+	}
+	option = {
+		name = sia.3.a
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Plaek Phibunsongkhram"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Plaek_Phibunsongkhram.tga"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {  }
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+}
+
+#1951海军叛乱
+news_event = {
+	id = sia.4
+	title = sia.4.t
+	desc = sia.4.d
+	picture = GFX_ThaiArmy1940s
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1951.1.1
+		date < 1952.1.1
+		has_government = neutrality
+	}
+	option = {
+		name = sia.4.a
+		add_stability = -0.1
+		random_list = {
+			20 = {
+				news_event = { id = sia.5 }
+				create_country_leader = {
+					name = "Thanom Kittikachorn"
+					desc = "gfx/leaders/SIA/Portrait_Siam_Thanom_Kittikachorn.tga"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {  }
+				}
+			}
+			80 = {
+				news_event = { id = sia.6 }
+				retire_country_leader = yes
+			}
+		}
+	}
+	option = {
+		name = sia.4.b
+				news_event = { id = sia.36 }
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Pridi Banomyong"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Pridi_Banomyong.tga"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {  }
+		}
+		set_politics = { ruling_party = democratic }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.12
+		}
+	}
+}
+##解救成功
+news_event = {
+	id = sia.5
+	title = sia.5.t
+	desc = sia.5.d
+	picture = GFX_ManhattanRebellion
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sia.5.a
+	}
+}
+news_event = {
+	id = sia.6
+	title = sia.6.t
+	desc = sia.6.d
+	picture = GFX_ThaiArmy1940s
+	is_triggered_only = yes
+	option = {
+		name = sia.6.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.5
+		}
+	}
+}
+
+#沙粒夺权
+news_event = {
+	id = sia.7
+	title = sia.7.t
+	desc = sia.7.d
+	picture = GFX_SaritThanarat
+	mean_time_to_happen = { days = 30 }
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1957.9.1
+		date < 1957.12.1
+		has_government = neutrality
+	}
+	option = {
+		name = sia.7.a
+		news_event = { id = sia.8 }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.12
+		}
+		create_country_leader = {
+			name = "Sarit Thanarat"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Sarit_Thanarat.tga"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = { staunch_monarchist anti_communist Developmentalism dictator }
+		}
+	}
+}
+news_event = {
+	id = sia.8
+	title = sia.8.t
+	desc = sia.8.d
+	picture = GFX_SaritThanarat
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sia.8.b
+	}
+}
+news_event = {
+	id = sia.9
+	title = sia.9.t
+	desc = sia.9.d
+	picture = GFX_PhibunsongkhramDead
+	fire_only_once = yes
+	trigger = {
+		date > 1963.1.1
+		date < 1963.12.1
+		SIA = {
+			has_country_leader = {
+				name = "Sarit Thanarat"
+				ruling_only = yes
+			}
+		}
+	}
+	option = {
+		name = sia.9.a
+		if = {
+			limit = { tag = SIA }
+			create_country_leader = {
+			name = "Thanom Kittikachorn"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Thanom_Kittikachorn.tga"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = { staunch_monarchist anti_communist Developmentalism dictator }
+			}
+		}
+	}
+}
+news_event = {
+	id = sia.10
+	title = sia.10.t
+	desc = sia.10.d
+	picture = GFX_Phibunsongkhram
+	is_triggered_only = yes
+	option = {
+		name = sia.10.a
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Sarit Thanarat"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Sarit_Thanarat.tga"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {  }
+		}
+		if = {
+			limit = {
+				not = {
+					has_country_flag = shali_win
+				}
+			}
+			set_country_flag = shali_win
+		}
+	}
+}
+news_event = {
+	id = sia.11
+	title = sia.11.t
+	desc = sia.11.d
+	picture = GFX_Bhumibol
+	is_triggered_only = yes
+	option = {
+		name = sia.11.a
+		add_stability = 0.2
+	}
+}
+news_event = {
+	id = sia.12
+	title = sia.12.t
+	desc = sia.12.d
+	picture = GFX_ThaiArmyInVietnam
+	is_triggered_only = yes
+	option = {
+		name = sia.12.a
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.15
+		}
+	}
+	option = {
+		name = sia.12.b
+		add_political_power = -50
+	}
+}
+#泰国共产党
+news_event = {
+	id = sia.13
+	title = sia.13.t
+	desc = sia.13.d
+	picture = GFX_ThaiArmyInVietnam
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1965.1.1
+		date < 1970.10.1
+		has_government = neutrality
+		neutrality < 0.6
+	}
+	option = {
+		name = sia.13.a
+		add_stability = -0.25
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		768 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		856 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+}
+news_event = {
+	id = sia.14
+	title = sia.14.t
+	desc = sia.14.d
+	picture = GFX_1973Movement
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1970.1.1
+		date < 1972.10.1
+		has_government = neutrality
+			has_country_leader = {
+				name = "Thanom Kittikachorn"
+				ruling_only = yes
+			}
+	}
+	option = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.3
+		}
+		name = sia.15.a
+	}
+}
+news_event = {
+	id = sia.15
+	title = sia.15.t
+	desc = sia.15.d
+	picture = GFX_1973Movement
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1973.1.1
+		date < 1974.10.1
+		has_government = neutrality
+		democratic > 0.2
+	}
+	option = {
+		name = sia.15.a
+		add_ideas = democracy_thai
+		set_politics = { ruling_party = democratic }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+		create_country_leader = {
+			name = "Sanya Dharmasakti"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Sanya_Dharmasakti.tga"
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {  }
+		}
+		news_event = { id = sia.16 }
+	}
+	option = {
+		name = sia.15.b
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		add_stability = -0.4
+	}
+}
+news_event = {
+	id = sia.16
+	title = sia.16.t
+	desc = sia.16.d
+	picture = GFX_Bhumibol
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = sia.16.a
+	}
+}
+
+#共产主义警告
+news_event = {
+	id = sia.17
+	title = sia.17.t
+	desc = sia.17.d
+	picture = GFX_Phibunsongkhram
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		has_government = democratic
+		communism > 0.15
+	}
+	option = {
+		name = sia.17.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+}
+
+#他农回国
+news_event = {
+	id = sia.18
+	title = sia.18.t
+	desc = sia.18.d
+	picture = GFX_Phibunsongkhram
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = SIA
+		date > 1976.1.1
+		date < 1976.10.1
+		has_government = democratic
+		neutrality > 0.1
+	}
+	option = {
+		name = sia.18.a
+		add_stability  = -0.1
+	}
+}
+#法政大学
+news_event = {
+	id = sia.19
+	title = sia.19.t
+	desc = sia.19.d
+	picture = GFX_ThammasatUniversityMassacre
+	mean_time_to_happen = { days = 150 }
+	trigger = {
+		date > 1976.1.1
+		date < 1976.10.1
+		SIA = {
+			has_government = democratic
+			neutrality > 0.1
+		}
+	}
+	option = {
+		name = sia.19.a
+		if = {
+			limit = { tag = SIA }
+			add_stability  = -0.25
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.1
+			}
+		}
+	}
+}
+news_event = {
+	id = sia.20
+	title = sia.20.t
+	desc = sia.20.d
+	picture = GFX_ThammasatUniversityMassacre
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		date > 1976.3.1
+		date < 1976.12.1
+		SIA = {
+			has_government = democratic
+			OR = {
+				neutrality > 0.35
+				has_stability < 0.5
+			}
+		}
+	}
+	option = {
+			name = sia.20.a
+		if = {
+			limit = { tag = SIA }
+			add_stability  = 0.3
+			create_country_leader = {
+			name = "Thanin Kraivichien"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Thanin_Kraivichien.tga"
+			expire = "1965.1.1"
+			ideology = centrism
+			traits = {  }
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.3
+			}
+		}
+	}
+}
+news_event = {
+	id = sia.22
+	title = sia.22.t
+	desc = sia.22.d
+	picture = GFX_ThammasatUniversityMassacre
+	is_triggered_only = yes
+	trigger = {
+		tag = SIA
+		date > 1977.1.1
+		date < 1978.1.1
+		has_government = neutrality
+	}
+	option = {
+		name = sia.22.a
+		create_country_leader = {
+			name = "Kriangsak Chamanan"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Kriangsak_Chamanan.tga"
+			expire = "1965.1.1"
+			ideology = centrism
+			traits = {  }
+		}
+	}
+}
+news_event = {
+	id = sia.23
+	title = sia.23.t
+	desc = sia.23.d
+	picture = GFX_ThammasatUniversityMassacre
+	is_triggered_only = yes
+	trigger = {
+		tag = SIA
+		date > 1980.1.1
+		date < 1980.2.1
+		has_government = neutrality
+	}
+	option = {
+		name = sia.23.a
+		create_country_leader = {
+			name = "Prem Tinsulanonda"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Prem_Tinsulanonda.tga"
+			expire = "1965.1.1"
+			ideology = centrism
+			traits = {  }
+		}
+	}
+}
+#老泰战争
+news_event = {
+	id = sia.24
+	title = sia.24.t
+	desc = sia.24.d
+	picture = GFX_ThaiArmyInVietnam
+	mean_time_to_happen = { days = 150 }
+	trigger = {
+		tag = SIA
+		LAO = { has_government = communism }
+		NOT = { SIA = { has_government = communism } }
+	}
+	option = {
+		name = sia.23.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 768
+				num_provinces = 4
+			}
+			defender = {
+				state = 670
+				num_provinces = 4
+			}
+		}
+	}
+}
+#老柬战争
+news_event = {
+	id = sia.25
+	title = sia.25.t
+	desc = sia.25.d
+	picture = GFX_ThaiArmyInVietnam
+	mean_time_to_happen = {
+		days = 150
+	}
+	trigger = {
+		tag = SIA
+		CAM = { has_government = communism }
+		NOT = { SIA = { has_government = communism } }
+	}
+	option = {
+		name = sia.23.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 764
+				num_provinces = 4
+			}
+			defender = {
+				state = 289
+				num_provinces = 4
+			}
+		}
+	}
+}
+#1949政变
+news_event = {
+	id = sia.32
+	title = sia.32.t
+	desc = sia.32.d
+	picture = GFX_ThaiArmy1940s
+	fire_only_once = yes
+	trigger = {
+		tag = SIA
+		date > 1949.10.1
+		date < 1949.12.1
+		has_country_leader = { name = "Plaek Phibunsongkhram" }
+	}
+	option = {
+		name = sia.32.a
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Direk Jayanama"
+			picture = "gfx/leaders/SIA/Portrait_Siam_Direk_Jayanama.tga"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = { popular_figurehead sharp_tongued_lawyer }
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_country_flag = ThaiCoup1949
+		news_event = { id = sia.33 }
+	}
+	option = {
+		name = sia.32.a
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.03
+		}
+		add_stability = -0.03
+		news_event = { id = sia.34 }
+	}
+}
+news_event = {
+	id = sia.33
+	title = sia.33.t
+	desc = sia.33.d
+	picture = GFX_ThaiArmy1940s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}
+news_event = {
+	id = sia.34
+	title = sia.34.t
+	desc = sia.34.d
+	picture = GFX_ThaiArmy1940s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}
+#保罗即位（1947年4月）
+news_event = {
+	id = sia.35
+	title = sia.35.t
+	desc = sia.35.d
+	picture = GFX_ThaiArmy1940s
+	major = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = SIA
+		has_country_flag = ThaiCoup1949
+		has_country_leader = { name = "Direk Jayanama" }
+	}
+	option = {
+		name = egy.3.a
+		if = {
+			limit = { tag = SIA }
+			add_stability = 0.06
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+				name = "Pridi Banomyong"
+				picture = "gfx/leaders/SIA/Portrait_Siam_Pridi_Banomyong.tga"
+				ideology = liberalism
+				traits = { popular_figurehead sharp_tongued_lawyer pro_third_world }
+			}
+		}
+	}
+}
+news_event = {
+	id = sia.36
+	title = sia.36.t
+	desc = sia.36.d
+	picture = GFX_ThaiArmy1940s
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.112.a
+	}
+}

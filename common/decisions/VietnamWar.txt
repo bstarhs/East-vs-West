@@ -1,0 +1,704 @@
+vietnam_war_decis = {
+	vie_decis_VIN_attack_laos_border = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+		cost = 60
+		ai_will_do = {
+			factor = 50
+		}
+		visible = {
+			tag = VIN
+			LAO = {
+				has_idea = LAO_civilwar_idea
+				NOT = { has_government = communism }
+			}
+			NOT = { controls_state = 766 }
+			country_exists = SVN
+		}
+		available = {
+			766 = { resistance > 12 }
+			LAO = { communism > 0.12 }
+		}
+		complete_effect = {
+			news_event = lao.30
+		}
+	}
+	vie_decis_VIN_attack_phonsari = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = LAO
+		}
+		cost = 60
+		ai_will_do = {
+			factor = 50
+		}
+		visible = {
+			tag = LAO
+			has_idea = LAO_civilwar_idea
+			NOT = { has_government = communism }
+			VIN = { controls_state = 766 }
+			country_exists = SVN
+		}
+		available = {
+			has_army_experience > 50
+			has_war_support > 0.6
+		}
+		complete_effect = {
+			news_event = lao.30
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 670
+					num_provinces = 4
+					on_win = lao.32
+				}
+				defender = {
+					state = 766
+					num_provinces = 4
+					on_win = lao.31
+				}
+			}
+		}
+	}
+	vie_decis_VIN_attack = {
+		days_re_enable = 80
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+		cost = 60
+		ai_will_do = {
+			factor = 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				resistance > 20
+				is_owned_by = SVN
+			}
+		}
+		visible = {
+			tag = VIN
+			SVN = { NOT = { is_subject_of = FRA } }
+			country_exists = SVN
+		}
+		available = {
+			FROM = { resistance > 20 }
+		}
+		complete_effect = {
+		}
+	}
+	vie_decis_VIN_support_vietcong = {
+		days_re_enable = 50
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+		cost = 60
+		ai_will_do = {
+			factor = 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SVN
+				any_neighbor_state = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+			}
+		}
+		visible = {
+			tag = VIN
+			SVN = { NOT = { is_subject_of = FRA } }
+			country_exists = SVN
+		}
+		available = {
+			has_idea = HoChiMinhTrail
+		}
+		complete_effect = {
+			FROM = {
+				add_resistance = 10
+			}
+		}
+	}
+	vie_decis_VIN_rebuild_HCMtrail = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				NOT = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+				OR = {
+					state = 782
+					state = 767
+					state = 998
+				}
+			}
+		}
+		visible = {
+			tag = VIN
+			SVN = { NOT = { is_subject_of = FRA } }
+			country_exists = SVN
+		}
+		available = {
+			FROM = {
+				owner = {
+					OR = {
+						communism > 0.4
+						has_government = communism
+						has_country_leader_with_trait = pro_third_world
+					}
+					OR = {
+						NOT = {
+							has_country_leader_with_trait = pro_america
+							has_country_leader_with_trait = anti_communist
+						}
+						communism > 0.75
+					}
+				}
+			}
+		}
+		complete_effect = {
+			FROM = { add_dynamic_modifier = { modifier = HCMTrail_modifier } }
+		}
+	}
+	vie_decis_bomb_borders = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 20
+		days_re_enable = 40
+		visible = {
+			tag = USA
+		}
+		target_trigger = {
+			FROM = {
+				any_owned_state = { has_dynamic_modifier = { modifier = HCMTrail_modifier } }
+			}
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		complete_effect = {
+			army_experience = -20
+			random_list = {
+				30 = {
+				#失败#
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					modifier = {
+						add = 5
+						FROM = { communism > 0.15 }
+					}
+					modifier = {
+						add = 8
+						FROM = { communism > 0.3 }
+					}
+					modifier = {
+						add = 10
+						FROM = { communism > 0.5 }
+					}
+					modifier = {
+						add = 10
+						FROM = { communism > 0.6 }
+					}
+					modifier = {
+						add = 10
+						FROM = { communism > 0.7 }
+					}
+					news_event = { id = svn.53 }
+					air_experience = -40
+				}
+				
+				#成功#
+				70 = {
+					modifier = {
+						add = 10
+						has_deployed_air_force_size = {
+							size > 20
+							type = cas
+						}
+					}
+					modifier = {
+						add = 10
+						has_military_access_to = CAM
+					}
+					modifier = {
+						add = 10
+						has_military_access_to = SIA
+					}
+					modifier = {
+						add = 10
+						has_air_experience > 100
+					}
+					modifier = {
+						add = 10
+						has_air_experience > 50
+					}
+					news_event = { id = svn.52 }
+					air_experience = -10
+					FROM = {
+						add_to_variable = { HCM_bombed = 1 }
+						add_popularity = {
+							ideology = communism
+							popularity = -0.02
+						}
+						random_list = {
+							6 = {
+							}
+							HCM_bombed = {
+								news_event = { id = svn.57 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	vie_decis_bomb_strategic_valley = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 100
+				date > 1960.1.1
+			}
+		}
+		visible = {
+			has_completed_focus = SVN_strategic_vally
+			has_idea = VietCongRevolt
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				NOT = { has_dynamic_modifier = { modifier = strategic_valley_modifier } }
+				resistance > 5
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_resistance = -15
+				add_dynamic_modifier = { modifier = strategic_valley_modifier }
+			}
+		}
+	}
+	vie_decis_bomb_search_destroy = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SVN
+				has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		
+		available = {
+			has_army_experience > 20
+			OR = {
+				divisions_in_state = {
+					size > 0
+					state = FROM
+				}
+				is_ai = yes
+			}
+		}
+		visible = {
+			tag = USA
+			has_idea = Total_Vietnam_War
+			country_exists = VIN
+			country_exists = SVN
+		}
+		complete_effect = {
+			army_experience = -20
+			random_list = {
+				20 = {
+					#失败#
+					modifier = {
+						add = 20
+						FROM = { any_neighbor_state = { has_dynamic_modifier = { modifier = HCMTrail_modifier } } }
+					}
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					modifier = {
+						add = 20
+						VIN = { has_idea = HoChiMinhTrail }
+					}
+					modifier = {
+						add = 6
+						SVN = { has_idea = SVN_BuddhismCrisis }
+					}
+					modifier = {
+						add = 15
+						SVN = { communism > 0.7 }
+					}
+					modifier = {
+						add = 10
+						SVN = { communism > 0.4 }
+					}
+					modifier = {
+						add = 10
+						has_war_support < 0.6
+					}
+					modifier = {
+						add = 20
+						date > 1970.1.1
+					}
+					modifier = {
+						add = 20
+						date > 1972.1.1
+					}
+					FROM = { add_resistance = 10 }
+					news_event = { id = svn.41 }
+				}
+				
+				40 = {
+					#成功#
+					modifier = {
+						add = 10
+						divisions_in_state = {
+							size > 1
+							state = FROM
+						}
+					}
+					modifier = {
+						add = 8
+						KOR = {
+							divisions_in_state = {
+								size > 0
+								state = FROM
+							}
+						}
+					}
+					modifier = {
+						add = 8
+						AST = {
+							divisions_in_state = {
+								size > 0
+								state = FROM
+							}
+						}
+					}
+					modifier = {
+						add = 10
+						divisions_in_state = {
+							size > 0
+							type = helicopter
+							state = FROM
+						}
+					}
+					modifier = {
+						add = 15
+						has_idea_with_trait = anti_guerrilas
+					}
+					modifier = {
+						add = 15
+						FROM = { has_dynamic_modifier = { modifier = strategic_valley_modifier } }
+					}
+					modifier = {
+						add = 10
+						divisions_in_state = {
+							size > 2
+							state = FROM
+						}
+					}
+					news_event = { id = svn.40 }
+					FROM = { add_resistance = -8 }
+				}
+			}
+		}
+	}
+	vie_decis_bomb_states_vietcong = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = SVN
+				has_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+		}
+		available = {
+			OR = {
+				has_military_access_to = SIA
+				has_military_access_to = CAM
+				has_military_access_to = LAO
+				num_planes_stationed_in_regions = {
+					value > 5
+					regions = { 75 }
+				}
+			}
+			has_air_experience > 30
+			OR = {
+				has_deployed_air_force_size = {
+					size > 10
+					type = cas
+				}
+				is_ai = yes
+			}
+		}
+		visible = {
+			tag = USA
+			has_idea = Total_Vietnam_War
+			country_exists = VIN
+			country_exists = SVN
+		}
+		complete_effect = {
+			army_experience = -20
+			random_list = {
+				30 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.53 }
+					FROM = { add_resistance = -2 }
+					air_experience = -40
+				}
+				70 = {
+					modifier = {
+						add = 10
+						has_deployed_air_force_size = {
+							size > 20
+							type = cas
+						}
+					}
+					modifier = {
+						add = 10
+						has_military_access_to = CAM
+					}
+					modifier = {
+						add = 10
+						has_military_access_to = SIA
+					}
+					modifier = {
+						add = 10
+						has_air_experience > 100
+					}
+					modifier = {
+						add = 10
+						has_air_experience > 50
+					}
+					news_event = { id = svn.52 }
+					air_experience = -10
+					FROM = { add_resistance = -12 }
+				}
+			}
+		}
+	}
+	vie_decis_bomb_North_traffic = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			OR = {
+				has_military_access_to = SIA
+				has_military_access_to = CAM
+				has_military_access_to = LAO
+				num_planes_stationed_in_regions = {
+					value > 5
+					regions = { 75 }
+				}
+			}
+			has_air_experience > 30
+			OR = {
+				has_deployed_air_force_size = {
+					size > 10
+					type = cas
+				}
+				is_ai = yes
+			}
+		}
+		visible = {
+			tag = USA
+			has_idea = Total_Vietnam_War
+			country_exists = VIN
+			country_exists = SVN
+		}
+		complete_effect = {
+			army_experience = -20
+			random_list = {
+				30 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.50 }
+					VIN = {  add_political_power = -100 }
+				}
+				70 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.51 }
+					VIN = {  add_political_power = -10 }
+				}
+			}
+		}
+	}
+	vie_decis_bomb_North_economic = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			OR = {
+				has_military_access_to = SIA
+				has_military_access_to = CAM
+				has_military_access_to = LAO
+				num_planes_stationed_in_regions = {
+					value > 5
+					regions = { 75 }
+				}
+			}
+			has_air_experience > 30
+			OR = {
+				has_deployed_air_force_size = {
+					size > 10
+					type = cas
+				}
+				is_ai = yes
+			}
+		}
+		visible = {
+			tag = USA
+			has_idea = Total_Vietnam_War
+			country_exists = VIN
+			country_exists = SVN
+		}
+		complete_effect = {
+			army_experience = -20
+			random_list = {
+				80 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.50 }
+					VIN = {  add_political_power = -100 }
+				}
+				20 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.51 }
+					VIN = {  add_political_power = -10 }
+				}
+			}
+		}
+	}
+	vie_decis_bomb_North_military = {
+		days_re_enable = 120
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+			tag = USA
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			OR = {
+				has_military_access_to = SIA
+				has_military_access_to = CAM
+				has_military_access_to = LAO
+				num_planes_stationed_in_regions = {
+					value > 5
+					regions = { 75 }
+				}
+			}
+			has_army_experience > 50
+			OR = {
+				has_deployed_air_force_size = {
+					size > 10
+					type = cas
+				}
+				is_ai = yes
+			}
+		}
+		visible = {
+			tag = USA
+			has_idea = Total_Vietnam_War
+			country_exists = VIN
+			country_exists = SVN
+		}
+		complete_effect = {
+			army_experience = -20
+			random_list = {
+				80 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.50 }
+					VIN = {  add_political_power = -100 }
+				}
+				20 = {
+					modifier = {
+						add = 14
+						SVN = { has_stability < 0.4 }
+					}
+					news_event = { id = svn.51 }
+					VIN = {  add_political_power = -10 }
+				}
+			}
+		}
+	}
+}

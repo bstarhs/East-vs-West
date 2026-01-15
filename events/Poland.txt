@@ -1,0 +1,689 @@
+﻿add_namespace = pol
+#奥哈布
+country_event = {
+	id = pol.2
+	title = pol.2.t
+	desc = pol.2.d
+	fire_only_once = yes
+	picture = GFX_PolElection
+	trigger = {
+		tag = POL
+		POL = { has_government = communism }
+		date > 1956.3.1
+		date < 1956.5.21
+	}
+	option = {
+		name = pol.2.a
+		create_country_leader = {
+			name = "Edward Ochab" 
+			picture = "gfx/leaders/POL/Portrait_Poland_Edward_Ochab.tga" 
+			ideology = leninism 
+			traits = {} 
+		}
+	}
+}
+#波兹南事件
+news_event = {
+	id = pol.3
+	title = pol.3.t
+	desc = pol.3.d
+	fire_only_once = yes
+	picture = GFX_Poznan
+	trigger = {
+	tag = POL
+	POL = { has_government = communism }
+	date > 1956.7.1
+	date < 1956.9.21
+	}
+	option = {
+		name = pol.3.a
+		add_political_power = -100 
+		add_popularity = {
+			ideology = communism 
+			popularity = -0.15 
+		}
+		news_event = { id = pol.5 }
+		add_stability = -0.3
+		add_named_threat = {
+			threat = 5
+			name = Poznan_demo
+		}
+	}
+	option = {
+		name = pol.3.b
+		ai_chance = { factor = 0 }
+		add_stability = 0.1 
+		add_political_power = 100 
+		SOV = { news_event = { id = pol.4 } }
+	}
+}
+
+#波兰爆发抗议（苏联
+news_event = {
+	id = pol.4
+	title = pol.4.t
+	desc = pol.4.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Poznan
+	option = {
+		ai_chance = { factor = 0 }
+		name = pol.4.b1
+	}
+	option = {	#要求镇压
+		name = pol.4.b2
+		news_event = { id = pol.7}
+		add_political_power = -200
+		add_stability = 0.12
+		POL = { news_event = { id = pol.6 } }
+	}
+}
+
+#波兰镇压抗议（全球
+news_event = {
+	id = pol.5
+	title = pol.5.t
+	desc = pol.5.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_Poznan
+	option = {
+		name = pol.5.b1
+	}
+}
+#苏联要求波兰强硬
+news_event = {
+	id = pol.6
+	title = pol.6.t
+	desc = pol.6.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Poznan
+	option = {
+		name = pol.6.a
+		add_political_power = -100 
+		add_popularity = {
+			ideology = communism 
+			popularity = -0.15 
+		}
+		every_country = { news_event = { id = pol.5 } }
+		add_stability = -0.3
+		add_named_threat = {
+			threat = 5
+			name = Poznan_demo
+		}
+	}
+}
+#波兰政府让步（全球
+news_event = {
+	id = pol.7
+	title = pol.7.t
+	desc = pol.7.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_Poznan
+	option = {
+		name = pol.5.b1
+	}
+}
+
+#1956选举
+news_event = {
+	id = pol.9
+	title = pol.9.t
+	desc = pol.9.d
+	fire_only_once = yes
+	picture = GFX_Gomulka
+	trigger = {
+		tag = POL
+		date > 1956.9.19
+		date < 1956.11.21
+		has_government = communism
+		has_country_flag = Poland_revolt_1956
+	}
+	option = {
+		name = pol.9.b1
+		clr_country_flag = Poland_revolt_1956
+		promote_character = POL_WladyslawGomulka
+		add_stability = 0.5 
+		add_popularity = { ideology = communism popularity = 0.4 }
+		ai_chance = { factor = 60 }
+		news_event = { id = pol.10 }
+		set_country_flag = Gomulka
+	}
+	option = {
+		name = pol.9.b2
+		ai_chance = { factor = 0 }
+		clr_country_flag = Poland_revolt_1956
+		create_country_leader = {
+			name = "Marian Spychalski" 
+			desc = "Portrait_Tibet_Gyaltsen.tga" 
+			picture = "gfx/leaders/POL/Portrait_Poland_Marian_Spychalski.tga" 
+			expire = "2000.1.1" 
+			ideology = leninism 
+			traits = {} 
+		}
+	}
+}
+#哥穆尔卡当选
+news_event = {
+	id = pol.10
+	title = pol.10.t
+	desc = pol.10.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.10.b1
+		
+	}
+}
+#约翰·保罗二世
+news_event = {
+	id = pol.13
+	title = pol.13.t
+	desc = pol.13.d
+	fire_only_once = yes
+	major = yes
+	picture = GFX_JohnPaulII
+	trigger = {
+		tag = POL
+		date > 1978.9.19
+		date < 1979.1.21
+	}
+	option = {
+		name = pol.13.a
+		POL = { 
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			} 
+		}
+		
+	}
+}
+#70年经济危机
+news_event = {
+	id = pol.14
+	title = pol.14.t
+	desc = pol.14.d
+	fire_only_once = yes
+	major = yes
+	picture = GFX_Poland1970
+	trigger = {
+		tag = POL
+		has_idea = three_hight
+		date > 1978.9.19
+		date < 1980.1.21
+	}
+	option = {
+		name = pol.6.b1
+		add_political_power = -200
+		add_stability = -0.20
+		remove_ideas = three_hight
+	}
+	option = {
+		name = pol.6.b1
+		add_political_power = -50
+		add_stability = -0.05
+		POL = { 
+			add_popularity = {
+				ideology = communism
+				popularity = -0.3
+			} 
+		}
+	}
+}
+#团结工会成立
+news_event = {
+	id = pol.16
+	title = pol.16.t
+	desc = pol.16.d
+	fire_only_once = yes
+	major = yes
+	picture = GFX_Walesa
+	trigger = {
+		tag = POL
+		POL = { 
+			has_government = communism 
+			communism < 0.7
+		}
+		date > 1978.9.19
+		date < 1981.11.21
+	}
+	option = {
+		name = pol.6.b1
+		POL = { 
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			} 
+			add_ideas = Solidarnosc
+		}
+		
+	}
+}
+#波兰军管
+news_event = {
+	id = pol.18
+	title = pol.18.t
+	desc = pol.18.d
+	fire_only_once = yes
+	major = yes
+	picture = GFX_Jaruzelski
+	is_triggered_only = yes
+	option = {
+		name = pol.6.b1
+		POL = { 
+			add_popularity = {
+				ideology = communism
+				popularity = 0.5
+			} 
+			add_stability = 0.3
+			create_country_leader = {
+				name = "Wojciech Jaruzelski"
+				picture = "gfx/leaders/POL/Portrait_Poland_Jaruzelski.tga"
+				expire = "2020.1.1"
+				ideology = stalinism
+				traits = {
+		
+				}
+			}
+		}
+		
+	}
+}
+#88工潮
+news_event = {
+	id = pol.20
+	title = pol.20.t
+	desc = pol.20.d
+	fire_only_once = yes
+	major = yes
+	picture = GFX_Walesa
+	trigger = {
+		tag = POL
+		POL = { 
+			has_government = communism 
+			democratic > 0.2
+			has_idea = Solidarnosc
+		}
+		date > 1988.8.19
+		date < 1989.1.1
+	}
+	option = {
+		name = pol.6.b1
+		POL = { 
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.4
+			} 
+		}
+		
+	}
+}
+#波兰圆桌会议
+news_event = {
+	id = pol.21
+	title = pol.21.t
+	desc = pol.21.d
+	picture = GFX_PolandNegotiation
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		
+	}
+}
+#铁托事件
+country_event = {
+	id = pol.30
+	title = poltext.30.t
+	desc = pol.30.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	picture = GFX_PolElection
+	trigger = {
+		tag = POL
+		YUG = { has_idea = SovietChinaConflit }
+		date < 1950.1.1
+	}
+	option = {
+		name = pol.30.a
+			ai_chance = {
+				factor = 60
+			}
+		set_country_flag = PolandTitoNo
+		news_event = { id = pol.31 }
+	}
+	option = {
+		name = pol.30.b
+			ai_chance = {
+				factor = 10
+			}
+		set_country_flag = PolandTitoYes
+		set_country_flag = TitoYes
+		news_event = { id = pol.32 }
+	}
+}
+news_event = {
+	id = pol.31
+	title = pol.31.t
+	desc = pol.31.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		if = {
+			limit = { tag = POL }
+			retire_character = POL_WladyslawGomulka
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.08
+		}
+		
+	}
+}
+news_event = {
+	id = pol.32
+	title = pol.32.t
+	desc = pol.32.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		if = {
+			limit = { tag = POL }
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+			add_stability = 0.08
+		}
+		if = {
+			limit = {
+				is_neighbor_of = POL
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+
+
+
+news_event = {
+	id = pol.40
+	title = pol.40.t
+	desc = pol.40.d
+	picture = GFX_Poznan
+	major = yes
+	mean_time_to_happen = { days = 10}
+	trigger = {
+		tag = POL
+		HUN = { is_in_faction_with = SOV }
+		has_government = communism
+		date > 1956.8.1
+		date < 1957.5.21
+		SOV = { has_completed_focus = SOV_RemovingStalinization }
+		NOT = { has_country_flag = pol40 }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			
+			limit = { tag = POL }
+			add_stability = -0.5
+			set_country_flag = Poland_revolt_1956
+			set_country_flag = pol40
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = pol.42
+	title = pol.42.t
+	desc = pol.42.d
+	picture = GFX_Poznan
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = POL
+		POL = { is_in_faction_with = SOV }
+		has_government = communism
+		date > 1956.8.1
+		date < 1957.5.21
+		has_country_flag = Poland_revolt_1956
+	}
+	option = {
+		name = hun.20.b1
+		add_stability = -0.3
+		add_political_power = 200
+	}
+	option = {
+		name = hun.20.b1
+		news_event = { id = pol.43 }
+		SOV = { news_event = { id = pol.44 } }
+		add_stability = 0.12
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+	}
+}
+news_event = {
+	id = pol.43
+	title = pol.43.t
+	desc = pol.43.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+	}
+}
+news_event = {
+	id = pol.44
+	title = pol.44.t
+	desc = pol.44.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	option = {
+		name = pol.21.b1
+		ai_chance = { factor = 0 }
+		news_event = { id = pol.45 }
+	}
+	option = {
+		name = pol.21.b1
+		ai_chance = { factor = 10 }
+		news_event = { id = pol.53 }
+	}
+}
+news_event = {
+	id = pol.45
+	title = pol.45.t
+	desc = pol.45.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	option = {
+		name = pol.21.b1
+		ai_chance = { factor = 10 }
+		SOV = { news_event = { id = pol.46 } }
+	}
+}
+news_event = {
+	id = pol.46
+	title = pol.46.t
+	desc = pol.46.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	option = {
+		name = pol.21.b1
+		ai_chance = { factor = 0 }
+			remove_from_faction = POL
+			declare_war_on = { target = POL type = puppet_wargoal_focus }
+			add_named_threat = {
+				threat = 10
+				name = Soviet_Invade_Poland
+			}
+			add_to_variable = { influences = -160 }
+		news_event = { id = pol.54 }
+	}
+	option = {
+		name = pol.21.b1
+		ai_chance = { factor = 10 }
+		news_event = { id = pol.53 }
+	}
+}
+news_event = {
+	id = pol.47
+	title = pol.47.t
+	desc = pol.47.d
+	picture = GFX_Poznan
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = POL
+		POL = { is_in_faction_with = SOV }
+		has_government = communism
+		date > 1956.8.1
+		date < 1957.5.21
+		has_country_flag = Poland_revolt_1956
+	}
+	option = {
+		name = hun.20.b1
+		retire_character = SOV_konstantin_rokossovsky
+		news_event = { id = pol.48 days = 2 }
+		SOV = { news_event = { id = pol.44 days = 3 } }
+		add_stability = 0.25
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+	}
+}
+news_event = {
+	id = pol.48
+	title = pol.48.t
+	desc = pol.48.d
+	picture = GFX_Rokossovsky
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+	}
+}
+news_event = {
+	id = pol.49
+	title = pol.49.t
+	desc = pol.49.d
+	picture = GFX_Poznan
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = POL
+		POL = { is_in_faction_with = SOV }
+		has_government = communism
+		date > 1956.8.1
+		date < 1957.5.21
+		has_country_flag = Poland_revolt_1956
+	}
+	option = {
+		name = hun.20.b1
+		recruit_character = POL_WladyslawGomulka
+		news_event = { id = pol.50 }
+		add_stability = 0.25
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = -0.06
+		}
+		SOV = { news_event = { id = pol.44 } }
+	}
+}
+news_event = {
+	id = pol.50
+	title = pol.50.t
+	desc = pol.50.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+	}
+}
+news_event = {
+	id = pol.53
+	title = pol.53.t
+	desc = pol.53.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+	}
+}
+news_event = {
+	id = pol.54
+	title = pol.54.t
+	desc = pol.54.d
+	picture = GFX_Gomulka
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+	}
+}
+#1955联欢节
+news_event = {
+	id = pol.80
+	title = pol.80.t
+	desc = pol.80.d
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	picture = GFX_YouthFestivalWarsaw
+	trigger = {
+		tag = POL
+		has_government = communism
+		date > 1955.8.1
+		date < 1955.10.2
+		NOT = { has_global_flag = YouthFestivalWarsaw }
+	}
+	option = {
+		name = pol.5.b1
+		set_global_flag = YouthFestivalWarsaw
+	}
+}
+#1957选美
+news_event = {
+	id = pol.81
+	title = pol.81.t
+	desc = pol.81.d
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	picture = GFX_YouthFestivalWarsaw
+	trigger = {
+		tag = POL
+		has_government = communism
+		date > 1957.6.1
+		date < 1957.10.2
+		NOT = { has_global_flag = MissPolonia }
+	}
+	option = {
+		name = pol.5.b1
+		set_global_flag = MissPolonia
+	}
+}

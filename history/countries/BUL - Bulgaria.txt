@@ -1,0 +1,323 @@
+﻿capital = 48
+
+oob = "BUL_1936"
+
+set_country_flag = main_country
+set_country_flag = developmented
+set_country_flag = orthodox_state
+set_country_flag = has_monarchs
+set_country_flag = east_europe
+add_ideas = {
+	hight_welfare
+	limited_conscription
+}
+	set_variable = { this.education = 53 }
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+
+	activate_decision = create_radio_station
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+		basic_medium_tank = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	power_generation1 = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_2
+	complete_national_focus = common_26
+	complete_national_focus = common_28
+	complete_national_focus = common_37
+	complete_national_focus = common_63
+	complete_national_focus = common_support_comparty
+	complete_national_focus = common_comparty_strike
+	complete_national_focus = common_people_army
+
+	recruit_character = BUL_Traycho_Kostov
+	recruit_character = BUL_Chelvenkov
+	recruit_character = BUL_Zhivkov
+add_ideas = {
+	Traycho_Kostov
+	Orthodox
+		war_economy
+	Axis_problem_ideas
+}
+	oob = "BUL_1947"
+set_convoys = 5
+	set_popularities = {
+		democratic = 16
+		communism = 82
+		monarchism = 2
+	}
+set_politics = {
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+	}
+
+
+create_country_leader = {
+	name = "Georgi Dimitrov"
+	desc = "POLITICS_GEORGI_DIMITROV_DESC"
+	picture = "gfx/leaders/BUL/Portrait_BUL_Georgi_Dimitrov.tga"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+1949.1.1 = {
+	set_country_flag = gen242
+	complete_national_focus = common_weman_right
+	complete_national_focus = common_commuist_nationalized
+	complete_national_focus = common_43
+	complete_national_focus = common_42
+	complete_national_focus = common_45
+	retire_character = BUL_Traycho_Kostov
+	set_country_flag = china_diplomacy
+	add_timed_idea = {
+		idea = grand_purge
+		days = 365
+	}
+	remove_ideas = Traycho_Kostov
+	create_intelligence_agency = yes
+	complete_national_focus = common_73
+	promote_character = {
+		character = BUL_Chelvenkov
+		ideology = marxism
+	}
+	set_country_flag = china_diplomacy
+	set_country_flag = israel_diplomacy
+}
+1954.1.1 = {
+	set_country_flag = female_finished
+	remove_ideas = grand_purge
+	complete_national_focus = steel_produc
+	complete_national_focus = common_39
+	set_technology = {
+		motorize_doctrine = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+	}
+}
+1955.1.1 = {
+	remove_ideas = Axis_problem_ideas
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_medic
+	add_ideas = {
+		warsawpact
+		UNmember
+	}
+}
+1959.1.1 = {
+	retire_character = BUL_Chelvenkov
+	promote_character = {
+		character = BUL_Zhivkov
+		ideology = marxism
+	}
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+	}
+}
+1961.1.20 = {
+	set_technology = {
+		trans_helicopter_1 = 1
+		improved_medium_tank = 1
+	}
+}
+1971.1.1 = {
+	set_technology = {
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		improved_infantry_weapons_2 = 1
+	}
+	complete_national_focus = common_27
+}
+1973.1.1 = {
+	set_variable = { this.education = 72 }
+	add_ideas = Orthodox
+	activate_decision = Establishment_of_National_Museum
+}
+1981.1.1 = {
+	set_country_flag = Satellite_succes
+	set_technology = {
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+	}
+}
+1986.3.12 = {
+	set_technology = {
+		advanced_infantry_weapons = 1
+		advanced_medium_tank = 1
+	}
+	set_popularities = {
+		democratic = 24
+		communism = 76
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1990.3.29 = {
+	add_ideas = economic_trans
+	remove_ideas = {
+		warsawpact
+		comecon
+	}
+	create_country_leader = {
+		name = "Zhelyu Zhelev"
+		picture = "gfx/leaders/BUL/Portrait_Bulgaria_Zhelyu_Zhelev.tga"
+		expire = "2050.1.1"
+		ideology = conservatism
+		
+		traits = {
+		}
+	}
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}

@@ -1,0 +1,51 @@
+
+state={
+	id=4
+	name="STATE_4"
+	manpower = 2595983
+	state_category = large_city
+	local_supplies=0.0
+	
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Austrian
+		set_state_flag = wine_production
+		owner = SOV
+		add_to_array = { this.state_ethnics_list = 30 }
+		add_core_of = AUS
+		owner = AUS
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			power_plant = 1
+			infrastructure = 7
+			industrial_complex = 2
+			air_base = 3
+		}
+		1955.10.25 = {
+			buildings = {
+				school = 2
+				farm_building = 3
+				hospital = 2
+				power_plant = 2
+				infrastructure = 7
+				arms_factory = 3
+				industrial_complex = 5
+		}	
+			add_to_variable = { state_tourist = 20 }
+		}
+		victory_points = {
+			11666 15
+		}
+		victory_points = {
+			704 3
+		}
+
+
+	}
+
+	provinces={
+		704 3700 3718 6690 6739 9527 9661 9679 11630 11666 6723 6552 11651 
+	}
+}

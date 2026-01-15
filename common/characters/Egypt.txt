@@ -1,0 +1,361 @@
+characters={
+	EGY_Sadat={
+		name=EGY_Sadat
+		portraits={
+			army={
+				large="gfx/leaders/EGY/Portrait_Egypt_Sadat.tga"
+				small="gfx/interface/ideas/idea_Sadat.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				pro_third_world
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Sadat
+			allowed  = {
+				original_tag  = EGY
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	EGY_Mohamed_Naguib={
+		name=EGY_Mohamed_Naguib
+		portraits={
+			army={
+				large="gfx/leaders/EGY/Portrait_Egypt_Mohamed_Naguib.tga"
+				small="gfx/interface/ideas/idea_Mohamed_Naguib.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				pro_third_world
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Mohamed_Naguib
+			allowed  = {
+				original_tag  = EGY
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	EGY_Mohamed_Hassanein_Heikal={
+		name=EGY_Mohamed_Hassanein_Heikal
+		portraits={
+			army={
+				large="gfx/leaders/EGY/Portrait_Egypt_Mohamed_Hassanein_Heikal.tga"
+				small="gfx/interface/ideas/idea_Mohamed_Hassanein_Heikal.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Mohamed_Hassanein_Heikal
+			allowed  = {
+				original_tag  = EGY
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	EGY_Salah_Salem={
+		name=EGY_Salah_Salem
+		portraits={
+			army={
+				large="gfx/leaders/EGY/Portrait_Egypt_Salah_Salem.tga"
+				small="gfx/interface/ideas/idea_Salah_Salem.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Salah_Salem
+			allowed  = {
+				original_tag  = EGY
+			}
+			traits = {
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	EGY_Ismail_Sabri_Abdullah={
+		name=EGY_Ismail_Sabri_Abdullah
+		portraits={
+			army={
+				large="gfx/leaders/EGY/Portrait_Egypt_Ismail_Sabri_Abdullah.tga"
+				small="gfx/interface/ideas/idea_Ismail_Sabri_Abdullah.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { ideological_crusader }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Ismail_Sabri_Abdullah
+			allowed  = {
+				original_tag  = EGY
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			traits = {
+				communist_revolutionary
+			}
+			available = {
+				has_completed_focus  = EGY_Socialist
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	EGY_Kamal_el_Din_Husseinr = {
+		name=EGY_Kamal_el_Din_Hussein
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Egypt_Kamal_el_Din_Hussein.tga"
+				small="gfx/interface/ideas/idea_Kamal_el_Din_Hussein.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Kamal_el_Din_Hussein
+			visible={
+				date < 1968.1.1
+			}
+			allowed  = {
+				original_tag  = EGY
+			}
+			modifier = {
+				political_power_cost = -0.06
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	EGY_Abdel_Hakim_Amer = {
+		name=EGY_Abdel_Hakim_Amer
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Egypt_Abdel_Hakim_Amer.tga"
+				small="gfx/interface/ideas/idea_Abdel_Hakim_Amer.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Abdel_Hakim_Amer
+			visible={
+				date < 1968.1.1
+			}
+			allowed  = {
+				original_tag  = EGY
+			}
+			modifier = {
+				political_power_cost = -0.06
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	EGY_Abdel_Latif_Boghdadi = {
+		name=EGY_Abdel_Latif_Boghdadi
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Egypt_Abdel_Latif_Boghdadi.tga"
+				small="gfx/interface/ideas/idea_Abdel_Latif_Boghdadi.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Abdel_Latif_Boghdadi
+			visible={
+				date < 1968.1.1
+			}
+			allowed  = {
+				original_tag  = EGY
+			}
+			modifier = {
+				political_power_cost = -0.06
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	EGY_Zakaria_Mohieddin = {
+		name=EGY_Zakaria_Mohieddin
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Egypt_Zakaria_Mohieddin.tga"
+				small="gfx/interface/ideas/idea_Zakaria_Mohieddin.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Zakaria_Mohieddin
+			visible={
+				date < 1968.1.1
+			}
+			allowed  = {
+				original_tag  = EGY
+			}
+			modifier = {
+				political_power_cost = -0.06
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	EGY_Ali_Sabri = {
+		name=EGY_Ali_Sabri
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Egypt_Ali_Sabri.tga"
+				small="gfx/interface/ideas/idea_Ali_Sabri.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Ali_Sabri
+			visible={
+				date < 1977.1.1
+			}
+			allowed  = {
+				original_tag  = EGY
+			}
+			modifier = {
+				political_power_cost = -0.06
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	EGY_Taha_Hussein = {
+		name=EGY_Taha_Hussein
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Egypt_Taha_Hussein.tga"
+				small="gfx/interface/ideas/idea_Taha_Hussein.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Taha_Hussein
+			visible={
+				date < 1977.1.1
+			}
+			allowed  = {
+				original_tag  = EGY
+			}
+			modifier = {
+				state_production_speed_school_factor = 0.12
+				political_power_cost = -0.12
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	EGY_Nasser={
+		name=EGY_Nasser
+		portraits={
+			civilian={
+				large="gfx/leaders/EGY/Portrait_Rgypt_Nasser.tga"
+			}
+			army={
+				large="gfx/leaders/EGY/Portrait_Rgypt_Nasser_asGenaral.tga"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				pro_soviet arabs_nationalism pro_third_world
+			}
+			expire="1997.1.1.1"
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+}

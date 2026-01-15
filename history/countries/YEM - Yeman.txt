@@ -1,0 +1,151 @@
+﻿capital = 293
+
+oob = "YEM_1936"
+set_country_flag = has_monarchs
+set_country_flag = indian_ocean_states
+set_country_flag = islam_state
+set_country_flag = third_world
+set_country_flag = british_colonies
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+set_country_flag = arabs_state
+
+add_ideas = {
+
+	Sunni
+
+	arabs_league
+
+	UNmember
+	partial_economic_mobilisation
+}
+set_convoys = 5
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	oob = "YEM_1947"
+	set_technology = {
+		#doctrines
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+	set_popularities = {
+		monarchism = 90
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Ahmad Bin Yahya"
+	desc = "POLITICS_IMAM_YAHYA_DESC"
+	picture = "gfx/leaders/YEM/Portrait_Yeman_Ahmad_Yahya.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		 tratidional_trait
+	}
+}
+
+1956.1.1 = {
+	add_ideas = nasserism_idea
+	set_country_flag = china_diplomacy
+}
+1962.1.1 = {
+	add_ideas = monarch_reballion
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		monarchism = 40
+		neutrality = 60
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1964.1.20 = {
+	add_opinion_modifier = {
+		target = ISR
+		modifier = anti_arabs
+	}
+	add_to_array = { global.UNmember_list = FROM }
+	create_country_leader = {
+		name = "Abdulla Sallal"
+		
+		picture = "gfx/leaders/YEM/Portrait_Yeman_Sallal.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1970.1.20 = {
+	remove_ideas = nasserism_idea
+	remove_ideas = monarch_reballion
+	activate_decision = female_equality
+}
+1974.1.20 = {
+	create_country_leader = {
+		name = "Iblahin Hamdi"
+		
+		picture = "gfx/leaders/YEM/Portrait_Yeman_Hamdi.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1978.1.20 = {
+	create_country_leader = {
+		name = "Ali Abdulla Saleh"
+		
+		picture = "gfx/leaders/YEM/Portrait_Yeman_Saleh.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}

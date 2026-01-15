@@ -1,0 +1,85 @@
+﻿capital = 70
+
+oob = "SLO_1947"
+
+set_country_flag = developmented
+set_country_flag = orthodox_state
+set_technology = {
+		helmet = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	infantry_weapons2 = 1
+	
+	tech_support = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	tech_engineers = 1
+	early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+}
+add_ideas = {
+
+	Catholicism
+}
+1939.1.1 = {
+	
+	add_political_power = 1198
+
+	#generic focuses
+	
+	set_technology = {
+		#doctrines
+		formation_flying = 1
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		concentrated_industry = 1
+	}
+}
+
+set_popularities = {
+	democratic = 47
+	fascism = 46
+	communism = 7
+}
+set_politics = {
+
+	ruling_party = democratic
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+1991.1.20 = {
+	add_ideas = UNmember
+	add_to_array = { global.UNmember_list = FROM }
+	set_country_flag = china_diplomacy
+	create_country_leader = {
+		name = "Vladimír Mečiar"
+		
+		picture = "gfx/leaders/SLO/Portrait_Slovenia_Vladimir_Meciar.tga"
+		expire = "1956.1.1"
+		ideology = liberalism
+		traits = {
+		}
+	}
+}

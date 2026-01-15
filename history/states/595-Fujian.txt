@@ -1,0 +1,78 @@
+state= {
+	id=595
+	name="STATE_595"
+	manpower = 11755600
+	state_category = city
+	history=
+	{
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Minnan
+		set_state_flag = east_china_states
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_to_array = { this.state_ethnics_list = 5 }
+                               
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		1949.8.17 = {
+			owner = PRC
+			add_core_of = CHI
+		}
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 5
+			hospital = 2
+			farm_building = 3
+			power_plant = 1
+			air_base = 1
+			7071 = {
+				naval_base = 1
+				coastal_bunker = 1
+				bunker = 1
+			}
+			4196 = {
+				naval_base = 3
+				coastal_bunker = 1
+				bunker = 1
+			}
+		}
+		victory_points = { 
+			4196 8
+		}
+		victory_points = { 
+			7071 6
+		}
+		victory_points = { 
+			11986 4
+		}
+		victory_points = { 
+			1193 3
+		}
+		victory_points = { 
+			7099 3
+		}
+		victory_points = { 
+			10010 3
+		}
+		victory_points = { 
+			4113 2
+		}
+		victory_points = { 
+			7027 2
+		}
+		1954.8.17 = {
+			buildings = {
+				air_base = 3
+				anti_air_building = 2
+			}
+			add_dynamic_modifier = { modifier = kinmen_broachast_debuff_modifiers }
+		}
+
+	}
+	provinces={
+		1006 1094 1138 1166 1193 4053 4070 4113 4169 4196 7027 7071 7099 7131 10010 10012 10042 10054 10069 10084 10093 11986 12057 12084 
+	}
+}

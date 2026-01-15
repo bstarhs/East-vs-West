@@ -1,0 +1,63 @@
+
+state={
+	id=610
+	name="STATE_610" # Jehol
+	manpower = 1975377
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Han
+		add_to_array = { this.state_ethnics_list = 1 }
+                              
+		add_core_of = MAN
+		victory_points = { 7633 3 }
+		victory_points = { 6852 3 }
+		set_state_flag = gold_production
+		owner = DOB
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			farm_building = 3
+			power_plant = 1
+			hospital = 1
+			industrial_complex = 1
+			6837 = {
+				bunker = 4
+			}
+			881 = {
+				bunker = 2
+			}
+			infrastructure = 4
+		}
+		1938.10.25 = {	
+			PRC = {
+				set_province_controller = 10499
+				set_province_controller = 6988
+				set_province_controller = 7575
+				set_province_controller = 972
+				set_province_controller = 9873
+				set_province_controller = 9768
+				set_province_controller = 10331
+				set_province_controller = 6937
+				set_province_controller = 10426
+				set_province_controller = 4514
+				set_province_controller = 3828
+				set_province_controller = 11855
+				set_province_controller = 3881
+				
+			} 			
+		}
+		victory_points = { 6837 3 }
+		victory_points = { 881 2 }
+		1949.8.25 = {
+			owner = PRC
+		}
+
+	}
+
+	provinces={
+		814 881 934 972 3814 3828 3881 3934 3955 4514 6837 6852 6898 6937 6988 7575 7633 9768 9873 9905 9927 10331 10426 10499 11801 11855 11886 
+	}
+}

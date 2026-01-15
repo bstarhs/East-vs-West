@@ -1,0 +1,167 @@
+﻿capital = 660
+
+oob = "BEN"
+
+set_country_flag = language_french
+set_research_slots = 2
+set_convoys = 60
+set_stability = 0.75
+set_country_flag = third_world
+set_country_flag = african_state
+set_country_flag = french_colonies
+set_country_flag = west_africa
+	set_variable = { this.education = 28 }
+set_technology = {
+		excavation1 = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+add_ideas = {
+	UNmember
+	African_religious
+}
+
+	set_popularities = {
+		democratic = 78
+		communism = 12
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1945.12.1"
+	election_frequency = 60
+	elections_allowed = yes
+}
+	
+create_country_leader = {
+	name = "Hubert Maga"
+	desc = "POLITICIAN_NAM_SAM_NUJOMA_DESC"
+	picture = "gfx/leaders/BEN/Portrait_Benin_Hubert_Maga.tga"
+	expire = "2020.1.1"
+	ideology = socialism
+	
+	traits = {
+	
+	}
+}
+1960.1.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	activate_decision = female_equality
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+}
+1964.1.20 = {
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	create_country_leader = {
+		name = "Sourou Migan Apithy"
+		
+		picture = "gfx/leaders/BEN/Portrait_Benin_Sourou_Migan_Apithy.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+
+
+1972.3.12 = {
+	set_popularities = {
+		democratic = 8
+		communism = 82
+		neutrality = 10
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Mathieu Kérékou"
+		
+		picture = "gfx/leaders/BEN/Portrait_Benin_Mathieu_Kerekou.tga"
+		expire = "1997.1.1"
+		ideology = marxism
+		
+		traits = {
+		
+		}
+	}
+}
+1973.1.20 = {
+	complete_national_focus = common_61
+	add_ideas = {
+		NonAligned
+	}
+}
+1991.1.20 = {
+	set_popularities = {
+		democratic = 73
+		communism = 16
+		neutrality = 11
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Nicéphore Soglo"
+		
+		picture = "gfx/leaders/BEN/Portrait_NicephoreSoglo.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+

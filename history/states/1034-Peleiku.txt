@@ -1,0 +1,55 @@
+state={
+	id=1034
+	name="STATE_1034"
+	resources={
+		rubber=2
+	}
+	history={
+		add_to_array = { this.state_ethnics_list = 116 }
+		add_to_array = { this.state_ethnics_list = 18 }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 94 }
+		set_state_flag = ethnics_Chams
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = rice_food_production }
+		owner = FRA
+		add_core_of = VIN
+		add_core_of = SVN
+		add_core_of = TAY
+		1948.8.23 = {
+			owner = SVN
+		}
+		1974.8.23 = {
+			owner = VIN
+		}
+		buildings = {
+			farm_building = 1
+			infrastructure = 1
+		}
+		1960.5.23 = {
+			add_resistance = 60
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1962.5.23 = {
+			add_dynamic_modifier = { modifier = strategic_valley_modifier }
+			add_dynamic_modifier = { modifier = agent_orange_modifier }
+		}
+		1975.5.23 = {
+			add_resistance = -100
+			owner = VIN
+			remove_dynamic_modifier = { modifier = strategic_valley_modifier }
+			remove_dynamic_modifier = { modifier = agent_orange_modifier }
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		victory_points = {
+			4363 3
+		}
+	}
+	provinces={
+		4363 7380 1400 1248 10180 1328 
+	}
+	manpower=750000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

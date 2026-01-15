@@ -1,0 +1,501 @@
+﻿add_namespace = techs
+#来自中国的支援
+news_event = {
+	id = techs.1
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1949.8.2
+			date < 1949.10.2
+			NOT = { has_tech = nukes }
+	}
+	immediate = {
+				complete_national_focus = SOV_DevelopingANuclearProgram
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+news_event = {
+	id = techs.2
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = USA
+			is_ai = yes
+			date > 1947.10.1
+			date < 1947.12.1
+			NOT = { has_tech = Semiconductor }
+	}
+	immediate = {
+			set_technology = {
+				Semiconductor = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#美国氢弹
+news_event = {
+	id = techs.3
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = USA
+			is_ai = yes
+			date > 1951.5.1
+			date < 1951.6.1
+			NOT = { has_tech = thermonuclear }
+	}
+	immediate = {
+			set_technology = {
+				thermonuclear = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联氢弹
+news_event = {
+	id = techs.4
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1953.8.1
+			date < 1953.10.1
+			NOT = { has_tech = thermonuclear }
+	}
+	immediate = {
+			set_technology = {
+				thermonuclear = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#英国氢弹
+news_event = {
+	id = techs.5
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = ENG
+			is_ai = yes
+			date > 1957.8.1
+			date < 1957.10.1
+			NOT = { has_tech = thermonuclear }
+	}
+	immediate = {
+			set_technology = {
+				thermonuclear = 1
+			}
+		play_song = ENG_21
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#中国氢弹
+news_event = {
+	id = techs.6
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = PRC
+			is_ai = yes
+			date > 1966.8.1
+			date < 1966.10.1
+			NOT = { has_tech = thermonuclear }
+	}
+	immediate = {
+			set_technology = {
+				thermonuclear = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#躲避与掩护
+news_event = {
+	id = techs.7
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = USA
+			is_ai = yes
+			date > 1951.8.1
+			date < 1952.10.1
+			NOT = { has_tech = duck_cover }
+	}
+	immediate = {
+			set_technology = {
+				duck_cover = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#FNFAL
+news_event = {
+	id = techs.8
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = BEL
+			is_ai = yes
+			date > 1954.2.1
+			date < 1954.10.1
+			NOT = { has_tech = infantry_weapons1 }
+	}
+	immediate = {
+			set_technology = {
+				infantry_weapons1 = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+		news_event = { id = bel.20 }
+	}
+}
+#美国核潜艇
+news_event = {
+	id = techs.9
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = USA
+			is_ai = yes
+			date > 1954.9.1
+			date < 1954.10.1
+			NOT = { has_tech = nuclear_submarine_tech }
+	}
+	immediate = {
+		set_technology = {
+			nuclear_submarine_tech = 1
+		}
+		complete_national_focus = us_nuclear_sub
+	}
+}
+#早期导弹
+news_event = {
+	id = techs.10
+	hidden = yes
+	mean_time_to_happen = { days = 20}
+	trigger = {
+			OR = {
+				tag = USA
+				tag = SOV
+			}
+			is_ai = yes
+			date > 1953.9.1
+			date < 1953.10.1
+			NOT = { has_tech = early_missile }
+	}
+	immediate = {
+		set_technology = {
+			early_missile = 1
+		}
+	}
+}
+#苏联R7
+news_event = {
+	id = techs.15
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1957.8.1
+			date < 1957.10.1
+			NOT = { has_tech = guided_missile }
+	}
+	immediate = {
+			set_technology = {
+				guided_missile = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#索尼TR55
+news_event = {
+	id = techs.16
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = JAP
+			is_ai = yes
+			date > 1956.8.1
+			date < 1956.10.1
+			NOT = { has_tech = transistor }
+	}
+	immediate = {
+			set_technology = {
+				transistor = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#夏普电视
+news_event = {
+	id = techs.17
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = JAP
+			is_ai = yes
+			date > 1952.5.1
+			date < 1952.8.1
+			NOT = { has_tech = cable_television }
+	}
+	immediate = {
+			set_technology = {
+				cable_television = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#电饭煲
+news_event = {
+	id = techs.18
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = JAP
+			is_ai = yes
+			date > 1954.5.1
+			date < 1954.8.1
+			NOT = { has_tech = laundry }
+	}
+	immediate = {
+			set_technology = {
+				laundry = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#丰田皇冠
+news_event = {
+	id = techs.19
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = JAP
+			is_ai = yes
+			date > 1955.5.1
+			date < 1955.8.1
+			NOT = { has_tech = auto_industry }
+	}
+	immediate = {
+			set_technology = {
+				auto_industry = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#美国PGM-11
+news_event = {
+	id = techs.20
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = USA
+			is_ai = yes
+			date > 1958.2.1
+			date < 1958.3.1
+			NOT = { has_tech = guided_missile }
+	}
+	immediate = {
+			set_technology = {
+				guided_missile = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联真空管电脑
+news_event = {
+	id = techs.21
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1952.4.1
+			date < 1952.5.1
+			NOT = { has_tech = medium_computer }
+	}
+	immediate = {
+			set_technology = {
+				medium_computer = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联列宁号核潜艇
+news_event = {
+	id = techs.22
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1958.6.1
+			date < 1958.8.1
+			NOT = { has_tech = nuclear_submarine_engine }
+	}
+	immediate = {
+			set_technology = {
+				nuclear_submarine_engine = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联老电视机
+news_event = {
+	id = techs.23
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1949.6.1
+			date < 1949.8.1
+			NOT = { has_tech = CRT }
+	}
+	immediate = {
+			set_technology = {
+				CRT = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联老电视机
+news_event = {
+	id = techs.24
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1949.6.1
+			date < 1949.8.1
+			NOT = { has_tech = CRT }
+	}
+	immediate = {
+			set_technology = {
+				CRT = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联收音机
+news_event = {
+	id = techs.25
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1950.6.1
+			date < 1950.8.1
+			NOT = { has_tech = transistor }
+	}
+	immediate = {
+			set_technology = {
+				transistor = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}
+#苏联GAZ21
+news_event = {
+	id = techs.26
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+			tag = SOV
+			is_ai = yes
+			date > 1956.6.1
+			date < 1956.8.1
+			NOT = { has_tech = auto_industry }
+	}
+	immediate = {
+			set_technology = {
+				auto_industry = 1
+			}
+	}
+	
+	option = {
+		name = news.51.a
+	}
+}

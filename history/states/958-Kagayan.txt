@@ -1,0 +1,44 @@
+
+state={
+	id=958
+	name="STATE_958"
+	manpower = 84965
+	
+	resources={
+		rubber=11
+	}
+	state_category = town
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Philippines
+		set_state_flag = banana_production
+		add_to_array = { this.state_ethnics_list = 135 }
+                              
+		owner = PHI
+		victory_points = {
+			12213 2
+		}
+		victory_points = {
+			10252 2
+		}
+		victory_points = {
+			10298 3
+		}
+		buildings = {
+			school = 1
+			infrastructure = 2
+			farm_building = 3
+		}
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		1954.1.1 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		add_core_of = PHI
+	}
+
+	provinces={
+		1388 4233 7439 7325 10252 4214 10298 12213 4101 
+	}
+}

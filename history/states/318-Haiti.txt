@@ -1,0 +1,42 @@
+state=
+{
+	id=318
+	name="STATE_318"
+	manpower = 2380000
+	
+	state_category = town
+	
+	resources={
+		
+		tungsten=3
+
+	}
+	history=
+	{
+		owner = HAI
+		set_state_flag = ethnics_Caribbean
+		set_state_flag = banana_production
+		set_state_flag = coffee_production
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = sugar_production
+		buildings = {
+			infrastructure = 4
+			farm_building = 1
+			arms_factory = 1
+			industrial_complex = 1
+			air_base = 1
+			4641 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = HAI
+		victory_points = { 4641 8 }
+		victory_points = { 1594 2 }
+		victory_points = { 14008 2 }
+		victory_points = { 14007 2 }
+
+	}
+	provinces={
+		1594 1635 4641 14007 14008 14009
+	}
+}

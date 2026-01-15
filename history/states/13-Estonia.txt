@@ -1,0 +1,51 @@
+
+state={
+	id=13
+	name="STATE_13"
+	manpower = 730660
+	resources={
+		iron=3
+	}
+	state_category = city
+	local_supplies=0.0
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Estonian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 66 }
+		owner = SOV
+		victory_points = {
+			3152 8
+		}
+		victory_points = {
+			3174 4
+		}
+		victory_points = {
+			185 3
+		}
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			power_plant = 1
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 3
+			air_base = 2
+			3152 = {
+				naval_base = 3
+				coastal_bunker = 1
+			}
+		}
+		add_core_of = EST
+		add_core_of = SOV
+		1990.1.1 = {
+			owner = EST
+			remove_core_of = SOV
+		}
+	}
+
+	provinces={
+		83 185 308 496 567 3074 3152 3174 6201 6381 9079 11127 11291 11426 
+	}
+}

@@ -1,0 +1,188 @@
+﻿capital = 4
+
+
+set_country_flag = west_euro_state
+set_country_flag = has_monarchs
+set_research_slots = 2
+set_country_flag = language_German
+set_country_flag = developmented
+set_country_flag = has_monarchs
+	set_country_flag = female_finished
+	activate_decision = female_equality
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	set_technology = {
+		excavation1 = 1
+		excavation2 = 1
+		auto_industry = 1
+		oil_processing = 1
+		army_aviation = 1
+		dispersed_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		medical1 = 1
+		helmet = 1
+	infantry_weapons = 1
+		radio_detection = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_engineers = 1
+	tech_support = 1		
+	tech_mountaineers = 1
+	early_fighter = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	power_generation1 = 1
+	motorised_infantry = 1
+}
+add_ideas = {
+	Catholicism
+	AUS_occupied
+	AUS_AUSI
+	AUS_ger_identity
+}
+
+
+	set_popularities = {
+		democratic = 86
+		communism = 12
+		neutrality = 2
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1930.11.9"
+	election_frequency = 48
+	elections_allowed = no
+}
+	complete_national_focus = common_63
+
+set_stability = 0.50
+
+	set_cosmetic_tag = OCC_AUS
+create_country_leader = {
+	name = "Leopold Figl"
+	picture = "gfx/leaders/AUS/Portrait_Austria_Leopold_Figl.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+1953.1.1 = {
+	complete_national_focus = common_61
+	create_country_leader = {
+		name = "Julius Raab"
+		
+		picture = "gfx/leaders/AUS/Portrait_Austria_Julius_Raab.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1955.1.1 = {
+	set_cosmetic_tag = AUS
+	remove_ideas = {
+		AUS_occupied
+		AUS_AUSI
+		AUS_ger_identity
+	}
+	
+	set_technology = {
+		mechanised_infantry = 1
+		improved_infantry_weapons_2 = 1
+		supersonic_engine = 1
+		pattern = 1
+		spaa2 = 1
+		antiair2 = 1
+		artillery1 = 1
+		rocket_vehicle = 1
+		spaa1 = 1
+		tech_engineers2 = 1
+		fuel_silos = 1
+		dispersed_industry = 1
+		decimetric_radar = 1
+		basic_heavy_tank = 1
+		tech_logistics_company2 = 1
+		laundry = 1
+		gwtank = 1
+	}
+	oob = "AUS_1955"
+	complete_national_focus = common_medic
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+		neutrality_idea
+	}
+}
+1961.4.1 = {
+	create_country_leader = {
+		name = "Alfons Gorbach"
+		
+		picture = "gfx/leaders/AUS/Portrait_Austria_Adolf.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1964.4.1 = {
+	create_country_leader = {
+		name = "Josef Klaus"
+		
+		picture = "gfx/leaders/AUS/Portrait_Austria_Adolf.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1970.4.1 = {
+	create_country_leader = {
+		name = "Bruno Kreisky"
+		
+		picture = "gfx/leaders/AUS/Portrait_Austria_Bruno_Kreisky.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1983.1.1 = {
+	create_country_leader = {
+		name = "Fred Sinowatz"
+		
+		picture = "gfx/leaders/AUS/Portrait_Austria_Fred_Sinowatz.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1986.1.1 = {
+	create_country_leader = {
+		name = "Franz Vranitzky"
+		
+		picture = "gfx/leaders/AUS/Portrait_Austria_Franz_Vranitzky.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}

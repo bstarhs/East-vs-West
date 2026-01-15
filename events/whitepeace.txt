@@ -1,0 +1,148 @@
+add_namespace = wtp
+
+news_event = {
+	id = wtp.1
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1950.9.5
+		country_exists = PRC
+		country_exists = CHI
+		PRC = { has_government = communism }
+	}
+	
+	option = {
+		CHI = { white_peace = PRC }
+	}
+}
+news_event = {
+	id = wtp.2
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1954.9.5
+		date < 1970.9.5
+		country_exists = SVN
+		country_exists = VIN
+	}
+	
+	option = {
+		FRA = { white_peace = VIN }
+		SVN = { white_peace = VIN }
+	}
+}
+news_event = {
+	id = wtp.3
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1964.9.5
+		country_exists = ALG
+	}
+	option = {
+		FRA = { white_peace = ALG }
+	}
+}
+news_event = {
+	id = wtp.4
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		date > 1974.9.5
+		country_exists = ANG
+	}
+	option = {
+		POR = { white_peace = ANG }
+		POR = { white_peace = MZB }
+	}
+}
+news_event = {
+	id = wtp.8
+	hidden = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		VIN = { is_puppet_of = FRA }
+	}
+	option = {
+		FRA = {
+			transfer_state = 671
+			transfer_state = 779
+		}
+	}
+}
+news_event = {
+	id = wtp.7
+	hidden = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		PRK = { is_puppet_of = KOR }
+	}
+	option = {
+		KOR = {
+		annex_country = {
+			target = PRK
+			transfer_troops = yes
+		}
+		}
+	}
+}
+news_event = {
+	id = wtp.9
+	hidden = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+		PRK = { is_puppet_of = KOR }
+		KOR = { has_government = communism }
+		
+		}
+	}
+	option = {
+		PRK = {
+		annex_country = {
+			target = KOR
+			transfer_troops = yes
+		}
+		}
+	}
+}
+news_event = {
+	id = wtp.10
+	hidden = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		NJP = { is_puppet_of = JAP }
+	}
+	option = {
+		JAP = {
+		annex_country = {
+			target = NJP
+			transfer_troops = yes
+		}
+		}
+	}
+}
+news_event = {
+	id = wtp.11
+	hidden = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+		DDR = { is_puppet_of = WDR }
+		WDR = { has_government = communism }
+		
+		}
+	}
+	option = {
+		DDR = {
+		annex_country = {
+			target = WDR
+			transfer_troops = yes
+		}
+		}
+	}
+}

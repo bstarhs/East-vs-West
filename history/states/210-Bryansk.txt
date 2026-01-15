@@ -1,0 +1,39 @@
+
+state={
+	id=210
+	name="STATE_210" # Nevel
+	manpower = 830133
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Russian
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 143 }
+		owner = SOV
+		victory_points = {
+			11234 5
+		}
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			school = 1
+			infrastructure = 2
+		}
+		1952.1.1 = {
+			buildings = {
+				power_plant = 1
+				farm_building = 2
+				hospital = 1
+				school = 1
+				infrastructure = 5
+			}
+		}
+		add_core_of = SOV
+	}
+
+	provinces={
+		207 248 354 387 3333 6242 6293 9254 9331 9353 9386 11234 11259 
+	}
+}

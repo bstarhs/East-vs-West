@@ -1,0 +1,40 @@
+
+state={
+	id=436
+	name="STATE_436" # Jabalpur
+	manpower = 14123100
+	
+	state_category = rural
+	
+	resources={
+		tungsten=6
+		coal=16
+	}
+
+	history={
+		set_state_flag = ethnics_Hindustan
+		victory_points = { 4953 2 }
+		victory_points = { 12799 2 }
+		victory_points = { 12420 4 }
+		victory_points = { 10801 5 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 80 }
+                              
+		owner = ENG
+		add_core_of = IND
+		1949.10.25 = {
+		owner = IND
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			power_plant = 1
+			infrastructure = 4
+		}
+
+	}
+
+	provinces={
+		1510 7497 7574 8120 10401 12375 12420 12480 12854 5096 4953 12799 10801 5040 4410 10332 7938 13748 
+	}
+}

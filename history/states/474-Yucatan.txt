@@ -1,0 +1,50 @@
+
+state={
+	id=474
+	name="STATE_474"
+	manpower = 440289
+	
+	state_category = rural
+
+	history={
+		owner = MEX
+		set_state_flag = ethnics_Mayan
+		set_state_flag = coffee_production
+			add_to_variable = { state_tourist = 16 }
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_to_array = { this.state_ethnics_list = 119 }
+		add_to_array = { this.state_ethnics_list = 117 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_core_of = YUC
+		buildings = {
+			industrial_complex = 2
+			infrastructure = 3
+			farm_building = 2
+			air_base = 1
+			4904 = {
+				naval_base = 2
+			}
+			4965 = {
+				naval_base = 3
+			}
+		}
+		victory_points = {
+			4965 5
+		}
+		victory_points = {
+			13493 3
+		}
+		victory_points = {
+			13491 4
+		}
+		victory_points = {
+			12715 10
+		}
+		add_core_of = MEX
+	}
+
+	provinces={
+		4904 4965 12715 13490 13491 13492 13493
+	}
+	
+}

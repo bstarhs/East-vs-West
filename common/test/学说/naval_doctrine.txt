@@ -1,0 +1,859 @@
+technologies = {
+	basic_fleet = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		path = {
+			leads_to_tech = coast_guard
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = battle_fleet
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = ships_supply
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_construction
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_weapon
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 0 y = 0 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	battle_fleet = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		destroyer = {
+			max_organisation = 20
+		}
+		light_cruiser = {
+			max_organisation = 10
+		}
+		naval_coordination = 0.15
+		path = {
+			leads_to_tech = destroyer_fleet
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = submarine_fleet
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 0 y = 2 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	submarine_fleet = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		doctrine = yes	
+		research_cost = 2
+		submarine = {
+			max_organisation = 20
+		}
+		path = {
+			leads_to_tech = silence_act
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = wolfpacks
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 5 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	wolfpacks = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 6 y = 6 }
+		}
+		path = {
+			leads_to_tech = unrestricted_submarine_warfare
+			research_cost_coeff = 1
+		}
+		submarine = {
+			max_organisation = 10
+			convoy_raiding_coordination = 0.15
+			surface_detection = 0.10
+		}
+
+		naval_torpedo_reveal_chance_factor = -0.10
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	unrestricted_submarine_warfare = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 6 y = 8 }
+		}
+		submarine = {
+			surface_detection = 0.1
+			convoy_raiding_coordination = 0.05
+		}
+		navy_submarine_attack_factor = 0.1
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	silence_act = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		submarine = {
+			max_organisation = 10
+			convoy_raiding_coordination = 0.15
+			surface_detection = 0.10
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 4 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	destroyer_fleet = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		destroyer = {
+			max_organisation = 20
+		}
+		naval_detection = 0.3
+		path = {
+			leads_to_tech = naval_helicopter
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = carrier_fleet
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_radar
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 0 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_radar = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		navy_carrier_air_agility_factor = 0.2
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -2 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_helicopter = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -2 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	carrier_fleet = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		navy_carrier_air_agility_factor = 0.3
+		path = {
+			leads_to_tech = massed_strikes
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = carrier_battlegroups
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = escort_carriers
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 0 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	escort_carriers = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		navy_submarine_detection_factor = 0.2
+		convoy_escort_efficiency = 0.15
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -2 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	massed_strikes = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		carrier = {
+			max_organisation = 20			
+		}
+		carrier_capacity_penalty_reduction = -0.2
+		sortie_efficiency = 0.2
+
+		modifier = {
+			naval_strike_targetting_factor = 0.2
+		}
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 2 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	carrier_battlegroups = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		carrier = {
+			max_organisation = 20
+		}
+		light_cruiser = {
+			max_organisation = 20
+		}
+
+		navy_carrier_air_agility_factor = 0.10
+
+		###########
+		
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 0 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_weapon = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		on_research_complete = {
+            custom_effect_tooltip = TEXT_NAVAL_WEAPON_ALLOW
+        }
+		
+		path = {
+			leads_to_tech = grand_naval_gun
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_missile
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 9 y = 2 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	grand_naval_gun = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 8 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_missile = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		allow = {
+            has_tech = aa_missile_1
+        }
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 10 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	ships_supply = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_attrition = -0.15
+		path = {
+			leads_to_tech = fleet_supply
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = fleet_command
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -6 y = 2 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	fleet_supply = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_coordination = 0.12
+		naval_accidents_chance = -0.3
+		path = {
+			leads_to_tech = damage_control
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -8 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	fleet_command = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_coordination = 0.3
+		doctrine = yes	
+		research_cost = 2
+		path = {
+			leads_to_tech = damage_control
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_computer
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -6 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_computer = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_morale = 15
+		naval_speed_factor = 0.05
+		doctrine = yes	
+		research_cost = 2
+		naval_coordination = 0.15
+		path = {
+			leads_to_tech = naval_fire_control
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_EW 
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -5 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_fire_control = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		navy_screen_attack_factor = 0.3
+		navy_capital_ship_attack_factor = 0.3
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -6 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_EW = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_detection = 0.2
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -4 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	damage_control = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.1
+		naval_accidents_chance = -0.1
+		doctrine = yes	
+		research_cost = 2
+		path = {
+			leads_to_tech = adv_damage_control
+			research_cost_coeff = 1
+		}
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -8 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	adv_damage_control = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.1
+		naval_accidents_chance = -0.1
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -8 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_construction = {
+		production_speed_naval_base_factor = 0.15
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		path = {
+			leads_to_tech = naval_college
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_base
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -14 y = 2 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_base = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		enable_building = {
+			building = naval_base
+			level = 3
+		}
+		path = {
+			leads_to_tech = naval_dock
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = naval_recruit
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -13 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_recruit = {
+		production_speed_naval_base_factor = 0.15
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		repair_speed_factor = 0.2
+		naval_attrition = -0.15
+		path = {
+			leads_to_tech = naval_endurance
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = oversea_base
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = integrated_convoy_defence
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -13 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_dock = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		enable_building = {
+			building = dockyard
+			level = 6
+		}
+		path = {
+			leads_to_tech = adv_dock
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -10 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	adv_dock = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		repair_speed_factor = 0.3
+		industrial_capacity_dockyard = 0.3
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -10 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	integrated_convoy_defence = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		doctrine = yes	
+		research_cost = 2
+		destroyer = {
+			max_organisation = 20
+			sub_detection = 0.10
+		}
+		light_cruiser = {
+			max_organisation = 10
+			sub_detection = 0.15
+		}
+		carrier = {
+			sub_detection = 0.25
+		}
+		convoy_escort_efficiency = 0.1
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -15 y = 6 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	oversea_base = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_attrition = -0.15
+		path = {
+			leads_to_tech = blue_water_navy
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -12 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_endurance = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		naval_attrition = -0.15
+		naval_speed_factor = 0.3
+		path = {
+			leads_to_tech = blue_water_navy
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -14 y = 8 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	blue_water_navy = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -13 y = 10 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	naval_college = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		doctrine = yes	
+		research_cost = 2.8
+		navy_leader_cost_factor = -0.12
+		navy_leader_start_level = 1
+		experience_gain_navy_factor = 0.2
+		experience_gain_navy_unit = 0.2
+		naval_morale_factor = 0.2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -15 y = 4 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+	coast_guard = {
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		path = {
+			leads_to_tech = morale_1
+			research_cost_coeff = 1
+		}
+		doctrine = yes	
+		research_cost = 2
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 12 y = 2 }
+		}
+		categories = {
+			naval_doctrine
+		}
+		ai_will_do = {
+			factor = 20 
+		}
+	}
+}

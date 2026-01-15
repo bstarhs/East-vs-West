@@ -1,0 +1,108 @@
+﻿capital = 825
+
+oob = "MZB_1936"
+set_country_flag = language_portuguese
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_mountaineers = 1
+}
+
+set_country_flag = third_world
+set_country_flag = african_state
+set_convoys = 5
+
+1939.1.1 = {
+	#generic focuses
+	set_technology = {
+
+		#doctrines
+		
+		
+
+		motorised_infantry = 1
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		medical1 = 1
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+	set_popularities = {
+		democratic = 5
+		communism = 80
+		neutrality = 15
+	}
+set_politics = {
+	
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+add_ideas = {
+	ColonyWar
+	Anti_religious
+	war_economy
+}
+
+create_country_leader = {
+	name = "Eduardo Mondlane"
+	picture = "gfx/leaders/MZB/Portrait_Mozambique_Eduardo_Mondlane.tga"
+	expire = "1965.1.1"
+	ideology = marxism 
+	traits = {
+		independent
+	}
+}
+1962.1.1 = {
+	oob = "MZB_1965"
+}
+1969.1.1 = {
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Samora Moisés Machel"
+		picture = "gfx/leaders/MZB/Portrait_Mozambique_Samora_Machel.tga"
+		expire = "1965.1.1"
+		ideology = marxism 
+		traits = {
+			#
+		}
+	}
+}
+1974.1.1 = {
+	activate_decision = MZB_cityname
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	set_country_flag = china_diplomacy
+	add_ideas = {
+		UNmember
+	}
+}
+1986.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_73
+	create_country_leader = {
+		name = "Joaquim Alberto Chissano"
+		picture = "gfx/leaders/MZB/Portrait_Mozambique_Joaquim_Chissano.tga"
+		expire = "1965.1.1"
+		ideology = marxism 
+		traits = {
+			#
+		}
+	}
+}

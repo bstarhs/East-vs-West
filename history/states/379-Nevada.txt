@@ -1,0 +1,55 @@
+
+state={
+	id=379
+	name="STATE_379"
+	manpower = 91057
+	
+	state_category = city
+	
+	resources={
+		copper=32
+		aluminium=44
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 174 }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		add_to_array = { this.state_ethnics_list = 175 }
+		set_state_flag = ethnics_Yankee
+		add_to_array = { this.state_ethnics_list = 119 }
+		set_state_flag = gold_production
+                              
+		owner = USA
+		buildings = {
+			farm_building = 1
+			hospital = 2
+			dam_plant = 3
+			infrastructure = 4
+		}
+		victory_points = {
+			10422 2
+		}
+		victory_points = {
+			13573 2
+		}
+		victory_points = {
+			4607 4
+		}
+		victory_points = {
+			4799 10
+		}
+		1951.10.12 = {
+			buildings = {
+				nuclear_reactor = 3
+				infrastructure = 4
+				industrial_complex = 1
+			}
+		}
+		add_core_of = USA
+	}
+
+	provinces={
+		1862 4521 4607 4736 4799 4816 7756 7827 7879 10422 10591 12134 12399 12425 13572 13573
+	}
+}

@@ -1,0 +1,646 @@
+﻿add_namespace = tur
+#1950大选
+news_event = {
+	id = tur.4
+	title = tur.4.t
+	desc = tur.4.d
+	major = yes
+	picture = GFX_Turkey1950
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+			tag = TUR
+			date > 1950.1.30
+			date < 1950.2.5
+			NOT = { has_global_flag = TurkeyElect1950Ready }
+	}
+	option = {
+		name = tur.5.a
+		set_global_flag = TurkeyElect1950Ready
+	}
+}
+news_event = {
+	id = tur.5
+	title = tur.5.t
+	desc = tur.5.d
+	fire_only_once = yes
+	picture = GFX_Turkey1950
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+			tag = TUR
+			date > 1950.5.30
+			date < 1950.12.5
+			NOT = { has_global_flag = TurkeyElect1950 }
+	}
+	option = {
+		name = tur.5.a
+		ai_chance = {
+			base = 50
+		}
+		news_event = { id = tur.6 }
+		set_global_flag = TurkeyElect1950
+		set_politics = { ruling_party = democratic }
+		recruit_character = TUR_Fatin_Rustu_Zorlu
+		recruit_character = TUR_Hasan_Polatkan
+		promote_character = TUR_Adnan_Menderes
+	}
+	option = {
+		ai_chance = {
+			base = 5
+		}
+		name = tur.5.b
+		news_event = { id = tur.7 }
+	}
+}
+#民主党
+news_event = {
+	id = tur.6
+	title = tur.6.t
+	desc = tur.6.d
+	major = yes
+	picture = GFX_AdnanMenderes
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+news_event = {
+	id = tur.7
+	title = tur.7.t
+	desc = tur.7.d
+	major = yes
+	picture = GFX_IsmetInonu
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+#总理选举
+news_event = {
+	id = tur.15
+	title = tur.15.t
+	desc = tur.15.d
+	fire_only_once = yes
+	picture = GFX_BulentEcevit
+	trigger = {
+			tag = TUR
+			has_government = democratic
+			date > 1974.4.30
+			date < 1980.5.5
+	}
+	mean_time_to_happen = {
+		days = 200
+	}
+	option = {
+		name = tur.15.a
+		create_country_leader = {
+			name = "Bulent Ecevit"
+			picture = "gfx/leaders/TUR/Portrait_Turkey_Bulent_Ecevit.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+				
+			traits = {
+				interventionism
+			
+			}
+		}
+	}
+	option = {
+		name = tur.15.b
+		create_country_leader = {
+			name = "Suleyman Demirel"
+			picture = "gfx/leaders/TUR/Portrait_Turkey_Suleyman_Demirel.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+				
+			traits = {
+				staunch_constitutionalist prime_minister_bayar
+			}
+		}
+	}
+}
+#民族运动党成立
+news_event = {
+	id = tur.16
+	title = tur.16.t
+	desc = tur.16.d
+	picture = GFX_AlparslanTurkes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TUR
+		has_stability < 0.8
+		date > 1968.1.1
+		date < 1972.1.1
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+	}
+}
+#塔克希姆广场事件
+news_event = {
+	id = tur.18
+	title = tur.18.t
+	desc = tur.18.d
+	fire_only_once = yes
+	picture = GFX_TaqsimSquare
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+			tag = TUR
+			date > 1977.4.30
+			date < 1977.5.5
+	}
+	option = {
+		name = cze.20.b2
+		add_stability = -0.12
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.1
+		}
+	}
+}
+#巴赫塞利夫勒大屠杀
+news_event = {
+	id = tur.19
+	title = tur.19.t
+	desc = tur.19.d
+	fire_only_once = yes
+	picture = GFX_Bahcelievler
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+			tag = TUR
+			date > 1978.1.30
+			date < 1979.5.5
+	}
+	option = {
+		name = cze.20.b2
+		add_stability = -0.12
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+	}
+}
+#1980政变
+news_event = {
+	id = tur.25
+	title = tur.25.t
+	desc = tur.25.d
+	fire_only_once = yes
+	picture = GFX_Turkey1960
+	trigger = {
+			tag = TUR
+			date > 1976.1.30
+			date < 1982.1.5
+			has_stability < 0.6
+
+	}
+	option = {
+		name = tur.10.a
+		set_politics = { ruling_party = neutrality }
+		add_stability = 0.6
+		create_country_leader = {
+			name = "Kenan Evren"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/TUR/Portrait_Turkey_Kenan_Evren.tga"
+			expire = "1994.1.1"
+			ideology = despotism
+				
+			traits = {
+			
+			}
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.2
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+	}
+}
+#还政于民
+news_event = {
+	id = tur.30
+	title = tur.30.t
+	desc = tur.30.d
+	fire_only_once = yes
+	picture = GFX_Turkey1989
+	trigger = {
+			tag = TUR
+			date > 1982.11.1
+			has_stability > 0.5
+	}
+	option = {
+		name = cze.20.b2
+		set_politics = { ruling_party = democratic }
+		create_country_leader = {
+			name = "Turgut Özal"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/TUR/Portrait_Turkey_Turgut_Ozal.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+				
+			traits = {
+			
+			}
+		}
+	}
+}
+#拜仁
+news_event = {
+	id = tur.31
+	title = tur.31.t
+	desc = tur.31.d
+	picture = GFX_TurkCivilWar
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = TUR
+		has_stability < 0.2
+		352 = { is_controlled_by = TUR }
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		KUR = {
+			transfer_state = 352
+			transfer_state = 350
+		}
+		TUR = {
+			declare_war_on = { target = KUR type = annex_everything }
+		}
+		
+	}
+}
+#工人党成立
+news_event = {
+	id = tur.32
+	title = tur.32.t
+	desc = tur.32.d
+	picture = GFX_TurkRoit
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TUR
+		has_stability < 0.8
+		date > 1970.1.1
+		date < 1980.1.1
+		352 = { is_controlled_by = TUR }
+		NOT = { has_country_flag = PKK }
+	}
+	option = { 
+		name = usatext.8.a
+		set_country_flag = PKK
+		add_stability = -0.15
+		352 = { add_resistance = 20 }
+		350 = { add_resistance = 20 }
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+	}
+}
+#灰狼成立
+news_event = {
+	id = tur.33
+	title = tur.33.t
+	desc = tur.33.d
+	picture = GFX_TurkRoit
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TUR
+		has_stability < 0.8
+		date > 1970.1.1
+		date < 1980.1.1
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.15
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+	}
+}
+#库尔德暴动
+news_event = {
+	id = tur.34
+	title = tur.34.t
+	desc = tur.34.d
+	picture = GFX_TurkRoit
+	fire_only_once = yes
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = TUR
+		date > 1970.1.1
+		has_country_flag = PKK
+		352 = { is_controlled_by = TUR }
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.04
+		352 = { add_resistance = 5 }
+		350 = { add_resistance = 5 }
+	}
+}
+#索取通行权
+country_event = {
+	id = tur.40
+	title = tur.40.t
+	desc = tur.40.d
+	picture = GFX_Join_Nato
+	is_triggered_only = yes
+	option = { 
+		name = tur.40.a
+			ai_chance = {
+				factor = 0
+			}
+		news_event = { id = tur.41 }
+		give_military_access = SOV
+	}
+	option = { 
+		name = tur.40.b
+			ai_chance = {
+				factor = 99
+			}
+		news_event = { id = tur.42 }
+		SOV = { add_named_threat = { threat = 8 name = TurkeyStraitCrisis } }
+	}
+}
+#帝国回归
+news_event = {
+	id = tur.41
+	title = tur.41.t
+	desc = tur.41.d
+	picture = GFX_SovNavy1940
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.101.a
+	}
+}
+#帝国回归
+news_event = {
+	id = tur.42
+	title = tur.42.t
+	desc = tur.42.d
+	picture = GFX_SovNavy1940
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = jap.101.a
+	}
+}
+#1960危机
+news_event = {
+	id = tur.53
+	title = tur.53.t
+	desc = tur.53.d
+	major = yes
+	picture = GFX_IsmetInonu1960
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TUR
+		date > 1960.1.30
+		date < 1961.1.5
+		has_government = democratic
+		has_country_leader = {
+			character = TUR_Adnan_Menderes
+			ruling_only = yes
+		}
+		NOT = { has_global_flag = tur53 }
+
+	}
+	option = {
+		name = tur.10.a
+		set_global_flag = tur53
+		if = {
+			limit = { tag = TUR }
+			add_popularity = {
+				ideology =	democratic
+				popularity = -0.08
+			}
+		}
+	}
+}
+news_event = {
+	id = tur.54
+	title = tur.54.t
+	desc = tur.54.d
+	major = yes
+	picture = GFX_IsmetInonu1960
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = TUR
+		date > 1960.4.20
+		date < 1960.12.20
+		has_global_flag = tur53
+		NOT = { has_global_flag = tur54 }
+
+	}
+	option = {
+		name = tur.10.a
+		set_global_flag = tur54
+		set_global_flag = tur55
+		if = {
+			limit = { tag = TUR }
+			add_stability = -0.15
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.12
+			}
+			news_event = { id = tur.55 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = tur.55
+	title = tur.55.t
+	desc = tur.55.d
+	major = yes
+	picture = GFX_TurkeyEmergency1960
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+news_event = {
+	id = tur.56
+	title = tur.56.t
+	desc = tur.56.d
+	major = yes
+	picture = GFX_TurProtest1960
+	mean_time_to_happen = { days = 2 }
+	immediate = {
+		play_song = TUR_8
+	}
+	trigger = {
+		tag = TUR
+		date > 1960.4.20
+		date < 1960.12.20
+		has_global_flag = tur55
+		NOT = { has_global_flag = tur56 }
+
+	}
+	option = {
+		name = tur.10.a
+		set_global_flag = tur56
+		set_global_flag = tur57
+		if = {
+			limit = { tag = TUR }
+			add_stability = -0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.08
+			}
+			news_event = { id = tur.57 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = tur.57
+	title = tur.57.t
+	desc = tur.57.d
+	major = yes
+	picture = GFX_TurkeySupress1960
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+news_event = {
+	id = tur.58
+	title = tur.58.t
+	desc = tur.58.d
+	major = yes
+	picture = GFX_TurkeyAnkara1960
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = TUR
+		date > 1960.4.20
+		date < 1960.12.20
+		has_global_flag = tur57
+		NOT = { has_global_flag = tur58 }
+
+	}
+	option = {
+		name = tur.10.a
+		set_global_flag = tur58
+		if = {
+			limit = { tag = TUR }
+			add_stability = -0.05
+		}
+	}
+	option = {
+		name = tur.10.a
+		set_global_flag = tur58
+		if = {
+			limit = { tag = TUR }
+			news_event = { id = tur.59 days = 1 }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.15
+			}
+		}
+	}
+}
+news_event = {
+	id = tur.59
+	title = tur.59.t
+	desc = tur.59.d
+	major = yes
+	picture = GFX_TurkeyEmergency1960
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}
+#1960政变
+news_event = {
+	id = tur.60
+	title = tur.60.t
+	desc = tur.60.d
+	fire_only_once = yes
+	picture = GFX_Turkey1960
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TUR
+		date > 1960.5.1
+		date < 1960.12.20
+		has_government = democratic
+		OR = {
+			has_stability < 0.6
+			fascism > 0.05
+			communism > 0.15
+			neutrality > 0.15
+			has_idea = limited_exports
+		}
+		has_global_flag = tur58
+	}
+	option = {
+		name = tur.10.a
+		news_event = { id = tur.61 }
+		retire_character = TUR_Fatin_Rustu_Zorlu
+		retire_character = TUR_Hasan_Polatkan
+		retire_character = TUR_Adnan_Menderes
+		set_politics = { ruling_party = neutrality }
+		promote_character = TUR_Cemal_Madanoglu
+	}
+}
+news_event = {
+	id = tur.61
+	title = tur.61.t
+	desc = tur.61.d
+	major = yes
+	picture = GFX_Turkey1960
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+		if = {
+			limit = { tag = TUR }
+			news_event = { id = tur.62 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = tur.62
+	title = tur.62.t
+	desc = tur.62.d
+	picture = GFX_TurMayisDarbesi
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+		news_event = { id = tur.63 days = 1 }
+		set_politics = { ruling_party = neutrality }
+		promote_character = TUR_Cemal_Gursel
+	}
+}
+news_event = {
+	id = tur.63
+	title = tur.63.t
+	desc = tur.63.d
+	major = yes
+	picture = GFX_TurMayisDarbesi
+	is_triggered_only = yes
+	option = {
+		name = phi.13.a
+	}
+}

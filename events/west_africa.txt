@@ -1,0 +1,304 @@
+﻿add_namespace = west_africa
+#法国控制选举
+news_event = {
+	id = west_africa.1
+	title = west_africa.1.t
+	desc = west_africa.1.d
+	picture = GFX_FrenchProxies
+	is_triggered_only = yes
+	option = {
+		name = west_africa.1.a
+		set_country_flag = africa_electioned
+		add_autonomy_score = {
+			value = 300
+			localization = wind_of_change
+		}
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.4
+		}
+		if = {
+			limit = { tag = MAD }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Philibert Tsiranana"
+				picture = "gfx/leaders/MAD/Portrait_Madagascar_Philibert_Tsiranana.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = TOG }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Nicolas Grunitzky"
+				picture = "gfx/leaders/TOG/Portrait_Togo_Nicolas_Grunitzky.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = CGO }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Fulbert Youlou"
+				picture = "gfx/leaders/CGO/Portrait_Congo_Fulbert_Youlou.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = MRT }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Moktar Ould Daddah"
+				picture = "gfx/leaders/MRT/Portrait_MRT_Moktar.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = MLI }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Léopold Sédar Senghor"
+				picture = "gfx/leaders/SEN/Portrait_Senegal_Senghor.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = NIG }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Hamani Dior"
+				picture = "gfx/leaders/NIG/Portrait_Niger_Hamani.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = NIG }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Hamani Dior"
+				picture = "gfx/leaders/NIG/Portrait_Niger_Hamani.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = CMR }
+			set_politics = { ruling_party = authoritarianism }
+			promote_character = CMR_Ahmadou_Ahidjo
+		}
+		if = {
+			limit = { tag = CAF }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "David Dacko"
+				picture = "gfx/leaders/CAF/Portrait_CAF_Dacko.tga"
+				ideology = authoritarianism
+				traits = { pro_france }
+			}
+		}
+		if = {
+			limit = { tag = IVO }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Félix Houphouët-Boigny"
+				picture = "gfx/leaders/BKF/Portrait_BKF_Maurice.tga"
+				ideology = authoritarianism
+				traits = { dictator personal_worship corrupt_leader pro_france interventionism anti_communist }
+			}
+		}
+		if = {
+			limit = { tag = BKF }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Maurice Yaméogo"
+				picture = "gfx/leaders/BKF/Portrait_BKF_Maurice.tga"
+				expire = "2020.1.1"
+				ideology = authoritarianism
+				traits = {
+				pro_france corrupt_leader
+				}
+			}
+		}
+		if = {
+			limit = { tag = GAB }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Gabriel Léon M'ba"
+				picture = "gfx/leaders/GAB/Portrait_Gabon_Léon_Mba.tga"
+				expire = "2020.1.1"
+				ideology = authoritarianism
+				traits = {
+					pro_france dictator personal_worship corrupt_leader
+				}
+			}
+		}
+		if = {
+			limit = { tag = CHD }
+			set_politics = { ruling_party = authoritarianism }
+			create_country_leader = {
+				name = "Francois Tombalbaye"
+				picture = "gfx/leaders/CHD/Portrait_Chad_Tombalbaye.tga"
+				expire = "2020.1.1"
+				ideology = authoritarianism
+				traits = {
+					pro_france corrupt_leader dictator
+				}
+			}
+		}
+	}
+}
+
+#法属西非解体
+news_event = {
+	id = west_africa.7
+	title = west_africa.7.t
+	desc = west_africa.7.d
+	picture = GFX_FrenchProxies
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {	
+		tag = MLI
+		owns_state = 774
+		owns_state = 515
+		owns_state = 775
+		owns_state = 778
+		FRA = { has_completed_focus = FRA_exit_Colonialism }
+	}
+	option = {
+		name = west_africa.1.a
+		if = {
+			limit = { tag = FRA }
+			MRT = {
+				transfer_state = 557
+				set_cosmetic_tag = FRA_MRT
+			}
+			set_autonomy = {
+				target = MRT
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			set_autonomy = {
+				target = MLI
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			GUI = {
+				transfer_state = 774
+				set_cosmetic_tag = FRA_GUI
+			}
+			set_autonomy = {
+				target = GUI
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			NIG = {
+				transfer_state = 515
+				set_cosmetic_tag = FRA_NIG
+			}
+			set_autonomy = {
+				target = NIG
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			IVO = { transfer_state = 775 }
+			set_autonomy = {
+				target = IVO
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			BKF = {
+				transfer_state = 778
+				set_cosmetic_tag = FRA_UPV
+			}
+			set_autonomy = {
+				target = BKF
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			CHD = {
+				transfer_state = 660
+				transfer_state = 890
+				transfer_state = 843
+				set_cosmetic_tag = FRA_CHD
+			}
+			set_autonomy = {
+				target = CHD
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			CAF = { transfer_state = 772 }
+			CGO = {
+				transfer_state = 781
+				set_cosmetic_tag = FRA_CGO
+			}
+			set_autonomy = {
+				target = CGO
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			BEN = {
+				transfer_state = 776
+				set_cosmetic_tag = FRA_BEN
+			}
+			set_autonomy = {
+				target = BEN
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			CMR = {
+				transfer_state = 780
+				set_cosmetic_tag = FRA_CMR
+			}
+			set_autonomy = {
+				target = CMR
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			TOG = {
+				transfer_state = 777
+				set_cosmetic_tag = FRA_TOG
+			}
+			set_autonomy = {
+				target = TOG
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			GAB = {
+				transfer_state = 539
+				set_cosmetic_tag = FRA_GAB
+			}
+			set_autonomy = {
+				target = GAB
+				autonomous_state = autonomy_colony
+				freedom_level = 0.6
+			}
+			MAD = {
+				transfer_state = 543
+			}
+		}
+	}
+}
+news_event = {
+	id = west_africa.10
+	title = west_africa.10.t
+	desc = west_africa.10.d
+	picture = GFX_FelixBoigny
+	mean_time_to_happen = { days = 15 }
+	major = yes
+	trigger = {	
+		tag = IVO
+		is_subject_of = FRA
+		NOT = { has_global_flag = west_africa10 }
+		FRA = { has_completed_focus = FRA_Francias_Community }
+	}
+	option = {
+		name = per.24.a
+		set_global_flag = west_africa10
+	}
+}

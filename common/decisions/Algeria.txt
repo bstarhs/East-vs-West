@@ -1,0 +1,344 @@
+algeria_war_decis = {
+	algeria_war_villes_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 80
+		visible = {
+			tag = FRA
+		}
+		days_re_enable = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+				FROM = {
+					state_event = {
+						id = alg.64
+						trigger_for = FRA
+					}
+					add_resistance = -5
+					set_state_flag = ALG_newtown
+				}
+		}
+	}
+	algeria_war_harkis_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 2
+		}
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 20
+		days_re_enable = 200
+		visible = {
+			tag = FRA
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+			random_list = {
+				20 = {
+					modifier = {
+						add = 10
+						has_global_flag = alg42
+					}
+					FROM = {
+						state_event = {
+							id = alg.50
+							trigger_for = controller
+						}
+						add_to_variable = { ALG_local_cooperate = 1 }
+						add_resistance = -6
+					}
+				}
+				40 = {
+					modifier = {
+						add = 15
+						has_global_flag = fra_crime_alg
+					}
+					FROM = {
+						state_event = {
+							id = alg.51
+							trigger_for = controller
+						}
+					}
+				}
+			}
+		}
+	}
+	algeria_war_jews_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		days_re_enable = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+			random_list = {
+				30 = {
+					modifier = {
+						add = 10
+						has_global_flag = alg42
+					}
+					FROM = {
+						state_event = {
+							id = alg.50
+							trigger_for = controller
+						}
+						add_to_variable = { ALG_local_cooperate = 1 }
+						add_resistance = -6
+					}
+				}
+				40 = {
+					modifier = {
+						add = 15
+						has_global_flag = fra_crime_alg
+					}
+					FROM = {
+						state_event = {
+							id = alg.51
+							trigger_for = controller
+						}
+					}
+				}
+			}
+		}
+	}
+	algeria_war_christ_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		days_re_enable = 200
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+			random_list = {
+				30 = {
+					modifier = {
+						add = 10
+						has_global_flag = alg42
+					}
+					FROM = {
+						state_event = {
+							id = alg.50
+							trigger_for = controller
+						}
+						add_to_variable = { ALG_local_cooperate = 1 }
+						add_resistance = -6
+					}
+				}
+				30 = {
+					modifier = {
+						add = 15
+						has_global_flag = fra_crime_alg
+					}
+					FROM = {
+						state_event = {
+							id = alg.51
+							trigger_for = controller
+						}
+					}
+				}
+			}
+		}
+	}
+	algeria_war_suffi_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		days_re_enable = 200
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+		}
+	}
+	algeria_war_middle_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		days_re_enable = 200
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+		}
+	}
+	algeria_war_berbers_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		days_re_enable = 200
+		icon = GFX_decision_hol_exchange_intelligence_data
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+		}
+	}
+	algeria_war_propaganda_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		days_re_enable = 200
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		complete_effect = {
+			news_event = alg.52
+			ALG = { news_event = alg.52 }
+			random_owned_state = {
+				limit = { is_core_of = ALG }
+				add_resistance = -6
+			}
+			random_owned_state = {
+				limit = { is_core_of = ALG }
+				add_resistance = -6
+			}
+			random_owned_state = {
+				limit = { is_core_of = ALG }
+				add_resistance = -6
+			}
+		}
+	}
+	algeria_war_autonomy_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		icon = GFX_decision_SWI_no_elected_president
+		cost = 30
+		visible = {
+			tag = FRA
+		}
+		available = {
+			FROM = {
+				custom_trigger_tooltip = {
+					tooltip = ALG_local_cooperate_6	
+					check_variable = { ALG_local_cooperate > 6 }
+				}
+				resistance < 60 
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = ALG_local_gov
+				add_resistance = -20
+				add_compliance = 30
+				state_event = {
+					id = alg.53
+					trigger_for = controller
+				}
+			}
+		}
+	}
+	algeria_war_moghazni_decis = {
+		allowed = { always = yes }
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		icon = GFX_decision_generic_military
+		cost = 150
+		visible = {
+			tag = FRA
+		}
+		available = {
+			FROM = {
+				has_state_flag = ALG_local_gov
+				resistance < 40 
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = FRA
+				is_core_of = ALG
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = ALG_local_gov
+				add_resistance = -15
+				add_resistance_target = -20
+				state_event = {
+					id = alg.53
+					trigger_for = controller
+				}
+			}
+		}
+	}
+}

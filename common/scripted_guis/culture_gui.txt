@@ -1,0 +1,61 @@
+scripted_gui = {
+	culture_button = {
+		window_name = "culture_button_container"
+		
+		context_type = player_context
+		effects = {		
+		culture_button_click = {
+                set_variable = { show_culture_page = 1 }
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_culture }
+                set_variable = { show_culture = show }
+            }
+        }
+	}
+	culture_background = {
+		window_name = "culture_background_container"
+		context_type = player_context
+		visible = {
+				check_variable = { show_culture > 0.0 }
+		}
+		triggers = {
+			main_Afrikaaners_visible = {
+				capital_scope = { has_state_flag = ethnics_Afrikaaners }
+			}
+			main_Georgians_visible = {
+				capital_scope = { has_state_flag = ethnics_Gerogians }
+			}
+			mains_Han_visible = {
+				capital_scope = { has_state_flag = ethnics_Han }
+			}
+			main_Russian_visible = {
+				capital_scope = { has_state_flag = ethnics_Russian }
+			}
+			main_Romanian_visible = {
+				capital_scope = { has_state_flag = ethnics_Romanian }
+			}
+			main_Polish_visible = {
+				capital_scope = { has_state_flag = ethnics_Polish }
+			}
+			main_Czech_visible = {
+				capital_scope = { has_state_flag = ethnics_Czech }
+			}
+			main_Yankee_visible = {
+				capital_scope = { has_state_flag = ethnics_Yankee }
+			}
+			main_Portuguese_visible = {
+				capital_scope = { has_state_flag = ethnics_Portuguese }
+			}
+			main_Castile_visible = {
+				capital_scope = { has_state_flag = ethnics_Castile }
+			}
+		}
+		effects = {
+			close_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_culture }
+                set_variable = { show_culture = show }
+			}
+		}
+	}
+}

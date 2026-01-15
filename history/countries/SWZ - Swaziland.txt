@@ -1,0 +1,55 @@
+﻿capital = 803
+set_country_flag = has_monarchs
+set_country_flag = third_world
+set_convoys = 10
+set_country_flag = british_colonies
+set_stability = 0.35
+
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_country_flag = african_state
+set_popularities = {
+	democratic = 47
+	fascism = 46
+	communism = 7
+}
+set_politics = {
+
+	ruling_party = democratic
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "Sobhuza II"
+	picture = "gfx/leaders/SWZ/Portrait_Swaziland_Sobhuza_II.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		#
+	}
+}
+1982.6.19 = {
+	complete_national_focus = common_24
+	add_to_array = { global.UNmember_list = FROM }
+	create_country_leader = {
+		name = "Mswati III"
+		
+		picture = "gfx/leaders/SWZ/Portrait_Swaziland_Mswati_III.tga"
+		expire = "2050.1.1"
+		ideology = monarchism
+		traits = {
+		
+		}
+	}
+}

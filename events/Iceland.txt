@@ -1,0 +1,222 @@
+﻿add_namespace = ice
+
+#1948
+news_event = {
+	id = ice.1
+	title = ice.1.t
+	desc = ice.1.d
+	picture = GFX_ASTelections
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ICE
+		date > 1952.1.1
+		date < 1953.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = ASTelection.1949.a
+		create_country_leader = {
+			name = "Ásgeir Ásgeirsson"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "Portrait_Iceland_Asgeirsson.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1948
+news_event = {
+	id = ice.2
+	title = ice.2.t
+	desc = ice.2.d
+	picture = GFX_ASTelections
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ICE
+		date > 1968.1.1
+		date < 1969.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = ASTelection.1949.a
+		create_country_leader = {
+			name = "Kristján Eldjárn"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "Portrait_Iceland_Kristjan.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1948
+news_event = {
+	id = ice.3
+	title = ice.3.t
+	desc = ice.3.d
+	picture = GFX_ASTelections
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ICE
+		date > 1980.1.1
+		date < 1981.1.1
+		has_government = democratic
+	}
+	
+	option = {	#罗伯特·戈登·孟席斯
+		name = ASTelection.1949.a
+		create_country_leader = {
+			name = "Vigdís Finnbogadóttir"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "Portrait_Iceland_Kristjan.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+news_event = {
+	id = ice.10
+	title = ice.10.t
+	desc = ice.10.d
+	picture = GFX_HermannJonasson
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = ice.13.a
+	}
+}
+country_event = {
+	id = ice.11
+	title = ice.11.t
+	desc = ice.11.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = ice.11.a
+		news_event = ice.12
+		set_global_flag = ice12
+	}
+}
+news_event = {
+	id = ice.12
+	title = ice.12.t
+	desc = ice.12.d
+	picture = GFX_HermannJonasson
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = ice.13.a
+	}
+}
+news_event = {
+	id = ice.13
+	title = ice.13.t
+	desc = ice.13.d
+	picture = GFX_CodWar1958
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ICE_5
+	}
+	option = {	#支持政变
+		name = ice.13.a
+		set_global_flag = ice13
+	}
+}
+
+news_event = {
+	id = ice.14
+	title = ice.14.t
+	desc = ice.14.d
+	picture = GFX_CodWar1958
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = ENG
+		date > 1958.3.1
+		date < 1959.4.1
+		has_global_flag = ice13
+		OR = {
+			AND = {
+				ENG = { ships_in_area = { area = 45 size > 0 } }
+				ICE = { ships_in_area = { area = 45 size > 0 } }
+			}
+			AND = {
+				ENG = { is_ai = yes }
+				ICE = { is_ai = yes }
+			}
+		}
+		NOT = { has_global_flag = ice14 }
+	}
+	option = {
+		name = usatext.273.a
+		set_global_flag = ice14
+	}
+}
+country_event = {
+	id = ice.18
+	title = ice.18.t
+	desc = ice.18.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = ice.11.a
+		ENG = { news_event = ice.19 }
+	}
+}
+country_event = {
+	id = ice.19
+	title = ice.19.t
+	desc = ice.19.d
+	picture = GFX_Treaty
+	is_triggered_only = yes
+	option = {	#支持政变
+		name = ice.11.a
+		set_global_flag = ice19
+	}
+}
+news_event = {
+	id = ice.20
+	title = ice.20.t
+	desc = ice.14.d
+	picture = GFX_CodWar1958
+	mean_time_to_happen = { days = 100 }
+	major = yes
+	trigger = {
+		tag = ENG
+		date > 1958.12.1
+		has_global_flag = ice13
+		NOT = { has_global_flag = ice21 }
+	}
+	option = {
+		name = usatext.273.a
+		add_political_power = -30
+	}
+}
+news_event = {
+	id = ice.21
+	title = ice.21.t
+	desc = ice.21.d
+	picture = GFX_CodWar1958
+	is_triggered_only = yes
+	major = yes
+	option = {	#支持政变
+		name = ice.11.a
+		set_global_flag = ice21
+	}
+}

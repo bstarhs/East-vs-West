@@ -1,0 +1,50 @@
+state=
+{
+	id=855
+	name="STATE_855"
+	manpower = 889800
+	resources={
+		rubber=22
+	}
+	
+	state_category = rural
+
+	history=
+	{
+		
+		add_to_array = { this.state_ethnics_list = 106 }
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Malayan
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = BRU
+		victory_points = {
+			10212 8
+		}
+		victory_points = {
+			10199 5
+		}
+		victory_points = {
+			12228 4
+		}
+		victory_points = { 13295 5 }
+		buildings = {
+			infrastructure = 3
+			10212 = {
+				naval_base = 1
+			}
+		}
+		add_claim_by = BRU
+		add_core_of = SAB
+		1963.10.14 = {
+			add_claim_by = PHI
+			add_claim_by = INS
+			owner = MAL
+			add_core_of = MAL
+		}
+	}
+
+	provinces={
+		10212 12171 1335 4338 7358 4282 12186 10143 10199 1306 10240 12228 13295
+	}
+}

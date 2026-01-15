@@ -1,0 +1,38 @@
+
+political_actions = {
+	CHL_Pinochet_out = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			always = yes
+			tag = CHL
+			democratic > 0.4
+			has_government = neutrality
+			date > 1988.3.1
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+			add = 100 
+			date > 1990.3.1
+			}
+		}
+
+		complete_effect = {
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+			name = "Patricio Aylwin" 
+			picture = "Portrait_Chile_Patricio_Aylwin.tga" 
+			expire = "2000.1.1" 
+			ideology = socialism
+			traits = {} 
+			}
+		}
+	
+	}
+	
+}

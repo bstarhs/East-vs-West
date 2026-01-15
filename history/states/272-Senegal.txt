@@ -1,0 +1,42 @@
+
+state={
+	id=272
+	name="STATE_272"
+	manpower = 1638000
+	resources={
+		iron=4
+		phosphate=7
+		salt=12
+	}
+	
+	state_category = pastoral
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		owner = MLI
+		set_state_flag = ethnics_Bambara
+		add_to_array = { this.state_ethnics_list = 181 }
+		add_to_array = { this.state_ethnics_list = 33 }
+		victory_points = {
+			4948 5 
+		}
+		buildings = {
+			power_plant = 1
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 4
+			4948 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = SEN
+		1960.4.4 = {
+			owner = SEN
+		}
+	}
+
+	provinces={
+		2100 4948 7972 8015 12710 12834 
+	}
+}

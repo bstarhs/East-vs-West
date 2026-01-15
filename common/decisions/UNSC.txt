@@ -1,0 +1,214 @@
+
+UNSC_afair = {
+	UNSC_suez_WAR = {
+		icon = generic_industry
+		fire_only_once = yes
+		visible = {
+			has_country_flag = UNSC
+			has_war = no
+			EGY = { has_war_with = ENG }
+			has_global_flag = suez_war
+			OR = {
+				tag = SOV
+				tag = USA
+			}
+			OR = {
+				ENG = {
+					divisions_in_state = {
+						size > 0
+						state = 860
+					}	
+				}
+				860 = { is_controlled_by = EGY }
+			}
+		}
+		cost = 50
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 60
+				860 = { is_controlled_by = EGY }
+			}
+			modifier = {
+				add = 60
+				FRA = {
+					divisions_in_state = {
+						size > 0
+						state = 860
+					}
+				}
+			}
+		}
+		complete_effect = {
+			FRA = { news_event = { id = egy.6 } }
+			ENG = { news_event = { id = egy.6 } }
+		}
+	
+	}
+	UNSC_Indonesia = {
+		icon = generic_industry
+		visible = {
+			tag = USA
+			HOL = {
+				has_war_with = INS
+				has_idea = Marshall
+			}
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			news_event = {  id = ind.32 }
+		}
+	
+	}
+	UNSC_83 = {
+		icon = generic_industry
+		visible = {
+			tag = USA
+			PRK = { has_war_with = KOR }
+			date < 1954.1.1
+			NOT = { has_idea = UN_troops }
+			KOR = { NOT = { has_idea = UNSC_83 } }
+		}
+		fire_only_once = yes
+		cost = 80
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = -100
+				KOR = { has_idea = UN_troops }
+			}
+		}
+
+		complete_effect = {
+			news_event = { id = prk.5 }
+		}
+	
+	}
+	UNSC_sanctions = {
+		icon = generic_industry
+		visible = {
+			has_country_flag = UNSC
+			has_war = no
+		}
+		target_trigger = {
+			FROM = {
+				OR = {		
+					has_idea = UNmember 
+					tag = PRK
+				}
+				NOT = { has_idea = sanctions }
+				NOT = { has_country_flag = UNSC }
+				NOT = { has_country_flag = UN_sanctions_voted }
+				OR = {
+					has_offensive_war = yes
+					has_idea = apartheid
+					has_idea = geonocide
+					has_idea = white_terror
+					has_idea = SupportKorea
+					has_government = fascism
+					any_owned_state = {
+						has_dynamic_modifier = { modifier = poispn_modifiers }
+					}		
+				}
+			}
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -20
+				has_opinion = {
+					target = FROM
+					value > 10
+				}
+			}
+			modifier = {
+				add = 20
+				FROM = {
+					has_idea = geonocide
+				}
+			}
+			modifier = {
+				add = 20
+				FROM = {
+					has_idea = apartheid
+				}
+			}
+			modifier = {
+				add = 100
+				FROM = {
+					has_country_flag = SAF_shapville
+				}
+			}
+			modifier = {
+				add = 80
+				FROM = {
+					has_country_flag = poison_use
+				}
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				set_country_flag = UN_sanctions_voted
+				country_event = {  id = un.11 }
+			}
+		}
+	
+	}
+	UNSC_condemn = {
+		icon = generic_industry
+		visible = {
+			has_country_flag = UNSC
+			has_war = no
+		}
+		target_trigger = {
+			FROM = {
+				OR = {		
+					has_idea = UNmember 
+					tag = PRK
+				}
+				NOT = {		
+					OR = {		
+						is_guaranteed_by = ROOT
+						is_in_faction_with = ROOT
+					}
+				}
+				has_opinion = {
+					target = ROOT
+					value < 50
+				}
+				OR = {
+					has_offensive_war = yes
+					has_idea = apartheid
+					has_idea = geonocide
+					has_idea = white_terror
+					has_idea = closed_economy
+					has_country_flag = poison_use
+					has_government = fascism
+					has_country_flag = dom6
+				}
+			}
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				FROM = { has_country_flag = dom6 }
+				add = 80
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				country_event = {  id = un.17 }
+			}
+		}
+	
+	}
+	
+}

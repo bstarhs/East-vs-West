@@ -1,0 +1,229 @@
+﻿add_namespace = por
+#逮捕安人运
+news_event = {
+	id = por.5
+	title = por.5.t
+	desc = por.5.d
+	picture = GFX_AngolaIndeWar
+	fire_only_once = yes
+	trigger = {
+		tag = POR
+		has_government = authoritarianism
+		date > 1959.8.1
+		date < 1960.1.1
+	}
+	option = { 
+		name = por.5.a
+		add_stability = -0.06
+		set_global_flag = MPLA
+		
+	}
+}
+#萨拉查辞职
+country_event = {
+	id = por.20
+	title = por.20.t
+	desc = por.20.d
+	picture = GFX_Salazar
+	fire_only_once = yes
+	trigger = {
+		tag = POR
+		has_government = authoritarianism
+		date > 1968.5.1
+		date < 1969.1.1
+	}
+	option = {	
+		name = por.20.a
+		POR = {
+			create_country_leader = {
+			name = "Marcello Alves Caetano"
+			desc = "POLITICIAN_PRC_WU_BANGGUO_DESC"
+			picture = "gfx/leaders/POR/Portrait_Portugal_Alves_Caetano.tga"
+			expire = "1992.1.1"
+			ideology = authoritarianism
+			
+			traits = {
+				
+			dictator colonist
+				}
+			}
+		}
+	}
+}
+#萨拉查去世
+news_event = {
+	id = por.21
+	title = por.21.t
+	desc = por.21.d
+	picture = GFX_Salazar
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		date > 1970.5.1
+		date < 1971.1.1
+		POR = {
+		has_government = authoritarianism
+		NOT = { has_country_flag = salazar_dead }
+		}
+	}
+	immediate = {
+		play_song = POR_4
+	}
+	option = {	#胡安·卡洛斯
+		name = por.20.a
+		if = {
+			limit = { tag = POR }
+			add_ideas = salazardeath
+			set_country_flag = salazar_dead
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = -0.3
+			}
+		}
+	}
+}
+#康乃馨革命
+news_event = {
+	id = por.22
+	title = por.22.t
+	desc = por.22.d
+	picture = GFX_Carnation
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = POR
+		has_government = authoritarianism
+		date > 1972.4.1
+		OR = {
+			has_war_with = ANG
+			has_war_with = UTA
+			has_war_with = FNA
+			has_war_with = MZB
+			has_war_with = GNB
+			}
+		OR = {
+			has_war_support < 0.4
+			has_stability < 0.6
+			date > 1974.4.1
+			democratic > 0.3
+			communism > 0.3
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 100
+		}
+		remove_ideas = salazardeath
+		add_stability = 0.4
+		news_event = { id = por.24 }
+		name = por.22.a
+		create_country_leader = {
+			name = "Antonio Spinola"
+			picture = "gfx/leaders/POR/Portrait_Portugal_Antonio_Spinola.tga"
+			expire = "1994.1.1"
+			ideology =  despotism
+			traits = {
+				
+				}
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.3
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+		set_politics = { ruling_party = neutrality }
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = por.22.b
+			remove_ideas = salazardeath
+		create_country_leader = {
+			name = "Antonio Spinola"
+			picture = "gfx/leaders/POR/Portrait_Portugal_Antonio_Spinola.tga"
+			expire = "1994.1.1"
+			ideology =  despotism
+			traits = {
+				
+				}
+		}
+		start_civil_war = {
+			ideology = democratic
+				states = { 179 180 }
+		}
+		news_event = { id = por.23 }
+	}
+}
+#葡萄牙内战
+news_event = {
+	id = por.23
+	title = por.23.t
+	desc = por.23.d
+	major = yes
+	picture = GFX_PortugalCivilWar
+	immediate = {
+		play_song = POR_6
+	}
+	is_triggered_only = yes
+	option = {	#胡安·卡洛斯
+		name = por.23.a
+	}
+}
+#革命胜利
+news_event = {
+	id = por.24
+	title = por.24.t
+	desc = por.24.d
+	picture = GFX_Carnation
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = POR_5
+	}
+	option = {	#胡安·卡洛斯
+		name = por.24.a
+	}
+}
+#修改宪法
+country_event = {
+	id = por.30
+	title = por.30.t
+	desc = por.30.d
+	picture = GFX_Carnation
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {	#胡安·卡洛斯
+		name = por.30.a
+		POR = {
+			white_peace = ANG
+			white_peace = MZB
+			white_peace = GNB
+			white_peace = FNA
+			white_peace = UTA
+			add_stability = 0.4
+		}
+		ANG = {
+			set_capital = { state = 790 }
+			set_politics = { ruling_party = communism }
+			transfer_state = 790
+			transfer_state = 540
+			transfer_state = 808
+			transfer_state = 807
+			transfer_state = 809
+		}
+		GNB = {
+			set_politics = { ruling_party = communism }
+			transfer_state = 296
+		}
+		MZB = {
+			set_politics = { ruling_party = communism }
+			transfer_state = 544
+			transfer_state = 824
+			transfer_state = 825
+		}
+	}
+}

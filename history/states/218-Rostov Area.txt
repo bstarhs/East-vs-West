@@ -1,0 +1,45 @@
+
+state={
+	id=218
+	name="STATE_218"
+	manpower = 1501076
+	
+	state_category = city
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		owner = SOV
+		add_to_array = { this.state_ethnics_list = 143 }
+		set_state_flag = ethnics_Russian
+		victory_points = {
+			11434 4
+		}
+		victory_points = {
+			9430 5
+		}
+		victory_points = {
+			9417 15 
+		}
+		buildings = {
+			farm_building = 2
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 1
+			air_base = 3
+			9417 ={
+				naval_base = 5
+			}
+		}
+		add_core_of = SOV
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+	}
+
+	provinces={
+		585 6445 9417 9430 11418 11434 11450 11559 
+	}
+}

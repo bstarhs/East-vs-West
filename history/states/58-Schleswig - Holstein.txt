@@ -1,0 +1,65 @@
+state= {
+	id=58
+	name="STATE_58"
+	manpower = 3248150 
+	state_category = large_city
+	
+	resources={
+		salt=11
+	}
+	local_supplies=0.0
+	history=
+	{
+		add_dynamic_modifier = { modifier = morgenthau_modifiers }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Deutscher
+		add_to_array = { this.state_ethnics_list = 63 }
+		add_dynamic_modifier = { modifier = fish_production }
+		victory_points = {
+			6389 6 
+		}
+		victory_points = {
+			11331 5
+		}
+		victory_points = {
+			317 3
+		}
+		victory_points = {
+			9347 12 
+		}
+		owner = ENG
+		controller = ENG
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 6
+			dockyard = 2
+			air_base = 5
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		1949.5.23 = {
+			remove_dynamic_modifier = { modifier = morgenthau_modifiers }
+			owner = WDR
+			add_core_of = DDR
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				synthetic_refinery = 1
+			}
+		}
+		1976.8.23 = {
+			buildings = { nuclear_reactor = 1 }
+		}
+		1986.8.23 = {
+			buildings = { nuclear_reactor = 3 }
+		}
+
+	}
+
+	provinces= {
+		317 3231 3368 6257 6389 9320 9347 11331 11366
+ 	}
+}

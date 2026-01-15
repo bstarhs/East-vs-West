@@ -1,0 +1,45 @@
+scripted_gui = {
+	air_transport_setting = {
+	
+		window_name = "air_transport_setting"
+		context_type = player_context
+		parent_window_name = "army_badge_view"	
+		visible = {
+			any_unit_leader = { is_leading_army = yes }
+			tag = VAT
+		}
+		triggers = {
+			air_transport_button_visible = {
+				all_owned_state = {
+					NOT = { has_state_flag = airtrans_ready }
+				}
+			}
+			air_transport_ready_button_visible = {
+				any_owned_state = {
+					has_state_flag = airtrans_ready
+				}
+			}
+			air_transport_button_click_enabled  = {
+				has_tech = transport_plane1
+			}
+		}
+		effects = {
+			air_transport_button_click = {
+				every_controlled_state = {
+					limit = {
+						air_base > 3
+					}
+					set_state_flag = airtrans_ready
+				}
+			}
+			air_transport_ready_button_click = {
+				every_controlled_state = {
+					limit = {
+						has_state_flag = airtrans_ready
+					}
+					clr_state_flag = airtrans_ready
+				}
+			}
+		}
+	}
+}

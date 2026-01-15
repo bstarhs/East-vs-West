@@ -1,0 +1,286 @@
+add_namespace = hai
+news_event = {
+	id = hai.1
+	title = hai.1.t
+	desc = hai.1.d
+	picture = GFX_PaulMagloire
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1950.5.1
+		date < 1950.7.1
+		has_government = democratic
+		NOT = { has_global_flag = hai1 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai1
+	}
+}
+news_event = {
+	id = hai.2
+	title = hai.2.t
+	desc = hai.2.d
+	picture = GFX_PaulMagloire
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1950.5.1
+		date < 1950.7.1
+		has_government = democratic
+		has_global_flag = hai1
+		NOT = { has_global_flag = hai2 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai5
+		set_politics = { ruling_party = neutrality }
+		promote_character = HAI_Paul_Magloire
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.4
+		}
+		news_event = { id = hai.3 days = 4 }
+	}
+}
+news_event = {
+	id = hai.3
+	title = hai.3.t
+	desc = hai.3.d
+	picture = GFX_PaulMagloire
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+#########ì«·ç
+
+news_event = {
+	id = hai.4
+	title = hai.4.t
+	desc = hai.4.d
+	picture = GFX_HurricaneHazel
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1954.10.1
+		date < 1954.12.1
+		NOT = { has_global_flag = hai4 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai4
+		if = {
+			limit = { tag = HAI }
+			add_political_power = -500
+			add_stability = -0.3
+			7 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 4
+				}
+				damage_building = {
+					type = farm_building
+					damage = 4
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = hai.5
+	title = hai.5.t
+	desc = hai.5.d
+	picture = GFX_DullesCIA
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		OR = {
+			tag = USA
+			tag = ENG
+			tag = SOV
+		}
+		date > 1954.10.1
+		date < 1954.12.1
+		has_global_flag = hai4
+		NOT = { has_country_flag = hai6 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai4
+		add_political_power = -50
+		news_event = { id = hai.6 days = 5 }
+		if = {
+			limit = { tag = SOV }
+			HAI = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.04
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = hai.6
+	title = hai.6.t
+	desc = hai.6.d
+	picture = GFX_HurricaneHazel
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		if = {
+			limit = { tag = HAI }
+			add_political_power = 80
+		}
+	}
+}
+#########
+
+news_event = {
+	id = hai.10
+	title = hai.10.t
+	desc = hai.10.d
+	picture = GFX_PaulMagloire
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1956.11.1
+		date < 1957.2.1
+		has_government = neutrality
+		NOT = { has_global_flag = hai10 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai10
+	}
+}
+news_event = {
+	id = hai.11
+	title = hai.11.t
+	desc = hai.11.d
+	picture = GFX_PaulMagloire
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1956.11.1
+		date < 1957.2.1
+		has_government = neutrality
+		has_global_flag = hai10
+		NOT = { has_global_flag = hai11 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai11
+		retire_character = HAI_Paul_Magloire
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.12
+		}
+		create_country_leader = {
+		name = "Military Government Junta"
+		picture = "gfx/leaders/HAI/Portrait_Haiti_Military_Junta.tga"
+		expire = "1949.1.1"
+		ideology = despotism
+		traits = {
+			anti_communist
+		}
+		}
+		news_event = { id = hai.12 days = 4 }
+	}
+}
+news_event = {
+	id = hai.12
+	title = hai.12.t
+	desc = hai.12.d
+	picture = GFX_DanielFignole
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+#########
+
+news_event = {
+	id = hai.15
+	title = hai.15.t
+	desc = hai.15.d
+	picture = GFX_DanielFignole
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1957.5.1
+		date < 1957.7.1
+		has_government = neutrality
+		has_global_flag = hai11
+		NOT = { has_global_flag = hai15 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai15
+		retire_character = HAI_Daniel_Fignole
+		set_politics = { ruling_party = democratic }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+		promote_character = HAI_Daniel_Fignole
+		news_event = { id = hai.16 days = 4 }
+	}
+}
+news_event = {
+	id = hai.16
+	title = hai.16.t
+	desc = hai.16.d
+	picture = GFX_DanielFignole
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}
+
+#########
+news_event = {
+	id = hai.25
+	title = hai.25.t
+	desc = hai.25.d
+	picture = GFX_FrancoisDuvalie
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HAI
+		date > 1957.9.1
+		date < 1957.12.1
+		has_government = neutrality
+		NOT = { has_global_flag = hai25 }
+	}
+	option = {	
+		name = hai.25.a
+		set_global_flag = hai25
+		set_politics = { ruling_party = authoritarianism }
+		promote_character = HAI_Francois_Duvalie
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.4
+		}
+		news_event = { id = hai.26 days = 4 }
+	}
+}
+news_event = {
+	id = hai.26
+	title = hai.26.t
+	desc = hai.26.d
+	picture = GFX_FrancoisDuvalie
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+	}
+}

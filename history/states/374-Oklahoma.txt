@@ -1,0 +1,51 @@
+
+state={
+	id=374
+	name="STATE_374"
+	manpower = 2396039
+	
+	state_category = city
+	
+	resources={
+		aluminium=32
+	}
+
+
+	history={
+		add_claim_by = LOU
+		add_claim_by = OKL
+		set_state_flag = ethnics_Yankee
+		add_to_array = { this.state_ethnics_list = 174 }
+		add_to_array = { this.state_ethnics_list = 175 }
+		add_dynamic_modifier = { modifier = hight_food_production }
+		add_dynamic_modifier = { modifier = husbandry_production }
+                              
+		owner = USA
+		buildings = {
+			power_plant = 1
+			hospital = 1
+			farm_building = 2
+			infrastructure = 4
+			industrial_complex = 2
+			air_base = 2
+		}
+		add_core_of = USA
+		victory_points = {
+			1806 3
+		}
+		victory_points = {
+			10798 6
+		}
+
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 3
+			}
+		}
+
+	}
+
+	provinces={
+		1618 1806 2043 4919 5103 6803 7762 7904 7945 8025 9822 10702 10798 11743 11802 12624 
+	}
+}

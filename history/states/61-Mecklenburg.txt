@@ -1,0 +1,77 @@
+state={
+	id=61
+	name="STATE_61"
+	manpower = 836353
+	state_category = city
+	local_supplies=0.0
+
+	resources={
+		salt=10
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Deutscher
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = SOV
+		add_to_array = { this.state_ethnics_list = 63 }
+		victory_points = {
+			321 8
+		}
+		set_state_flag = sugar_production
+		victory_points = {
+			11276 4
+		}
+		victory_points = {
+			11305 4
+		}
+		victory_points = {
+			9388 3
+		}
+		victory_points = {
+			3258 3
+		}
+		victory_points = {
+			3340 4
+		}
+		buildings = {
+			farm_building = 1
+			school = 1
+			dockyard = 3
+			power_plant = 2
+			hospital = 1
+			infrastructure = 8
+			arms_factory = 2
+			air_base = 3
+			industrial_complex = 1
+			3340 = {
+				naval_base = 3
+			}
+			321 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = DDR
+		add_core_of = WDR
+		1947.8.23 = {
+			owner = DDR
+		}
+		1952.8.23 = {
+			buildings = {
+				power_plant = 3
+				industrial_complex = 3
+				farm_building = 3
+				dockyard = 5
+				anti_air_building = 2
+				hospital = 1
+			}
+		}
+		1990.8.23 = {
+			owner = WDR
+		}
+	}
+
+	provinces={
+		268 293 321 3258 9294 11276 11305 3312 349 3340 9388 
+	}
+}

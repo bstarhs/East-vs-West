@@ -1,0 +1,287 @@
+Angolan_war = {
+	ANG_pro_MPLA = {
+		fire_only_once = yes
+		icon = GFX_decision_AK
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 180
+		cost = 180
+		visible = {
+			has_global_flag = angola_war
+			has_government = communism
+			NOT = {
+				OR = {
+					has_completed_focus = prc67
+					has_country_leader_with_trait = socialist_reformism
+					has_country_leader_with_trait = liberal_reformism
+					has_country_leader_with_trait = independent_red
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0
+				tag = PRC
+				has_idea = SovietChinaConflit
+			}
+			modifier = { 
+				factor = 3
+				tag = CUB
+				has_government = communism
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { country_exists = ANG } } 
+				790 = { add_resistance = 20 }
+			}
+			if = {
+				limit = { country_exists = ANG }
+				ANG = {
+					add_political_power = 100
+					army_experience = 100
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+						producer = FROM
+					}
+					add_equipment_to_stockpile = {
+						type = machine_gun
+						amount = 800
+						producer = FROM
+					}
+				}
+			}
+		}
+	}
+	ANG_pro_UNITA = {
+		icon = GFX_decision_AK
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 180
+		cost = 180
+		visible = {
+			has_global_flag = angola_war
+			OR = {
+				TAG = USA
+				TAG = COG
+				TAG = PRC
+				TAG = ZAM
+				TAG = SAU
+				TAG = SAF
+				TAG = RHO
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 3
+				tag = PRC
+				has_idea = SovietChinaConflit
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { country_exists = UTA } } 
+				540 = { add_resistance = 20 }
+			}
+			if = {
+				limit = { country_exists = UTA }
+				UTA = {
+					add_political_power = 100
+					army_experience = 100
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+						producer = FROM
+					}
+					add_equipment_to_stockpile = {
+						type = machine_gun
+						amount = 800
+						producer = FROM
+					}
+				}
+			}
+		}
+	}
+	ANG_pro_FNLA = {
+		fire_only_once = yes
+
+		icon = GFX_decision_AK
+
+		allowed = {
+			always = yes
+		}
+
+		days_re_enable = 180
+		cost = 180
+		visible = {
+			has_global_flag = angola_war
+			OR = {
+				TAG = USA
+				TAG = COG
+				TAG = PRC
+				TAG = ZAM
+				TAG = SAU
+				TAG = SAF
+				TAG = RHO
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 3
+				tag = PRC
+				has_idea = SovietChinaConflit
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { country_exists = FNA } } 
+				808 = { add_resistance = 20 }
+			}
+			if = {
+				limit = { country_exists = FNA }
+				FNA = {
+					add_political_power = 100
+					army_experience = 100
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+						producer = FROM
+					}
+					add_equipment_to_stockpile = {
+						type = machine_gun
+						amount = 800
+						producer = FROM
+					}
+				}
+			}
+		}
+	}
+}
+Africa_war = {
+	pro_NAM = {
+		fire_only_once = yes
+
+		icon = GFX_decision_AK
+
+		allowed = {
+			always = yes
+		}
+
+		days_re_enable = 180
+		cost = 180
+
+		visible = {
+			SAF = { has_government = authoritarianism }
+			OR = {
+				TAG = ANG
+				TAG = MZB
+				TAG = ZIM
+				TAG = ZAM
+				TAG = TAZ
+				TAG = PRC
+				TAG = LYB
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0
+				tag = PRC
+				NOT = { has_idea = SovietChinaConflit }
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = { NOT = { country_exists = NAM } } 
+				541 = { add_resistance = 20 }
+			}
+			if = {
+				limit = { country_exists = NAM }
+				NAM = {
+					add_political_power = 100
+					army_experience = 100
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+						producer = FROM
+					}
+					add_equipment_to_stockpile = {
+						type = machine_gun
+						amount = 800
+						producer = FROM
+					}
+				}
+			}
+		}
+
+	
+	}
+	pro_ZIM = {
+		fire_only_once = yes
+
+		icon = GFX_decision_AK
+
+		allowed = {
+			always = yes
+		}
+
+		days_re_enable = 180
+		cost = 180
+
+		visible = {
+			country_exists = RHO
+			NOT = { country_exists = ZIM }
+			OR = {
+				TAG = ANG
+				TAG = MZB
+				TAG = ZIM
+				TAG = ZAM
+				TAG = TAZ
+				TAG = PRC
+				TAG = LYB
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = { 
+				factor = 0
+				tag = PRC
+				NOT = { has_idea = SovietChinaConflit }
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = { NOT = { country_exists = ZIM } } 
+				821 = { add_resistance = 20 }
+			}
+			if = {
+				limit = { country_exists = ZIM }
+				ZIM = {
+					add_political_power = 100
+					army_experience = 100
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+						producer = FROM
+					}
+					add_equipment_to_stockpile = {
+						type = machine_gun
+						amount = 800
+						producer = FROM
+					}
+				}
+			}
+		}
+
+	
+	}
+}

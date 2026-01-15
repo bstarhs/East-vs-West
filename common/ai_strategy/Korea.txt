@@ -1,0 +1,737 @@
+
+KOR_TAKE_back = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = KOR
+		has_war_with = PRK
+		NOT = { controls_province = 7125 }
+		KOR = {
+			has_volunteers_amount_from = {
+			tag = USA
+			count > 1
+			}
+		}
+	}
+	abort = {
+		controls_province = 7125
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			525
+		}
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PRK
+
+		ratio = 0.9
+
+		priority = 800
+		ordertype = front
+		execution_type = rush
+		execute_order = no
+	}
+}
+KOR_later_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = KOR
+		has_war_with = PRK
+		PRC = {
+			has_idea = SupportKorea
+		}
+		KOR = {
+			has_volunteers_amount_from = {
+			tag = USA
+			count > 0
+			}
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			525
+			751
+		}
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PRK
+
+		ratio = 0.0
+
+		priority = 800
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+KOR_nakdong_defence = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = KOR
+		has_war_with = PRK
+		NOT = { controls_province = 7125 }
+	}
+	abort = {
+		controls_province = 7125
+		KOR = {
+			has_volunteers_amount_from = {
+			tag = USA
+			count > 0
+			}
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			751
+			783
+		}
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PRK
+
+		ratio = 0.1
+
+		priority = 800
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+Korean_war_1950 = {
+	abort_when_not_enabled = yes
+	allowed = {
+		original_tag = PRK
+	}
+	enable = {
+		date > 1950.1.1
+		date < 1953.1.1
+		country_exists = KOR
+		has_volunteers_amount_from = {
+			tag = PRC
+			count < 1
+		}
+	}
+	abort = {
+		NOT = { country_exists = KOR }
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = "KOR"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = KOR
+		value = 9999
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = KOR
+		value = 900
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = KOR
+
+		ratio = 0.7
+
+		priority = 500
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+support_DPRK = {
+	abort_when_not_enabled = yes
+	enable = {
+		OR = {
+			tag = PRC
+			tag = SOV
+		}
+		KOR = { has_country_flag = korea_war_38line }
+	}
+	ai_strategy = {
+		type = support
+		id = "PRK"
+		value = 200
+	}
+}
+Korean_war_1979 = {
+	abort_when_not_enabled = yes
+	allowed = {
+		original_tag = PRK
+	}
+	enable = {
+		date > 1978.1.1
+		date < 1981.1.1
+		country_exists = KOR
+		KOR = { has_stability < 0.6 }
+	}
+	abort = {
+		NOT = { country_exists = KOR }
+		KOR = { has_stability > 0.6 }
+	}
+
+	ai_strategy = {
+		type = antagonize
+		id = KOR
+		value = 9999
+	}
+	ai_strategy = {
+		type = conquer
+		id = KOR
+		value = 9999
+	}
+}
+kor_48zone = {
+	enable = {
+		tag = KOR
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.5
+		states = {
+			751
+			783
+		}
+	}
+}
+prk_48zone = {
+	enable = {
+		tag = PRK
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			745
+			744
+		}
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 200
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = KOR		
+		value = 50
+	}
+}
+SOV_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		tag = SOV
+		PRK = {	
+			has_war_with = KOR
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = "PRK"
+		value = 500
+	}
+}
+PRC_Korea_war_3 = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = PRC
+		PRK = { has_war_with = KOR }
+		check_variable = { this.cupport_prk_turn = 3 }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK
+		value = 500
+	}
+}
+PRC_Korea_war_2 = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = PRC
+		PRK = { has_war_with = KOR }
+		check_variable = { this.cupport_prk_turn = 2 }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK
+		value = 500
+	}
+}
+PRC_Korea_war_1 = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = PRC
+		PRK = { has_war_with = KOR }
+		check_variable = { this.cupport_prk_turn = 1 }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK
+		value = 500
+	}
+}
+PRC_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PRC
+		has_idea = SupportKorea
+		PRK = {	
+			has_war_with = KOR
+		}
+	}
+	abort = {
+		PRK = {
+			NOT = { has_war_with = KOR } 
+		}
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK	
+		value = 999
+	}
+}
+not_support_DPRK = {
+	abort_when_not_enabled = yes
+	enable = {
+		OR = {
+			tag = PRC
+			tag = SOV
+		}
+		NOT = { has_idea = SupportKorea }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK
+		value = -20
+	}
+}
+USA_STAY_38line = { 
+	abort_when_not_enabled = yes
+
+	enable = {
+		tag = USA
+		has_idea = UN_troops
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 525
+		state = 750
+		state = 751
+		state = 783
+		value = -200
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			751
+			783
+		}
+	}
+	ai_strategy = {
+		type = garrison
+		value = 200
+	}
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_core_of = PRK
+		}
+		ratio = 0.0
+		priority = 0
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+PRC_STAY_38line = { 
+	abort_when_not_enabled = yes
+
+	enable = {
+		tag = PRC
+		has_idea = SupportKorea
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 525
+		state = 750
+		state = 751
+		state = 783
+		value = -200
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			745
+			744
+		}
+	}
+	ai_strategy = {
+		type = garrison
+		value = 200
+	}
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_core_of = KOR
+		}
+		ratio = 0.0
+		priority = 0
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+PRC_to_38line = { 
+	abort_when_not_enabled = yes
+
+	enable = {
+		tag = PRC
+		has_idea = SupportKorea
+		KOR = {
+			OR = {
+			controls_province = 11915
+			controls_province = 7070
+			controls_province = 848
+			}
+		}
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 525
+		state = 750
+		state = 751
+		state = 783
+		value = 50
+	}
+	ai_strategy = {
+		type = front_control
+		state_trigger = {
+			is_core_of = KOR
+		}
+		ratio = 0.0
+		priority = 600
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+AST_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = AST
+		NOT = { KOR = { has_government = communism } }
+		PRK = { controls_province = 7125 }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+FRA_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = FRA
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		date > 1973.1.1
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+NZL_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = NZL
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+AST_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = AST
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	ai_strategy = {
+		type = support
+		id = "KOR"
+		value = 500
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+USA_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = USA
+		PRK = { controls_province = 7125 }
+		NOT = { KOR = { has_government = communism } }
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 500
+	}
+}
+USA_Korea_war_2 = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = USA
+		PRK = { has_war_with = KOR }
+		NOT = { KOR = { has_government = communism } }
+		has_global_flag = USA_Korea_war_2
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 500
+	}
+}
+USA_Korea_war_3 = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = USA
+		PRK = { has_war_with = KOR }
+		NOT = { KOR = { has_government = communism } }
+		has_global_flag = USA_Korea_war_3
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 500
+	}
+}
+TUR_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = TUR
+		USA = { has_idea = UN_troops }
+		PRK = { has_war_with = KOR }
+		PRC = { has_idea = SupportKorea }
+	}
+	abort = {
+		date > 1973.1.1
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 500
+	}
+}
+ENG_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = ENG
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+CAN_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = CAN
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+AST_Korea_war = {
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = AST
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+PHI_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = PHI
+		USA = { has_idea = UN_troops }
+		PRK = { has_war_with = KOR }
+		PRC = { has_idea = SupportKorea }
+	}
+	abort = {
+		date > 1973.1.1
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 500
+	}
+}
+SIA_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = SIA
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+ETH_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = ETH
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+FRA_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		original_tag = FRA
+		USA = { has_idea = UN_troops }
+		NOT = { KOR = { has_government = communism } }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}
+CLO_Korea_war = { 
+	abort_when_not_enabled = yes
+	enable = {
+		tag = CLO
+		has_government = democratic
+		USA = { has_idea = UN_troops }
+
+		PRK = {	
+			has_war_with = KOR
+		}
+	}
+	abort = {
+		PRK = {	
+			NOT = { has_war_with = KOR } 
+		}
+		USA = {	has_war_with = KOR } 
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR			
+		value = 50
+	}
+}

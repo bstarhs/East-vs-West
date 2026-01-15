@@ -1,0 +1,31 @@
+
+state={
+	id=256
+	name="STATE_256"
+	manpower = 1572061
+	
+	state_category = town
+
+	history={
+		owner = SOV
+		add_dynamic_modifier = { modifier = more_food_production }
+		victory_points = { 9259 6 }
+		add_to_array = { this.state_ethnics_list = 52 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		set_state_flag = ethnics_Russian
+		buildings = {
+			infrastructure = 4
+			power_plant = 1
+			farm_building = 2
+			hospital = 1
+			school = 1
+		}
+		add_core_of = SOV
+		add_core_of = CHU
+		set_state_flag = ethnics_Russian
+	}
+
+	provinces={
+		3282 6253 6312 6357 9244 9259 9307 9373 11356 
+	}
+}

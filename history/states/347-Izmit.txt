@@ -1,0 +1,45 @@
+
+state={
+	id=347
+	name="STATE_347"
+	manpower = 807660
+	resources={
+		copper=9
+	}
+	
+	state_category = large_town
+
+	history={
+		add_to_array = { this.state_ethnics_list = 167 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Turkish
+		owner = TUR
+		victory_points = {
+			890 4 
+		}
+		victory_points = {
+			904 4 
+		}
+		buildings = {
+			hospital = 1
+			farm_building = 2
+			power_plant = 2
+			infrastructure = 4
+			904 = {
+				naval_base = 2
+			}
+		}
+		1956.1.1 = {
+			buildings = {
+				dam_plant = 2
+			}
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		890 904 3905 3919 6871 11811 11866 11883 
+	}
+}

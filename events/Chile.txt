@@ -1,0 +1,277 @@
+﻿add_namespace = chl
+
+news_event = {
+	id = chl.1
+	title = chl.1.t
+	desc = chl.1.d
+	picture = GFX_ArturoAlessandriDeath
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = CHL
+		NOT = { has_global_flag = ArturoAlessandriDeath }
+		date > 1950.8.20
+		date < 1950.10.20
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = ArturoAlessandriDeath
+		
+	}
+}
+#1948
+news_event = {
+	id = chl.2
+	title = chl.2.t
+	desc = chl.2.d
+	picture = GFX_ChileElec
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHL
+		date > 1952.1.1
+		date < 1953.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = ASTelection.1949.a
+		create_country_leader = {
+			name = "Carlos Ibáñez del Campo"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CHL/Portrait_Chile_Carlos_Campo.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+
+#1958
+news_event = {
+	id = chl.5
+	title = chl.5.t
+	desc = chl.5.d
+	picture = GFX_ChileElec
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHL
+		date > 1958.9.1
+		date < 1958.12.1
+		has_government = democratic
+		NOT = { has_global_flag = chl5 }
+	}
+	option = {
+		name = ven.5.a
+		trigger = { NOT = { tag = CHL } }
+	}
+	option = {	
+		name = chl.5.a
+		set_global_flag = chl5
+		ai_chance = { factor = 0 }
+		trigger = { tag = CHL }
+		if = {
+			limit = { tag = CHL }
+			news_event = { id = chl.6 days = 4 }
+		}
+	}
+	option = {	
+		name = chl.5.a
+		set_global_flag = chl5
+		trigger = { tag = CHL }
+		ai_chance = { factor = 10 }
+		if = {
+			limit = { tag = CHL }
+			news_event = { id = chl.7 days = 4 }
+		}
+	}
+}
+news_event = {
+	id = chl.6
+	title = chl.6.t
+	desc = chl.6.d
+	picture = GFX_EduardoMontalva
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		if = {
+			limit = { tag = CHL }
+			promote_character = CHL_Eduardo_Montalva
+		}
+	}
+}
+news_event = {
+	id = chl.7
+	title = chl.7.t
+	desc = chl.7.d
+	picture = GFX_JorgeAlessandri
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ven.5.a
+		if = {
+			limit = { tag = CHL }
+			promote_character = CHL_Jorge_Alessandri
+		}
+	}
+}
+
+
+#1964
+news_event = {
+	id = chl.8
+	title = chl.8.t
+	desc = chl.8.d
+	picture = GFX_ChileElec
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHL
+		date > 1964.1.1
+		date < 1965.1.1
+		has_government = democratic
+	}
+	
+	option = {	
+		name = ASTelection.1949.a
+		create_country_leader = {
+			name = "Eduardo Frei Montalva"
+			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
+			picture = "gfx/leaders/CHL/Portrait_Chile_Montalva.tga"
+			expire = "1988.1.1"
+			ideology = socialism
+			traits = {
+			}
+		}
+	}
+}
+#1970智利大选
+news_event = {
+	id = chl.12
+	title = chl.12.t
+	desc = chl.12.d
+	picture = GFX_ChileElec
+	fire_only_once = yes
+	trigger = {
+		tag = CHL
+		date > 1970.1.1
+		date < 1971.1.1
+	}
+	
+	option = { 
+		name = chl.12.c
+		create_country_leader = {
+			name = "Salvador Allende"
+			desc = "POLITICS_EDWARD_HALIFAX_DESC"
+			picture = "gfx/leaders/CHL/Portrait_Chile_Allende.tga"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = { pro_soviet pro_socialism socialist_reformism resolute_social_democrat }
+		}
+		set_politics = { ruling_party = communism }
+		add_popularity = { ideology = communism popularity = 0.3 }
+	}
+}
+
+#智利政变
+news_event = {
+	id = chl.14
+	title = chl.14.t
+	desc = chl.14.d
+	picture = GFX_1973ChileCoup
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = CHL_4
+	}
+	option = {
+		name = chl.12.a
+		if = {
+			limit = { tag = CHL }
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Augusto Pinochet"
+				picture = "gfx/leaders/CHL/Portrait_Chile_Pinochet.tga"
+				ideology = despotism
+				traits = { dictator anti_communist pro_america neoliberal }
+			}
+		}
+	}
+}
+
+#智利大选
+news_event = {
+	id = chl.20
+	title = chl.20.t
+	desc = chl.20.d
+	fire_only_once = yes
+	picture = GFX_ChileElec
+	trigger = {
+		tag = CHL
+		date > 1989.6.1
+		has_government = neutrality
+		democratic > 0.4
+	}
+	option = {
+		name = chl.12.a
+		add_stability = -0.3
+	}
+	option = {
+		name = chl.12.c
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+			name = "Patricio Aylwin" 
+			picture = "gfx/leaders/CHL/Portrait_Chile_Patricio_Aylwin.tga" 
+			expire = "2000.1.1" 
+			ideology = socialism
+			traits = {} 
+			}
+	}
+}
+#智利政变
+news_event = {
+	id = chl.21
+	title = chl.21.t
+	desc = chl.21.d
+	picture = GFX_1973ChileCoup
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chl.21.a
+	}
+}
+##瓦尔维迪亚大地震
+news_event = {
+	id = chl.31
+	title = chl.31.t
+	desc = chl.31.d
+	picture = GFX_ArturoAlessandriDeath
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		play_song = CHL_8
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = valvidia_terramoto_video
+	}
+	trigger = {
+		tag = CHL
+		NOT = { has_global_flag = chl31 }
+		date > 1960.5.20
+		date < 1960.5.25
+		
+	}
+	option = {
+		name = mal.3.a
+		set_global_flag = chl31
+		
+	}
+}

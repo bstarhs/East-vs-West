@@ -1,0 +1,103 @@
+scripted_gui = {
+
+	recommended_shop = {
+		window_name = "recommended_shop_container"
+
+		context_type = player_context
+
+		visible = {
+				check_variable = { show_recommended_shop > 0.0 }
+		}
+		dynamic_lists = {
+			un_nations_list_grid = {
+				array = global.UNmember_list
+				entry_container = nations_grid_entry
+				change_scope = yes
+			}
+			sanctioned_nations_list_grid = {
+				array = global.sanctioned_countries_list
+				entry_container = sanctioned_countries_grid_entry
+				change_scope = yes
+			}
+			un_treaty_list_grid = {
+				array = global.un_treaty_list
+				entry_container = un_treaty_entry
+				change_scope = no
+			}
+		}
+		properties = {
+			flag = {
+				image = "[This.GetFlag]"
+				
+			}
+			my_flag = {
+				image = "[This.GetFlag]"
+				
+			}
+		}
+		effects = {
+			UN_close_button_click = {
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = show_recommended_shop }
+                set_variable = { show_recommended_shop = show }
+			}
+			shop_headhunting_1_click = {					
+				country_event = { id = un.9 }
+			}
+			shop_headhunting_2_click = {			
+				country_event = { id = un.15 }
+			}
+			shop_prime_access_click = {	
+			
+			}
+		}
+		triggers = {
+			#秘书长
+			UN_Trygve_Lie_visible = {
+				check_variable = { global.US_SG = 1 }
+			}
+			UN_Dag_Hammarskjold_visible = {
+				check_variable = { global.US_SG = 2 }
+			}
+			UN_U_Thant_visible = {
+				check_variable = { global.US_SG = 3 }
+			}
+			UN_Kurt_Waldheim_visible = {
+				check_variable = { global.US_SG = 4 }
+			}
+			UN_Perez_de_Cuellar_visible = {
+				check_variable = { global.US_SG = 5 }
+			}
+			UN_Boutros_Ghali_visible = {
+				check_variable = { global.US_SG = 6 }
+			}
+			UN_NO_MEMBER_visible = {
+				NOT = { has_idea = UNmember }
+			}
+			NOT_UN_text_visible = {
+				NOT = { has_idea = UNmember }
+			}
+			UNSC_ROC_flag_visible = {
+				CHI = { has_country_flag = UNSC }
+				NOT = { PRC = { has_country_flag = UNSC } }
+			}
+			UNSC_PRC_flag_visible = {
+				PRC = { has_country_flag = UNSC }
+				NOT = { CHI = { has_country_flag = UNSC } }
+			}
+			shop_headhunting_1_click_enabled = {
+				NOT = { has_country_flag = UN_techsupport }
+				check_variable = { influences > 180 }
+				has_war = no
+			}
+			shop_headhunting_2_click_enabled = {
+				NOT = { has_country_flag = UN_techdebt }
+				check_variable = { influences > 180 }
+			}
+			shop_prime_access_click_enabled = {
+				check_variable = { influences > 150 }
+			}
+		}		
+	}
+	
+}

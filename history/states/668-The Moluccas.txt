@@ -1,0 +1,43 @@
+
+state={
+	id=668
+	name="STATE_668"
+	manpower = 579100
+	
+	state_category = pastoral
+
+	history={
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Maluccu
+		set_state_flag = banana_production
+		add_to_array = { this.state_ethnics_list = 108 }
+		owner = HOL
+		add_core_of = INS
+		add_core_of = MLC
+		1949.10.25 = {
+			owner = MLC
+		}
+		1955.10.25 = {
+			owner = INS
+		}
+		victory_points = { 7413 4 }
+		victory_points = { 1574 8 }
+		buildings = {
+			infrastructure = 3
+			1574 = {
+				naval_base = 1
+			}
+			7369 = {
+				naval_base = 1
+			}
+			7413 = {
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		1351 1419 1437 1574 7369 7413 7557 10141 10342 10409 
+	}
+}

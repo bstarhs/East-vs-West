@@ -1,0 +1,861 @@
+
+decision_TW_construct = {
+	decision_TW_chunghsing = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_chunghsing }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_chunghsing
+			756 = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	decision_TW_kwangfu = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_kwangfu }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_kwangfu
+			524 = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	decision_TW_chunghsing_bridge = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_chunghsing_bridge }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_chunghsing_bridge
+			756 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	decision_TW_acrossing_way = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_acrossing_way }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_acrossing_way
+			524 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	decision_TW_wushe_dam = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_wushe_dam }
+			has_completed_focus = CHI_infrastruct
+		}
+		available = {
+			has_tech = construction2
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_wushe_dam
+			756 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	decision_TW_dajiaxi_dam = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_dajiaxi_dam }
+			has_completed_focus = CHI_infrastruct
+		}
+		available = {
+			has_tech = construction2
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_dajiaxi_dam
+			524 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	decision_TW_liwu_dam = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		available = {
+			has_tech = construction2
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_liwu_dam }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_liwu_dam
+			542 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	decision_TW_southern_plant = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_southern_plant }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_southern_plant
+			524 = {
+				add_building_construction = {
+					type = power_plant
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	decision_TW_zengwen_dam = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { 
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		visible = {
+			tag = CHI
+			NOT = { has_global_flag = decision_TW_zengwen_dam }
+			has_completed_focus = CHI_infrastruct
+		}
+		cost = 300
+		days_re_enable = 120
+		available = {
+			OR = {
+				any_owned_state = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+				}
+			}
+		}
+		days_remove = 120
+		remove_effect = {
+			set_global_flag = decision_TW_zengwen_dam
+			524 = {
+				add_building_construction = {
+					type = dam_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+CHI_counter_attack_category = {
+	#支持孤军
+	CHI_counter_attack_burma_army_attack = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1951.2.1
+				date < 1951.10.1
+			}
+			modifier = {
+				add = 50
+				PRC = { has_stability < 0.6 }
+				date < 1960.10.1
+			}
+		}
+		available = {
+			country_exists = YUN
+			has_military_access_to = SIA
+		}
+		cost = 40
+		complete_effect = {
+			YUN = {
+				country_event = { id = roc.176 }
+			}
+		}
+	}
+	CHI_counter_attack_burma_army_supply = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1951.5.1
+			}
+		}
+		visible = {
+			country_exists = YUN
+		}
+		available = {
+			has_military_access_to = SIA
+		}
+		cost = 40
+		complete_effect = {
+			country_event = { id = roc.175 }
+			YUN = {
+				country_event = { id = roc.175 }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = machine_gun
+					amount = 200
+					producer = USA
+				}
+				add_war_support = 0.02
+				army_experience = 50
+			}
+		}
+	}
+	CHI_counter_attack_free_china_movement = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1951.5.1
+			}
+		}
+		available = {
+			network_strength = {
+				target = PRC
+				value > 15
+			}
+			has_idea = usa_military_advisitor_idea
+		}
+		cost = 40
+		complete_effect = {
+			add_decryption = {
+				target = PRC
+				ratio = 0.12
+			}
+			add_intel = {
+				target = PRC
+				civilian_intel = 2
+			}
+		}
+	}
+	CHI_counter_attack_kinmen_rock = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1952.5.1
+			}
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		cost = 40
+		complete_effect = {
+			add_war_support = 0.15
+			news_event = roc.174
+		}
+	}
+	CHI_counter_attack_green_island = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1954.5.1
+			}
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		cost = 40
+		complete_effect = {
+			country_event = roc.202
+			add_stability = 0.04
+			add_popularity = {
+				ideology = communism
+				popularity = -0.04
+			}
+		}
+	}
+	CHI_counter_attack_mashan_radio = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1954.5.1
+			}
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		cost = 40
+		complete_effect = {
+			news_event = roc.172
+			595 = { add_dynamic_modifier = { modifier = kinmen_broachast_debuff_modifiers } }
+		}
+	}
+	CHI_counter_attack_fuxing_radio = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				date > 1957.5.1
+			}
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		cost = 40
+		complete_effect = {
+			set_global_flag = CHI_counter_attack_fuxing_radio
+			news_event = roc.171
+			random_state = {
+				limit = { has_state_flag = east_china_states }
+				add_resistance= 2
+			}
+			random_state = {
+				limit = { has_state_flag = east_china_states }
+				add_resistance= 2
+			}
+			random_state = {
+				limit = { has_state_flag = east_china_states }
+				add_resistance= 2
+			}
+		}
+	}
+	CHI_counter_attack_propaganda_drop_operation = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 80
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		cost = 40
+		complete_effect = {
+			set_global_flag = CHI_counter_attack_propaganda_drop_operation
+			random_state = {
+				limit = { has_state_flag = east_china_states }
+				add_compliance = -4
+			}
+			random_state = {
+				limit = { has_state_flag = east_china_states }
+				add_compliance = -4
+			}
+			random_state = {
+				limit = { has_state_flag = east_china_states }
+				add_compliance = -4
+			}
+		}
+	}
+	CHI_counter_attack_infletc_operation = {
+		icon = GFX_decision_category_generic_arms_trade
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 120
+		days_re_enable = 100
+		visible = {
+			has_completed_focus = CHI_WEIC
+		}
+		available = {
+			has_army_experience > 50
+			has_tech = marines
+		}
+		complete_effect = {
+			army_experience = -40
+			random_list = {
+				50 = {
+					news_event = { id = roc.80 }
+				}
+				50 = {
+					news_event = { id = roc.81 }
+				}
+			}
+		}
+	}
+}
+CHI_civilwar_category = {
+	CHI_civilwar_add_print_gold_bills = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		cost = 80
+		complete_effect = {
+			add_political_power = 300
+			add_to_variable = { golden_bank_var = -1 }
+		}
+	}
+	CHI_civilwar_release_criminals = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 120
+		ai_will_do = {
+			base = 100
+		}
+		visible = {
+			has_stability > 0.6
+		}
+		available = {
+			has_stability > 0.7
+		}
+		cost = 60
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_stability = 0.03
+		}
+	}
+	CHI_civilwar_support_youth_group = {
+		allowed = { always = yes }
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200 
+			}
+		}
+		visible = {
+			has_government = neutrality
+		}
+		days_re_enable = 120
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 60
+		visible = {
+			has_government = neutrality
+		}
+		complete_effect = {
+			add_stability = 0.01
+		}
+	}
+	CHI_civilwar_kmt_propaganda = {
+		allowed = { always = yes }
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 200 
+			}
+		}
+		visible = {
+			has_government = neutrality
+		}
+		days_re_enable = 120
+		icon = GFX_decision_eng_propaganda_campaigns
+		cost = 60
+		visible = {
+			has_government = neutrality
+		}
+		complete_effect = {
+			add_stability = 0.02
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+		}
+	}
+	CHI_civilwar_land_reform_1 = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			has_government = neutrality
+			has_completed_focus = CHI_try_land_reform
+		}
+		cost = 80
+		state_target = yes
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				resistance < 60
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				resistance < 30
+				NOT = {
+					has_state_category = tiny_island
+					has_state_category = small_island
+					state = 756
+					state = 524
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_resistance = -10
+				add_compliance = 10
+			}
+		}
+	}
+	CHI_civilwar_support_homeland_croups = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 100
+		ai_will_do = {
+			base = 0
+		}
+		visible = {
+			has_government = neutrality
+			has_completed_focus = CHI_homeland_group
+		}
+		cost = 80
+		state_target = yes
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				resistance < 40
+			}
+		}
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_state_category = tiny_island
+					has_state_category = small_island
+					state = 756
+					state = 524
+				}
+				is_controlled_by = ROOT
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_resistance = -10
+				add_compliance = 10
+			}
+		}
+	}
+}
+military_action = {
+	CHI_bomb_shanghai = {
+		days_re_enable = 80
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = CHI
+		}
+		cost = 60
+		ai_will_do = {
+			factor = 50
+		}
+		visible = {
+			tag = CHI
+			controls_state = 1001
+			PRC = { controls_state = 613 }
+		}
+		available = {
+			controls_state = 1001
+		}
+		complete_effect = {
+			PRC = { news_event = prc.243 }
+			613 = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 1
+				}
+				damage_building = {
+					type = power_plant
+					damage = 1
+				}
+			}
+			if = {
+				limit = {
+					date > 1950.2.1
+					date < 1950.8.1
+					NOT = { has_global_flag = prc244 }
+				}
+				news_event = prc.244
+			}
+		}
+	}
+}

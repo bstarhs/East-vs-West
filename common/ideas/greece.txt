@@ -1,0 +1,90 @@
+ideas = {
+
+	country = {
+		cyprus_quest = {
+
+			picture = cyprus_quest
+
+			allowed = {
+				original_tag = GRE
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				opinion_gain_monthly = -0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+	}
+	
+	industrial_concern = {
+		designer = yes
+		GRE_OTE = {
+			picture = GRE_OTE
+			allowed = {
+				original_tag = GRE
+			}
+						
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+		}
+		Piraeus_Port = {
+			picture = Piraeus_Port
+			allowed = {
+				original_tag = GRE
+			}
+						
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				production_speed_naval_base_factor = 0.15
+				
+			}
+			
+		}
+		GRE_DEN = {
+			picture = GRE_DEN
+			allowed = {
+				original_tag = GRE
+			}
+						
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			modifier = {
+				production_speed_dam_plant_factor = 0.15
+				production_speed_power_plant_factor = 0.15
+				
+			}
+		}
+		GRE_Motor = {
+			picture = GRE_Motor
+			allowed = {
+				original_tag = GRE
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			
+			traits = { refinery_concern }
+		}
+		GRE_HAI = {
+			
+			picture = GRE_HAI
+
+			
+			allowed = {
+				original_tag = GRE
+			}
+			traits = { light_aircraft_manufacturer auto_manufacturer }
+		}
+	}
+}

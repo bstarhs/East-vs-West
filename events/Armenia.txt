@@ -1,0 +1,167 @@
+﻿add_namespace = arm
+#亚美尼亚宣布独立
+news_event = {
+	id = arm.1
+	title = arm.1.t
+	desc = arm.1.d
+	picture = GFX_ArmeniaIndependent
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = SOV
+		date > 1986.1.1
+		OR = {
+			democratic > 0.8
+			has_country_flag = moscowcoup
+		}
+	}
+	option = {
+		name = arm.1.a
+		news_event = { id = arm.2 }
+		ARM = {
+			transfer_state = 230
+			set_politics = { ruling_party =	democratic }
+			load_oob = "ARM_1992"
+			create_country_leader = {
+				name = "Levon Ter-Petrossian"
+				picture = "gfx/leaders/ARM/Portrait_Petrossian.tga"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+				#
+				}
+			}
+		}
+	}
+}
+#亚美尼亚宣布独立
+news_event = {
+	id = arm.2
+	title = arm.2.t
+	desc = arm.2.d
+	picture = GFX_ArmeniaIndependent
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ARM_1
+	}
+	option = { 
+		name = sov.13.a
+	}
+}
+#阿尔扎赫暴动
+news_event = {
+	id = arm.3
+	title = arm.3.t
+	desc = arm.3.d
+	picture = GFX_ArtsakhRiot
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = AZR
+		controls_state = 870
+		country_exists = ARM
+	}
+	option = {
+		name = arm.1.a
+		870 = {
+			add_resistance = 30
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+}
+#阿尔扎赫独立
+news_event = {
+	id = arm.4
+	title = arm.4.t
+	desc = arm.4.d
+	picture = GFX_ArtsakhRiot
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = AZR
+		controls_state = 870
+		870 = { resistance > 80 }
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		ART = {
+			transfer_state = 870
+			load_oob = "ART"
+		}
+		AZR = {
+			declare_war_on = {	target = ART	type = annex_everything }
+		}
+		news_event = { id = arm.5 }
+		
+	}
+}
+#亚美尼亚宣布独立
+news_event = {
+	id = arm.5
+	title = arm.5.t
+	desc = arm.5.d
+	picture = GFX_ArtsakhWar
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = sov.13.a
+		if = {
+			limit = { tag = ARM }
+			give_guarantee = ART
+		}
+	}
+}
+#阿塞拜疆面临失败
+news_event = {
+	id = arm.6
+	title = arm.6.t
+	desc = arm.6.d
+	picture = GFX_ArtsakhWar
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = AZR
+		has_war_with = ART
+		ART = { controls_province = 1467 }
+		OR = {
+			has_stability < 0.4
+			has_war_support < 0.4
+		}
+	}
+	option = {
+		name = cyp.6.a
+		white_peace = ART
+		white_peace = ARM
+		add_stability = -0.3
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.3
+		}
+		news_event = { id = arm.7 }
+		set_global_flag = AZR_lost
+	}
+}
+#阿塞拜疆撤离塞浦路斯（新闻）
+news_event = {
+	id = arm.7
+	title = arm.7.t
+	desc = arm.7.d
+	picture = GFX_ArtsakhWar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cyp.6.a
+		if = {
+			limit = { tag = ARM }
+			add_stability = 0.3
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.3
+			}
+			add_political_power = 300
+		}
+	}
+}

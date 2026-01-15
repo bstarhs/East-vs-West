@@ -1,0 +1,46 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "diplo_more_button"
+		position = { x=420 y=330 }
+		size = { width=43 height=38 }
+		moveable = yes
+		Orientation = UPPER_LEFT
+		buttonType = {
+			name = "diplo_more_button"
+			spriteType = "GFX_diplo_more_button"	
+			position = { x = 30 y = 0 }
+				clicksound = click_close
+			pdx_tooltip = "diplo_assistance_button"
+			pdx_tooltip_delayed = "diplo_assistance_button"
+		}
+	}
+	containerWindowType = {
+		name = "diplomatic_assistance"
+		position = { x=20 y=366 }
+		size = { width=43 height=38 }
+		moveable = yes
+		Orientation = UPPER_LEFT
+		iconType = {
+			name = "assistance_content_bg"
+			spriteType = "GFX_assistance_content_bg"	
+			position = { x = 150 y = 0 }
+		}
+		buttonType = {
+			name = "diplo_give_money_token"
+			spriteType = "GFX_diplo_more_token"	
+			position = { x = 155 y = 55 }
+				clicksound = click_close
+		}
+		instantTextboxType = {
+			name = "assistance_contenttext"
+			position = { x = 160 y = 230 }
+			textureFile = ""
+			font = "hoi_18mbs"
+			text = "assistance_content"
+			maxWidth = 200
+			maxHeight = 90
+			format = left
+		}
+	}
+}

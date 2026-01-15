@@ -1,0 +1,42 @@
+state={
+	id=969
+	name="STATE_969"
+	manpower = 2694191
+	state_category = rural
+	resources={
+		coal=9
+		iron=5
+	}
+	history={
+		add_dynamic_modifier = { modifier = husbandry_production }
+		add_claim_by = MAN
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 7 }
+		add_to_array = { this.state_ethnics_list = 8 }
+		add_to_array = { this.state_ethnics_list = 143 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_manchu
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = PRC
+		victory_points = { 10541 2 }
+		victory_points = { 7743 5 }
+		victory_points = { 13150 5 }
+		buildings = {
+			hospital = 1
+			school = 1
+			infrastructure = 2
+			farm_building = 2
+		}
+		1956.10.14 = {
+			buildings = {
+				farm_building = 3
+				infrastructure = 4
+			}
+		}
+	}
+	provinces={
+		1847 12485 1502 10638 4745 12690 10612 7743 13150 7697 4852 1776 12537 10541 7848 4876 7894 10567 7873 4809 10675 
+	}
+}

@@ -1,0 +1,1849 @@
+
+scripted_diplomatic_actions = {
+
+	DIPLOMACY_GIVEN_AID = { #经济援助
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			ROOT = {
+				OR = {
+					tag = PRC
+					tag = SOV
+					tag = USA
+					tag = FRA
+					tag = ENG
+				}
+			}
+			NOT = {
+				ROOT = { tag = PRC }
+				THIS = { tag = SOV }
+			}
+			if = {
+				limit = { ROOT = { tag = USA } }
+				THIS = {
+					NOT = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = UsaAdvisorAllow
+						has_government = communism
+						has_government = fascism
+						is_subject = yes
+						is_puppet = yes
+						AND = {
+							has_country_flag = west_euro_state
+							date > 1958.1.1
+						}
+					}
+				}
+			}
+			if = {
+				limit = { ROOT = { tag = SOV } }
+				THIS = {
+					NOT = {
+						has_idea = SovietChinaConflit
+						has_idea = comecon
+						has_country_leader_with_trait = anti_communist
+						has_country_flag = SovietAdvisorAllow
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+			}
+		}
+		selectable = {
+			NOT = { has_idea = low_diplomacy }
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { has_country_flag = latin_america }
+				}
+				ROOT = { has_completed_focus = APLA }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { has_country_flag = african_state }
+				}
+				ROOT = { has_completed_focus = us_into_africa }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { has_country_flag = indian_state }
+				}
+				ROOT = { has_completed_focus = South_Asia }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = PAK }
+				}
+				ROOT = { has_completed_focus = Pro_Pakistan }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { has_country_flag = arabs_state }
+				}
+				ROOT = { has_completed_focus = Pro_Arabia }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = {
+						has_country_flag = southeastasia
+						NOT = { tag = PHI }
+					}
+				}
+				ROOT = { has_completed_focus = Southeast_Asia }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = AFG }
+				}
+				ROOT = { has_completed_focus = Penetration_Afghanistan }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = ISR }
+				}
+				ROOT = { has_completed_focus = us_Isreal_support }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = {
+						OR = {
+						tag = SAF
+						tag = RHO
+						}
+					}
+				}
+				ROOT = { has_completed_focus = us_support_white }
+			}
+			##苏联
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+					THIS = { has_country_flag = latin_america }
+				}
+				ROOT = { has_completed_focus = SOV_IntoTheAmericas }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+					THIS = { has_country_flag = african_state }
+				}
+				ROOT = { has_completed_focus = SOV_IntoTheAfrica }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+					THIS = { has_country_flag = arabs_state }
+				}
+				ROOT = { has_completed_focus = SOV_mide }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+					THIS = {
+						OR = {
+						has_country_flag = southeastasia
+						has_country_flag = indian_state
+						}
+					}
+				}
+				ROOT = { has_completed_focus = SOV_Asianpolicy }
+			}
+		}
+
+		requires_acceptance = yes
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			if = {
+				limit = { ROOT = { tag = USA } }
+				country_event = { id = usa.8 }
+			}
+			if = {
+				limit = { ROOT = { tag = SOV } }
+				country_event = { id = sov.2 }
+			}
+		}
+		
+		complete_effect = {
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = loc_key_accept
+		accept_description = loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = -50
+				ROOT = { tag = SOV }
+				date < 1949.12.1
+				THIS = {
+					OR = {
+						NOT = { has_government = communism }
+					}
+				}
+			}
+			modifier = {
+				add = -100
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_government = fascism
+						is_guaranteed_by = USA
+						is_in_faction_with = USA
+					}
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = USA }
+				THIS = {
+					tag = ISR
+				}
+			}
+			modifier = {
+				add = 20
+				THIS = {
+					has_idea = good_diplomacy
+				}
+			}
+			modifier = {
+				add = 10
+				ROOT = { tag = SOV_ARABS }
+				THIS = {
+					OR = {
+						has_country_leader_with_trait = arabs_nationalism
+					}
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = pro_third_world
+						has_country_leader_with_trait = pro_socialism
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				date < 1955.1.1
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_flag = southeastasia
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_leader_with_trait = anti_communist
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = independent_red
+						has_government = fascism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = USA }
+				THIS = {
+					OR = {
+						has_country_flag = US_cancel_aid
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = anti_america
+						has_government = fascism
+						has_government = communism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+		}
+	}
+	DIPLOMACY_AID_ASK_TITLE = { #请求经济援助
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				OR = {
+					tag = USA
+					tag = SOV
+					tag = ENG
+				}
+			}
+				if = {
+					limit = { THIS = { tag = USA } }
+					NOT = { has_country_flag = UsaAdvisorAllow }
+					NOT = { has_country_flag = SovietAdvisorAllow }
+				}
+				if = {
+					limit = { THIS = { tag = ENG } }
+					NOT = { has_country_flag = SovietAdvisorAllow }
+					OR = {
+						has_country_flag = british_colonies
+						has_country_flag = commonwealth
+						is_in_faction_with = ENG
+					}
+				}
+				if = {
+					limit = { THIS = { tag = SOV } }
+					ROOT = {
+						NOT = { has_idea = SovietChinaConflit }
+						NOT = { has_country_flag = EngAdvisorAllow }
+						NOT = { has_country_flag = SovietAdvisorAllow }
+						NOT = { has_country_flag = UsaAdvisorAllow }
+					}
+				}
+		}
+		selectable = {
+			NOT = { has_idea = low_diplomacy }
+			if = {
+				limit = {
+					THIS = { tag = USA }
+				}
+				ROOT = {
+					OR = {
+						has_country_flag = latin_america
+						has_country_flag = UsaAdvisorAllow
+					}
+				}
+			}
+			if = {
+				limit = {
+					THIS = { tag = SOV }
+				}
+				ROOT = {
+					OR = {
+						has_country_flag = latin_america
+						has_country_flag = UsaAdvisorAllow
+					}
+				}
+			}
+		}
+
+		requires_acceptance = no
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		
+		complete_effect = {
+			if = {
+				limit = { THIS = { tag = USA } }
+				USA = { country_event = { id = usa.8 } }
+			}
+			if = {
+				limit = { THIS = { tag = SOV } }
+				SOV = { country_event = { id = sov.46 } }
+			}
+			if = {
+				limit = { THIS = { tag = ENG } }
+				ENG = { country_event = { id = bri.46 } }
+			}
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = loc_key_accept
+		accept_description = loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+		}
+	}
+	DIPLOMACY_MILITARY_AID = { #提供军事援助
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+				ROOT = {
+					OR = {
+						tag = USA
+						tag = SOV
+						tag = ENG
+					}
+				}
+			if = {
+				limit = { ROOT = { tag = USA } }
+				THIS = {
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = UsaAdvisorAllow
+						has_country_flag = latin_america
+						has_country_flag = west_euro_state
+					}
+					NOT = { has_country_flag = usa_army_advisor }
+				}
+			}
+			if = {
+				limit = { ROOT = { tag = SOV } }
+				THIS = {
+					OR = {
+						has_idea = comecon
+						is_in_faction_with = SOV
+						has_country_flag = SovietAdvisorAllow
+						has_country_flag = east_europe
+					}
+					has_idea = SovietChinaConflit
+					NOT = { has_country_flag = sov_army_advisor }
+				}
+			}
+		}
+		selectable = {
+			THIS = {
+				num_divisions > 1
+				NOT = { has_idea = low_diplomacy }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = CHI }
+				}
+				ROOT = { has_completed_focus = Taiwan_Agreement }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = {
+						has_country_flag = arabs_state
+						has_government = monarchism
+					}
+				}
+				ROOT = { has_completed_focus = us_me_monarchs }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = {
+						OR = {
+						tag = SAF
+						tag = RHO
+						}
+					}
+				}
+				ROOT = { has_completed_focus = us_support_saf_rho }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = ISR }
+				}
+				ROOT = { has_completed_focus = us_israel_sell }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { has_country_flag = african_state }
+				}
+				ROOT = { has_completed_focus = us_african_military_support }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = {
+						tag = PER
+						has_government = monarchism
+					}
+				}
+				ROOT = { has_completed_focus = us_Pahlavi }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = {
+						has_country_flag = arabs_state
+						NOT = { has_government = monarchism }
+					}
+				}
+				ROOT = { has_completed_focus = us_arabs_secularis }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+				has_country_flag = SovietAdvisorAllow
+			}
+		}
+
+		requires_acceptance = yes
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			if = {
+				limit = { ROOT = { tag = USA } }
+				country_event = { id = usa.45 }
+			}
+			if = {
+				limit = { ROOT = { tag = SOV } }
+				country_event = { id = usa.260 }
+			}
+		}
+		
+		complete_effect = {
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = loc_key_accept
+		accept_description = loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = -50
+				ROOT = {
+					tag = USA
+					NOT = { has_completed_focus = Middle_East_policy }
+				}
+				THIS = { tag = ISR }
+			}
+			modifier = {
+				add = 50
+				ROOT = {
+					tag = USA
+					has_completed_focus = Penetration_Laos
+				}
+				date > 1959.1.1
+				THIS = { tag = LAO }
+			}
+			modifier = {
+				add = 50
+				ROOT = {
+					tag = USA
+					has_completed_focus = USA_JSDF
+				}
+				THIS = { tag = JAP }
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = USA }
+				OR = {
+					tag = KOR
+					tag = ISR
+				}
+			}
+			modifier = {
+				add = 50
+				date > 1957.1.1
+				ROOT = { tag = USA }
+				THIS = {
+					tag = SVN
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = SOV }
+				THIS = {
+					has_country_flag = third_world
+					has_idea = ColonyWar
+					has_war = yes
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_leader_with_trait = anti_communist
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = independent_red
+						has_government = fascism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = USA }
+				THIS = {
+					OR = {
+						has_country_flag = US_cancel_aid
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = anti_america
+						has_government = fascism
+						has_government = communism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+		}
+	}
+	DIPLOMACY_MILITARY_ASK = { #请求军事援助
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				OR = {
+					tag = USA
+					tag = SOV
+					tag = ENG
+				}
+			}
+				if = {
+					limit = { THIS = { tag = USA } }
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = UsaAdvisorAllow
+						has_country_flag = latin_america
+					}
+					NOT = { has_country_flag = usa_army_advisor }
+				}
+				if = {
+					limit = { THIS = { tag = SOV } }
+					ROOT = {
+						OR = {
+							has_idea = comecon
+							is_in_faction_with = SOV
+							has_country_flag = SovietAdvisorAllow
+							has_country_flag = east_europe
+						}
+						NOT = { has_idea = SovietChinaConflit }
+						NOT = { has_country_flag = sov_army_advisor }
+					}
+				}
+		}
+		selectable = {
+			num_divisions > 1
+			NOT = { has_idea = low_diplomacy }
+			if = {
+				limit = {
+					THIS = { tag = USA }
+					ROOT = {
+						OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = UsaAdvisorAllow
+						has_country_flag = latin_america
+						}
+					}
+				}
+				ROOT = { has_country_flag = USA_militar_advisor_focus }
+			}
+			if = {
+				limit = {
+					THIS = { tag = SOV }
+					ROOT = {
+						OR = {
+							has_idea = comecon
+							is_in_faction_with = SOV
+							has_country_flag = SovietAdvisorAllow
+						}
+					}
+					ROOT = {
+						OR = {
+							has_country_flag = SOV_militar_advisor_focus
+							is_in_faction_with = SOV
+							is_guaranteed_by = SOV
+						}
+					}
+				}
+			}
+		}
+
+		requires_acceptance = no
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			if = {
+				limit = { THIS = { tag = USA } }
+				USA = { country_event = { id = usa.46 } }
+			}
+			if = {
+				limit = { THIS = { tag = SOV } }
+				SOV = { country_event = { id = sov.263 } }
+			}
+		}
+		
+		complete_effect = {
+			if = {
+				limit = { THIS = { tag = USA } }
+				USA = { country_event = { id = usa.46 } }
+			}
+			if = {
+				limit = { THIS = { tag = SOV } }
+				SOV = { country_event = { id = sov.263 } }
+			}
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = loc_key_accept
+		accept_description = loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = 50
+				THIS = { tag = USA }
+				ROOT = {
+					tag = SVN
+				}
+			}
+			modifier = {
+				add = 50
+				THIS = { tag = SOV }
+				ROOT = {
+					OR = {
+						tag = PRK
+						tag = DDR
+					}
+				}
+			}
+		}
+	}
+	DIPLOMACY_SELLS_WEAPONS = { #提供陆军装备
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+				ROOT = {
+					OR = {
+						tag = USA
+						tag = SOV
+						tag = ENG
+						tag = PRC
+						tag = FRA
+						tag = WDR
+					}
+				}
+			if = {
+				limit = { ROOT = { tag = USA } }
+				THIS = {
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = latin_america
+						has_country_flag = west_euro_state
+						has_country_flag = usa_army_advisor
+						is_guaranteed_by = USA
+					}
+				}
+			}
+			if = {
+				limit = { ROOT = { tag = SOV } }
+				THIS = {
+					OR = {
+						has_idea = comecon
+						is_in_faction_with = SOV
+						has_country_flag = east_europe
+						is_guaranteed_by = SOV
+					}
+					has_idea = SovietChinaConflit
+				}
+			}
+		}
+		selectable = {
+			ROOT = {
+				has_tech = infantry_weapons1
+			}
+			THIS = {
+				num_divisions > 0
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = CHI }
+				}
+				ROOT = { has_completed_focus = Taiwan_Agreement }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+			}
+		}
+
+		requires_acceptance = yes
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			THIS = {
+				country_event = { id = arms.2 }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 8000
+					producer = ROOT
+				}
+				add_equipment_to_stockpile = {
+					type = machine_gun
+					amount = 1200
+					producer = ROOT
+				}
+				add_war_support = 0.05
+				army_experience = 80
+			}
+			if = {
+				limit = {
+					THIS = {
+						is_neighbor_of = ROOT
+					}
+				}
+				custom_effect_tooltip = trans_tool_neighbour
+				THIS = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					THIS = {
+						OR = {
+							is_in_faction_with = ROOT
+							is_guaranteed_by = ROOT
+						}
+					}
+				}
+				custom_effect_tooltip = trans_tool_ally
+				THIS = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					THIS = {
+						all_owned_state = { is_coastal = no }
+						NOT = { is_neighbor_of = ROOT }
+					}
+				}
+				custom_effect_tooltip = trans_tool_no_port
+			}
+			THIS = {
+				if = {
+					limit = {
+						has_tech = motorised_infantry
+						OR = {
+							is_neighbor_of = ROOT
+							is_in_faction_with = ROOT
+							any_owned_state = { is_coastal = yes }
+						}
+					}
+					THIS = {
+						add_equipment_to_stockpile = {
+							type = motorized_equipment
+							amount = 800
+							producer = ROOT
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_tech = mechanised_infantry
+						OR = {
+							is_neighbor_of = ROOT
+							is_in_faction_with = ROOT
+							any_owned_state = { is_coastal = yes }
+						}
+					}
+					THIS = {
+						add_equipment_to_stockpile = {
+							type = mechanized_equipment
+							amount = 600
+							producer = ROOT
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_tech = gwtank
+						OR = {
+							is_neighbor_of = ROOT
+							is_in_faction_with = ROOT
+							any_owned_state = { is_coastal = yes }
+						}
+					}
+					THIS = {
+						add_equipment_to_stockpile = {
+							type = gw_tank_equipment
+							amount = 300
+							producer = ROOT
+						}
+					}
+				}
+			}
+		}
+		
+		complete_effect = {
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = weapons_give_loc_key_accept
+		accept_description = weapons_give_loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = -50
+				THIS = {
+					has_equipment = {
+						infantry_equipment > 3999
+					}
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = {
+					tag = USA
+					has_completed_focus = Penetration_Laos
+				}
+				date > 1959.1.1
+				THIS = { tag = LAO }
+			}
+			modifier = {
+				add = 50
+				ROOT = {
+					tag = USA
+					has_completed_focus = USA_JSDF
+				}
+				THIS = { tag = JAP }
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = USA }
+				OR = {
+					tag = KOR
+					tag = ISR
+				}
+			}
+			modifier = {
+				add = 50
+				date > 1957.1.1
+				ROOT = { tag = USA }
+				THIS = {
+					tag = SVN
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = SOV }
+				THIS = {
+					has_country_flag = third_world
+					has_idea = ColonyWar
+					has_war = yes
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_leader_with_trait = anti_communist
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = independent_red
+						has_government = fascism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = USA }
+				THIS = {
+					OR = {
+						has_country_flag = US_cancel_aid
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = anti_america
+						has_government = fascism
+						has_government = communism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+		}
+	}
+	DIPLOMACY_SELLS_PLANES = { #提供飞机
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+				ROOT = {
+					OR = {
+						tag = USA
+						tag = SOV
+						tag = ENG
+						tag = PRC
+						tag = FRA
+						tag = WDR
+					}
+				}
+			if = {
+				limit = { ROOT = { tag = USA } }
+				THIS = {
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = latin_america
+						has_country_flag = west_euro_state
+						has_country_flag = usa_army_advisor
+						is_guaranteed_by = USA
+					}
+				}
+			}
+			if = {
+				limit = { ROOT = { tag = SOV } }
+				THIS = {
+					OR = {
+						has_idea = comecon
+						is_in_faction_with = SOV
+						has_country_flag = east_europe
+						is_guaranteed_by = SOV
+					}
+					has_idea = SovietChinaConflit
+				}
+			}
+		}
+		selectable = {
+			ROOT = {
+				OR = {
+					has_equipment = {
+						fighter_equipment_0 > 49
+					}
+					has_equipment = {
+						fighter_equipment_1 > 49
+					}
+					has_equipment = {
+						fighter_equipment_2 > 49
+					}
+					has_tech = fighter1
+				}
+			}
+			THIS = {
+				num_divisions > 0
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = CHI }
+				}
+				ROOT = { has_completed_focus = Taiwan_Agreement }
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+			}
+		}
+
+		requires_acceptance = yes
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			THIS = {
+				country_event = { id = arms.2 }
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 80
+					producer = ROOT
+				}
+				add_war_support = 0.05
+				army_experience = 80
+			}
+			if = {
+				limit = {
+					THIS = {
+						OR = {
+							is_in_faction_with = ROOT
+							is_guaranteed_by = ROOT
+						}
+					}
+				}
+				custom_effect_tooltip = trans_tool_ally
+				THIS = {
+					add_equipment_to_stockpile = {
+						type = fighter_equipment_0
+						amount = 60
+						producer = ROOT
+					}
+				}
+			}
+			THIS = {
+				if = {
+					limit = {
+						has_tech = fighter1
+					}
+					THIS = {
+						add_equipment_to_stockpile = {
+							type = fighter_equipment_1
+							amount = 40
+							producer = ROOT
+						}
+					}
+				}
+			}
+		}
+		
+		complete_effect = {
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = weapons_give_loc_key_accept
+		accept_description = weapons_give_loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = -50
+				THIS = {
+					has_equipment = {
+						fighter_equipment_0 > 59
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				THIS = {
+					has_equipment = {
+						fighter_equipment_0 < 10
+					}
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = {
+					tag = USA
+					has_completed_focus = Penetration_Laos
+				}
+				date > 1959.1.1
+				THIS = { tag = LAO }
+			}
+			modifier = {
+				add = 50
+				ROOT = {
+					tag = USA
+					has_completed_focus = USA_JSDF
+				}
+				THIS = { tag = JAP }
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = USA }
+				OR = {
+					tag = KOR
+					tag = ISR
+				}
+			}
+			modifier = {
+				add = 50
+				date > 1957.1.1
+				ROOT = { tag = USA }
+				THIS = {
+					tag = SVN
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = SOV }
+				THIS = {
+					has_country_flag = third_world
+					has_idea = ColonyWar
+					has_war = yes
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_leader_with_trait = anti_communist
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = independent_red
+						has_government = fascism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = USA }
+				THIS = {
+					OR = {
+						has_country_flag = US_cancel_aid
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = anti_america
+						has_government = fascism
+						has_government = communism
+						has_idea = low_diplomacy
+					}
+				}
+			}
+		}
+	}
+	DIPLOMACY_BUY_PLANES = { #购买飞机
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				OR = {
+					tag = USA
+					tag = SOV
+					tag = ENG
+					tag = PRC
+					tag = FRA
+					tag = WDR
+					tag = ISR
+					tag = SWE
+				}
+				OR = {
+					tag = USA
+					tag = SOV
+					tag = ENG
+					tag = FRA
+					has_tech = fighter1
+				}
+			}
+			if = {
+				limit = { THIS = { tag = USA } }
+				ROOT = {
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = latin_america
+						has_country_flag = west_euro_state
+						has_country_flag = usa_army_advisor
+						is_guaranteed_by = USA
+					}
+				}
+			}
+			if = {
+				limit = { THIS = { tag = SOV } }
+				ROOT = {
+					OR = {
+						has_idea = comecon
+						is_in_faction_with = SOV
+						has_country_flag = east_europe
+						is_guaranteed_by = SOV
+					}
+					has_idea = SovietChinaConflit
+				}
+			}
+		}
+		selectable = {
+			ROOT = {
+				num_divisions > 0
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { tag = CHI }
+				}
+				ROOT = { has_completed_focus = Taiwan_Agreement }
+			}
+		}
+
+		requires_acceptance = yes
+		cost = 120
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			if = {
+				limit = { THIS = { tag = USA } }
+				ROOT = {
+					USA = { news_event = { id = arms.4 } }
+				}
+			}
+		}
+		complete_effect = {
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+			if = {
+				limit = { 
+					root = {
+						is_ai = yes
+					}
+				}
+			}
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_GIVEN_AID_TITLE_ACTION_KEY_SEND
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = weapons_give_loc_key_accept
+		accept_description = weapons_give_loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = -50
+				ROOT = {
+					has_equipment = {
+						fighter_equipment_0 > 59
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = {
+					date < 1964.1.1
+					has_equipment = {
+						fighter_equipment_0 < 10
+					}
+				}
+			}
+			modifier = {
+				add = 20
+				ROOT = {
+					is_guaranteed_by = USA
+				}
+				THIS = { tag = USA }
+			}
+		}
+	}
+
+	DIPLOMACY_CANCEL_ALL_AID = { #撤回所有援助
+	
+		allowed = {
+			always = yes
+		}
+		visible = {
+				ROOT = {
+					OR = {
+						tag = USA
+						tag = SOV
+						tag = ENG
+					}
+				}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+				}
+				THIS = {
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = UsaAdvisorAllow
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+				THIS = {
+					OR = {
+						has_idea = comecon
+						has_country_flag = SovietAdvisorAllow
+					}
+				}
+			}
+		}
+		selectable = {
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+				}
+				THIS = {
+					OR = {
+						has_idea = APLA
+						has_idea = Marshall
+						has_country_flag = UsaAdvisorAllow
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+				THIS = {
+					OR = {
+						has_idea = comecon
+						has_country_flag = SovietAdvisorAllow
+					}
+				}
+			}
+		}
+
+		requires_acceptance = yes
+		cost = 10
+		command_power = 0
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+				}
+				THIS = {
+					clr_country_flag = UsaAdvisorAllow
+					add_political_power = -300
+					add_stability = -0.05
+					add_to_variable = { this.total_from_aid = -80 }
+					news_event = { id = usa.122 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+					THIS = { has_idea = Marshall }
+				}
+				THIS = { remove_ideas = Marshall }
+			}
+			if = {
+				limit = {
+					has_idea = APLA
+					ROOT = { tag = USA }
+				}
+				remove_ideas = APLA
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+				THIS = {
+					clr_country_flag = SovietAdvisorAllow
+					add_political_power = -300
+					add_stability = -0.05
+					add_to_variable = { this.total_from_aid = -80 }
+					news_event = { id = sov.202 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+					THIS = { has_idea = comecon }
+				}
+				THIS = { remove_ideas = comecon }
+			}
+		}
+		
+		complete_effect = {
+		}
+		reject_effect = {
+		}
+		reset_send_effect = {
+		}
+		can_be_sent = {
+			always = yes
+		}
+		send_description = DIPLOMACY_CANCEL_ALL_AID_ACTION_DESC
+		reset_receive_effect = {
+			if = {
+				limit = { 
+					is_ai = yes
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		receive_description = loc_key_receive
+		accept_title = loc_key_accept
+		accept_description = loc_key_accept_desc
+		reject_title = loc_key_reject
+		reject_description = loc_key_reject_desc
+	
+		
+		ai_acceptance = {
+			condition = {
+				base = 100
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				add = 50
+				ROOT = { tag = USA }
+				THIS = {
+					OR = {
+						has_country_flag = US_cancel_aid
+						has_country_leader_with_trait = pro_soviet
+						has_country_leader_with_trait = anti_america
+						has_government = fascism
+						has_government = communism
+						check_variable = { US_gov_aid_opinion < 6 }
+					}
+				}
+			}
+			modifier = {
+				add = -50
+				ROOT = { tag = USA }
+				THIS = {
+					OR = {
+						has_country_flag = latin_america
+						is_in_faction_with = USA
+						is_guaranteed_by = USA
+					}
+				}
+			}
+			modifier = {
+				add = 50
+				ROOT = { tag = SOV }
+				THIS = {
+					OR = {
+						has_country_flag = SOV_cancel_aid
+						has_country_leader_with_trait = pro_america
+						has_country_leader_with_trait = anti_communist
+						has_government = fascism
+					}
+				}
+			}
+		}
+	}
+}
+
+#scripted_diplomatic_actions = {
+#
+#	action_key = { # will be used in most localizations
+#	
+#		# root is the initiator of action and this is the target country
+#		allowed = { #if action is valid
+#			always = yes
+#		}
+#		visible = { #if action is visible on gui
+#			always = yes
+#		}
+#		selectable = { #if action is selectable on gui
+#			always = yes
+#		}
+#
+#		requires_acceptance = yes # if true the action will require acceptance of target country
+#		cost = 10 # pp cost, can be zero
+#		command_power = 10 # cp cost, can be zero
+#
+#		cost_string = loc_key # if you have a custom cost, use this loc to display it
+#		show_acceptance_on_action_button = yes # set to no if acceptance shouldn't be displayed on the action button
+#
+#		icon = 1 # icon frame to use in notification
+#
+#       #for effects/triggers/variables, root is the sender and this is receiver
+#
+#		# runs when the action is sent
+#		on_sent_effect = {
+#		}
+#
+#		# runs when the action is properly sent and accepted
+#		complete_effect = {
+#		}
+#
+#		# runs when the action is properly sent and rejected
+#		reject_effect = {
+#		}
+#
+#		# SEND POPUP CUSTOMIZATION
+#		# use diplomatic_action as context in scripted gui
+#		# send_scripted_gui = send_scripted_gui_name # if specified, the diplomatic action will use this scripted gui before sending the request. the player (or ai) can make changes on that gui and store stuff as variable to customize action
+#		reset_send_effect = { # if action has a send scripted gui, this effect will be used for clearing the state of gui (will run when player opens the scripted gui by sending the action or when ai proposes action
+#			# clear action
+#			if = {
+#				limit = { 
+#					root = {
+#						is_ai = yes
+#					}
+#				}
+#				# initialize for ai
+#			}
+#		}
+#		can_be_sent = { # send button will be disabled if no
+#			always = yes
+#		}
+#		send_description = loc_key_send # if there is no scripted gui, this desc will be used in send yes/no pop up
+#
+#
+#		# RECEIVE POPUP CUSTOMIZATION
+#		# use diplomatic_action as context in scripted gui
+#		# receive_scripted_gui = receive_scripted_gui_name #if specified the receiver of the action will get this scripted gui instead of yes-no popup when they receive the propose
+#		reset_receive_effect = {
+#			# clear action
+#			if = {
+#				limit = { 
+#					is_ai = yes
+#				}
+#				# change stuff for ai
+#			}
+#		}
+#		can_be_accepted = { # accept button will be disabled if no
+#			always = yes
+#		}
+#		receive_description = loc_key_receive # if there is no scripted gui, this desc will be used in send yes/no pop up
+#
+#		
+#		# PLAYER FEEDBACK ON ACCEPT/REJECT
+#		accept_title = loc_key_accept #can be overridden to customize accepted/rejected pop ups for the sender
+#		accept_description = loc_key_accept_desc
+#		reject_title = loc_key_reject
+#		reject_description = loc_key_reject_desc
+#	
+#		
+#		# AI
+#		# a list of ai_will_do entries that will be used to decide if AI should accept or reject a request
+#		ai_acceptance = {
+#			condition = { # name is used for loc
+#				base = 100
+#			}
+#		}
+#
+#		# ai_will_do to decide if AI should send this action or not
+#		ai_desire = {
+#			base = -1
+#			modifier = {
+#				ROOT = {
+#					tag = ENG
+#				}
+#				tag = GER
+#				add = 1000
+#			}
+#		}
+#	}
+#}

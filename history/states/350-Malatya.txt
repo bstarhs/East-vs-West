@@ -1,0 +1,33 @@
+
+state={
+	id=350
+	name="STATE_350"
+	manpower = 1047156
+	
+	state_category = rural
+
+	history={
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = hight_food_production }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = ethnics_Kurdish
+		add_to_array = { this.state_ethnics_list = 97 }
+		add_to_array = { this.state_ethnics_list = 167 }
+		victory_points = { 4512 6 }
+		victory_points = { 9823 4 }
+		owner = TUR
+		buildings = {
+			power_plant = 1
+			farm_building = 1
+			hospital = 1
+			infrastructure = 3
+			air_base = 2
+		}
+		add_core_of = TUR
+		add_core_of = KUR
+	}
+
+	provinces={
+		4512 7620 9823 9912 11739 11759 11871 12387 12416 
+	}
+}

@@ -1,0 +1,3565 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+
+focus_tree = {
+	id = wdr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = WDR
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 55 y = 1500 }
+	focus = {
+		id = WDR_economic
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 15
+		x = -4
+		y = 0
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1949.12.1
+			}
+		}
+		completion_reward = {
+			news_event = { id = ger.45 }
+			add_political_power = 500
+			add_stability = 0.2
+		}
+	}
+	focus = {
+		id = WDR_currency_reform
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = {
+			focus = WDR_economic
+		}
+		x = -2
+		y = 1
+	}
+	focus = {
+		id = WDR_neo_liberal
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = {
+			focus = WDR_economic
+		}
+		x = -8
+		y = 1
+	}
+	focus = {
+		id = WDR_privetave
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		prerequisite = {
+			focus = WDR_neo_liberal
+		}
+		x = -8
+		y = 2
+		completion_reward = {
+			custom_effect_tooltip = private_focus_tool
+			set_country_flag = private_economic
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = WDR_cut_welfare
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = {
+			focus = WDR_privetave
+		}
+		x = -8
+		y = 3
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = WDR_strike_union
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10
+		prerequisite = {
+			focus = WDR_cut_welfare
+		}
+		x = -8
+		y = 4
+	}
+	focus = {
+		id = WDR_market
+		icon = GFX_goal_buisness_clan
+		cost = 10
+		prerequisite = {
+			focus = WDR_privetave
+		}
+		x = -10
+		y = 3
+		completion_reward = {
+			custom_effect_tooltip = private_focus_tool
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = WDR_basic_construction
+		icon = GFX_goal_Hight_way
+		cost = 10
+		prerequisite = {
+			focus = WDR_economic
+		}
+		x = -10
+		y = 1
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1949.12.1
+			}
+		}
+		completion_reward = {
+			add_ideas = opel
+			every_owned_state = {
+				limit = {
+					infrastructure < 3
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = WDR_break_effect
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		cost = 10
+		prerequisite = {
+			focus = WDR_economic
+		}
+		x = -12
+		y = 1
+	}
+	focus = {
+		id = WDR_nationalist
+		icon = GFX_focus_ger_oppose_hitler
+		cost = 10
+		prerequisite = {
+			focus = WDR_break_effect
+		}
+		x = -13
+		y = 2
+		completion_reward = {
+			add_to_variable = { influences = -100 }
+			add_stability = -0.1
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = WDR_rightwing
+		icon = GFX_focus_ger_oppose_hitler
+		cost = 10
+		prerequisite = {
+			focus = WDR_nationalist
+		}
+		x = -16
+		y = 3
+		completion_reward = {
+			set_global_flag = Bundeswehr_flag
+			add_to_variable = { influences = -100 }
+			add_stability = -0.15
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.12
+			}
+		}
+	}
+	focus = {
+		id = WDR_support_rightwing
+		icon = GFX_focus_generic_spread_fascism
+		cost = 10
+		prerequisite = {
+			focus = WDR_rightwing
+		}
+		x = -16
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_Afd
+		icon = GFX_goal_generic_support_fascism
+		cost = 10
+		prerequisite = {
+			focus = WDR_nationalist
+		}
+		prerequisite = {
+			focus = WDR_remove_allie
+		}
+		x = -12
+		y = 3
+		completion_reward = {
+			add_to_variable = { influences = -100 }
+			add_stability = -0.1
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.15
+			}
+		}
+	}
+	focus = {
+		id = WDR_remove_allie
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10
+		prerequisite = {
+			focus = WDR_break_effect
+		}
+		x = -11
+		y = 2
+		completion_reward = {
+			add_to_variable = { influences = -100 }
+			add_stability = -0.3
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.25
+			}
+		}
+	}
+	focus = {
+		id = WDR_NeoNazis
+		icon = GFX_focus_ger_reichskommisariats
+		cost = 10
+		prerequisite = {
+			focus = WDR_Afd
+		}
+		x = -14
+		y = 4
+		completion_reward = {
+			leave_faction = yes
+			set_politics = { ruling_party = neutrality }
+		}
+	}
+	focus = {
+		id = WDR_expanded_armed
+		icon = GFX_focus_generic_full_social_mobilization
+		cost = 10
+		prerequisite = {
+			focus = WDR_Afd
+		}
+		x = -12
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_pure_nation
+		icon = GFX_focus_FIN_parmis_devils
+		cost = 10
+		prerequisite = {
+			focus = WDR_NeoNazis
+		}
+		x = -16
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_nazis_rule
+		icon = GFX_goal_generic_major_war
+		cost = 10
+		prerequisite = {
+			focus = WDR_NeoNazis
+		}
+		x = -14
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_junger_group
+		icon = GFX_focus_ITA_generic_fascist_workers
+		cost = 10
+		prerequisite = {
+			focus = WDR_nazis_rule
+		}
+		x = -14
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_secondtimes
+		icon = GFX_focus_attack_france
+		cost = 10
+		prerequisite = {
+			focus = WDR_NeoNazis
+		}
+		x = -18
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_invade_sov
+		icon = GFX_focus_attack_soviet
+		cost = 10
+		prerequisite = {
+			focus = WDR_secondtimes
+		}
+		x = -20
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_invade_brit
+		icon = GFX_focus_attack_britain
+		cost = 10
+		prerequisite = {
+			focus = WDR_secondtimes
+		}
+		x = -16
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_TNO
+		icon = GFX_goal_generic_major_war
+		cost = 10
+		prerequisite = {
+			focus = WDR_secondtimes
+		}
+		x = -18
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_grand_deutsch
+		icon = GFX_goal_more_german
+		cost = 10
+		prerequisite = {
+			focus = WDR_NeoNazis
+		}
+		prerequisite = {
+			focus = WDR_Reich
+		}
+		x = -12
+		y = 6
+		completion_reward = {
+			153 = { add_claim_by = WDR }
+			152 = { add_claim_by = WDR }
+			4 = { add_claim_by = WDR }
+			63 = { add_claim_by = WDR }
+			748 = { add_claim_by = WDR }
+			66 = { add_claim_by = WDR }
+			67 = { add_claim_by = WDR }
+		}
+	}
+	focus = {
+		id = WDR_mass_melmel
+		icon = GFX_goal_greater_german
+		cost = 10
+		prerequisite = {
+			focus = WDR_grand_deutsch
+		}
+		x = -12
+		y = 7
+		completion_reward = {
+			86 = { add_claim_by = WDR }
+			85 = { add_claim_by = WDR }
+			5 = { add_claim_by = WDR }
+			188 = { add_claim_by = WDR }
+			28 = { add_claim_by = WDR }
+			9 = { add_claim_by = WDR }
+			75 = { add_claim_by = WDR }
+			69 = { add_claim_by = WDR }
+			3 = { add_claim_by = WDR }
+			151 = { add_claim_by = WDR }
+		}
+	}
+	focus = {
+		id = WDR_Reich
+		icon = GFX_focus_ger_return_of_the_kaiser
+		cost = 10
+		prerequisite = {
+			focus = WDR_Afd
+		}
+		x = -10
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.2
+			}
+			news_event = { id = ger.42 }
+		}
+	}
+	focus = {
+		id = WDR_Reich_parliament
+		icon = GFX_goal_monarch_parliament
+		cost = 10
+		prerequisite = {
+			focus = WDR_Reich
+		}
+		x = -11
+		y = 5
+	}
+	focus = {
+		id = WDR_church
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		cost = 10
+		prerequisite = {
+			focus = WDR_Reich
+		}
+		x = -6
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_luther
+		icon = GFX_goal_lutherism
+		cost = 10
+		prerequisite = {
+			focus = WDR_church
+		}
+		x = -5
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_vaterland
+		icon = GFX_focus_ger_return_of_the_kaiser
+		cost = 10
+		prerequisite = {
+			focus = WDR_kaiserreich
+		}
+		prerequisite = {
+			focus = WDR_catholic
+		}
+		x = -8
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_catholic
+		icon = GFX_focus_generic_catholic_dominion
+		cost = 10
+		prerequisite = {
+			focus = WDR_church
+		}
+		x = -7
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_kaiser
+		icon = GFX_focus_ger_return_of_the_kaiser
+		cost = 10
+		prerequisite = {
+			focus = WDR_Reich
+		}
+		x = -9
+		y = 5
+		completion_reward = {
+			add_popularity = {
+				ideology = monarchism
+				popularity = 0.2
+			}
+			set_politics = { ruling_party = monarchism }
+		}
+	}
+	focus = {
+		id = WDR_kaiserreich
+		icon = GFX_focus_ger_revive_kaiserreich
+		cost = 10
+		prerequisite = {
+			focus = WDR_kaiser
+		}
+		x = -9
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_Soziale_Marktwirtschaft
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		prerequisite = {
+			focus = WDR_economic
+		}
+		x = -4
+		y = 1
+	}
+	focus = {
+		id = WDR_Export-oriented_economy
+		icon = GFX_goal_parliament
+		cost = 10
+		prerequisite = {
+			focus = WDR_Soziale_Marktwirtschaft
+		}
+		prerequisite = {
+			focus = WDR_currency_reform
+		}
+		x = 0
+		y = 2
+	}
+	focus = {
+		id = WDR_willhiem_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+		prerequisite = {
+			focus = WDR_Export-oriented_economy
+		}
+		x = 0
+		y = 3
+		completion_reward = {
+			if = {
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_medic
+		icon = GFX_goal_House
+		cost = 10
+		prerequisite = {
+			focus = WDR_Soziale_Marktwirtschaft
+		}
+		x = -6
+		y = 2
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					hospital < 1
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = WDR_welfare_state
+		icon = GFX_goal_welfare
+		cost = 10
+		prerequisite = {
+			focus = WDR_medic
+		}
+		x = -6
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_nationalized
+		icon = GFX_focus_DEN_limited_regulations
+		cost = 10
+		prerequisite = {
+			focus = WDR_welfare_state
+		}
+		x = -6
+		y = 4
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_finnance_focus
+		icon = GFX_goal_nuclear_plant
+		cost = 10
+		prerequisite = {
+			focus = WDR_manufacture_3
+		}
+		x = 2
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_foreign_labour
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		cost = 10
+		prerequisite = {
+			focus = WDR_Industry
+		}
+		x = 2
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_immigrate
+		icon = GFX_focus_generic_population_growth
+		cost = 10
+		prerequisite = {
+			focus = WDR_foreign_labour
+		}
+		x = 2
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_nuclear
+		icon = GFX_goal_nuclear_plant
+		cost = 10
+		prerequisite = {
+			focus = WDR_manufacture_3
+		}
+		x = -2
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = WDR_french_nuclear
+		icon = GFX_goal_nuclear_plant
+		cost = 10
+		prerequisite = {
+			focus = WDR_nuclear
+		}
+		x = -2
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = WDR_infrastruct
+		icon = GFX_focus_generic_railroad
+		cost = 10
+		prerequisite = {
+			focus = WDR_Industry
+		}
+		x = 4
+		y = 2
+		completion_reward = {
+			add_ideas = henschel
+		}
+	}
+	focus = {
+		id = WDR_tourism_focus
+		icon = GFX_goal_welfare
+		cost = 10
+		prerequisite = {
+			focus = WDR_infrastruct
+		}
+		x = 4
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_Industry
+		icon = GFX_goal_industry
+		cost = 10
+		prerequisite = {
+			focus = WDR_economic
+		}
+		x = 2
+		y = 1
+		completion_reward = {
+			add_ideas = volkswagen
+			add_to_variable = { influences = 80 } 
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				limit = { check_variable = { plant_num < plant_max } }
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				limit = { check_variable = { plant_num < plant_max } }
+				add_building_construction = { type = power_plant level = 2 }
+				
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				limit = { check_variable = { plant_num < plant_max } }
+				add_building_construction = { type = power_plant level = 2 }
+				
+			}
+			random_owned_state = {
+				limit = {
+					check_variable = { plant_num < plant_max }
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = power_plant level = 2 }
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = pastoral
+						has_state_category = rural
+						has_state_category = tiny_island
+						}
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}	
+	}
+	focus = {
+		id = WDR_manufacture_1
+		icon = GFX_goal_planned_economy
+		cost = 5
+		prerequisite = {
+			focus = WDR_Industry
+		}
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		x = 0
+		y = 2
+		completion_reward = {
+			add_ideas = porsche
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_steelmaking
+		icon = GFX_goal_steel
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = {
+			focus = WDR_Industry
+		}
+		x = -2
+		y = 2
+		available = {
+			has_tech = steel_making_tech
+			iron > 4
+			coal > 9
+		}
+		completion_reward = {
+			add_ideas = ThyssenSteel
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 4
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = steel_making
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_volkswagen_auto
+		icon = GFX_focus_GER_kdf_wagen
+		cost = 10
+		prerequisite = {
+			focus = WDR_manufacture_1
+		}
+		x = -2
+		y = 3
+		completion_reward = {
+			add_ideas = volkswagen
+			recruit_character = WDR_Heinz_Heinrich_Nordhoff
+			59 = {
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_Autogerechte_Stadt
+		icon = GFX_goal_bmw
+		cost = 10
+		prerequisite = {
+			focus = WDR_volkswagen_auto
+		}
+		available = {
+			has_tech = auto_industry
+		}
+		x = -4
+		y = 4
+		completion_reward = {
+			recruit_character = WDR_Rudolf_Hillebrecht
+			random_owned_state = {
+				add_building_construction = { 
+					type = infrastructure
+					level = 2
+				}
+			}
+			random_owned_state = {
+				add_building_construction = { 
+					type = infrastructure
+					level = 2
+				}
+			}
+			random_owned_state = {
+				add_building_construction = { 
+					type = infrastructure
+					level = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_bavaria_auto
+		icon = GFX_goal_bmw
+		cost = 10
+		prerequisite = {
+			focus = WDR_volkswagen_auto
+		}
+		available = {
+			has_tech = auto_industry
+			52 = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 2
+					include_locked = no
+				}
+			}
+			53 = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 2
+					include_locked = no
+				}
+			}
+			54 = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 2
+					include_locked = no
+				}
+			}
+		}
+		x = -2
+		y = 4
+		completion_reward = {
+			52 = {
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_manufacture_2
+		icon = GFX_goal_planned_economy
+		cost = 10
+		prerequisite = {
+			focus = WDR_manufacture_1
+		}
+		x = 0
+		y = 3
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_plastic_produc
+		icon = GFX_goal_plastic_indus
+		cost = 3
+		prerequisite = {
+			focus = WDR_manufacture_2
+		}
+		x = 2
+		y = 4
+		available = {
+			has_tech = basic_machine_tools
+			has_tech = rubber_processing
+		}
+		completion_reward = {
+			IF = {
+				limit = {
+				any_owned_state = {
+		            is_controlled_by = ROOT 
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+				}
+			}
+		}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					free_building_slots = {
+						building = rubber_factory
+						size > 3
+						include_locked = yes
+					}
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = rubber_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		}
+	}
+	focus = {
+		id = WDR_manufacture_3
+		icon = GFX_goal_planned_economy
+		cost = 10
+		prerequisite = {
+			focus = WDR_manufacture_2
+		}
+		x = 0
+		y = 4
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = civic_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_Rhineland_Industry
+		icon = GFX_focus_generic_reorient_production
+		cost = 10
+		prerequisite = {
+			focus = WDR_Industry
+		}
+		x = 6
+		y = 2
+		completion_reward = {
+			51 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			57 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			42 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = construct_modifiers
+					days = 1800
+				}
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_military_Industry
+		icon = GFX_goal_planned_economy
+		cost = 10
+		prerequisite = {
+			focus = WDR_Military_company
+		}
+		x = 6
+		y = 4
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_military_Industry2
+		icon = GFX_goal_planned_economy
+		cost = 10
+		prerequisite = {
+			focus = WDR_military_Industry
+		}
+		x = 6
+		y = 5
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_military_weapons
+		icon = GFX_goal_WDR_guns
+		cost = 10
+		prerequisite = {
+			focus = WDR_military_Industry
+		}
+		x = 8
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_military_armor
+		icon = GFX_goal_WDR_armor
+		cost = 10
+		prerequisite = {
+			focus = WDR_military_Industry
+		}
+		x = 4
+		y = 5
+		completion_reward = {
+			add_ideas = KraussMaffei
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_mines_bomb
+		icon = GFX_goal_planned_economy
+		cost = 10
+		prerequisite = {
+			focus = WDR_military_Industry2
+		}
+		x = 8
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_nuke_plan
+		icon = GFX_goal_nuke
+		cost = 10
+		prerequisite = {
+			focus = WDR_military_Industry3
+		}
+		x = 6
+		y = 7
+		available = {
+			has_tech = atomic_research
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = rocketry
+			}
+			add_political_power = 80
+			add_to_variable = { influences = 180 }
+			
+		}	
+	}
+	focus = {
+		id = WDR_military_Industry3
+		icon = GFX_goal_planned_economy
+		cost = 10
+		prerequisite = {
+			focus = WDR_military_Industry2
+		}
+		x = 6
+		y = 6
+		available = {
+			NOT = {
+				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
+				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
+				has_dynamic_modifier = {  modifier = military_construct_modifiers }
+			}
+		}
+		completion_reward = {
+				add_dynamic_modifier = {
+					modifier = military_construct_modifiers
+					days = 1800
+				}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 5
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { 
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = { 
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_HIGHT_tech
+		icon = GFX_focus_research
+		cost = 10
+		prerequisite = {
+			focus = WDR_manufacture_3
+		}
+		x = 0
+		y = 5
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = WDR_clear_energy
+		icon = GFX_goal_electronic
+		cost = 10
+		prerequisite = {
+			focus = WDR_HIGHT_tech
+		}
+		x = 2
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_earth_pro
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		cost = 10
+		prerequisite = {
+			focus = WDR_clear_energy
+		}
+		x = 2
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_space_explore
+		icon = GFX_goal_electronic
+		cost = 10
+		prerequisite = {
+			focus = WDR_electronic
+		}
+		x = -2
+		y = 7
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_euro_space
+		icon = GFX_goal_electronic
+		cost = 10
+		prerequisite = {
+			focus = WDR_space_explore
+		}
+		x = -2
+		y = 8
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_electronic
+		icon = GFX_goal_electronic
+		cost = 10
+		prerequisite = {
+			focus = WDR_HIGHT_tech
+		}
+		x = 0
+		y = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronic
+				ahead_reduction = 1
+				category = electronics
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					infrastructure > 2
+					OR = {
+						has_state_category = town
+						has_state_category = city
+						has_state_category = large_town
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = focus_electro_tool
+		}
+	}
+	focus = {
+		id = WDR_constitution
+		icon = GFX_goal_wdr_constitution
+		cost = 10
+		x = 13
+		y = 0
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 500
+		}
+	}
+	focus = {
+		id = WDR_security
+		icon = GFX_focus_generic_university_1
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 8
+		y = 1
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = WDR_Bundes_polizeit
+		icon = GFX_goal_wdr_polizeit
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 10
+		y = 1
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.2
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 8000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 5000
+				producer = GER
+			}
+		}
+	}
+	focus = {
+		id = WDR_FDP
+		icon = GFX_goal_WDR_FDP
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 14
+		y = 1
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+	}
+	focus = {
+		id = WDR_tax_reform
+		icon = GFX_focus_mex_privatisation
+		cost = 10
+		prerequisite = {
+			focus = WDR_FDP
+		}
+		x = 14
+		y = 2
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = WDR_CDU
+		icon = GFX_goal_WDR_CDU
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 16
+		y = 1
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+	}
+	focus = {
+		id = WDR_Unionsparteien
+		icon = GFX_goal_CDU_scu
+		cost = 10
+		prerequisite = {
+			focus = WDR_CDU
+		}
+		x = 16
+		y = 2
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+	}
+	focus = {
+		id = WDR_progressive
+		icon = GFX_goal_wdr_law
+		cost = 10
+		prerequisite = {
+			focus = WDR_Unionsparteien
+			focus = WDR_Godesberger_Programm
+		}
+		x = 17
+		y = 3
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = WDR_LGBT
+		icon = GFX_goal_LGBT
+		cost = 10
+		prerequisite = {
+			focus = WDR_social_reform
+		}
+		prerequisite = {
+			focus = WDR_progressive
+		}
+		x = 17
+		y = 4
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = WDR_female
+		icon = GFX_goal_rose
+		cost = 10
+		prerequisite = {
+			focus = WDR_social_reform
+		}
+		x = 15
+		y = 4
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = WDR_social_reform
+		icon = GFX_goal_law
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 15
+		y = 3
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = WDR_SDP
+		icon = GFX_goal_WDR_SPD
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 18
+		y = 1
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+	}
+	focus = {
+		id = WDR_Godesberger_Programm
+		icon = GFX_goal_wdr_law
+		cost = 10
+		prerequisite = {
+			focus = WDR_SDP
+		}
+		x = 18
+		y = 2
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	focus = {
+		id = WDR_law_130
+		icon = GFX_goal_wdr_law
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		x = 20
+		y = 1
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.15
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.15
+			}
+		}
+	}
+	focus = {
+		id = WDR_defence_berlin
+		icon = GFX_goal_berlin_wall
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundes_polizeit
+		}
+		x = 8
+		y = 2
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_old_armies
+		icon = GFX_goal_bundeswehr
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundes_polizeit
+		}
+		x = 12
+		y = 2
+		completion_reward = {
+			recruit_character = GER_hasso_von_manteuffel
+			recruit_character = GER_erich_von_manstein
+			recruit_character = GER_adolf_heusinger
+			recruit_character = GER_Albert_Schnez
+			recruit_character = GER_Hans_Speidel
+			army_experience = 200
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = WDR_Bundeswehr
+		icon = GFX_goal_bundeswehr
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundes_polizeit
+		}
+		x = 10
+		y = 2
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				add = 2000
+				date > 1954.1.1
+			}
+		}
+		available = { 
+			has_global_flag = Bundeswehr_flag
+			custom_trigger_tooltip = {
+				tooltip = WDR_Bundeswehr_trigger_tool
+				check_variable = { WDR_army_accept > 7 }
+			}
+		}
+		completion_reward = {
+			news_event = { id = ger.69 }
+			remove_ideas = GER_punishment
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+			add_ideas = extensive_conscription
+			army_experience = 200
+		}
+	}
+	focus = {
+		id = WDR_Luftwaffe
+		icon = GFX_goal_WDR_airforce
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundeswehr
+		}
+		x = 10
+		y = 3
+		completion_reward = {
+			add_ideas = messerschmitt_MBB
+			set_technology = {
+				independet_airforce = 1
+			}
+			air_experience = 100
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = WDR_anti_missile
+		icon = GFX_focus_rocketry
+		cost = 10
+		prerequisite = {
+			focus = WDR_Luftwaffe
+		}
+		x = 10
+		y = 5
+		completion_reward = {
+			air_experience = 100
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+	focus = {
+		id = WDR_missile_focus
+		icon = GFX_focus_rocketry
+		cost = 10
+		prerequisite = {
+			focus = WDR_Luftwaffe
+		}
+		x = 8
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.12
+				uses = 1
+				category = missile
+			}
+		}
+	}
+	focus = {
+		id = WDR_fighter_focus
+		icon = GFX_goal_air_force
+		cost = 10
+		prerequisite = {
+			focus = WDR_Luftwaffe
+		}
+		x = 10
+		y = 4
+		completion_reward = {
+			air_experience = 100
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = WDR_carrier
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10
+		prerequisite = {
+			focus = WDR_cruiser
+		}
+		x = 14
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_cruiser
+		icon = GFX_focus_generic_navy_battleship2
+		cost = 10
+		prerequisite = {
+			focus = WDR_expanded_baval
+		}
+		x = 14
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_submarine
+		icon = GFX_focus_generic_midget_submarines
+		cost = 10
+		prerequisite = {
+			focus = WDR_expanded_baval
+		}
+		x = 12
+		y = 5
+		available = {
+			has_tech = naval_recruit
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_expanded_baval
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10
+		prerequisite = {
+			focus = WDR_naval
+		}
+		x = 13
+		y = 4
+		completion_reward = {
+			add_ideas = blohm_und_voss
+			navy_experience = 180	
+			if = {
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+			if = {
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+	focus = {
+		id = WDR_naval
+		icon = GFX_goal_WDR_naval
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundeswehr
+		}
+		x = 12
+		y = 3
+		completion_reward = {
+			add_ideas = germaniawerft
+			if = {
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			navy_experience = 180	
+		}
+	}
+	focus = {
+		id = WDR_Military_company
+		icon = GFX_goal_militarist
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundeswehr
+		}
+		prerequisite = {
+			focus = WDR_Rhineland_Industry
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+			add_ideas = HecklerKoch
+			add_ideas = krupp
+		}
+	}
+	focus = {
+		id = WDR_expanded_mineral
+		icon = GFX_focus_generic_mining_industry
+		cost = 10
+		prerequisite = {
+			focus = WDR_Bundeswehr
+		}
+		prerequisite = {
+			focus = WDR_Rhineland_Industry
+		}
+		x = 8
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_border_defence
+		icon = GFX_goal_WDR_border_defence
+		cost = 10
+		prerequisite = {
+			focus = WDR_Military_company
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+			58 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9347
+					instant_build = yes
+				}
+			}
+			59 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6298
+					instant_build = yes
+				}
+			}
+			59 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 526
+					instant_build = yes
+				}
+			}
+			59 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6513
+					instant_build = yes
+				}
+			}
+			55 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 564
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3474
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13116
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_born_treaty
+		icon = GFX_goal_diplo_wdr
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		available = {
+			has_opinion = {
+				target = FRA
+				value > 19
+			}
+			has_opinion = {
+				target = ENG
+				value > 19
+			}
+			has_opinion = {
+				target = USA
+				value > 19
+			}
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		x = 28
+		y = 1
+		completion_reward = {
+			news_event = { id = ger.50 }
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+			diplomatic_relation = {
+				country = USA
+				relation = military_access
+				active = no
+			}
+			diplomatic_relation = {
+				country = ENG
+				relation = military_access
+				active = no
+			}
+			diplomatic_relation = {
+				country = FRA
+				relation = military_access
+				active = no
+			}
+		}
+	}
+	focus = {
+		id = WDR_Petersberg_Agreement
+		icon = GFX_goal_diplo_wdr
+		cost = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 20
+				date > 1949.10.10
+			}
+		}
+		x = 30
+		y = 0
+		completion_reward = {
+			news_event = { id = ger.120 }
+			add_to_variable = { influences = 50 }
+			custom_effect_tooltip = focus_tooltip_influence_50
+		}
+	}
+	focus = {
+		id = WDR_diplomatic
+		icon = GFX_goal_diplo_wdr
+		cost = 10
+		prerequisite = {
+			focus = WDR_constitution
+		}
+		prerequisite = {
+			focus = WDR_Petersberg_Agreement
+		}
+		ai_will_do = {
+			factor = 20
+		}
+		x = 30
+		y = 1
+		completion_reward = {
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+	focus = {
+		id = WDR_euro_relation
+		icon = GFX_goal_diplo_france
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 26
+		y = 2
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+			target = FRA
+			modifier = Elysee
+			}
+			FRA = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_SWE_relation
+		icon = GFX_focus_generic_scandinavian_alliance
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 24
+		y = 2
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SWE
+				modifier = Elysee
+			}
+			SWE = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+			add_opinion_modifier = {
+				target = DEN
+				modifier = Elysee
+			}
+			DEN = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+			add_opinion_modifier = {
+				target = NOR
+				modifier = Elysee
+			}
+			NOR = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_HOL_relation
+		icon = GFX_goal_diplo_france
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 28
+		y = 2
+		completion_reward = {
+			add_opinion_modifier = {
+				target = LUX
+				modifier = Elysee
+			}
+			LUX = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+			add_opinion_modifier = {
+				target = BEL
+				modifier = Elysee
+			}
+			BEL = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+			add_opinion_modifier = {
+				target = HOL
+				modifier = Elysee
+			}
+			HOL = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_Berlinale
+		icon = GFX_goal_us_culture
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 32
+		y = 2
+		completion_reward = {
+			news_event = { id = ger.54 }
+			add_to_variable = { influences = 100 }
+			custom_effect_tooltip = focus_tooltip_influence_100
+		}
+	}
+	focus = {
+		id = WDR_ITA_relation
+		icon = GFX_goal_italy_diplo
+		cost = 10
+		prerequisite = {
+			focus = WDR_euro_relation
+		}
+		x = 24
+		y = 3
+		completion_reward = {
+			add_opinion_modifier = {
+			target = ITA
+			modifier = Elysee
+			}
+			ITA = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_ENG_relation
+		icon = GFX_goal_diplo_france
+		cost = 10
+		prerequisite = {
+			focus = WDR_euro_relation
+		}
+		x = 28
+		y = 3
+		completion_reward = {
+			add_opinion_modifier = {
+			target = ENG
+			modifier = Elysee
+			}
+			ENG = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_FRA_relation
+		icon = GFX_goal_wdr_fra_relation
+		cost = 10
+		prerequisite = {
+			focus = WDR_euro_relation
+		}
+		x = 26
+		y = 3
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+			target = FRA
+			modifier = Elysee
+			}
+			FRA = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_ECSC
+		icon = GFX_goal_euro_steal
+		cost = 10
+		prerequisite = {
+			focus = WDR_FRA_relation
+		}
+		x = 26
+		y = 4
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 30
+				date > 1950.12.1
+			}
+		}
+		available = {
+			has_opinion = {
+				target = FRA
+				value > 30
+			}
+			has_opinion = {
+				target = LUX
+				value > 30
+			}
+			has_opinion = {
+				target = ITA
+				value > 30
+			}
+			has_opinion = {
+				target = BEL
+				value > 30
+			}
+		}
+		completion_reward = {
+			add_ideas = ECSC
+			news_event = { id = fra.40 }
+			FRA = { news_event = { id = fra.40 } }
+			ITA = { news_event = { id = fra.40 } }
+			HOL = { news_event = { id = fra.40 } }
+			BEL = { news_event = { id = fra.40 } }
+			LUX = { news_event = { id = fra.40 } }
+			DEN = { news_event = { id = fra.40 } }
+		}
+	}
+	focus = {
+		id = WDR_EU
+		icon = GFX_goal_focus_EURO
+		cost = 10
+		prerequisite = {
+			focus = WDR_ECSC
+		}
+		x = 26
+		y = 5
+		completion_reward = {
+			add_political_power = -50
+			add_political_power = 0.05
+		}
+	}
+	focus = {
+		id = WDR_G7
+		icon = GFX_goal_euro
+		cost = 10
+		prerequisite = {
+			focus = WDR_ECSC
+		}
+		available = {
+			has_opinion = {
+				target = FRA
+				value > 40
+			}
+			has_opinion = {
+				target = ENG
+				value > 40
+			}
+			has_opinion = {
+				target = ITA
+				value > 40
+			}
+			has_opinion = {
+				target = USA
+				value > 40
+			}
+			has_opinion = {
+				target = CAN
+				value > 40
+			}
+			has_opinion = {
+				target = JAP
+				value > 40
+			}
+			NOT = { 
+				FRA = {
+					has_government = communism
+					has_government = monarchism
+				}
+				ENG = {
+					has_government = communism
+					has_government = monarchism
+				}
+				ITA = {
+					has_government = communism
+					has_government = monarchism
+				}
+				JAP = {
+					has_government = communism
+					has_government = monarchism
+				}
+			}
+		}
+		x = 28
+		y = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_fra_battalion
+		icon = GFX_goal_FRA_GER_Unit
+		cost = 10
+		prerequisite = {
+			focus = WDR_EU
+		}
+		x = 26
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_Schengener
+		icon = GFX_goal_euro
+		cost = 10
+		prerequisite = {
+			focus = WDR_EU
+		}
+		x = 28
+		y = 6
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_Euro_common_defence
+		icon = GFX_goal_multy_hands
+		cost = 10
+		prerequisite = {
+			focus = WDR_ECSC
+		}
+		x = 24
+		y = 5
+	}
+	focus = {
+		id = WDR_AIR_company
+		icon = GFX_goal_multy_hands
+		cost = 10
+		prerequisite = {
+			focus = WDR_Euro_common_defence
+		}
+		x = 24
+		y = 6
+		completion_reward = {
+			add_ideas = EurofighterGmbH
+		}
+	}
+	focus = {
+		id = WDR_Hallstein
+		icon = GFX_goal_anti_communist
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 30
+		y = 2
+		ai_will_do = {
+			factor = 80
+		}
+		completion_reward = {
+			news_event = { id = ger.53 }
+			add_opinion_modifier = {
+			target = SOV
+			modifier = hallstine
+			}
+			SOV = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = hallstine
+				}
+			}
+			add_opinion_modifier = {
+			target = DDR
+			modifier = hallstine
+			}
+			DDR = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = hallstine
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_Atlanticism
+		icon = GFX_goal_diplo_usa
+		cost = 10
+		prerequisite = {
+			focus = WDR_Hallstein
+		}
+		x = 30
+		y = 3
+		ai_will_do = {
+			factor = 80
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+			target = USA
+			modifier = USA_special_relationship
+			}
+			USA = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = USA_special_relationship
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_USA_aid
+		icon = GFX_goal_marshall_plan
+		cost = 10
+		prerequisite = {
+			focus = WDR_Atlanticism
+		}
+		x = 30
+		y = 4
+		ai_will_do = {
+			factor = 80
+		}
+		completion_reward = {
+			USA = { country_event = { id = gen.47 } }
+		}
+	}
+	focus = {
+		id = WDR_NATO
+		icon = GFX_goal_focus_NATO
+		cost = 10
+		prerequisite = {
+			focus = WDR_USA_aid
+		}
+		x = 30
+		y = 5
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1955.1.1
+			}
+		}
+		available = {
+			USA = { is_faction_leader = yes }
+			has_opinion = {
+				target = FRA
+				value > 14
+			}
+			has_opinion = {
+				target = ENG
+				value > 14
+			}
+		}
+		completion_reward = {
+			news_event = { id = ger.55 }
+			set_global_flag = WDR_try_nato
+		}
+	}
+	
+	focus = {
+		id = WDR_NATO_nuclear_share
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_NATO
+		}
+		x = 32
+		y = 6
+	}
+	focus = {
+		id = WDR_oversea
+		icon = GFX_goal_us_army
+		cost = 10
+		prerequisite = {
+			focus = WDR_NATO
+		}
+		x = 31
+		y = 7
+	}
+	focus = {
+		id = WDR_pershing
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_NATO
+		}
+		x = 30
+		y = 6
+	}
+	focus = {
+		id = WDR_Ost_radio
+		icon = GFX_goal_black_radio
+		cost = 10
+		prerequisite = {
+			focus = WDR_anti_east
+		}
+		x = 18
+		y = 6
+		completion_reward = {
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = WDR_support_eastern_revolt
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_Ost_radio
+		}
+		x = 18
+		y = 7
+	}
+	focus = {
+		id = WDR_support_escape
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_anti_east
+		}
+		x = 20
+		y = 6
+	}
+	focus = {
+		id = WDR_pankov_railway
+		icon = GFX_goal_culture
+		cost = 10
+		prerequisite = {
+			focus = WDR_anti_east
+		}
+		x = 22
+		y = 6
+	}
+	focus = {
+		id = WDR_einigkeit
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_support_escape
+		}
+		x = 20
+		y = 7
+	}
+	focus = {
+		id = WDR_accept_ostalieg
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_einigkeit
+		}
+		x = 19
+		y = 8
+	}
+	focus = {
+		id = WDR_former_DDR_leaders
+		icon = GFX_goal_focus_DDR_DES
+		cost = 10
+		prerequisite = {
+			focus = WDR_accept_ostalieg
+		}
+		x = 17
+		y = 9
+	}
+	focus = {
+		id = WDR_economic_stabiliry
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_accept_ostalieg
+		}
+		x = 19
+		y = 9
+	}
+	focus = {
+		id = WDR_remove_communism
+		icon = GFX_goal_euro_pershing
+		cost = 10
+		prerequisite = {
+			focus = WDR_einigkeit
+		}
+		x = 21
+		y = 8
+	}
+	focus = {
+		id = WDR_taken_eastern_economic
+		icon = GFX_focus_POL_polish_revanchism
+		cost = 10
+		prerequisite = {
+			focus = WDR_remove_communism
+		}
+		x = 21
+		y = 9
+	}
+	focus = {
+		id = WDR_claime_poland
+		icon = GFX_focus_POL_polish_revanchism
+		cost = 10
+		prerequisite = {
+			focus = WDR_remove_communism
+		}
+		x = 23
+		y = 9
+	}
+	focus = {
+		id = WDR_anti_east
+		icon = GFX_goal_take_prussia
+		cost = 10
+		prerequisite = {
+			focus = WDR_BDF
+		}
+		x = 20
+		y = 5
+		completion_reward = {
+			add_opinion_modifier = {
+			target = SOV
+			modifier = hallstine
+			}
+			SOV = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = hallstine
+				}
+			}
+			add_opinion_modifier = {
+			target = DDR
+			modifier = hallstine
+			}
+			DDR = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = hallstine
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_anti_communis
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		cost = 10
+		prerequisite = {
+			focus = WDR_law_130
+		}
+		x = 20
+		y = 2
+		completion_reward = {
+			recruit_character = WDR_Reinhard_Gehlen
+			add_political_power = -120
+			add_stability = -0.15
+			news_event = { id = gen.51 }
+				add_popularity = {
+					ideology = communism
+					popularity = -0.12
+				}
+		}
+	}
+	focus = {
+		id = WDR_BDF
+		icon = GFX_intelligence_agency_logo_wdr
+		cost = 10
+		prerequisite = {
+			focus = WDR_anti_communis
+		}
+		x = 20
+		y = 3
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_political_power = 60
+			add_ideas = BFV
+			create_intelligence_agency = yes
+		}	
+	}
+	focus = {
+		id = WDR_anti_spy
+		icon = GFX_focus_SWI_embrace_rote_drei
+		cost = 10
+		prerequisite = {
+			focus = WDR_BDF
+		}
+		x = 21
+		y = 4
+		completion_reward = {
+			army_experience = 200
+			upgrade_intelligence_agency = upgrade_anti_partisan
+			upgrade_intelligence_agency = upgrade_interrogation_techniques
+			upgrade_intelligence_agency = upgrade_passive_defense
+		}
+	}
+	focus = {
+		id = WDR_border9
+		icon = GFX_goal_border9
+		cost = 10
+		prerequisite = {
+			focus = WDR_BDF
+		}
+		x = 19
+		y = 4
+		completion_reward = {
+			army_experience = 300
+			set_technology = {
+					tech_special_forces = 1
+					advanced_special_forces = 1
+					improved_special_forces = 1
+			}
+			add_dynamic_modifier = { modifier = focus_special_forces_modifiers }
+		}
+
+	}
+	focus = {
+		id = WDR_relation_kor
+		icon = GFX_goal_diplo_rok
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 50
+		y = 2
+		completion_reward = {
+			add_opinion_modifier = {
+			target = KOR
+			modifier = Elysee
+			}
+			KOR = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_relation_latin
+		icon = GFX_goal_map_latin
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 44
+		y = 2
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = latin_america
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_relation_isr
+		icon = GFX_goal_diplo_israel
+		cost = 5
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 46
+		y = 2
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1951.12.1
+			}
+		}
+		completion_reward = {
+			news_event = ger.141
+			add_political_power = -1200
+			add_opinion_modifier = {
+			target = ISR
+			modifier = Elysee
+			}
+			ISR = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_israeli_coop
+		icon = GFX_goal_diplo_israel
+		cost = 10
+		prerequisite = {
+			focus = WDR_relation_isr
+		}
+		x = 46
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_relation_roc
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 49
+		y = 3
+		completion_reward = {
+			add_opinion_modifier = {
+			target = CHI
+			modifier = Elysee
+			}
+			CHI = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_relation_jap
+		icon = GFX_goal_diplo_japan
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 48
+		y = 2
+		completion_reward = {
+			add_opinion_modifier = {
+			target = JAP
+			modifier = Elysee
+			}
+			JAP = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_relation_east_euro
+		icon = GFX_goal_map_east_euro
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 38
+		y = 2
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ROM
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = POL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = DDR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = CZE
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = WDR_east_euro_market
+		icon = GFX_goal_diplo_poland
+		cost = 10
+		prerequisite = {
+			focus = WDR_relation_east_euro
+		}
+		x = 38
+		y = 3
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = WDR_Neo_Ost
+		icon = GFX_goal_comecon
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 41
+		y = 2
+		completion_reward = {
+			news_event = { id = usa.33 }
+			add_opinion_modifier = {
+				target = ROM
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = POL
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = DDR
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = CZE
+				modifier = USA_special_relationship
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	focus = {
+		id = WDR_third_world
+		icon = GFX_goal_third_world
+		cost = 10
+		prerequisite = {
+			focus = WDR_diplomatic
+		}
+		x = 34
+		y = 2
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = third_world
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = WDR_relation_african
+		icon = GFX_soviet_relationship
+		cost = 10
+		prerequisite = {
+			focus = WDR_anti_colonies
+		}
+		x = 33
+		y = 4
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = african_state
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_relation_arabs
+		icon = GFX_goal_USA_pro_arabia
+		cost = 10
+		prerequisite = {
+			focus = WDR_anti_colonies
+		}
+		x = 35
+		y = 4
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = arabs_state
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_anti_colonies
+		icon = GFX_goal_decolonized
+		cost = 10
+		prerequisite = {
+			focus = WDR_third_world
+		}
+		x = 34
+		y = 3
+		completion_reward = {
+			add_to_variable = { influences = 60 }
+			custom_effect_tooltip = focus_tooltip_influence_60
+			every_other_country = {
+				limit = {
+					has_country_flag = third_world
+					NOT = { has_government = communism }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = third_world
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_left_way
+		icon = GFX_focus_ger_great_red_menace
+		cost = 10
+		prerequisite = {
+			focus = WDR_Neo_Ost
+		}
+		x = 40
+		y = 3
+	}
+	focus = {
+		id = WDR_allow_labour
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		cost = 10
+		prerequisite = {
+			focus = WDR_left_way
+		}
+		x = 40
+		y = 4
+	}
+	focus = {
+		id = WDR_lefwing_euro
+		icon = GFX_focus_por_workers_of_iberia
+		cost = 10
+		prerequisite = {
+			focus = WDR_expel_american
+		}
+		prerequisite = {
+			focus = WDR_exist_NATO
+		}
+		x = 37
+		y = 6
+	}
+	focus = {
+		id = WDR_expel_american
+		icon = GFX_goal_wdr_ddr_relation
+		cost = 10
+		prerequisite = {
+			focus = WDR_ended_america
+		}
+		x = 36
+		y = 5
+		completion_reward = {
+			news_event = { id = fra.20 }
+			add_named_threat = { threat = 2 name = BDR-exit-NATO }
+			USA = {
+				remove_from_faction = WDR
+				diplomatic_relation = {
+					relation = military_access
+					country = WDR
+					active = no
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_exist_NATO
+		icon = GFX_goal_wdr_ddr_relation
+		cost = 10
+		prerequisite = {
+			focus = WDR_ended_america
+		}
+		x = 38
+		y = 5
+		completion_reward = {
+			news_event = { id = fra.20 }
+			add_named_threat = { threat = 5 name = BDR-exit-NATO }
+			leave_faction = yes
+		}
+	}
+	focus = {
+		id = WDR_ended_america
+		icon = GFX_goal_wdr_ddr_relation
+		cost = 10
+		prerequisite = {
+			focus = WDR_left_way
+		}
+		x = 38
+		y = 4
+	}
+	focus = {
+		id = WDR_allow_communism
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		cost = 10
+		prerequisite = {
+			focus = WDR_allow_labour
+		}
+		x = 40
+		y = 5
+	}
+	focus = {
+		id = WDR_communism_united_gov
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 10
+		prerequisite = {
+			focus = WDR_allow_communism
+		}
+		x = 40
+		y = 6
+	}
+	focus = {
+		id = WDR_leader_summit
+		icon = GFX_goal_wdr_ddr_relation
+		cost = 10
+		prerequisite = {
+			focus = WDR_Neo_Ost
+		}
+		x = 42
+		y = 3
+	}
+	focus = {
+		id = WDR_relation_PRC
+		icon = GFX_goal_diplo_prc
+		cost = 10
+		prerequisite = {
+			focus = WDR_Neo_Ost
+		}
+		x = 44
+		y = 3
+		completion_reward = {
+			add_opinion_modifier = {
+			target = PRC
+			modifier = Elysee
+			}
+			PRC = {
+				add_opinion_modifier = {
+				target = WDR
+				modifier = Elysee
+				}
+			}
+		}
+	}
+	focus = {
+		id = WDR_PRC_market
+		icon = GFX_goal_PRC_economic_reform
+		cost = 10
+		prerequisite = {
+			focus = WDR_relation_PRC
+		}
+		x = 44
+		y = 4
+	}
+	focus = {
+		id = WDR_berlin_treaty
+		icon = GFX_goal_berlin_treaty
+		cost = 10
+		prerequisite = {
+			focus = WDR_leader_summit
+		}
+		x = 42
+		y = 4
+	}
+}

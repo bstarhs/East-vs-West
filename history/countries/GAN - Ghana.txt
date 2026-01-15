@@ -1,0 +1,171 @@
+﻿capital = 274
+
+oob = "GAN"
+
+# Starting tech
+set_country_flag = west_africa
+set_country_flag = british_colonies
+set_country_flag = language_english
+set_technology = {
+		oil_processing = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+set_country_flag = third_world
+set_country_flag = african_state
+
+add_ideas = {
+	biritish_colony
+		partial_economic_mobilisation
+		scraping_the_barrel
+}
+	set_popularities = {
+		democratic = 65
+		communism = 5
+		neutrality = 30
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+create_country_leader = {
+	name = "British Golden Coast Governeor"
+	desc = ""
+	picture = "gfx/leaders/NGR/Portrait_Nigeria_Governeor.tga"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+recruit_character = GAN_Kwame_Nkrumah
+1949.1.1 = {
+	set_country_flag = Nkrumah
+}
+1952.1.1 = {
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		authoritarianism = 76
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+	}
+	promote_character = GAN_Kwame_Nkrumah
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	set_cosmetic_tag = GAN_ENG
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+	}
+}
+1945.1.1 = {
+				set_country_flag = africa_electioned
+}
+1957.1.1 = {
+	set_cosmetic_tag = GAN
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		authoritarianism = 76
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+	}
+}
+1966.3.12 = {
+	set_popularities = {
+		democratic = 25
+		communism = 10
+		neutrality = 65
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Joseph Arthur Ankrah"
+		
+		picture = "gfx/leaders/GAN/Portrait_Ghana_Ankrah.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1972.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	create_country_leader = {
+		name = "Ignatius Kutu Acheampong"
+		
+		picture = "gfx/leaders/GAN/Portrait_Ghana_Acheampong.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1981.3.12 = {
+	set_popularities = {
+		democratic = 35
+		communism = 10
+		neutrality = 55
+	}
+}
+1982.1.20 = {
+	create_country_leader = {
+		name = "Jerry John Rawlings"
+		
+		picture = "gfx/leaders/GAN/Portrait_Ghana_Rawlings.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}

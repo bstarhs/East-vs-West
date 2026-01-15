@@ -1,0 +1,58 @@
+ideas = {
+	country = {
+		HOL_gateway_to_europe = {
+			picture = hol_gateway_to_europe
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				trade_opinion_factor = 0.35
+			}
+		}
+	}
+	industrial_concern = {
+			
+		designer = yes
+		shell_oil = {
+						
+			picture = shell_oil
+			
+			allowed = {
+				always = yes
+			}
+			research_bonus = {
+				synth_resources = 0.15
+			}
+			visible = {
+				OR = {
+					tag = HOL
+					tag = ENG
+				}
+			}
+			modifier = {
+				fuel_gain_factor_from_states = 0.15
+			}
+			traits = { refinery_concern }
+		}
+		HOL_philips = {
+			allowed = {
+				original_tag = HOL
+				has_dlc = "Man the Guns"
+			}
+
+			cost = 75
+
+			picture = HOL_philips
+			
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+		}	
+	}
+}

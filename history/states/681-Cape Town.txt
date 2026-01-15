@@ -1,0 +1,43 @@
+
+state={
+	id=681
+	name="STATE_681" # Cape
+	manpower = 1637178
+
+	state_category = town
+	resources={
+		iron=15
+	}
+	history={
+		set_state_flag = food_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = ethnics_Afrikaaners
+		add_to_array = { this.state_ethnics_list = 169 }
+		set_state_flag = wine_production
+		owner = SAF
+		add_to_array = { this.state_ethnics_list = 20 }
+		buildings = {
+			power_plant = 1
+			infrastructure = 4
+			industrial_complex = 3
+			air_base = 1
+			farm_building = 2
+			12589 = {
+				naval_base = 4
+			}
+		}
+		victory_points = { 12589 10 }
+		victory_points = { 12547 3 }
+		victory_points = { 13302 3 }
+		victory_points = { 12692 3 }
+		victory_points = { 14103 2 }
+		victory_points = { 14114 4 }
+		victory_points = { 14115 2 }
+		victory_points = { 14116 2 }
+		add_core_of = SAF
+	}
+
+	provinces={
+		12589 12692 13302 14102 14103 14104 14105 14106 14107 14108 14109 14110 14111 14112 14113 14114 14115 14116 12547 13508 
+	}
+}

@@ -1,0 +1,133 @@
+on_actions = {
+	###联合国投票
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = UN_sanctions_voted
+				}
+				clr_country_flag = UN_sanctions_voted
+			}
+		}
+	}
+	###外交影响力
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { influences > 350 }
+				}
+				add_to_variable = { influences = -2 } 
+			}
+		}
+	}
+	# 边境战争失败
+	on_border_war_lost = {
+		effect = {
+		add_to_variable = { influences = -20 } 
+		}
+	}#宣战
+	on_declare_war = {
+		effect = {
+		add_to_variable = { influences = -100 } 
+		}
+	}#被占领
+	on_capitulation = {
+		effect = {
+		add_to_variable = { influences = -80 } 
+		}
+	}#复国
+	on_uncapitulation = {
+		effect = {
+		add_to_variable = { influences = 50 }
+		} 
+	}#吞并
+	on_annex = {
+		effect = {
+		add_to_variable = { influences = -100 } 
+		}
+	}#内战结束
+	on_civil_war_end = {
+		effect = {
+		add_to_variable = { influences = 80 } 
+		}
+	}#被傀儡
+	on_puppet = {
+		effect = {
+		add_to_variable = { influences = -80 } 
+		}
+	}
+	on_assume_faction_leadership = {
+		effect = {
+		add_to_variable = { influences = 150 } 
+		}
+	}#建立阵营
+	on_faction_formed = {
+		effect = {
+		add_to_variable = { influences = 100 } 
+		}
+	}#间谍死亡
+	on_operative_death = {
+		effect = {
+		add_to_variable = { influences = -20 } 
+		}
+	}
+	#影响力恢复
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { influences < 150 }
+				}
+				add_to_variable = { influences = 1 }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { influences < 50 }
+				}
+				set_variable = { influences = 50 }
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { influences > 500 }
+				}
+				set_variable = { influences = 500 } 
+			}
+			if = {
+				limit = {
+					OR = {
+						has_government = fascism
+						has_idea = ETArevolt
+						has_idea = tiananmen
+						has_idea = zenkyouto
+						is_subject = yes
+						is_puppet = yes
+						has_idea = white_terror
+						has_idea = colonist_war
+						has_idea = sanctions
+						has_idea = debt_crisis
+						has_idea = geonocide
+						has_idea = apartheid
+						has_idea = corrupt
+						has_idea = isolated
+						has_idea = muslin_reballion
+						has_idea = tot_economic_mobilisation
+						has_idea = scraping_the_barrel
+						has_idea = redkhmer
+						has_country_leader_with_trait = tyrant
+						has_stability < 0.5
+					}
+					check_variable = { influences > 250 }
+				}
+				set_variable = { influences = 250 } 
+			}
+		}
+	}

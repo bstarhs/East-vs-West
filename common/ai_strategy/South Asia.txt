@@ -1,0 +1,226 @@
+
+PAK_Garrison = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PAK
+		has_war = no
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			440
+		}
+	}
+}
+RAJ_Garrison = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = IND
+		has_war = no
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			433
+			817
+			818
+			755
+		}
+	}
+}
+RAJ_Kashmir = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = IND
+		has_war = no
+	}
+	abort = {
+		has_war = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			903
+			755
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = -5
+		states = { 
+			441
+		}
+	}
+}
+PAK_Kashmir = {
+	abort_when_not_enabled = yes
+	enable = {
+		tag = PAK
+		controls_province = 2041
+	}
+	abort = {
+		NOT = { controls_province = 2041 }
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			441
+		}
+	}
+}
+RAJ_kashmir_war = {
+	abort_when_not_enabled = yes
+	enable = {
+			tag = IND
+		country_exists = KAS
+		PAK = { has_war_with = IND }
+	}
+	abort = {
+		NOT = { country_exists = KAS }
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 755
+		state = 903
+		ratio = 0.9
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 430
+		state = 440
+		ratio = 0
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 430
+		state = 440
+		state = 443
+		ratio = -10
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = PAK
+		value = 0
+	}
+	ai_strategy = {
+		type = conquer
+		id = "PAK"
+		value = -900
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PAK
+
+		ratio = 0.0
+
+		priority = 0
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+	ai_strategy = {
+		type = invade
+		id = "PAK"
+		value = -2000
+	}
+}
+kashmir_war = {
+	enable = {
+		tag = PAK
+		country_exists = KAS
+		PAK = { has_war_with = KAS }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request
+		state = 441
+		state = 755
+		ratio = 0.9
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 430
+		state = 431
+		state = 433
+		state = 443
+		state = 818
+		state = 440
+		ratio = 0
+	}
+	ai_strategy = {
+		type = conquer
+		id = "KAS"
+		value = 900
+	}
+	ai_strategy = {
+		type = conquer
+		id = "IND"
+		value = -900
+	}
+	ai_strategy = {
+		type = conquer
+		id = KAS
+		value = 900
+	}
+	ai_strategy = {
+		type = invade
+		id = KAS
+		value = 2000 # that low means not going for islands either
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = KAS
+		value = 900
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "IND"
+		value = -900
+	}
+	ai_strategy = {
+		type = front_control
+		tag = KAS
+		ratio = 10
+		priority = 999
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = IND
+		value = 0
+	}
+	ai_strategy = {
+		type = ignore
+		id = "IND"
+		value = 1000
+	}
+	ai_strategy = {
+		type = invade
+		id = "IND"
+		value = -2000 
+	}
+
+	ai_strategy = {
+		type = front_control
+
+		tag = IND
+		ratio = 0.0
+		priority = 0
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}

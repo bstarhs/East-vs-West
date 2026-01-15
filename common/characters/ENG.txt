@@ -1,0 +1,766 @@
+characters={
+	ENG_William_Penney={
+		name=ENG_William_Penney
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_William_Penney.dds"
+				large="gfx/leaders/ENG/Portrait_British_William_Penney.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = William_Penney
+			ledger = air
+			allowed = {
+				original_tag = ENG
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+		}
+	}
+	ENG_Diana = {
+		name=ENG_Diana
+		portraits={
+			civilian={
+				large="gfx/leaders/ENG/Portrait_British_Queen_diana.tga"
+			}
+		}
+		country_leader={
+			ideology=monarchism
+			traits = {
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	ENG_Allan_Francis_Harding={
+		name=ENG_Allan_Francis_Harding
+		portraits={
+			civilian={
+				large = "gfx/leaders/ENG/Portrait_British_Allan_Francis_Harding.tga"
+				small="gfx/interface/ideas/idea_Allan_Francis_Harding.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date < 1960.1.1
+			}
+			traits = { prince_of_terror }
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 5
+		}	
+		advisor={
+			slot = high_command
+			ledger = army
+			idea_token = Allan_Francis_Harding
+			visible = {
+				date < 1960.1.1
+			}
+			modifier = {
+				resistance_target = -0.12
+				
+			}
+			traits  = {
+				anti_guerrilas
+			}
+			ai_will_do  = {
+				factor  = 10.000
+			}
+		}
+	}
+	ENG_Harold_Briggs={
+		name=ENG_Harold_Briggs
+		portraits={
+			civilian={
+				large = "gfx/leaders/ENG/Portrait_British_Harold_Briggs.tga"
+				small="gfx/interface/ideas/idea_Harold_Briggs.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date < 1952.1.1
+			}
+			traits = {}
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 5
+		}	
+		advisor={
+			slot = political_advisor
+			ledger = army
+			idea_token = Harold_Briggs
+			visible = {
+				date < 1952.1.1
+			}
+			modifier = {
+				resistance_target = -0.15
+				stability_factor = 0.12
+				drift_defence_factor = 0.3
+			}
+			ai_will_do  = {
+				factor  = 10.000
+			}
+		}
+	}
+	ENG_GeraldTemple={
+		name=ENG_GeraldTemple
+		portraits={
+			civilian={
+				large = "gfx/leaders/ENG/Portrait_British_Stafford_Cripps.tga"
+				small="gfx/interface/ideas/idea_GeraldTemple.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date < 1960.1.1
+			}
+			traits = { prince_of_terror }
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 5
+		}	
+		advisor={
+			slot = high_command
+			ledger = army
+			idea_token = GeraldTemple
+			visible = {
+				date < 1960.1.1
+			}
+			modifier = {
+				resistance_target = -0.12
+				drift_defence_factor = 0.3
+			}
+			traits  = {
+				prince_of_terror
+			}
+			ai_will_do  = {
+				factor  = 10.000
+			}
+		}
+	}
+	ENG_Stafford_Cripps={
+		name=ENG_Stafford_Cripps
+		portraits={
+			civilian={
+				large = "gfx/leaders/ENG/Portrait_British_Stafford_Cripps.tga"
+				small="gfx/interface/ideas/idea_Stafford_Cripps.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Stafford_Cripps
+			visible = {
+				date < 1952.1.1
+			}
+			traits  = {
+				royalist_bulldog 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.08
+				political_power_cost = -0.12
+				communism_acceptance = 50
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+	ENG_winston_churchill={
+		name=ENG_winston_churchill
+		portraits={
+			civilian={
+				large = "gfx/leaders/ENG/Portrait_British_ Churchill.tga"
+				small="gfx/interface/ideas/idea_Churchill.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ENG_winston_churchill
+			visible = {
+				is_country_leader = no
+			}
+			traits  = {
+				royalist_bulldog 
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+
+		country_leader={
+			desc = "uk_pm"
+			ideology=conservatism
+			traits = {
+				british_bulldog colonist anti_communist pro_america
+			}
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	ENG_Margaret_Thatcher={
+		name=ENG_Margaret_Thatcher
+		portraits = {
+			civilian={
+				large = "gfx/leaders/ENG/Portrait_British_Thatcher.tga"
+				small="gfx/interface/ideas/idea_Thatcher.dds"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=liberalism
+			traits = {
+				neoliberal democratic_reformer ideological_crusader
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Margaret_Thatcher
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1968.1.1
+			}
+			traits = {
+				neoliberal democratic_reformer ideological_crusader
+			}
+			research_bonus = {
+				air_equipment = -0.2
+				rocketry = 0.2
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Peter_Billiere = {
+		name = ENG_Peter_Billiere
+		portraits = {
+			army = {
+				large = "gfx/leaders/ENG/Portrait_British_Peter_Billiere.tga"
+				small="gfx/interface/ideas/idea_Edwin_Bramall.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date > 1980.1.1
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			
+		}
+	}
+	ENG_Nigel_Bagnall = {
+		name = ENG_Nigel_Bagnall
+		portraits = {
+			army = {
+				large = "gfx/leaders/ENG/Portrait_British_Nigel_Bagnall.tga"
+				small="gfx/interface/ideas/idea_Edwin_Bramall.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date > 1980.1.1
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			
+		}
+	}
+	ENG_Roland_Gibbs = {
+		name = ENG_Roland_Gibbs
+		portraits = {
+			army = {
+				large = "gfx/leaders/ENG/Portrait_British_Roland_Gibbs.tga"
+				small="gfx/interface/ideas/idea_Edwin_Bramall.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date > 1975.1.1
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			
+		}
+	}
+	ENG_Edwin_Bramall = {
+		name = ENG_Edwin_Bramall
+		portraits = {
+			army = {
+				large = "gfx/leaders/ENG/Portrait_British_Edwin_Bramall.tga"
+				small="gfx/interface/ideas/idea_Edwin_Bramall.dds"
+			}
+		}
+		corps_commander = {
+			visible={
+				date > 1960.1.1
+				date < 1985.1.1
+			}
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			
+		}
+	}
+	ENG_Hugh_Dalton={
+		name=ENG_Hugh_Dalton
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Hugh_Dalton.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Hugh_Dalton.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=socialism
+			traits = {
+				euroism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Hugh_Dalton
+			allowed  = {
+				original_tag  = ENG
+			}
+			available = {
+				has_country_leader_ideology = socialism
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_cost = -0.12 
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Harold_Wilson={
+		name=ENG_Harold_Wilson
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Harold_Wilson.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Harold_Wilson.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=socialism
+			traits = {
+				euroism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Harold_Wilson
+			allowed  = {
+				original_tag  = ENG
+			}
+			available = {
+				has_country_leader_ideology = socialism
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_cost = -0.12 
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Hugh_Gaitskell={
+		name=ENG_Hugh_Gaitskell
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Hugh_Gaitskell.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Hugh_Gaitskell.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=socialism
+			traits = {
+				euroism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Hugh_Gaitskell
+			allowed  = {
+				original_tag  = ENG
+			}
+			available = {
+				has_country_leader_ideology = socialism
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				political_power_cost = -0.12 
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Aneurin_Bevan={
+		name=ENG_Aneurin_Bevan
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Aneurin_Bevan.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Aneurin_Bevan.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=socialism
+			traits = {
+				social_reformer
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Aneurin_Bevan
+			allowed  = {
+				original_tag  = ENG
+			}
+			available = {
+				has_country_leader_ideology = socialism
+			}
+			visible = {
+				is_country_leader = no
+				date < 1960.10.2
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.02 
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Harold_Macmillan={
+		name=ENG_Harold_Macmillan
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Harold_Macmillan.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Harold_Macmillan.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=conservatism
+			traits = {
+				social_reformer pro_america silent_workhorse euroism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Harold_Macmillan
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.12 
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Ernest_Bevin={
+		name=ENG_Ernest_Bevin
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Ernest_Bevin.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Ernest_Bevin.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=conservatism
+			traits = {
+				colonist euroism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Ernest_Bevin
+			available = {
+				has_country_leader_ideology = socialism
+			}
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				is_country_leader = no
+				date < 1951.4.10
+			}
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.15
+				opinion_gain_monthly_same_ideology_factor = 0.25
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Anthony_Eden={
+		name=ENG_Anthony_Eden
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Anthony_Eden.dds"
+				large = "gfx/leaders/ENG/Portrait_British_Anthony_Eden.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=conservatism
+			traits = {
+				colonist euroism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Anthony_Eden
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.15
+				opinion_gain_monthly_same_ideology_factor = 0.25
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Lord_Carrington={
+		name=ENG_Lord_Carrington
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Lord_Carrington.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Lord_Carrington
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1966.1.1
+			}
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.15
+				democratic_acceptance = 50
+				opinion_gain_monthly_same_ideology_factor = 0.12
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Duncan_Sandys={
+		name=ENG_Duncan_Sandys
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Duncan_Sandys.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Duncan_Sandys
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date < 1980.1.1
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.15 
+			}
+			research_bonus = {
+				air_equipment = -0.2
+				rocketry = 0.2
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Roy_Mason={
+		name=ENG_Roy_Mason
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Roy_Mason.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Roy_Mason
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1966.1.1
+			}
+			modifier = {
+				resistance_damage_to_garrison_on_our_occupied_states = -0.5
+				resistance_target = -0.25
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Michael_Heseltine={
+		name=ENG_Michael_Heseltine
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Michael_Heseltine.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Michael_Heseltine
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1966.1.1
+			}
+			modifier = {
+				stability_factor = 0.15
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Geoffrey_Howe={
+		name=ENG_Geoffrey_Howe
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Geoffrey_Howe.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Geoffrey_Howe
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1966.1.1
+			}
+			modifier = {
+				stability_factor = 0.15
+				political_power_factor = 0.15
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_Nigel_Lawson={
+		name=ENG_Nigel_Lawson
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Nigel_Lawson.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Nigel_Lawson
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1966.1.1
+			}
+			modifier = {
+				economy_cost_factor = -0.1
+				political_power_factor = 0.15
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	ENG_John_Major={
+		name=ENG_John_Major
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_John_Major.dds"
+				large="gfx/leaders/ENG/Portrait_British_John_Major.tga"
+			}
+		}
+		country_leader={
+			desc = "uk_pm"
+			ideology=liberalism
+			traits = {
+				neoliberal
+			}
+			expire="1997.1.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = John_Major
+			allowed  = {
+				original_tag  = ENG
+			}
+			visible = {
+				date > 1980.1.1
+			}
+			modifier = {	
+				political_advisor_cost_factor = -0.1
+				political_power_factor = 0.15
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+}

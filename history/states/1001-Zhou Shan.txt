@@ -1,0 +1,31 @@
+state={
+	id=1001
+	name="STATE_1001"
+	manpower=1625	
+	state_category = small_island
+	
+	history= {
+		set_state_flag = ethnics_Han
+		add_to_array = { this.state_ethnics_list = 5 }
+		add_to_array = { this.state_ethnics_list = 1 }
+		owner = CHI
+		add_claim_by = PRC
+		add_dynamic_modifier = { modifier = fish_production }
+		buildings = {
+			infrastructure = 1
+		}
+		1950.8.23 = {
+			remove_claim_by = PRC
+			add_core_of = PRC
+		}
+		1955.1.1 = {
+			owner = PRC
+		}
+		add_core_of = CHI
+		victory_points = { 13819 3 }
+		victory_points = { 13820 1 }
+	}
+	provinces={
+		13819 13820
+	}
+}

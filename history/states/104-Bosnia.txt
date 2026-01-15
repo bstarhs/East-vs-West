@@ -1,0 +1,48 @@
+
+state={
+	id=104
+	name="STATE_104"
+	manpower =2457400
+	state_category = city
+	local_supplies=0.0
+	resources={
+		copper=7
+		iron=8
+		aluminium=6
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Bosniak
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 39 }
+		add_to_array = { this.state_ethnics_list = 147 }
+		owner = YUG
+		victory_points = { 9586 3 }
+		victory_points = {
+			11899 10
+		}
+		victory_points = {
+			9894 4
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			school = 1
+			power_plant = 1
+			industrial_complex = 2
+			infrastructure = 5
+			air_base = 2
+		}
+		add_core_of = YUG
+		add_core_of = BOS
+		1990.8.23 = {
+			owner = BOS
+		}
+	}
+
+	provinces={
+		3985 6942 6957 9586 9894 9922 11872 11899 11574 6799 11572 6614 
+	}
+}

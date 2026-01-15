@@ -1,0 +1,340 @@
+﻿capital = 277
+	set_variable = { this.education = 78 }
+set_country_flag = has_monarchs
+set_country_flag = main_country
+set_country_flag = latin_america
+set_country_flag = developmented
+set_country_flag = language_spannish
+	set_country_flag = female_finished
+# Starting tech
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = steel_produc
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+}
+set_country_flag = monroe_doctrine
+add_ideas = {
+	localism
+	service_by_requirement
+	Secularism
+	governed_economic
+	MEX_revolucion_legacy
+}
+1939.1.1 = {
+
+	
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "MEX_1947"
+}
+
+
+set_convoys = 45
+
+
+	
+	set_popularities = {
+		democratic = 17
+		communism = 10
+		authoritarianism = 73
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1934.7.1"
+	election_frequency = 72
+	elections_allowed = yes
+}
+
+set_stability = 0.8
+
+create_country_leader = {
+	name = "Miguel Alemán Valdés"
+	desc = "POLITICS_LAZARO_CARDENAS_DESC"
+	picture = "gfx/leaders/MEX/Portrait_Mexico_Aleman_Valdes.tga"
+	expire = "1965.1.1"
+	ideology = one_party
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Salvador Abascal"
+	desc = "POLITICS_SALVADOR_ABASCAL_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_5.dds"
+	expire = "1965.1.1"
+	ideology = falangism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Manuel Gómez Morín"
+	desc = "POLITICS_MANUEL_GOMEZ_MORIN_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_4.dds"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Dionisio Encina"
+	desc = "POLITICS_DIONISIO_ENCINA_DESC"
+	picture = "gfx/leaders/South America/Portrait_South_America_Generic_1.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+1939.1.1 = {
+set_politics = {
+	ruling_party = authoritarianism
+		last_election = "1934.7.1"
+		election_frequency = 72
+		elections_allowed = yes
+	}
+	create_country_leader = { #from 1940, but he's prettier so he gets to win early
+		name = "Miguel Alemán Valdés"
+		desc = "POLITICS_LAZARO_CARDENAS_DESC"
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Aleman_Valdes.tga"
+		expire = "1965.1.1"
+	ideology = one_party
+		traits = {
+			#
+		}
+	}
+}
+
+create_corps_commander = {
+	name = "Luis Farell"
+	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_land_2.dds"
+	traits = { }
+	skill = 3
+}
+
+create_corps_commander = {
+	name = "Gildardo Magaña"
+	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_land_4.dds"
+	traits = { desert_fox }
+	skill = 3
+}
+
+create_navy_leader = {
+	name = "Paul Suarez"
+	portrait_path = "gfx/leaders/South America/Portrait_South_America_Generic_navy_2.dds"
+	traits = { superior_tactician }
+	skill = 3
+}
+recruit_character = MEX_Adolfo_Cortines
+recruit_character = MEX_Adolfo_Mateos
+recruit_character = MEX_Gustavo_Ordaz
+1945.1.1 = {
+	add_ideas = {
+		UNmember
+	}
+	oob = "MEX_1947"
+}
+1952.1.20 = {
+	set_country_flag = israel_diplomacy
+	activate_decision = female_equality
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	promote_character = MEX_Adolfo_Cortines
+}
+1958.1.20 = {
+	promote_character = MEX_Adolfo_Mateos
+}
+1962.1.20 = {
+	complete_national_focus = common_medic
+	activate_decision = Establishment_of_National_Museum
+	add_ideas = {
+		Olympic
+		APLA
+	}
+	promote_character = MEX_Gustavo_Ordaz
+}
+1967.1.1 = {
+	remove_ideas = {
+		Olympic
+		APLA
+		MEX_revolucion_legacy
+	}
+	add_ideas = {
+		Latin_america_no_nuce
+		MEX_Masacre_de_Tlatelolco
+	}
+}
+1976.1.20 = {
+	set_country_flag = china_diplomacy
+
+	set_popularities = {
+		democratic = 11
+		communism = 21
+		neutrality = 68
+	}
+	create_country_leader = {
+		name = "López Portillo"
+		
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Lopez_Portillo.tga"
+		expire = "1979.1.1"
+	ideology = one_party
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	add_ideas = {
+		debt_crisis
+	}
+	create_country_leader = {
+		name = "Miguel De La Madrid"
+		
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Miguel_Madrid.tga"
+		expire = "1979.1.1"
+	ideology = one_party
+		
+		traits = {
+		
+		}
+	}
+}
+1985.1.1 = {
+	set_country_flag = Satellite_succes
+	set_technology = {
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+	}
+}
+1988.1.20 = {
+	create_country_leader = {
+		name = "Carlos Salinas Gortari"
+		
+		picture = "gfx/leaders/MEX/Portrait_Mexico_Salinas_Gortari.tga"
+		expire = "1979.1.1"
+	ideology = one_party
+		
+		traits = {
+		
+		}
+	}
+}

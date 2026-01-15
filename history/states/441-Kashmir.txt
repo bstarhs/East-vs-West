@@ -1,0 +1,41 @@
+
+state={
+	id=441
+	name="STATE_441"
+	manpower = 1239500
+	
+	state_category = rural
+
+	history={
+		set_state_flag = ethnics_Kashmir
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_to_array = { this.state_ethnics_list = 91 }
+		add_to_array = { this.state_ethnics_list = 6 }
+		add_to_array = { this.state_ethnics_list = 80 }
+                              
+		owner = ENG
+		add_claim_by = IND
+		add_core_of = KAS
+		add_claim_by = PAK
+		victory_points = {
+			1910 5
+		}
+		victory_points = {
+			2084 3
+		}
+		victory_points = {
+			2041 2
+		}
+		1948.8.23 = {
+			owner = PAK
+			add_core_of = IND
+		}
+		buildings = {
+			infrastructure = 2
+		}
+	}
+
+	provinces={
+		1910 2041 10821 2084 13723
+	}
+}

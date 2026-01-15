@@ -1,0 +1,418 @@
+ideas = {
+	country = {
+		WDR_Hallstein_idea = {
+			allowed = {
+				always = no
+			}
+			picture = DDR_Wieden
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				drift_defence_factor = 0.25
+				stability_factor = 0.05
+				opinion_gain_monthly = -0.2
+				communism_acceptance = -40
+			}
+		}
+		WDR_Nato_command = {
+			allowed = {
+				always = no
+			}
+			picture = WDR_Nato_command
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				justify_war_goal_time = 1
+				generate_wargoal_tension = 1.00
+				ai_badass_factor = 0.01
+				custom_modifier_tooltip = WDR_Nato_command_tool
+			}
+		}
+		GER_punishment = {
+			allowed = {
+				always = no
+			}
+			picture = GER_punishment
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				join_faction_tension = 1.00
+				justify_war_goal_time = 1
+				lend_lease_tension = 0.50
+				generate_wargoal_tension = 1.00
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				ai_badass_factor = 0.01
+				minimum_training_level = 0.3 
+				industry_air_damage_factor = -0.1
+				army_morale_factor = -0.1
+			}
+		}
+	}
+
+	theorist = {
+	}
+
+	high_command = {
+	}
+	# MILITARY
+	industrial_concern = {
+	
+		opel = {
+			
+			allowed = {
+				original_tag = WDR
+			}
+			
+			visible = {
+				has_completed_focus = WDR_basic_construction
+			}
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+		messerschmitt_MBB = {
+			picture = messerschmitt_MBB
+			allowed = {
+				original_tag = WDR
+			}
+			
+			visible = {
+				has_completed_focus = WDR_Luftwaffe
+			}
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		germaniawerft = {
+
+			
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_naval
+			}
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			equipment_bonus = {
+				
+			}
+			
+			traits = { atlantic_fleet_naval_manufacturer }
+			
+		}
+		Liebherr = {
+			picture = Liebherr
+			allowed = {
+				original_tag = WDR
+			}
+			traits = { cement_manufacturer }
+		}
+		DrOetker = {
+			picture = DrOetker
+			allowed = {
+				original_tag = WDR
+			}
+			traits = { }
+		}
+		
+		blohm_und_voss = {
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_expanded_baval
+			}
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			traits = { raiding_fleet_naval_manufacturer }
+			equipment_bonus = {
+			}
+			
+		}
+		porsche = {
+			picture = Porsche
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_manufacture_1
+			}
+			research_bonus = {
+				armor = 0.15
+			}
+			traits = { auto_manufacturer }
+
+			ai_will_do = {
+				factor = 5
+			}
+
+		}
+		BASF = {	
+			picture = BASF
+			allowed = {
+				original_tag = WDR
+			}
+			research_bonus = {
+				synth_resources = 0.1
+			}
+			visible = {
+				has_completed_focus = WDR_manufacture_2
+			}		
+			traits = { refinery_concern }
+		}
+		WDR_AEG = {
+			picture = WDR_AEG
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_manufacture_1
+			}
+			research_bonus = {
+				electronics = 0.05
+			}
+			traits = { electronics_concern }
+			modifier = {
+			}
+		}
+		henschel = {
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_infrastruct
+			}
+			research_bonus = {
+				armor = 0.15
+			}
+			traits = { fast_tank_manufacturer }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		ThyssenSteel = {
+			picture = ThyssenSteel
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_steelmaking
+			}
+			research_bonus = {
+				industry = 0.05
+			}
+			traits = { steel_making_concern }
+		}
+		Salzgitter = {
+			picture = Salzgitter
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_manufacture_2
+			}
+			research_bonus = {
+				industry = 0.05
+			}
+			traits = { steel_making_concern }
+		}
+		BMW = {
+			picture = BMW
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_bavaria_auto
+			}
+			traits = { luxury_auto_concern }
+			ai_will_do = {
+				factor = 50
+			}
+		}
+		Benz = {
+			picture = Benz
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_bavaria_auto
+			}
+			traits = { luxury_auto_concern }
+			ai_will_do = {
+				factor = 50
+			}
+		}
+		volkswagen = {
+			
+			picture = volkswagen
+			allowed = {
+				original_tag = WDR
+			}
+			visible = {
+				has_completed_focus = WDR_volkswagen_auto
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 50
+			}
+		}
+		ig_faben = {
+			
+			allowed = {
+				always = yes
+			}
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.15
+			}
+			visible = {
+				has_completed_focus = WDR_Military_company
+			}
+			traits = { refinery_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		siemens = {
+			picture = Siemenz
+			allowed = {
+				always = yes
+			}
+			visible = {
+				OR = {
+					has_completed_focus = WDR_Military_company
+					has_completed_focus = prc60
+				}
+			}
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+		}	
+		krupp = {
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_completed_focus = WDR_Military_company
+			}
+			
+			research_bonus = {
+				industry = 0.15
+				
+			}
+			ai_will_do = {
+				factor = 2
+			}
+			
+			traits = { industrial_concern }
+		}
+		EurofighterGmbH = {
+			
+			visible = {
+				has_completed_focus = WDR_AIR_company
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		KraussMaffei = {
+
+			picture = KraussMaffei
+			
+			visible = {
+				has_completed_focus = WDR_Military_company
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { medium_tank_manufacturer }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		rhinemetall = {
+			
+			visible = {
+				has_completed_focus = WDR_Military_company
+			}
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+				# +10% arty/at/aa research speed
+			}
+		}
+		HecklerKoch = {
+			visible = {
+				has_completed_focus = WDR_Military_company
+			}
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			traits = { infantry_equipment_manufacturer }
+			ai_will_do = {
+				factor = 2
+			}
+		}
+	}
+}

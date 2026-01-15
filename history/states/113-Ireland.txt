@@ -1,0 +1,44 @@
+
+state={
+	id=113
+	name="STATE_113" # Leinster
+	manpower = 1357600
+	resources={
+		aluminium=2
+		iron=3
+		coal=24
+	}
+	
+	state_category = city
+	
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 65 }
+		add_to_array = { this.state_ethnics_list = 85 }
+		owner = IRE
+		set_state_flag = ethnics_Irish
+		victory_points = {
+			11293 15 
+		}
+		victory_points = {
+			3359 3
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			infrastructure = 7
+			arms_factory = 1
+			industrial_complex = 5
+			air_base = 3
+			11293 = {
+				naval_base = 6
+			}
+		}
+		add_core_of = IRE
+	}
+
+	provinces={
+		285 303 369 3342 3359 7377 11293 11303 
+	}
+}

@@ -1,0 +1,246 @@
+﻿division_template = {
+	name = "Grenztruppen "		
+	division_names_group = GER_Grenztruppen_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Mechanisierte Infanteriedivision"	
+	division_names_group = GER_MEC_01	
+	
+	regiments = {					
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Panzerdivision" 		
+	division_names_group = GER_ARM_01	
+	# Usual tanks: FT-17, R-35, H-35, H-39
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 0 y = 3 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 2 }
+		medium_sp_anti_air_brigade = { x = 1 y = 3 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Fallschirmjägerbataillon"	
+	division_names_group = GER_PAR_01	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Hubschrauberregiment" 	
+	division_names_group = GER_ARM_01		
+	# Usual tanks: FT-17, R-35, H-35, H-39
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }
+		heavy_armor = { x = 0 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Luftverteidigungsdivision" 	
+	division_names_group = GER_MEC_01	
+	regiments = {	
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 0 }
+		medium_sp_anti_air_brigade = { x = 1 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+
+units = {
+	division = {
+		name = "40. Fallschirmjägerbataillon"
+		location = 349
+		division_template = "Fallschirmjägerbataillon"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "34. Hubschrauberregiment"
+		location = 349
+		division_template = "Hubschrauberregiment"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "9 Panzerdivision"
+		location = 349
+		division_template = "Panzerdivision"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1 Mechanisierte Infanteriedivision"
+		location = 3499
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "8 Mechanisierte Infanteriedivision"
+		location = 11305
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "4 Mechanisierte Infanteriedivision"
+		location = 6524
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "7 Panzerdivision"
+		location = 514
+		division_template = "Panzerdivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "11 Mechanisierte Infanteriedivision"
+		location = 6582
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "6 Mechanisierte Infanteriedivision"
+		location = 9535
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "10 Mechanisierte Infanteriedivision"
+		location = 6501
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "17 Mechanisierte Infanteriedivision"
+		location = 9560
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "19 Mechanisierte Infanteriedivision"
+		location = 11359
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "20 Mechanisierte Infanteriedivision"
+		location = 293
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "6 Reserve Mechanisierte Infanteriedivision"
+		location = 293
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "10 Reserve Mechanisierte Infanteriedivision"
+		location = 293
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+
+	division = {
+		name = "7 Reserve Mechanisierte Infanteriedivision"
+		location = 293
+		division_template = "Mechanisierte Infanteriedivision"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1 Luftverteidigungsdivision"
+		location = 293
+		division_template = "Luftverteidigungsdivision"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "3 Luftverteidigungsdivision"
+		location = 293
+		division_template = "Luftverteidigungsdivision"
+		start_experience_factor = 0.8
+	}
+	##### NAVAL UNITS #####
+	fleet = {
+		name = "Volksmarine"
+		naval_base = 321 #Rostock
+		task_force = {			
+			name = "2nd Fleet"
+			location = 321 #Rostock
+			ship = { name = "Berlin" definition = light_cruiser equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class" } } }
+			ship = { name = "Rostock" definition = light_cruiser equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class"  } } }
+			ship = { name = "Halle" definition = light_cruiser equipment = { ship_hull_light_2 = { amount = 1 owner = SOV version_name = "Riga class"  } } }
+		}	
+	}
+}
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	62 = {															# Brussels
+		fighter_equipment_2 = { owner = "DDR" amount = 180 }			
+		fighter_equipment_2 = { owner = "DDR" amount = 180 }
+		CAS_equipment_2 = { owner = "DDR" amount = 192 }
+	}
+	61 = {															# Brussels
+		fighter_equipment_2 = { owner = "DDR" amount = 180 }			
+		fighter_equipment_2 = { owner = "DDR" amount = 180 }
+		CAS_equipment_2 = { owner = "DDR" amount = 192 }
+	}
+}

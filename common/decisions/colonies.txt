@@ -1,0 +1,406 @@
+colonal_efforts = {
+	FRA_communism_colonies = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 100
+
+		visible = {
+			tag = FRA
+			has_government = communism
+		}
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_subject_of = ROOT
+					is_puppet_of = ROOT
+				}
+			}
+		}
+		complete_effect = {
+			end_puppet = FROM
+			give_guarantee = FROM
+			FROM = {
+				set_cosmetic_tag = FROM
+				give_military_access = ROOT
+				set_politics = { ruling_party = communism }
+			}
+		}
+
+	
+	}
+	release_african = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = FRA
+		}
+		fire_only_once = yes
+		cost = 50
+		visible = {
+			OR = {
+				has_completed_focus = FRA_exit_Colonialism
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				date > 1955.6.1
+				FROM = { tag = TUN }
+			}
+			modifier = {
+				add = 50
+				has_war_with = ALG
+				date > 1960.2.1
+				FROM = {
+					is_subject_of = FRA
+				}
+			}
+			modifier = {
+				add = 60 
+				FROM = { has_country_flag = french_proxy }
+			}
+			modifier = {
+				add = 100 
+				FROM = { tag = GAN }
+				date > 1957.3.1
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_subject_of = ROOT
+			}
+		}
+		complete_effect = {
+				FROM = {
+					set_country_flag = release_african
+					add_autonomy_score = {
+						value = 100
+						localization = wind_of_change
+					}
+				}
+				add_stability = 0.05
+				add_war_support = 0.06
+		}
+	}
+	FRA_Proxy_decistion = {
+		icon = GFX_deci_category_diplo
+		allowed = {
+			always = yes
+		}
+		cost = 50
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				tag = FRA
+				date > 1958.3.1
+			}
+		}
+		visible = {
+			OR = {
+				has_completed_focus = FRA_Proxy
+				has_completed_focus = FRA_puppet
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_subject_of = FRA
+				has_country_flag = french_colonies
+				NOT = {
+					tag = MLI
+					has_country_flag = french_proxy
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				add_autonomy_score = {
+					value = 500
+					localization = release_leader
+				}
+				add_ideas = france_colony
+				set_country_flag = french_proxy
+				set_country_flag = africa_electioned
+				news_event = { id = west_africa.1 }
+			}
+		}
+	}
+	local_election = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		cost = 60
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -50
+				date < 1958.11.1
+			}
+			modifier = {
+				add = 5
+				date > 1958.11.1
+			}
+			modifier = {
+				add = -10 
+				tag = FRA
+				FROM = { NOT = { has_country_flag = french_proxy } }
+			}
+			modifier = {
+				add = 10 
+				tag = FRA
+				FROM = { has_country_flag = french_proxy }
+			}
+			modifier = {
+				add = 100
+				FROM = {
+					tag = GAN
+					has_country_flag = Nkrumah
+					date > 1951.3.1
+				}
+			}
+			modifier = {
+				add = 100 
+				FROM = { tag = GAN }
+				date > 1957.3.1
+			}
+			modifier = {
+				add = 100
+				has_completed_focus = FRA_exit_Colonialism
+			}
+		}
+		fire_only_once = yes
+		visible = {
+			OR = {
+				tag = ENG
+				tag = FRA
+				tag = POR
+				tag = BEL
+			}
+			OR = {
+				has_completed_focus = ENG_wind_of_change
+				has_completed_focus = FRA_Proxy
+				FROM = {
+					tag = GAN
+					has_country_flag = Nkrumah
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				NOT = { tag = SAF }
+				NOT = { tag = RHO }
+				NOT = { has_country_flag = french_proxy }
+				NOT = { has_country_flag = africa_local_election }
+				NOT = { has_country_flag = africa_electioned }
+				capital_scope = {
+					is_on_continent = africa
+				}
+				is_subject_of = ROOT
+			}
+		}
+		complete_effect = {
+			FROM = {
+				news_event = { id = africa.17 }
+				set_country_flag = africa_local_election
+				set_country_flag = africa_electioned
+				add_autonomy_score = {
+					value = 500
+					localization = release_leader
+				}
+			}
+		}
+	}
+	give_arms_colonies = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				date < 1958.11.1
+			}
+			modifier = {
+				factor = 1
+				date > 1958.11.1
+			}
+		}
+		days_re_enable = 100
+		visible = {
+			OR = {
+				tag = ENG
+				tag = FRA
+				tag = POR
+				tag = BEL
+			}
+		}
+		target_trigger = {
+			FROM = {
+				capital_scope = {
+					is_on_continent = africa
+				}
+				is_subject_of = ROOT
+				any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			}
+		}
+		complete_effect = {
+			FROM = {
+				army_experience = 100
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 1000
+					target = FROM
+				}
+				send_equipment = {
+					equipment = machine_gun
+					amount = 200
+					target = FROM
+				}
+			}
+		}
+	}
+	release_leader = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		cost = 150
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				date < 1958.11.1
+			}
+			modifier = {
+				factor = 1
+				date > 1958.11.1
+			}
+			modifier = {
+				add = 100 
+				FROM = { tag = GAN }
+				date > 1957.3.1
+			}
+		}
+		fire_only_once = yes
+		visible = {
+			OR = {
+				tag = ENG
+				tag = FRA
+				tag = POR
+				tag = BEL
+			}
+		}
+		target_trigger = {
+			FROM = {
+				capital_scope = {
+					is_on_continent = africa
+				}
+				is_subject_of = ROOT
+				has_country_flag = arrest_leader
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_country_flag = africa14_event
+				clr_country_flag = arrest_leader
+				add_autonomy_score = {
+				value = 120
+				localization = release_leader
+				}
+			}
+		}
+	}
+	colony_police = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		cost = 150
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+				NOT = {
+					tag = HKN
+				}
+			is_subject = yes
+			OR = {
+			is_subject_of = ENG
+			is_subject_of = FRA
+			is_subject_of = BEL
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = ENG
+			}
+			army_experience = 10
+			load_oob = "Colony_police"
+			add_autonomy_score = {
+				value = 40
+				localization = colony_police
+			}
+		}
+	}
+	colony_native_office = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		cost = 150
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				date < 1958.11.1
+			}
+			modifier = {
+				factor = 1
+				date > 1958.11.1
+			}
+			modifier = {
+				add = 100 
+				FROM = { tag = GAN }
+				date > 1957.3.1
+			}
+		}
+		fire_only_once = yes
+		visible = {
+				NOT = {
+					tag = HKN
+				}
+			is_subject = yes
+			OR = {
+			is_subject_of = ENG
+			is_subject_of = FRA
+			is_subject_of = BEL
+			}
+		}
+		complete_effect = {
+			add_political_power = 100
+			every_state = {
+				limit = { is_controlled_by = ROOT }
+				add_resistance = -30
+			}
+			add_autonomy_score = {
+				value = 100
+				localization = native_office
+			}
+		}
+	}
+}

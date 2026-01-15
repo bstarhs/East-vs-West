@@ -1,0 +1,412 @@
+﻿capital = 746
+add_ideas = {
+
+		harmonious
+	all_adults_serve
+	Anti_religious
+	war_economy
+		low_welfare
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment_1
+    amount = 8000
+    producer = GER
+}
+set_country_flag = main_country
+set_country_flag = language_German
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+
+# Starting tech
+	set_variable = { this.education = 72 }
+set_technology = {
+		excavation1 = 1
+		excavation2 = 1
+		machine_gun1 = 1
+		medical1 = 1
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+	aluminum_tech = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	basic_train = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	improved_light_tank = 1
+	basic_heavy_tank = 1
+	early_fighter = 1
+	fighter1 = 1
+	early_bomber = 1
+
+	strategic_bomber1 = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	early_ship_hull_submarine = 1
+	basic_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_destroyer = 1
+	
+	
+	early_ship_hull_cruiser = 1
+	
+	infantry_training = 1
+	formation_flying = 1
+	synth_oil_experiments = 1
+	transport = 1
+	
+	power_generation1 = 1
+		tech_maintenance_company = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+		tech_signal_company = 1
+
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+}
+
+
+
+
+
+set_research_slots = 2
+set_convoys = 50
+
+1939.1.1 = {
+
+	add_political_power = 1197
+	
+
+	#BUILDINGS
+	
+
+	set_technology = {
+		improved_light_tank = 1 
+		basic_medium_tank = 1 
+		CAS2 = 1
+		heavy_fighter1 = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		improved_infantry_weapons = 1
+		
+		
+		paratroopers = 1
+		basic_heavy_cruiser = 1
+		improved_heavy_cruiser = 1
+		basic_battleship = 1
+		improved_battleship = 1
+
+		#doctrines
+		basic_militia = 1
+		depth_defense = 1
+		
+		
+		
+		
+		unrestricted_submarine_warfare = 1
+		
+		#air
+		formation_flying = 1		
+		dive_bombing = 1
+		direct_ground_support = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		decimetric_radar = 1
+		
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		tech_logistics_company2 = 1
+		dispersed_industry = 1
+
+	}
+}
+	set_popularities = {
+		democratic = 30
+		neutrality = 10
+		authoritarianism = 20
+		communism = 40
+	}
+set_politics = {
+	
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+
+}
+
+
+recruit_character = DDR_Paul_Merker
+recruit_character = DDR_Karl_Schirdewan
+recruit_character = DDR_Rudolf_Herrnstadt
+recruit_character = DDR_Otto_Grotewohl
+recruit_character = DDR_Walter_Ulbricht
+recruit_character = DDR_Wilhelm_Pieck
+add_ideas = {
+}
+promote_character = DDR_Wilhelm_Pieck
+1949.1.1 = {
+	retire_character = DDR_Karl_Schirdewan
+	set_popularities = {
+		democratic = 45
+		neutrality = 3
+		communism = 62
+	}
+	complete_national_focus = DDR_Democratic_Republic
+	complete_national_focus = DDR_comecon
+	complete_national_focus = DDR_Kasernierte_Volkspolizei
+	complete_national_focus = DDR_Volkspolizei
+	complete_national_focus = DDR_Proletarian_dictatorship
+	complete_national_focus = DDR_Pionierorganisation_Thalmann
+	complete_national_focus = DDR_SED
+	complete_national_focus = DDR_FDJ
+	complete_national_focus = DDR_soviet_mode
+	complete_national_focus = DDR_NeurMarks
+	set_country_flag = china_diplomacy
+	add_ideas = {
+		stassi
+		DDR_Republikflucht_4
+	}
+}
+1955.1.1 = {
+	retire_character = DDR_Wilhelm_Zaisser
+	retire_character = DDR_Rudolf_Herrnstadt
+	promote_character = DDR_Walter_Ulbricht
+	set_country_flag = female_finished
+	set_country_flag = developmented
+	complete_national_focus = DDR_urbanized
+	complete_national_focus = DDR_SED_streng
+	complete_national_focus = DDR_KdA
+	complete_national_focus = DDR_Stasi
+	complete_national_focus = DDR_Volkseigener_Betrieb
+	complete_national_focus = DDR_Collective_farm
+	complete_national_focus = DDR_economic
+	complete_national_focus = DDR_Volkskammer
+	complete_national_focus = DDR_Woman_right
+	complete_national_focus = DDR_diplomatic
+	complete_national_focus = DDR_support_asia
+	complete_national_focus = DDR_comecon
+	complete_national_focus = DDR_Soviet_group
+	activate_decision = create_radio_station
+	set_technology = {
+		basic_helicopter = 1
+		rocket_engines = 1
+		radio_detection = 1
+		sp_artillery1 = 1
+		motorize_doctrine = 1
+		infantry_at = 1
+		machine_gun2 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		tech_recon2 = 1
+		dispersed_industry4 = 1
+		can_foods = 1
+		telegraph = 1
+		assembly_line = 1
+		mechanised_infantry = 1
+		concentrated_industry = 1
+		dispersed_industry2 = 1
+		tech_signal_company2 = 1
+		spaa1 = 1
+		basic_rocket_artillery = 1
+	}
+	add_ideas = {
+		warsawpact
+		DDR_border_control
+	}
+	add_timed_idea = {
+		idea = DDR_617
+		days = 100
+	}
+}
+1957.1.1 = {
+	retire_character = DDR_Wilhelm_Pieck
+	remove_ideas = DDR_617
+	remove_ideas = DDR_Republikflucht_4
+	complete_national_focus = DDR_Volksarmee
+	complete_national_focus = DDR_Volksmarine
+	complete_national_focus = DDR_Plattenbau
+	complete_national_focus = DDR_support_decolonized
+	add_ideas = DDR_Republikflucht_3
+	set_technology = {
+		halicopter_machinegun = 1
+		fighter2 = 1
+		spaa1 = 1
+		spaa2 = 1
+		auto_industry = 1
+		napalm = 1
+	}
+}
+1962.1.1 = {
+	remove_ideas = DDR_Republikflucht_3
+	add_ideas = DDR_Republikflucht_2
+	add_ideas = {
+		Dryzhpa_oilpipes
+	}
+	oob = "DDR_1965"
+	complete_national_focus = DDR_Grenztruppen
+	complete_national_focus = DDR_Berlin_wall
+	set_technology = {
+		guided_missile = 1
+		aa_missile_1 = 1
+		infantry_weapons2 = 1
+		frozen_food = 1
+		mechanised_infantry2 = 1
+		trans_helicopter_1 = 1
+		land_guidance = 1
+		air_gun = 1
+		aim_missile_1 = 1
+		at_missile_1 = 1
+		auto_industry_2 = 1
+	}
+	complete_national_focus = DDR_PCK_Raffinerie
+
+}
+
+1967.1.1 = {
+	set_technology = {
+		excavation3 = 1
+		spaa3 = 1
+		fighter3 = 1
+		tech_recon3 = 1
+		tech_signal_company3 = 1
+		tech_logistics_company3 = 1
+		sp_artillery1 = 1
+		halicopter_rocket_net = 1
+		trans_helicopter_2 = 1
+	}
+	retire_character = DDR_Walter_Ulbricht
+	retire_character = DDR_Otto_Grotewohl
+	create_country_leader = {
+		name = "Einrich Honecker"
+		desc = "POLITICIAN_DDR_HONECKER_DESC"
+		picture = "gfx/leaders/DDR/Portrait_DDR_Honecker.tga"
+		expire = "2020.1.1"
+		ideology = stalinism
+		traits = {
+			pro_soviet
+		}
+	}
+	add_ideas = {
+		Secularism
+	}
+}
+1973.1.1 = {
+	complete_national_focus = DDR_output_production
+	add_ideas = DDR_Grundlagenvertrag
+	set_stability = 0.75
+	set_technology = {
+		infantry_at2 = 1
+		halicopter_at_missile = 1
+		rocket_artillery4 = 1
+		paratroopers2 = 1
+		aa_missile_2 = 1
+		power_cable = 1
+		at_missile_2 = 1
+		mechanized_aa_missile_1 = 1
+		improved_light_cruiser = 1
+		improved_heavy_tank = 1
+		improved_medium_tank = 1
+		advanced_infantry_weapons = 1
+		advanced_heavy_tank = 1
+		mechanised_infantry3 = 1
+		advanced_medium_tank = 1
+		motorised_infantry_2 = 1
+		autoloader = 1
+		sp_artillery2 = 1
+	}
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		partial_economic_mobilisation
+		UNmember
+	}
+}
+
+1976.1.20 = {
+	set_technology = {
+		auto_industry = 1
+		machine_gun3 = 1
+		sp_artillery2 = 1
+		sp_artillery3 = 1
+		fighter4 = 1
+		trans_helicopter_3 = 1
+	}
+}
+1983.1.1 = {
+	complete_national_focus = DDR_Schiessbefehl
+	set_technology = {
+		aa_missile_3 = 1
+		advanced_light_tank = 1
+	}
+}
+1988.1.1 = {
+	set_technology = {
+		at_missile_3 = 1
+	}
+}
+1990.1.1 = {
+	remove_from_array = { global.UNmember_list = FROM }
+}

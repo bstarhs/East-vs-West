@@ -1,0 +1,48 @@
+
+state={
+	id=41
+	name="STATE_41" # Madrid
+	manpower = 2269659
+
+	state_category = city
+
+	resources={
+		aluminium=2
+	}
+
+	local_supplies=0.0
+	history={
+		set_state_flag = ethnics_Castile
+		add_to_array = { this.state_ethnics_list = 47 }
+		add_to_variable = { state_tourist = 100 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SPR
+		victory_points = {
+			3938 20
+		}
+		victory_points = {
+			6993 3
+		}
+		victory_points = {
+			11820 3
+		}
+		victory_points = {
+			858 5
+		}
+		buildings = {
+			school = 2
+			farm_building = 2
+			hospital = 2
+			infrastructure = 6
+			arms_factory = 2
+			industrial_complex = 5
+			power_plant = 3
+			air_base = 6
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		858 896 939 977 3794 3845 3858 3938 3986 6841 6914 6993 9767 9785 9933 11820 11870 
+	}
+}

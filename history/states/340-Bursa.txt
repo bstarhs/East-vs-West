@@ -1,0 +1,46 @@
+
+state={
+	id=340
+	name="STATE_340"
+	manpower = 1026527
+	resources={
+		coal = 13
+		iron = 8
+		copper=11
+	}
+
+	state_category = large_town
+
+	history={
+		add_to_array = { this.state_ethnics_list = 167 }
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Turkish
+		owner = TUR
+		buildings = {
+			farm_building = 3
+			dockyard = 3
+			hospital = 1
+			power_plant = 1
+			infrastructure = 4
+			steel_making = 2
+			industrial_complex = 3
+		}
+		
+		victory_points = {
+			947 8
+		}
+		victory_points = {
+			3851 5
+		}
+		victory_points = {
+			9887 6
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		785 947 3786 3851 6864 6912 9799 9887 11778 11867 
+	}
+}

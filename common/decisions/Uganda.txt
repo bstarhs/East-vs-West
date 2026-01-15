@@ -1,0 +1,29 @@
+political_actions = {
+	UGA_TAZ_war = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = UGA
+		}
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+			modifier = {
+			add = 100 
+			date > 1978.6.1
+			}
+		}
+
+		complete_effect = {
+			add_named_threat = { threat = 3 name = TAZWAR }
+			declare_war_on = {
+				target = TAZ
+				type = annex_everything
+			}
+		}
+
+	
+	}
+	
+}

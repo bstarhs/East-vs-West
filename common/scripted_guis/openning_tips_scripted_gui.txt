@@ -1,0 +1,481 @@
+scripted_gui = {
+	openning_tips = {
+		window_name = "openning_tips_container"
+		context_type = player_context
+		visible = {
+			check_variable = { show_openning_tips = 0 }
+		}
+		effects = {
+			openning_tips_close_button_click = {
+				if = {
+					limit = { check_variable = { show_openning_tips = 0 } }
+					set_variable = { show_openning_tips = 1 }
+				}
+				else_if = {
+					limit = { check_variable = { show_openning_tips = 1 } }
+					set_variable = { show_openning_tips = 0 }
+				}
+			}
+			tips_main_button_click = {
+				set_variable = { show_tips = 1 }
+			}
+			tips_civil_button_click = {
+				set_variable = { show_tips = 2 }
+			}
+			tips_class_button_click = {
+				set_variable = { show_tips = 3 }
+			}
+			tips_economic_button_click = {
+				set_variable = { show_tips = 4 }
+			}
+			tips_space_button_click = {
+				set_variable = { show_tips = 5 }
+			}
+			tips_nuke_button_click = {
+				set_variable = { show_tips = 6 }
+			}
+			tips_UN_button_click = {
+				set_variable = { show_tips = 7 }
+			}
+			tips_ethnics_button_click = {
+				set_variable = { show_tips = 8 }
+			}
+			tips_finance_button_click = {
+				set_variable = { show_tips = 9 }
+			}
+		}
+		triggers = {
+			tips_titles_visible = {
+				OR = {
+					check_variable = { show_tips = 0 }
+					check_variable = { show_tips = 1 }
+				}
+			}
+			tips_text_visible = {
+				OR = {
+					check_variable = { show_tips = 0 }
+					check_variable = { show_tips = 1 }
+				}
+			}
+			ethnic_tips_titles_visible = {
+				check_variable = { show_tips = 8 }
+			}
+			ethnic_tips_text_visible = {
+				check_variable = { show_tips = 8 }
+			}
+			ethnics_poster_visible = {
+				check_variable = { show_tips = 8 }
+			}
+			space_tips_titles_visible = {
+				check_variable = { show_tips = 5 }
+			}
+			space_tips_text_visible = {
+				check_variable = { show_tips = 5 }
+			}
+			space_poster_visible = {
+				check_variable = { show_tips = 5 }
+			}
+			space_tips_arrow_visible = {
+				check_variable = { show_tips = 5 }
+			}
+			nuke_tips_titles_visible = {
+				check_variable = { show_tips = 6 }
+			}
+			nuke_tips_text_visible = {
+				check_variable = { show_tips = 6 }
+			}
+			nuke_poster_visible = {
+				check_variable = { show_tips = 6 }
+			}
+			nuke_tips_arrow_visible = {
+				check_variable = { show_tips = 6 }
+			}
+			civil_tips_titles_visible = {
+				check_variable = { show_tips = 2 }
+			}
+			civil_tips_text_visible = {
+				check_variable = { show_tips = 2 }
+			}
+			civil_poster_visible = {
+				check_variable = { show_tips = 2 }
+			}
+			civil_tips_arrow_visible = {
+				check_variable = { show_tips = 2 }
+			}
+			production_poster_visible = {
+				check_variable = { show_tips = 4 }
+			}
+			production_tips_text_visible = {
+				check_variable = { show_tips = 4 }
+			}
+			production_tips_titles_visible = {
+				check_variable = { show_tips = 4 }
+			}
+			production_tips_arrow_visible = {
+				check_variable = { show_tips = 4 }
+			}
+			finance_poster_visible = {
+				check_variable = { show_tips = 9 }
+			}
+			finance_tips_titles_visible = {
+				check_variable = { show_tips = 9 }
+			}
+			finance_tips_text_visible = {
+				check_variable = { show_tips = 9 }
+			}
+			finance_tips_arrow_visible = {
+				check_variable = { show_tips = 9 }
+			}
+			un_tips_titles_visible = {
+				check_variable = { show_tips = 7 }
+			}
+			un_tips_text_visible = {
+				check_variable = { show_tips = 7 }
+			}
+			un_tips_arrow_visible = {
+				check_variable = { show_tips = 7 }
+			}
+			un_poster_visible = {
+				check_variable = { show_tips = 7 }
+			}
+			tips_name_title_visible = {
+				check_variable = { show_tips = 3 }
+			}
+			tips_NAME_text_visible = {
+				check_variable = { show_tips = 3 }
+			}
+			tips_CONTACT_title_visible = {
+				check_variable = { show_tips = 3 }
+			}
+			tips_CONTACT_text_visible = {
+				check_variable = { show_tips = 3 }
+			}
+			tips_USA_1949_visible = {
+				tag = USA
+				date > 1945.1.1
+				date < 1957.1.1
+			}
+			tips_CAM_1970_visible = {
+				tag = CAM
+				has_government = neutrality
+			}
+			CAM_poster_visible = {
+				tag = CAM
+				has_government = monarchism
+			}
+			tips_CAM_ROUGE_visible = {
+				tag = CAM
+				has_government = communism
+				NOT = { is_puppet_of = VIN }
+			}
+			CAM_VET_poster_visible = {
+				tag = CAM
+				has_government = communism
+				is_puppet_of = VIN
+			}
+			main_MEX_visible = {
+				tag = MEX
+			}
+			main_FRA_ALG_visible = {
+				tag = FRA
+				date > 1954.1.1
+				date < 1963.1.1
+			}
+			main_BADISTAS_visible = {
+				tag = CUB
+				has_government = neutrality
+			}
+			main_HOL_visible = {
+				tag = HOL
+				date < 1962.1.1
+			}
+			main_Marcos_visible = {
+				tag = PHI
+				date > 1970.1.1
+			}
+			PHI_poster_visible = {
+				tag = PHI
+				date < 1960.1.1
+			}
+			main_FRA_1970_visible = {
+				tag = FRA
+				date > 1970.1.1
+				date < 1980.1.1
+			}
+			main_FRA_1980_visible = {
+				tag = FRA
+				date > 1980.1.1
+			}
+			main_PRK_1956_visible = {
+				tag = PRK
+				date > 1955.1.1
+			}
+			PRK_poster_visible = {
+				tag = PRK
+				date < 1955.1.1
+			}
+			main_BRA_visible = {
+				tag = BRA
+			}
+			main_Pahlavid_visible = {
+				tag = PER
+				has_government = monarchism
+			}
+			main_DOM_visible = {
+				tag = DOM
+				NOT = { has_government = neutrality }
+			}
+			main_ARG_normal_visible = {
+				tag = ARG
+				NOT = { has_government = authoritarianism }
+			}
+			main_CHI_war_visible = {
+				tag = CHI
+				has_war_with = PRC
+			}
+			main_ALB_visible = {
+				tag = ALB
+			}
+			main_COG_visible = {
+				tag = COG
+			}
+			main_PRC_1956_visible = {
+				tag = PRC
+				date > 1953.1.1
+				date < 1960.1.1
+			}
+			PRC_poster_visible = {
+				tag = PRC
+				date > 1965.1.1
+				date < 1980.1.1
+			}
+			PRC_1949_poster_visible = {
+				tag = PRC
+				date < 1954.1.1
+			}
+			PRC_1980_poster_visible = {
+				tag = PRC
+				date > 1980.1.1
+			}
+			SOV_poster_visible = {
+				tag = SOV
+				date > 1954.1.1
+				date < 1980.1.1
+			}
+			SOV_corn_poster_visible = {
+				tag = SOV
+				date > 1954.1.1
+				date < 1960.1.1
+			}
+			SOV_stalin_poster_visible = {
+				tag = SOV
+				date > 1954.1.1
+				date < 1960.1.1
+			}
+			SOV_space_poster_visible = {
+				tag = SOV
+				date > 1960.1.1
+				date < 1964.1.1
+			}
+			SOV_andropov_poster_visible = {
+				tag = SOV
+				date > 1983.1.1
+			}
+			thatcher_poster_visible = {
+				tag = ENG
+				date > 1980.1.1
+			}
+			main_USA_Kennedy_visible = {
+				tag = USA
+				date > 1960.1.1
+				date < 1964.1.1
+			}
+			main_USA_1965_visible = {
+				tag = USA
+				date > 1964.1.1
+				date < 1975.1.1
+			}
+			main_WGR_visible = {
+				tag = WDR
+				date < 1970.1.1
+			}
+			main_GER_1990_visible = {
+				tag = WDR
+				date > 1991.1.1
+			}
+			main_ITA_visible = {
+				tag = ITA
+				date < 1960.1.1
+			}
+			main_Ceausescu_visible = {
+				tag = ROM
+				date > 1975.1.1
+			}
+			main_KOR_1980_visible = {
+				tag = KOR
+				date > 1980.1.1
+			}
+			Baltia_poster_visible = {
+				OR = {
+				tag = LIT
+				tag = LAT
+				tag = EST
+				}
+			}
+			BUL_poster_visible = { tag = BUL }
+			DDR_poster_visible = { tag = DDR }
+			ENG_poster_visible = { tag = ENG }
+			HUN_poster_visible = { tag = HUN }
+			INS_poster_visible = { tag = INS }
+			ISR_poster_visible = { tag = ISR }
+			POL_poster_visible = { tag = POL }
+			RAJ_poster_visible = { tag = IND }
+			SVN_poster_visible = {
+				tag = SVN
+				has_government = neutrality
+			}
+			NGO_poster_visible = {
+				tag = SVN
+				has_government = authoritarianism
+			}
+			SIA_poster_visible = { tag = SIA }
+			TUR_poster_visible = { tag = TUR }
+			USA_poster_visible = { tag = USA }
+			VIN_poster_visible = { tag = VIN }
+			WGR_poster_visible = { tag = WGR }
+			YUG_poster_visible = { tag = YUG }
+			RHONYA_poster_visible = {
+				tag = RHO
+				date > 1955.1.1
+				date < 1964.1.1
+			}
+			ETH_poster_visible = {
+				tag = ETH
+				has_government = monarchism
+			}
+			ETH_COM_poster_visible = {
+				tag = ETH
+				has_government = communism
+			}
+			ARG_poster_visible = {
+				tag = ARG
+				has_government = authoritarianism
+			}
+			AFG_poster_visible = {
+				tag = AFG
+				has_government = communism
+			}
+			main_CZE_visible = {
+				tag = CZE
+				has_government = communism
+			}
+			CHL_COM_poster_visible = {
+				tag = CHL
+				has_government = communism
+			}
+			CHI_poster_visible = {
+				tag = CHI
+				date > 1976.1.1
+			}
+			CHI_1947_poster_visible = {
+				tag = CHI
+				date < 1976.1.1
+			}
+			CUB_poster_visible = {
+				tag = CUB
+				has_government = communism
+			}
+			EGY_poster_visible = {
+				tag = EGY
+				has_government = neutrality
+			}
+			IRQ_poster_visible = {
+				tag = IRQ
+				has_government = neutrality
+			}
+			Gaulle_poster_visible = {
+				tag = FRA
+				date > 1962.1.1
+				date < 1970.1.1
+			}
+			JAP_1950_poster_visible = {
+				tag = JAP
+				date > 1945.1.1
+				date < 1964.1.1
+			}
+			JAP_1970_poster_visible = {
+				tag = JAP
+				date > 1964.1.1
+			}
+			KOR_poster_visible = {
+				tag = KOR
+				date < 1961.1.1
+			}
+			KOR_1961_poster_visible = {
+				tag = KOR
+				date > 1962.1.1
+			}
+			LBA_poster_visible = {
+				tag = LBA
+				has_government = neutrality
+			}
+			PER_poster_visible = {
+				tag = PER
+				has_government = fascism
+			}
+			Pahlavi_poster_visible = {
+				tag = PER
+				has_government = monarchism
+			}
+			POR_poster_visible = {
+				tag = POR
+				has_government = authoritarianism
+			}
+			POR_1974_poster_visible = {
+				tag = POR
+				date > 1974.1.1
+			}
+			RHO_poster_visible = {
+				tag = RHO
+				date > 1964.1.1
+			}
+			ROM_poster_visible = {
+				tag = ROM
+				has_government = communism
+			}
+			SPR_poster_visible = {
+				tag = SPR
+				has_government = neutrality
+			}
+			SAF_poster_visible = {
+				tag = SAF
+				has_government = authoritarianism
+			}
+			SVN_poster_visible = {
+				tag = SVN
+				date > 1955.1.1
+			}
+			Suharto_poster_visible = {
+				tag = INS
+				has_government = neutrality
+			}
+		}		
+	}
+	tips_gui_button = {
+		window_name = "tips_button_container"
+		context_type = player_context
+		effects = {	
+		tips_button_click = {
+				if = {
+					limit = { check_variable = { show_openning_tips = 0 } }
+					set_variable = { show_openning_tips = 1 }
+				}
+				else_if = {
+					limit = { check_variable = { show_openning_tips = 1 } }
+					set_variable = { show_openning_tips = 0 }
+				}
+            }
+        }		
+	}
+}
+

@@ -1,0 +1,37 @@
+
+
+BEL_KTG = {
+	reversed = yes
+	enable = {
+		original_tag = BEL
+	}
+	abort = {
+		OR = {
+			date < 1939.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KTG"
+		value = 50
+	}
+}
+SOV_COG_Civilwar = {
+	reversed = yes
+	enable = {
+		original_tag = COG
+		has_government = democratic
+	}
+	abort = {
+		OR = {
+			date < 1939.1.1
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SOV
+		value = 50
+	}
+}

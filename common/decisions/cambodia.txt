@@ -1,0 +1,64 @@
+political_actions = {
+	
+	CAM_Conflit = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = CAM
+		}
+
+		cost = 20
+
+		visible = {
+			date > 1975.1.1
+			date < 1980.1.1
+			has_government = communism
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+			add = 100 
+			date > 1978.12.1 }
+		}
+
+		complete_effect = {
+			VIN = { news_event = { id = vin.55 } }
+		}
+	}
+	vin_out_cam = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = VIN
+		}
+
+		cost = 200
+
+		visible = {
+			CAM = { is_puppet_of = VIN }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				OR = {
+				CAM = { has_stability < 0.2 }
+				has_stability < 0.4
+				has_war_support < 0.4
+				}
+			}
+			modifier = {
+				add = 10
+				DDR = { has_government = democratic }
+			}
+		}
+
+		complete_effect = {
+			end_puppet = CAM
+		}
+	}
+}

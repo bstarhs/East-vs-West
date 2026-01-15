@@ -1,0 +1,25 @@
+﻿add_namespace = den
+news_event = {
+	id = den.1
+	title = den.1.t
+	desc = den.1.d
+	picture = GFX_FrederikIX
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1947.4.1
+		date < 1947.10.1
+		NOT = { has_idea = FrederickIX }
+		tag = DEN
+	}
+	option = {
+		name = den.1.a
+		if = {
+			limit = { tag = DEN }
+			add_ideas = FrederickIX
+		}
+	}
+
+}

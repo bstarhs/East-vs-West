@@ -1,0 +1,33 @@
+ideas = {
+
+	country = {
+		Vietnam_AST = {
+			allowed = {
+				always = yes
+			}
+			cancel = {
+			OR = {
+				SVN = { has_government = communism }
+				VIN = { controls_state = 286 }
+				has_idea = Total_Vietnam_War
+				}
+			}
+			picture = M14
+			modifier = {
+				send_volunteer_size = 2
+				political_power_cost = 0.1
+				send_volunteer_divisions_required = -0.9 
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		white_ast = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = france_colony
+			modifier = {
+			}
+		}
+	}
+}

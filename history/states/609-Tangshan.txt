@@ -1,0 +1,48 @@
+
+state={
+	id=609
+	name="STATE_609" # East Hebei
+	manpower = 6400000
+	
+	state_category = town
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = gold_production
+		add_to_array = { this.state_ethnics_list = 1 }
+		set_state_flag = ethnics_Han
+		owner = DOB
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			hospital = 1
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 1
+			3900 = {
+				naval_base = 2
+			}
+		}
+		victory_points = { 12043 3 }
+		victory_points = { 3900 3 }
+		victory_points = { 11822 2 }
+		1949.10.25 = {
+			owner = PRC
+		}
+		1970.1.1 = {
+				set_state_category = city
+			buildings = {
+				infrastructure = 7
+				industrial_complex = 4
+				power_plant = 3
+				school= 2
+				steel_making= 3
+			}
+		}
+
+	}
+
+	provinces={
+		900 1052 3830 3900 6969 11822 12043 
+	}
+}

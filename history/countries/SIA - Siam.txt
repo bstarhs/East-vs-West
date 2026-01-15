@@ -1,0 +1,480 @@
+﻿capital = 289
+
+oob = "SIA_1936"
+
+set_country_flag = has_monarchs
+set_country_flag = developmented
+set_country_flag = southeastasia
+set_country_flag = main_country
+set_country_flag = third_world
+set_country_flag = british_colonies
+# Starting tech
+	set_variable = { this.education = 42 }
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = female_equality
+	activate_decision = create_radio_station
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	marines = 1
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+}
+	add_to_array = { global.UNmember_list = FROM }
+set_convoys = 15
+add_ideas = {
+	localism
+	service_by_requirement
+	Hinayana
+	UNmember
+	governed_economic
+	corrupt
+	closed_economy
+}
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "SIA_1947"
+}
+
+set_popularities = {
+	democratic = 15
+	communism = 5
+	neutrality = 80
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+add_ideas = {
+	RamaIX
+	militarist_politician
+}
+			recruit_character = SIA_Wichitwathakan
+create_country_leader = {
+	name = "Thawan Thamrongnawasawat"
+	desc = "POLITICS_PHRAYA_PHAHON_DESC"
+	picture = "gfx/leaders/SIA/Portrait_Siam_Thawan_Thamrongnawasawat.tga"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		#
+	}
+}
+1948.1.1 = {
+	complete_national_focus = common_1
+	complete_national_focus = common_19
+	create_country_leader = {
+		name = "Plaek Phibunsongkhram"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Plaek_Phibunsongkhram.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { staunch_monarchist anti_communist Developmentalism dictator }
+	}
+}
+1950.2.1 = {
+	complete_national_focus = common_diplomacy
+	set_technology = {
+		can_foods = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	complete_national_focus = common_13
+	set_popularities = {
+		democratic = 25
+		monarchism = 10
+		neutrality = 60
+		communism = 5
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+1955.1.1 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = USA
+	}
+	oob = "SIA_1950"
+	complete_national_focus = common_4
+	complete_national_focus = commons_5
+	complete_national_focus = common_10
+	set_technology = {
+		laundry = 1
+		frozen_food = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		decimetric_radar = 1
+		construction2 = 1
+		rocket_engines = 1
+		telegraph = 1
+		machine_gun2 = 1
+		spaa1 = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+		paratroopers = 1
+		marines2 = 1
+	}
+	add_ideas = {
+		SEATO
+	}
+}
+1957.1.1 = {
+	add_ideas =Marshall
+	complete_national_focus = common_19
+	complete_national_focus = common_20
+	create_country_leader = {
+		name = "Sarit Thanarat"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Sarit_Thanarat.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { staunch_monarchist anti_communist Developmentalism dictator }
+	}
+}
+1960.1.20 = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = WDR
+	}
+	complete_national_focus = common_diplomacy_latins
+	complete_national_focus = common_75
+	give_military_access = USA
+	complete_national_focus = common_63
+	complete_national_focus = common_64
+	complete_national_focus = common_62
+	set_technology = {
+		spaa1 = 1
+		sp_artillery1 = 1
+		
+		vaccum_tube = 1
+		basic_heavy_tank = 1
+		napalm = 1
+		rubber_processing = 1
+		improved_medium_tank = 1
+		fuel_refining = 1
+	}
+}
+
+1964.1.20 = {
+	retire_character = SIA_Wichitwathakan
+	set_country_flag = female_finished
+	complete_national_focus = common_65
+	complete_national_focus = common_67
+	complete_national_focus = common_25
+	complete_national_focus = common_12
+	complete_national_focus = common_15
+	complete_national_focus = common_23
+	set_variable = { this.education = 61 }
+	complete_national_focus = common_medic
+	create_intelligence_agency = yes
+	complete_national_focus = steel_produc
+	set_popularities = {
+		democratic = 15
+		communism = 35
+		neutrality = 50
+	}
+	set_technology = {
+		dispersed_industry4 = 1
+		CAS3 = 1
+		fighter2 = 1
+		improved_decimetric_radar = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		excavation3 = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		power_generation2 = 1
+		cable_television = 1
+		construction3 = 1
+		auto_industry = 1
+	}
+	add_ideas = {
+		southeast_revolution
+	}
+	create_country_leader = {
+		name = "Thanom Kittikachorn"
+		picture = "gfx/leaders/SIA/Portrait_Siam_Thanom_Kittikachorn.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = { staunch_monarchist anti_communist dictator }
+	}
+}
+
+
+1971.1.20 = {
+	complete_national_focus = common_76
+	complete_national_focus = common_78
+	complete_national_focus = common_68
+	complete_national_focus = common_56
+	set_popularities = {
+		democratic = 20
+		communism = 35
+		neutrality = 45
+	}
+	set_technology = {
+		early_light_cruiser = 1
+		paratroopers2 = 1
+		machine_gun2 = 1
+		fuel_refining2 = 1
+		fighter3 = 1
+		improved_rubber_processing = 1
+		improved_heavy_tank = 1
+		improved_infantry_weapons = 1
+	}
+		create_equipment_variant = {
+			name = "Tapi-class"
+			type = light_cruiser_1
+			parent_version = 0
+			upgrades = {
+				ship_reliability_upgrade = 2
+				ship_engine_upgrade = 2
+				ship_gun_upgrade = 1
+				ship_anti_air_upgrade = 1
+			}
+			obsolete = yes
+		}
+}
+1973.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = steel_produc
+	add_popularity = {
+		ideology = democratic
+		popularity = 0.2
+	}
+}
+1976.1.20 = {
+	set_country_flag = china_diplomacy
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_pro_west
+	}
+	set_technology = {
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+	}
+	create_country_leader = {
+		name = "Thanin Kraivichien"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Thanin_Kraivichien.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = {
+			anti_communist
+		}
+	}
+}
+1977.1.20 = {
+	remove_ideas =Marshall
+	complete_national_focus = focus_electro
+	complete_national_focus = oil_produc
+	remove_ideas = SEATO
+	create_country_leader = {
+		name = "Kriangsak Chomanan"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Kriangsak_Chamanan.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = {
+			anti_communist
+		}
+	}
+}
+1980.1.1 = {
+	complete_national_focus = common_missile
+	oob = "SIA_1980"
+	create_country_leader = {
+		name = "Prem Tinsulanonda"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Prem_Tinsulanonda.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = {
+			anti_communist
+		}
+	}
+}
+1981.1.1 = {
+	set_technology = {
+		infantry_at2 = 1
+		CAS4 = 1
+		advanced_medium_tank = 1
+		mechanised_infantry2 = 1
+		advanced_infantry_weapons = 1
+	}
+	set_popularities = {
+		communism = 40
+		neutrality = 40
+		democratic = 20
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1988.1.1 = {
+	set_technology = {
+		basic_light_cruiser = 1
+		advanced_heavy_tank = 1
+		fighter4 = 1
+	}
+		create_equipment_variant = {
+			name = "Khamronsin-class"
+			type = light_cruiser_2
+			parent_version = 0
+			upgrades = {
+				ship_reliability_upgrade = 2
+				ship_engine_upgrade = 2
+				ship_gun_upgrade = 1
+				ship_anti_air_upgrade = 1
+			}
+			obsolete = yes
+		}
+	create_country_leader = {
+		name = "Chatichai Choonhavan"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Chatichai_Choonhavan.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		traits = {
+		
+		}
+	}
+}
+1991.1.1 = {
+	set_popularities = {
+		democratic = 65
+		neutrality = 10
+		communism = 25
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Anan Panyarachun"
+		
+		picture = "gfx/leaders/SIA/Portrait_Siam_Anand_Panyarachun.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}

@@ -1,0 +1,50 @@
+
+state={
+	id=26
+	name="STATE_26" # Auveregne
+	manpower = 877800
+	
+	state_category = town
+	local_supplies=0.0
+
+	history={
+                              
+		owner = FRA
+		add_core_of = OCC
+		add_to_array = { this.state_ethnics_list = 70 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 128 }
+		set_state_flag = ethnics_Octavian
+		victory_points = {
+			3594 3
+		}
+		victory_points = {
+			3754 3
+		}
+		victory_points = {
+			6644 5
+		}
+		victory_points = {
+			9748 6
+		}
+		buildings = {
+			school = 1
+			farm_building = 3
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 1
+
+		}
+		add_core_of = FRA
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces={
+		590 769 3594 3754 6644 6773 6789 9593 9607 9748 11576 
+	}
+}

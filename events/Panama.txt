@@ -1,0 +1,70 @@
+﻿add_namespace = pan
+#来自中国的支援
+news_event = {
+	id = pan.5
+	title = pan.5.t
+	desc = pan.5.d
+	picture = GFX_liberation_Nanjing
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = pan.5.a
+			PAN = {
+ 			transfer_state = 685
+			add_political_power = 200
+			diplomatic_relation = {
+				relation = military_access
+				country = USA
+				active = yes
+			}
+		}
+	}
+}
+#诺加列上台
+news_event = {
+	id = pan.10
+	title = pan.5.t
+	desc = pan.5.d
+	picture = GFX_liberation_Nanjing
+	trigger = {
+		tag = PAN
+		date > 1983.6.1
+		date < 1983.10.1
+	}
+	fire_only_once = yes
+	option = {
+		name = pan.5.a
+		set_politics = { ruling_party = neutrality }
+		create_country_leader = {
+			name = "Manuel Antonio Noriega Moreno"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/PAN/Portrait_Panama_Manuel_Noriega.tga"
+			expire = "1979.1.1"
+			ideology = despotism
+		
+			traits = {
+		
+			}
+		}
+	}
+}
+#诺加列上台
+news_event = {
+	id = pan.12
+	title = pan.5.t
+	desc = pan.5.d
+	picture = GFX_liberation_Nanjing
+	is_triggered_only = yes
+	option = {
+		name = pan.5.a
+		USA = {
+			declare_war_on = {
+				target = PAN
+				type = puppet_wargoal_focus 
+			}
+		}
+	}
+}
+
+

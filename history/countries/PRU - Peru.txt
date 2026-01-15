@@ -1,0 +1,319 @@
+﻿capital = 303
+
+oob = "PRU_1936"
+	add_to_array = { global.UNmember_list = FROM }
+set_country_flag = language_spannish
+set_country_flag = latin_america
+set_country_flag = andes_states
+set_country_flag = developmented
+set_country_flag = has_monarchs
+add_ideas = {
+
+	UNmember
+	Catholicism
+	partial_economic_mobilisation
+}
+# Starting tech
+set_technology = {
+	motorised_infantry = 1
+		excavation1 = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		motorize_doctrine = 1
+		medical1 = 1
+		radio_detection = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		helmet = 1
+	infantry_weapons = 1
+	gw_artillery = 1
+	early_fighter = 1
+	
+	early_bomber = 1
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+set_country_flag = monroe_doctrine
+
+set_convoys = 5
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	
+	oob = "PRU_1947"
+	set_technology = {
+	
+		interwar_artillery = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+set_popularities = {
+	democratic = 65
+	neutrality = 30
+	communism = 5
+}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1931.10.11"
+	election_frequency = 96
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Bustamante y Rivero"
+	desc = "POLITICS_OSCAR_BENAVIDES_DESC"
+	picture = "gfx/leaders/PRU/Portrait_Peru_Bustamante.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+	complete_national_focus = commons_5
+1948.1.20 = {
+	set_popularities = {
+		democratic = 35
+		neutrality = 60
+		communism = 5
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1931.10.11"
+		election_frequency = 96
+		elections_allowed = yes
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+	create_country_leader = {
+		name = "Manuel Arturo Odría"
+		
+		picture = "gfx/leaders/PRU/Portrait_Peru_Manuel_Odria.tga"
+		expire = "2050.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1956.3.12 = {
+	complete_national_focus = steel_produc
+	activate_decision = female_equality
+	add_ideas = {
+		APLA
+	}
+	set_popularities = {
+		democratic = 55
+		neutrality = 30
+		communism = 15
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Manuel Prado y Ugarteche"
+		
+		picture = "gfx/leaders/PRU/Portrait_Peru_Manuel_Prado_Ugarteche.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1963.1.20 = {
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	create_country_leader = {
+		name = "Fernando Terry"
+		
+		picture = "gfx/leaders/PRU/Portrait_Peru_Fernando_Terry.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1967.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_country_flag = china_diplomacy
+	complete_national_focus = common_medic
+	activate_decision = Establishment_of_National_Museum
+	add_ideas = {
+		Latin_america_no_nuce
+	}
+}
+1975.1.20 = {
+	set_country_flag = female_finished
+	complete_national_focus = common_24
+	remove_ideas = APLA
+	add_ideas = {
+		gaulle
+	}
+	set_popularities = {
+		democratic = 15
+		neutrality = 60
+		communism = 75
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Francisco Morales Bermúdez"
+		
+		picture = "gfx/leaders/PRU/Portrait_Peru_Francisco.tga"
+		expire = "2050.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1980.3.12 = {
+	set_popularities = {
+		democratic = 65
+		neutrality = 10
+		communism = 25
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Fernando Terry"
+		
+		picture = "gfx/leaders/PRU/Portrait_Peru_Fernando_Terry.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.1 = {	
+	add_ideas = {
+		debt_crisis
+	}
+}
+1985.1.20 = {
+	create_country_leader = {
+		name = "Alan Garcia Perez"
+		
+		picture = "gfx/leaders/PRU/Portrait_Peru_Alan.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+
+1990.1.20 = {
+	set_popularities = {
+		democratic = 30
+		communism = 4
+		authoritarianism = 56
+		neutrality = 10
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1931.11.8"
+	election_frequency = 72
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Alberto Fujimori"
+		picture = "gfx/leaders/PRU/Portrait_Peru_Fujimori.tga"
+	expire = "1965.1.1"
+	ideology = authoritarianism
+	traits = {
+		#
+	}
+}
+}

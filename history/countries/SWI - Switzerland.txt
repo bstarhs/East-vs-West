@@ -1,0 +1,111 @@
+﻿capital = 3
+
+oob = "SWI_1936"
+
+set_research_slots = 3
+set_country_flag = language_German
+	set_country_flag = developmented
+	set_country_flag = female_finished
+	complete_national_focus = common_weman_right
+add_ideas = {
+
+	Lutheranism
+}
+	set_variable = { this.education = 72 }
+	add_to_array = { global.un_treaty_list = 1 }
+	add_to_array = { global.un_treaty_list = 2 }
+set_technology = {
+		army_aviation = 1
+	basic_train = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+		medical1 = 1
+	early_fighter = 1
+	CAS1 = 1
+}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+	oob = "SWI_1947"
+	set_technology = {
+		motorised_infantry = 1
+		fighter1 = 1
+		gw_artillery = 1
+		interwar_artillery = 1
+		interwar_antiair = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+	set_popularities = {
+		democratic = 98
+		communism = 2
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1935.10.27"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+add_ideas = {
+	neutrality_idea	
+	limited_conscription
+		Olympic
+}
+
+	complete_national_focus = Focus_Goverment_reform
+set_stability = 0.85
+
+create_country_leader = {
+	name = "Federal Council"
+	desc = "POLITICS_FEDERAL_COUNCIL_DESC"
+	picture = "gfx/leaders/SWI/Portrait_Switzerland_Federal_council.dds"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+
+1950.1.1 = {
+	remove_ideas = Olympic
+	set_country_flag = china_diplomacy
+}

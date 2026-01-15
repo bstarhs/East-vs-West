@@ -1,0 +1,152 @@
+add_namespace = swe
+#1958世界杯
+news_event = {
+	id = swe.10
+	title = swe.10.t
+	desc = swe.10.d
+	picture = GFX_FIFA1958
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1950.6.1
+		date < 1951.1.1
+		NOT = { has_global_flag = swe10 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe10
+	}
+}
+news_event = {
+	id = swe.11
+	title = swe.11.t
+	desc = swe.11.d
+	picture = GFX_FIFA1958
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		NOT = { has_global_flag = swe11 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe11
+	}
+}
+news_event = {
+	id = swe.12
+	title = swe.12.t
+	desc = swe.12.d
+	picture = GFX_FIFA1958USSR
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		has_global_flag = swe11
+		NOT = { has_global_flag = swe12 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe12
+	}
+}
+news_event = {
+	id = swe.13
+	title = swe.13.t
+	desc = swe.13.d
+	picture = GFX_FIFA1958ISREAL
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		has_global_flag = swe12
+		NOT = { has_global_flag = swe13 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe13
+	}
+}
+news_event = {
+	id = swe.16
+	title = swe.16.t
+	desc = swe.16.d
+	picture = GFX_FIFA1958FRANCE
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		has_global_flag = swe12
+		NOT = { has_global_flag = swe16 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe16
+	}
+}
+news_event = {
+	id = swe.17
+	title = swe.17.t
+	desc = swe.17.d
+	picture = GFX_FIFA1958FRANCE
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		has_global_flag = swe16
+		NOT = { has_global_flag = swe17 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe17
+	}
+}
+news_event = {
+	id = swe.18
+	title = swe.18.t
+	desc = swe.18.d
+	picture = GFX_FIFA1958BRASIL
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		has_global_flag = swe17
+		NOT = { has_global_flag = swe18 }
+	}
+	option = { 
+		name = som.13.a
+		set_global_flag = swe18
+	}
+}
+news_event = {
+	id = swe.19
+	title = swe.19.t
+	desc = swe.19.d
+	picture = GFX_FIFA1958BRASIL
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = SWE
+		date > 1958.6.1
+		date < 1958.12.1
+		has_global_flag = swe18
+		NOT = { has_global_flag = swe19 }
+	}
+	option = { 
+		name = swe.19.a
+		set_global_flag = swe19
+	}
+}

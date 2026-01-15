@@ -1,0 +1,49 @@
+characters={
+	POL_Hilary_Minc={
+		name=POL_Hilary_Minc
+		portraits={
+			civilian={
+				small="GFX_idea_Hilary_Minc"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Hilary_Minc
+			visible={
+				date < 1957.1.1
+			}
+			allowed  = {
+				original_tag  = POL
+				has_government  = communism 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.12
+			}
+		}
+	}
+	POL_WladyslawGomulka={
+		name=POL_WladyslawGomulka
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Gomulka.dds"
+				large="gfx/leaders/POL/Portrait_Poland_Gomulka.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { socialist_reformism pro_soviet dictator }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = WladyslawGomulka
+			allowed  = {
+				original_tag  = POL
+				has_government  = communism 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+
+state={
+	id=453
+	name="STATE_453"
+	manpower = 15359
+	
+	state_category = rural
+	resources={
+		coal=7
+	}
+	history = {
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		set_state_flag = ethnics_Arabs
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = EGY
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_core_of = EGY
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			10099 6
+		}
+		victory_points = {
+			4161 3
+		}
+		1956.5.14 = {
+			add_claim_by = ISR
+		}
+		1967.5.14 = {
+			owner = ISR
+		}
+		1979.5.14 = {
+			owner = EGY
+		}
+
+	}
+
+	provinces={
+		1112 4161 9947 10002 10099 11922 11979 12073 13611
+	}
+}

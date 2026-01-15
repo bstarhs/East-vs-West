@@ -1,0 +1,144 @@
+﻿add_namespace = dom
+#纳米比亚立
+news_event = {
+	id = dom.2
+	title = dom.2.t
+	desc = dom.2.d
+	picture = GFX_DominicaRevolt
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = DOM
+		has_country_flag = CUB_revolucion_supporting
+		NOT = { has_global_flag = dom2 }
+		date < 1963.1.1
+	}
+	option = {
+		name = dji.1.a
+		set_global_flag = dom2
+		if = {
+			limit = { tag = DOM }
+			news_event = { id = dom.3 days = 3 }
+		}
+	}
+
+}
+news_event = {
+	id = dom.3
+	title = dom.3.t
+	desc = dom.3.d
+	picture = GFX_DominicaRevolt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.13.a
+	}
+}
+news_event = {
+	id = dom.4
+	title = dom.4.t
+	desc = dom.4.d
+	picture = GFX_JesusGalindez
+	mean_time_to_happen = { days = 3 }
+	major = yes
+	trigger = {
+		tag = DOM
+		date > 1956.3.10
+		date < 1956.3.21
+		NOT = { has_global_flag = dom4 }
+	}
+	option = {
+		name = dji.1.a
+		set_global_flag = dom4
+	}
+
+}
+news_event = {
+	id = dom.5
+	title = dom.5.t
+	desc = dom.5.d
+	picture = GFX_MirabalSister
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = DOM
+		date > 1960.1.10
+		date < 1960.3.21
+		has_global_flag = dom4
+		NOT = { has_global_flag = dom5 }
+	}
+	option = {
+		name = dji.1.a
+		
+		set_global_flag = dom5
+	}
+
+}
+news_event = {
+	id = dom.6
+	title = dom.6.t
+	desc = dom.6.d
+	picture = GFX_MirabalSister
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = DOM
+		date > 1960.11.10
+		date < 1960.12.21
+		has_global_flag = dom5
+		NOT = { has_country_flag = dom6 }
+	}
+	option = {
+		name = dji.1.a
+		
+		set_country_flag = dom6
+	}
+
+}
+news_event = {
+	id = dom.8
+	title = dom.8.t
+	desc = dom.8.d
+	picture = GFX_RomuloBetancourt
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.13.a
+		set_global_flag = dom8
+	}
+}
+news_event = {
+	id = dom.9
+	title = dom.9.t
+	desc = dom.9.d
+	picture = GFX_BetancourtBomb
+	mean_time_to_happen = { days = 8 }
+	major = yes
+	trigger = {
+		tag = DOM
+		date > 1960.5.10
+		date < 1961.1.21
+		has_global_flag = dom8
+		NOT = { has_global_flag = dom9 }
+	}
+	option = {
+		name = dji.1.a
+		set_global_flag = dom9
+		if = {
+			limit = { tag = VEN }
+			news_event = { id = dom.10 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = dom.10
+	title = dom.10.t
+	desc = dom.10.d
+	picture = GFX_BetancourtSurvive
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sov.13.a
+		set_global_flag = dom9
+	}
+}

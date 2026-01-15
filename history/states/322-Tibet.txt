@@ -1,0 +1,48 @@
+
+state={
+	id=322
+	name="STATE_322"
+	manpower = 37220
+	
+	state_category = rural
+	
+	resources={
+		tungsten=2
+
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 6 }
+		set_state_flag = ethnics_Tibetan
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = TIB
+		add_claim_by = PRC
+		add_core_of = CHI
+			add_core_of = TIB
+		buildings = {
+			infrastructure = 1
+			farm_building = 1
+		}
+		victory_points = { 5033 8 }
+		victory_points = { 10802 2 }
+		victory_points = { 2098 3 }
+		1959.5.23 = {
+		owner = PRC
+			add_core_of = PRC
+		}
+		1960.5.23 = {
+			set_state_category = town
+			buildings = {
+				infrastructure = 2
+			industrial_complex = 1
+				power_plant = 1
+				hospital = 1
+			}
+		}
+	}
+
+	provinces={
+		2014 2098 4994 5033 7926 13373 13375 13376
+	}
+}

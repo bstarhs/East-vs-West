@@ -1,0 +1,37 @@
+
+state={
+	id=148
+	name="STATE_148"
+	manpower = 121737
+	
+	state_category = rural
+	
+	resources={
+		iron=8
+		tungsten=2
+	}
+	history={
+		add_dynamic_modifier = { modifier = state_cold_modifier }
+		set_state_flag = gold_production
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Sami
+		add_to_array = { this.state_ethnics_list = 145 }
+		add_to_array = { this.state_ethnics_list = 68 }
+		owner = FIN
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			school = 1
+			infrastructure = 2
+		}
+		add_core_of = FIN
+		add_core_of = SAM
+		victory_points = {
+			6142 2
+		}
+	}
+
+	provinces={
+		30 103 124 162 167 203 2992 3026 3055 3069 3097 3107 3153 3156 3158 3193 6045 6061 6076 6087 6128 6137 6142 6179 9112 9189 9223 11030 11115 11125 11130 11164 11167 11204 
+	}
+}

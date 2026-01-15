@@ -1,0 +1,33 @@
+
+state={
+	id=763
+	name="STATE_763"
+	manpower = 220000
+	state_category = pastoral
+
+
+	history={
+		
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Arabs
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 24 }
+		owner = ENG
+		add_core_of = QAT
+		1971.5.23 = {
+			owner = QAT
+		}
+		victory_points = {
+			8051 4
+		}
+		buildings = {
+			oilfield = 3
+			infrastructure = 2
+		}
+
+	}
+
+	provinces={
+		8051 
+	}
+}

@@ -1,0 +1,66 @@
+state=
+{
+	id=605
+	name="STATE_605" # Sichuan
+	manpower = 52963300
+	
+	state_category = city
+	
+	resources={
+		phosphate=5
+		salt=45
+	}
+	history=
+	{
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Han
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		
+		buildings = {
+			hospital = 1
+			school = 1
+			power_plant = 2
+			farm_building = 5
+			infrastructure = 4
+			industrial_complex = 4
+			air_base = 2
+		}
+		victory_points = { 4375 10 }
+		victory_points = { 6999 8 }
+		victory_points = { 8026 2 }
+		victory_points = { 12705 2 }
+		victory_points = { 7948 2 }
+		victory_points = { 5048 2 }
+		victory_points = { 12141 2 }
+		victory_points = { 2030 5 }
+		victory_points = { 12767 4 }
+		victory_points = { 11865 3 }
+		victory_points = {
+			1367 3
+		}
+		victory_points = {
+			7256 3
+		}
+
+		1949.10.25 = {
+			controller = PRC
+		}	
+		1950.10.25 = {
+			owner = PRC
+		}
+		1960.10.25 = {
+			set_state_category = large_city
+			buildings = {
+				farm_building = 6
+				industrial_complex = 5
+			}
+		}
+
+	}
+	provinces={
+		1367 1395 1893 2030 2091 4925 5048 6999 7240 7256 8026 10144 10304 11865 11972 12141 12274 12705 12767 12819 7948 10822 4375 2045 14079 10841 
+	}
+}

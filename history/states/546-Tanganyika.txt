@@ -1,0 +1,43 @@
+state={
+	id=546
+	name="STATE_546"
+	
+	state_category = town
+
+	history={
+		owner = TAZ
+		set_state_flag = ethnics_Swahili
+		add_to_array = { this.state_ethnics_list = 157 }
+		add_to_array = { this.state_ethnics_list = 93 }
+		set_state_flag = coffee_production
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		victory_points = {
+			2196 8
+		}
+		victory_points = {
+			8183 4
+		}
+		victory_points = {
+			13453 3
+		}
+		buildings = {
+			hospital = 1
+			infrastructure = 3
+			school = 1
+			farm_building = 2
+			2196 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = TAZ
+	}
+
+	provinces={
+		2196 5224 8183 8205 13453 13836
+	}
+	manpower=5299000
+	buildings_max_level_factor=1.000
+}

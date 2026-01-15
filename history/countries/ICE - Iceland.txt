@@ -1,0 +1,209 @@
+﻿capital = 100 #Iceland
+
+oob = "ICE"
+
+set_country_flag = west_euro_state
+set_research_slots = 1
+set_country_flag = developmented
+set_country_flag = has_monarchs
+set_country_flag = scandinavia_states
+set_country_flag = viking_states
+	set_country_flag = female_finished
+	complete_national_focus = common_61
+	complete_national_focus = common_weman_right
+	set_country_flag = gen230
+add_ideas = {
+
+	Lutheranism
+}
+
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	add_to_array = { global.UNmember_list = FROM }
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	early_fighter = 1
+	early_bomber = 1
+	early_ship_hull_light = 1
+		medical1 = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_cruiser = 1
+	tech_recon = 1
+}
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	set_technology = {
+		gw_artillery = 1
+		interwar_artillery = 1
+		interwar_antiair = 1
+		infantry_weapons2 = 1
+		
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+
+set_convoys = 30
+set_stability = 0.85
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1933.10.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+	set_popularities = {
+		democratic = 92
+		communism = 5
+		neutrality = 3
+	}
+
+create_country_leader = {
+	name = "Ólafur Thors"
+	desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+	picture = "gfx/leaders/ICE/Portrait_Iceland_Ólafur_Thors.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+1950.2.1 = {
+	set_country_flag = israel_diplomacy
+	create_country_leader = {
+		name = "Steingrímur Steintórsson"
+		
+		picture = "gfx/leaders/ICE/Portrait_Iceland_Steingrimur_Steinthorsson.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+	add_ideas = {
+		UNmember
+	}
+1955.1.1 = {
+	complete_national_focus = common_medic
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+create_country_leader = {
+	name = "Ólafur Thors"
+	desc = "POLITICS_KURT_SCHUSCHNIGG_DESC"
+	picture = "gfx/leaders/ICE/Portrait_Iceland_Ólafur_Thors.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+}
+1958.1.1 = {
+	add_ideas = {
+		ICE_12zone
+	}
+}
+1963.1.1 = {
+	create_country_leader = {
+		name = "Bjarni Benediktsson"
+		
+		picture = "gfx/leaders/ICE/Portrait_Iceland_Bjarni_Benediktsson.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1971.1.1 = {
+	create_country_leader = {
+		name = "ólafur Jóhannesson"
+		
+		picture = "gfx/leaders/ICE/Portrait_Olafur_Johannesson.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+	remove_ideas = {
+		ICE_12zone
+	}
+	add_ideas = {
+		ICE_200zone
+	}
+}
+1974.1.1 = {
+	create_country_leader = {
+		name = "Geir Hallgrímsson"
+		
+		picture = "gfx/leaders/ICE/Portrait_Geir_Hallgrimsson.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1983.1.1 = {
+	set_country_flag = china_diplomacy
+	create_country_leader = {
+		name = "Steingrímur Hermannsson"
+		
+		picture = "gfx/leaders/ICE/Portrait_Iceland_Steingrimur_Hermannsson.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}
+1991.1.1 = {
+	create_country_leader = {
+		name = "Davíð Oddsson"
+		
+		picture = "gfx/leaders/ICE/Portrait_Iceland_David_Oddsson.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		
+		}
+	}
+}

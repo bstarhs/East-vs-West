@@ -1,0 +1,127 @@
+scripted_gui = {
+
+	tellevision_container = {
+		window_name = "tellevision_container"
+		
+		context_type = player_context
+		
+		visible = {
+			check_variable = { global.television_visible > 0 }
+		}
+		effects = {
+			television_close_click = {
+				set_variable = { global.television_visible = 0 }
+				clr_global_flag = corn_propaganda_video
+				clr_global_flag = nanking_liberate_video
+				clr_global_flag = video_korea_war
+				clr_global_flag = video_hungary_revo
+				clr_global_flag = video_suez_war
+				clr_global_flag = video_nixon_kennedy
+				clr_global_flag = cuba_revo_video
+				clr_global_flag = israel_war_video
+				clr_global_flag = kashmir_war_video
+				clr_global_flag = valvidia_terramoto_video
+				clr_global_flag = stalin_death_video
+				clr_global_flag = sputnik_video
+				clr_global_flag = elizabeth_crowned_video
+				clr_global_flag = eisenhower_win_video
+				clr_global_flag = kor_419revo_video
+			}
+		}
+		
+		triggers = {
+			kor_419revo_title_visible = {
+				has_global_flag = kor_419revo_video
+			}
+			video_kor_419revo_visible = {
+				has_global_flag = kor_419revo_video
+			}
+			eisenhower_win_title_visible = {
+				has_global_flag = eisenhower_win_video
+			}
+			video_eisenhower_win_visible = {
+				has_global_flag = eisenhower_win_video
+			}
+			elizabeth_crowned_title_visible = {
+				has_global_flag = elizabeth_crowned_video
+			}
+			video_elizabeth_crowned_visible = {
+				has_global_flag = elizabeth_crowned_video
+			}
+			sputnik_title_visible = {
+				has_global_flag = sputnik_video
+			}
+			video_sputnik_visible = {
+				has_global_flag = sputnik_video
+			}
+			stalin_death_title_visible = {
+				has_global_flag = stalin_death_video
+			}
+			video_stalin_death_visible = {
+				has_global_flag = stalin_death_video
+			}
+			kashmir_war_title_visible = {
+				has_global_flag = kashmir_war_video
+			}
+			video_kashmir_war_visible = {
+				has_global_flag = kashmir_war_video
+			}
+			israel_war_title_visible = {
+				has_global_flag = israel_war_video
+			}
+			video_israel_war_visible = {
+				has_global_flag = israel_war_video
+			}
+			valvidia_terramoto_title_visible = {
+				has_global_flag = valvidia_terramoto_video
+			}
+			video_valvidia_terramoto_visible = {
+				has_global_flag = valvidia_terramoto_video
+			}
+			cuba_revo_title_visible = {
+				has_global_flag = cuba_revo_video
+			}
+			video_cuba_revo_visible = {
+				has_global_flag = cuba_revo_video
+			}
+			video_nixon_kennedy_visible = {
+				has_global_flag = video_nixon_kennedy
+			}
+			nixon_kennedy_title_visible = {
+				has_global_flag = video_nixon_kennedy
+			}
+			video_suez_war_visible = {
+				has_global_flag = video_suez_war
+			}
+			suez_war_title_visible = {
+				has_global_flag = video_suez_war
+			}
+			video_hungary_revo_visible = {
+				has_global_flag = video_hungary_revo
+			}
+			hungary_revo_title_visible = {
+				has_global_flag = video_hungary_revo
+			}
+			nanking_liberate_title_visible = {
+				has_global_flag = nanking_liberate_video
+			}
+			video_nanking_liberate_visible = {
+				has_global_flag = nanking_liberate_video
+			}
+			video_corn_propaganda_visible = {
+				has_global_flag = corn_propaganda_video
+			}
+			korea_war_title_visible = {
+				has_global_flag = video_korea_war
+			}
+			video_korea_war_visible = {
+				has_global_flag = video_korea_war
+			}
+			video_china_cctv_news_visible = {
+				has_global_flag = video_china_cctv_news
+			}
+		}
+	}
+	
+}
+

@@ -1,0 +1,50 @@
+state={
+	id=229
+	name="STATE_229"
+	history={
+		
+		set_state_flag = ethnics_Azerbaijan
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = SOV
+		set_state_flag = cutton_production
+		victory_points = { 7661 10 }
+		victory_points = { 4545 3 }
+		victory_points = { 12434 3 }
+		victory_points = { 11674 5 }
+		victory_points = { 9715 3 }
+		victory_points = { 11645 3 }
+		buildings = {
+			power_plant = 2
+			farm_building = 2
+			infrastructure = 4
+			industrial_complex = 1
+			air_base = 1
+			oilfield = 3
+			synthetic_refinery = 2
+
+		}
+		add_core_of = SOV
+		add_core_of = AZR
+		1954.1.1 = {
+			add_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1964.1.1 = {
+			remove_dynamic_modifier = { modifier = state_corn_1_modifiers }
+		}
+		1990.8.23 = {
+			owner = AZR
+			remove_core_of = SOV
+		}
+
+	}
+
+	provinces={
+		1536 1539 1610 4458 4473 4477 4545 4614 6763 7495 7661 11645 11674 11704 12434 13526 14084 9715
+	}
+	manpower=2881049
+	buildings_max_level_factor=1.000
+	state_category=large_town
+}

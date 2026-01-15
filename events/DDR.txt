@@ -1,0 +1,1416 @@
+﻿add_namespace = ddr
+#东德成立
+news_event = {
+	id = ddr.1
+	title = ddr.1.t
+	desc = ddr.1.d
+	picture = GFX_DDR_found
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = DDR_1
+	}
+	option = {
+		name = ddr.1.a
+			if = {
+			limit = { tag = SOV }
+			DDR = {
+			transfer_state = 746
+			transfer_state = 65
+			transfer_state = 64
+			transfer_state = 61
+			transfer_state = 60
+			transfer_state = 62
+			transfer_state = 65
+			}
+		}
+	}
+
+}
+#斯塔西成立
+country_event = {
+	id = ddr.2
+	title = ddr.2.t
+	desc = ddr.2.d
+	picture = GFX_DDR_Army
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ddr.2.a
+	}
+}
+#东德领导人选举
+country_event = {
+	id = ddr.4
+	title = ddr.4.t
+	desc = ddr.4.d
+	picture = GFX_Volkskammer
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DDR
+		has_government = communism
+		date > 1971.5.1
+		date < 1971.8.1
+	}
+	option = {	#昂纳克
+		name = ddr.4.a
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+
+		create_country_leader = {
+			name = "Erich Honecker"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Honecker.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+				
+				traits = {
+				
+				}
+			}
+
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+	option = {	#维利•斯多夫
+		name = ddr.4.b
+		ai_chance = {
+			factor = 8
+		}
+		create_country_leader = {
+				name = "Willi Stoph"
+				desc = "POLITICIAN_PRC_HU_JINTAO_DESC"
+				picture = "gfx/leaders/DDR/Portrait_DDR_Willi_Stoph.tga"
+				expire = "1999.1.1"
+				ideology = stalinism
+				
+				traits = {
+				
+				}
+			}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		
+	}
+}
+#难民西逃
+news_event = {
+	id = ddr.5
+	title = ddr.5.t
+	desc = ddr.5.d
+	picture = GFX_Traitor
+	fire_only_once = yes
+	trigger = {
+		tag = DDR
+		has_government = communism
+		NOT = { has_idea = Berlin_wall }
+		OR = {
+		custom_trigger_tooltip = {
+			tooltip = DDR_influence_lower_WDR		
+			check_variable = { WDR.influences > DDR.influences }
+		}
+		custom_trigger_tooltip = {
+			tooltip = DDR_stability_lower_WDR		
+			check_variable = { DDR.stability < WDR.stability }
+		}
+		custom_trigger_tooltip = {
+			tooltip = DDR_factories_lower_WDR		
+			check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+		}
+		custom_trigger_tooltip = {
+			tooltip = DDR_popularity_lower_WDR		
+			check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+		}
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+		}
+	}
+	mean_time_to_happen = { days = 500 }
+	option = {
+		name = ddr.5.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.01
+		}
+		add_political_power = -40
+	}
+}
+#斯塔西解散
+#兄弟之吻
+#叛逃者
+country_event = {
+	id = ddr.9
+	title = ddr.9.t
+	desc = ddr.9.d
+	picture = GFX_Traitor
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	option = {
+		if = {
+			limit = { tag = DDR }
+			add_to_variable = { influences = -80 }
+		}
+		name = ddr.9.a
+	}
+}
+
+#六一七事件
+news_event = {
+	id = ddr.10
+	title = ddr.10.t
+	desc = ddr.10.d
+	fire_only_once = yes
+	picture = GFX_East_Berlin_1953
+	major = yes
+	trigger = {
+		tag = DDR
+		date > 1953.4.1
+		date < 1953.10.21
+		NOT = { has_global_flag = ddr10 }
+		OR = {
+			has_idea = low_welfare
+			has_completed_focus = DDR_economic
+		}
+	}
+	option = {
+		name = ddr.10.a
+		trigger = { NOT = { tag = DDR } }
+		set_global_flag = ddr10
+	}
+	option = {
+		name = ddr.10.a
+		trigger = { tag = DDR }
+		add_political_power = -100 
+		add_popularity = {
+			ideology = communism 
+			popularity = -0.15 
+		}
+		news_event = { id = ddr.12 }
+		add_stability = -0.3
+		add_named_threat = {
+			threat = 5
+			name = ddr_demo
+		}
+	}
+	option = {
+		name = ddr.10.b
+		trigger = { tag = DDR }
+		ai_chance = { factor = 0 }
+		add_stability = 0.1 
+		add_political_power = 100 
+		SOV = { news_event = { id = ddr.11 } }
+	}
+}
+
+#德国爆发抗议（苏联
+news_event = {
+	id = ddr.11
+	title = ddr.11.t
+	desc = ddr.11.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_East_Berlin_1953
+	option = {
+		ai_chance = { factor = 0 }
+		name = ddr.11.a
+		news_event = { id = ddr.15 }
+	}
+	option = {	#要求镇压
+		name = ddr.11.v
+		DDR = { news_event = { id = ddr.13 } }
+	}
+}
+
+#德国镇压抗议（全球
+news_event = {
+	id = ddr.12
+	title = ddr.12.t
+	desc = ddr.12.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_East_Berlin_1953
+	immediate = {
+		play_song = DDR_2
+	}
+	option = {
+		name = ddr.12.b1
+		set_global_flag = East_Berlin_1953
+	}
+}
+#苏联要求波兰强硬
+news_event = {
+	id = ddr.13
+	title = ddr.13.t
+	desc = ddr.13.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	major = yes
+	picture = GFX_East_Berlin_1953
+	option = {
+		name = ddr.13.a
+		add_political_power = -100 
+		add_popularity = {
+			ideology = communism 
+			popularity = -0.15 
+		}
+		every_country = { news_event = { id = ddr.12 } }
+		add_stability = -0.3
+		add_named_threat = {
+			threat = 15
+			name = Berlin_demo
+		}
+	}
+	option = {
+		name = ddr.13.a
+		add_political_power = -100 
+		add_popularity = {
+			ideology = communism 
+			popularity = -0.08 
+		}
+		SOV = { news_event = { id = ddr.14 } }
+		news_event = { id = ddr.15 }
+		add_stability = 0.12
+		add_named_threat = {
+			threat = 5
+			name = Berlin_demo
+		}
+	}
+}
+#德国镇压抗议（全球
+news_event = {
+	id = ddr.14
+	title = ddr.14.t
+	desc = ddr.14.d
+	is_triggered_only = yes
+	picture = GFX_East_Berlin_1953
+	option = {
+		name = ddr.12.b1
+		set_global_flag = East_Berlin_1953
+		if = {
+			limit = { tag = DDR }
+			add_political_power = -300
+		}
+	}
+}
+#德国接受抗议（全球
+news_event = {
+	id = ddr.15
+	title = ddr.15.t
+	desc = ddr.15.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_East_Berlin_1953
+	option = {
+		name = ddr.12.b1
+		if = {
+			limit = { tag = DDR }
+			add_ideas = hight_welfare
+			add_political_power = -100
+		}
+	}
+}
+#斯塔西逮捕政治犯
+#华沙之跪
+#慕尼黑奥运会
+#封锁柏林
+#逮捕纳粹科学家
+#
+#欧洲委员会
+#难民西逃
+country_event = {
+	id = ddr.20
+	title = ddr.20.t
+	desc = ddr.10.d
+	picture = GFX_BerlinWallFall
+	is_triggered_only = yes
+	option = {
+		add_stability = -0.5
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+		add_to_variable = { influences = -20 }
+	}
+}
+#昂纳克辞职
+country_event = {
+	id = ddr.21
+	title = ddr.21.t
+	desc = ddr.10.d
+	picture = GFX_Volkskammer
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		tag = DDR
+		has_government = communism
+		date > 1989.9.1
+		date < 1989.11.1
+		OR = {
+			has_stability < 0.6
+			democratic > 0.4
+		}
+	}
+	option = {	#昂纳克
+		name = ddr.4.a
+		ai_chance = {
+			factor = 100	
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.15
+		}
+		add_political_power = 200
+		create_country_leader = {
+			name = "Egon Krenz"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Egon_Krenz.tga"
+			expire = "1994.1.1"
+			ideology = stalinism
+			traits = {
+				socialist_reformism
+			}
+		}
+		set_country_flag = krenz
+	}
+	option = {	#维利•斯多夫
+		name = ddr.4.b
+		create_country_leader = {
+				name = "Erich Mielke"
+				desc = "POLITICIAN_PRC_HU_JINTAO_DESC"
+				picture = "gfx/leaders/DDR/Portrait_DDR_Erich_Mielke.tga"
+				expire = "1999.1.1"
+				ideology = stalinism
+				
+				traits = {
+				
+				}
+			}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		
+	}
+}
+#柏林墙倒塌
+news_event = {
+	id = ddr.22
+	title = ddr.22.t
+	desc = ddr.22.d
+	picture = GFX_BerlinWallFall
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {	#昂纳克
+		name = ddr.4.a
+		remove_ideas = Berlin_wall
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.6
+		}
+		news_event = ddr.25
+		add_to_variable = { influences = -120 }
+		WDR = { add_to_variable = { influences = 100 } }
+	}
+}
+#1990大选
+country_event = {
+	id = ddr.23
+	title = ddr.23.t
+	desc = ddr.23.d
+	picture = GFX_Volkskammer
+	fire_only_once = yes
+	trigger = {
+		tag = DDR
+		has_government = communism
+		date > 1990.1.1
+		democratic > 0.4
+	}
+	option = {	#昂纳克
+		name = ddr.4.a
+		ai_chance = {
+			factor = 100	
+		}
+		remove_ideas = warsawpact
+		create_country_leader = {
+			name = "Sabine Bergmann-Pohl"
+			desc = "POLITICIAN_PRC_XI_JINPING_DESC"
+			picture = "gfx/leaders/DDR/Portrait_DDR_Sabine.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+			traits = {
+				
+				}
+		}
+		
+		set_politics = { ruling_party = democratic }
+	}
+}
+
+#联邦统一
+news_event = {
+	id = ddr.24
+	title = ddr.24.t
+	desc = ddr.10.d
+	picture = GFX_BerlinWallFall
+	fire_only_once = yes
+	immediate = {
+		play_song = GER_1
+	}
+	trigger = {
+		DDR = {
+			has_government = democratic
+			democratic > 0.4
+		}
+	}
+	option = {
+		name = ddr.4.a
+		WDR = {
+			transfer_state = 746
+			transfer_state = 65
+			transfer_state = 64
+			transfer_state = 61
+			transfer_state = 60
+			transfer_state = 62
+			transfer_state = 65
+			transfer_state = 747
+		}
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+		if = {
+			limit = { tag = SOV }
+			add_stability = -0.2
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.2
+			}
+		}
+	}
+}
+#柏林墙倒塌（新闻）
+news_event = {
+	id = ddr.25
+	title = ddr.22.t
+	desc = ddr.22.d
+	picture = GFX_BerlinWallFall
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = GER_3
+	}
+	option = {	#昂纳克
+		name = ddr.22.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		if = {
+			limit = {
+			has_government = communism
+			}
+		}
+	}
+}
+#第二次柏林危机
+news_event = {
+	id = ddr.26
+	title = ddr.26.t
+	desc = ddr.26.d
+	picture = GFX_CheckpointCharlie
+	is_triggered_only = yes
+	option = {	#昂纳克
+		name = ddr.26.a
+		SOV = { news_event = { id = ddr.28 } }
+	}
+}
+#服软
+news_event = {
+	id = ddr.27
+	title = ddr.27.t
+	desc = ddr.27.d
+	picture = GFX_CheckpointCharlie
+	is_triggered_only = yes
+	option = {	#昂纳克
+		name = ddr.27.a
+	}
+}
+#美国拒绝
+news_event = {
+	id = ddr.28
+	title = ddr.28.t
+	desc = ddr.28.d
+	picture = GFX_CheckpointCharlie
+	is_triggered_only = yes
+	option = {	#昂纳克
+		name = ddr.28.a
+		add_named_threat = {
+			threat = 6
+			name = Berlin_wall
+		}
+		DDR = {
+		add_named_threat = {
+			threat = 6
+			name = Berlin_wall
+			}
+		}
+		set_global_flag = berlin_criss2
+		news_event = { id = ddr.29 }
+	}
+}
+
+#封锁柏林
+news_event = {
+	id = ddr.29
+	title = ddr.29.t
+	desc = ddr.29.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.29.a
+	}
+}
+
+
+#蔡塞尔事件
+news_event = {
+	id = ddr.32
+	title = ddr.32.t
+	desc = ddr.32.d
+	picture = GFX_WilhelmZaisser
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = DDR
+		has_government = communism
+		date > 1953.10.1
+		date < 1953.12.1
+		has_global_flag = East_Berlin_1953
+		NOT = { has_global_flag = ddr32 }
+	}
+	option = {	#昂纳克
+		name = ddr.30.a
+		set_global_flag = ddr32
+	}
+}
+news_event = {
+	id = ddr.33
+	title = ddr.33.t
+	desc = ddr.33.d
+	picture = GFX_WilhelmZaisser
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = SOV
+		date > 1953.1.1
+		date < 1953.12.1
+		has_global_flag = East_Berlin_1953
+		has_global_flag = ddr32
+		NOT = { has_global_flag = ddr33 }
+	}
+	option = {	#昂纳克
+		name = ddr.30.a
+		set_global_flag = ddr33A
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				SOV_lavrenty_beriya = { is_country_leader = yes }
+			}
+		}
+	}
+	option = {	#昂纳克
+		name = ddr.30.a
+		set_global_flag = ddr33B
+		ai_chance = { factor = 10 }
+	}
+}
+news_event = {
+	id = ddr.34
+	title = ddr.34.t
+	desc = ddr.34.d
+	picture = GFX_WilhelmZaisser
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = DDR
+		date > 1953.1.1
+		date < 1953.12.1
+		has_global_flag = ddr33A
+		NOT = { has_global_flag = ddr34 }
+	}
+	option = {	#昂纳克
+		name = ddr.30.a
+		set_global_flag = ddr34
+		news_event = { id = ddr.35 id = 2 }
+	}
+}
+news_event = {
+	id = ddr.35
+	title = ddr.35.t
+	desc = ddr.35.d
+	picture = GFX_WalterUlbricht
+	is_triggered_only = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+		ai_chance = { factor = 10 }
+		promote_character = DDR_Wilhelm_Zaisser
+		news_event = { id = ddr.36 id = 2 }
+	}
+	option = {	#昂纳克
+		name = ddr.30.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				SOV = { SOV_lavrenty_beriya = { is_country_leader = yes } }
+			}
+		}
+		promote_character = DDR_Rudolf_Herrnstadt
+		news_event = { id = ddr.36 id = 2 }
+	}
+}
+news_event = {
+	id = ddr.36
+	title = ddr.36.t
+	desc = ddr.36.d
+	picture = GFX_SPDCongress
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+		set_global_flag = ddr36
+	}
+}
+news_event = {
+	id = ddr.37
+	title = ddr.37.t
+	desc = ddr.37.d
+	picture = GFX_WilhelmZaisser
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = DDR
+		date > 1953.1.1
+		date < 1953.12.1
+		has_global_flag = ddr33B
+		NOT = { has_global_flag = ddr34 }
+	}
+	option = {	#昂纳克
+		name = ddr.30.a
+		set_global_flag = ddr34
+		news_event = { id = ddr.38 id = 2 }
+	}
+}
+news_event = {
+	id = ddr.38
+	title = ddr.38.t
+	desc = ddr.38.d
+	picture = GFX_SPDCongress
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+##维他可乐
+news_event = {
+	id = ddr.40
+	title = ddr.40.t
+	desc = ddr.40.d
+	picture = GFX_VitaCola
+	mean_time_to_happen = { days = 10 }
+	major = yes
+	trigger = {
+		tag = DDR
+		has_government = communism
+		date > 1958.10.1
+		date < 1960.12.1
+		has_completed_focus = DDR_manufacture_1
+		NOT = { has_global_flag = ddr40 }
+	}
+	option = {
+		name = ddr.30.a
+		set_global_flag = ddr40
+		if = {
+			limit = { tag = DDR }
+			add_political_power = 120
+		}
+	}
+}
+news_event = {
+	id = ddr.41
+	title = ddr.41.t
+	desc = ddr.41.d
+	picture = GFX_Trabant60
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+		if = {
+			limit = { tag = DDR }
+			add_political_power = 120
+		}
+	}
+}
+news_event = {
+	id = ddr.42
+	title = ddr.42.t
+	desc = ddr.42.d
+	picture = GFX_FKKbeach
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+
+#封锁柏林
+news_event = {
+	id = ddr.50
+	title = ddr.50.t
+	desc = ddr.50.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.51
+	title = ddr.51.t
+	desc = ddr.51.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.52
+	title = ddr.52.t
+	desc = ddr.52.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.53
+	title = ddr.53.t
+	desc = ddr.53.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.54
+	title = ddr.54.t
+	desc = ddr.54.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.55
+	title = ddr.55.t
+	desc = ddr.55.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.56
+	title = ddr.56.t
+	desc = ddr.56.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.57
+	title = ddr.57.t
+	desc = ddr.57.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.60
+	title = ddr.60.t
+	desc = ddr.60.d
+	picture = GFX_ThälmannPioniere
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.61
+	title = ddr.61.t
+	desc = ddr.61.d
+	picture = GFX_FDJearly
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.63
+	title = ddr.63.t
+	desc = ddr.63.d
+	picture = GFX_DDR_Army
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = ddr.2.a
+	}
+}
+news_event = {
+	id = ddr.85
+	title = ddr.85.t
+	desc = ddr.85.d
+	picture = GFX_SDP1stConference
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.86
+	title = ddr.86.t
+	desc = ddr.86.d
+	picture = GFX_WalterUlbricht
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+		if = {
+			limit = { tag = DDR }
+			promote_character = DDR_Walter_Ulbricht
+		}
+	
+	}
+}
+news_event = {
+	id = ddr.90
+	title = ddr.90.t
+	desc = ddr.90.d
+	picture = GFX_StasiHeadquarter
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.91
+	title = ddr.91.t
+	desc = ddr.91.d
+	picture = GFX_WestBerlinCheckPoint
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.92
+	title = ddr.92.t
+	desc = ddr.92.d
+	picture = GFX_BerlinWallBuilding
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.93
+	title = ddr.93.t
+	desc = ddr.93.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.94
+	title = ddr.94.t
+	desc = ddr.94.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.95
+	title = ddr.95.t
+	desc = ddr.95.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.100
+	title = ddr.100.t
+	desc = ddr.100.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.101
+	title = ddr.101.t
+	desc = ddr.101.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.102
+	title = ddr.102.t
+	desc = ddr.102.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.110
+	title = ddr.110.t
+	desc = ddr.110.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.120
+	title = ddr.120.t
+	desc = ddr.120.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.121
+	title = ddr.121.t
+	desc = ddr.121.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.122
+	title = ddr.122.t
+	desc = ddr.122.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+news_event = {
+	id = ddr.123
+	title = ddr.123.t
+	desc = ddr.123.d
+	picture = GFX_BerlinWall
+	is_triggered_only = yes
+	major = yes
+	option = {	#昂纳克
+		name = ddr.30.a
+	}
+}
+#难民西逃
+news_event = {
+	id = ddr.201
+	title = ddr.201.t
+	desc = ddr.201.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism > 0.6
+		has_stability > 0.6
+		has_idea = DDR_Republikflucht_3
+		OR = {
+			has_idea = DDR_border_control
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences < DDR.influences }
+				check_variable = { DDR.stability > WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories > WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic < DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences < DDR.influences }
+				check_variable = { WDR.party_popularity@democratic < DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.party_popularity@democratic < DDR.party_popularity@communism }
+				check_variable = { DDR.stability > WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories > WDR.num_of_civilian_factories }
+				check_variable = { DDR.stability > WDR.stability }
+			}
+		}
+	}
+	option = {
+		name = ddr.5.a
+		remove_ideas = DDR_Republikflucht_3
+		add_ideas = DDR_Republikflucht_2
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+		add_political_power = 100
+	}
+}
+news_event = {
+	id = ddr.202
+	title = ddr.202.t
+	desc = ddr.202.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism > 0.6
+		has_stability > 0.7
+		has_idea = DDR_Republikflucht_2
+		OR = {
+			has_idea = DDR_border_control
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences < DDR.influences }
+				NOT = { check_variable = { DDR.stability < WDR.stability } }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories > WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic < DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences < DDR.influences }
+				check_variable = { WDR.party_popularity@democratic < DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.party_popularity@democratic < DDR.party_popularity@communism }
+				NOT = { check_variable = { DDR.stability < WDR.stability } }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories > WDR.num_of_civilian_factories }
+				NOT = { check_variable = { DDR.stability < WDR.stability } }
+			}
+		}
+	}
+	option = {
+		name = ddr.5.a
+		remove_ideas = DDR_Republikflucht_2
+		add_ideas = DDR_Republikflucht_1
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+		add_political_power = 100
+	}
+}
+news_event = {
+	id = ddr.204
+	title = ddr.204.t
+	desc = ddr.204.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism > 0.7
+		has_stability > 0.8
+		has_idea = DDR_Republikflucht_1
+		OR = {
+			has_idea = DDR_border_control
+		}
+		AND = {
+				check_variable = { WDR.influences < DDR.influences }
+				NOT = { check_variable = { DDR.stability < WDR.stability } }
+				NOT = { check_variable = { DDR.influences < WDR.influences } }
+				check_variable = { DDR.num_of_civilian_factories > WDR.num_of_civilian_factories }
+		}
+	}
+	option = {
+		name = ddr.5.a
+		remove_ideas = DDR_Republikflucht_1
+		add_popularity = {
+			ideology = communism
+			popularity = 0.08
+		}
+		add_political_power = 100
+	}
+}
+#难民西逃
+news_event = {
+	id = ddr.210
+	title = ddr.5.t
+	desc = ddr.5.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism < 0.7
+		has_stability < 0.8
+			NOT = { has_idea = DDR_Republikflucht_1 }
+		OR = {
+			NOT = { has_idea = DDR_border_control }
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+		}
+	}
+	option = {
+		name = ddr.5.a
+		add_ideas = DDR_Republikflucht_1
+		add_popularity = {
+			ideology = communism
+			popularity = -0.04
+		}
+		add_political_power = -100
+	}
+}
+news_event = {
+	id = ddr.211
+	title = ddr.5.t
+	desc = ddr.5.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism < 0.7
+		has_stability < 0.7
+		has_idea = DDR_Republikflucht_1
+		OR = {
+			NOT = { has_idea = DDR_border_control }
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+		}
+	}
+	option = {
+		name = ddr.5.a
+		remove_ideas = DDR_Republikflucht_1
+		add_ideas = DDR_Republikflucht_2
+		add_popularity = {
+			ideology = communism
+			popularity = -0.06
+		}
+		add_political_power = -100
+	}
+}
+news_event = {
+	id = ddr.212
+	title = ddr.5.t
+	desc = ddr.5.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism < 0.6
+		has_stability < 0.6
+		has_idea = DDR_Republikflucht_2
+		OR = {
+			NOT = { has_idea = DDR_border_control }
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+		}
+	}
+	option = {
+		name = ddr.5.a
+		remove_ideas = DDR_Republikflucht_2
+		add_ideas = DDR_Republikflucht_3
+		add_popularity = {
+			ideology = communism
+			popularity = -0.06
+		}
+		add_political_power = -100
+	}
+}
+#难民西逃
+news_event = {
+	id = ddr.213
+	title = ddr.5.t
+	desc = ddr.5.d
+	picture = GFX_Traitor
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = DDR
+		has_government = communism
+		communism < 0.5
+		has_stability < 0.5
+		has_idea = DDR_Republikflucht_3
+		OR = {
+			NOT = { has_idea = DDR_border_control }
+		}
+		OR = {
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { WDR.influences > DDR.influences }
+				check_variable = { WDR.party_popularity@democratic > DDR.party_popularity@communism }
+			}
+			AND = {
+				check_variable = { DDR.num_of_civilian_factories < WDR.num_of_civilian_factories }
+				check_variable = { DDR.stability < WDR.stability }
+			}
+		}
+	}
+	option = {
+		name = ddr.5.a
+		remove_ideas = DDR_Republikflucht_3
+		add_ideas = DDR_Republikflucht_4
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_political_power = -100
+	}
+}

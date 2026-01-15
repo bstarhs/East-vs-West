@@ -1,0 +1,291 @@
+add_namespace = vat
+
+#纠正运动
+news_event = {
+	id = vat.1
+	title = vat.1.t
+	desc = vat.1.d
+	picture = GFX_PiusXII
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = VAT
+		has_government = monarchism
+		date > 1948.2.1
+		date < 1948.10.1
+		NOT = { has_global_flag = VaticanBanCommunist }
+	}
+	option = {	#支持政变
+		name = afg.10.b
+		set_global_flag = VaticanBanCommunist
+		if = {
+			limit = { has_idea = Catholicism }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = vat.3
+	title = vat.3.t
+	desc = vat.3.d
+	picture = GFX_PiusXII
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = VAT
+		has_government = monarchism
+		date > 1948.1.1
+		date < 1948.3.1
+		NOT = { has_global_flag = VaticanAboutElec }
+	}
+	option = {	#支持政变
+		name = afg.10.b
+		set_global_flag = VaticanAboutElec
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = vat.4
+	title = vat.4.t
+	desc = vat.4.d
+	picture = GFX_PiusXII
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		tag = VAT
+		has_government = monarchism
+		ITA = { has_government = communism }
+		NOT = { has_global_flag = VaticanAntiItaCom }
+	}
+	option = {	#支持政变
+		name = afg.10.b
+		set_global_flag = VaticanAntiItaCom
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.06
+			}
+			add_stability = -0.25
+		}
+	}
+}
+news_event = {
+	id = vat.5
+	title = vat.5.t
+	desc = vat.5.d
+	picture = GFX_PiusXII
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = ITA
+		has_government = communism
+		has_global_flag = VaticanAntiItaCom
+	}
+	option = {	#支持政变
+		name = vat.5.b
+		set_global_flag = ItaComNotEnterVatican
+	}
+	option = {	#支持政变
+		name = vat.5.a
+		random_list = {
+			80 = { news_event = { id = vat.6 } } 
+			20 = { news_event = { id = vat.7 } } 
+		}
+	}
+}
+#教皇拒绝交涉
+news_event = {
+	id = vat.6
+	title = vat.6.t
+	desc = vat.6.d
+	is_triggered_only = yes
+	picture = GFX_PiusXII
+	option = {
+		name = vat.5.b
+	}
+	option = {
+		name = vat.5.a
+		declare_war_on = { target = VAT type = annex_everything  }
+		set_global_flag = ItaInvadeVatican
+		news_event = { id = vat.8 }
+		play_song = ITA_11
+		add_named_threat = { threat = 20 name = InvadeVtican }
+	}
+}
+#教皇流亡
+news_event = {
+	id = vat.7
+	title = vat.7.t
+	desc = vat.7.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_PiusXII
+	option = {
+		name = vat.1.b
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.3
+			annex_country = { target = VAT transfer_troops = yes }
+			custom_effect_tooltip = focus_tooltip_influence_-100
+		}
+	}
+}
+news_event = {
+	id = vat.8
+	title = vat.8.t
+	desc = vat.8.d
+	picture = GFX_InvadeVatican
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+	}
+}
+#教宗遭到软禁
+news_event = {
+	id = vat.10
+	title = vat.10.t
+	desc = vat.10.d
+	picture = GFX_InvadeVatican
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = ITA }
+			set_country_flag = CapturePope
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.12
+			custom_effect_tooltip = focus_tooltip_influence_-50
+			add_to_variable = { influences = -50 }
+		}
+	}
+}
+#教宗死亡
+news_event = {
+	id = vat.11
+	title = vat.11.t
+	desc = vat.11.d
+	picture = GFX_InvadeVatican
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.12
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.25
+			}
+			add_named_threat = { threat = 15 name = PopeKIlled }
+			add_stability = -0.3
+			custom_effect_tooltip = focus_tooltip_influence_-100
+			add_to_variable = { influences = -100 }
+		}
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			custom_effect_tooltip = focus_tooltip_influence_-50
+			add_to_variable = { influences = -50 }
+		}
+	}
+}
+#我们对梵蒂冈事件的态度
+news_event = {
+	id = vat.12
+	title = vat.12.t
+	desc = vat.12.d
+	picture = GFX_InvadeVatican
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		OR = {
+			tag = USA
+			tag = ENG
+			tag = CAN
+			tag = CHI
+			has_idea = Catholicism
+		}
+		has_global_flag = ItaInvadeVatican
+		NOT = { has_country_flag = BanItaInvadeVatican }
+	}
+	option = {
+		name = vat.1.b
+		add_stability = -0.02
+	}
+	option = {
+		name = vat.1.b
+		set_country_flag = BanItaInvadeVatican
+		news_event = { id = vat.13 }
+	}
+}
+news_event = {
+	id = vat.13
+	title = vat.13.t
+	desc = vat.13.d
+	picture = GFX_ItalyWar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			add_political_power = -20
+		}
+	}
+}
+news_event = {
+	id = vat.14
+	title = vat.14.t
+	desc = vat.14.d
+	picture = GFX_HolySee
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		has_global_flag = ItaInvadeVatican
+		NOT = { has_global_flag = SpainHolySee }
+	}
+	major = yes
+	option = {
+		name = cze.20.b2
+		set_global_flag = SpainHolySee
+	}
+}

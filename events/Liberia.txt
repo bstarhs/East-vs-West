@@ -1,0 +1,26 @@
+add_namespace = lib
+#来自中国的支援
+news_event = {
+	id = lib.5
+	title = lib.5.t
+	desc = lib.5.d
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
+	trigger = {
+		date > 1982.9.1
+		date < 1983.12.1
+		tag = LIB
+	}
+	option = {
+		name = lib.5.a
+		set_politics = { ruling_party = neutrality }
+		create_country_leader = {
+			name = "Samuel Kanyon Doe"
+			picture = "gfx/leaders/LIB/Portrait_Liberia_Samuel.tga"
+			expire = "2050.1.1"
+			ideology = centrism
+			traits = { dictator tyrant personal_worship pro_america corrupt_leader 
+			}
+		}
+	}
+}

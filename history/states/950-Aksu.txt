@@ -1,0 +1,34 @@
+state={
+	id=950
+	name="STATE_950" #Kashgar
+	manpower = 14307
+	state_category = pastoral
+	resources={
+		oil=2
+	}
+	history={
+		
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 10 }
+		add_to_array = { this.state_ethnics_list = 11 }
+		set_state_flag = cutton_production
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Ughurs
+		victory_points = { 7949 4 }
+		owner = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			farm_building = 1
+			infrastructure = 2
+		}
+		1951.10.12 = {
+		owner = PRC
+		add_core_of = SIK
+		}
+	}
+
+	provinces={
+		4828 7949 12526 1703 4682 
+	}
+}

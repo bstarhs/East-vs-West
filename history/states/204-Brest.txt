@@ -1,0 +1,32 @@
+
+state={
+	id=204
+	name="STATE_204" # Bobruysk
+	manpower = 1041084
+	
+	state_category = rural
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Belarus
+		owner = SOV
+		add_to_array = { this.state_ethnics_list = 36 }
+		victory_points = { 6373 5 }
+		victory_points = { 3350 4 }
+		victory_points = { 11313 3 }
+		victory_points = { 3759 2 }
+		buildings = {
+			farm_building = 2
+			infrastructure = 5
+		}
+		add_core_of = SOV
+		add_core_of = BLR
+		1990.8.23 = {
+			owner = BLR
+		}
+	}
+
+	provinces={
+		304 331 360 386 3350 3759 6373 11313 
+	}
+}

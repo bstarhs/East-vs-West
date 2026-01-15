@@ -1,0 +1,341 @@
+﻿capital = 1020
+
+oob = "VIN_1947"
+set_research_slots = 2
+set_country_flag = southeastasia
+set_country_flag = third_world
+	activate_decision = female_equality
+	add_ideas = {
+	no_welfare
+		scraping_the_barrel
+		war_economy
+		assimilation
+		Anti_religious
+		closed_economy
+	}
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 8000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 4000
+		producer = FRA
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = GER
+	}
+recruit_character = VIN_Trinh_ThiNgo
+	set_variable = { this.education = 32 }
+set_cosmetic_tag = RDV
+# Starting tech
+# clone of France
+set_technology = {
+	infantry_training = 1
+	basic_militia = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	
+	superior_firepower = 1
+	
+	
+	
+	dispersed_industry = 1
+	morale_1 = 1
+	guerrilla_doctrine = 1
+	military_office = 1
+	machine_gun1 = 1
+	infantry_training_2 = 1
+	artilelery_doctrine = 1	
+	tech_engineers = 1
+		interwar_artillery = 1
+		interwar_antitank = 1
+		interwar_antiair = 1
+}
+
+set_popularities = {
+	democratic = 15
+		
+	communism = 80
+
+	neutrality = 5
+}
+
+set_politics = {
+
+	ruling_party = communism
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+recruit_character = VIN_Truong_Chinh
+recruit_character = VIN_Pham_VanDong
+recruit_character = VIN_Xuan_Thuy
+recruit_character = VIN_Ton_DucThang
+recruit_character = VIN_Van_TienDung
+recruit_character = VIN_Vo_NguyenGia
+#NOTICE# please watch out for spelling, im using Vietnamese names as they spell them, game might not support these characters!
+
+create_country_leader = {
+	name = "Ho Chi-Minh" 
+	desc = ""
+	picture = "gfx/leaders/VIN/Portrait_Vietnam_Ho_Chiminh.tga"
+	expire = "1953.3.1"
+	ideology = marxism
+	traits = {
+		compassionate_gentleman political_dancer communist_revolutionary popular_figurehead stout_defender no_join_faction
+	}
+}
+1949.1.1 = {
+	complete_national_focus = VIN_against_france
+	complete_national_focus = VIN_dev_economic
+	complete_national_focus = VIN_contact_others_parties
+	set_country_flag = prc_advisor
+}
+1952.1.1 = {
+	set_country_flag = china_diplomacy
+	set_variable = { this.education = 35 }
+	add_ideas = {
+		PhamVanDong
+	}
+	set_technology = {
+		army_aviation = 1
+		infantry_at = 1
+		helmet = 1
+		military_instructor = 1
+		battle_trench = 1
+		medical1 = 1
+		street_fight = 1
+		motorize_doctrine = 1
+		depth_defense = 1
+		tech_logistics_company2 = 1
+		early_fighter = 1
+	}
+}
+1954.1.1 = {
+	add_opinion_modifier = {
+		target = SVN
+		modifier = disappinion
+	}
+	capital = 671
+	remove_ideas = VIN_anti_france
+	activate_decision = create_radio_station
+	set_technology = {
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		telegraph = 1
+		gwtank = 1
+	}
+	diplomatic_relation = { country = FRA relation = war_relation active = no }
+	diplomatic_relation = { country = SVN relation = war_relation active = no }
+	set_country_flag = china_diplomacy
+	oob = "VIN_1956"
+	add_ideas = {
+		VIN_land_reforming
+		VIN_nhandan_newspaper
+	}
+	complete_national_focus = VIN_soviet_mode
+	complete_national_focus = VIN_democrized_culture
+	complete_national_focus = VIN_southern_leaders
+	complete_national_focus = VIN_intel_agency
+	complete_national_focus = VIN_quan_nhandan_vietnam
+	create_intelligence_agency = yes
+	diplomatic_relation = { country = MAD relation = war_relation active = no }
+	diplomatic_relation = { country = MLI relation = war_relation active = no }
+	diplomatic_relation = { country = CAF relation = war_relation active = no }
+}
+1959.1.1 = {
+	remove_ideas = {
+		VIN_land_reforming
+		VIN_nhandan_newspaper
+		VIN_cultural_movement
+	}
+	complete_national_focus = VIN_liberate_south
+	complete_national_focus = VIN_inflection_south
+	complete_national_focus = VIN_hcm_trail
+	complete_national_focus = VIN_liberation_front
+	set_country_flag = female_finished
+	add_ideas = Trinh_ThiNgo
+	set_variable = { this.education = 41 }
+	activate_decision = Establishment_of_National_Museum
+	set_technology = {
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		basic_medium_tank = 1
+		radio_detection = 1
+		infantry_weapons2 = 1
+		basic_helicopter = 1
+		antiair1 = 1
+		concentrated_industry = 1
+		dispersed_industry2 = 1
+		tech_maintenance_company = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+		tech_signal_company = 1
+		mechanised_infantry = 1
+		basic_light_tank = 1
+		improved_infantry_weapons = 1
+		machine_gun2 = 1
+	tech_engineers2 = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+		fighter1 = 1
+	}
+	add_political_power = 1198
+}
+1964.1.20 = {
+	set_variable = { this.education = 46 }
+	set_technology = {
+		artillery1 = 1
+		at_missile_1 = 1
+		tech_recon2 = 1
+		basic_heavy_tank = 1
+		motorize_doctrine = 1
+		motorized_transport = 1
+		armor_doctrine = 1
+		aim_missile_1 = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+		
+		secret_transport = 1
+		propaganda_war = 1
+		guerrilla_destroy = 1
+		tunnel_warfare = 1
+		delay = 1
+		infantry_training_3 = 1
+		interspersed_battle = 1
+		morale_2 = 1
+		spaa1 = 1
+		improved_medium_tank = 1
+		fighter2 = 1
+	antiair2 = 1
+	}
+}
+1969.1.20 = {
+	set_variable = { this.education = 51 }
+	add_ideas = {
+		LeDucTho
+	}
+	set_technology = {
+		oil_processing = 1
+		fighter2 = 1
+		improved_heavy_tank = 1
+		dispersed_industry3 = 1
+		improved_light_tank = 1
+		naval_bomber1 = 1
+		
+		
+		early_bomber = 1
+	
+		CAS1 = 1
+		mechanised_infantry2 = 1
+		
+		motorized_infantry = 1
+		motorized_cooperation = 1
+	}
+	promote_character = VIN_Le_Duan
+}
+1975.1.20 = {
+	remove_ideas = Trinh_ThiNgo
+	clr_country_flag = prc_advisor
+	set_variable = { this.education = 56 }
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	add_to_array = { global.UNmember_list = FROM }
+	set_cosmetic_tag = VIN
+	set_technology = {
+		spaa2 = 1
+		fighter3 = 1
+	}
+	set_rule = {
+    can_join_factions = no
+	}
+give_guarantee = LAO
+	add_named_threat = { threat = -20 }
+	oob = "VIN_1989"
+	remove_ideas = HoChiMinhTrail
+	activate_decision = VIN_HCM_CITY
+	add_ideas = {
+		UNmember
+	}
+}
+1979.1.20 = {
+	retire_character = VIN_Ton_DucThang
+	set_variable = { this.education = 62 }
+	set_country_flag = developmented
+	set_technology = {
+		dispersed_industry4 = 1
+	}
+	add_ideas = {
+		VanTienDung
+	}
+	remove_ideas = VoNguyenGiap
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_SOV_conflict
+	}
+	set_autonomy = {
+		target = CAM
+		autonomous_state = autonomy_puppet
+	}
+	
+}
+1986.1.20 = {
+	add_ideas = {
+		DoiMoi
+	}
+	promote_character = VIN_Nguyen_VanLinh
+	retire_character = VIN_Le_Duan
+	retire_character = VIN_Truong_Chinh
+	retire_character = VIN_Vo_NguyenGia
+}
+1991.1.20 = {
+	retire_character = VIN_Nguyen_VanLinh
+	create_country_leader = {
+		name = "Đỗ Mười"
+		
+		picture = "gfx/leaders/VIN/Portrait_Vietnam_Do_Moi.tga"
+		expire = "1988.1.1"
+		ideology = marxism
+		
+		traits = { 
+			socialist_reformism
+		}
+	}
+}

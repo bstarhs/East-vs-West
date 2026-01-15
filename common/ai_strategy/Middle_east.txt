@@ -1,0 +1,748 @@
+
+USA_LEB_Cyprus_ready = {
+	enable = {
+		tag = USA
+		is_in_faction_with = ENG
+		NOT = { has_global_flag = leb26 }
+		date > 1957.1.1
+		date < 1959.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			183
+		}
+	}
+}
+USA_LEB_strat_invade = {
+	enable = {
+		tag = USA
+		is_in_faction_with = ENG
+		is_in_faction_with = LEB
+		date < 1959.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			553
+		}
+	}
+}
+EGY_gaza = {
+	enable = {
+		tag = EGY
+		date < 1950.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		state = 761
+		
+		ratio = 0.8
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.8
+		states = { 
+			446
+			911
+			456
+		}
+	}
+	ai_strategy = {
+		type = front_control
+		state = 788
+		ratio = 0.01
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = yes
+	}
+}
+JOR_jerusalem = {
+	enable = {
+		tag = JOR
+		NOT = { controls_province = 1086 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request
+		state = 762
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.7
+		states = { 
+			762
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.2
+		states = { 
+			788
+		}
+	}
+	ai_strategy = {
+		type = conquer
+		id = "PAL"
+		value = 900
+	}
+	ai_strategy = {
+		type = front_control
+		state = 762
+		
+		ratio = 0.6
+
+		priority = 100
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
+ISR_no_jerusalem = {
+	enable = {
+		tag = ISR
+		PAL = { controls_province = 1086 }
+		date < 1950.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = conquer
+		id = "PAL"
+		value = -900
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			454
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		# french states bordering benelux
+		states = {
+			454
+			788
+		}
+		ratio = 0.9
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PAL
+
+		ratio = 0.1
+
+		priority = 100
+		ordertype = front
+		execution_type = careful
+		execute_order = yes
+	}
+}
+yom_kippur_volunteers = {
+	enable = {
+		has_country_flag = arabs_state
+		has_global_flag = yom_kippur_war
+		EGY = { has_war_with = ISR }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = EGY
+		value = 900
+	}
+}
+yom_kippur_war = {
+	enable = {
+		OR = {
+			tag = EGY
+			tag = SYR
+		}
+		ISR = { controls_province = 4206 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invade
+		id = ISR
+		value = 500
+	}
+	ai_strategy = {
+		type = antagonize
+		id = ISR
+		value = 500
+	}
+}
+yom_kippur_support = {
+	enable = {
+		OR = {
+			tag = SOV
+			has_country_flag = arabs_state
+		}
+		has_global_flag = yom_kippur_war
+		EGY = { has_war_with = ISR }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = SYR
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = EGY
+		value = 200
+	}
+}
+IRQ_invade_iran = {
+	allowed = {
+		tag = IRQ
+	}
+	enable = {
+		has_war_with = PER
+	}
+	abort = {
+		OR = {
+			controls_province = 12773
+			controls_province = 1922
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invasion_unit_request
+		country_trigger = { always = yes }
+
+		value = -100
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 676
+		state = 811
+		value = -200
+	}
+}
+PER_invade_iraq = {
+	allowed = {
+		tag = PER
+	}
+	enable = {
+		has_government = fascism
+		date < 1988.1.1
+	}
+	abort = {
+		OR = {
+			controls_province = 7977
+			controls_province = 12855
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invasion_unit_request
+		country_trigger = { always = yes }
+		value = 100
+	}
+	ai_strategy = {
+		type = antagonize
+		id = IRQ
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer
+		id = IRQ
+		value = 200
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 676
+		state = 811
+		value = 200
+	}
+}
+PER_non_invade_iraq = {
+	allowed = {
+		original_tag = PER
+	}
+
+	enable = {
+		has_war_with = IRQ
+		OR = {
+			controls_province = 7977
+			controls_province = 12855
+		}
+	}
+	abort = {
+		NOT = { controls_province = 5050 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invasion_unit_request
+		country_trigger = { always = yes }
+
+		value = -100
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			421
+			413
+		}
+	}
+	ai_strategy = {
+		type = front_unit_request
+
+		state = 676
+		state = 811
+		state = 291
+		state = 675
+		value = -200
+	}
+}
+PRO_PER = {
+	enable = {
+		PER = { 
+			has_war_with = IRQ
+		}
+		OR = {
+			tag = SYR
+			tag = LBA
+			tag = ISR
+			tag = USA
+			tag = WDR
+		}
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		PER = { controls_province = 5050 }
+	}
+	ai_strategy = {
+		type = support
+		id = PER
+		value = 300
+	}
+}
+EGY_yom_kippur = {
+	enable = {
+		tag = EGY
+		ISR = { controls_state = 453 }
+		date > 1972.1.1
+		NOT = { has_idea = EGY_David_Camp }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = antagonize
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = contain
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = declare_war
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = ISR	
+		value = 500
+	}
+}
+syr_yom_kippur = {
+	enable = {
+		tag = SYR
+		ISR = { controls_state = 810 }
+		date > 1972.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = antagonize
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = contain
+		id = ISR	
+		value = 200
+	}
+}
+INVADE_SUEZ = {
+	enable = {
+		EGY = { has_war_with = ISR }
+			OR = {
+				tag = ENG
+				tag = FRA
+			}
+			has_global_flag = suez_war
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ISR	
+		value = 200
+	}
+}
+Jordan_Jerusalem_garrison = {
+	enable = {
+		tag = JOR
+		controls_state = 762
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			762
+		}
+	}
+}
+PAK_PRC_friendship = {
+	enable = {
+		tag = PAK
+		OR = {
+			date > 1962.1.1
+			AFG = { has_government = communism }
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = PRC	
+		value = 200
+	}
+}
+IRQ_invade_KWT = {
+	enable = {
+		tag = IRQ
+		has_war_with = KWT
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = conquer
+		id = KWT
+		value = 9999
+	}
+	ai_strategy = {
+		type = invade
+		id = KWT
+		value = 9999
+	}
+}
+usa_in_gulf = {
+	enable = {
+		tag = USA
+		has_completed_focus = Middle_east_exist
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		has_opinion = { target = SAU value < 20 }
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 203
+		value = -100
+	}
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 203
+		value = 100
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 203
+		value = 100
+	}
+}
+IRQ_not_invade_SAU = {
+	enable = {
+		tag = IRQ
+		has_war_with = SAU
+		
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = garrison
+		value = 500
+	}
+	ai_strategy = {
+		type = front_unit_request
+		state = 292
+		value = -300
+	}
+	ai_strategy = {
+		type = conquer
+		id = SAU
+		value = -9999
+	}
+	ai_strategy = {
+		type = invade
+		id = SAU
+		value = -9999
+	}
+}
+KWT_WAR = {
+	enable = {
+		OR = {
+		tag = KOR
+		tag = AST
+		tag = NZL
+		tag = EGY
+		tag = ARG
+		tag = FRA
+		tag = TUR
+		tag = ENG
+		tag = USA
+		tag = QAT
+		tag = FRA
+		tag = CAN
+		}
+		IRQ = { has_war_with = SAU }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = IRQ	
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = SAU	
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SAU
+		value = 800
+	}
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = 50
+	}
+}
+arabs_anti_PER = {
+	enable = {
+		OR = {
+			tag = JOR
+			tag = SAU
+			tag = KWT
+		}
+		OR = {
+			PER = { has_government = communism }
+			PER = { has_government = fascism }
+		}
+		IRQ = { has_war_with = PER }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = PER	
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = IRQ	
+		value = 200
+	}
+}
+war_1968 = {
+	enable = {
+		tag = ISR
+		date < 1975.6.5
+		date > 1967.1.5
+		OR = {
+			has_idea = PLOrevolt
+			EGY = { has_completed_focus = EGY_arab_league }
+			762 = { is_controlled_by = JOR }
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = declare_war
+		id = JOR	
+		value = 200
+	}
+	ai_strategy = {
+		type = declare_war
+		id = SYR	
+		value = 200
+	}
+	ai_strategy = {
+		type = declare_war
+		id = EGY	
+		value = 200
+	}
+}
+anti_israel = {
+	enable = {
+		OR = {
+		tag = ALG
+		tag = IRQ
+		tag = SYR
+		tag = PAL
+		tag = SAU
+		tag = JOR
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = ISR	
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = ISR	
+		value = 200
+	}
+}
+USA_iran_gate = {
+	enable = {
+		tag = USA
+		OR = {
+			NIC = { has_government = communism }
+			GRD = { has_government = communism }
+			GUA = { has_government = communism }
+			HON = { has_government = communism }
+		}
+		PER = { has_war = yes }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = PER	
+		value = 200
+	}
+}
+USA_anti_LBA = {
+	enable = {
+		tag = USA
+		LBA = {
+			OR = {
+				has_government = communism
+				has_government = neutrality
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = LBA	
+		value = 200
+	}
+}
+USA_anti_PER = {
+	enable = {
+		tag = USA
+		PER = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = contain
+		id = PER	
+		value = 200
+	}
+}
+IRQ_JOR_friendship = {
+	enable = {
+		tag = JOR
+		IRQ = { has_war = yes }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = IRQ	
+		value = 200
+	}
+}
+USA_ISR_friendship = {
+	enable = {
+		tag = USA
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = ISR	
+		value = 80
+	}
+	ai_strategy = {
+		type = befriend
+		id = ISR
+		value = 80
+	}
+}
+ME_pro_sov = {
+	enable = {
+		has_country_flag = arabs_state
+			OR = {
+				has_government = communism
+				has_government = neutrality
+				has_government = authoritarianism
+			}
+		SOV = { has_government = communism }
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		OR = {
+		AND = {
+				tag = EGY
+				date > 1975.1.1
+			}
+		NOT = { SOV = { has_government = communism } }
+		}
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOV			
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = USA			
+		value = 200
+	}
+}

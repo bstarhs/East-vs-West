@@ -1,0 +1,39 @@
+
+state={
+	id=758
+	name="STATE_758"
+	manpower = 93200
+	state_category = large_city
+	local_supplies=0.0
+	history={
+		set_state_flag = ethnics_Han
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_to_array = { this.state_ethnics_list = 5 }
+		add_to_array = { this.state_ethnics_list = 106 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = SIG
+		add_core_of = MAL
+		add_core_of = SIG
+		victory_points = {
+			12299 12
+		}
+		buildings = {
+			hospital = 2
+			school = 2
+			infrastructure = 4
+			industrial_complex = 5
+			power_plant = 2
+			air_base = 3
+			12299 = {
+				naval_base = 3
+				coastal_bunker = 3
+			}
+		}
+		1959.8.23 = {
+		remove_core_of = MAL
+		}
+	}
+	provinces={
+		12299 
+	}
+}

@@ -1,0 +1,578 @@
+﻿capital = 613 # Nanjing
+
+oob = "CHI_1947"
+load_focus_tree = roc_focus
+set_country_flag = chinese_states
+set_country_flag = main_country
+create_intelligence_agency = yes
+set_country_flag = developmented
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 6000
+    producer = CHI
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 40000
+    producer = JAP
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 4000
+    producer = USA
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 60000
+    producer = SHX
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = CZE
+}
+set_country_flag = eastasia
+give_guarantee = TIB
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 18000
+    producer = CHI
+}
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+recruit_character = CHI_tu_yuming
+recruit_character = CHI_hsueh_yueh
+recruit_character = CHI_wang_yaowu
+recruit_character = CHI_sun_li_jen
+recruit_character = CHI_hu_zongnan
+recruit_character = CHI_gu_zhutong
+recruit_character = CHI_li_zongren
+recruit_character = CHI_he_yingqin
+recruit_character = CHI_bai_chongxi
+recruit_character = CHI_chen_shaokuan
+recruit_character = CHI_chen_cheng
+recruit_character = CHI_yu_hanmou
+recruit_character = CHI_chen_lifu
+recruit_character = CHI_soong_mei_ling
+recruit_character = CHI_qiu_qingquan
+recruit_character = CHI_huang_baitao
+recruit_character = CHI_Kong_HsiangHsi
+recruit_character = CHI_chiang_kai_shek
+recruit_character = CHI_Chen_BuLei
+recruit_character = CHI_Zhou_ZhiRou
+recruit_character = CHI_Chiang_ChinKuo
+recruit_character = CHI_hu_lien
+recruit_character = CHI_huang_wei
+recruit_character = CHI_liu_zhi
+recruit_character = CHI_Chang_LingFu
+recruit_character = CHI_Yang_BoTao
+recruit_character = CHI_Chan_Yi
+recruit_character = CHI_Zheng_JieMin
+recruit_character = CHI_Hsu_YongChang
+recruit_character = CHI_Hwang_Je
+recruit_character = CHI_Zheng_TingJi
+recruit_character = CHI_Li_TienHsia
+recruit_character = CHI_Hu_Shih
+	promote_character = {
+		character = CHI_chiang_kai_shek
+		ideology = despotism
+	}
+declare_war_on = {
+	target = PRC
+	type = annex_everything
+}
+add_opinion_modifier = {
+    target = JAP
+    modifier = history_japan_invasion
+}
+	add_opinion_modifier = {
+		target = PRC
+		modifier = disappinion
+	}
+set_war_support = 0.9
+# Starting tech
+set_country_flag = UNSC
+create_intelligence_agency = yes
+	activate_decision = create_radio_station
+	set_technology = {
+		spies_tech = 1
+		oil_processing = 1
+		army_aviation = 1
+		basic_battery = 1
+		medical1 = 1
+		basic_medium_battery = 1
+		radio_detection = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		motorize_doctrine = 1
+		infantry_weapons2 = 1
+		gasmask = 1
+		tech_maintenance_company = 1
+		streamlined_line = 1
+		fuel_silos = 1
+		excavation1 = 1
+		excavation2 = 1
+		morale_1 = 1
+		machine_gun1 = 1
+		tech_signal_company = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	early_bomber = 1
+	battle_trench = 1
+	infantry_training_2 = 1
+	early_ship_hull_light = 1
+		radio = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_mountaineers = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	CAS1 = 1
+	construction1 = 1
+	marines = 1
+	paratroopers = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	
+	power_generation1 = 1
+}
+
+	add_political_power = 500
+set_stability = 0.75
+
+add_ideas = {
+	militarist_politician
+	scraping_the_barrel
+	usa_advisors
+	corrupt
+	white_terror
+	governed_economic
+	assimilation
+	Secularism
+	no_welfare
+	CHI_civil_war_deserters
+	no_welfare
+	closed_economy
+}
+
+set_convoys = 40
+
+	create_country_leader = {
+		name = "Chiang Kai-Shek"
+		
+		picture = "gfx/leaders/CHI/Portrait_China_Jiang_Jieshi.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		
+		traits = {
+			tenacious_defender anti_communist pro_america conservative_nationalist stout_defender dictator
+		}
+	}
+
+
+	set_popularities = {
+		democratic = 25
+		communism = 13
+		neutrality = 62
+	}
+	complete_national_focus = common_63
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+1945.1.1 = {
+	set_variable = { this.total_from_aid = 60 }
+	add_ideas = {
+		UNmember
+		governed_economic
+		no_welfare
+	}
+	set_autonomy = {
+		target = XSM
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = GXC
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = SHX
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = DOB
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = YUN
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+}
+1949.10.20 = {
+	add_political_power = 2000
+	recruit_character = CHI_Mao_RenFeng
+	retire_character = CHI_Chen_BuLei
+	retire_character = CHI_tu_yuming
+	retire_character = CHI_huang_wei
+	retire_character = CHI_liu_zhi
+	retire_character = CHI_Chan_Yi
+	retire_character = CHI_Yang_BoTao
+	promote_character = {
+		character = CHI_li_zongren
+		ideology = despotism
+	}
+	set_autonomy = {
+		target = CTN
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+			diplomatic_relation = {
+				country = TIB
+				relation = guarantee
+				active = no
+			}
+	load_focus_tree = taiwan_focus
+	add_ideas = {
+		CHI_civilwar_law
+		CHI_financial_broken
+	}
+	oob = "CHI_1950"
+	complete_national_focus = CHI_taiwan_government
+	activate_decision = female_equality
+	capital = 756 # Taipei
+	set_technology = {
+		basic_light_tank = 1
+	}
+	add_timed_idea = {
+		idea = CHI_mainland_immigrate
+		days = 300
+	}
+	add_timed_idea = {
+		idea = CHI_wave_228
+		days = 100
+	}
+}
+	
+	
+1950.10.20 = {
+	end_puppet = YUN
+	promote_character = {
+		character = CHI_chiang_kai_shek
+		ideology = despotism
+	}
+	complete_national_focus = CHI_WEIC
+	complete_national_focus = CHI_taiwan_emergency
+	complete_national_focus = CHI_tax_reduce
+	complete_national_focus = CHI_TW_garrison_comand
+	complete_national_focus = CHI_chiang_back
+	complete_national_focus = CHI_constitution31
+	complete_national_focus = CHI_lockdown
+	complete_national_focus = CHI_diplomatic_tw
+	set_truce = {
+		target = PRC
+		days = 114514
+	}
+	remove_ideas = {
+		corrupt
+		CHI_civil_war_deserters
+		sidajiazhu
+		manooo
+	}
+	add_ideas = {
+		taiwan_separatism
+		Yen_ChiaKan
+	}
+}
+1953.10.20 = {
+	set_global_flag = roc230
+	set_variable = { this.total_from_aid = 120 }
+	activate_decision = CHI_counter_attack_mashan_radio
+	activate_decision = CHI_counter_attack_kinmen_rock
+	remove_ideas = {
+		CHI_mainland_immigrate
+		CHI_wave_228
+		CHI_financial_broken
+	}
+	add_ideas ={
+		Marshall
+		Zhou_ZhiRou_GOV
+		Chiang_ChinKuo
+		low_welfare
+		CHI_fertilizer_grains
+	}
+	oob = "CHI_1956"
+	end_puppet = CTN
+	complete_national_focus = CHI_NTD
+	complete_national_focus = CHI_KMT_reform
+	complete_national_focus = CHI_land_reform
+	complete_national_focus = CHI_land_release
+	complete_national_focus = CHI_dejapanization
+	complete_national_focus = CHI_reorganized_army
+	complete_national_focus = CHI_american_aid
+	complete_national_focus = CHI_uneployee_officers_comittee
+	complete_national_focus = CHI_mainland_refugee_rescue
+	complete_national_focus = CHI_infrastruct
+	retire_character = CHI_chen_lifu
+	set_technology = {
+		improved_machine_tools = 1
+		electronic_mechanical_engineering = 1
+		fighter1 = 1
+		basic_medium_tank = 1
+		infantry_weapons1 = 1
+		basic_medium_tank = 1
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 4000
+		producer = USA
+	}
+	add_intel = {
+		target = PRC
+		civilian_intel = 32
+		army_intel = 32
+	}
+	diplomatic_relation = { country = PRC relation = war_relation active = no }
+}
+1958.10.20 = {
+	set_variable = { this.total_from_aid = 200 }
+	set_country_flag = female_finished
+	retire_character = CHI_Mao_RenFeng
+	activate_decision = CHI_counter_attack_fuxing_radio
+	complete_national_focus = CHI_purge_CCP
+	complete_national_focus = CHI_education
+	complete_national_focus = CHI_USA_treaty
+	complete_national_focus = CHI_no_together
+	complete_national_focus = CHI_inflect
+	complete_national_focus = CHI_hydro_project
+	retire_character = CHI_Valery_Sergei_deBeausset
+	add_opinion_modifier = {
+		target = KOR
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = JAP
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = PHI
+		modifier = ally_asia
+	}
+	add_opinion_modifier = {
+		target = SVN
+		modifier = ally_asia
+	}
+	set_technology = {
+		machine_gun2 = 1
+		improved_light_tank = 1
+		marines2 = 1
+		mechanised_infantry = 1
+		laundry = 1
+	}
+}
+1964.10.20 = {
+	activate_decision = CHI_counter_attack_green_island
+	retire_character = CHI_Kong_HsiangHsi
+	retire_character = CHI_Zheng_JieMin
+	retire_character = CHI_Hu_Shih
+	complete_national_focus = CHI_resistance
+	complete_national_focus = CHI_anti_sepitarist
+	complete_national_focus = CHI_bat_squad
+	complete_national_focus = CHI_southwest_resistance
+	complete_national_focus = CHI_anti_dialect
+	complete_national_focus = CHI_navy
+	set_technology = {
+		laser_weapon = 1
+		vaccum_tube = 1
+		trans_helicopter_1 = 1
+		concentrated_industry2 = 1
+		dispersed_industry2 = 1
+		basic_helicopter = 1
+		paratroopers2 = 1
+		construction2 = 1
+		fighter2 = 1
+		fighter3 = 1
+		mechanised_infantry2 = 1
+	}
+	create_country_leader = {
+		name = "Huang Hsin-Jie"
+		
+		picture = "gfx/leaders/CHI/Portrait_CHI_Huang_XinJie.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1971.1.1 = {
+recruit_character = CHI_Sun_Yun_suan
+recruit_character = CHI_Yu_Kuo_hwa
+recruit_character = CHI_Lin_Yang_Kang
+retire_character = CHI_Zhou_ZhiRou
+retire_character = CHI_hu_lien
+	complete_national_focus = CHI_thai_diplo
+	complete_national_focus = CHI_youth_corp
+	complete_national_focus = CHI_Cultural_Renaissance
+	complete_national_focus = CHI_SVN
+	activate_decision =Establishment_of_National_Museum
+	clr_country_flag = UNSC
+	set_technology = {
+		cable_television = 1
+		machine_gun3 = 1
+		dispersed_industry4 = 1
+		concentrated_industry3 = 1
+		dispersed_industry3 = 1
+		advanced_machine_tools = 1
+		infantry_weapons2 = 1
+		medium_computer = 1
+	}
+	set_popularities = {
+		democratic = 12
+		communism = 2
+		neutrality = 86
+	}
+	remove_ideas = {
+		UNmember
+		Zhou_ZhiRou_GOV
+		CHI_fertilizer_grains
+	}
+}
+1975.1.20 = {
+	set_variable = { this.total_from_aid = 50 }
+	oob = "CHI_1977"
+	complete_national_focus = CHI_10_construction
+	complete_national_focus = CHI_kaohsiung_port
+	complete_national_focus = CHI_kaohsiung_industry
+	complete_national_focus = CHI_operation_hsinchu
+	complete_national_focus = CHI_FCRA
+	complete_national_focus = CHI_third_world
+	add_ideas = {
+		taiwan_construction
+	}
+	remove_ideas = {
+		Yen_ChiaKan
+		Chiang_ChinKuo
+	}
+	set_technology = {
+		nuclear_plant_1 = 1
+		advanced_light_tank = 1
+		improved_infantry_weapons = 1
+		transistor = 1
+		Semiconductor = 1
+	}
+	retire_character = CHI_Yen_ChiaKan
+	promote_character = CHI_Chiang_ChinKuo
+}
+1980.10.20 = {
+	set_variable = { this.total_from_aid = 0 }
+	complete_national_focus = CHI_3_no
+	complete_national_focus = CHI_kaohsiung_shipbuilding
+	complete_national_focus = CHI_china_steel
+	complete_national_focus = CHI_sys_SIST
+	complete_national_focus = CHI_National_hightway
+	complete_national_focus = CHI_chinsan_plant
+	set_technology = {
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		micro_computer = 1
+		construction3 = 1
+		mechanised_infantry3 = 1
+	}
+}
+1984.1.20 = {
+	complete_national_focus = CHI_taiwanese_youth
+	add_ideas = {
+		export_focus
+		mid_welfare
+	}
+	set_technology = {
+		personal_computer = 1
+		integrated_circuit = 1
+		Semiconductor = 1
+		concentrated_industry4 = 1
+		machine_gun4 = 1
+		advanced_infantry_weapons = 1
+		improved_medium_tank = 1
+		fighter4 = 1
+	}
+	create_country_leader = {
+		name = "Lin Yi-Hsiung"
+		
+		picture = "gfx/leaders/CHI/Portrait_CHI_Lin_YiHsiung.tga"
+		expire = "2050.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1988.1.20 = {
+	complete_national_focus = CHI_release_books
+	complete_national_focus = CHI_divided_family
+	remove_ideas = taiwan_construction
+	complete_national_focus = CHI_release_emergency
+	retire_character = CHI_Chiang_ChinKuo
+	retire_character = CHI_Sun_Yun_suan
+	create_country_leader = {
+		name = "Lee Teng-Hui"
+		
+		picture = "gfx/leaders/CHI/Portrait_China_Lee_Tenghui.tga"
+		expire = "2050.1.1"
+		ideology = despotism
+		traits = {
+			democratic_reformer compassionate_gentleman political_dancer
+		}
+	}
+}
+1990.1.20 = {
+	remove_ideas = CHI_civilwar_law
+	complete_national_focus = CHI_pragmatism
+	complete_national_focus = CHI_release_emergency
+	complete_national_focus = CHI_3_links
+	complete_national_focus = CHI_1990reform
+}

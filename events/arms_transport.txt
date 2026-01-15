@@ -1,0 +1,206 @@
+﻿add_namespace = arms
+#柬埔寨请求独立
+country_event = {
+	id = arms.1
+	title = arms.1.t
+	desc = arms.1.d
+	picture = GFX_Equipment_guns
+	is_triggered_only = yes
+	option = {
+		name = arms.1.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				add = 10
+				FROM = {
+					has_opinion = {
+					target = ROOT
+					value > 90
+					}
+				}
+			}	
+			modifier = {
+				add = 10
+				FROM = {
+					is_in_faction_with = ROOT
+				}
+			}	
+			modifier = {
+				add = 10
+				FROM = {
+					is_guaranteed_by = ROOT
+				}
+			}	
+		}
+		FROM = { country_event = { id = arms.2 } }
+		send_equipment = {
+			equipment = infantry_equipment
+			amount = 5000
+			target = FROM
+		}
+		send_equipment = {
+			equipment = machine_gun
+			amount = 2000
+			target = FROM
+		}
+		send_equipment = {
+			equipment = motorized_equipment
+			amount = 600
+			target = FROM
+		}
+	}
+	option = {
+		name = arms.1.b
+		FROM = { country_event = { id = arms.3 } }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				add = 200 
+				has_equipment = {
+					infantry_equipment_1 < 10000
+				}
+			}	
+		}
+	}
+}
+country_event = {
+	id = arms.2
+	title = arms.2.t
+	desc = arms.2.d
+	picture = GFX_Equipment_guns
+	is_triggered_only = yes
+	option = {
+		name = arms.1.a
+	}
+}
+country_event = {
+	id = arms.3
+	title = arms.3.t
+	desc = arms.3.d
+	picture = GFX_Equipment_guns
+	is_triggered_only = yes
+	option = {
+		name = arms.1.a
+	}
+}
+country_event = {
+	id = arms.4
+	title = arms.4.t
+	desc = arms.4.d
+	picture = GFX_mig23
+	is_triggered_only = yes
+	option = {
+		name = arms.1.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				add = 10
+				FROM = {
+					has_opinion = {
+					target = ROOT
+					value > 90
+					}
+				}
+			}	
+			modifier = {
+				add = 10
+				FROM = {
+					is_in_faction_with = ROOT
+				}
+			}	
+			modifier = {
+				add = 10
+				FROM = {
+					is_guaranteed_by = ROOT
+				}
+			}	
+			modifier = {
+				add = 20
+				FROM = {
+					has_country_leader_with_trait = anti_communist
+				}
+			}	
+			modifier = {
+				add = 30
+				FROM = {
+					OR = {
+						has_idea = Marshall
+					}
+				}
+			}	
+		}
+		FROM = {
+			country_event = { id = arms.5 }
+			if = {
+				limit = { ROOT = { has_tech = fighter1 } }
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 100
+					producer = ROOT
+				}
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_1
+					amount = 30
+					producer = ROOT
+				}
+			}
+			if = {
+				limit = { ROOT = { has_tech = fighter2 } }
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_1
+					amount = 50
+					producer = ROOT
+				}
+			}
+			if = {
+				limit = { ROOT = { has_tech = fighter3 } }
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_2
+					amount = 50
+					producer = ROOT
+				}
+			}
+			if = {
+				limit = { ROOT = { has_tech = fighter4 } }
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_3
+					amount = 50
+					producer = ROOT
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_1
+				amount = 50
+				producer = ROOT
+			}
+		}
+	}
+	option = {
+		name = arms.1.b
+		FROM = { country_event = { id = arms.6 } }
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+country_event = {
+	id = arms.5
+	title = arms.5.t
+	desc = arms.5.d
+	picture = GFX_mig23
+	is_triggered_only = yes
+	option = {
+		name = arms.1.a
+	}
+}
+country_event = {
+	id = arms.6
+	title = arms.6.t
+	desc = arms.6.d
+	picture = GFX_mig23
+	is_triggered_only = yes
+	option = {
+		name = arms.1.a
+		add_political_power = 100
+	}
+}

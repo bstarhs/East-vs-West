@@ -1,0 +1,196 @@
+﻿capital = 13
+
+oob = "EST_1936"
+
+set_research_slots = 2
+set_country_flag = developmented
+set_country_flag = has_monarchs
+	set_country_flag = female_finished
+set_country_flag = soviet_state
+set_country_flag = baltic_state
+add_ideas = {
+	limited_conscription
+}
+set_country_flag = west_euro_state
+	complete_national_focus = common_61
+	set_country_flag = gen230
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_fighter = 1
+	early_ship_hull_submarine = 1
+}
+
+set_convoys = 5
+
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	
+	oob = "EST_1947"
+	set_technology = {
+		tech_recon = 1
+		tech_support = 1		
+		tech_engineers = 1
+		fighter1 = 1
+		early_bomber = 1
+		CAS1 = 1
+		naval_bomber1 = 1
+		gw_artillery = 1
+		interwar_artillery = 1
+		interwar_antiair = 1
+		
+		basic_ship_hull_submarine = 1
+
+		#doctrines
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	}
+}
+set_popularities = {
+	democratic = 20
+	fascism = 15
+	communism = 5
+	neutrality = 60
+}
+add_ideas = {
+
+	Lutheranism
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1932.5.21"
+	election_frequency = 48
+	elections_allowed = no
+}
+1988.1.20 = {
+	set_technology = {
+		laser_weapon = 1
+		tech_recon2 = 1
+		transport_2 = 1
+		trans_helicopter_1 = 1
+		halicopter_rocket_net = 1
+		halicopter_machinegun = 1
+		gasoline_train = 1
+		rocket_engine = 1
+		transport_plane1 = 1
+		transport_plane2 = 1
+		at_missile_1 = 1
+		at_missile_2 = 1
+		tech_engineers2 = 1
+		mechanised_infantry = 1
+		mechanised_infantry2 = 1
+		mechanised_infantry3 = 1
+		paratroopers = 1
+		paratroopers2 = 1
+		artillery2 = 1
+		artillery3 = 1
+		motorised_infantry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company  = 1
+	sp_artillery1 = 1
+	infantry_training = 1
+	basic_militia = 1
+	military_office = 1
+	infantry_training_2 = 1
+	infantry_training_3 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	delay = 1
+	morale_1 = 1
+	morale_2 = 1
+	motorize_doctrine = 1
+	motorized_transport = 1
+	motorized_infantry = 1
+	military_instructor = 1
+	depth_defense = 1
+	armor_doctrine = 1
+	command_cooperation = 1
+	machine_gun1 = 1
+	machine_gun2 = 1
+	street_fight = 1
+		cable_television = 1
+		infantry_at = 1
+		assembly_line = 1
+		motorized_cooperation = 1
+		vehicle_artillery = 1
+		dispersed_industry2 = 1
+		sp_artillery2 = 1
+		tech_logistics_company2 = 1
+		basic_heavy_tank = 1
+		tech_recon3 = 1
+		motorized_HQ = 1
+		aa_missile_1 = 1
+		spaa2 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		fighter2 = 1
+		rocket_artillery = 1
+	}
+	create_country_leader = {
+		name = "Lennart Georg Meri"
+		
+		picture = "gfx/leaders/EST/Portrait_Estonia_Lennart_Meri.tga"
+		expire = "1988.1.1"
+		ideology = liberalism
+		
+		traits = {
+		}
+	}
+	set_popularities = {
+		democratic = 83
+		communism = 12
+		neutrality = 5
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+1991.1.20 = {
+	add_ideas = {
+		limited_conscription
+		low_economic_mobilisation
+		Lutheranism
+		mid_welfare
+		USSR_collape_ideas
+	}
+	add_ideas = Baltic_awaken
+	set_popularities = {
+		democratic = 80
+		communism = 15
+		neutrality = 5
+	}
+	add_ideas = UNmember
+	add_to_array = { global.UNmember_list = FROM }
+	set_country_flag = china_diplomacy
+}

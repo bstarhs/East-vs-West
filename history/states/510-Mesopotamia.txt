@@ -1,0 +1,42 @@
+
+state={
+	id=510
+	name="STATE_510"
+	manpower = 3497169
+	resources={
+	}
+	
+	state_category = large_town
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		add_dynamic_modifier = { modifier = husbandry_production }
+		set_state_flag = ethnics_Argentina
+		add_to_array = { this.state_ethnics_list = 25 }
+		set_state_flag = cutton_production
+		owner = ARG
+		buildings = {
+			farm_building = 4
+			hospital = 1
+			power_plant = 1
+			infrastructure = 5
+			industrial_complex = 4
+			air_base = 1
+			arms_factory = 1
+		}
+		victory_points = {
+			7500 5
+		}
+		victory_points = {
+			13415 4
+		}
+		victory_points = {
+			5163 8
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		2172 5163 7500 8208 10975 10985 13000 13415 
+	}
+}

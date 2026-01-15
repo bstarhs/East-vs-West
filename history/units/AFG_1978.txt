@@ -1,0 +1,96 @@
+﻿
+division_template = {
+	name = "Bekhesh Peaadh Nezam"
+	division_names_group = AFG_MOT_01
+	regiments = {		
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+
+}
+division_template = {
+	name = "Bekhesh Zerh Pewesh"
+	division_names_group = AFG_ARM_01
+	regiments = {		
+		light_armor = { x = 0 y = 0 }		# BT-7 tanks
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Bekhesh Kewh"	
+	division_names_group = AFG_MTN_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+	}
+}
+units = {
+	#1st army Kabul
+	division= {	
+		name = "Bekhesh Peaadh Nezam al-1i"
+		location = 10737
+		division_template = "Bekhesh Peaadh Nezam" 	
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Peaadh Nezam al-2i"
+		location = 10737
+		division_template = "Bekhesh Peaadh Nezam" 	
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Peaadh Nezam al-3i"
+		location = 10737
+		division_template = "Bekhesh Peaadh Nezam" 	
+		start_experience_factor = 0.5
+	}
+	#2nd army Kandahar
+	division= {	
+		name = "Bekhesh Zerh Pewesh al-1i"
+		location = 5064
+		division_template = "Bekhesh Zerh Pewesh"
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Zerh Pewesh al-2i"
+		location = 5064
+		division_template = "Bekhesh Zerh Pewesh"
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Zerh Pewesh al-3i"
+		location = 5064
+		division_template = "Bekhesh Zerh Pewesh"
+		start_experience_factor = 0.5
+	}
+	#3rd army Kondoz
+	division= {	
+		name = "Bekhesh Peaadh Nezam al-4i"
+		location = 12314
+		division_template = "Bekhesh Peaadh Nezam" 	
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Peaadh Nezam al-5i"
+		location = 12314
+		division_template = "Bekhesh Peaadh Nezam" 	
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Kewh al-1i"
+		location = 12314
+		division_template = "Bekhesh Kewh" 	
+		start_experience_factor = 0.5
+	}
+	division= {	
+		name = "Bekhesh Kewh al-2i"
+		location = 12314
+		division_template = "Bekhesh Kewh" 	
+		start_experience_factor = 0.5
+	}
+}

@@ -1,0 +1,85 @@
+ideas = {
+	country = {
+		BUL_army_restrictions = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = communism
+			}
+			picture = RedKhmer
+			removal_cost = -1
+			modifier = {
+			}
+		}
+	}
+	political_advisor = {
+
+		BUL_konstantin_muraviev = {
+
+			picture = generic_political_advisor_europe_1
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { compassionate_gentleman }
+		}
+
+		BUL_dobri_bozhilov = {
+
+			picture = generic_political_advisor_europe_2
+				
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { captain_of_industry }
+		}
+
+		BUL_georgi_ivanov_kyoseivanov = {
+
+			picture = generic_political_advisor_europe_3
+			
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = { backroom_backstabber }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	industrial_concern = {
+		
+		designer = yes
+		
+		dar = {
+			
+			picture = generic_air_manufacturer_1
+
+			
+			allowed = {
+				original_tag = BUL
+			}
+						
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			# licenced Focke-Wulf Fw 44, built own trainers DAR 6 and DAR 9.
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}	
+	}
+
+
+	theorist = {
+	}
+}

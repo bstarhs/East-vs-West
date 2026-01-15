@@ -1,0 +1,152 @@
+division_template = {
+	name = "Temporary Division"	
+	division_names_group = CHI_INF_01	# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					
+		infantry = { x = 0 y = 0 }	
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+	}
+
+}
+division_template = {
+	name = "Infantry Division"
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+	}
+}
+division_template = {
+	name = "Cavalry Division"			
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+####### OOB #######
+
+units = {
+	#13军
+	division = {
+		name = "4th division"
+		location = 6804
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "54th division"
+		location = 6804
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "89th division"
+		location = 6804
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#94军
+	division = {
+		name = "5th division"
+		location = 6852
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "43th division"
+		location = 6852
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "121th division"
+		location = 6852
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#52军
+	division = {
+		name = "2rd division"
+		location = 11808
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "25th division"
+		location = 11808
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "195th division"
+		location = 11808
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#71军
+	division = {
+		name = "87th division"
+		location = 4503
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "88th division"
+		location = 4503
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "91th division"
+		location = 4503
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	#60军
+	division = {
+		name = "182th division"
+		location = 9927
+		division_template = "Temporary Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "184th division"
+		location = 9927
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+	division = {
+		name = "21th division"
+		location = 9927
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		
+	}
+}

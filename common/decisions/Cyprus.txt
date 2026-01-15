@@ -1,0 +1,75 @@
+political_actions = {
+
+	GRE_annex_CYP = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = GRE
+		}
+
+		cost = 150
+
+		visible = {
+			183 = { is_controlled_by = CYP }
+			797 = { is_controlled_by = CYP }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+		complete_effect = {
+			annex_country = {
+				target = CYP
+				transfer_troops = yes
+			}
+			add_stability = 0.2
+			add_war_support = 0.3
+		news_event = { id = cyp.11 }
+		}
+
+	}
+	
+	TUR_invade_CYP = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = TUR
+		}
+
+		cost = 150
+
+		visible = {
+			CYP = { has_government = neutrality }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			NCY = {
+				set_state_owner = 797
+				set_state_controller = 797
+				load_oob = "NCY"
+			}
+			CYP = {
+				declare_war_on = {
+				target = NCY
+				type = annex_everything
+				}
+			}
+			TUR = {
+				news_event = { id = cyp.6 }
+				leave_faction = yes
+				give_guarantee = NCY
+				add_to_war = {
+					targeted_alliance = NCY
+					enemy = CYP
+				}
+			}
+		}
+	}
+}

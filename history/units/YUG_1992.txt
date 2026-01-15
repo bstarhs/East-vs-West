@@ -1,0 +1,186 @@
+﻿division_template = {
+	name = "Mechanised Brigade"	
+	division_names_group = YUG_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 } 		
+	}
+}
+division_template = {
+	name = "Gorska Pesadija"	
+	division_names_group = YUG_MNT_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Airborne Brigade"	
+	division_names_group = YUG_PAR_01
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armor Brigade" 	
+	division_names_group = YUG_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		light_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		light_armor = { x = 1 y = 1 }		
+		motorized = { x = 2 y = 0 }	
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 		
+	}
+}
+units = {
+	division = {
+		name = "Guards Mechanised Brigade"  		
+		location = 11586
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "63rd Airborne Brigade"  		
+		location = 9906
+		division_template = "Airborne Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Proletarian Guards Mechanized Division"  		
+		location = 11586
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "4th Motorized Division"  		
+		location = 11586
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "22nd Infantry Division"  		
+		location = 11586
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Belgrade City Defence Command"  		
+		location = 11586
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "12th Corps"  		
+		location = 11580
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "24th Corps"  		
+		location = 3984
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "37th Corps"  		
+		location = 3922
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "37th Motorized Division"  		
+		location = 6953
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "2nd Corps"  		
+		location = 9809
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "21st Corps"  		
+		location = 9906
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "41st Corps"  		
+		location = 974
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "42nd Corps"  		
+		location = 3882
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "52nd Corps"  		
+		location = 9849
+		division_template = "Mechanised Brigade"
+		start_experience_factor = 0.8
+	}
+} 
+
+
+###### Vazduhoplovstvo Vojske Kraljevine Jugoslavije (VVKJ) ######
+air_wings = {
+	107 = {																# Serbia
+		fighter_equipment_1 = { owner = "YUG" amount = 48 }				# 1. Vazduhoplovna Brigada -- Hawker Fury IIs, Ikarus IK-2/3s	
+	}
+	106 = {																# Macedonia
+		fighter_equipment_1 = { owner = "YUG" creator = "ENG" amount = 40 }				# 2. Vazduhoplovna Brigada  -- Hurricane Is
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "YUG"
+		}
+		requested_factories = 1
+		progress = 0.60
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "YUG"
+		}
+		requested_factories = 1
+		progress = 0.80
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_1
+			creator = "YUG"
+		}
+		requested_factories = 1
+		progress = 0.30
+		efficiency = 100
+	}
+}

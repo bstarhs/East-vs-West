@@ -1,0 +1,38 @@
+political_actions = {
+	
+	LBA_anti_american = {
+		fire_only_once = yes
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = LBA
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			date > 1970.1.1
+			date < 1975.1.1
+			has_government = neutrality
+		}
+
+		complete_effect = {
+			add_ideas = Brotherly_Leader
+			add_popularity = {
+			ideology = neutrality
+			popularity = 0.5
+			}
+			add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+			}
+			USA = { news_event = { id = lba.6 } }
+		}
+
+	
+	}
+}

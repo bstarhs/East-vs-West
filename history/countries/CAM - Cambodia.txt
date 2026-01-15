@@ -1,0 +1,273 @@
+﻿capital = 741
+
+oob = "CAM_1947"
+
+set_research_slots = 2
+
+set_country_flag = has_monarchs
+set_country_flag = japan_invade_victims
+set_country_flag = third_world
+set_country_flag = southeastasia
+# Starting tech
+# clone of France
+	activate_decision = create_radio_station
+	set_technology = {
+		army_aviation = 1
+	machine_gun1 = 1
+	tech_signal_company = 1
+		medical1 = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+	
+}
+
+add_ideas = {
+	service_by_requirement
+	war_economy
+	Hinayana
+	france_colony
+}
+	set_popularities = {
+		democratic = 22
+		communism = 5
+		monarchism = 73
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+
+
+recruit_character = CAM_Lon_Nol
+recruit_character = CAM_Son_Ngok_Thanh
+recruit_character = CAM_Dap_Chhuon
+recruit_character = CAM_Tou_Samouth
+recruit_character = CAM_Norodom_Phurissara
+recruit_character = CAM_Penn_Nouth
+
+create_country_leader = {
+	name = "Norodom Sihanouk" 
+	
+	picture = "gfx/leaders/CAM/Portrait_Cambodia_Sihanouk.tga"
+	expire = "1953.3.1"
+	ideology = monarchism
+	traits = {
+		pro_third_world dictator Developmentalism ideological_crusader popular_figurehead backroom_backstabber staunch_monarchist
+	}
+}
+1949.1.20 = {
+	complete_national_focus = Focus_Goverment_reform
+	set_popularities = {
+		democratic = 22
+		communism = 5
+		monarchism = 73
+	}
+	set_politics = { ruling_party = monarchism }
+}
+1955.1.1 = {
+	oob = "CAM_1955"
+	remove_ideas = france_colony
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	set_party_name = {
+		ideology = monarchism
+		long_name = CAM_sangkum_party
+		name = CAM_sangkum_party
+	}
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = common_21
+	complete_national_focus = common_50
+	add_ideas = {
+		UNmember
+	}
+}
+1958.1.1 = {
+	set_country_flag = japan_diplomatic
+	complete_national_focus = common_weman_right
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	complete_national_focus = common_22
+	add_to_variable = { HCM_bombed = 1 }
+	set_politics = { ruling_party = monarchism }
+	set_country_flag = china_diplomacy
+	recruit_character = CAM_Pol_Pot
+	retire_character = CAM_Dap_Chhuon
+}
+1961.1.20 = {
+	set_country_flag = female_finished
+	set_popularities = {
+		democratic = 10
+		communism = 20
+		monarchism = 60
+		neutrality = 10
+	}
+	promote_character = CAM_Lon_Nol
+	complete_national_focus = common_medic
+	complete_national_focus = common_24
+	add_ideas = {
+		NonAligned
+	}
+}
+1963.1.1 = {
+	complete_national_focus = common_24
+	diplomatic_relation = { country = MLI relation = war_relation active = no }
+	diplomatic_relation = { country = SEN relation = war_relation active = no }
+}
+1970.1.20 = {
+	retire_character = CAM_Tou_Samouth
+	promote_character = CAM_Pol_Pot
+	activate_decision = Establishment_of_National_Museum
+	add_ideas = {
+	closed_economy
+		southeast_revolution
+	}
+	set_popularities = {
+		neutrality = 50
+		democratic = 8
+		communism = 32
+		monarchism = 10
+	}
+	set_politics = {
+		ruling_party = neutrality
+	}
+	promote_character = CAM_Lon_Nol
+}
+1975.12.1 = {
+oob = "CAM_1975"
+	add_ideas = {
+	isolated
+	low_diplomacy
+		Anti_religious
+		redkhmer
+		BannedEconomic
+		grand_purge
+		AgriculturalCooperatives
+	}
+	set_popularities = {
+		communism = 99
+		monarchism = 1
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	
+	create_corps_commander = {
+		name = "Khieu Samphan"
+		portrait_path = "gfx/leaders/CAM/Portrait_Cambodia_KhieuSamphan.tga"
+		traits = {  }
+		skill = 2
+	}
+	create_corps_commander = {
+		name = "Nuon Chea"
+		portrait_path = "gfx/leaders/CAM/Portrait_Cambodia_NuonChea.tga"
+		traits = {  }
+		skill = 2
+	}
+	create_corps_commander = {
+		name = "Ieng Sary"
+		portrait_path = "gfx/leaders/CAM/Portrait_Cambodia_Ieng_Sary.tga"
+		traits = {  }
+		skill = 2
+	}
+}
+
+1980.1.20 = {
+	set_party_name = {
+		ideology = communism
+		long_name = CAM_peoples_party
+		name = CAM_peoples_party
+	}
+	set_party_name = {
+		ideology = monarchism
+		long_name = CAM_funcinpik_party
+		name = CAM_funcinpik_party
+	}
+	set_popularities = {
+		democratic = 5
+		communism = 72
+		monarchism = 23
+	}
+	set_cosmetic_tag = VIN_CAM
+	remove_ideas = redkhmer
+	remove_ideas = isolated
+	add_ideas = {
+		war_economy
+	}
+	create_country_leader = {
+		name = "Heng Samrin"
+		
+		picture = "gfx/leaders/CAM/Portrait_Cambodia_Heng_Samrin.tga"
+		expire = "1988.1.1"
+		ideology = marxism
+		
+		traits = {
+		
+		}
+	}
+}
+1981.1.1 = {
+	diplomatic_relation = { country = MLI relation = war_relation active = no }
+	diplomatic_relation = { country = CAF relation = war_relation active = no }
+	diplomatic_relation = { country = MAD relation = war_relation active = no }
+}
+
+1985.1.20 = {
+	set_popularities = {
+		democratic = 15
+		communism = 52
+		monarchism = 33
+	}
+	create_country_leader = {
+		name = "Hun Sen"
+		
+		picture = "gfx/leaders/CAM/Portrait_Cambodia_Hun_Sen.tga"
+		expire = "1988.1.1"
+		ideology = marxism
+		
+		traits = {
+		
+		}
+	}
+}
+1990.1.1 = {
+	set_cosmetic_tag = PRKAM
+}

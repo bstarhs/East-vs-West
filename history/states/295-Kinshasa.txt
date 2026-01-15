@@ -1,0 +1,52 @@
+
+state={
+	id=295
+	name="STATE_295" # Leopoldville
+	manpower = 3540948
+	
+	state_category = large_town
+	
+	resources={
+		tungsten=2
+		iron = 3
+		rubber = 16
+		coal = 8
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Bakongo
+		set_state_flag = banana_production
+		add_to_array = { this.state_ethnics_list = 32 }
+		owner = BEL
+		add_core_of = COG
+		buildings = {
+			farm_building = 2
+			plantation = 3
+			infrastructure = 3
+			air_base = 2
+			industrial_complex = 2
+			10968 = {
+				naval_base = 1
+			}
+		}
+		victory_points = { 5117 8 }
+		victory_points = { 13936 5 }
+		victory_points = { 12945 2 }
+		victory_points = { 13934 3 }
+		victory_points = { 10968 3 }
+		victory_points = { 13933 2 }
+		1960.6.30 = {
+			owner = COG
+		}
+		1972.1.1 = {
+			buildings = {
+				dam_plant = 1
+			}
+		}
+	}
+
+	provinces={
+		5117 10025 10968 12896 12925 12945 13544 13931 13932 13933 13934 13935 13936
+	}
+}

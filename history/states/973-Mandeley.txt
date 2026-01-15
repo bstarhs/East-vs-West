@@ -1,0 +1,46 @@
+
+state={
+	id=973
+	name="STATE_973" # Mandalay
+	manpower = 144600
+	
+	state_category = town
+
+	history={
+		set_state_flag = ethnics_Burmese
+		add_to_array = { this.state_ethnics_list = 43 }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		owner = ENG
+		add_core_of = BUR
+		1948.1.4 = {
+		owner = BUR
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			school = 1
+				power_plant = 1
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = {
+			1492 8
+		}
+		victory_points = {
+			12404 3
+		}
+		victory_points = {
+			4202 5
+		}
+		victory_points = {
+			1650 2
+		}
+
+	}
+	
+	provinces={
+		12404 1492 4202 4585 12449 7034 4626 1650 
+	}
+}

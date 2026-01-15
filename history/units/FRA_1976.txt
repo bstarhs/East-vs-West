@@ -1,0 +1,120 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Division d'Infanterie"		
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Motorisée"	# Division d'Infanterie Motorisée
+
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Division d'Infanterie Alpine"	# Division d'Infanterie Alpine
+	# Note: trimmed to 3x Rgts w/ arty bn added, 1939
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }	# Regular mountain infantry (Infanterie Alpine)
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }	
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Division de Cavalerie" 	# Division de Cavalerie
+	# Note: Transformed to DLC, DLM divisions, 1936-39 
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Division Légère Mécanique" 		# Division Légère Mécanique
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# Bn. of Hotchkiss, then Souma (Med.) tanks
+		light_armor = { x = 0 y = 1 }		# Bn. of Hotchkiss tanks
+		motorized = { x = 1 y = 0 }			# Brigade of 2x Rgts., 2 Bns. each (later 1 Rgt. of 3x Bns.)
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Brigade de Chars de Combat" 	# Brigade de Chars de Combat, independent armor brigades of 2x Rgts., 2 Bns. each
+
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+	}
+}
+
+##### OOB #####
+units = {
+
+
+	### METRPOLITAN FRANCE ###
+}
+
+### Air Wings
+air_wings = {
+	# Z.d'Op. Aériennes Nord -- Lille
+	29 = { 
+		CAS_equipment_2 = { owner = "FRA" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "FRA" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+
+	# Z.d'Op. Aériennes Est -- Reims
+	18 = {
+		CAS_equipment_2 = { owner = "FRA" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "FRA" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		}
+	}
+	27 = {												
+		strat_bomber_equipment_2 =  { owner = "FRA" creator = "FRA amount = 31 }
+	}
+	16 = {												
+		strat_bomber_equipment_2 =  { owner = "FRA" creator = "FRA amount = 31 }
+	}
+	21 = {												
+		strat_bomber_equipment_2 =  { owner = "FRA" creator = "FRA amount = 31 }
+	}
+
+	# Z.d'Op. Aériennes du Alps -- Marseille
+	21 = {
+		CAS_equipment_2 = { owner = "FRA" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "FRA" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		strat_bomber_equipment_1 =  {
+			owner = "FRA" 
+			amount = 90
+		}
+		# Groupement de Bombardment d'Assault 19
+		strat_bomber_equipment_0 =  {
+			owner = "FRA" 
+			amount = 24
+		}
+	}
+	# Aeronautique Navale -- Cherbourg
+	15 = {
+		CAS_equipment_2 = { owner = "FRA" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "FRA" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+	}
+}

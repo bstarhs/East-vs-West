@@ -1,0 +1,141 @@
+ideas = {
+
+	country = {
+
+		francodeath = {
+
+			picture = francodeath
+
+			allowed = {
+				original_tag = SPR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				neutrality_drift = -0.02
+				stability_factor = -0.12
+			}
+		}
+		falangist_debuff = {
+
+			picture = falangist_debuff
+
+			allowed = {
+				original_tag = SPR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				opinion_gain_monthly = -0.2
+				democratic_acceptance = -20
+				communism_acceptance = -20
+				stability_factor = 0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		ETArevolt = {
+
+			picture = ETArevolt
+
+			allowed = {
+				original_tag = SPR
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				custom_modifier_tooltip = ETArevolt_tool
+				political_power_gain = -0.12
+				stability_factor = -0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+
+		SPA_recovering_from_civil_war = {
+
+			picture = FRA_matignon_agreements
+
+			allowed = {
+				original_tag = SPR
+				has_government = fascism
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				ai_get_ally_desire_factor = -200
+				join_faction_tension = 0.5
+			}
+		}
+	}
+
+	political_advisor = {
+		adolfo_suarez = {
+			allowed = {
+				original_tag = SPR
+			}
+			visible = {
+				date > 1975.1.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	industrial_concern = {
+		SPR_INI = {
+			
+			picture = SPR_INI
+
+			
+			allowed = {
+				original_tag = SPR
+			}
+			
+			traits = { industrial_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		SEAT = {
+			
+			picture = SEAT
+
+			
+			allowed = {
+				original_tag = SPR
+			}
+			
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	# MILITARY
+	army_chief = {
+
+	}
+	air_chief = {
+	}
+
+	navy_chief = {
+	}
+
+	
+	high_command = {
+	}
+}

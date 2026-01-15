@@ -1,0 +1,184 @@
+﻿##### CHINA NAME LISTS #####
+### REGULAR DESTROYER NAMES###
+PRC_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }			
+
+	fallback_name = "%d Quzujian"					
+
+	unique = {											
+		"051" "052" "053"
+	}
+}
+PRC_CITIES = {
+	name = NAME_THEME_CITIES
+
+	for_countries = { PRC }
+
+	can_use = {
+		NOT = { 
+			has_government = fascism
+			has_government = neutrality
+		}
+	}
+
+	type = ship
+
+	unique = {
+		"Beijing" "Tianjin" "Anshan" "Changchun" "Shenyang" "Qingdao" "Jinan" "Weihai" "Lvshun" "Dalian" "Jinzhou" "Shijiazhuang" "Baoding" "Guangzhou" "Lianyun" "Suzhou" "XuZhou" "NanJing" "HangZhou" "NingBo" "YangZhou" "Wenzhou" "Wuxi" "Xiamen" "Fuzhou" "Zhangzhou" "Haikou" "Huizhou" "Zhanjiang" "Shantou" "Maoming" "Yangjiang" "Jiangmen" "Foshan" "Shaoguan" "Changsha" "Shaoshan" Wuhan" "Jinzhou" "Chongqing" "Chengdu" "Zigong" "Mianyang" "Xi'an" "Taiyuan" "Datong" "Lhasa" "Lanzhou" Dunhuang" "Jiuquan" "Urmuqi" "Baotou" "Tongliao" "Kunming" "Nanning" "Guilin" "Wuzhou" "Liuzhou" "Guiyang" "Xishuangbanna" "Lijiang"
+	}
+}
+PRC_STATES = {
+	name = NAME_THEME_CHINA_PRIVINCES
+
+	for_countries = { PRC }
+
+	can_use = {
+		NOT = { 
+			has_government = fascism
+			has_government = neutrality
+		}
+	}
+
+	type = ship
+
+	unique = {
+		"Heilungjiang" "Ji'lin" "Liaoning" "Shantung" "Shanxi" "Shaanxi" "Hebei" "He'nan" "Suiyuan" "Ning'xia" "Jiangsu" "An'hui" "Hubei" "Hu'nan" "Zhejiang" "Jiang'xi" "Fujian" "Guangdong" "Guangxi" "Guizhou" "Yunnan" "Sichuan" "Gan'su" "Ning'xia" "Xinjiang" "Tibet"
+	}
+}
+PRC_RIVER_MOUNTAIN = {
+	name = NAME_THEME_RIVER_MOUNTAIN
+
+	for_countries = { PRC }
+
+	can_use = {
+		NOT = { 
+			has_government = fascism
+		}
+	}
+
+	type = ship
+
+	unique = {
+		"Huang He" "Yang Tze" "Huai He" "Heilungjiang" "Liao He" "Usuri" "Songhuajiang" "Zhujiang" "Guijiang" "Qinhuaihe" "Lijiang" "Chishuihe" "Yarutsambo"
+	}
+}
+PRC_HISTORICAL_FIGURES = {
+	name = NAME_THEME_HISTORICAL_FIGURES
+
+	for_countries = { PRC }
+
+	can_use = {
+		NOT = { 
+			has_government = fascism
+			has_government = neutrality
+		}
+	}
+
+	type = ship
+
+	unique = {
+		"Sun Yat-sen" "Qi Ji-guang" "Ding Ru-chang" "Deng Shi-chang" "Zhang Zhi-dong"
+	}
+}
+
+### LIGHT CRUISER NAMES###
+PRC_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+	
+	fallback_name = "%d Qingxing Xunyangjian"
+
+	unique = {
+		"065" "050" "053"
+	}
+}
+
+### HEAVY CRUISER NAMES###
+PRC_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+	
+	fallback_name = "%d Zhong Xunyangjian"
+
+	unique = {						
+		"051" "052" "053"
+	}
+}
+
+
+### BATTLESHIP NAMES ###
+PRC_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+	
+	fallback_name = "%d Zhanjian"		
+
+	unique = {
+		"Nanshen" "Paonin" "Yingjing" "Tuanji" "Hairong" "Zhaohe" "Haiqi" "Yingrui" "Ninghai" "Pinghai" "Zhongeng" "Haizhao" "Haizhen"	"Feihong" 
+	}
+}
+
+### BATTLECRUISER NAMES ###
+PRC_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+	
+	fallback_name = "%d Zhan lie Xunyangjian"		
+
+	unique = {
+		"Nanshen" "Paonin" "Yingjing" "Tuanji" "Hairong" "Zhaohe" "Haiqi" "Yingrui" "Ninghai" "Pinghai" "Zhongeng" "Haizhao" "Haizhen"	"Feihong" 
+	}
+}
+
+### AIRCRAFT CARRIER NAMES ###
+PRC_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+	
+	fallback_name = "%d Hangmu"	
+
+	unique = {
+		"Heilungjiang" "Jilin" "Liaoshen" "Menggu" "Hebei" "Henan" "Shandong" "Shanxi" "Shaanxi" "Guangdong" "Fujian" "Yunnan" "Jiangxi" "Hunan" "Hubei" "Guangxi" "Guizhou" "Qinghai" "Gansu" "Sichuan"
+	}
+}
+
+### SUBMARINES ###
+PRC_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { PRC }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+	
+	fallback_name = "Yuanzheng-%d"
+	
+	unique = {
+		"035" "039" "091" "093"
+	}
+}

@@ -1,0 +1,30 @@
+scripted_gui = {
+
+	nationneed_GUI = {
+		window_name = "nationneed"
+		
+		context_type = player_context
+		
+		visible = {
+			date > 1945.1.1
+		}
+		effects = {	
+			education_icon_click = {
+				news_event = { id = eco.11 }
+			}
+			food_value_bg_click = {
+				random_owned_state = {
+					limit = { check_variable = { this.state_food_production < this.state_food_low_limit } }
+					root = { goto_state = prev }
+				}
+			}
+			power_value_bg_click = {
+				random_owned_state = {
+					limit = { check_variable = { this.state_power_production < this.state_power_need } }
+					root = { goto_state = prev }
+				}
+			}
+		}
+	}
+}
+

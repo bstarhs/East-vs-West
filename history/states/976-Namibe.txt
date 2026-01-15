@@ -1,0 +1,55 @@
+state={
+	id=976
+	name="STATE_976"
+	manpower = 125000
+	state_category = rural
+	resources={
+		iron=3
+		copper=7
+	}
+
+	provinces={
+		12958 13395 8138 8202 13397 12391 13394 12985 13398
+	}
+	history={
+		set_state_flag = ethnics_Ovambo
+		add_to_array = { this.state_ethnics_list = 130 }
+		add_to_array = { this.state_ethnics_list = 131 }
+		add_to_array = { this.state_ethnics_list = 95 }
+		add_to_array = { this.state_ethnics_list = 20 }
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = POR
+		add_claim_by = POR
+		buildings = {
+			infrastructure = 2
+			hospital = 1
+		}
+		victory_points = {
+			12958 5
+		}
+		victory_points = {
+			8138 3
+		}
+		add_core_of = ANG
+		1964.11.10 = {
+			buildings = {
+				infrastructure = 4
+				power_plant = 1
+				farm_building = 1
+				industrial_complex = 2
+				12958 = {
+					naval_base = 2
+				}
+			}
+			add_core_of = FNA
+			add_core_of = POR
+			remove_claim_by = POR
+			add_core_of = UTA
+		}
+		1974.11.10 = {
+			remove_core_of = POR
+			owner = ANG
+		}
+	}
+}

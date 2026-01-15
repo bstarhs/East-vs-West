@@ -1,0 +1,218 @@
+characters={
+	IND_Kodandera_Cariappa = {
+		name = IND_Kodandera_Cariappa 
+		portraits = {
+			army = {
+				small="gfx/interface/ideas/idea_Kodandera_Cariappa.dds"
+				large = "gfx/leaders/IND/Portrait_India_Kodandera_Cariappa.tga"
+			}
+		}
+		corps_commander = {
+			visible={
+				date < 1968.1.1
+			}
+			traits = { brilliant_strategist trait_cautious armor_officer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 4
+		}	
+	}
+	IND_Rajendrasinhji_Jadeja= {
+		name = IND_Rajendrasinhji_Jadeja
+		portraits = {
+			army = {
+				small="gfx/interface/ideas/idea_Rajendrasinhji_Jadeja.dds"
+				large = "gfx/leaders/IND/Portrait_India_Rajendrasinhji_Jadeja.tga"
+			}
+		}
+		corps_commander = {
+			visible={
+				date < 1968.1.1
+			}
+			traits = { brilliant_strategist trait_cautious armor_officer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 4
+		}
+		advisor = {
+			visible={
+				date < 1968.1.1
+			}
+			slot = high_command
+			ledger = army
+			idea_token = konstantin_rokossovsky
+			allowed = {
+				original_tag = IND
+			}
+			traits = {
+				army_armored_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}		
+	}
+	IND_Nehru={
+		name=IND_Nehru
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Nehru.tga"
+			}
+		}
+		country_leader={
+			ideology=one_party
+			traits={ pro_socialism popular_figurehead silent_workhorse conservative_nationalist pro_third_world }
+			expire="1979.1.1.1"
+			id=-1
+		}
+	}
+	IND_Morarji_Desai={
+		name=IND_Morarji_Desai
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Morarji_Desai.tga"
+				small="gfx/interface/ideas/idea_Morarji_Desai.dds"
+			}
+		}
+		country_leader={
+			ideology=one_party
+			traits={ pro_third_world }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		country_leader={
+			ideology=conservatism
+			traits={ pro_third_world }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Morarji_Desai
+			allowed = {
+				original_tag = IND
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IND_Lal_Bahadur_Shastri={
+		name=IND_Lal_Bahadur_Shastri
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Lal_Bahadur_Shastri.tga"
+				small="gfx/interface/ideas/idea_Lal_Bahadur_Shastri.dds"
+			}
+		}
+		country_leader={
+			ideology=one_party
+			traits={ pro_third_world }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Lal_Bahadur_Shastri
+			allowed = {
+				original_tag = IND
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IND_Indir_Gandhi={
+		name=IND_Indir_Gandhi
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Indir_Gandhi.tga"
+				small="gfx/interface/ideas/idea_indra_gandhi.dds"
+			}
+		}
+		country_leader={
+			ideology=one_party
+			traits={ popular_figurehead silent_workhorse pro_soviet pro_third_world }
+			expire="1979.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Indir_Gandhi
+			allowed = {
+				original_tag = IND
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IND_Krishna_Menon={
+		name=IND_Krishna_Menon
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Krishna_Menon.tga"
+				small="gfx/interface/ideas/idea_Krishna_Menon.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Krishna_Menon
+			allowed = {
+				original_tag = IND
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IND_Vallabhbhai_Patel={
+		name=IND_Vallabhbhai_Patel
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Vallabhbhai_Patel.tga"
+				small="gfx/interface/ideas/idea_Vallabhbhai_Patel.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Vallabhbhai_Patel
+			allowed = {
+				original_tag = IND
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	IND_Gulzarilal_Nanda={
+		name=IND_Gulzarilal_Nanda
+		portraits={
+			civilian={
+				large="gfx/leaders/IND/Portrait_India_Gulzarilal_Nanda.tga"
+				small="gfx/interface/ideas/idea_Gulzarilal_Nanda.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Gulzarilal_Nanda
+			allowed = {
+				original_tag = IND
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+}

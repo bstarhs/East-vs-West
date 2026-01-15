@@ -1,0 +1,36 @@
+state={
+	id=10
+	name="STATE_10"
+	manpower = 3089000
+
+	state_category = large_city
+	local_supplies=0.0
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		owner = POL
+		set_state_flag = ethnics_Polish
+		add_to_array = { this.state_ethnics_list = 136 }
+		victory_points = {
+			3544 15
+		}
+		victory_points = {
+			402 5
+		}
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 7
+			arms_factory = 6
+			industrial_complex = 2
+			anti_air_building = 2
+			air_base = 5
+		}
+		add_core_of = POL
+	}
+
+	provinces={
+		402 467 524 3482 3544 6511 9400 11492 12562 
+	}
+}

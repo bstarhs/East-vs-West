@@ -1,0 +1,27 @@
+
+	on_weekly = {
+		effect = {
+			set_variable = { max_divisions_faction = 0 }
+			set_variable = { max_divisions_faction = this.num_controlled_states }
+			if = {
+				limit = {
+					NOT = { has_war = yes }
+					check_variable = { this.num_armies > max_divisions_faction }
+					NOT = { has_dynamic_modifier = { modifier = unit_limit_modifier } }
+				}
+				add_dynamic_modifier = { modifier = unit_limit_modifier }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_war = yes
+						check_variable = { this.num_armies < max_divisions_faction }
+					}
+					has_dynamic_modifier = { modifier = unit_limit_modifier }
+				}
+				remove_dynamic_modifier = { modifier = unit_limit_modifier }
+			}
+		}
+	}

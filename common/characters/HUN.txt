@@ -1,0 +1,322 @@
+characters={
+	HUN_Jozsef_Mindszenty={
+		name=HUN_Jozsef_Mindszenty
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Jozsef_Mindszenty.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Jozsef_Mindszenty.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Jozsef_Mindszenty
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				NOT = { has_government = communism }
+			}
+			visible = {
+				tag = HUN
+			}
+			traits  = {
+				religion_leader
+			}
+		}
+	}
+	HUN_Revai_Jozsef={
+		name=HUN_Revai_Jozsef
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Revai_Jozsef.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Revai_Jozsef.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Revai_Jozsef
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				has_government = communism
+			}
+			visible = {
+				tag = HUN
+			}
+			modifier = {
+				drift_defence_factor = 0.12
+			}
+		}
+	}
+	HUN_Farkas_Mihaly={
+		name=HUN_Farkas_Mihaly
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Farkas_Mihaly.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Farkas_Mihaly.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Farkas_Mihaly
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				has_government = communism
+			}
+			visible = {
+				tag = HUN
+			}
+			modifier = {
+				stability_factor = 0.12
+			}
+		}
+	}
+	HUN_Laszlo_Rajk={
+		name=HUN_Laszlo_Rajk
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Laszlo_Rajk.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Laszlo_Rajk.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Laszlo_Rajk
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				has_government = communism
+			}
+			visible = {
+				tag = HUN
+			}
+			modifier = {
+				stability_factor = 0.12
+			}
+		}
+	}
+	HUN_Dobi_Istvan={
+		name=HUN_Dobi_Istvan
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Dobi_Istvan.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Dobi_Istvan.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Dobi_Istvan
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				has_government = communism
+			}
+			visible = {
+				tag = HUN
+			}
+			modifier = {
+				political_power_cost = -0.02
+			}
+		}
+	}
+	HUN_Kovacs_Bela={
+		name=HUN_Kovacs_Bela
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Kovacs_Bela.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Kovacs_Bela.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Kovacs_Bela
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				not = { has_government = communism }
+			}
+			visible = {
+				tag = HUN
+			}
+			modifier = {
+				democratic_drift = 0.02
+			}
+		}
+	}
+	HUN_Korondi_Bela={
+		name=HUN_Korondi_Bela
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Korondi_Bela.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Korondi_Bela.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Korondi_Bela
+			allowed = {
+				original_tag = HUN
+			}
+			available = {
+				has_government = communism
+			}
+			visible = {
+				tag = HUN
+			}
+			modifier = {
+				drift_defence_factor = 0.15
+				stability_factor = 0.25
+			}
+		}
+	}
+	HUN_Losonczy_Geza={
+		name=HUN_Losonczy_Geza
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Losonczy_Geza.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Losonczy_Geza.tga"
+			}
+		}
+		advisor = {
+			cost = 50
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Losonczy_Geza
+			allowed = {
+				original_tag = HUN
+			}
+			visible = {
+				tag = HUN
+				has_idea = hungarian_revolution_ideas
+			}
+			modifier = {
+				democratic_drift = 0.02
+				stability_factor = 0.12
+				political_power_cost = -0.12
+			}
+		}
+	}
+	HUN_Kadar_Janos={
+		name=HUN_Kadar_Janos
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Janos.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Janos_1952.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { pro_soviet socialist_reformism }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Kadar_Janos
+			available = {
+				has_government = communism
+			}
+			allowed  = {
+				original_tag  = HUN
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	HUN_Erno_Gero={
+		name=HUN_Erno_Gero
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Erno_Gero.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Erno_Gero.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { pro_soviet staunch_stalinist }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			available = {
+				has_government = communism
+			}
+			idea_token = Erno_Gero
+			allowed  = {
+				original_tag  = HUN
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	HUN_Imre_Nagy={
+		name=HUN_Imre_Nagy
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Imre_Nagy.dds"
+				large="gfx/leaders/HUN/Portrait_Hungary_Imre_Nagy.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { socialist_reformism independent_red pro_third_world }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Imre_Nagy
+			allowed  = {
+				original_tag  = HUN
+				has_government  = communism 
+			}
+			modifier = {
+			}
+		}
+	}
+	HUN_Nyers_Rezso={
+		name=HUN_Nyers_Rezso
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Nyers_Rezso.dds"
+				large = "gfx/leaders/HUN/Portrait_Hungary_Nyers_Rezso.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Nyers_Rezso
+			allowed  = {
+				original_tag  = HUN
+			}
+			visible = {
+				date > 1960.1.1
+			}
+			traits  = {
+				socialist_reformism
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+}

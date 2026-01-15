@@ -1,0 +1,157 @@
+﻿capital = 660
+
+oob = "ALL"
+
+set_country_flag = language_french
+set_country_flag = african_state
+set_research_slots = 1
+set_convoys = 60
+set_stability = 0.75
+set_country_flag = third_world
+set_country_flag = west_africa
+
+set_country_flag = french_colonies
+	set_variable = { this.education = 28 }
+set_technology = {
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+add_ideas = {
+	low_education
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+	france_colony
+}
+set_country_flag = french_colonies
+	
+create_country_leader = {
+	name = "Francois Tombalbaye"
+	desc = "POLITICIAN_NAM_SAM_NUJOMA_DESC"
+	picture = "gfx/leaders/CHD/Portrait_Chad_Tombalbaye.tga"
+	expire = "2020.1.1"
+	ideology = authoritarianism
+	
+	traits = {
+		pro_france corrupt_leader dictator
+	}
+}
+1960.1.1 = {
+	set_popularities = {
+		communism = 20
+		authoritarianism = 65
+		monarchism = 15
+	}
+	set_politics = {
+	
+		ruling_party = authoritarianism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	set_cosmetic_tag = CHD
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+	}
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1975.1.20 = {
+	create_country_leader = {
+		name = "Félix Malloum Gakoutou"
+		
+		picture = "gfx/leaders/CHD/Portrait_Chad_Malloum.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}
+1979.1.20 = {
+	create_country_leader = {
+		name = "Goukouni Oueddei"
+		picture = "gfx/leaders/CNF/Portrait_Chad_Goukouni.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Hissène Habré"
+		
+		picture = "gfx/leaders/CHD/Portrait_Chad_Hissene.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+			pro_america tyrant
+		}
+	}
+}
+1990.1.20 = {
+	create_country_leader = {
+		name = "Idris Debby"
+		
+		picture = "gfx/leaders/CHD/Portrait_Chad_Idris.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+			
+		}
+	}
+}
+

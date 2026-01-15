@@ -1,0 +1,332 @@
+﻿capital = 285
+
+set_country_flag = language_english
+set_country_flag = main_country
+set_country_flag = commonwealth
+set_country_flag = japan_invade_victims
+set_country_flag = british_colonies
+recruit_character = AST_Paul_Keating
+recruit_character = AST_Harold_Holt
+	set_country_flag = female_finished
+	add_to_array = { global.UNmember_list = FROM }
+	add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = female_equality
+	set_country_flag = developmented
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	complete_national_focus = steel_produc
+	complete_national_focus = common_61
+	complete_national_focus = common_weman_right
+	
+oob = "AST_1947"
+# Starting tech
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	aluminum_tech = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	fuel_silos = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+		can_foods = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	power_generation1 = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+
+1939.1.1 = {
+	add_political_power = 1198
+	
+
+	add_ideas = {
+		Harold_Holt
+		miner
+		UNmember
+		Anglicanism	
+		volunteer_only
+		low_economic_mobilisation
+		white_ast
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1937.10.23"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+	set_convoys = 100
+}
+	set_popularities = {
+		democratic = 88
+		communism = 12
+	}
+	complete_national_focus = common_63
+	complete_national_focus = common_13
+set_politics = {
+	ruling_party = democratic
+	last_election = "1934.9.15"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+create_country_leader = {
+	name = "Ben Chifley"
+	picture = "gfx/leaders/AST/Portrait_Australia_Ben_Chifley.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+set_convoys = 100
+
+	complete_national_focus = commons_5
+1949.1.20 = {
+	set_technology = {
+		atomic_research = 1
+		frozen_food = 1
+	}
+	create_country_leader = {
+		name = "Robert Menzies"
+		
+		picture = "gfx/leaders/AST/Portrait_Australia_Robert_Menzies.tga"
+		expire = "2015.1.1"
+		ideology = socialism
+		traits = {
+			anti_communist pro_america social_reformer
+		}
+	}
+	complete_national_focus = Focus_Goverment_reform
+	set_country_flag = israel_diplomacy
+}
+1955.1.1 = {
+	complete_national_focus = common_medic
+	add_ideas = {
+		Elizabeth_young
+		Olympic
+		SEATO
+	}
+}
+1957.1.1 = {
+	remove_ideas = Olympic
+}
+1964.1.20 = {
+	set_country_flag = japan_diplomatic
+oob = "AST_1965"
+	add_ideas = {
+		Vietnam_AST
+	}
+	set_popularities = {
+		democratic = 92
+		communism = 8
+	}
+	create_country_leader = {
+		name = "Laurie Aarons"
+		
+		picture = "gfx/leaders/AST/Portrait_Australia_Laurie_Aarons.tga"
+		expire = "2015.1.1"
+		ideology = marxism
+		
+		traits = {
+		
+		}
+	}
+}
+1971.1.20 = {
+	set_country_flag = china_diplomacy
+	remove_ideas = Harold_Holt
+	set_country_flag = Satellite_succes
+	give_guarantee = MAL
+	give_guarantee = SIG
+	set_technology = {
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+		electric_arc_furnace_steel = 1
+	}
+	add_ideas = {
+		Commonwealth
+	}
+	create_country_leader = {
+		name = "William McMahon"
+		
+		picture = "gfx/leaders/AST/Portrait_Australia_William_McMahon.tga"
+		expire = "2015.1.1"
+		ideology = socialism
+		
+		traits = {
+		
+		}
+	}
+}
+1975.1.20 = {
+oob = "AST_1947"
+	remove_ideas = Vietnam_AST
+	remove_ideas = white_ast
+	create_country_leader = {
+		name = "Malcolm Fraser"
+		
+		picture = "gfx/leaders/AST/Portrait_Australia_Malcolm_Fraser.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		traits = {
+			social_reformer pro_america ideological_crusader
+		}
+	}
+}
+1977.1.20 = {
+	add_opinion_modifier = {
+		target = PRC
+		modifier = PRC_pro_west
+	}
+	remove_ideas = SEATO
+}
+1983.1.20 = {
+	add_ideas = {
+		civilian_economy
+	}
+	create_country_leader = {
+		name = "Bob Hawke"
+		
+		picture = "gfx/leaders/AST/Portrait_Australia_Bob_Hawke.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		
+		traits = {
+			neoliberal
+		}
+	}
+}
+1990.1.20 = {
+	create_country_leader = {
+		name = "Paul John Keating"
+		
+		picture = "gfx/leaders/AST/Portrait_Australia_Paul_Keating.tga"
+		expire = "1979.1.1"
+		ideology = socialism
+		
+		traits = {
+			neoliberal
+		}
+	}
+}

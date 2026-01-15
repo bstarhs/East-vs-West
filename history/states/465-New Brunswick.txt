@@ -1,0 +1,39 @@
+
+state={
+	id=465
+	name="STATE_465"
+	manpower = 475020
+	
+	state_category = rural
+	resources={
+		coal = 4
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Canadian
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 46 }
+		owner = CAN
+		victory_points = {
+			4285 6
+		}
+		victory_points = {
+			1424 4
+		}
+		buildings = {
+			power_plant = 1
+			farm_building = 3
+			hospital = 2
+			infrastructure = 5
+			industrial_complex = 2
+			4285 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		634 1424 4285 4342 4362 4432 7379 12289 
+	}
+}

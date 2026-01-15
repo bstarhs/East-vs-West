@@ -1,0 +1,105 @@
+
+political_actions = {
+	cities_name_Burkina_faso = {
+
+		icon = generic_research
+		fire_only_once = yes
+		allowed = {
+			always = yes
+			tag = BKF
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			NOT = { has_cosmetic_tag = BKF }
+			has_government = communism 
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = BKF
+		}
+
+	}
+	cities_name_zimbabwe = {
+
+		icon = generic_research
+		fire_only_once = yes
+		allowed = {
+			always = yes
+			tag = ZIM
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			821 = { is_controlled_by = ZIM }
+			770 = { is_controlled_by = ZIM }
+		}
+
+		complete_effect = {
+			set_province_name = { id = 10929 name = VICTORY_POINTS_zimbabwe_10929 }
+			set_province_name = { id = 7842 name = VICTORY_POINTS_zimbabwe_7842 }
+		}
+
+	}
+	cities_name_Mozambique = {
+
+		icon = generic_research
+		fire_only_once = yes
+		allowed = {
+			always = yes
+			tag = MZB
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			825 = { is_controlled_by = MZB }
+		}
+
+		complete_effect = {
+			set_province_name = { id = 8245 name = VICTORY_POINTS_Mozambique_8245 }
+		}
+
+	}
+	cities_name_Zaire = {
+
+		icon = generic_research
+		fire_only_once = yes
+		allowed = {
+			always = yes
+			tag = COG
+		}
+
+		cost = 20
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			295 = { is_controlled_by = COG }
+		}
+
+		complete_effect = {
+			set_province_name = { id = 5117 name = VICTORY_POINTS_Zaire_5117 }
+			set_province_name = { id = 1950 name = VICTORY_POINTS_Zaire_1950 }
+			set_province_name = { id = 10071 name = VICTORY_POINTS_Zaire_10071 }
+			set_province_name = { id = 191 name = VICTORY_POINTS_Zaire_191 }
+		}
+
+	}
+}

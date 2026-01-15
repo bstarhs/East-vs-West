@@ -1,0 +1,190 @@
+ideas = {
+
+	country = {
+		Belgium_puppet = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			picture = Belgium_puppet
+	
+			modifier = {
+				encryption_factor = -0.5
+				enemy_operative_detection_chance_factor = -0.5
+				enemy_operative_intel_extraction_rate = -0.5
+				ai_get_ally_desire_factor = -100
+				join_faction_tension = 100
+			}
+		}
+		LeopoldCrisis = {
+			allowed = { always = yes }
+			removal_cost = -1
+			picture = LeopoldCrisis
+			modifier = {
+				stability_factor = -0.3
+				drift_defence_factor = -0.3
+				communism_drift = 0.03
+				monarchism_drift = 0.01
+				political_power_gain = -0.35
+			}
+		}
+	}
+	political_advisor = {
+	}
+
+	army_chief = {
+	}
+
+	air_chief = {
+
+	}
+
+	navy_chief = {
+	}
+
+	high_command = {
+	}	
+
+	theorist = {
+
+	}
+	industrial_concern = {
+		designer = yes
+		BEL_Umicore = {
+			picture = BEL_Umicore
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			traits = { mineral_concern }
+			available = {
+				OR = {
+					controls_state = 792
+					any_other_country = {
+						controls_state = 792
+						has_idea = Belgium_puppet
+					}
+				}
+			}
+			modifier = {
+				country_resource_copper = 30
+				country_resource_tungsten = 15
+				country_resource_chromium = 8
+			}
+		}
+		renault_bel = {
+			picture = renault
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { fast_tank_manufacturer }
+			
+			modifier = {
+				# Renault FT
+			}
+		}
+
+		vickers_armstrong_bel = {
+			picture = generic_tank_manufacturer_2
+		
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { medium_tank_manufacturer }
+			
+			modifier = {
+				
+			}
+		}
+		avions_fairey = {
+			picture = generic_air_manufacturer_2
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# Tipsy B, firefly, fairey fox
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		renard = {
+			picture = generic_air_manufacturer_2
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# Tipsy B, firefly, fairey fox
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		cockerill = { 
+			picture = generic_naval_manufacturer_1
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+						
+			traits = { naval_manufacturer }
+		}
+		fn_herstol = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+	}
+}

@@ -1,0 +1,850 @@
+﻿add_namespace = meme
+#探测器
+news_event = {
+	id = meme.1
+	title = meme.1.t
+	desc = meme.1.d
+	picture = GFX_Explorer1
+	fire_only_once = yes
+	trigger = {
+		date > 1999.6.1
+	}
+	option = {
+		name = meme.1.a
+		add_stability = -0.10
+	}
+	option = {
+		name = meme.1.b
+		add_stability = -0.10
+	}
+}
+#罗曼诺夫
+news_event = {
+    id = meme.2
+    title = meme.2.t
+    desc = meme.2.d
+    picture = GFX_Volkskammer
+    fire_only_once = yes
+	
+    trigger = {
+		tag = USA
+		219 = { is_controlled_by = USA }
+		219 = { is_owned_by = SOV }
+    }
+	option = {	#
+		name = meme.2.a
+		SOV = {
+			set_politics = { ruling_party = democratic }
+			}
+		}
+	option = {	
+		name = meme.2.b
+		SOV = {
+		create_country_leader = {
+				name = "Alexander Romanov"
+				picture = "Portrait_Soviet_Alexander_Romanov.tga"
+				expire = "1999.1.1"
+				ideology = stalinism
+				
+				traits = {
+				
+				}
+			}
+		}
+	}
+}
+#星球大战
+news_event = {
+	id = meme.3
+	title = meme.3.t
+	desc = meme.3.d
+	picture = GFX_Starwars
+	fire_only_once = yes
+	major = yes
+	immediate = {
+		scoped_play_song = "USA_12"
+	}
+	trigger = {
+		date > 1977.5.1
+		date < 1977.6.1
+	}
+	option = {
+		name = meme.3.a	
+	}
+}
+#是首相
+news_event = {
+	id = meme.4
+	title = meme.4.t
+	desc = meme.4.d
+	picture = GFX_YesMinister
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		date > 1984.1.1
+		date < 1985.6.1
+	}
+	
+	option = {
+		name = meme.4.a	#攻击
+	}
+}
+#雅达利大崩溃
+news_event = {
+	id = meme.5
+	title = meme.5.t
+	desc = meme.5.d
+	picture = GFX_ATARIShock
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1983.1.1
+		date < 1984.6.1
+	}
+	
+	option = {
+		name = meme.5.a	
+	}
+}
+#猫王与尼克松
+news_event = {
+	id = meme.6
+	title = meme.6.t
+	desc = meme.6.d
+	picture = GFX_ElvisNixon
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1970.6.1
+		date < 1971.6.1
+	}
+	
+	option = {
+		name = meme.6.a	
+	}
+}
+#奇爱博士
+news_event = {
+	id = meme.7
+	title = meme.7.t
+	desc = meme.7.d
+	picture = GFX_DrStrangelove
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1964.1.1
+		date < 1965.6.1
+	}
+	
+	option = {
+		name = meme.6.a	
+	}
+}
+#列侬是否遇刺
+news_event = {
+	id = meme.8
+	title = meme.8.t
+	desc = meme.8.d
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		date > 1980.1.1
+		date < 1981.1.1
+	}
+	immediate = {
+		random_list = {
+			70 = { every_country = { news_event = { id = meme.9 } } }
+			30 = { every_country = { news_event = { id = meme.10 } } }
+		}
+	}
+}
+#列侬遇刺
+news_event = {
+	id = meme.9
+	title = meme.9.t
+	desc = meme.9.d
+	picture = GFX_LennonDead
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = ENG_12
+	}
+	
+	option = {
+		name = meme.9.a	
+	}
+}
+#列侬存活
+news_event = {
+	id = meme.10
+	title = meme.10.t
+	desc = meme.10.d
+	picture = GFX_Lennon
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = meme.10.a	
+	}
+}
+#梦露自杀
+news_event = {
+	id = meme.11
+	title = meme.11.t
+	desc = meme.11.d
+	picture = GFX_MonroeDead
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		date > 1962.1.1
+		date < 1962.8.1
+	}
+	
+	option = {
+		name = meme.10.a	
+	}
+}
+#Jucika
+news_event = {
+	id = meme.12
+	title = meme.12.t
+	desc = meme.12.d
+	picture = GFX_Jucika
+	fire_only_once = yes
+	trigger = {
+		date > 1957.1.1
+		date < 1958.1.1
+		tag = HUN
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#猫王与尼克松
+news_event = {
+	id = meme.13
+	title = meme.13.t
+	desc = meme.13.d
+	picture = GFX_ElvisNixon
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		date > 1957.1.1
+		date < 1958.1.1
+		tag = USA
+	}
+	option = {
+		name = meme.10.a	
+	}
+}
+#闪闪的红星
+news_event = {
+	id = meme.14
+	title = meme.14.t
+	desc = meme.14.d
+	picture = GFX_ShiningStar
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		date > 1974.1.1
+		date < 1975.1.1
+		tag = PRC
+	}
+	option = {
+		name = meme.10.a	
+	}
+}
+#邓丽君
+news_event = {
+	id = meme.15
+	title = meme.15.t
+	desc = meme.15.d
+	picture = GFX_TresaTeng
+	fire_only_once = yes
+	trigger = {
+		date > 1968.1.1
+		date < 1973.1.1
+		tag = CHI
+	}
+	
+	option = {
+		name = meme.10.a	
+	}
+}
+#夺宝奇兵
+news_event = {
+	id = meme.16
+	title = meme.16.t
+	desc = meme.16.d
+	picture = GFX_IndianJohns
+	fire_only_once = yes
+	major = yes
+	immediate = {
+		play_song = USA_16
+	}
+	trigger = {
+		date > 1981.1.1
+		date < 1982.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#回到未来
+news_event = {
+	id = meme.17
+	title = meme.17.t
+	desc = meme.17.d
+	picture = GFX_BackToFuture
+	fire_only_once = yes
+	major = yes
+	immediate = {
+		play_song = USA_17
+	}
+	trigger = {
+		date > 1985.1.1
+		date < 1986.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#莫斯科
+news_event = {
+	id = meme.18
+	title = meme.18.t
+	desc = meme.18.d
+	picture = GFX_Aleksandra
+	fire_only_once = yes
+	major = yes
+	immediate = {
+		play_song = SOV_16
+	}
+	trigger = {
+		date > 1980.1.1
+		date < 1981.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+
+#成吉思汗
+news_event = {
+	id = meme.19
+	title = meme.19.t
+	desc = meme.19.d
+	picture = GFX_Chingiskhan
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		set_global_flag = moscow
+		name = meme.12.a	
+	}
+}
+#阿童木
+news_event = {
+	id = meme.20
+	title = meme.20.t
+	desc = meme.1.d
+	picture = GFX_Atomu
+	fire_only_once = yes
+	trigger = {
+		date > 1963.1.1
+		date < 1965.1.1
+		tag = JAP
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#假面骑士
+news_event = {
+	id = meme.21
+	title = meme.21.t
+	desc = meme.1.d
+	picture = GFX_Kamenraida
+	fire_only_once = yes
+	trigger = {
+		date > 1972.1.1
+		date < 1973.1.1
+		tag = JAP
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#太空漫游
+news_event = {
+	id = meme.22
+	title = meme.22.t
+	desc = meme.1.d
+	picture = GFX_2001
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1968.1.1
+		date < 1969.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#罗马假日
+news_event = {
+	id = meme.23
+	title = meme.23.t
+	desc = meme.1.d
+	picture = GFX_RomaHoliday
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1953.1.1
+		date < 1954.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#ET
+news_event = {
+	id = meme.24
+	title = meme.24.t
+	desc = meme.1.d
+	picture = GFX_ET
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1982.1.1
+		date < 1983.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#星际迷航
+news_event = {
+	id = meme.25
+	title = meme.25.t
+	desc = meme.1.d
+	picture = GFX_Trecker
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1966.1.1
+		date < 1967.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#终结者
+news_event = {
+	id = meme.26
+	title = meme.26.t
+	desc = meme.1.d
+	picture = GFX_Terminator
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1984.1.1
+		date < 1985.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#rickroll
+news_event = {
+	id = meme.27
+	title = meme.27.t
+	desc = meme.27.d
+	picture = GFX_RickAstley
+	fire_only_once = yes
+	major = yes
+	immediate = {
+		play_song = ENG_10
+	}
+	trigger = {
+		date > 1988.1.1
+		date < 1989.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#卓别林
+news_event = {
+	id = meme.28
+	title = meme.28.t
+	desc = meme.28.d
+	picture = GFX_RomaHoliday
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		date > 1953.1.1
+		date < 1954.1.1
+	}
+	
+	option = {
+		name = meme.12.a	
+	}
+}
+#卓别林
+news_event = {
+	id = meme.29
+	title = meme.29.t
+	desc = meme.29.d
+	picture = GFX_BruceLee
+	major = yes
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		date > 1973.1.1
+		date < 1974.1.1
+		NOT = { has_global_flag = brucelee_dead }
+	}
+	
+	option = {
+		name = meme.29.a	
+		set_global_flag = brucelee_dead
+	}
+}
+#卓别林
+news_event = {
+	id = meme.30
+	title = meme.30.t
+	desc = meme.30.d
+	picture = GFX_JackieChan
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		date > 1978.10.1
+		date < 1979.1.1
+		NOT = { has_global_flag = JackieChan }
+	}
+	
+	option = {
+		name = meme.30.a	
+		set_global_flag = JackieChan
+	}
+}
+#卓别林
+news_event = {
+	id = meme.31
+	title = meme.31.t
+	desc = meme.31.d
+	picture = GFX_Civilization
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = "Babayetu"
+	}
+	option = {
+		name = meme.30.a	
+	}
+}
+#阿伦戴尔
+news_event = {
+	id = meme.32
+	title = meme.32.t
+	desc = meme.32.d
+	picture = GFX_Civilization
+	is_triggered_only = yes
+	immediate = {
+		play_song = "NOR_5"
+	}
+	option = {
+		466 = { set_state_name = STATE_466_vinland }
+		468 = { set_state_name = STATE_468_vinland }
+		331 = { set_state_name = STATE_331_vinland }
+		332 = { set_state_name = STATE_332_vinland }
+		set_province_name = { id = 4345 name = VICTORY_POINTS_4345_Vinland }
+		set_province_name = { id = 12149 name = VICTORY_POINTS_12149_Vinland }
+		GRL = {
+			set_cosmetic_tag = GRL_ARD
+			set_capital = { state = 468 }
+			transfer_state = 101
+		}
+		QUE = {
+			set_cosmetic_tag = VLA
+			set_capital = { state = 468 }
+			transfer_state = 331
+			transfer_state = 332
+			transfer_state = 466
+			transfer_state = 468
+		}
+		NOR = {
+			set_cosmetic_tag = ARD
+			set_capital = { state = 142 }
+			set_autonomy = {
+				target = ICE
+				autonomous_state = autonomy_colony
+				freedom_level = 0.4
+			}
+			set_autonomy = {
+				target = QUE
+				autonomous_state = autonomy_colony
+				freedom_level = 0.4
+			}
+			set_autonomy = {
+				target = GRL
+				autonomous_state = autonomy_colony
+				freedom_level = 0.4
+			}
+		}
+		name = meme.30.a	
+	}
+}
+#拜占庭
+news_event = {
+	id = meme.33
+	title = meme.33.t
+	desc = meme.33.d
+	picture = GFX_Civilization
+	is_triggered_only = yes
+	immediate = {
+		play_song = "GRE_2"
+	}
+	option = {
+		set_province_name = { id = 9833 name = VICTORY_POINTS_Constantinopolis }
+		set_province_name = { id = 11747 name = VICTORY_POINTS_Ancyra }
+		set_province_name = { id = 9861 name = VICTORY_POINTS_Iconium }
+		set_province_name = { id = 12029 name = VICTORY_POINTS_Antioch }
+		set_province_name = { id = 11842 name = VICTORY_POINTS_Adrianople }
+		set_province_name = { id = 4112 name = VICTORY_POINTS_Smyrna }
+		set_province_name = { id = 947 name = VICTORY_POINTS_Prousa }
+		set_province_name = { id = 9893 name = VICTORY_POINTS_Antep }
+		set_province_name = { id = 4512 name = VICTORY_POINTS_Amida }
+		set_province_name = { id = 3951 name = VICTORY_POINTS_Dorylaeum }
+		set_province_name = { id = 10056 name = VICTORY_POINTS_Hadrianopolis }
+		set_province_name = { id = 11811 name = VICTORY_POINTS_Nicomedia }
+		set_province_name = { id = 6938 name = VICTORY_POINTS_Komnenon }
+		set_province_name = { id = 11853 name = VICTORY_POINTS_Theodosiopolis }
+		set_province_name = { id = 10041 name = VICTORY_POINTS_Attouda }
+		set_province_name = { id = 9878 name = VICTORY_POINTS_Nicopolis }
+		set_province_name = { id = 9887 name = VICTORY_POINTS_Dardanellia }
+		set_province_name = { id = 1005 name = VICTORY_POINTS_Attaleia }
+		set_province_name = { id = 10122 name = VICTORY_POINTS_Halicarnassus }
+		set_province_name = { id = 3856 name = VICTORY_POINTS_Cotyaeum }
+		set_province_name = { id = 3851 name = VICTORY_POINTS_Nicaea }
+		set_province_name = { id = 3807 name = VICTORY_POINTS_Caesarea }
+		set_province_name = { id = 6813 name = VICTORY_POINTS_Germanicea }
+		set_province_name = { id = 890 name = VICTORY_POINTS_Nicomedia }
+		set_province_name = { id = 9878 name = VICTORY_POINTS_Yerznka }
+		GRE = {
+			set_cosmetic_tag = BYZ
+			annex_country = {
+				target = TUR
+				transfer_troops = yes
+			}
+			transfer_state = 106
+			transfer_state = 797
+			transfer_state = 183
+			set_capital = { state = 341 }
+		}
+		every_state = {
+			limit = {
+				OR = {
+					has_state_flag = ethnics_Greeks
+					has_state_flag = ethnics_Turkish
+				}
+			}
+			clr_state_flag = ethnics_Greeks
+			clr_state_flag = ethnics_Turkish
+			set_state_flag = ethnics_EastRoman
+		}
+		name = meme.30.a	
+	}
+}
+#罗斯威尔
+news_event = {
+	id = meme.34
+	title = meme.34.t
+	desc = meme.34.d
+	picture = GFX_Roswell
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = meme.34.a	
+	}
+}
+#罗斯威尔
+news_event = {
+	id = meme.35
+	title = meme.35.t
+	desc = meme.35.d
+	picture = GFX_Roswell
+	major = yes
+	is_triggered_only = yes
+	option = {
+		release = LOU
+		ABM = { transfer_state = 367 }
+		release = NEN
+		release = NYK
+		PEN = { transfer_state = 360 }
+		OHO = { transfer_state = 261 }
+		GGR = { transfer_state = 365 }
+		IDA = { transfer_state = 396 }
+		SCA = { transfer_state = 364 }
+		NCA = { transfer_state = 363 }
+		MIS = { transfer_state = 370 }
+		VIR = { transfer_state = 362 }
+		VIR = { transfer_state = 959 }
+		FLO = { transfer_state = 366 }
+		FLO = { transfer_state = 963 }
+		OKL = { transfer_state = 374 }
+		AKS = { transfer_state = 372 }
+		DKT = { transfer_state = 389 }
+		DKT = { transfer_state = 390 }
+		LOU = { transfer_state = 373 }
+		VER = { transfer_state = 960 }
+		release = TEX
+		name = meme.30.a	
+	}
+}
+news_event = {   #帝国银行事件
+	id = meme.36
+	title = meme.36.t
+	desc = meme.36.d
+	picture = GFX_GeorgeOrwell
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_global_flag = GeorgeOrwell }
+		date > 1949.5.20
+		date < 1949.7.1
+		
+	}
+	option = {
+		name = meme.36.a
+		set_global_flag = GeorgeOrwell
+	}
+}
+news_event = {   #灰姑娘
+	id = meme.37
+	title = meme.37.t
+	desc = meme.37.d
+	picture = GFX_Cinderella
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = Cinderella }
+		date > 1950.5.20
+		date < 1950.7.1
+		
+	}
+	option = {
+		name = meme.36.a
+		set_global_flag = Cinderella
+		if = {
+			limit = {
+				USA = { is_ai = no }
+			}
+			play_song = USA_40
+		}
+	}
+}
+news_event = {   #帝国银行事件
+	id = meme.38
+	title = meme.38.t
+	desc = meme.38.d
+	picture = GFX_GeorgeOrwell
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = ENG
+		NOT = { has_global_flag = GeorgeOrwellDeath }
+		date > 1950.1.20
+		date < 1950.3.1
+		
+	}
+	option = {
+		name = meme.36.a
+		set_global_flag = GeorgeOrwellDeath
+	}
+}
+
+news_event = {   #灰姑娘
+	id = meme.39
+	title = meme.39.t
+	desc = meme.39.d
+	picture = GFX_AliceinWonderland
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = AliceinWonderland }
+		date > 1951.7.20
+		date < 1951.10.1
+		
+	}
+	option = {
+		name = meme.36.a
+		set_global_flag = AliceinWonderland
+	}
+}
+news_event = {   #灰姑娘
+	id = meme.40
+	title = meme.40.t
+	desc = meme.40.d
+	picture = GFX_AnAmericaninParis
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = AnAmericaninParis }
+		date > 1952.3.20
+		date < 1952.5.1
+		
+	}
+	option = {
+		name = meme.36.a
+		set_global_flag = AnAmericaninParis
+	}
+}
+news_event = {   #雨中曲
+	id = meme.41
+	title = meme.41.t
+	desc = meme.41.d
+	picture = GFX_SingRain
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		tag = USA
+		NOT = { has_global_flag = SingRain }
+		date > 1952.3.20
+		date < 1952.5.1
+		
+	}
+	option = {
+		name = meme.36.a
+		set_global_flag = SingRain
+	}
+}

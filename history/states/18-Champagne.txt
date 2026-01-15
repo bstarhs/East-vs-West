@@ -1,0 +1,49 @@
+
+state={
+	id=18
+	name="STATE_18"
+	manpower = 1370800
+	
+	state_category = city
+	local_supplies=0.0
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_French
+		set_state_flag = wine_production
+		add_to_array = { this.state_ethnics_list = 70 }
+		set_state_flag = sugar_production
+		owner = FRA
+		victory_points = {
+			9490 5 
+		}
+		victory_points = {
+			9472 5 
+		}
+		victory_points = {
+			13011 10
+		}
+		buildings = {
+			school = 1
+			farm_building = 3
+			hospital = 1
+			power_plant = 2
+			steel_making = 3
+			infrastructure = 7
+			industrial_complex = 3
+			air_base = 10
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+				industrial_complex = 8
+			}
+		}
+		add_core_of = FRA
+	}
+
+	provinces={
+		551 3533 3546 3560 5291 6531 6545 9472 9490 9505 11732 13011 
+	}
+}

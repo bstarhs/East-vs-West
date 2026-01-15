@@ -1,0 +1,72 @@
+
+state={
+	id=14
+	name="STATE_14"
+	manpower = 2396600
+	
+	state_category = city
+	local_supplies=0.0
+	resources={
+		coal=33
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Brittany
+		add_to_array = { this.state_ethnics_list = 41 }
+		add_to_array = { this.state_ethnics_list = 70 }
+		owner = FRA
+		add_dynamic_modifier = { modifier = fish_production }
+		victory_points = {
+			9525 4
+		}
+		victory_points = {
+			11508 4
+		}
+		victory_points = {
+			3552 10
+		}
+		victory_points = {
+			6536 5
+		}
+		victory_points = {
+			9495 2
+		}
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 6
+			dockyard = 4
+			air_base = 5
+			3552 = {
+				naval_base = 10
+				coastal_bunker = 1
+			}
+			6536 = {
+				naval_base = 4
+				coastal_bunker = 1
+			}
+			9510 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = FRA
+		add_core_of = BRI
+		1939.1.1 = {
+			buildings = {
+				dockyard = 5
+			}
+		}
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+			}
+		}
+	}
+
+	provinces={
+		542 3552 3758 6536 6548 6572 9495 9510 9525 11508 
+	}
+}

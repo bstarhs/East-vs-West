@@ -1,0 +1,227 @@
+characters={
+	ISR_Moshe_Sharett={
+		name=ISR_Moshe_Sharett
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Moshe_Sharett.dds"
+				large="gfx/leaders/ISR/Portrait_Israel_Moshe_Sharett.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = Moshe_Sharett
+			allowed  = {
+				original_tag  = ISR
+			}
+			traits  = {
+			}
+		}
+	}
+	ISR_Yehoshafat_Harkabi={
+		name=ISR_Yehoshafat_Harkabi
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Yehoshafat_Harkabi.dds"
+				large="gfx/leaders/ISR/Portrait_Israel_Yehoshafat_Harkabi.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = Yehoshafat_Harkabi
+			allowed  = {
+				original_tag  = ISR
+			}
+			traits  = {
+			}
+		}
+	}
+	ISR_Yehuda_Leib_Maimon={
+		name=ISR_Yehuda_Leib_Maimon
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Yehuda_Leib_Maimon.dds"
+				large="gfx/leaders/ISR/Portrait_Israel_Yehuda_Leib_Maimon.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = Yehuda_Leib_Maimon
+			allowed  = {
+				original_tag  = ISR
+			}
+			traits  = {
+				religion_leader
+			}
+		}
+	}
+	ISR_Pinhas_Lavon={
+		name=ISR_Moshe_Sharett
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Pinhas_Lavon.dds"
+				large="gfx/leaders/ISR/Portrait_Israel_Pinhas_Lavon.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = Pinhas_Lavon
+			allowed  = {
+				original_tag  = ISR
+			}
+			traits  = {
+			}
+		}
+	}
+	ISR_Tzvi_Tzur={
+		name=ISR_Tzvi_Tzur
+		portraits={
+			army={
+				large="gfx/leaders/ISR/Portrait_Israel_Tzvi_Tzur.tga"
+				small="gfx/interface/ideas/idea_Tzvi_Tzur.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1960.1.1
+			}
+			slot = theorist
+			idea_token = Tzvi_Tzur
+			ledger = army
+			allowed = {
+				original_tag = ISR
+			}
+			research_bonus = {
+				air_equipment = 0.05
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1975.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	ISR_Abba_Kovner={
+		name=ISR_Abba_Kovner
+		portraits={
+			army={
+				large="gfx/leaders/ISR/Portrait_Israel_Abba_Kovner.tga"
+				small="gfx/interface/ideas/idea_Abba_Kovner.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1960.1.1
+			}
+			slot = theorist
+			idea_token = Abba_Kovner
+			ledger = army
+			allowed = {
+				original_tag = ISR
+			}
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1960.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	ISR_Ariel_Sharon={
+		name=ISR_Ariel_Sharon
+		portraits={
+			army={
+				large="gfx/leaders/ISR/Portrait_Israel_Sharon.tga"
+				small="gfx/interface/ideas/idea_Ariel_Sharon.dds"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1960.1.1
+			}
+			slot = theorist
+			idea_token = Ariel_Sharon
+			ledger = army
+			allowed = {
+				original_tag = ISR
+			}
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1960.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+	ISR_Moshe_Dayan={
+		name=ISR_Moshe_Dayan
+		portraits={
+			army={
+				large="gfx/leaders/ISR/Portrait_Israel_Dayan.tga"
+				small="GFX_idea_dayan"
+			}
+		}
+		advisor={
+			cost = 150
+			visible={
+				date < 1980.1.1
+			}
+			slot = theorist
+			idea_token = Moshe_Dayan
+			ledger = army
+			allowed = {
+				original_tag = ISR
+			}
+			traits = {
+				mobile_warfare_expert
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1980.1.1
+			}
+			traits={ brilliant_strategist armor_officer trickster trait_engineer }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+}

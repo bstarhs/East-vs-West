@@ -1,0 +1,227 @@
+﻿division_template = {
+	name = "Divizia Mecanizată"	
+	division_names_group = ROM_MOT_01		
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }         # added motorized not to make it a death trap
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }  		# 2x 100mm howitzer bns, on average
+		engineer = { x = 0 y = 1 }   
+	}
+}
+division_template = {
+	name = "Brigada Munte"
+	division_names_group = ROM_MNT_01	
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }   
+	}
+}
+division_template = {
+	name = "Divizia Blindata" 
+	division_names_group = ROM_ARM_01	
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "Divizia 1 Mecanizată"
+		location = 9617
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 2 Mecanizată"
+		location = 6652
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 9 Mecanizată"
+		location = 657
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 10 Mecanizată"
+		location = 9716
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 11 Mecanizată"
+		location = 3696
+		division_template = "Divizia Mecanizată"			# Guards division: elite, latest equipment
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "Divizia 18 Mecanizată"
+		location = 9606
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 67 Mecanizată"
+		location = 3694
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 81 Mecanizată"
+		location = 3694
+		division_template = "Divizia Mecanizată"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	
+	division = {
+		name = "Divizia 57 Blindata"
+		location = 9617
+		division_template = "Divizia Blindata"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Divizia 6 Blindata"
+		location = 3694
+		division_template = "Divizia Blindata"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Brigada Munte"
+		location = 9617
+		division_template = "Brigada Munte"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Brigada Munte"
+		location = 9617
+		division_template = "Brigada Munte"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Brigada Munte"
+		location = 9617
+		division_template = "Brigada Munte"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = {
+		name = "Brigada Munte"
+		location = 9617
+		division_template = "Brigada Munte"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}			
+}
+
+
+### Fortele Aeriene Regale ale României (FFAR) ###
+air_wings = {
+	46 = {
+		fighter_equipment_0 = { owner = "ROM" creator = "POL" amount = 60 }
+		fighter_equipment_1 = { owner = "ROM" creator = "ROM" amount = 12 }			# Grup 1 Avion de Vanatoare -- PZL P.24, Hurricane I fighters
+	}
+	79 = {
+		fighter_equipment_1 = { 
+			owner = "ROM" creator = "ROM" amount = 36
+		}
+	}
+}
+
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "ROM"
+		}
+		requested_factories = 2
+		progress = 0.44
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "ROM"
+		}
+		requested_factories = 1
+		progress = 0.47
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "ROM"
+		}
+		requested_factories = 1
+		progress = 0.47
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = light_tank_equipment_1
+			creator = "ROM" 
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "ROM" 
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 100
+	}
+}

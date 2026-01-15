@@ -1,0 +1,2769 @@
+characters={
+	USA_william_dudley_pelley={
+		name=USA_william_dudley_pelley
+		portraits={
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_William_Dudley_Pelley.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	USA_Alben_Barkley = {
+		name = USA_Alben_Barkley
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Alben_Barkley.dds"
+				large="gfx/leaders/USA/Portrait_USA_Alben_Barkley.tga"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Alben_Barkley
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.03
+			}
+		}
+	}
+	USA_Dean_Acheson = {
+		name = USA_Dean_Acheson
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Dean_Acheson.dds"
+				large="gfx/leaders/USA/Portrait_USA_Dean_Acheson.tga"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Dean_Acheson
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.2
+			}
+		}
+	}
+	USA_Harold_Brown = {
+		name = USA_Harold_Brown
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Harold_Brown.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Harold_Brown
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+				date > 1960.1.1
+			}
+			traits = { }
+		}
+	}
+	USA_JeaneKirkpatrick = {
+		name = JeaneKirkpatrick
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_JeaneKirkpatrick.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JeaneKirkpatrick
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1978.1.1
+			}
+			
+			traits = { ideological_crusader }
+		}
+	}
+	USA_George_HWalker_Bush = {
+		name = USA_George_HWalker_Bush
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_GeorgeHWBush.dds"
+				large="gfx/leaders/USA/Portrait_USA_Walker_Bush.tga"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			expire="1997.1.1.1"
+			traits = {
+				silent_workhorse war_industrialist
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = George_HWalker_Bush
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+				date > 1975.1.1
+			}
+			traits = {
+			}
+		}
+	}
+	USA_Dan_Quayle = {
+		name = USA_Dan_Quayle
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Dan_Quayle.dds"
+				large="gfx/leaders/USA/Portrait_USA_Dan_Quayle.tga"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			expire="1997.1.1.1"
+			traits = {
+				silent_workhorse war_industrialist
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Dan_Quayle
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+				date > 1975.1.1
+			}
+			traits = {
+			}
+		}
+	}
+	USA_Henry_Wallance = {
+		name = USA_Henry_Wallance
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Henry_Wallance.dds"
+				large="gfx/leaders/USA/Portrait_USA_Henry_Wallance.tga"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Henry_Wallance
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+				date > 1950.1.1
+				date < 1961.1.1
+				has_completed_focus = us_progressive_party
+			}
+			traits = {
+			}
+		}
+	}
+	USA_James_Forrestal = {
+		name = USA_James_Forrestal
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_James_Forrestal.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = John_Hannah
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				is_country_leader = no
+				date < 1949.1.1
+			}
+			modifier = {
+			}
+		}
+	}
+	USA_John_Hannah = {
+		name = USA_John_Hannah
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_John_Hannah.dds"
+				large="gfx/leaders/USA/Portrait_USA_John_Hannah.tga"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = John_Hannah
+			allowed = {
+				original_tag = USA
+			}
+			modifier = {
+			}
+		}
+	}
+	USA_William_Fulbright = {
+		name = USA_William_Fulbright
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_William_Fulbright.dds"
+				large="gfx/leaders/USA/Portrait_USA_William_Fulbright.tga"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = William_Fulbright
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1975.1.1
+			}
+		}
+	}
+	USA_James_Eastland = {
+		name = USA_James_Eastland
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_James_Eastland.dds"
+				large="gfx/leaders/USA/Portrait_USA_James_Eastland.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				white_racist
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = James_Eastland
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1975.1.1
+				has_completed_focus = us_dixemocratic
+			}
+			traits = {
+				white_racist
+			}
+		}
+	}
+	USA_Strom_Thurmond = {
+		name = USA_Strom_Thurmond
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Strom_Thurmond.dds"
+				large="gfx/leaders/USA/Portrait_USA_Strom_Thurmond.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				white_racist
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Strom_Thurmond
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1975.1.1
+				has_completed_focus = us_dixemocratic
+			}
+			traits = {
+				white_racist
+			}
+		}
+	}
+	USA_Richard_Russell_Jr = {
+		name = USA_Richard_Russell_Jr
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Richard_Russell_Jr.dds"
+				large="gfx/leaders/USA/Portrait_USA_Richard_Russell_Jr.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				white_racist
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Richard_Russell_Jr
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1975.1.1
+			}
+			traits = {
+				white_racist
+			}
+		}
+	}
+	USA_HarryFByrd = {
+		name = USA_HarryFByrd
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_HarryFByrd.dds"
+				large="gfx/leaders/USA/Portrait_USA_HarryFByrd.tga"
+			}
+		}
+		country_leader={
+			ideology=authoritarianism
+			traits = {
+				interventionism political_dancer 
+			}
+			expire="1997.1.1.1"
+		}
+	}
+	USA_Nixon = {
+		name = USA_Nixon
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Nixon.dds"
+				large="gfx/leaders/USA/Portrait_USA_Milhous_Nixon.tga"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits = {
+				interventionism political_dancer 
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Nixon
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1950.1.1
+				date < 1961.1.1
+			}
+			modifier = {
+				
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	USA_Lyndon_Johnson = {
+		name = USA_Lyndon_Johnson
+		portraits = {
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_Lyndon_Johnson.tga"
+				small="gfx/interface/ideas/idea_Lyndon_Johnson.dds"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits = {
+				democratic_reformer dealbroker silent_workhorse headstrong interventionism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Lyndon_Johnson
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1950.1.1
+				date < 1966.1.1
+			}
+			modifier = {
+				
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	USA_Kennedy = {
+		name = USA_Kennedy
+		portraits = {
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_Kennedy.tga"
+				small="gfx/interface/ideas/idea_Kennedy.dds"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits = {
+				democratic_reformer popular_figurehead silent_workhorse interventionism
+			}
+			expire="1997.1.1.1"
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Kennedy
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1950.1.1
+				date < 1960.1.1
+			}
+			modifier = {
+				
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	USA_Brzezinski = {
+		name = Brzezinski
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Brzezinski.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Brzezinski
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1975.1.1
+			}
+			traits = { compassionate_gentleman }
+		}
+	}
+	USA_Robert_Franklin_Williams={
+		name=USA_Robert_Franklin_Williams
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Robert_Franklin_Williams.tga"
+				small="gfx/interface/ideas/idea_Robert_Franklin_Williams.dds"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { ideological_crusader }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Robert_Franklin_Williams
+			allowed  = {
+				original_tag  = USA
+			}
+			visible = {
+				date < 1975.1.1
+				is_country_leader = no
+			}
+			traits = {
+				communist_revolutionary
+			}
+			available = {
+				has_completed_focus = USA_socialist
+			}
+			ai_will_do  = {
+				factor  = 0
+			}
+		}
+	}
+	USA_HenryKissinger = {
+		name = HenryKissinger
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_HenryKissinger.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = HenrryKissinger
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+			
+				date > 1968.1.1
+				date < 1980.1.1
+			}
+			traits = { compassionate_gentleman smooth_talking_charmer }
+		}
+	}
+	USA_JohnDulles = {
+		name = JohnDulles
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_JohnDulles.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = JohnDulles
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1959.1.1
+			}
+			traits = { compassionate_gentleman }
+		}
+	}
+	USA_EdgarHoover = {
+		name = EdgarHoover
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_EdgarHoover.dds"
+			}
+		}
+		advisor = {
+			visible = {
+				date < 1972.1.1
+			}
+			slot = political_advisor
+			idea_token = EdgarHoover
+			removal_cost = 999
+			allowed = {
+				original_tag = USA
+			}
+			traits = { ideological_crusader backroom_backstabber }
+		}
+	}
+	USA_Robert_Kennedy = {
+		name = USA_Robert_Kennedy
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Robert_Kennedy.dds"
+				large="gfx/leaders/USA/Portrait_USA_Robert_Kennedy.tga"
+				
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Robert_Kennedy
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1960.1.1
+				date < 1968.1.1
+			}
+			traits = { compassionate_gentleman }
+		}
+	}
+	USA_McNamara = {
+		name = McNamara
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_McNamara.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = McNamara
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date > 1960.1.1
+				date < 1968.1.1
+			}
+			traits = { compassionate_gentleman }
+		}
+	}
+	USA_carnot_wheeler={
+		name=USA_carnot_wheeler
+		portraits={
+			civilian={
+				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			traits={ financial_expert }
+			expire="1953.1.1.12"
+			id=-1
+		}
+	}
+
+	USA_earl_browder={
+		name=USA_earl_browder
+		portraits={
+			civilian={
+				large="gfx/leaders/USA/portrait_USA_earl_browder.dds"
+			}
+			army={
+				small="gfx/interface/ideas/idea_USA_earl_browder.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1965.1.1
+			}
+			slot = political_advisor
+			idea_token = earl_browder
+			allowed  = {
+				original_tag  = USA
+			}
+			available  = {
+				if  = {
+					limit  = {
+						has_dlc = "Man the Guns"
+					}
+					NOT  = {
+						focus_progress  = {
+							focus  = USA_neutrality_act 
+							progress > 0.000
+						}
+					}
+					NOT  = {
+						focus_progress  = {
+							focus  = USA_limited_intervention 
+							progress > 0.000
+						}
+					}
+					NOT  = {
+						has_autonomy_state  = autonomy_supervised_state
+					}
+					NOT = {
+						has_country_leader = {
+							ruling_only = yes
+							character = USA_earl_browder
+						}
+					}
+				}
+			}
+			traits  = {
+				communist_revolutionary 
+			}
+			do_effect  = {
+				NOT  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 10.000
+				modifier  = {
+					is_historical_focus_on  = yes 
+					has_game_rule  = {
+						rule  = USA_ai_behavior 
+						option  = default 
+					}
+					factor  = 0.000
+				}
+				modifier  = {
+					is_historical_focus_on  = yes 
+					NOT  = {
+						has_dlc = "Man the Guns"
+					}
+					factor  = 0.000
+				}
+			}
+		}
+		country_leader={
+			ideology=marxism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	USA_Hyman_Rickover={
+		name=USA_Hyman_Rickover
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Hyman_Rickover.dds"
+				large="gfx/leaders/USA/portrait_USA_Hyman_Rickover.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1982.1.1
+			}
+			cost = 150
+			slot = theorist
+			idea_token = Hyman_Rickover
+			ledger = civilian
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				ship_modules_tech = 0.5
+				nuke_sub_tech = 0.15
+			}
+		}
+		navy_leader={
+			traits={ old_guard_navy bold }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=4
+			legacy_id=28
+		}
+	}
+	USA_Carl_Vinson={
+		name=USA_Carl_Vinson
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Carl_Vinson.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date > 1960.1.1
+			}
+			cost = 150
+			slot = theorist
+			idea_token = Carl_Vinson
+			ledger = civilian
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				ship_modules_tech = 0.05
+				cv_tech = 0.15
+			}
+		}
+	}
+	USA_steve_jobs={
+		name=USA_steve_jobs
+		portraits={
+			civilian={
+				small="GFX_idea_steve_jobs"
+			}
+		}
+		advisor={
+			visible = {
+				date > 1975.1.1
+			}
+			cost = 150
+			slot = theorist
+			idea_token = steve_jobs
+			ledger = civilian
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+		}
+	}
+	USA_omar_bradley={
+		name=USA_omar_bradley
+		portraits={
+			army={
+				small="GFX_idea_omar_bradley"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Bradley.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1956.1.1
+			}
+			cost = 150
+			slot = high_command
+			idea_token = omar_bradley
+			ledger = army
+			allowed = {
+				original_tag = USA
+			}
+			
+			traits = {
+				superior_firepower_expert
+			}
+		}
+
+		corps_commander={
+			visible = {
+				date < 1956.1.1
+			}
+			traits={ brilliant_strategist trait_cautious harsh_leader trait_engineer }
+			skill=5
+			attack_skill=3
+			defense_skill=5
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+
+	USA_Adlai_Stevenson={
+		name=USA_Adlai_Stevenson
+		portraits={
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_Adlai_Stevenson.tga"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits = { 	interventionism popular_figurehead military_theorist Developmentalism }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	USA_dwight_d_eisenhower={
+		name=USA_dwight_d_eisenhower
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Dwight_D_Eisenhower.dds"
+				small="GFX_idea_dwight_eisenhower"
+			}
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_Eisenhower.tga"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			traits = { 	interventionism popular_figurehead military_theorist Developmentalism }
+			expire="1965.1.1.1"
+			id=-1
+		}
+		advisor={
+			visible = {
+				date < 1956.1.1
+			}
+			slot = army_chief
+			idea_token = dwight_eisenhower
+			allowed = {
+					original_tag = USA
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		
+		field_marshal={
+			visible = {
+				date < 1952.1.1
+			}
+			traits={ trait_cautious armor_officer politically_connected organizer logistics_wizard offensive_doctrine }
+			skill=5
+			attack_skill=3
+			defense_skill=3
+			planning_skill=5
+			logistics_skill=5
+			legacy_id=602
+		}
+	}
+
+	USA_geoffrey_keyes={
+		name=USA_geoffrey_keyes
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Geoffrey_Keyes.dds"
+				small="gfx/interface/ideas/idea_USA_geoffrey_keyes.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1954.1.1
+			}
+			traits={ career_officer armor_officer }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=0
+		}
+	}
+
+	USA_lucian_truscott={
+		name=USA_lucian_truscott
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Lucian_Truscott.dds"
+				small="gfx/interface/ideas/idea_USA_lucian_truscott.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1965.1.1
+			}
+			traits={ cavalry_officer trait_engineer commando }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+	USA_John_Yeosock={
+		name=USA_John_Yeosock
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_John_Yeosock.dds"
+				large="gfx/leaders/USA/Portrait_USA_John_Yeosock.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1986.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Robert_Johnston={
+		name=USA_Robert_Johnston
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Robert_Johnstonr.dds"
+				large="gfx/leaders/USA/Portrait_USA_Robert_Johnston.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1986.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Walter_Boomer={
+		name=USA_Walter_Boomer
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Walter_Boomer.dds"
+				large="gfx/leaders/USA/Portrait_USA_Walter_Boomer.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1986.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Edward_Trobaugh={
+		name=USA_Edward_Trobaugh
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Edward_Trobaugh.dds"
+				large="gfx/leaders/USA/Portrait_USA_Edward_Trobaugh.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1977.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Maxwell_Thurman={
+		name=USA_Maxwell_Thurman
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Maxwell_Thurman.dds"
+				large="gfx/leaders/USA/Portrait_USA_Maxwell_Thurman.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1977.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Norman_Schwarzkopf={
+		name=USA_Norman_Schwarzkopf
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Norman_Schwarzkopf.dds"
+				large="gfx/leaders/USA/Portrait_USA_Norman_Schwarzkopf.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1977.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Donn_Starry={
+		name=USA_Donn_Starry
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Donn_Starry.dds"
+				large="gfx/leaders/USA/Portrait_USA_Donn_Starry.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1974.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Frederick_Kroesen={
+		name=USA_Frederick_Kroesen
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Frederick_Kroesen.dds"
+				large="gfx/leaders/USA/Portrait_USA_Frederick_Kroesen.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1974.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_JohnGalvin={
+		name=USA_JohnGalvin
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_JohnGalvin.dds"
+				large="gfx/leaders/USA/Portrait_USA_JohnGalvin.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1974.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Edward_Lansdale={
+		name=USA_Edward_Lansdale
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Edward_Lansdale.dds"
+				large="gfx/leaders/USA/Portrait_Edward_Lansdale.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1952.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+		advisor={	
+			slot = high_command
+			idea_token = Edward_Lansdale
+			ledger = army
+			allowed = {
+				always = yes
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			modifier = {
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	USA_Lawton_Collins={
+		name=USA_Lawton_Collins
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Lawton_Collins.dds"
+				large="gfx/leaders/USA/Portrait_Lawton_Collins.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1958.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Maxwell_Taylor={
+		name=USA_Maxwell_Taylor
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Maxwell_Taylor.dds"
+				large="gfx/leaders/USA/Portrait_Maxwell_Taylor.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1964.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+		advisor={	
+			slot = high_command
+			idea_token = Maxwell_Taylor
+			ledger = army
+			allowed = {
+				always = yes
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			modifier = {
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	USA_Samuel_Williams={
+		name=USA_Samuel_Williams
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Samuel_Williams.dds"
+				large="gfx/leaders/USA/Portrait_Samuel_Williams.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1964.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+		advisor={	
+			slot = high_command
+			idea_token = Samuel_Williams
+			ledger = army
+			allowed = {
+				always = yes
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			modifier = {
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	USA_John_Wilson_ODaniel={
+		name=USA_John_Wilson_ODaniel
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_John_Wilson_ODaniel.dds"
+				large="gfx/leaders/USA/Portrait_John_Wilson_ODaniel.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1964.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+		advisor={	
+			slot = high_command
+			idea_token = John_Wilson_ODaniel
+			ledger = army
+			allowed = {
+				always = yes
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			modifier = {
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	USA_WaltonWalker={
+		name=USA_WaltonWalker
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_WaltonWalker.dds"
+				large="gfx/leaders/USA/Portrait_USA_WaltonWalker.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1952.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+	USA_Ablamus={
+		name=USA_Ablamus
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Ablamus.dds"
+				large="gfx/leaders/USA/Portrait_USA_Creighton_Abrams.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1973.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+		advisor={
+			visible = {
+				date < 1973.1.1
+			}
+			slot = high_command
+			idea_token = Ablamus
+			ledger = army
+				allowed = {
+					original_tag = USA
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+	}
+	USA_Alexander_Meigs={
+		name=USA_Alexander_Meigs
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Haig_gen.dds"
+				large="gfx/leaders/USA/Portrait_USA_Haig_gen.tga"
+			}
+			civilian={
+				small="gfx/interface/ideas/idea_Alexander_Haig.dds"
+				large="gfx/leaders/USA/Portrait_USA_Alexander_Haig.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1963.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+		advisor={
+			visible = {
+				date > 1969.1.1
+				date < 1986.1.1
+			}
+			slot = political_advisor
+			idea_token = Alexander_Meigs
+			allowed = {
+					original_tag = USA
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+	}
+	USA_Westmoreland={
+		name=USA_Westmoreland
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Westmoreland.dds"
+				large="gfx/leaders/USA/Portrait_USA_Westmoreland.tga"
+			}
+		}
+		advisor={
+			visible={
+				date < 1972.1.1
+			}
+			slot = high_command
+			idea_token = Westmoreland
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				anti_guerrilas
+			}
+			modifier = {
+				army_attack_speed_factor = 0.06
+				breakthrough_factor = 0.05
+			}
+			ai_will_do = {
+				factor = 10.000
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1963.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	USA_FrederickWeyand={
+		name=USA_FrederickWeyand
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_FrederickWeyand.dds"
+				large="gfx/leaders/USA/Portrait_USA_FrederickWeyand.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1960.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	USA_LymanLemnitzer={
+		name=USA_LymanLemnitzer
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_LymanLemnitzer.dds"
+				large="gfx/leaders/USA/Portrait_USA_LymanLemnitzer.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				date > 1955.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	USA_Matthew_Ridgway={
+		name=USA_Matthew_Ridgway
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Matthew_Ridgway.dds"
+				large="gfx/leaders/USA/Portrait_USA_Ridgway.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1960.1.1
+			}
+			slot = high_command
+			idea_token = Matthew_Ridgway
+			ledger = army
+				allowed = {
+					original_tag = USA
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					modifier = {
+						factor = 200
+						PRK = { has_war_with = KOR }
+					}
+					factor = 1.000
+				}
+		}
+		corps_commander={
+			visible = {
+				date < 1960.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+	USA_mark_clark={
+		name=USA_mark_clark
+		portraits={
+			army={
+				small="GFX_idea_mark_clark"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Mark_Clark.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1954.1.1
+			}
+			slot = high_command
+			idea_token = mark_clark
+			ledger = army
+				allowed = {
+					original_tag = USA
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		
+		corps_commander={
+			visible = {
+				date < 1954.1.1
+			}
+			traits={ trait_reckless infantry_officer }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+
+	USA_douglas_macarthur={
+		name=USA_douglas_macarthur
+		portraits={
+			army={
+				small="GFX_idea_douglas_macarthur"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_MacArthur.tga"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1954.1.1
+			}
+			slot = army_chief
+			idea_token = douglas_macarthur
+			allowed = {
+				original_tag = USA
+			}
+			available = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = USA_douglas_macarthur
+					}
+				}
+			}
+			traits = {
+				army_chief_morale_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		field_marshal={
+			visible = {
+				date < 1954.1.1
+			}
+			traits={ brilliant_strategist career_officer media_personality politically_connected offensive_doctrine }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=2
+			legacy_id=57
+		}
+	}
+
+	USA_walter_krueger={
+		name=USA_walter_krueger
+		portraits={
+			army={
+				small="GFX_idea_USA_walter_krueger"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Walter_Krueger.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = army_chief
+			idea_token = walter_krueger
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				army_chief_planning_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		corps_commander={
+			visible = {
+				date < 1950.1.1
+			}
+			traits={ brilliant_strategist career_officer armor_officer }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+	USA_jonathan_wainwright={
+		name=USA_jonathan_wainwright
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Jonathan_Wainwright.dds"
+				small="gfx/interface/ideas/idea_USA_jonathan_wainwright.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1948.1.1
+			}
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=0
+		}
+	}
+
+	USA_russell_hartle={
+		name=USA_russell_hartle
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Russell_P_Hartle.dds"
+				small="gfx/interface/ideas/idea_USA_russell_p_hartle.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1950.1.1
+			}
+			traits={ infantry_officer }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=0
+		}
+	}
+
+	USA_leonard_gerow={
+		name=USA_leonard_gerow
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Leonard_T_Gerow.dds"
+				small="gfx/interface/ideas/idea_USA_leonard_t_gerow.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1960.1.1
+			}
+			traits={ infantry_officer }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+
+	USA_edward_brooks={
+		name=USA_edward_brooks
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Edward_Brooks.dds"
+				small="gfx/interface/ideas/idea_USA_edward_brooks.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1953.1.1
+			}
+			traits={ trait_reckless armor_officer }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+
+	USA_clarence_huebner={
+		name=USA_clarence_huebner
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Clarence_Huebner.dds"
+				small="gfx/interface/ideas/idea_USA_clarence_huebner.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1952.1.1
+			}
+			traits={ old_guard harsh_leader }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+
+	USA_j_lawton_collins={
+		name=USA_j_lawton_collins
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Lawton_Collins.dds"
+				small="gfx/interface/ideas/idea_USA_lawton_collins.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1956.1.1
+			}
+			traits={ career_officer trickster }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+
+	USA_courtney_hodges={
+		name=USA_courtney_hodges
+		portraits={
+			army={
+				small="GFX_idea_courtney_hodges"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Cortney_Hodges.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1952.1.1
+			}
+			slot = high_command
+			idea_token = courtney_hodges
+			ledger = army
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		corps_commander={
+			visible = {
+				date < 1952.1.1
+			}
+			traits={ career_officer infantry_officer panzer_leader }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+
+	USA_oscar_griswold={
+		name=USA_oscar_griswold
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Oscar_Griswold.dds"
+				small="gfx/interface/ideas/idea_USA_oscar_griswold.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1950.1.1
+			}
+			traits={ infantry_officer }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=0
+		}
+	}
+
+	USA_alexander_vandegrift={
+		name = USA_alexander_vandegrift
+		portraits={
+			army={
+				large="GFX_portrait_USA_alexander_vandegrift"
+				small="GFX_portrait_USA_alexander_vandegrift_small"
+			}
+		}
+		corps_commander = {
+			visible = {
+				date < 1950.1.1
+			}
+			traits = { naval_invader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+
+	USA_ernest_king={
+		name=USA_ernest_king
+		portraits={
+			navy={
+				small="GFX_idea_ernest_king"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Earnest_King.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1956.1.1
+			}
+			slot = navy_chief
+			idea_token = ernest_king
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				navy_chief_reform_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		navy_leader={
+			visible = {
+				date < 1956.1.1
+			}
+			traits={ navy_career_officer aviation_enthusiast caustic_personality blockade_runner superior_tactician }
+			skill=5
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=6
+			legacy_id=0
+		}
+	}
+	USA_william_halsey_jr={
+		name=USA_william_halsey_jr
+		portraits={
+			navy={
+				large="gfx/leaders/USA/Portrait_USA_William_Halsey_Jr.dds"
+				small="gfx/interface/ideas/idea_USA_william_halsey_jr.dds"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_William_Halsey_Jr.dds"
+				small="gfx/interface/ideas/idea_USA_william_halsey_jr.dds"
+			}
+		}
+		navy_leader={
+			visible = {
+				date < 1959.1.1
+			}
+			traits={ bold aviation_enthusiast superior_tactician spotter }
+			skill=4
+			attack_skill=5
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=2
+			legacy_id=0
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = navy_chief
+			idea_token = william_halsey
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				navy_chief_naval_aviation_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	USA_frank_jack_fletcher={
+		name=USA_frank_jack_fletcher
+		portraits={
+			navy={
+				small="GFX_idea_frank_jack_fletcher"
+			}
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Frank_Jack_Fletcher.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = high_command
+			idea_token = frank_jack_fletcher
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				navy_carrier_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		navy_leader={
+			visible = {
+				date < 1950.1.1
+			}
+			traits={ gunnery_expert superior_tactician spotter }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=3
+			legacy_id=0
+		}
+	}
+
+	USA_raymond_a_spruance={
+		name=USA_raymond_a_spruance
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Raymond_A_Spruance.dds"
+				small="gfx/interface/ideas/idea_USA_raymond_a_spruance.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = high_command
+			idea_token = raymond_spruance
+			ledger = navy
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				navy_naval_air_defense_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		navy_leader={
+			visible = {
+				date < 1950.1.1
+			}
+			traits={ gentlemanly navy_career_officer superior_tactician }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=3
+			legacy_id=0
+		}
+	}
+	USA_arleigh_burke={
+		name=USA_arleigh_burke
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Arleigh_Burke.dds"
+				small="gfx/interface/ideas/idea_USA_arleigh_burke.dds"
+			}
+		}
+		navy_leader={
+			visible = {
+				date < 1961.1.1
+			}
+			traits={ old_guard_navy bold fleet_protector superior_tactician }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=4
+			legacy_id=0
+		}
+	}
+
+	USA_charles_m_cooke_jr={
+		name=USA_charles_m_cooke_jr
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_Charles_M_Cooke.dds"
+				small="gfx/interface/ideas/idea_USA_charles_m_cooke.dds"
+			}
+		}
+		navy_leader={
+			visible = {
+				date < 1950.1.1
+			}
+			traits={ career_officer }
+			skill=2
+			attack_skill=1
+			defense_skill=1
+			maneuvering_skill=2
+			coordination_skill=3
+			legacy_id=0
+		}
+	}
+
+
+	### THEORISTS ###
+
+	# Patton up there
+
+	# Bradley up there
+
+	
+	USA_dewitt_clinton_ramsey={
+		name=USA_dewitt_clinton_ramsey
+		portraits={
+			army={
+				small="GFX_idea_dewitt_clinton_ramsey"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = dewitt_clinton_ramsey
+			ledger = navy
+			allowed = {
+				original_tag = USA
+			}
+			traits = { naval_theorist }
+		}
+	}
+	USA_curtis_lemay={
+		name=USA_curtis_lemay
+		portraits={
+			army={
+				small="GFX_idea_curtis_lemay"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1970.1.1
+			}
+			cost = 150
+			slot = theorist
+			idea_token = curtis_lemay
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				victory_through_airpower
+			}
+		}
+	}
+	USA_Kenneth_Nichols={
+		name=USA_Kenneth_Nichols
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Kenneth_Nichols.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1970.1.1
+			}
+			cost = 150
+			slot = theorist
+			idea_token = Kenneth_Nichols
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				nuclear_plant = 0.12
+			}
+		}
+	}
+
+	USA_Thomas_Power={
+		name=USA_Thomas_Power
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Thomas_Power.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1970.1.1
+			}
+			cost = 150
+			slot = theorist
+			idea_token = Thomas_Power
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				victory_through_airpower
+			}
+		}
+	}
+
+	USA_harold_mcclelland={
+		name=USA_harold_mcclelland
+		portraits={
+			army={
+				small="GFX_idea_harold_mcclelland"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1960.1.1
+			}
+			cost = 100	
+			slot = theorist
+			idea_token = harold_mcclelland
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = { air_warfare_theorist }
+		}
+	}
+
+	USA_robert_oppenheimer={
+		name=USA_robert_oppenheimer
+		portraits={
+			army={
+				small="GFX_idea_robert_oppenheimer"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1967.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = robert_oppenheimer
+			ledger = army
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+
+	USA_robert_goddard={
+		name=von_braun 
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Von_Braun.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1977.1.1
+			}
+			cost = 100
+			slot = theorist
+			idea_token = von_braun 
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			research_bonus = {
+				rocketry = 0.150
+			}
+			traits = {
+				rocket_scientist
+			}
+		}
+	}
+
+
+	### ARMY CHIEFS ###
+
+	# Eisenhower up there
+
+	# MacArthur up there
+
+	# Krueger up there
+
+	USA_george_marshall={
+		name=USA_george_marshall
+		portraits={
+			army={
+				large="gfx/leaders/USA/Portrait_USA_George_Marshall.tga"
+				small="gfx/interface/ideas/idea_George_Marshall.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = army_chief
+			idea_token = george_marshall
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		field_marshal={
+			visible = {
+				date < 1959.1.1
+			}
+			traits={ defensive_doctrine offensive_doctrine }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+
+	
+	### NAVY CHIEFS ###
+
+	# King up there
+
+	# Nimitz up there
+
+	USA_chester_w_nimitz={
+		name=USA_chester_w_nimitz
+		portraits={
+			army={
+				large=GFX_portrait_USA_chester_w_nimitz
+			}
+			army={
+				small="GFX_idea_chester_nimitz"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = chester_nimitz
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1964.1.1
+			}
+			traits = {
+				navy_chief_commerce_raiding_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		navy_leader={
+			visible = {
+				date < 1964.1.1
+			}
+			traits={ gentlemanly naval_lineage superior_tactician spotter blue_water_expert }
+			skill=4
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=4
+			coordination_skill=5
+			legacy_id=0
+		}
+	}
+
+
+	### AIR CHIEFS
+
+	USA_henry_arnold={
+		name=USA_henry_arnold
+		portraits={
+			army={
+				small="GFX_idea_henry_arnold"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = air_chief
+			idea_token = henry_arnold
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				air_chief_reform_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	USA_carl_spaatz={
+		name=USA_carl_spaatz
+		portraits={
+			army={
+				small="GFX_idea_carl_spaatz"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = air_chief
+			idea_token = carl_spaatz
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				air_chief_night_operations_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	USA_george_kenney={
+		name=USA_george_kenney
+		portraits={
+			army={
+				small="GFX_idea_george_kenney"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1952.1.1
+			}
+			slot = air_chief
+			idea_token = george_kenney
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				air_chief_safety_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	### MILITARY HIGH COMMAND ###
+
+	# Clark up there
+
+	# Hodges up there
+
+	# Stilwell up there
+
+	# Fletcher up there
+
+	USA_jimmy_doolittle={
+		name=USA_jimmy_doolittle
+		portraits={
+			army={
+				small="GFX_idea_jimmy_doolittle"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = high_command
+			idea_token = jimmy_doolittle
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				air_strategic_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	USA_john_cannon={
+		name=USA_john_cannon
+		portraits={
+			army={
+				small="GFX_idea_john_cannon"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1955.1.1
+			}
+			slot = high_command
+			idea_token = john_cannon
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				air_close_air_support_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	USA_claire_lee_chennault={
+		name=USA_claire_lee_chennault
+		portraits={
+			army={
+				small="GFX_idea_claire_lee_chennault"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1958.1.1
+			}
+			slot = high_command
+			idea_token = claire_lee_chennault
+			ledger = air
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				air_tactical_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	
+	USA_thomas_kinkaid={
+		name=USA_thomas_kinkaid
+		portraits={
+			army={
+				small="GFX_idea_thomas_kinkaid"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = high_command
+			idea_token = thomas_kinkaid
+			ledger = army
+			allowed = {
+				original_tag = USA
+			}
+			traits = {
+				navy_amphibious_assault_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### POLITICAL ADVISORS ###
+		
+	#Earl Bowder up there
+	USA_victor_perlo={
+		name=USA_victor_perlo
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_USA_generic_land_1.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = victor_perlo
+			allowed  = {
+				original_tag  = USA
+			}
+			visible = {
+				has_government  = communism 
+				date < 1950.1.1
+			}
+			traits  = {
+				economist 
+			}
+			cost  = 0.000
+			do_effect  = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+
+	USA_whittaker_chambers={
+		name=USA_whittaker_chambers
+		portraits={
+			army={
+				small="GFX_idea_USA_whittaker_chambers"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = whittaker_chambers
+			allowed  = {
+				original_tag  = USA
+			}
+			available  = {
+				if  = {
+					limit  = {
+						has_dlc = "Man the Guns"
+					}
+				}
+			}
+			visible  = {
+				has_dlc = "Man the Guns"
+				date < 1961.1.1
+			}
+			traits  = {
+				editor 
+			}
+			cost  = 0.000
+			do_effect  = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		allowed_civil_war  = {
+			has_government  = communism 
+		}
+	}
+	USA_harold_ickes={
+		name=USA_harold_ickes
+		portraits={
+			army={
+				small="GFX_idea_harold_ickes"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = harold_ickes
+			allowed  = {
+				original_tag  = USA
+			}
+			visible = {
+				date < 1952.1.1
+			}
+			available  = {
+				if  = {
+					limit  = {
+						has_dlc = "Man the Guns"
+					}
+					NOT  = {
+						has_autonomy_state  = autonomy_supervised_state
+					}
+				}
+			}
+			traits  = {
+				democratic_reformer 
+			}
+			do_effect  = {
+				NOT  = {
+					has_government  = democratic 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+	USA_earl_warren={
+		name=USA_earl_warren
+		portraits={
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_earl_warren.tga"
+				small="gfx/interface/ideas/idea_USA_earl_warren.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1970.1.1
+			}
+			slot = political_advisor
+			idea_token = earl_warren
+			allowed  = {
+				original_tag  = USA
+			}
+			modifier  = {
+				drift_defence_factor = 0.12
+				political_power_cost = -0.05
+			}
+		}
+	}
+	USA_Jacqueline_Kennedy={
+		name=USA_Jacqueline_Kennedy
+		portraits={
+			civilian={
+				large="gfx/leaders/USA/Portrait_USA_Jacqueline_Kennedy.tga"
+				small="gfx/interface/ideas/idea_USA_Jacqueline_Kennedy.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Jacqueline_Kennedy
+			allowed  = {
+				original_tag  = USA
+			}
+			modifier  = {
+				drift_defence_factor = 0.2
+				stability_factor = 0.12
+			}
+		}
+	}
+	USA_joseph_mccarthy={
+		name=USA_joseph_mccarthy
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_USA_mccarthy.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = USA_joseph_mccarthy
+			allowed  = {
+				original_tag  = USA
+			}
+			traits  = {
+				anti_communist_crusader 
+			}
+		}
+	}
+	USA_henry_morgenthau={
+		name=USA_henry_morgenthau
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_USA_henry_morgenthau.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1950.1.1
+			}
+			slot = political_advisor
+			idea_token = USA_henry_morgenthau
+			allowed  = {
+				original_tag  = USA
+			}
+			traits  = {
+				financial_expert 
+			}
+		}
+	}
+	USA_donald_nelson={
+		name=USA_donald_nelson
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = USA_donald_nelson
+			allowed  = {
+				original_tag  = USA
+			}
+			traits  = {
+				armaments_organizer 
+			}
+		}
+	}
+
+	USA_william_donovan={
+		name=USA_william_donovan
+		portraits={
+			army={
+				small="GFX_idea_usa_william_donovan"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1959.1.1
+			}
+			slot = political_advisor
+			idea_token = usa_william_donovan
+			available  = {
+				has_intelligence_agency  = yes 
+				threat > 0.500
+			}
+			allowed  = {
+				original_tag  = USA
+				has_dlc = "La Resistance"
+			}
+			traits  = {
+				head_of_intelligence 
+			}
+		}		
+	}
+}

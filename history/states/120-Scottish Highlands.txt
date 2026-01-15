@@ -1,0 +1,52 @@
+state= {
+	id=120
+	name="STATE_120"
+	manpower = 265873
+	
+	state_category = rural
+
+	resources={
+		tungsten=2
+		aluminium=10
+	}
+
+	history=
+	{
+		set_state_flag = ethnics_Scottish
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_to_array = { this.state_ethnics_list = 146 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = ENG
+		victory_points = { 9075 6 }
+		victory_points = { 284 2 }
+		victory_points = { 13596 2 }
+		victory_points = { 11064 3 }
+		victory_points = { 6062 3 }
+		buildings = {
+			hospital = 1
+			infrastructure = 4
+			anti_air_building = 2
+			industrial_complex = 1
+			air_base = 1
+			11064 = {
+				naval_base = 6
+			}
+		}
+		add_core_of = ENG
+		add_core_of = SCO
+		1953.10.12 = {
+			buildings = {
+				infrastructure = 4
+				anti_air_building = 2
+				air_base = 1
+				11064 = {
+					naval_base = 8	
+				}
+			}
+		}
+	}
+
+	provinces=
+	{
+131 284 3159 3178 3373 6046 6062 6104 6205 9075 9090 11064 11161 11266 13594 13595 13596 }
+}

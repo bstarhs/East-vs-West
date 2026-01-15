@@ -1,0 +1,38 @@
+
+state={
+	id=187
+	name="STATE_187"
+	manpower = 322600
+	
+	state_category = rural
+	
+	resources={
+	}
+
+	history={
+		owner = GRE
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 74 }
+		victory_points = { 3401 3 }
+		victory_points = { 6550 3 }
+		victory_points = { 13378 2 }
+		victory_points = { 8435 4 }
+		set_state_flag = ethnics_Greeks
+		buildings = {
+			hospital = 1
+			infrastructure = 4
+			dockyard = 1
+			8435 = {
+				naval_base = 1
+			}
+			6550 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = GRE
+	}
+
+	provinces={
+		3401 6550 8435 13377 13378 13379 13382 13383
+	}
+}

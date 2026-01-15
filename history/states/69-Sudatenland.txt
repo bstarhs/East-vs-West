@@ -1,0 +1,45 @@
+state=
+{
+	id=69
+	name="STATE_69"
+	manpower = 2830000
+	
+	state_category = city
+	local_supplies=0.0
+	resources={
+		coal = 17
+	}
+	
+	history={
+		add_dynamic_modifier = { modifier = hight_food_production }
+		owner = CZE
+		set_state_flag = ethnics_Czech
+		add_to_array = { this.state_ethnics_list = 58 }
+		victory_points = { 3585 6 }
+		victory_points = { 6418 8 }
+		victory_points = { 9541 5 }
+		victory_points = { 9569 3 }
+		buildings = {
+			school = 1
+			hospital = 1
+			farm_building = 3
+			infrastructure = 6
+			anti_air_building = 5
+			power_plant = 1
+			industrial_complex = 3
+
+		}
+		add_core_of = CZE
+		1954.8.17 = {
+			buildings = {
+				anti_air_building = 2
+				radar_station = 2
+				power_plant = 2
+				industrial_complex = 5
+			}
+		}
+	}
+	provinces=
+	{
+424 543 3585 5283 6470 7857 9555  6592 9541 11556 9569 9421 6418 	}
+}

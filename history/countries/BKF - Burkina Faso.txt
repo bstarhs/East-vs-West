@@ -1,0 +1,213 @@
+﻿capital = 660
+
+oob = "ALL"
+
+set_research_slots = 2
+set_convoys = 60
+set_stability = 0.75
+
+	recruit_character = BKF_thomas_sankara
+set_country_flag = language_french
+set_country_flag = third_world
+set_country_flag = french_colonies
+set_country_flag = african_state
+set_country_flag = west_africa
+			set_variable = { this.education = 13 }
+set_technology = {
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	
+	
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+	set_cosmetic_tag = UPV
+add_ideas = {
+	low_education
+	service_by_requirement
+	Catholicism
+	partial_economic_mobilisation
+}
+
+	set_popularities = {
+		authoritarianism = 72
+		neutrality = 5
+		democratic = 23
+	}
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1945.12.1"
+	election_frequency = 60
+	elections_allowed = yes
+}
+	
+create_country_leader = {
+	name = "Maurice Yaméogo"
+	desc = "POLITICIAN_NAM_SAM_NUJOMA_DESC"
+	picture = "gfx/leaders/BKF/Portrait_BKF_Maurice.tga"
+	expire = "2020.1.1"
+	ideology = authoritarianism
+	
+	traits = {
+	corrupt_leader
+	}
+}
+1958.1.1 = {
+	add_ideas = {
+	france_colony
+	UNmember
+	}
+}
+1960.1.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	set_cosmetic_tag = UPV
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1945.12.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+}
+
+1966.3.12 = {
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		neutrality = 76
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Aboubakar Sangoulé Lamizana"
+		
+		picture = "gfx/leaders/BKF/Portrait_BKF_Aboubakar.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		popular_figurehead
+		}
+	}
+}
+1973.1.20 = {
+	complete_national_focus = common_24
+	add_ideas = {
+		NonAligned
+	}
+	set_country_flag = china_diplomacy
+}
+1975.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1980.1.20 = {
+	create_country_leader = {
+		name = "Saye Zerbo"
+		
+		picture = "gfx/leaders/BKF/Portrait_BKF_Zerbo.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1982.1.20 = {
+	set_popularities = {
+		neutrality = 20
+		communism = 75
+		democratic = 5
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1939.7.15"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	remove_ideas = france_colony
+	create_country_leader = {
+		name = "Thomas Sankara"
+		
+		picture = "gfx/leaders/BKF/Portrait_BKF_Sankara.tga"
+		expire = "1997.1.1"
+		ideology = leninism
+		traits = {
+			communist_revolutionary pro_socialism
+		}
+	}
+}
+1984.1.1 = {
+	complete_national_focus = common_61
+	set_cosmetic_tag = BKF
+}
+1987.1.20 = {
+	set_country_flag = female_finished
+	set_popularities = {
+		democratic = 9
+		communism = 14
+		neutrality = 77
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1935.9.8"
+		election_frequency = 36
+		elections_allowed = no
+	}
+			set_variable = { this.education = 32 }
+	create_country_leader = {
+		name = "Blaise Compaoré"
+		
+		picture = "gfx/leaders/BKF/Portrait_BKF_Blaise.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+			dictator corrupt_leader pro_france
+		}
+	}
+}
+

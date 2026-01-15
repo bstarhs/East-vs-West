@@ -1,0 +1,107 @@
+﻿capital = 660
+
+oob = "ALL"
+
+set_country_flag = language_french
+set_research_slots = 1
+set_convoys = 60
+set_stability = 0.75
+			set_variable = { this.education = 28 }
+
+set_country_flag = west_africa
+set_country_flag = french_colonies
+set_country_flag = african_state
+set_country_flag = third_world
+set_technology = {
+	machine_gun1 = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+
+
+	
+create_country_leader = {
+	name = "Ahmed Sékou Touré"
+	desc = "POLITICIAN_NAM_SAM_NUJOMA_DESC"
+	picture = "gfx/leaders/GUI/Portrait_Guinea_Ahmed_Toure.tga"
+	expire = "2020.1.1"
+	ideology = marxism
+	
+	traits = {
+	
+	}
+}
+1960.1.1 = {
+	set_popularities = {
+		democratic = 15
+		communism = 60
+		neutrality = 25
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1945.12.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+	}
+}
+1960.1.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1984.3.12 = {
+	set_popularities = {
+		democratic = 12
+		communism = 23
+		neutrality = 65
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1945.12.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Lansana Conté"
+		
+		picture = "gfx/leaders/GUI/Portrait_Guinea_Conte.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}

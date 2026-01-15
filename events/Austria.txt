@@ -1,0 +1,152 @@
+﻿add_namespace = aus
+#奥地利独立
+news_event = {
+	id = aus.1
+	title = aus.1.t
+	desc = aus.1.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.2
+	title = aus.2.t
+	desc = aus.2.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.3
+	title = aus.3.t
+	desc = aus.3.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.4
+	title = aus.4.t
+	desc = aus.4.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.5
+	title = aus.5.t
+	desc = aus.5.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.6
+	title = aus.6.t
+	desc = aus.6.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.7
+	title = aus.7.t
+	desc = aus.7.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.8
+	title = aus.8.t
+	desc = aus.8.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+news_event = {
+	id = aus.9
+	title = aus.9.t
+	desc = aus.9.d
+	picture = GFX_Eisenhower
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = usatext.5.a
+	}
+}
+country_event = {
+	id = aus.16
+	title = aus.16.t
+	desc = aus.16.d
+	picture = GFX_occupiedAustria
+	mean_time_to_happen = {
+		days = 10
+	}
+	show_major = {
+		tag = FRA
+		tag = USA
+		tag = SOV
+	}
+	trigger = {
+		AND = {
+			date > 1955.2.24
+			date < 1955.5.24
+		}
+		OR = {
+			tag = FRA
+			tag = USA
+			tag = SOV
+		}
+		NOT = {
+			AUS = { 
+			controls_state = 152
+			controls_state = 4
+			controls_state = 153
+			}
+		}
+	}
+	option = {
+		name = zim.1.a
+		add_named_threat = { threat = 5 name = reject_Austria_independent }
+	}
+	option = {
+		name = zim.1.a
+		if = {
+			limit = { tag = USA }
+			AUS = { transfer_state = 152 }
+		}
+		if = { 
+			limit = { tag = SOV }
+			AUS = { transfer_state = 4 }
+		}
+		if = { 
+			limit = { tag = FRA }
+			AUS = { transfer_state = 153 }
+		}
+	}
+}

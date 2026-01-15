@@ -1,0 +1,201 @@
+﻿division_template = {
+	name = "Motorized Infantry Division"	
+	division_names_group = CZE_MOT_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		aa_missile_battalion = { x = 2 y = 0 }
+		at_missile_battalion = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Tank Brigada" 	
+	division_names_group = CZE_ARM_01			# Tank Brigade - Represents a pair of independent tank brigades (1 heavy (medium) + 1 regular (light) brigades) 
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 1 }		
+		mechanized_aa_missile_battalion = { x = 1 y = 2 }		
+		motorized = { x = 2 y = 0 }	
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Artillery Division" 	
+	division_names_group = CZE_INF_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }
+		artillery_brigade = { x = 1 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+		artillery_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "1st Tank Division"
+		location = 6440
+		division_template = "Tank Brigada"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1st Motorized Infantry Division"
+		location = 6592
+		division_template = "Motorized Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "19th Motorized Infantry Division"
+		location = 6418
+		division_template = "Motorized Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "20th Motorized Infantry Division"
+		location = 3585
+		division_template = "Motorized Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "322th Artillery Division"
+		location = 6592
+		division_template = "Artillery Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "3rd Motorized Infantry Division"
+		location = 3553
+		division_template = "Motorized Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "4th Tank Division"
+		location = 9429
+		division_template = "Tank Brigada"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "9th Tank Division"
+		location = 9421
+		division_template = "Tank Brigada"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "15th Motorized Infantry Division"
+		location = 9542
+		division_template = "Motorized Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "331th Artillery Division"
+		location = 6576
+		division_template = "Artillery Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "331th Artillery Division"
+		location = 9414
+		division_template = "Artillery Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "30th Motorized Infantry Division"
+		location = 11522
+		division_template = "Motorized Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "13th Tank Division"
+		location = 11522
+		division_template = "Tank Brigada"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "14th Tank Division"
+		location = 3550
+		division_template = "Tank Brigada"
+		start_experience_factor = 0.8
+	}
+}
+
+### Air Wings
+air_wings = {
+	# Letectvo I.Armády -- Prague
+	# Letectvo Hlavniho Velitelstivi -- Prague
+	9 = { 
+		fighter_equipment_0 = {		# Avia B.534
+			owner = "CZE" 
+			amount = 36
+		}
+		CAS_equipment_1 =  {		# Aero A-101
+			owner = "CZE" 
+			amount = 24
+		}
+	}
+
+	# Letectvo III.Armády -- Bratislava
+	70 = {
+		fighter_equipment_0 = {		# Avia B.534
+			owner = "CZE" 
+			amount = 36
+		}
+	}
+
+	# Letectvo IV.Armády -- Olomouc
+	75 = {
+		fighter_equipment_0 = {		# Avia B.534
+			owner = "CZE" 
+			amount = 72
+		}
+		CAS_equipment_1 =  {		# Aero A-101
+			owner = "CZE" 
+			amount = 24
+		}
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "CZE"
+		}
+		requested_factories = 2
+		progress = 0.18
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "CZE"
+		}
+		requested_factories = 1
+		progress = 0.48
+		efficiency = 100
+	}
+}

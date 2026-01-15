@@ -1,0 +1,32 @@
+add_namespace = hon
+#足球战争
+news_event = {
+	id = hon.10
+	title = hon.10.t
+	desc = raj.87.d
+	picture = GFX_NehruDeath
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = HON
+		date > 1969.1.1
+		date < 1970.1.1
+	}
+	
+	option = {	#夏斯特里
+		name = raj.87.a
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 312
+				num_provinces = 4
+			}
+				
+			defender = {
+				state = 314
+				num_provinces = 4
+			}
+		}
+	}
+}

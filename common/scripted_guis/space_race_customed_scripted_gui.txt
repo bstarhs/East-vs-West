@@ -1,0 +1,200 @@
+scripted_gui = {
+	space_race = {
+		window_name = "space_race_container"
+		context_type = player_context
+		visible = {
+			check_variable = { show_space_race > 0 }
+		}
+		effects = {
+			SPACE_launch_vehicle_click = {		
+				country_event = { id = space.1 }
+			}
+			SPACE_Satellite_click = {		
+				country_event = { id = space.4 }
+			}
+			SPACE_space_dog_click = {
+				country_event = { id = space.7 }
+			}
+			SPACE_manned_space_click = {
+				country_event = { id = space.10 }
+			}
+			SPACE_signal_Satellite_click = {
+				country_event = { id = space.13 }
+			}
+			SPACE_spy_satellite_click = {
+				country_event = { id = space.22 }
+			}
+			SPACE_moon_landing_click = {
+				country_event = { id = space.16 }
+			}
+			
+			SPACE_moon_space_probe_click = {
+				country_event = { id = space.70 }
+			}
+			SPACE_space_station_click = {
+				country_event = { id = space.18 }
+			}
+			SPACE_mars_click = {
+				country_event = { id = space.20 }
+			}
+			SPACE_add_spacepower_click = {
+				add_to_variable = { this.pp_add_space_power = 5 }
+				add_to_variable = { this.space_power_costed = 5 }
+			}
+			SPACE_reduce_spacepower_click = {
+				add_to_variable = { this.pp_add_space_power = -5 }
+				add_to_variable = { this.space_power_costed = -5 }
+			}
+			SPACE_close_button_click = {
+				if = {
+					limit = { check_variable = { show_space_race < 1 } }
+					set_variable = { show_space_race = 1 }
+				}
+				if = {
+					limit = { check_variable = { show_space_race > 0 } }
+					set_variable = { show_space_race = 0 }
+				}
+			}
+		}
+		triggers = {
+			NASA_LOGO_visible = {
+				tag = USA
+			}
+			SSA_LOGO_visible = {
+				tag = SOV
+			}
+			PRC_LOGO_visible = {
+				tag = PRC
+			}
+			CHI_LOGO_visible = {
+				tag = CHI
+			}
+			FRA_LOGO_visible = {
+				tag = FRA
+			}
+			IND_LOGO_visible = {
+				tag = IND
+			}
+			CAN_LOGO_visible = {
+				tag = CAN
+			}
+			ENG_LOGO_visible = {
+				tag = ENG
+			}
+			RAJ_LOGO_visible = {
+				tag = IND
+			}
+			ISR_LOGO_visible = {
+				tag = ISR
+			}
+			SPACE_launch_vehicle_click_enabled = {
+				has_tech = rocket_vehicle
+				NOT = { has_country_flag = manned_space_succes }
+			}
+			SPACE_add_spacepower_click_enabled = {
+						check_variable = { this.max_pp_add_sp > this.pp_add_space_power }
+			}
+			SPACE_reduce_spacepower_click_enabled = {
+						check_variable = { 0 < this.pp_add_space_power }
+			}
+			#人造卫星#
+			SPACE_Satellite_click_enabled = {
+				has_country_flag = launch_vehicle_succes
+				check_variable = { space_power > 200 }
+			}
+			SPACE_signal_Satellite_click_enabled = {
+				has_country_flag = Satellite_succes
+				check_variable = { space_power > 250 }
+			}
+			SPACE_spy_satellite_click_enabled = {
+				has_country_flag = Satellite_succes
+				NOT = { has_dynamic_modifier = { modifier = spy_Satellite_modifiers } }
+				check_variable = { space_power > 250 }
+			}
+			SPACE_spy_satellite_work_visible = {
+				has_dynamic_modifier = { modifier = spy_Satellite_modifiers } 
+			}
+			#载人航天#
+			SPACE_space_dog_visible = {
+				has_country_flag = Satellite_succes
+				NOT = { has_country_flag = manned_space_succes }
+			}
+			SPACE_manned_space_visible = {
+				has_country_flag = Satellite_succes
+			}
+			SPACE_manned_space_click_enabled = {
+				check_variable = { space_power > 300 }
+			}
+			#登月#
+			SPACE_moon_landing_visible = {
+				has_country_flag = manned_space_succes
+				has_country_flag = signal_Satellite_succes
+			}
+			#火星#
+			SPACE_mars_visible = {
+				has_country_flag = manned_space_succes
+			}
+			#飞船#
+			SPACE_Space_Shuttle_visible = {
+				has_country_flag = manned_space_succes
+			}
+			#探测器#
+			jupiter_space_probe_visible = {
+				has_country_flag = jupiter_space_probe_succes
+				has_tech = probe
+			}
+			SPACE_mars_click_enabled = {
+				has_tech = probe
+			}
+			mars_space_probe_visible = {
+				has_country_flag = mars_space_probe_succes
+				has_tech = probe
+			}
+			mercury_space_probe_visible = {
+				has_country_flag = mercury_space_probe_succes
+				has_tech = probe
+			}
+			venus_space_probe_visible = {
+				has_tech = probe
+				has_country_flag = venus_space_probe_succes
+			}
+			moon_space_probe_visible = {
+				has_tech = probe
+				has_country_flag = moon_space_probe_succes
+			}
+			SPACE_moon_space_probe_click_enabled = {
+				has_tech = probe
+				NOT = { has_country_flag = moon_space_probe_succes }
+			}
+			#太空站#
+			Mir_LOGO_visible = {
+				tag = SOV
+				has_country_flag = space_station_succes
+			}
+			Skylab_LOGO_visible = {
+				tag = USA
+				has_country_flag = space_station_succes
+			}
+			SPACE_space_station_click_enabled = {
+				has_tech = space_station
+				NOT = { has_country_flag = space_station_succes }
+			}
+			SPACE_space_station_visible = {
+				has_tech = space_station
+				has_country_flag = manned_space_succes
+			}
+			SPACE_Space_Shuttle_click_enabled = {
+				has_country_flag = space_station_succes
+				check_variable = { space_power > 300 }
+			}
+			shop_prime_access_click_enabled = {
+				NOT = {
+				has_idea = prime_access
+				}
+				check_variable = { influences > 500 }
+			}
+		}		
+	}
+	
+}
+

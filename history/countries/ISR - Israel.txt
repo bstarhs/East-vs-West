@@ -1,0 +1,417 @@
+﻿capital = 554
+
+# Starting tech
+recruit_character = ISR_Moshe_Dayan
+recruit_character = ISR_Moshe_Sharett
+recruit_character = ISR_Pinhas_Lavon
+recruit_character = ISR_Abba_Kovner
+recruit_character = ISR_Ariel_Sharon
+recruit_character = ISR_Tzvi_Tzur
+set_convoys = 5
+
+set_country_flag = main_country
+			add_to_variable = { CUB.US_gov_aid_opinion = 30 }
+			add_to_variable = { CUB.US_public_aid_opinion = 15 }
+1939.1.1 = {
+
+	add_political_power = 1198
+	
+	#generic focuses
+	
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	set_technology = {
+		helmet = 1
+		motorised_infantry = 1
+		tech_support = 1
+		tech_recon = 1
+		medical1 = 1
+		
+		gw_artillery = 1
+
+		early_fighter = 1
+		#doctrines
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+	gwtank = 1
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+		infantry_weapons2 = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	tech_engineers = 1
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	machine_gun1 = 1
+		interwar_antitank = 1
+		interwar_antiair = 1
+	}
+}
+
+
+	set_popularities = {
+		democratic = 73
+		communism = 15
+		neutrality = 12
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+add_ideas = {
+
+	scraping_the_barrel
+	Zionism
+	Jewism
+}
+create_country_leader = {
+	name = "David Ben Gurion"
+	desc = ""
+	picture = "gfx/leaders/ISR/Portrait_Israel_Gurion.tga"
+	ideology = liberalism
+	traits = {
+		tenacious_defender 
+	}
+}
+create_country_leader = {
+	name = "Mikunis"
+	desc = ""
+	picture = "gfx/leaders/ISR/Portrait_Israel_Mikunis.tga"
+	ideology = leninism
+	traits = {
+		#
+	}
+}
+	add_ideas = ISR_armed_organized_ideas
+1947.1.20 = {
+	activate_decision = female_equality
+	add_opinion_modifier = {
+		target = EGY
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = JOR
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = SYR
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = IRQ
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = SAU
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = LBA
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = TUN
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = ALG
+		modifier = disappinion
+	}
+	add_opinion_modifier = {
+		target = YEM
+		modifier = disappinion
+	}
+	oob = "ISR_1947"
+}
+1948.1.20 = {
+	add_ideas =Marshall
+	complete_national_focus = ISR_NewGovernment
+	complete_national_focus = ISR_Diplomacy
+	complete_national_focus = ISR_DefenceForce
+	complete_national_focus = ISR_AirForce
+	complete_national_focus = ISR_Navy
+	complete_national_focus = ISR_Kibbutz
+	complete_national_focus = ISR_Economic
+	complete_national_focus = ISR_Immigration
+	add_to_array = { global.UNmember_list = FROM }
+	activate_decision = create_radio_station
+	set_technology = {
+		telegraph = 1
+		radio_detection = 1
+		army_aviation = 1
+	}
+	add_ideas = {
+		IMI
+	}
+}
+1949.1.1 = {
+	add_ideas = {
+		UNmember
+		Moshe_Dayan
+	}
+	remove_ideas = ISR_armed_organized_ideas
+}
+1954.1.20 = {
+	complete_national_focus = ISR_MOSSAD
+	complete_national_focus = Pro_West
+	complete_national_focus = ISR_Haredit
+	complete_national_focus = ISR_Zionism
+	complete_national_focus = ISR_ArmorIndustry
+	set_country_flag = developmented
+	set_technology = {
+		CAS2 = 1
+		motorize_doctrine = 1
+		oil_processing = 1
+		basic_battery = 1
+		tech_engineers2 = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	spaa1 = 1
+	
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+		dispersed_industry4 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+		paratroopers = 1
+		spaa1 = 1
+		mechanised_infantry = 1
+		basic_light_tank = 1
+		depth_defense = 1
+		delay = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+		infantry_at = 1
+		machine_gun2 = 1
+		interwar_artillery = 1
+	}
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+}		
+1960.1.20 = {
+	set_technology = {
+		decimetric_radar = 1
+		can_foods = 1
+		mine_bomb = 1
+		street_fight = 1
+		tech_mountaineers = 1
+		tech_logistics_company2 = 1
+		tech_field_hospital2 = 1
+		basic_medium_tank = 1
+		at_missile_1 = 1
+		aa_missile_1 = 1
+	}
+}		
+1963.1.20 = {
+	set_popularities = {
+		democratic = 78
+		communism = 12
+		neutrality = 10
+	}
+	set_technology = {
+		trans_helicopter_1 = 1
+		basic_heavy_tank = 1
+		command_cooperation = 1
+		motorized_infantry = 1
+	motorize_doctrine = 1
+	motorized_transport = 1
+	armor_doctrine = 1
+		paratroopers2 = 1
+		mechanised_infantry2 = 1
+		infantry_weapons1 = 1
+		fighter1 = 1
+		fighter2 = 1
+		heavy_fighter1 = 1
+		heavy_fighter2 = 1
+		CAS1 = 1
+		halicopter_machinegun = 1
+		CAS2 = 1
+		interwar_artillery = 1
+		dispersed_industry3 = 1
+	}
+	oob = "ISR_1965"
+	create_country_leader = {
+		name = "Levi Eshkol"
+		
+		picture = "gfx/leaders/ISR/Portrait_Israel_Levi_Eshkol.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+	add_ideas = {
+		PLOrevolt
+	}
+}
+1970.1.20 = {
+	set_popularities = {
+		democratic = 83
+		communism = 2
+		neutrality = 15
+	}
+	activate_decision = Establishment_of_National_Museum
+	set_technology = {
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		atomic_research = 1
+		fighter3 = 1
+		at_missile_2 = 1
+		aa_missile_2 = 1
+	}
+	oob = "ISR_1972"
+	remove_ideas = PLO
+	set_technology = {
+		improved_infantry_weapons = 1
+		mechanised_infantry3 = 1
+	}
+	create_country_leader = {
+		name = "Golda Meir"
+		
+		picture = "gfx/leaders/ISR/Portrait_Israel_Meir.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+}
+1974.1.20 = {
+	retire_character = ISR_Tzvi_Tzur
+	add_to_array = { global.nuke_states_list = FROM }
+	set_technology = {
+		improved_heavy_tank = 1
+		nukes = 1
+	}
+	create_country_leader = {
+		name = "Yitzhak Rabin"
+		
+		picture = "gfx/leaders/ISR/Portrait_Israel_Yitzhak_Rabin.tga"
+		expire = "1997.1.1"
+		ideology = liberalism
+		
+		traits = {
+		
+		}
+	}
+}
+1977.1.20 = {
+	remove_ideas =Marshall
+	add_nuclear_bombs = 24
+	set_technology = {
+		improved_medium_tank = 1
+	}
+	set_popularities = {
+		democratic = 34
+		authoritarianism = 66
+	}
+set_politics = {
+	
+	ruling_party = authoritarianism
+	last_election = "1933.5.17"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+	create_country_leader = {
+		name = "Menachem Begin"
+		
+		picture = "gfx/leaders/ISR/Portrait_Israel_Menachem.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}
+1983.1.20 = {
+	oob = "ISR_1980"
+	remove_ideas = Moshe_Dayan
+	set_technology = {
+		at_missile_3 = 1
+	}
+	add_nuclear_bombs = 41
+	create_country_leader = {
+		name = "Yitzhak Shamir"
+		
+		picture = "gfx/leaders/ISR/Portrait_Israel_Shamir.tga"
+		expire = "1997.1.1"
+		ideology = authoritarianism
+		
+		traits = {
+		
+		}
+	}
+}
+1988.1.20 = {
+	set_popularities = {
+		democratic = 45
+		authoritarianism = 55
+	}
+	set_country_flag = Satellite_succes
+	set_technology = {
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+	}
+}

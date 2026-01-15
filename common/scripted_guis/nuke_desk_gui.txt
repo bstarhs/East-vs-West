@@ -1,0 +1,770 @@
+
+scripted_gui = {
+	nuke_desk = {
+		window_name = "nuke_desk_container"
+		context_type = player_context
+		visible = {
+			check_variable = { nuke_desk_show > 0.0 }
+		}
+		dynamic_lists = {
+			nuke_nations_list_grid = {
+				array = global.nuke_states_list
+				entry_container = nuke_nations_grid_entry
+				change_scope = yes
+			}
+		}
+		properties = {
+			flag = {
+				image = "[This.GetFlag]"
+				
+			}
+		}
+		effects = {
+			nuke_desk_close_button_click = {
+				set_variable = { nuke_map_show = 1 }
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = nuke_desk_show }
+                set_variable = { nuke_desk_show = show }
+            }
+			#2=usa eastern#
+			#3=ussr#
+			#4=uk#
+			#5=peking#
+			#6=france
+			#7=southern china#
+			#8=western usa#
+			#9=western india#
+			#10=japan#
+			#11=saf#
+			#12=ast#
+			#13=iran#
+			#14=korea#
+			#16=iraq#
+			#17=argentina#
+			#18=brazil#
+			lauch_button_click = {
+				set_country_flag = nuke_launched
+				if = {
+					limit = { NOT = { has_global_flag = nuke_war } }
+					play_song = montgomerysmarch
+					set_global_flag = nuke_war
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 2 } }
+					add_to_variable = { this.nuke_base_num = -6 }
+					country_event = { id = drop.2  hours = nuke_speed }
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 3 } }
+					country_event = { id = drop.3  hours = nuke_speed }
+					add_to_variable = { this.nuke_base_num = -6 }
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 4 } }
+					country_event = { id = drop.4  hours = nuke_speed }
+					add_to_variable = { this.nuke_base_num = -6 }
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 5 } }
+					PRC = { add_stability = -0.2 }
+					add_to_variable = { this.nuke_base_num = -6 }
+					launch_nuke = { state = 608 use_nuke = yes }
+					launch_nuke = { state = 609 use_nuke = yes }
+					launch_nuke = { state = 610 use_nuke = yes }
+					launch_nuke = { state = 716 use_nuke = yes }
+					launch_nuke = { state = 328 use_nuke = yes }
+					launch_nuke = { state = 714 use_nuke = yes }
+					launch_nuke = { state = 614 use_nuke = yes }
+					launch_nuke = { state = 615 use_nuke = yes }
+					launch_nuke = { state = 597 use_nuke = yes }
+					launch_nuke = { state = 607 use_nuke = yes }
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 6 } }
+					add_to_variable = { this.nuke_base_num = -6 }
+					country_event = { id = drop.1  hours = nuke_speed }
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 7 } }
+					PRC = { add_stability = -0.2 }
+					add_to_variable = { this.nuke_base_num = -6 }
+					launch_nuke = { state = 613 use_nuke = yes }
+					launch_nuke = { state = 620 use_nuke = yes }
+					launch_nuke = { state = 612 use_nuke = yes }
+					launch_nuke = { state = 596 use_nuke = yes }
+					launch_nuke = { state = 595 use_nuke = yes }
+					launch_nuke = { state = 592 use_nuke = yes }
+					launch_nuke = { state = 593 use_nuke = yes }
+					launch_nuke = { state = 594 use_nuke = yes }
+					launch_nuke = { state = 599 use_nuke = yes }
+				}
+				
+				if = {
+					limit = { check_variable = { nuke_map_show = 8 } }
+					USA = { add_stability = -0.2 }
+					add_to_variable = { this.nuke_base_num = -6 }
+					launch_nuke = { state = 473 use_nuke = yes }
+					launch_nuke = { state = 386 use_nuke = yes }
+					launch_nuke = { state = 385 use_nuke = yes }
+					launch_nuke = { state = 377 use_nuke = yes }
+					launch_nuke = { state = 378 use_nuke = yes }
+					launch_nuke = { state = 378 use_nuke = yes }
+					launch_nuke = { state = 876 use_nuke = yes }
+					launch_nuke = { state = 876 use_nuke = yes }
+					launch_nuke = { state = 379 use_nuke = yes }
+				}
+				if = {
+					limit = { check_variable = { nuke_map_show = 9 } }
+					IND = { add_stability = -0.2 }
+					add_to_variable = { this.nuke_base_num = -6 }
+					launch_nuke = { state = 439 use_nuke = yes }
+					launch_nuke = { state = 438 use_nuke = yes }
+					launch_nuke = { state = 431 use_nuke = yes }
+					launch_nuke = { state = 429 use_nuke = yes }
+					launch_nuke = { state = 428 use_nuke = yes }
+					launch_nuke = { state = 427 use_nuke = yes }
+					launch_nuke = { state = 425 use_nuke = yes }
+					launch_nuke = { state = 426 use_nuke = yes }
+				}
+				if = {   #日本
+					limit = { check_variable = { nuke_map_show = 10 } }
+					JAP = { add_stability = -0.2 }
+					add_to_variable = { this.nuke_base_num = -6 }
+					launch_nuke = { state = 533 use_nuke = yes }
+					launch_nuke = { state = 282 use_nuke = yes }
+					launch_nuke = { state = 282 use_nuke = yes }
+					launch_nuke = { state = 531 use_nuke = yes }
+					launch_nuke = { state = 531 use_nuke = yes }
+					launch_nuke = { state = 532 use_nuke = yes }
+					launch_nuke = { state = 529 use_nuke = yes }
+					launch_nuke = { state = 528 use_nuke = yes }
+				}
+				if = {   #南非
+					limit = { check_variable = { nuke_map_show = 11 } }
+					if = {
+						limit = { has_war_with = SAF }
+						SAF = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -6 }
+						launch_nuke = { state = 275 use_nuke = yes }
+						launch_nuke = { state = 867 use_nuke = yes }
+						launch_nuke = { state = 681 use_nuke = yes }
+					}
+				}
+				if = {   #澳洲
+					limit = { check_variable = { nuke_map_show = 12 } }
+					if = {
+						limit = { has_war_with = AST }
+						AST = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -8 }
+						launch_nuke = { state = 521 use_nuke = yes }
+						launch_nuke = { state = 285 use_nuke = yes }
+						launch_nuke = { state = 517 use_nuke = yes }
+					}
+				}
+				if = {   #伊朗
+					limit = { check_variable = { nuke_map_show = 13 } }
+					if = {
+						limit = { has_war_with = PER }
+						PER = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -8 }
+						launch_nuke = { state = 266 use_nuke = yes }
+						launch_nuke = { state = 417 use_nuke = yes }
+						launch_nuke = { state = 421 use_nuke = yes }
+						launch_nuke = { state = 413 use_nuke = yes }
+						launch_nuke = { state = 411 use_nuke = yes }
+						launch_nuke = { state = 412 use_nuke = yes }
+					}
+				}
+				if = {   #朝鲜
+					limit = { check_variable = { nuke_map_show = 14 } }
+					if = {
+						limit = { has_war_with = PRK  }
+						PRK = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -4 }
+						launch_nuke = { state = 527 use_nuke = yes }
+						launch_nuke = { state = 786 use_nuke = yes }
+						launch_nuke = { state = 787 use_nuke = yes }
+					}
+					if = {
+						limit = { has_war_with = KOR  }
+						KOR = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -4 }
+						launch_nuke = { state = 525 use_nuke = yes }
+						launch_nuke = { state = 783 use_nuke = yes }
+						launch_nuke = { state = 751 use_nuke = yes }
+					}
+				}
+				if = {   #中东
+					limit = { check_variable = { nuke_map_show = 15 } }
+					if = {
+						limit = { has_war_with = IRQ  }
+						IRQ = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -6 }
+						launch_nuke = { state = 676 use_nuke = yes }
+						launch_nuke = { state = 291 use_nuke = yes }
+						launch_nuke = { state = 881 use_nuke = yes }
+					}
+					if = {
+						limit = { has_war_with = SYR  }
+						SYR = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -6 }
+						launch_nuke = { state = 677 use_nuke = yes }
+						launch_nuke = { state = 689 use_nuke = yes }
+						launch_nuke = { state = 554 use_nuke = yes }
+					}
+					if = {
+						limit = { has_war_with = ISR  }
+						ISR = { add_stability = -0.2 }
+						add_to_variable = { this.nuke_base_num = -3 }
+						launch_nuke = { state = 454 use_nuke = yes }
+						launch_nuke = { state = 762 use_nuke = yes }
+					}
+				}
+            }
+			nuke_back_button_click = {
+				set_variable = { nuke_map_show = 1 }
+            }
+			usa_location_click = {
+				set_variable = { nuke_map_show = 2 }
+            }
+			soviet_location_click = {
+				set_variable = { nuke_map_show = 3 }
+            }
+			uk_location_click = {
+				set_variable = { nuke_map_show = 4 }
+            }
+			cn_location_click = {
+				set_variable = { nuke_map_show = 5 }
+            }
+			fra_location_click = {
+				set_variable = { nuke_map_show = 6 }
+            }
+			shanghai_location_click = {
+				set_variable = { nuke_map_show = 7 }
+            }
+			cali_location_click = {
+				set_variable = { nuke_map_show = 8 }
+            }
+			india_location_click = {
+				set_variable = { nuke_map_show = 9 }
+            }
+			japan_location_click = {
+				set_variable = { nuke_map_show = 10 }
+            }
+			south_africa_location_click = {
+				set_variable = { nuke_map_show = 11 }
+            }
+			australia_location_click = {
+				set_variable = { nuke_map_show = 12 }
+            }
+			iran_location_click = {
+				set_variable = { nuke_map_show = 13 }
+            }
+			korea_location_click = {
+				set_variable = { nuke_map_show = 14 }
+            }
+			iraq_location_click = {
+				set_variable = { nuke_map_show = 15 }
+            }
+			argentina_location_click = {
+				set_variable = { nuke_map_show = 16 }
+            }
+			brazil_location_click = {
+				set_variable = { nuke_map_show = 17 }
+            }
+			congo_location_click = {
+				set_variable = { nuke_map_show = 18 }
+            }
+			egypt_location_click = {
+				set_variable = { nuke_map_show = 19 }
+            }
+			fareast_location_click = {
+				set_variable = { nuke_map_show = 20 }
+            }
+			indochina_location_click = {
+				set_variable = { nuke_map_show = 21 }
+            }
+			kazakh_location_click = {
+				set_variable = { nuke_map_show = 22 }
+            }
+			kenya_location_click = {
+				set_variable = { nuke_map_show = 23 }
+            }
+			maghreb_location_click = {
+				set_variable = { nuke_map_show = 24 }
+            }
+			malaya_location_click = {
+				set_variable = { nuke_map_show = 25 }
+            }
+			nordic_location_click = {
+				set_variable = { nuke_map_show = 26 }
+            }
+			nuke_production_add_click = {
+				add_to_variable = { nuke_produc_speed = 5 }
+				if = {
+					limit = { NOT = { has_dynamic_modifier = { modifier = nuke_production_modifiers } } }
+					add_dynamic_modifier = { modifier = nuke_production_modifiers }
+				}
+            }
+			nuke_production_reduce_click = {
+				add_to_variable = { nuke_produc_speed = -5}
+            }
+		}
+		triggers = {
+			nuke_back_button_visible = { NOT = { check_variable = { nuke_map_show = 1 } } }
+			nukemap_unaviliable_visible = { num_of_nukes < 5 }
+			nuke_unaviliable_text_visible = { num_of_nukes < 5 }
+			
+			
+			nuke_base_cuba_visible = {
+				tag = SOV
+				CUB = { has_country_flag = SOV_missile_base_employment }
+			}
+			nuke_base_dominica_visible = {
+				tag = SOV
+				DOM = { has_country_flag = SOV_missile_base_employment }
+			}
+			nuke_base_haiti_visible = {
+				tag = SOV
+				HAI = { has_country_flag = SOV_missile_base_employment }
+			}
+			nuke_base_venezuela_visible = {
+				tag = SOV
+				VEN = { has_country_flag = SOV_missile_base_employment }
+			}
+			nuke_base_japan_visible = {
+				tag = USA
+				JAP = { has_country_flag = US_missile_base_employment }
+			}
+			nuke_base_pakistan_visible = {
+				tag = USA
+				PAK = { has_country_flag = US_missile_base_employment }
+			}
+			nuke_base_iran_visible = {
+				tag = USA
+				PER = { has_country_flag = US_missile_base_employment }
+			}
+			nuke_base_turkey_visible = {
+				tag = USA
+				TUR = { has_country_flag = US_missile_base_employment }
+			}
+			nuke_base_italy_visible = {
+				tag = USA
+				ITA = { has_country_flag = US_missile_base_employment }
+			}
+			nuke_base_france_visible = {
+				tag = USA
+				FRA = { has_country_flag = US_missile_base_employment }
+			}
+			nuke_base_wdr_visible = {
+				tag = USA
+				WDR = { has_country_flag = US_missile_base_employment }
+			}
+			
+			nuke_production_reduce_click_enabled = {
+				check_variable = { nuke_produc_speed > 0 }
+			}
+			nuke_production_add_click_enabled = {
+				check_variable = { nuke_produc_speed < nuke_produc_max }
+			}
+			soviet_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5
+				NOT = { tag = SOV }
+			}
+			ussr_nukemap_visible = { check_variable = { nuke_map_show = 3 } }
+			
+			uk_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = ENG }
+			}
+			uk_nukemap_visible = { check_variable = { nuke_map_show = 4 } }
+			
+			usa_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5
+				NOT = { tag = USA }
+				}
+			usa_nukemap_visible = { check_variable = { nuke_map_show = 2 } }
+			
+			cn_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 }
+			china_nukemap_visible = { check_variable = { nuke_map_show = 5 } }
+			
+			fra_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = FRA }
+			}
+			fra_nukemap_visible = { check_variable = { nuke_map_show = 6 } }
+			
+			shanghai_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = PRC }
+			}
+			shanghai_nukemap_visible = { check_variable = { nuke_map_show = 7 } }
+			
+			cali_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = USA }
+			}
+			cali_nukemap_visible = { check_variable = { nuke_map_show = 8 } }
+			
+			india_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = IND }
+			}
+			india_nukemap_visible = { check_variable = { nuke_map_show = 9 } }
+			
+			japan_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = JAP }
+			}
+			japan_nukemap_visible = { check_variable = { nuke_map_show = 10 } }
+			
+			south_africa_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = SAF }
+			}
+			south_africa_nukemap_visible = { check_variable = { nuke_map_show = 11 } }
+			
+			australia_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = AST }
+			}
+			australia_nukemap_visible = { check_variable = { nuke_map_show = 12 } }
+			
+			
+			iran_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = { tag = PER }
+			}
+			iran_nukemap_visible = { check_variable = { nuke_map_show = 13 } }			
+			
+			korea_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			korea_nukemap_visible = { check_variable = { nuke_map_show = 14 } }	
+			
+			iraq_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			iraq_nukemap_visible = { check_variable = { nuke_map_show = 15 } }
+			
+			argentina_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			Argentina_nukemap_visible = { check_variable = { nuke_map_show = 16 } }
+			
+			brazil_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			brazil_nukemap_visible = { check_variable = { nuke_map_show = 17 } }
+			
+			congo_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			congo_nukemap_visible = { check_variable = { nuke_map_show = 18 } }
+			
+			egypt_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			egypt_nukemap_visible = { check_variable = { nuke_map_show = 19 } }
+			
+			fareast_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = {
+					controls_state = 589
+					controls_state = 405
+				}
+			}
+			fareast_nukemap_visible = { check_variable = { nuke_map_show = 20 } }
+			
+			indochina_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			indochina_nukemap_visible = { check_variable = { nuke_map_show = 21 } }
+			
+			kazakh_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+				NOT = {
+					controls_state = 657
+					controls_state = 408
+				}
+			}
+			kazakh_nukemap_visible = { check_variable = { nuke_map_show = 22 } }
+			
+			kenya_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			kenya_nukemap_visible = { check_variable = { nuke_map_show = 23 } }
+			
+			maghreb_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			maghreb_nukemap_visible = { check_variable = { nuke_map_show = 24 } }
+			
+			malaya_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			malaya_nukemap_visible = { check_variable = { nuke_map_show = 25 } }
+			
+			nordic_location_visible = { check_variable = { nuke_map_show = 1 } 
+				num_of_nukes > 5 
+			}
+			nordic_nukemap_visible = { check_variable = { nuke_map_show = 26 } }
+			
+			lauch_button_click_enabled = {
+			#2=usa eastern#
+			#3=ussr#
+			#4=uk#
+			#5=peking#
+			#6=france
+			#7=southern china#
+			#8=western usa#
+			#9=western india#
+			#10=japan#
+				num_of_nukes > 10
+				check_variable = { nuke_base_num > 1 }
+				OR = {
+					AND = {
+						check_variable = { nuke_map_show = 2 }
+						has_war_with = USA
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 361
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 3 }
+						has_war_with = SOV
+						OR = {
+							any_owned_state = {
+								distance_to = {
+								value < 20000
+								target = 219
+								}
+							}
+							AND = {
+								is_in_faction_with = WDR
+								has_country_flag = established_pershin
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 4 }
+						has_war_with = ENG
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 126
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 5 }
+						has_war_with = PRC
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 608
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 6 }
+						has_war_with = FRA
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 16
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 7 }
+						has_war_with = PRC
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 613
+							}
+						}
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 592
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 8 }
+						has_war_with = USA
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 386
+							}
+						}
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 378
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 9 }
+						has_war_with = IND
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 438
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 10 }
+						has_war_with = JAP
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 282
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 11 }
+						OR = {
+							has_war_with = RHO
+							has_war_with = SAF
+							has_war_with = MZB
+						}
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 275
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 12 }
+						has_war_with = AST
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 285
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 13 }
+						has_war_with = PER
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 411
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 14 }
+						OR = {
+						has_war_with = PRK
+						has_war_with = KOR
+						}
+						any_owned_state = {
+							distance_to = {
+							value < 20000
+							target = 525
+							}
+						}
+					}
+					AND = {
+						check_variable = { nuke_map_show = 15 }
+						OR = {
+							AND = {
+								has_war_with = IRQ
+								any_owned_state = {
+									distance_to = {
+									value < 20000
+									target = 291
+									}
+								}
+							}
+							AND = {
+								has_war_with = SYR
+								any_owned_state = {
+									distance_to = {
+									value < 20000
+									target = 454
+									}
+								}
+							}
+							AND = {
+								has_war_with = ISR
+								any_owned_state = {
+									distance_to = {
+									value < 20000
+									target = 454
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	nuke_desk_button = {
+		window_name = "nuke_desk_button_container"
+		context_type = player_context
+		effects = {
+			nuke_desk_button_click = {
+				force_update_map_mode = {
+					limit = {
+						is_ai = no
+					}
+					mapmode = more_mapmodes_core_map_mode
+				}
+				set_country_flag = nuke_dest_on
+				set_variable = { nuke_map_show = 1 }
+                set_temp_variable = { show = 1 }
+                subtract_from_temp_variable = { show = nuke_desk_show }
+                set_variable = { nuke_desk_show = show }
+            }
+        }	
+		ai_enabled = { always = yes }
+		ai_test_interval = 96
+		ai_check = {
+			date > 1945.1.1
+		}
+		ai_weights = {
+			nuke_desk_button_click = {
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						add = -80
+						has_country_flag = nuke_dest_on
+						NOT = { has_country_flag = nuke_launched }
+					}
+					modifier = {
+						add = 50
+						has_war_with = SOV
+					}
+					modifier = {
+						add = 50
+						has_war_with = USA
+					}
+					modifier = {
+						add = -50
+						has_war = no
+					}
+					modifier = {
+						add = -50
+						NOT = { has_tech = nukes }
+					}
+				}
+			}
+		}	
+	}
+}

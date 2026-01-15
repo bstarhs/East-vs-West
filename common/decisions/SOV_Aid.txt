@@ -1,0 +1,60 @@
+finicial_add = {
+	fuel_support = {
+		icon = GFX_decision_oil
+		allowed = {
+			always = yes
+		}
+		cost = 150
+		days_re_enable = 80
+		visible = {
+			tag = SOV
+		}
+		target_trigger = {
+			FROM = {
+				has_war = yes
+				OR = {
+					has_opinion = {
+						target = SOV
+						value > 10
+					}
+					SOV = {
+						has_opinion = {
+							target = FROM
+							value > 10
+						}
+					}
+					has_government = communism
+				}
+				FROM = { check_variable = { total_from_aid < 500 } }
+			}
+		}
+		ai_will_do = {
+			modifier = {
+				add = 50
+				tag = SOV
+				FROM = { tag = EGY }
+				EGY = { has_war_with = ISR }
+			}
+			modifier = {
+				add = 50
+				FROM = { has_fuel < 500 }
+			}
+			modifier = {
+				add = 500
+				FROM = { tag = PRK }
+			}
+			modifier = {
+				add = -500
+				FROM = { has_fuel > 1000 }
+			}
+		}
+		complete_effect = {
+			add_fuel = -400
+			FROM = {
+				add_fuel = 400
+			}
+		}
+	}
+}
+SOV_military_aid = {
+}

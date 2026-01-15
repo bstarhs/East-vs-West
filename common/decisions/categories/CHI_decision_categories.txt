@@ -1,0 +1,41 @@
+decision_TW_construct = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_TW_construct
+	priority = {
+		base = 20
+	}
+	allowed = {
+		original_tag = CHI
+	}
+}
+CHI_civilwar_category = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_CHI_civilwar_category
+	priority = {
+		base = 20
+	}
+	allowed = {
+		original_tag = CHI
+		controls_state = 613
+		always = yes
+	}
+}
+CHI_counter_attack_category = {
+	icon = GFX_decision_category_generic_industry
+	picture = GFX_decision_CHI_counter_attack_category
+	priority = {
+		base = 20
+	}
+	allowed = {
+		original_tag = CHI
+		controls_state = 756
+		always = yes
+	}
+}
+
+CHI_takeback_mainland = {
+	icon = generic_propaganda
+	visible = {
+		tag = CHI
+	}
+}

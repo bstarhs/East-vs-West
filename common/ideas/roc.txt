@@ -1,0 +1,622 @@
+ideas = {
+	country = {
+		CHI_coast_blocked = {
+			allowed = {
+				always = no
+			}
+			picture = CHI_coast_blocked
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.12
+				stability_factor = -0.04
+				war_support_factor = -0.12
+				political_power_cost = 0.15
+			}
+		}
+		CHI_financial_broken = {
+			allowed = {
+				original_tag = CHI
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.2
+				political_power_cost = 0.15
+				neutrality_drift = -0.02
+			}
+		}
+		CHI_wave_228 = {
+			picture = CHI_wave_228
+			allowed = {
+				original_tag = CHI
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.35
+				resistance_target = 0.15
+				political_power_cost = 0.15
+				neutrality_drift = -0.02
+			}
+		}
+		CHI_mainland_immigrate = {
+			allowed = {
+				always = yes
+			}
+			picture = CHI_mainland_immigrate
+			modifier = {
+				political_power_cost = 0.15
+				stability_factor = -0.12
+				neutrality_drift = 0.04
+			}
+			ai_will_do = {
+				factor = 2
+			}
+		}
+        YUN_resistance_army = {
+		    picture = YUN_resistance_army
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+            cancel = {
+				OR = {
+					has_government = communism
+					has_government = democratic
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				stability_factor = 0.15
+				drift_defence_factor = 0.25
+			}
+		}
+        long_parliament = {
+		    picture = long_parliament
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+            cancel = {
+				OR = {
+					has_government = communism
+					has_government = democratic
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				political_power_cost = 0.3
+				stability_factor = 0.05
+				drift_defence_factor = 0.2
+			}
+		}
+        golden_notes_ideas = {
+		    picture = chi_hyper_inflation5
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				war_support_factor = 0.25
+				political_power_cost = -0.12
+				army_org_regain = 0.04
+				army_core_defence_factor = 0.12
+			}
+		}
+        CHI_civilwar_law = {
+		    picture = chi_warlord_integration5
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				experience_loss_factor = -0.12
+				army_morale_factor = 0.12
+				conscription = 0.45
+				political_power_cost = 0.5
+				army_org_regain = 0.12
+				army_core_defence_factor = 0.15
+			}
+		}
+        CHI_warlords_spirits = {
+		    picture = chi_warlord_integration5
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				army_morale_factor = -0.04
+				army_core_defence_factor = 0.05
+			}
+		}
+        manooo = {
+		    picture = manooo
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				army_attack_factor = -0.2
+				experience_loss_factor = 0.3
+				army_morale_factor = -0.12
+			}
+		}
+		sidajiazhu = {
+		    picture = sidajiazhu
+			allowed = {
+				always = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				local_supplies = -0.1
+				land_reinforce_rate  = -0.1
+				planning_speed = -0.1
+				industrial_capacity_factory = -0.2
+				conversion_cost_mil_to_civ_factor = 0.1
+				neutrality_drift = 0.2
+			}
+		}
+		CHI_civil_war_deserters = {
+			picture = generic_morale_bonus
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism
+					}
+				}
+			}
+			cancel = {
+				has_war = no
+			}
+			removal_cost = 1
+			modifier = {
+				training_time_factor = 0.3
+				minimum_training_level = 0.3 
+				surrender_limit = 2.8
+				local_manpower = -0.3
+				experience_loss_factor = 0.3
+				army_morale_factor = -0.1
+			}
+		}
+		taiwan_separatism = {
+			picture = taiwan_separatism
+			allowed = {
+				always = no
+			}
+			removal_cost = 1
+			modifier = {
+			}
+		}
+		taiwan_construction = {
+			picture = TaiwanConstruction
+			allowed = {
+				always = no
+			}
+			removal_cost = 1
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				production_speed_infrastructure_factor = 0.15
+				political_power_cost = -0.2
+				
+			}
+		}
+		german_advisors = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = 1
+			
+			research_bonus = {
+				land_doctrine = 0.07
+			}
+		}
+		# Communist uprisings may cause states to defect to PRC
+		CHI_communist_uprisings = {
+
+			picture = FRA_scw_intervention_republicans_focus
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			removal_cost = 1
+			
+			modifier = {
+			}
+
+		}
+	}
+
+	political_advisor = {
+		Yi_Wen_ya = {
+			
+			allowed = {
+				original_tag = CHI
+			}
+			modifier = {
+				research_speed_factor = 0.05
+				production_speed_infrastructure_factor = 0.06
+			}
+		}
+		Lin_Yang_Kang = {
+			
+			allowed = {
+				original_tag = CHI
+			}
+			modifier = {
+				political_power_factor = 0.1
+			}
+		}
+	}	
+	industrial_concern = {
+		designer = yes
+		CHI_Taiwan_railway = {
+			allowed = {
+				tag = CHI
+			}
+			modifier = {
+				production_speed_infrastructure_factor = 0.12
+			}
+			available = {
+				has_completed_focus = CHI_infrastruct
+			}
+		}
+		CHI_Tatung = {
+			allowed = {
+				tag = CHI
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			traits = { electronics_concern }
+			
+			modifier = {
+			}
+		}
+		CHI_Sampo = {
+			allowed = {
+				tag = CHI
+			}
+			research_bonus = {
+				electronics = 0.14
+			}
+			traits = { electronics_concern }
+			available = {
+				has_completed_focus = CHI_manufacture_2
+			}
+		}
+		CHI_Acer = {
+			allowed = {
+				tag = CHI
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			traits = { electronics_concern }
+			available = {
+				has_completed_focus = CHI_manufacture_3
+			}
+		}
+		CHI_tsmc = {
+			allowed = {
+				tag = CHI
+			}
+			research_bonus = {
+				electronics = 0.10
+			}
+			traits = { electronics_concern }
+			available = {
+				has_completed_focus = CHI_tmc
+			}
+		}
+		CHI_Aerospace_Industrial_Development_Corp = {
+			allowed = {
+				original_tag = CHI
+			}
+			research_bonus = {
+				air_equipment = 0.04
+			}
+			traits = { light_aircraft_manufacturer }
+			available = {
+				has_completed_focus = CHI_develop_fighter
+			}
+		}
+		CHI_CSBC = {
+			
+			picture = CHI_CSBC
+			allowed = {
+				original_tag = CHI
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			modifier = {
+				industrial_capacity_dockyard = 0.06
+			}
+			available = {
+				has_completed_focus = CHI_medium_ships
+			}
+		}
+		CHI_CSC = {
+			picture = CHI_CSC
+			allowed = {
+				original_tag = CHI
+			}
+			traits = { steel_making_concern }
+			available = {
+				has_completed_focus = CHI_china_steel
+			}
+		}
+		CHI_Tang_Eng_Iron_Works = {
+			picture = CHI_Tang_Eng_Iron_Works
+			allowed = {
+				original_tag = CHI
+			}
+			traits = { steel_making_concern }
+			available = {
+				has_completed_focus = CHI_manufacture_1
+			}
+		}
+		CHI_Chunghwa_Telecom = {
+			
+			picture = CHI_Chunghwa_Telecom
+			allowed = {
+				original_tag = CHI
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			research_bonus = {
+				electronics = -0.12
+			}
+			available = {
+				has_completed_focus = CHI_manufacture_1
+			}
+		}
+		CHI_Taiwan_Fertilizer = {
+			
+			picture = CHI_Taiwan_Fertilizer
+			allowed = {
+				original_tag = CHI
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				has_completed_focus = CHI_develop_agrculture
+			}
+		}
+		CHI_CPC_Corporation = {
+			
+			picture = CHI_CPC_Corporation
+			allowed = {
+				original_tag = CHI
+			}
+			traits = { refinery_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				has_completed_focus = CHI_manufacture_1
+			}
+		}
+		CHI_China_petrochemical = {
+			
+			picture = CHI_China_petrochemical
+			allowed = {
+				original_tag = CHI
+			}
+			traits = { refinery_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+			modifier = {
+				production_speed_rubber_factory_factor = 0.05
+			}
+			available = {
+				has_completed_focus = CHI_manufacture_2
+			}
+		}
+		CHI_RSEA = {
+			
+			picture = CHI_RSEA
+			allowed = {
+				original_tag = CHI
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.12
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				has_completed_focus = CHI_uneployee_officers_comittee
+			}
+		}
+		CHI_Taisugar = {
+			
+			picture = CHI_Taisugar
+			allowed = {
+				original_tag = CHI
+			}
+			traits = { }
+			
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				has_completed_focus = CHI_develop_sugar
+			}
+		}
+		CHI_Formosa_Plastic = {
+			
+			picture = CHI_Formosa_Plastic
+			allowed = {
+				original_tag = CHI
+			}
+			modifier = {
+				production_speed_rubber_factory_factor = 0.1
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				has_completed_focus = CHI_manufacture_2
+			}
+		}
+		CHI_Yulong = {
+			
+			picture = CHI_Yulong
+			allowed = {
+				original_tag = CHI
+			}
+			traits = { auto_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+			available = {
+				has_completed_focus = CHI_auto_focus
+			}
+		}
+		CHI_armor_center = {
+			
+			
+			allowed = {
+				original_tag = CHI
+			}
+			
+
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { medium_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+		Lianqing60 = {
+
+			
+			allowed = {
+				original_tag = CHI
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.1
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		
+		
+		jiangnan_shipyard_group = {
+			picture = generic_naval_manufacturer_3
+			visible = {
+				owns_state = 613
+			}
+			
+			allowed = {
+				original_tag = CHI
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			# riverine warfare weak on open waters
+						
+			traits = { naval_manufacturer }
+			
+		}
+		camco = {
+			picture = generic_air_manufacturer_3
+			visible = {
+				owns_state = 613
+			}
+			allowed = {
+				original_tag = CHI
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			# assembled hawk II and hawk III fighter bombers as well as the Vultee V_11 ground attackers
+						
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+}

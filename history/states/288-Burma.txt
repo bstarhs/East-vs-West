@@ -1,0 +1,65 @@
+
+state={
+	id=288
+	name="STATE_288"
+	manpower = 10722500
+	
+	state_category = town
+	
+	resources={
+		rubber=4
+	}
+
+	history={
+		add_to_array = { this.state_ethnics_list = 43 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 90 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		set_state_flag = ethnics_Burmese
+                              
+		owner = ENG
+		add_core_of = BUR
+		1948.1.4 = {
+		owner = BUR
+		}
+		victory_points = {
+			1330 10
+		}
+		victory_points = {
+			10283 4 
+		}
+		victory_points = {
+			10182 3
+		}
+		victory_points = {
+			1333 3
+		}
+		victory_points = {
+			7254 2
+		}
+		victory_points = {
+			1417 4 
+		}
+		victory_points = {
+			12127 4 
+		}
+		buildings = {
+			oilfield = 1
+			farm_building = 3
+			hospital = 1
+			infrastructure = 4
+			power_plant = 2
+			industrial_complex = 2
+			air_base = 1
+			1330 = {
+				naval_base = 4
+			}
+		}
+
+	}
+
+	provinces={
+		1330 1333 1417 3651 4293 4336 7254 7382 7441 10154 10182 10223 10267 10283 10344 12127 12197 12256 12267 12284 12317 4654 
+	}
+}

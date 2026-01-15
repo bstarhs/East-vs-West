@@ -1,0 +1,39 @@
+
+state={
+	id=534
+	name="STATE_534" # Hokuriku
+	manpower = 1933000
+	
+	state_category = city
+
+	history={
+		set_state_flag = ethnics_Japanese
+		add_to_array = { this.state_ethnics_list = 15 }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = JAP
+		add_core_of = JAP
+		buildings = {
+			hospital = 1
+			infrastructure = 4
+			industrial_complex = 1
+			farm_building = 3
+		}
+		
+		victory_points = {
+			1117 2
+		}
+		victory_points = {
+			10128 3
+		}
+		1984.8.23 = {
+			buildings = { nuclear_reactor = 1 }
+		}
+
+
+	}
+
+	provinces={
+		1117 9952 10128 11930 11989 12007 
+	}
+}

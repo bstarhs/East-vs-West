@@ -1,0 +1,128 @@
+﻿capital = 546
+
+oob = "TAZ"
+
+set_research_slots = 2
+set_convoys = 60
+set_country_flag = language_english
+set_stability = 0.75
+set_country_flag = third_world
+set_country_flag = british_colonies
+
+set_country_flag = east_africa
+set_country_flag = african_state
+	set_cosmetic_tag = TAZ_ENG
+set_technology = {
+	gwtank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_recon = 1
+	
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	gw_artillery = 1
+	motorised_infantry = 1
+}
+
+add_ideas = {
+	
+	Shamba
+	service_by_requirement
+	UNmember
+	partial_economic_mobilisation
+}
+	set_popularities = {
+		democratic = 17
+		communism = 10
+		authoritarianism = 73
+	}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1945.12.1"
+	election_frequency = 60
+	elections_allowed = yes
+}
+	
+create_country_leader = {
+	name = "British Tanganyka Governeor"
+	desc = ""
+	picture = "gfx/leaders/TAZ/Portrait_Tanganyka_Governeor.tga"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+1953.1.1 = {
+	activate_decision = create_radio_station
+	set_technology = {
+		medical1 = 1
+		army_aviation = 1
+		telegraph = 1
+	}
+}
+1961.1.1 = {
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	set_cosmetic_tag = TANGA
+	create_country_leader = {
+		name = "Julius Nyerere"
+		
+		picture = "gfx/leaders/TAZ/Portrait_Tanzania_Nyerere.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+		african_nationalism pro_socialism
+		}
+	}
+	set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+	}
+	complete_national_focus = Focus_Goverment_reform
+}
+1964.1.1 = {
+	complete_national_focus = common_24
+	set_cosmetic_tag = TAZ
+	set_country_flag = china_diplomacy
+}
+1970.1.1 = {
+	complete_national_focus = common_63
+	complete_national_focus = common_64
+	complete_national_focus = common_1
+	complete_national_focus = common_75
+	set_technology = {
+		basic_light_tank = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		improved_medium_tank = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		oil_processing = 1
+	}
+}
+1975.1.1 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+	set_country_leader_portrait = {
+		portrait = "gfx/leaders/TAZ/Portrait_Tanzania_Nyerere_old.tga"
+	}
+}
+1985.1.20 = {
+	set_country_flag = developmented
+	complete_national_focus = steel_produc
+	create_country_leader = {
+		name = "Ali Hassan Mwinyi"
+		
+		picture = "gfx/leaders/TAZ/Portrait_Tanzania_Mwinyi.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		
+		traits = {
+		
+		}
+	}
+}

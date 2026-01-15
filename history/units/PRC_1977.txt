@@ -1,0 +1,676 @@
+﻿division_template = {
+	name = "Mechanized Division"
+	division_names_group = PRC_MEC_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }	
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }	
+		mechanized = { x = 1 y = 1 }	
+		mechanized = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armoured Division"
+	division_names_group = PRC_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 } 
+		maintenance_company = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "Artillery Division" 	
+	division_names_group = PRC_ART_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }	
+		motorized = { x = 0 y = 2 }
+		mot_artillery_brigade = { x = 1 y = 0 }
+		mot_artillery_brigade = { x = 1 y = 1 }
+		mot_artillery_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Marine Brigade"	
+	division_names_group = PRC_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		signal_company = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+units = {
+	#27Jun
+	division = {
+		name = "188th Division"
+		location = 1134
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "13th Division"
+		location = 1134
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "27th Artillery Division"
+		location = 1134
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "80th Division"
+		location = 1134
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "82th Division"
+		location = 1134
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "235th Division"
+		location = 1134
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#38jun
+	division = {
+		name = "113th Division"
+		location = 1134
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "112th Division"
+		location = 1134
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "6th Division"
+		location = 1134
+		division_template = "Armoured Division"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "38th Army Artillery Division"
+		location = 1134
+		division_template = "Artillery Division"
+		start_experience_factor = 0.9
+	}
+	#65jun
+	division = {
+		name = "196th Division"
+		location = 1590
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "193th Division"
+		location = 1590
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "70th Division"
+		location = 1590
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "1st Division"
+		location = 1590
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "65th Army Artillery Division"
+		location = 1590
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	#16jun
+	division = {
+		name = "16th Army Artillery Division"
+		location = 4572
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "4th Division"
+		location = 4572
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "46th Division"
+		location = 4572
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "48th Division"
+		location = 4572
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "69th Division"
+		location = 4572
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "68th Division"
+		location = 4572
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#39jun
+	division = {
+		name = "39th Artillery Division"
+		location = 11771
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "9th Division"
+		location = 11771
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "115th Division"
+		location = 11771
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "116th Division"
+		location = 11771
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "190th Division"
+		location = 11771
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#40jun
+	division = {
+		name = "40th Artillery Division"
+		location = 6837
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "5th Division"
+		location = 6837
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "118th Division"
+		location = 6837
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "119th Division"
+		location = 6837
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "191th Division"
+		location = 6837
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#20jun
+	division = {
+		name = "20th Artillery Division"
+		location = 7656
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "5th Division"
+		location = 7656
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "58th Division"
+		location = 7656
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "60th Division"
+		location = 7656
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#26jun
+	division = {
+		name = "26th Artillery Division"
+		location = 1069
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "8th Division"
+		location = 1069
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "138th Division"
+		location = 1069
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "199th Division"
+		location = 1069
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "77th Division"
+		location = 1069
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#54jun
+	division = {
+		name = "54th Artillery Division"
+		location = 11931
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "11th Division"
+		location = 11931
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "172th Division"
+		location = 11931
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "162th Division"
+		location = 11931
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#1th
+	division = {
+		name = "1st Artillery Division"
+		location = 7191
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "10th Division"
+		location = 7191
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "1st Division"
+		location = 7191
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "3th Division"
+		location = 7191
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#31th
+	division = {
+		name = "31st Artillery Division"
+		location = 7071
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "66th Division"
+		location = 7071
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "91th Division"
+		location = 7071
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "92th Division"
+		location = 7071
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#41th
+	division = {
+		name = "1st Artillery Division"
+		location = 10404
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "121th Division"
+		location = 10404
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "123th Division"
+		location = 10404
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "10th Division"
+		location = 10404
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	#42th
+	division = {
+		name = "42nd Artillery Division"
+		location = 1202
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "124th Division"
+		location = 1202
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "162th Division"
+		location = 1202
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "61th Division"
+		location = 7191
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	#21th
+	division = {
+		name = "21st Artillery Division"
+		location = 12732
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "12th Division"
+		location = 12732
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "61th Division"
+		location = 12732
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	#47th
+	division = {
+		name = "47th Artillery Division"
+		location = 7418
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "12th Division"
+		location = 7418
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "139th Division"
+		location = 7418
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "56th Division"
+		location = 7418
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "55th Division"
+		location = 7191
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	#sinkiang
+	division = {
+		name = "4th Artillery Division"
+		location = 4709
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "8th Division"
+		location = 4709
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "11th Division"
+		location = 4709
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "6th Division"
+		location = 4709
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "4th Division"
+		location = 4709
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	#13th
+	division = {
+		name = "13rd Artillery Division"
+		location = 4925
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "4th Division"
+		location = 4925
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "149th Division"
+		location = 4925
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "37th Division"
+		location = 4925
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#14th
+	division = {
+		name = "14th Artillery Division"
+		location = 7137
+		division_template = "Artillery Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "4th Division"
+		location = 7137
+		division_template = "Armoured Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "149th Division"
+		location = 7137
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "37th Division"
+		location = 7137
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#TIBET
+	division = {
+		name = "149th Division"
+		location = 5033
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "37th Division"
+		location = 5033
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.6
+	}
+	#marine
+	division = {
+		name = "1st Marine Brigade"
+		location = 11981
+		division_template = "Marine Brigade"
+		start_experience_factor = 0.6
+	}
+}
+air_wings = {
+	615 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	620 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+		transport_plane_equipment_1 = { owner = "PRC" amount = 20 }
+		transport_plane_equipment_1 = { owner = "PRC" amount = 20 }
+	}
+	622 = {												
+		strat_bomber_equipment_2 =  { owner = "PRC" amount = 18 }
+	}
+	608 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+		transport_plane_equipment_1 = { owner = "PRC" amount = 20 }
+	}
+	716 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+		fighter_equipment_2 =  { owner = "PRC" amount = 50 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 30 }
+		transport_plane_equipment_1 = { owner = "PRC" amount = 20 }
+	}
+	743 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	328 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	597 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	283 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	617 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	605 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+		transport_plane_equipment_1 = { owner = "PRC" amount = 20 }
+	}
+	592 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	594 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	325 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	602 = {												
+		strat_bomber_equipment_2 =  { owner = "PRC" amount = 9 }
+		strat_bomber_equipment_2 =  { owner = "PRC" amount = 5 }
+	}
+	595 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	596 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+	}
+	613 = {
+		fighter_equipment_2 =  { owner = "PRC" amount = 35 }
+		CAS_equipment_2 =  { owner = "PRC" amount = 20 }
+		strat_bomber_equipment_2 =  { owner = "PRC" amount = 8 }
+	}
+}

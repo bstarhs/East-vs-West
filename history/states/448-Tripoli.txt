@@ -1,0 +1,52 @@
+
+state={
+	id=448
+	name="STATE_448"
+	manpower = 469136
+	
+	state_category = town
+	history={
+		
+		set_state_flag = ethnics_Maghreb
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = ENG
+		add_dynamic_modifier = { modifier = fish_production }
+		
+		victory_points = {
+			1149 12
+		}
+		victory_points = {
+			1189 4
+		}
+		victory_points = {
+			9980 6
+		}
+		buildings = {
+			school = 1
+			hospital = 1
+			farm_building = 1
+			industrial_complex = 2
+			infrastructure = 3
+			hospital = 1
+			air_base = 6
+			1149 = {
+				naval_base = 5
+			}
+		}
+		add_core_of = LBA
+		1951.12.24 = {
+		owner = LBA
+		}
+		1961.12.24 = {
+			buildings = {
+				oilfield = 3
+				synthetic_refinery = 3
+			}
+		}
+	}
+
+	provinces={
+		1118 1149 1189 4194 7066 7209 9980 12039 
+	}
+}

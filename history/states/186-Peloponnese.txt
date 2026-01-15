@@ -1,0 +1,50 @@
+
+state={
+	id=186
+	name="STATE_186"
+	manpower=945000
+	
+	state_category = town
+
+	history={
+		owner = KKE
+		set_state_flag = ethnics_Greeks
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 74 }
+		victory_points = { 4078 4 }
+		victory_points = { 11965 3 }
+		victory_points = { 7211 5 }
+		victory_points = { 13380 5 }
+		set_state_flag = wine_production
+		victory_points = { 4193 3 }
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 3
+			power_plant = 1
+			11965 = {
+				naval_base = 1
+
+			}
+			4193 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = GRE
+		1949.4.24 = {
+		owner = GRE
+		}
+
+	}
+
+	provinces={
+		1173 4078 4178 4193 7096 7211 11965 13231 13380
+	}
+}

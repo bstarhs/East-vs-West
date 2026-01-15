@@ -1,0 +1,388 @@
+﻿capital = 275
+
+set_country_flag = main_country
+oob = "SAF_1936"
+set_country_flag = developmented
+
+	set_variable = { this.education = 53 }
+	recruit_character = SAF_Eben_Donges
+	recruit_character = SAF_Pik_Botha
+	recruit_character = SAF_Andries_Treurnicht
+# Starting tech
+set_country_flag = commonwealth
+	activate_decision = create_radio_station
+set_technology = {
+	machine_gun1 = 1
+	infantry_at = 1
+	excavation1 = 1
+	excavation2 = 1
+	oil_processing = 1
+	army_aviation = 1
+	radio_detection = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	medical1 = 1
+	motorize_doctrine = 1
+	basic_train = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
+	helmet = 1
+	tech_support = 1	
+	tech_engineers = 1
+	tech_mountaineers = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	early_ship_hull_light = 1
+	
+	early_ship_hull_submarine = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	motorised_infantry = 1
+	
+	power_generation1 = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	fuel_silos = 1
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	fighter1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antitank = 1
+	interwar_antiair = 1
+	infantry_weapons2 = 1
+	
+	basic_destroyer = 1
+	
+	#doctrines
+	tech_recon = 1
+	
+	#electronics
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	#industry
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	synth_oil_experiments = 1
+	
+	construction1 = 1
+	concentrated_industry = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+	can_foods = 1
+}
+add_ideas = {
+	UNmember
+	miner
+	service_by_requirement
+	Anglicanism
+	partial_economic_mobilisation
+	biritish_colony
+}
+
+set_convoys = 25
+	set_popularities = {
+		democratic = 52
+		communism = 9
+		authoritarianism = 39
+	}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1933.5.17"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+
+create_country_leader = {
+	name = "Jan Christiaan Smuts"
+	picture = "gfx/leaders/SAF/Portrait_SAF_Jan_Christiaan.tga"
+	expire = "1965.1.1"
+	ideology = socialism
+	traits = {
+		#
+	}
+}
+
+	create_country_leader = {
+		name = "Daniel François Malan"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_D_Malan.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+		}
+	}
+create_country_leader = {
+	name = "Moses Kotane"
+	desc = "POLITICS_MOSES_KOTANE_DESC"
+	picture = "gfx/leaders/SAF/Portrait_SAF_Moses_Kotane.tga"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+1948.5.20 = {
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		authoritarianism = 76
+	}
+set_politics = {
+	
+	ruling_party = authoritarianism
+	last_election = "1933.5.17"
+	election_frequency = 60
+	elections_allowed = yes
+}
+
+	add_ideas = {
+		SAF_history_of_segregation
+	}
+}
+1954.5.20 = {
+	set_technology = {
+		laundry = 1
+		frozen_food = 1
+		can_foods = 1
+		early_ship_hull_cruiser = 1
+		decimetric_radar = 1
+		construction2 = 1
+		rocket_engines = 1
+		telegraph = 1
+		machine_gun2 = 1
+		spaa1 = 1
+		dispersed_industry4 = 1
+		basic_medium_tank = 1
+		mechanised_infantry = 1
+		CAS2 = 1
+	}
+	create_country_leader = {
+		name = "Johannes Gerhardus Strijdom"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_Strijdom.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+		}
+	}
+	add_ideas = Elizabeth_young
+}
+1958.5.20 = {
+	add_timed_idea = {
+		idea = SAF_goodhope_line
+		days = 500
+	}
+	set_technology = {
+		dispersed_industry4 = 1
+		spaa1 = 1
+		sp_artillery1 = 1
+		
+		vaccum_tube = 1
+		basic_heavy_tank = 1
+		trans_helicopter_1 = 1
+		napalm = 1
+		rubber_processing = 1
+		improved_medium_tank = 1
+		fuel_refining = 1
+	}
+	create_country_leader = {
+		name = "Hendrik Frensch Verwoerd"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_Frensch_Verwoerd.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+		}
+	}
+}
+1960.1.20 = {
+	set_technology = {
+		tech_spacemanned = 1
+		aa_missile_2 = 1
+		spaa2 = 1
+		tech_engineers3 = 1
+		concentrated_industry2 = 1
+		game = 1
+		fighter2 = 1
+		improved_medium_tank = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines2 = 1
+		Strategic_Hamlet = 1
+	}
+	remove_ideas = biritish_colony
+	remove_ideas = Elizabeth_young
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_63
+	complete_national_focus = common_67
+	set_popularities = {
+		democratic = 14
+		communism = 5
+		authoritarianism = 81
+	}
+	set_stability = 0.75
+	add_ideas = {
+		sanctions
+		Calvinists
+	}
+	add_to_array = { global.sanctioned_countries_list = FROM }
+	create_country_leader = {
+		name = "Chris Hani"
+		desc = "POLITICS_MOSES_KOTANE_DESC"
+		picture = "gfx/leaders/SAF/Portrait_SAF_Chris_Hani.tga"
+		expire = "1965.1.1"
+		ideology = marxism
+		traits = {
+		#
+		}
+	}
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Nelson Mandela"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_Mandela.tga"
+		expire = "1997.1.1"
+		ideology = socialism
+		traits = {
+		}
+	}
+}
+1964.1.20 = {
+	remove_ideas = SAF_goodhope_line
+}
+1966.1.20 = {
+	load_oob = "SWATF"
+	set_technology = {
+		infantry_at2 = 1
+	}
+	create_country_leader = {
+		name = "Balthazar Johannes Vorster"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_Johannes_Vorster.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+			anti_communist
+		}
+	}
+	create_corps_commander = {
+		name = "Magnus Malan"
+		picture = "gfx/leaders/SAF/Portrait_SAF_Magnus_Malan.dds"
+		traits = { armor_officer }
+		skill = 3
+	}
+}
+1970.1.1 = {
+	oob = "SAF_1970"
+	set_autonomy = {
+		target = CIS
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = HRE
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = BSH
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = CAP
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = KAV
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = OVA
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = TRK
+		autonomous_state = autonomy_puppet
+	}
+	set_technology = {
+		paratroopers = 1
+	}
+}
+1978.1.20 = {
+	create_field_marshal = {
+	name = "Constand Viljoen"
+	portrait_path = "gfx/leaders/SAF/Portrait_SAF_Constand_Viljoen.tga"
+	traits = { fast_planner}
+	skill = 4
+	}
+	create_country_leader = {
+		name = "Pieter Willem Botha"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_Pieter_Willem_Botha.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+			anti_communist
+		}
+	}
+}
+1985.1.20 = {
+	set_technology = {
+		advanced_medium_tank = 1
+	}
+}
+1990.1.20 = {
+	create_country_leader = {
+		name = "Frederik Willem de Klerk"
+		
+		picture = "gfx/leaders/SAF/Portrait_SAF_De_Klerk.tga"
+		expire = "1997.1.1"
+		ideology = authoris
+		traits = {
+		}
+	}
+}

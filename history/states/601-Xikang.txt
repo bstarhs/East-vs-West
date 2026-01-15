@@ -1,0 +1,45 @@
+
+state={
+	id=601
+	name="STATE_601" # Xikang
+	manpower = 968200
+	
+	state_category = pastoral
+	
+	resources={
+		iron = 4
+	}
+	history={
+		add_to_array = { this.state_ethnics_list = 6 }
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_to_array = { this.state_ethnics_list = 1 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Han
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by = TIB
+		add_core_of = PRC
+		victory_points = { 4999 5 }
+		victory_points = { 4431 2 }
+		victory_points = { 1999 2 }
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			infrastructure = 1
+		}	
+		1951.10.12 = {
+		owner = PRC
+		add_core_of = CHI
+		}
+		1959.1.1 = {
+			buildings = {
+				industrial_complex = 1
+				infrastructure = 2
+			}
+		}
+
+	}
+	provinces={
+		1918 1999 2067 4999 7294 7988 8104 10726 12724 12837 4431 1257 4403 9966 10903 10132 14239 14240 14241 14242 14243 14244 14245 14246 14247
+	}
+}

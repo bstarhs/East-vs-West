@@ -1,0 +1,43 @@
+
+state={
+	id=540
+	name="STATE_540"
+	manpower = 3225000
+	
+	state_category = rural
+
+	history={
+		owner = POR
+		add_claim_by = POR
+		set_state_flag = ethnics_Chokwe
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ANG
+		1964.11.10 = {
+			add_core_of = FNA
+			add_core_of = UTA
+		}
+		1970.11.10 = {
+			owner = UTA
+			POR = {
+				set_province_controller = 2126
+				set_province_controller = 13235
+			} 
+		}
+		1974.1.1 = {
+			remove_claim_by = POR
+			ANG = {
+				set_province_controller = 2126
+				set_province_controller = 13235
+			} 
+		}
+		victory_points = {
+			4735 2
+		}
+	}
+
+	provinces={
+		1552 2126 4735 8054 13235 13396 13393 
+	}
+}

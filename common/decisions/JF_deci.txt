@@ -1,0 +1,400 @@
+military_action = {
+	JF_deci_ask_bur = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		days_re_enable = 180
+		cost = 200
+		visible = {
+			YUN = { owns_state = 836 }
+		}
+		available = {
+			has_opinion = {
+				target = BUR
+				value > 19
+			}
+		}
+		complete_effect = {
+			BUR = {
+				news_event = { id = prcjf.101 }
+			}
+		}
+	}
+	JF_deci_attack_bur = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			always = yes
+			tag = PRC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		days_re_enable = 180
+		cost = 500
+		visible = {
+			YUN = { owns_state = 836 }
+			owns_state = 325
+		}
+		available = {
+			325 = { resistance < 10 }
+		}
+		complete_effect = {
+			news_event = { id = prcjf.34 }
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 325
+					num_provinces = 4
+					on_win = prcjf.35
+				}
+				defender = {
+					state = 836
+					num_provinces = 4
+				}
+			}
+		}
+	}
+}
+
+JF_deci = {
+	JF_deci_clear_oppium = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		icon = GFX_decision_generic_operation
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = prc_jiaofei
+			NOT = { has_global_flag = JF_deci_clear_oppium_ended }
+		}
+		available = {
+			has_stability > 0.8
+			FROM = {
+				compliance > 65
+				resistance < 15
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				OR = {
+					state = 592
+					state = 599
+					state = 594
+					state = 603
+					state = 325
+					state = 605
+					state = 602
+				}
+				is_owned_by = PRC
+			}
+		}
+		days_remove = 20
+		remove_effect = { 
+			FROM = {
+				set_state_flag = JF_deci_clear_oppium
+				add_resistance = -12
+				state_event = {
+					id = prcjf.70
+					trigger_for = controller
+				}
+			}
+			add_to_variable = { drugs_clears_score = 1 }
+		}
+	}
+	JF_deci_police = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		icon = GFX_deci_PRC_police
+		cost = 60
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = prc_jiaofei
+			NOT = { has_global_flag = JF_decis_ended }
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = more_rebel_modifiers }
+				is_owned_by = PRC
+				OR = {
+					has_state_category = pastoral
+					has_state_category = rural
+					has_state_category = town
+					has_state_category = large_town
+					has_state_category = city
+				}
+				NOT = {
+					has_state_flag = JF_deci_police_station
+					is_claimed_by = MAN
+				}
+				
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = JF_deci_police_station
+				add_resistance = -10
+			}
+		}
+	}
+	JF_deci_land_refrom = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		icon = GFX_decision_FIN_weapon_caches
+		cost = 120
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = prc_police
+			NOT = { has_global_flag = JF_decis_ended }
+			FROM = {
+				compliance > 60
+				resistance < 30
+			}
+		}
+		available = {
+			FROM = {
+				compliance > 60
+				resistance < 30
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = PRC
+				OR = {
+					has_state_category = pastoral
+					has_state_category = rural
+					has_state_category = town
+					has_state_category = large_town
+				}
+				NOT = {
+					has_state_flag = JF_land_reformed
+					is_claimed_by = MAN
+				}
+				
+			}
+		}
+		complete_effect = {
+			random_list = {
+				50 = {
+					modifier = {
+						add = 6
+						has_completed_focus = prc24
+					}
+					modifier = {
+						add = 10
+						has_completed_focus = prc1
+					}
+					FROM = {
+						state_event = {
+							id = prcjf.61
+							trigger_for = controller
+						}
+						set_state_flag = JF_land_reformed
+						add_resistance = -12
+					}
+				}
+				10 = {
+					FROM = {
+						state_event = {
+							id = prcjf.62
+							trigger_for = controller
+						}
+						set_state_flag = JF_land_reformed
+						add_resistance = -2
+					}
+				}
+			}
+		}
+	}
+	JF_deci_advance_land_refrom = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		icon = GFX_decision_FIN_weapon_caches
+		cost = 150
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = prc1
+			NOT = { has_global_flag = JF_decis_ended }
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = PRC
+				NOT = {
+					has_state_flag = JF_advanced_land_reformed
+					is_claimed_by = MAN
+				}
+				has_state_flag = JF_land_reformed
+				resistance < 30
+			}
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = JF_advanced_land_reformed
+				add_resistance = -20
+			}
+		}
+	}
+	JF_deci_contact_minority = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		icon = GFX_decision_generic_political_discourse
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			num_divisions > 2
+			has_completed_focus = prc_jiaofei
+			NOT = { has_global_flag = JF_decis_ended }
+			
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = PRC
+				NOT = {
+					is_claimed_by = MAN
+					has_state_flag = ethnics_Han
+					has_state_flag = ethnics_Canton
+					has_state_flag = ethnics_Minnan
+					has_state_flag = ethnics_Mongols
+					has_state_flag = ethnics_manchu
+				}
+				NOT = { has_state_flag = JF_contact_minority }
+				NOT = { 
+					has_state_category = tiny_island
+					has_state_category = enclave
+					has_state_category = wasteland
+				}
+			}
+		}
+		complete_effect = {
+			random_list = {
+				50 = {
+					modifier = {
+						add = 6
+						has_completed_focus = prc24
+					}
+					modifier = {
+						add = 10
+						has_completed_focus = prc1
+					}
+					FROM = {
+						state_event = {
+							id = prcjf.67
+							trigger_for = controller
+						}
+					
+						set_state_flag = JF_contact_minority_get
+						set_state_flag = JF_contact_minority
+						add_resistance = -12
+					}
+				}
+				10 = {
+					FROM = {
+						state_event = {
+							id = prcjf.68
+							trigger_for = controller
+						}
+						set_state_flag = JF_contact_minority_failed
+						set_state_flag = JF_contact_minority
+					}
+				}
+			}
+		}
+	}
+	JF_deci_contact_buisness = {
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		icon = GFX_decision_generic_factory
+		cost = 50
+		fire_only_once = yes
+		visible = {
+			num_divisions > 2
+			has_completed_focus = prc_jiaofei
+			NOT = { has_global_flag = JF_decis_ended }
+			
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = PRC
+				NOT = {
+					has_state_flag = JF_contact_buisness
+					is_claimed_by = MAN
+				}
+				non_damaged_building_level = {
+					building = industrial_complex
+					level > 2
+				}
+			}
+		}
+		complete_effect = {
+			army_experience = -40
+			random_list = {
+				50 = {
+					modifier = {
+						add = 6
+						has_completed_focus = prc24
+					}
+					modifier = {
+						add = 6
+						has_completed_focus = prc10
+					}
+					FROM = {
+						state_event = {
+							id = prcjf.63
+							trigger_for = controller
+						}
+						owner = {
+							add_political_power = 80
+						}
+						set_state_flag = JF_contact_buisness_get
+						set_state_flag = JF_contact_buisness
+						add_resistance = -5
+					}
+				}
+				10 = {
+					FROM = {
+						state_event = {
+							id = prcjf.64
+							trigger_for = controller
+						}
+						set_state_flag = JF_contact_buisness_failed
+						set_state_flag = JF_contact_buisness
+					}
+				}
+			}
+		}
+	}
+}

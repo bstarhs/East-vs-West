@@ -1,0 +1,437 @@
+﻿add_namespace = geo
+#格鲁吉亚独立
+news_event = {
+	id = geo.1
+	title = geo.1.t
+	desc = geo.1.d
+	picture = GFX_TibetanArmy
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_AccessionStatesAutonomy
+		controls_state = 231
+	}
+	option = {
+		name = cze.20.b2
+		GEO = {
+			transfer_state = 231
+			transfer_state = 937
+			transfer_state = 938
+			transfer_state = 919
+			set_politics = { ruling_party = communism  }
+		}
+			remove_state_core = 231
+			remove_state_core = 937
+			remove_state_core = 938
+			remove_state_core = 919
+		set_autonomy = {
+			target = GEO
+			autonomous_state = autonomy_colony
+			freedom_level = 0.6
+		}
+	}
+}
+#阿布哈兹要求独立
+news_event = {
+	id = geo.2
+	title = geo.2.t
+	desc = geo.2.d
+	picture = GFX_TibetanArmy
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		SOV = { has_completed_focus = SOV_Glasnost }
+		controls_state = 919
+		NOT = { 919 = { is_core_of = ABK } }
+	}
+	option = {
+		name = cze.20.b2
+		add_stability = -0.05
+		ABK = { add_state_core = 919 }
+	}
+}
+#都比里斯示威游行
+news_event = {
+	id = geo.3
+	title = geo.3.t
+	desc = geo.3.d
+	picture = GFX_TibetanArmy
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = SOV
+		has_completed_focus = SOV_Glasnost
+		919 = { is_core_of = ABK }
+	}
+	option = {
+		name = geo.3.a
+		news_event = { id = geo.4 }
+		add_stability = -0.08
+		231 = { add_resistance = 30 }
+		937 = { add_resistance = 30 }
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
+	}
+	option = {
+		name = geo.3.a
+		add_stability = -0.12
+		919 = { add_resistance = 40 }
+		add_popularity = {
+			ideology = communism
+			popularity = -0.06
+		}
+	}
+}
+#四月事件
+news_event = {
+	id = geo.4
+	title = geo.4.t
+	desc = geo.4.d
+	picture = GFX_SovietAfghanistan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+#格鲁吉亚独立
+news_event = {
+	id = geo.5
+	title = geo.5.t
+	desc = geo.5.d
+	picture = GFX_TibetanArmy
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = GEO
+		OR = {
+			SOV = { has_completed_focus = SOV_AccessionStatesAutonomy }
+			SOV = { has_country_flag = moscowcoup }
+		}
+		controls_state = 231
+		communism < 0.5
+	}
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = GEO }
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			SOV = { end_puppet = GEO }
+			leave_faction = yes
+		}
+	}
+}
+#格鲁吉亚选举
+news_event = {
+	id = geo.6
+	title = geo.6.t
+	desc = geo.6.d
+	picture = GFX_TibetanArmy
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = GEO
+		date > 1990.1.1
+		is_subject = no
+		has_government = communism
+	}
+	option = {
+		name = cze.20.b2
+		set_politics = { ruling_party = authoritarianism }
+		add_popularity = {
+			ideology = authoritarianism
+			popularity = 0.2
+		}
+		promote_character = {
+			character = SOV_Eduward_Shevardnadze
+			ideology = authoritarianism
+		}
+		news_event = { id = geo.7 }
+	}
+	option = {
+		name = cze.20.b2
+		set_politics = { ruling_party = democratic }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.2
+		}
+		promote_character = {
+			character = GEO_Zviad_Gamsakhurdia
+			ideology = socialism
+		}
+		news_event = { id = geo.7 }
+	}
+}
+#格鲁吉亚选举结束
+news_event = {
+	id = geo.7
+	title = geo.7.t
+	desc = geo.7.d
+	picture = GFX_SovietAfghanistan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+#阿布哈兹暴动
+news_event = {
+	id = geo.8
+	title = geo.8.t
+	desc = geo.8.d
+	picture = GFX_TibetanArmy
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = GEO
+		date > 1990.1.1
+		is_subject = no
+		controls_state = 919
+		OR = {
+			919 = { resistance > 80 }
+			has_stability < 0.5
+		}
+	}
+	option = {
+		name = cze.20.b2
+		ABK = {
+			transfer_state = 919
+		}
+		declare_war_on = {	target = ABK type = annex_everything }
+		news_event = { id = geo.9 }
+	}
+	option = {
+		name = cze.20.b2
+		news_event = { id = geo.10 }
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.12
+		}
+		add_stability = -0.15
+	}
+}
+#阿布哈兹战争
+news_event = {
+	id = geo.9
+	title = geo.9.t
+	desc = geo.9.d
+	picture = GFX_SovietAfghanistan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+#格鲁吉亚撤离阿布哈兹
+news_event = {
+	id = geo.10
+	title = geo.10.t
+	desc = geo.10.d
+	picture = GFX_SovietAfghanistan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+#格鲁吉亚占领苏呼米
+news_event = {
+	id = geo.11
+	title = geo.11.t
+	desc = geo.11.d
+	picture = GFX_SovietAfghanistan
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+
+
+#格鲁吉亚1956示威
+news_event = {
+	id = geo.30
+	title = geo.30.t
+	desc = geo.30.d
+	picture = GFX_KhrushchevAbuseStalin
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = SOV
+		date > 1956.3.1
+		date < 1956.8.1
+		has_completed_focus = SOV_RemovingStalinization
+		NOT = { has_global_flag = GeorgiaProtest1956 }
+	}
+	option = {
+		name = afg.20.a	#放弃
+		if = {
+			limit = { tag = SOV }
+			add_political_power = -40
+			set_global_flag = GeorgiaProtest1956
+		}
+	}
+}
+news_event = {
+	id = geo.31
+	title = geo.31.t
+	desc = geo.31.d
+	picture = GFX_GeorgiaProtest1956
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = SOV
+		date > 1956.3.1
+		date < 1956.8.1
+		has_completed_focus = SOV_RemovingStalinization
+		NOT = { has_global_flag = geo31 }
+		has_global_flag = GeorgiaProtest1956
+	}
+	option = {
+		name = afg.20.a	#放弃
+		if = {
+			limit = { tag = SOV }
+			add_political_power = -40
+			set_global_flag = geo31
+		}
+	}
+}
+news_event = {
+	id = geo.32
+	title = geo.32.t
+	desc = geo.32.d
+	picture = GFX_GeorgiaProtest1956
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = SOV
+		date > 1956.3.1
+		date < 1956.8.1
+		NOT = { has_global_flag = geo32 }
+		has_global_flag = geo31
+	}
+	option = {
+		name = afg.20.a	#放弃
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = geo32
+		}
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = geo32
+		}
+	}
+}
+news_event = {
+	id = geo.34
+	title = geo.34.t
+	desc = geo.34.d
+	picture = GFX_GeorgiaProtest1956
+	major = yes
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = SOV
+		date > 1956.3.1
+		date < 1956.8.1
+		NOT = { has_global_flag = geo34 }
+		has_global_flag = geo32
+	}
+	option = {
+		name = afg.20.a	#放弃
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = geo34
+		}
+	}
+}
+news_event = {
+	id = geo.35
+	title = geo.35.t
+	desc = geo.35.d
+	picture = GFX_GeorgiaStalinProtest
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = PRC
+		date > 1956.3.1
+		date < 1956.8.1
+		NOT = { has_global_flag = geo35 }
+		has_global_flag = geo34
+	}
+	option = {
+		name = afg.20.a	#放弃
+		news_event = { id = geo.36 }
+		set_global_flag = geo35
+	}
+}
+news_event = {
+	id = geo.36
+	title = geo.36.t
+	desc = geo.36.d
+	picture = GFX_GeorgiaStalinProtest
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+news_event = {
+	id = geo.42
+	title = geo.42.t
+	desc = geo.42.d
+	picture = GFX_GeorgiaProtest1956
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = SOV
+		date > 1956.3.1
+		date < 1956.8.1
+		NOT = { has_global_flag = geo42 }
+		has_global_flag = geo34
+	}
+	option = {
+		name = afg.20.a	#放弃
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = geo.43 }
+			set_global_flag = geo42
+			set_global_flag = GeorgiaEmergency
+		}
+	}
+}
+news_event = {
+	id = geo.43
+	title = geo.43.t
+	desc = geo.43.d
+	picture = GFX_SpressGeorgia
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = afg.20.a	#放弃
+	}
+}
+news_event = {
+	id = geo.44
+	title = geo.44.t
+	desc = geo.44.d
+	picture = GFX_SpressGeorgia
+	major = yes
+	immediate = {
+		play_song = GEO_2
+	}
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = SOV
+		date > 1956.3.1
+		date < 1956.8.1
+		NOT = { has_global_flag = geo44 }
+		has_global_flag = GeorgiaEmergency
+	}
+	option = {
+		name = afg.20.a	#放弃
+		if = {
+			limit = { tag = SOV }
+			set_global_flag = geo44
+		}
+	}
+}

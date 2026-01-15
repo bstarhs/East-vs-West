@@ -1,0 +1,32 @@
+
+state={
+	id=1022
+	name="STATE_1022"
+	manpower = 37220
+	
+	state_category = rural
+
+	history={
+		add_to_array = { this.state_ethnics_list = 6 }
+		set_state_flag = ethnics_Tibetan
+		add_dynamic_modifier = { modifier = state_mountain_modifier }
+		add_dynamic_modifier = { modifier = husbandry_production }
+		owner = TIB
+		add_claim_by = PRC
+		add_core_of = CHI
+			add_core_of = TIB
+		buildings = {
+			infrastructure = 1
+			farm_building = 1
+		}
+		victory_points = { 8121 5 }
+		1959.5.23 = {
+			owner = PRC
+			add_core_of = CHI
+		}
+	}
+
+	provinces={
+		2093 1991 8121 4900 12807 
+	}
+}

@@ -1,0 +1,83 @@
+state=
+{
+	id=525
+	name="STATE_525"
+	manpower = 14284105
+	
+	resources={
+		coal = 3
+		iron = 2
+		salt=9
+	}
+	state_category = town
+	history=
+	{
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		set_state_flag = ethnics_Korean
+		add_to_array = { this.state_ethnics_list = 14 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = USA
+		buildings = {
+			hospital = 1
+			school = 1
+			power_plant = 2
+			air_base = 6
+			infrastructure = 4
+			farm_building = 4
+			arms_factory = 1
+			dockyard = 1
+			industrial_complex = 2
+			7125 = {
+				bunker = 4
+			}
+			7221 = {
+				bunker = 2
+				naval_base = 2
+			}
+		}
+		victory_points = {
+			4056 2 
+		}
+		victory_points = {
+			7125 12
+		}
+		victory_points = {
+			7221 3 
+		}
+		victory_points = {
+			13372 3 
+		}
+		victory_points = {
+			10115 3 
+		}
+		victory_points = {
+			10036 2
+		}
+		victory_points = {
+			11992 2
+		}
+		victory_points = {
+			7204 2
+		}
+		1948.8.23 = {
+			owner = KOR
+			add_core_of = KOR
+			add_claim_by = PRK
+		}
+		1960.8.23 = {
+			buildings = {
+				power_plant = 3
+				steel_making = 2
+				synthetic_refinery = 1
+				rubber_factory = 2
+			}
+		}
+
+		add_core_of = KOR
+
+	}
+	provinces={
+		1100 7125 7204 7221 10036 10115 11992 13267 13372 13546 13545 13633 13634
+	}
+}

@@ -1,0 +1,122 @@
+﻿capital = 660
+
+oob = "ALL"
+
+			set_variable = { this.education = 19 }
+set_country_flag = language_french
+set_country_flag = third_world
+set_convoys = 60
+set_stability = 0.75
+set_country_flag = west_africa
+
+set_country_flag = french_colonies
+set_technology = {
+	infantry_weapons = 1
+	
+	
+	early_bomber = 1
+}
+
+set_country_flag = african_state
+add_ideas = {
+
+	Sunni
+
+
+}
+
+
+	set_popularities = {
+		democratic = 75
+		authoritarianism = 25
+	}
+set_politics = {
+	
+	ruling_party = democratic
+	last_election = "1945.12.1"
+	election_frequency = 60
+	elections_allowed = yes
+}
+	
+	activate_decision = female_equality
+create_country_leader = {
+	name = "Hamani Dior"
+	desc = "POLITICIAN_NAM_SAM_NUJOMA_DESC"
+	picture = "gfx/leaders/NIG/Portrait_Niger_Hamani.tga"
+	expire = "2020.1.1"
+	ideology = authoritarianism
+	
+	traits = {
+	
+	}
+}
+1960.1.1 = {
+	set_popularities = {
+		democratic = 25
+		authoritarianism = 70
+		communism = 5
+	}
+	set_politics = {
+		ruling_party = authoritarianism
+		last_election = "1945.12.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	set_cosmetic_tag = NIG
+	add_to_array = { global.UNmember_list = FROM }
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1973.1.20 = {
+	complete_national_focus = common_24
+	add_ideas = {
+		NonAligned
+	}
+	set_country_flag = china_diplomacy
+}
+1975.1.20 = {
+	set_popularities = {
+		democratic = 25
+		neutrality = 70
+		communism = 5
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1945.12.1"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Seyni Kountché"
+		
+		picture = "gfx/leaders/NIG/Portrait_Niger_Seyni.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+1987.1.20 = {
+	create_country_leader = {
+		name = "Ali Saibou"
+		
+		picture = "gfx/leaders/NIG/Portrait_Niger_Saibou.tga"
+		expire = "1997.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}
+

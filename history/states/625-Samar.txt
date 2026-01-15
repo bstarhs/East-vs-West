@@ -1,0 +1,29 @@
+state=
+{
+	id=625
+	name="STATE_625"
+	manpower = 1138724
+	
+	state_category = rural
+	history=
+	{
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Philippines
+		set_state_flag = banana_production
+		owner = PHI
+		add_to_array = { this.state_ethnics_list = 135 }
+		buildings = {
+			infrastructure = 3
+			farm_building = 1
+		}
+		add_core_of = PHI
+		victory_points = { 1224 4 }
+		victory_points = { 4269 2 }
+		victory_points = { 1340 3 }
+	}
+	provinces={
+		1224 1311 1340 4269 4373 
+	}
+}

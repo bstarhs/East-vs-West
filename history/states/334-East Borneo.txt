@@ -1,0 +1,51 @@
+state= {
+	id=334
+	name="STATE_334"
+	manpower = 2168600
+	resources={
+		rubber=26
+		oil=6
+	}
+	
+	state_category = rural
+
+	history= {
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		set_state_flag = ethnics_Dayak
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		owner = HOL
+		add_core_of = INS
+		1949.10.14 = {
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			owner = INS
+		}
+		victory_points = {
+			10237 6
+		}
+		victory_points = {
+			12196 8
+		}
+		victory_points = {
+			10325 4
+		}
+
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			oilfield = 1
+			synthetic_refinery = 1
+			infrastructure = 2
+			10237 = {
+				naval_base = 3
+			}
+			10325 = {
+				naval_base = 1
+			}
+		}
+	}
+	provinces={
+		1252 1404 2047 4236 4323 5226 7231 7299 7415 10181 10237 10325 12196 12243 
+	}
+}

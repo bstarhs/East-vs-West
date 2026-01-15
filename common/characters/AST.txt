@@ -1,0 +1,56 @@
+characters={
+	AST_Harold_Holt={
+		name=AST_Harold_Holt
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Harold_Holt.dds"
+				large="gfx/leaders/AST/Portrait_Australia_Harold_Holt.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Harold_Holt
+			allowed  = {
+				original_tag  = AST
+			}
+			visible = {
+				date < 1966.1.1
+			}
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.15
+				political_power_factor = 0.15
+				production_speed_buildings_factor = 0.05
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+	AST_Paul_Keating={
+		name=AST_Paul_Keating
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Paul_Keating.dds"
+				large="gfx/leaders/AST/Portrait_Australia_Paul_Keating.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Paul_Keating
+			allowed  = {
+				original_tag  = AST
+			}
+			visible = {
+				date > 1985.1.1
+			}
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.15
+				democratic_acceptance = 50
+				opinion_gain_monthly_same_ideology_factor = 0.3
+			}
+			ai_will_do  = {
+				factor  = 10
+			}
+		}
+	}
+}

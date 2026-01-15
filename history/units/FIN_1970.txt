@@ -1,0 +1,192 @@
+﻿start_equipment_factor = 0.6
+##### Division Templates #####
+division_template = {
+	name = "Jalkaväkidivisioona"	
+	division_names_group = FIN_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Erillinen Prikaati" 	
+	division_names_group = FIN_MEC_01	
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Panssaripataljoona" 	
+	division_names_group = FIN_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Jääkäritykistörykmentti" 
+	division_names_group = FIN_MOT_01	
+	regiments = {
+		artillery_brigade = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 0 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		signal_company = { x = 0 y = 2 }
+	}
+}
+
+
+units = {
+	##### II AK #####
+	division = {
+		#name = "HämPsP, Hämeen Panssaripataljoona"
+		location = 3137 # Tampere
+		division_template = "Panssaripataljoona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	division = {
+		#name = "HelItR, Helsingin Ilmatorjuntarykmetti"
+		location = 11105
+		division_template = "Panssaripataljoona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	division = {
+		#name = "JTR, Jääkäritykistörykmentti"
+		location = 11105
+		division_template = "Jääkäritykistörykmentti"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	division = {
+		#name = "Parolan Huoltopataljoona"
+		location = 11105
+		division_template = "Jalkaväkidivisioona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	##### Pori Brigade #####
+	division = {
+		#name = "Satakunta Jäger Battalion"
+		location = 32
+		division_template = "Jalkaväkidivisioona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	division = {
+		#name = "Satakunta Jääkäritykistörykmentti"
+		location = 32
+		division_template = "Jääkäritykistörykmentti"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	##### Kainuu Brigade #####
+	division = {
+		#name = "Kainuua Jäger Battalion"
+		location = 9233
+		division_template = "Jalkaväkidivisioona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	division = {
+		#name = "Kainuu Jääkäritykistörykmentti"
+		location = 9233
+		division_template = "Jääkäritykistörykmentti"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	##### Jaeger Brigade #####
+	division = {
+		#name = "Lapland Jäger Battalion"
+		location = 9233
+		division_template = "Jalkaväkidivisioona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}
+	division = {
+		#name = "Rovaniemen Ilmatorjuntapatteristo'"
+		location = 9233
+		division_template = "Panssaripataljoona"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+
+	}				
+
+}
+
+air_wings = {
+	111 = { 														# Helsinki
+		CAS_equipment_1 = { owner = "FIN" amount = 28 }				# 1, 4 Bomber Groups -- Fokker C.Xs, Blenheim Is
+		fighter_equipment_0 = { owner = "FIN" amount = 45 }			# 2 Fighter Group -- Fokker D.XXIs, Bristol Bulldogs
+	}
+}
+
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "FIN"
+		}
+		requested_factories = 1
+		progress = 0.40
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "FIN"
+		}
+		requested_factories = 1
+		progress = 0.25
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_0
+			creator = "FIN"
+		}
+		requested_factories = 1
+		progress = 0.89
+		efficiency = 100
+	}
+}

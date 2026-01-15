@@ -1,0 +1,339 @@
+﻿capital = 266
+
+set_country_flag = main_country
+oob = "PER_1947"
+set_country_flag = third_world
+set_country_flag = language_persia
+
+set_country_flag = has_monarchs
+	recruit_character = PER_Iraj_Eskandari
+	recruit_character = PER_Mosaddegh
+	add_to_array = { global.UNmember_list = FROM }
+add_ideas = {
+	service_by_requirement
+	PER_anglo_iranian_oil_company
+	governed_economic
+	Secularism
+	assimilated
+}
+set_country_flag = islam_state
+	activate_decision = Establishment_of_National_Museum
+	complete_national_focus = Focus_Goverment_reform
+	complete_national_focus = common_1
+
+declare_war_on = {
+	target = AZR
+	type = annex_everything
+}
+# Starting tech
+	activate_decision = create_radio_station
+	set_technology = {
+		excavation1 = 1
+		excavation2 = 1
+		machine_gun1 = 1
+		medical1 = 1
+		oil_processing = 1
+		army_aviation = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	early_fighter = 1
+		motorize_doctrine = 1
+	CAS1 = 1
+	basic_destroyer = 1
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+		basic_battery = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+	
+	artilelery_doctrine = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+}
+
+1939.1.1 = {
+	
+
+	add_political_power = 1198
+	
+	#generic focuses
+	set_technology = {
+		tech_support = 1
+		tech_recon = 1
+		infantry_weapons2 = 1
+		
+		gw_artillery = 1
+		interwar_antiair = 1
+		interwar_artillery = 1
+		gwtank = 1
+		motorised_infantry = 1
+		basic_medium_tank = 1
+		#doctrines
+		
+		
+		
+		
+		
+		
+		
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		
+		
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		construction1 = 1
+		construction2 = 1
+		dispersed_industry = 1
+		dispersed_industry2 = 1
+	infantry_training = 1
+	basic_militia = 1
+	tech_military_police = 1
+	concentrated_industry = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	tech_mountaineers = 1
+	}
+}
+
+set_convoys = 20
+	set_popularities = {
+		democratic = 8
+		monarchism = 80
+		neutrality = 5
+		fascism = 2
+		communism = 5
+	}
+set_politics = {
+	ruling_party = monarchism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+create_country_leader = {
+	name = "Mohammad Reza Pahlavi"
+	desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+	picture = "gfx/leaders/PER/Portrait_Iran_Pahlavi_1947.tga"
+	expire = "1965.1.1"
+	ideology = monarchism
+	traits = {
+		iran_shah pro_america Developmentalism staunch_monarchist
+	}
+}
+
+1945.1.1 = {
+	complete_national_focus = oil_produc
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+}
+1949.1.1 = {
+oob = "PER_1949"
+	diplomatic_relation = { country = AZR relation = war_relation active = no }
+}
+1951.9.17 = {
+	complete_national_focus = PER_oil_nationalized
+	add_ideas = {
+		SAVAK
+	}
+	remove_ideas = PER_anglo_iranian_oil_company
+}
+1955.9.17 = {
+add_timed_idea = {
+    idea = PER_after_coup
+    days = 300
+}
+	
+	retire_character = PER_Mosaddegh
+	set_technology = {
+	early_ship_hull_cruiser = 1
+		machine_gun2 = 1
+	basic_light_tank = 1
+		infantry_training = 1
+		basic_militia = 1
+		radio_detection = 1
+		fighter1 = 1
+	}
+	add_ideas = {
+		CENTO
+	}
+}
+1960.1.1 = {
+	add_ideas = {
+		
+	}
+	remove_ideas = PER_after_coup
+	set_technology = {
+		
+		fighter2 = 1
+		mechanised_infantry = 1
+		basic_heavy_tank = 1
+		improved_medium_tank = 1
+		improved_infantry_weapons = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_light = 1
+		
+		
+		marines = 1
+	}
+	oob = "PER_1965"
+	add_ideas = {
+		corrupt
+		muslim_protest
+		OPEC
+	}
+}
+1963.11.20 = {
+	complete_national_focus = PER_white_revolution
+}
+1965.11.20 = {
+	activate_decision = female_equality
+	set_technology = {
+		machine_gun3 = 1
+	}
+	complete_national_focus = PER_royal_Bonyads
+	set_popularities = {
+		democratic = 10
+		monarchism = 70
+		fascism = 15
+		communism = 5
+	}
+	set_country_leader_portrait = {
+		ideology = monarchism
+		portrait = "gfx/leaders/PER/Portrait_Iran_Pahlavi.tga"
+	}
+}
+1969.1.1 = {
+	add_ideas = {
+		IslamOrg
+	}
+}
+1971.9.17 = {
+	set_country_flag = china_diplomacy
+	create_country_leader = {
+		name = "Iraj Eskandari"
+		picture = "gfx/leaders/PER/Portrait_Iran_Iraj_Eskandari.tga"
+		expire = "1965.1.1"
+		ideology = marxism
+		traits = {
+		#
+		}
+	}
+	set_technology = {
+		improved_destroyer = 1
+		machine_gun3 = 1
+	}
+}
+1979.9.17 = {
+	set_convoys = 60
+	oob = "PER_1984"
+	set_technology = {
+		mechanised_infantry2 = 1
+		improved_medium_tank = 1
+		improved_infantry_weapons = 1
+	}
+	
+	remove_ideas = Secularism
+	remove_ideas = CENTO
+	remove_ideas = muslim_protest
+	remove_ideas = white_revolution
+	remove_ideas = royal_Bonyad_idea
+	complete_national_focus = PER_theory_corp
+	add_ideas = {
+		PER_week_army
+		war_economy
+		scraping_the_barrel
+		harmonious
+		sanctions
+		NonAligned
+		Shia
+	}
+	remove_ideas = SAVAK
+	set_popularities = {
+		democratic = 1
+		neutrality = 3
+		fascism = 95
+		communism = 1
+	}
+	set_politics = {
+		ruling_party = fascism
+		last_election = "1947.1.10"
+		election_frequency = 48  
+		elections_allowed = yes
+	}
+
+	add_ideas = {
+		mujahedeen
+		all_adults_serve
+	}
+		create_country_leader = {
+			name = "Ayattolah Khomeini"
+			desc = "POLITICS_FEDERICO_LAREDO_BRU_DESC"
+			picture = "gfx/leaders/PER/Portrait_Iran_Khomeini.tga"
+			expire = "2017.1.1"
+			ideology = nazism
+			traits = {
+			anti_america religion_leader
+		}
+	}
+}
+1988.9.17 = {
+	complete_national_focus = PER_exbanded_pasdaran
+	remove_ideas = {
+		mujahedeen
+	}
+}
+1989.9.17 = {
+		create_country_leader = {
+			name = "Ayattolah Khamenei"
+			desc = "POLITICS_FEDERICO_LAREDO_BRU_DESC"
+			picture = "gfx/leaders/PER/Portrait_Iran_Khamenei.tga"
+			expire = "2017.1.1"
+			ideology = nazism
+			traits = {
+			anti_america religion_leader
+		}
+}

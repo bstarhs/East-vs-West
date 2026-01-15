@@ -1,0 +1,37 @@
+
+state={
+	id=1024
+	name="STATE_1024"
+	manpower = 1242240
+	
+	state_category = town
+	
+	resources={
+		rubber=4
+		tungsten=3
+	}
+
+	history={
+		set_state_flag = banana_production
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_to_array = { this.state_ethnics_list = 163 }
+		set_state_flag = coffee_production
+		set_state_flag = sugar_production
+		set_state_flag = ethnics_Thai
+		owner = SIA
+		buildings = {
+			hospital = 1
+			infrastructure = 2
+			industrial_complex = 1
+			farm_building = 3
+		}
+		add_core_of = SIA
+		victory_points = { 13367 5 }
+		victory_points = { 7544 4 }
+		victory_points = { 10221 3 }
+	}
+
+	provinces={
+		7572 10398 13367 10411 12173 7338 4319 4348 10193 7544 4566 10221
+	}
+}

@@ -1,0 +1,575 @@
+﻿add_namespace = cog
+
+#卢蒙巴崛起
+news_event = {
+	id = cog.1
+	title = cog.1.t
+	desc = cog.1.d
+	picture = GFX_AfricaIndependence
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		tag = BEL
+		date > 1958.1.1
+		date < 1959.1.1
+		295 = { is_controlled_by = BEL }
+		NOT = { has_global_flag = cog1 }
+	}
+	option = {	
+		name = cog.2.a
+		if = {
+			limit = { tag = COG }
+			add_autonomy_score = {
+				value = 200
+				localization = wind_of_change
+			}
+		}
+		if = {
+			limit = { tag = BEL }
+			set_global_flag = cog1
+			538 = { add_resistance = 40 add_compliance = -60 }
+			295 = { add_resistance = 40 add_compliance = -60 }
+			add_to_variable = { influences = -80 } 
+		}
+	}
+}
+#刚果独立
+news_event = {
+	id = cog.2
+	title = cog.2.t
+	desc = cog.2.d
+	picture = GFX_AfricaIndependence
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		play_song = COG_3
+	}
+	option = {	
+		name = cog.2.a
+		if = {
+			limit = { tag = BEL }
+			set_autonomy = {
+				target = COG
+				autonomy_state = autonomy_free
+			}
+		}
+		if = {
+			limit = { tag = COG }
+			leave_faction = yes
+		}
+	}
+}
+
+#刚果要求比利时撤离
+country_event = {
+	id = cog.3
+	title = cog.3.t
+	desc = cog.3.d
+	picture = GFX_CongoCrisis
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {	
+		name = cog.3.a
+		ai_chance = {
+			factor = 20
+		}
+		add_political_power = 80
+		COG = { country_event = { id = cog.5 } }
+	}
+	option = {	
+		name = cog.3.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -200
+		country_event = { id = cog.4 }
+		COG = {
+			remove_ideas = Belgium_puppet
+			diplomatic_relation = {
+			country = BEL
+			relation = guarantee
+			active = no
+			}
+			diplomatic_relation = {
+			country = BEL
+			relation = military_access
+			active = no
+			}
+		}
+	}
+}
+
+
+#比利时撤军
+country_event = {
+	id = cog.4
+	title = cog.4.t
+	desc = cog.4.d
+	picture = GFX_CongoCrisis
+	
+	major = yes
+	is_triggered_only = yes
+	option = {	
+		name = cog.4.a
+	}
+}
+
+
+#比利时拒绝撤军
+country_event = {
+	id = cog.5
+	title = cog.5.t
+	desc = cog.5.d
+	picture = GFX_CongoCrisis
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = cog.5.a
+		set_global_flag = CongoCrisis
+	}
+}
+
+
+#刚果兵变
+news_event = {
+	id = cog.6
+	title = cog.6.t
+	desc = cog.6.d
+	picture = GFX_AfricanTroopsEarly
+	major = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = COG
+		has_government = democratic
+		has_global_flag = CongoCrisis
+		has_idea = Congo_crisis_idea
+		NOT = { has_global_flag = cog6 }
+	}
+	option = {
+		name = cog.6.a
+		set_global_flag = cog6
+		if = {
+			limit = {
+				tag = COG
+				NOT = { has_idea = Congo_crisis_idea }
+			}
+			add_ideas = Congo_crisis_idea
+		}
+	}
+}
+#加丹加独立
+news_event = {
+	id = cog.7
+	title = cog.7.t
+	desc = cog.7.d
+	picture = GFX_Tshombe
+	major = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		play_song = COG_7
+	}
+	trigger = {
+		tag = COG
+		has_government = democratic
+		OR = {
+			has_stability < 0.5
+			check_variable = { this.KTG_rebels_var > 2 }
+		}
+		792 = { is_controlled_by = COG }
+		has_global_flag = CongoCrisis
+		has_idea = Congo_crisis_idea
+	}
+	option = {
+		name = cog.5.a
+		if = {
+			limit = { tag = COG }
+			add_stability = -0.15
+			KTG = {
+				transfer_state = 792
+				load_oob = "KTG"
+			}
+			declare_war_on = { target = KTG type = annex_everything }
+		}
+	}
+}
+#刚果右翼军人不满
+news_event = {
+	id = cog.8
+	title = cog.8.t
+	desc = cog.8.d
+	picture = GFX_Mobutu1960
+	mean_time_to_happen = { days = 30 }
+	trigger = {
+		tag = COG
+		has_government = democratic
+		has_idea = Congo_crisis_idea
+	}
+	option = {
+		name = cog.6.a
+		set_global_flag = cog6
+	}
+}
+#警惕卢蒙巴
+news_event = {
+	id = cog.10
+	title = cog.10.t
+	desc = cog.10.d
+	picture = GFX_LumumbaSpeech
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		COG = {
+			has_government = democratic
+			NOT = { has_idea = Belgium_puppet }
+			has_country_leader = { name = "Patris Lumumba" }
+		}
+		OR = {
+			tag = SAF
+			tag = BEL
+			tag = USA
+			tag = RHO
+			tag = POR
+			tag = ENG
+		}
+		NOT = { has_country_flag = cog10 }
+	}
+	option = {
+		name = cog.6.a
+		set_global_flag = cog10
+	}
+}
+#刚果右翼寻求帮助
+news_event = {
+	id = cog.11
+	title = cog.11.t
+	desc = cog.11.d
+	picture = GFX_Mobutu1960
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		COG = {
+			has_government = democratic
+			has_idea = Congo_crisis_idea
+		}
+		OR = {
+			tag = SAF
+			tag = BEL
+			tag = USA
+			tag = RHO
+			tag = POR
+			tag = ENG
+		}
+		792 = { is_controlled_by = COG }
+		has_global_flag = CongoCrisis
+	}
+	option = {
+		name = cog.5.a
+		add_political_power = -120
+		COG = {
+			add_to_variable = { KTG_rebels_var = 1 }
+		}
+	}
+}
+#刚果右翼军人不满
+news_event = {
+	id = cog.12
+	title = cog.12.t
+	desc = cog.12.d
+	picture = GFX_Mobutu1960
+	mean_time_to_happen = { days = 30 }
+	major = yes
+	trigger = {
+		tag = COG
+		has_government = democratic
+		has_idea = Congo_crisis_idea
+	}
+	option = {
+		name = cog.6.a
+		if = {
+			limit = { tag = COG }
+			add_stability = -0.03
+		}
+	}
+}
+#联合国就刚果问题展开讨论
+news_event = {
+	id = cog.13
+	title = cog.13.t
+	desc = cog.13.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 5 }
+	major = yes
+	trigger = {
+		tag = COG
+		has_government = democratic
+		has_idea = Congo_crisis_idea
+		has_war_with = KTG
+		NOT = { has_global_flag = cog13 }
+	}
+	option = {
+		name = cog.6.a
+		if = {
+			limit = { tag = COG }
+			set_global_flag = cog13
+		}
+		if = {
+			limit = { NOT = { tag = COG } }
+			set_country_flag = UN_Congo_voted_yes
+		}
+	}
+}
+#刚果维和任务决议通过
+news_event = {
+	id = cog.14
+	title = cog.14.t
+	desc = cog.14.d
+	picture = GFX_UN
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = COG
+		has_government = democratic
+		has_idea = Congo_crisis_idea
+		has_war_with = KTG
+		has_global_flag = cog13
+		NOT = { has_global_flag = cog14 }
+		OR = {
+			USA = { has_country_flag = UN_Congo_voted_yes }
+			SOV = { has_country_flag = UN_Congo_voted_yes }
+		}
+	}
+	option = {
+		name = cog.6.a
+		set_global_flag = UN_Congo_yes
+		set_global_flag = cog14
+	}
+}
+#赫鲁晓夫就刚果问题发表讲话
+news_event = {
+	id = cog.16
+	title = cog.16.t
+	desc = cog.16.d
+	picture = GFX_AngryKhrushchev
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = COG
+		has_government = democratic
+		has_idea = Congo_crisis_idea
+		has_war_with = KTG
+		has_global_flag = cog13
+		NOT = { has_global_flag = cog15 }
+	}
+	option = {
+		name = cog.6.a
+		set_global_flag = cog15
+	}
+}
+#是否派兵
+news_event = {
+	id = cog.17
+	title = cog.17.t
+	desc = cog.17.d
+	picture = GFX_UN_Congo
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		OR = {
+			tag = IRE
+			tag = CAN
+			tag = SWE
+			tag = IND
+		}
+		COG = {
+			has_government = democratic
+			has_idea = Congo_crisis_idea
+			has_war_with = KTG
+		}
+		has_global_flag = UN_Congo_yes
+		NOT = { has_idea = UN_congo_actions }
+	}
+	option = {
+		name = cog.6.a
+		add_ideas = UN_congo_actions
+		news_event = { id = cog.18 }
+	}
+}
+news_event = {
+	id = cog.18
+	title = cog.18.t
+	desc = cog.18.d
+	picture = GFX_UN_Congo
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cog.10.c
+	}
+}
+
+country_event = {
+	id = cog.40
+	title = cog.40.t
+	desc = cog.40.d
+	picture = GFX_CongoMuller
+	is_triggered_only = yes
+	option = {
+		name = cog.40.a
+		recruit_character = COG_Siegfried_Muller
+	}
+}
+
+#刚果反殖民运动的兴起
+news_event = {
+	id = cog.100
+	title = cog.100.t
+	desc = cog.100.d
+	picture = GFX_CongoProtest
+	mean_time_to_happen = {
+		days = 30
+	}
+	major = yes
+	trigger = {
+		tag = BEL
+		controls_state = 538
+		date > 1956.4.1
+		NOT = { has_global_flag = cog100 }
+	}
+	option = {
+		name = cog.5.a
+		set_global_flag = cog100
+	}
+}
+news_event = {
+	id = cog.101
+	title = cog.101.t
+	desc = cog.101.d
+	picture = GFX_CongoProtest
+	mean_time_to_happen = {
+		days = 30
+	}
+	major = yes
+	trigger = {
+		tag = BEL
+		controls_state = 538
+		date > 1956.4.1
+		NOT = { has_global_flag = cog101 }
+	}
+	option = {
+		name = cog.5.a
+		set_global_flag = cog101
+	}
+}
+news_event = {
+	id = cog.102
+	title = cog.102.t
+	desc = cog.102.d
+	picture = GFX_CongoProtest
+	mean_time_to_happen = {
+		days = 30
+	}
+	major = yes
+	trigger = {
+		tag = BEL
+		controls_state = 538
+		date > 1956.4.1
+		NOT = { has_global_flag = cog102 }
+		has_global_flag = cog101
+	}
+	option = {
+		name = cog.5.a
+		set_global_flag = cog102
+	}
+}
+#刚果发生游行示威和罢工运动
+news_event = {
+	id = cog.103
+	title = cog.103.t
+	desc = cog.103.d
+	picture = GFX_CongoProtest
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		tag = BEL
+		controls_state = 538
+		date > 1957.1.1
+	}
+	option = {
+		name = cog.5.a
+		ai_chance = {
+			factor = 20
+		}
+	}
+	option = {
+		name = cog.5.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1960.1.1
+			}
+		}
+		release_on_controlled = COG
+		set_autonomy = {
+			target = COG
+			autonomous_state = autonomy_dominion
+			freedom_level = 0.4
+		}
+		news_event = { id = cog.104 }
+	}
+}
+
+news_event = {
+	id = cog.104
+	title = cog.104.t
+	desc = cog.104.d
+	picture = GFX_CongoAutonomy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cog.10.c
+	}
+}
+news_event = {
+	id = cog.110
+	title = cog.110.t
+	desc = cog.110.d
+	picture = GFX_LumumbaSpeech
+	mean_time_to_happen = {
+		days = 30
+	}
+	major = yes
+	trigger = {
+		tag = COG
+		controls_state = 538
+		is_subject_of = BEL
+		NOT = { has_global_flag = cog110 }
+	}
+	option = {
+		name = cog.5.a
+		set_global_flag = cog110
+		play_song = COG_3
+		if = {
+			limit = { tag = COG }
+			add_political_power = 1000
+			set_country_flag = africa_electioned
+			add_autonomy_score = {
+				value = 5000
+				localization = wind_of_change
+			}
+				create_country_leader = {
+					name = "Patris Lumumba"
+					picture = "gfx/leaders/COG/Portrait_Congo_Lumumba.tga"
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						compassionate_gentleman pro_soviet
+					}
+				}
+		}
+	}
+}

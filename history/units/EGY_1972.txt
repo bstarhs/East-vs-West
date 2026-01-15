@@ -1,0 +1,203 @@
+﻿
+division_template = {
+	name = "Infantry division"
+	division_names_group = EGY_MOT_01
+	regiments = {					
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Mechanized division"	
+	division_names_group = EGY_MEC_01
+	regiments = {					
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }	
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+		signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Armored Division" 
+	division_names_group = EGY_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 } 
+		maintenance_company = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+	}
+}
+units = {
+	division = {
+		name = "Republican Guards"
+		location = 12004
+		division_template = "Armored Division"
+		start_experience_factor = 0.9
+	}
+	#2nd army
+	division = {
+		name = "18th division"
+		location = 12049
+		division_template = "Infantry division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "2nd division"
+		location = 12049
+		division_template = "Infantry division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "16th division"
+		location = 12049
+		division_template = "Infantry division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "32th armor division"
+		location = 12049
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "25th independen armor brigade"
+		location = 12049
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "23th Mechanized division"
+		location = 12049
+		division_template = "Mechanized division"
+		start_experience_factor = 0.8
+	}
+	#3rd army
+	division = {
+		name = "7th division"
+		location = 4073
+		division_template = "Infantry division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "19th division"
+		location = 4073
+		division_template = "Infantry division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "4th armor division"
+		location = 4073
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "25th independen armor brigade"
+		location = 4073
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "6th Mechanized division"
+		location = 4073
+		division_template = "Mechanized division"
+		start_experience_factor = 0.8
+	}
+	#Centural
+	division = {
+		name = "9th armor division"
+		location = 4055
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "23th independen armor brigade"
+		location = 12004
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "2nd Mechanized division"
+		location = 12004
+		division_template = "Mechanized division"
+		start_experience_factor = 0.8
+	}
+	#North
+	division = {
+		name = "76th independen armor brigade"
+		location = 4076
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "3rd Mechanized division"
+		location = 4076
+		division_template = "Mechanized division"
+		start_experience_factor = 0.8
+	}
+	#West
+	division = {
+		name = "44th independen armor brigade"
+		location = 7079
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "33th Mechanized division"
+		location = 7079
+		division_template = "Mechanized division"
+		start_experience_factor = 0.8
+	}
+}
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	447 = {															# Brussels
+		fighter_equipment_2 = { owner = "EGY" amount = 180 }			
+		fighter_equipment_3 = { owner = "EGY" amount = 180 }
+		CAS_equipment_2 = { owner = "EGY" amount = 192 }
+	}
+	447 = {															# Brussels
+		fighter_equipment_2 = { owner = "EGY" amount = 180 }			
+		fighter_equipment_3 = { owner = "EGY" amount = 180 }
+		CAS_equipment_2 = { owner = "EGY" amount = 192 }
+	}
+	446 = {															# Brussels
+		fighter_equipment_2 = { owner = "EGY" amount = 180 }			
+		fighter_equipment_3 = { owner = "EGY" amount = 180 }
+		CAS_equipment_2 = { owner = "EGY" amount = 192 }
+	}
+	446 = {															# Brussels
+		fighter_equipment_2 = { owner = "EGY" amount = 180 }			
+		fighter_equipment_3 = { owner = "EGY" amount = 180 }
+		CAS_equipment_2 = { owner = "EGY" amount = 192 }
+	}
+	446 = {															# Brussels
+		fighter_equipment_2 = { owner = "EGY" amount = 180 }			
+		fighter_equipment_3 = { owner = "EGY" amount = 180 }
+		CAS_equipment_2 = { owner = "EGY" amount = 192 }
+	}
+}

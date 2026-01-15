@@ -1,0 +1,108 @@
+political_actions = {
+	
+	ISR_6days_war = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = ISR
+		}
+
+		cost = 100
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				date > 1967.6.5
+				date < 1968.6.5
+			}
+		}
+		
+		fire_only_once = yes
+
+		visible = {
+			date < 1970.6.5
+			OR = {
+			has_idea = PLOrevolt
+			EGY = { has_completed_focus = EGY_arab_league }
+			}
+		}
+
+		available = {
+			tag = ISR
+		}
+
+		complete_effect = {
+			set_global_flag = six_days_war
+			add_named_threat = { threat = 10 name = 6-days-war }
+			news_event = { id = isr.15 }
+			declare_war_on = {
+				target = EGY
+				type = take_state_focus
+				generator = { 761 453 }
+			}
+			declare_war_on = {
+				target = JOR
+				type = take_state_focus
+				generator = { 762 }
+			}
+			declare_war_on = {
+				target = SYR
+				type = take_state_focus
+				generator = { 810 }
+			}
+			start_border_war = {
+			change_state_after_war = no
+		}
+	}
+	}
+}
+military_action = {
+	supress_PLO = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 180
+		visible = {
+			has_idea = PLOrevolt
+			tag = ISR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		cost = 200
+		complete_effect = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						has_idea = sanctions
+					}
+					modifier = {
+						factor = 2
+						has_war_support < 0.5
+					}
+					modifier = {
+						factor = 2
+						has_stability < 0.3
+					}
+					country_event = { id = isr.19 }
+				}
+				20 = {
+					modifier = {
+						factor = 2
+						has_stability > 0.7
+					}
+					modifier = {
+						factor = 2
+						check_variable = { num_divisions > owned_states }
+					}
+					country_event = { id = isr.18 }
+				}
+			}
+		}
+	
+	}
+}

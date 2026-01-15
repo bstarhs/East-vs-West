@@ -1,0 +1,56 @@
+
+state={
+	id=43
+	name="STATE_43" # Northern Hungary
+	manpower = 3750752
+	resources={
+		iron=4
+		aluminium=24
+	}
+	
+	local_supplies=0.0
+	state_category = city
+
+	history={
+		add_to_variable = { state_tourist = 20 }
+		add_dynamic_modifier = { modifier = hight_food_production }
+		set_state_flag = ethnics_Hungarian
+		add_to_array = { this.state_ethnics_list = 81 }
+		owner = HUN
+		buildings = {
+			school = 1
+			farm_building = 3
+			dam_plant = 1
+			hospital = 2
+			steel_making = 1
+			power_plant = 2
+			infrastructure = 6
+			arms_factory = 3
+			industrial_complex = 4
+			air_base = 4
+		}
+		victory_points = {
+			684 4
+		}
+		victory_points = {
+			6716 5
+		}
+		victory_points = {
+			6751 5
+		}
+		victory_points = {
+			9660 15
+		}
+		1976.5.23 = {
+		add_core_of = HUN
+			buildings = {
+				industrial_complex = 6
+				rubber_factory = 1
+			}
+		}
+	}
+
+	provinces={
+		684 716 3713 3731 6716 6751 9660 9690 11520 
+	}
+}

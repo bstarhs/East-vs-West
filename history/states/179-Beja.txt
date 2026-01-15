@@ -1,0 +1,58 @@
+
+state={
+	id=179
+	name="STATE_179"
+	manpower = 1122200
+	
+	state_category = large_town
+
+	resources={
+		coal=7
+		copper=14
+		salt=6
+	}
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_to_array = { this.state_ethnics_list = 138 }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Portuguese
+		owner = POR
+		victory_points = {
+			3790 4
+		}
+		victory_points = {
+			6880 5
+		}
+		victory_points = {
+			3926 3
+		}
+		victory_points = {
+			980 3
+		}
+		victory_points = {
+			6933 2
+		}
+		victory_points = {
+			3866 2
+		}
+		victory_points = {
+			9765 6
+		}
+		buildings = {
+			school = 2
+			farm_building = 3
+			power_plant = 2
+			hospital = 1
+			infrastructure = 6
+			industrial_complex = 4
+			3790 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = POR
+	}
+
+	provinces={
+		980 3790 3846 3866 3886 3926 6880 6884 6933 6986 9765 9819 9869 
+	}
+}

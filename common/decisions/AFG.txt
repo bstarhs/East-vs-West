@@ -1,0 +1,61 @@
+military_action = {
+	Pak_support_mujahideens = {
+		icon = generic_industry
+
+		days_re_enable = 180
+		visible = {
+			always = yes
+			OR = {
+			tag = PAK
+			tag = USA
+			}
+			AFG = { has_government = communism }
+		}
+
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 100 
+				date > 1979.3.1
+			}
+		}
+
+		complete_effect = {
+			AFG = {
+				add_stability = -0.02
+			}
+			415 = { add_resistance = 20 }
+			267 = { add_resistance = 20 }
+		}
+	
+	}
+	AFG_support_Pustun = {
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 20
+		days_re_enable = 180
+		visible = {
+			TAG = AFG
+			country_exists = PAK
+			NOT = { country_exists = PAS }
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 50
+				has_government = authoritarianism
+			}
+		}
+
+		complete_effect = {
+			445 = { add_resistance = 20 }
+			442 = { add_resistance = 20 }
+		}
+	}
+}

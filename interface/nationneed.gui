@@ -1,0 +1,158 @@
+guiTypes = {
+	containerWindowType = {
+		name = "nationneed"
+		position = { x=300 y=38 }
+		##
+
+		iconType ={
+			name ="cash_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=61 y=-34 }
+			Orientation = "UPPER_LEFT"
+		}
+		instantTextBoxType = {
+			name ="cash_value"
+			position = { x=50 y=-30 }
+			font = "hoi_18mbs"
+			text = RE_topbar
+			format = center
+			maxWidth = 90
+			maxHeight = 30
+			fixedsize = no
+			pdx_tooltip = "top_eco_detail"
+		}
+		#
+		
+		buttonType ={
+			name ="food_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=530 y=-34 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "food_text"
+			clicksound = agriculture_map
+		}
+		iconType = {
+			name ="food_icon"
+			spriteType = "GFX_food_icon"
+			position = { x= 535 y=-30 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "food_text"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="food_value"
+			position = { x=542 y=-30 }
+			font = "hoi_18mbs"
+			text = FOOD_VALUE
+			format = center
+			maxWidth = 60
+			maxHeight = 30
+			fixedsize = no
+			pdx_tooltip = "food_text"
+			alwaystransparent = yes
+		}
+		buttonType ={
+			name ="power_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=605 y=-34 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "power_text"
+			clicksound = electro_map
+		}
+		iconType = {
+			name ="power_icon"
+			spriteType = "GFX_power_icon"
+			position = { x= 610 y=-30 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "power_text"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name ="power_value"
+			position = { x=617 y=-30 }
+			font = "hoi_18mbs"
+			text = POWER_VALUE
+			format = center
+			maxWidth = 60
+			maxHeight = 24
+			fixedsize = no
+			pdx_tooltip = "power_text"
+			alwaystransparent = yes
+		}
+		
+		iconType ={
+			name ="education_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=680 y=-34 }
+			pdx_tooltip = "education_tups"
+			Orientation = "UPPER_LEFT"
+		}
+		buttonType = {
+			name ="education_icon"
+			spriteType = "GFX_education_icon"
+			position = { x= 685 y=-30 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "education_tups"
+		}
+		instantTextBoxType = {
+			name ="education_value"
+			position = { x=702 y=-30 }
+			font = "hoi_18mbs"
+			text = "[?education]%"
+			format = center
+			pdx_tooltip = "education_tups"
+			maxWidth = 45
+			maxHeight = 24
+			fixedsize = yes
+		}
+		
+		iconType ={
+			name ="health_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=755 y=-34 }
+			Orientation = "UPPER_LEFT"
+		}
+		iconType = {
+			name ="health_icon"
+			spriteType = "GFX_health_icon"
+			position = { x= 763 y=-29 }
+			scale = 0.8
+			Orientation = "UPPER_LEFT"
+		}
+		instantTextBoxType = {
+			name ="health_value"
+			position = { x=773 y=-30 }
+			font = "hoi_18mbs"
+			text = "[?health]"
+			format = center
+			maxWidth = 45
+			maxHeight = 24
+			fixedsize = yes
+		}
+		iconType ={
+			name ="influences_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=830 y=-34 }
+			Orientation = "UPPER_LEFT"
+		}
+		iconType = {
+			name ="influences_icon"
+			spriteType = "GFX_hechengyu"
+			position = { x= 835 y=-30 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.8
+			pdx_tooltip = "influence_title_text"
+		}
+		instantTextBoxType = {
+			name ="influences_value"
+			position = { x=850 y=-30 }
+			font = "hoi_18mbs"
+			text = "[?influences]"
+			format = center
+			maxWidth = 45
+			maxHeight = 24
+			fixedsize = yes
+			pdx_tooltip = "influence_title_text"
+		}
+	}
+}

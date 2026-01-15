@@ -1,0 +1,1040 @@
+﻿add_namespace = tib
+#热振事件
+news_event = {
+	id = tib.1
+	title = tib.1.t
+	desc = tib.1.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Temple
+	trigger = {
+	tag = TIB
+	PRC = { controls_state = 322 }
+	date > 1947.1.1
+	date < 1948.1.1
+	}
+	option = {
+		name = tib.1.b1
+		add_stability = -0.1 
+		add_political_power = -100 
+		news_event = { id = tib.2 }
+	}
+	option = {
+		name = tib.1.b2
+		retire_country_leader = yes 
+		create_country_leader = { 
+			name = "Gyaltsen" 
+			picture = "gfx/leaders/TIB/Portrait_Tibet_Gyaltsen.tga" 
+			expire = "2000.1.1" 
+			ideology = despotism 
+			traits = {} 
+		}
+	}
+}
+
+#热振圆寂
+news_event = {
+	id = tib.2
+	title = tib.2.t
+	desc = tib.2.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Temple
+	option = {
+		name = tib.2.b1
+		add_stability = -0.05
+	}
+}
+
+#达赖喇嘛亲政
+news_event = {
+	id = tib.3
+	title = tib.3.t
+	desc = tib.3.d
+	major = yes
+	picture = GFX_DhalaiThrone
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TIB
+		date > 1949.5.1
+		date < 1956.1.1
+		NOT = { has_country_leader = { name = "Dalai Lama XIV" } }
+	}
+	option = {
+		name = tib.3.b1
+		if = {
+			limit = { tag = TIB }
+			create_country_leader = { 
+				name = "Dalai Lama XIV" 
+				picture = "gfx/leaders/TIB/Portrait_POLITICS_DALAI_LAMA.tga" 
+				expire = "2000.1.1" 
+				ideology =  monarchism 
+				traits = { } 
+			} 
+			add_political_power = 80 
+			add_stability = 0.1
+		}
+	}
+}
+
+#共产党像我们发来邀请（国策触发）
+news_event = {
+	id = tib.4
+	title = tib.4.t
+	desc = tib.4.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanOffiserInChina
+	option = {
+		name = tib.4.b1
+		add_political_power = 80 
+		ai_chance = {
+			factor = 100
+		}
+		PRC = { news_event = { id = tib.11 } }
+	}
+	option = {
+		name = tib.4.b2
+		add_political_power = 80 
+		PRC = { news_event = { id = tib.5 } }
+	}
+}
+
+#西藏地方政府拒绝（国家是PRC）
+news_event = {
+	id = tib.5
+	title = tib.5.t
+	desc = tib.5.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanGoverment
+	option = {
+		name = tib.5.b1
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_on = { target = TIB type = annex_everything  }
+	}
+	option = {
+	name = tib.5.b2
+		ai_chance = {
+			factor = 0
+		}
+	news_event = { id = tib.16 } 
+	add_political_power = -100
+	}
+}
+
+#西藏面临威胁（国家是ENG）
+news_event = {
+	id = tib.6
+	title = tib.6.t
+	desc = tib.6.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanArmy
+	option = {
+		name = tib.6.b1
+		TIB = { news_event = { id = tib.7 } }
+	}
+	option = {
+		name = tib.6.b2
+		add_political_power = -80
+	}
+}
+
+#英国的保护（国家是TIB）
+news_event = {
+	id = tib.7
+	title = tib.7.t
+	desc = tib.7.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanArmy
+	option = {
+		name = tib.7.b1
+		ENG = { give_guarantee = TIB } 
+		PRC = { news_event = { id = tib.8 } }
+	}
+	option = {
+		name = tib.7.b2
+		ENG = { news_event = { id = tib.9 } }
+	}
+}
+
+#英国宣布保护西藏（PRC）
+news_event = {
+	id = tib.8
+	title = tib.8.t
+	desc = tib.8.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanArmy
+	option = {
+		name = tib.8.b1
+		add_political_power = 80
+	}
+	option = {
+		name = tib.8.b2
+		ENG = { news_event = { id = tib.16 } }
+		add_political_power = -100
+	}
+}
+
+#西藏拒绝我们的保护
+news_event = {
+	id = tib.9
+	title = tib.9.t
+	desc = tib.9.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanArmy
+	option = {
+		name = tib.9.b1
+		add_political_power = -80
+	}
+}
+
+#西藏解放（PRC 322由PRC控制）
+news_event = {
+	id = tib.10
+	title = tib.10.t
+	desc = tib.10.d
+	major = yes
+	picture = GFX_liberation_Tibet
+	is_triggered_only = yes
+	option = {
+		name = tib.10.b1
+		if = {
+			limit = { tag = PRC }
+			annex_country = { target = TIB transfer_troops = yes }
+		}
+	}
+}
+
+#十七条协议
+news_event = {
+	id = tib.11
+	title = tib.11.t
+	desc = tib.11.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_TibetanOffiserInChina
+	option = {
+		name = tib.11.b1
+		if = {
+			limit = { tag = PRC }
+			white_peace = TIB 
+			puppet = TIB
+			TIB = {
+				set_politics = { ruling_party = monarchism }
+				add_ideas = 17th_treaty
+			}
+		}
+	}
+}
+
+#任命西藏地方政府首脑
+news_event = {
+	id = tib.12
+	title = tib.12.t
+	desc = tib.12.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanOffiserInChina
+	option = {
+		name = tib.12.b1
+		TIB = {
+		retire_country_leader = yes 
+			set_politics = { ruling_party = communism } 
+			create_country_leader = { 
+			name = "Lcanglocan Bsodnamsrgyalpo" 
+			picture = "gfx/leaders/TIB/Portrait_Tibet_Jiang_Luojin_Suolangjiebu.tga" 
+			expire = "2000.1.1" 
+			ideology = marxism 
+			traits = { } 
+			}
+		}
+		}
+	option = {
+		name = tib.12.b2
+		TIB = {
+			retire_country_leader = yes 
+			set_politics = { ruling_party = communism } 
+			create_country_leader = { 
+				name = "Ngapoi Ngawang Jigme" 
+				picture = "gfx/leaders/TIB/Portrait_Tibet_Ngapoi_Ngawang_Jigme.tga" 
+				expire = "2000.1.1" 
+				ideology = marxism 
+				traits = { } 
+			}
+		}
+	}
+}
+
+#西藏民主改革（PRC控制322）
+news_event = {
+	id = tib.13
+	title = tib.13.t
+	desc = tib.13.d
+	is_triggered_only = no
+	fire_only_once = yes
+	picture = GFX_TibetanReform
+	trigger = {
+		tag = PRC 
+		PRC = { controls_state = 322 }
+		date < 1960.1.1
+	}
+	option = {
+		name = tib.13.b1
+		annex_country = { target = TIB transfer_troops = yes } 
+		add_political_power = 100
+	}
+}
+
+#西藏叛乱（PRC 322由PRC控制 1956）
+
+#来自达赖喇嘛的求助（国家是IND）
+news_event = {
+	id = tib.15
+	title = tib.15.t
+	desc = tib.15.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanGoverment
+	option = {
+		name = tib.15.b1
+		add_political_power = 80
+	}
+}
+
+#中共放弃西藏
+news_event = {
+	id = tib.16
+	title = tib.16.t
+	desc = tib.16.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanGoverment
+	option = {
+		name = tib.16.b1
+		322 = { remove_core_of = PRC }
+	}
+}
+
+#与西藏的合作协议
+news_event = {
+	id = tib.17
+	title = tib.17.t
+	desc = tib.17.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanOffiserInChina
+	option = {
+		name = tib.17.b1
+		add_political_power = -80
+	}
+	option = {
+		name = tib.17.b2
+		news_event = { id = tib.18 }
+	}
+}
+
+#内地的合作邀请
+news_event = {
+	id = tib.18
+	title = tib.18.t
+	desc = tib.18.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanOffiserInChina
+	option = {
+		name = tib.18.b1
+		PRC = { give_guarantee = TIB } 
+	}
+	option = {
+		name = tib.18.b2
+		PRC = { news_event = { id = tib.9 } }
+	}
+}
+
+#更敦群培去世（1951）
+news_event = {
+	id = tib.19
+	title = tib.19.t
+	desc = tib.19.d
+	is_triggered_only = no
+	fire_only_once = yes
+	picture = GFX_DgedunChosphel
+	trigger = {
+		tag = TIB 
+		date > 1951.1.1
+	}
+	option = {
+		name = tib.19.b1
+		add_stability = -0.1 
+		news_event = { id = tib.20 }
+	}
+}
+
+#群众要求民主改革
+news_event = {
+	id = tib.20
+	title = tib.20.t
+	desc = tib.20.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_SpeakingLhama
+	option = {
+		name = tib.20.b1
+		add_popularity = { ideology = communism popularity = 0.05 } 
+		add_popularity = { ideology = democratic popularity = 0.15 } 
+		news_event = { id = tib.21 } 
+		news_event = { id = tib.22 }
+	}
+	option = {
+		name = tib.20.b2
+		add_popularity = { ideology = communism popularity = 0.05 } 
+		add_popularity = { ideology = democratic popularity = 0.15 } 
+		add_stability = -0.2
+	}
+}
+
+#农奴制被废除
+news_event = {
+	id = tib.21
+	title = tib.21.t
+	desc = tib.21.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetanReform
+	option = {
+		name = tib.21.b1
+		add_stability = 0.2 
+		add_political_power = 200
+	}
+}
+
+#西藏制定宪法
+news_event = {
+	id = tib.22
+	title = tib.22.t
+	desc = tib.22.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Potala
+	option = {
+		name = tib.22.b1
+		add_popularity = { ideology = democratic popularity = 0.15 } 
+		add_political_power = 100 
+		news_event = { id = 23 }
+	}
+}
+
+#西藏议会选举
+news_event = {
+	id = tib.23
+	title = tib.23.t
+	desc = tib.23.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_Potala
+	option = {
+		name = tib.23.b1
+		retire_country_leader = yes 
+		create_country_leader = { 
+			name = "Lcang lo can Bsod nams rgyal po" 
+			desc = "POLITICS_EDWARD_HALIFAX_DESC" 
+			picture = "gfx/leaders/TIB/Portrait_Tibet_Jiang_Luojin_Suolangjiebu.tga" 
+			expire = "2000.1.1" 
+			ideology = despotism 
+			traits = { } 
+		} 
+		add_popularity = { ideology = democratic popularity = 0.15 }
+	}
+	option = {
+		name = tib.23.b2
+		retire_country_leader = yes 
+		create_country_leader = { 
+			name = "Tsarong" 
+			desc = "POLITICS_EDWARD_HALIFAX_DESC" 
+			picture = "gfx/leaders/TIB/Portrait_Tibet_Tsarong.tga" 
+			expire = "2000.1.1" 
+			ideology = despotism 
+			traits = { } 
+		}
+	}
+}
+
+#西藏民主运动
+news_event = {
+	id = tib.24
+	title = tib.24.t
+	desc = tib.24.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_SpeakingLhama
+	option = {
+		name = tib.24.b1
+		add_popularity = { ideology = communism popularity = 0.05 } 
+		add_popularity = { ideology = democratic popularity = 0.15 }
+		news_event = { id = tib.21 } 
+		news_event = { id = tib.22 }
+	}
+	option = {
+		name = tib.24.b2
+		start_civil_war = { ideology = communism size = 0.6 }
+		PRC = { news_event = { id = tib.25 } }
+	}
+}
+
+#西藏人民起义
+news_event = {
+	id = tib.25
+	title = tib.25.t
+	desc = tib.25.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	picture = GFX_TibetUnrest
+	option = {
+		name = tib.25.b1
+		TIB = { news_event = { id = tib.4 } }
+	}
+	option = {
+		name = tib.25.b2
+		add_political_power = -100
+	}
+}
+#拜仁
+news_event = {
+	id = tib.26
+	title = usatext.92.t
+	desc = usatext.8.d
+	picture = GFX_Kent_Shootings
+	fire_only_once = yes
+	trigger = {
+		tag = PRC
+		has_stability < 0.2
+		322 = { is_controlled_by = PRC }
+	}
+	mean_time_to_happen = {
+		days = 120
+	}
+	option = { 
+		name = usatext.8.a
+		add_stability = -0.1
+		TIB = {
+			transfer_state = 322
+			load_oob = "TIB_1947"
+		}
+		PRC = {
+			declare_war_on = { target = TIB type = annex_everything }
+		}
+		
+	}
+}
+#印度要召开亚洲国际会议
+news_event = {
+	id = tib.30
+	title = tib.30.t
+	desc = tib.30.d
+	fire_only_once = yes
+	picture = GFX_AsiaRelationConference
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = TIB
+		IND = { is_ai = yes }
+		date > 1947.8.1
+		date < 1948.1.1
+	}
+	option = {
+		name = tib.1.b1
+		news_event = { id = tib.31 }
+		news_event = { id = tib.32 days = 3 }
+	}
+}
+#参与
+news_event = {
+	id = tib.31
+	title = tib.31.t
+	desc = tib.31.d
+	picture = GFX_AsiaRelationConference
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		
+	}
+}
+news_event = {
+	id = tib.32
+	title = tib.32.t
+	desc = tib.32.d
+	picture = GFX_AsiaRelationConference
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = CHI }
+			IND = { news_event = { id = tib.33 days = 2 } }
+		}
+	}
+}
+news_event = {
+	id = tib.33
+	title = tib.33.t
+	desc = tib.33.d
+	picture = GFX_AsiaRelationConference
+	is_triggered_only = yes
+	option = {
+		name = cze.20.b2
+		news_event = { id = tib.34 days = 1 }
+	}
+	option = {
+		name = cze.20.b2
+		news_event = { id = tib.35 days = 1 }
+	}
+}
+#驱逐南京代表
+news_event = {
+	id = tib.36
+	title = tib.36.t
+	desc = tib.36.d
+	picture = GFX_Potala
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = CHI
+		has_guaranteed = TIB
+		TIB = { is_ai = yes }
+		PRC = { has_country_flag = NJ_liberate }
+	}
+	option = {
+		name = tib.1.b1
+		if = {
+			limit = { tag = CHI }
+			diplomatic_relation = {
+				country = TIB
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = TIB
+				relation = military_access
+				active = no
+			}
+		}
+	}
+}
+#西藏谈判
+news_event = {
+	id = tib.40
+	title = tib.40.t
+	desc = tib.40.d
+	picture = GFX_Potala
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = PRC
+		has_war_with = TIB
+		OR = {
+			controls_province = 8059
+			controls_province = 7926
+		}
+		date < 1952.1.1
+	}
+	option = {
+		name = tib.1.b1
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = tib.11 }
+		}
+	}
+}
+news_event = {
+	id = tib.50
+	title = tib.50.t
+	desc = tib.50.d
+	picture = GFX_CyprusRevolt
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = PRC
+		owns_state = 601
+		has_completed_focus = PRC_female_movements
+		NOT = { has_country_flag = LitangRevolt }
+	}
+	option = {
+		name = egy.27.a
+		601 = { add_resistance = 3 }
+	}
+}
+news_event = {
+	id = tib.51
+	title = tib.51.t
+	desc = tib.51.d
+	picture = GFX_CyprusRevolt
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = PRC
+		owns_state = 601
+		has_completed_focus = prc1
+		NOT = { has_country_flag = LitangRevolt }
+	}
+	option = {
+		name = egy.27.a
+		601 = { add_resistance = 3 }
+	}
+}
+news_event = {
+	id = tib.52
+	title = tib.52.t
+	desc = tib.52.d
+	picture = GFX_CyprusRevolt
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = PRC
+		owns_state = 601
+		date > 1956.1.1
+		date < 1958.1.1
+		NOT = { has_country_flag = LitangRevolt }
+	}
+	option = {
+		name = egy.27.a
+		601 = { add_resistance = 4 }
+	}
+}
+news_event = {
+	id = tib.53
+	title = tib.53.t
+	desc = tib.53.d
+	picture = GFX_TibetMonksRevolt
+	major = yes
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = PRC
+		owns_state = 601
+		601 = { resistance > 30 }
+		NOT = { has_country_flag = LitangRevolt }
+	}
+	option = {
+		name = egy.27.a
+		if = {
+			limit = { tag = PRC }
+			set_country_flag = LitangRevolt
+			601 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		}
+	}
+}
+news_event = {
+	id = tib.54
+	title = tib.54.t
+	desc = tib.54.d
+	picture = GFX_TibetMonksRevolt
+	major = yes
+	mean_time_to_happen = { days = 40 }
+	trigger = {
+		tag = PRC
+		owns_state = 601
+		601 = { resistance < 20 }
+		has_country_flag = LitangRevolt
+		601 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+	option = {
+		name = tib.54.a
+		if = {
+			limit = { tag = PRC }
+			set_global_flag = tib54
+			601 = {
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = -20
+			}
+		}
+	}
+}
+news_event = {
+	id = tib.55
+	title = tib.55.t
+	desc = tib.55.d
+	picture = GFX_TibetMonksRevolt
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = TIB
+		}
+		PRC = { owns_state = 601 }
+		date > 1958.2.1
+		date < 1959.2.1
+		has_global_flag = tib54
+	}
+	option = {
+		name = tib.54.a
+	}
+}
+news_event = {
+	id = tib.56
+	title = tib.56.t
+	desc = tib.56.d
+	picture = GFX_TibetMonksRevolt
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = TIB
+		}
+		PRC = { owns_state = 601 }
+		NOT = { has_country_flag = tib56 }
+		date > 1958.4.1
+		date < 1958.8.1
+		has_global_flag = tib54
+	}
+	option = {
+		name = tib.54.a
+		set_country_flag = tib56 
+		if = {
+			limit = { tag = PRC }
+			601 = {
+				add_resistance = 20
+			}
+		}
+	}
+}
+news_event = {
+	id = tib.57
+	title = tib.57.t
+	desc = tib.57.d
+	picture = GFX_TibetMonksRevolt
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = TIB
+		}
+		PRC = { owns_state = 601 }
+		TIB = {
+			has_country_flag = tib56
+			has_global_flag = tib54
+		}
+		date > 1959.1.1
+		date < 1959.3.1
+		NOT = { has_global_flag = tib57 }
+	}
+	option = {
+		name = tib.54.a
+		set_global_flag = tib57 
+	}
+}
+news_event = {
+	id = tib.58
+	title = tib.58.t
+	desc = tib.58.d
+	picture = GFX_TibetanOffiserInChina
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = TIB
+		}
+		has_global_flag = tib57
+		date > 1959.3.1
+		date < 1959.5.1
+		NOT = { has_country_flag = tib58 }
+	}
+	option = {
+		name = tib.54.a
+		set_country_flag = tib58
+	}
+}
+news_event = {
+	id = tib.59
+	title = tib.59.t
+	desc = tib.59.d
+	picture = GFX_TibatanOffiser
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = TIB
+		}
+		has_country_flag = tib58
+		NOT = { has_country_flag = tib59 }
+	}
+	option = {
+		name = tib.54.a
+		trigger = { tag = TIB }
+		set_country_flag = tib59
+	}
+	option = {
+		name = tib.54.a
+		trigger = { tag = PRC }
+		set_country_flag = tib59
+		set_global_flag = tib59a
+	}
+	option = {
+		name = tib.54.a
+		trigger = { tag = PRC }
+		set_country_flag = tib59
+		set_global_flag = tib59b
+	}
+}
+news_event = {
+	id = tib.60
+	title = tib.60.t
+	desc = tib.60.d
+	picture = GFX_TibetUnrest
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	immediate = {
+		play_song = TIB_3
+	}
+	trigger = {
+		tag = PRC
+		has_global_flag = tib59a
+		NOT = { has_global_flag = tib60 } 
+	}
+	option = {
+		name = tib.54.a
+		set_global_flag = DalaiDeath
+		set_global_flag = tib60
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = tib.62 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = tib.61
+	title = tib.61.t
+	desc = tib.61.d
+	picture = GFX_TibetUnrest
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	immediate = {
+		play_song = TIB_3
+	}
+	trigger = {
+		tag = PRC
+		has_global_flag = tib59a
+		NOT = { has_global_flag = tib61 } 
+	}
+	option = {
+		name = tib.54.a
+		set_global_flag = tib61
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = tib.62 days = 1 }
+		}
+	}
+}
+news_event = {
+	id = tib.62
+	title = tib.62.t
+	desc = tib.62.d
+	picture = GFX_TibetRebellion
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+		if = {
+			limit = { tag = PRC }
+			news_event = { id = tib.63 days = 1 }
+		}
+	}
+}
+news_event = {
+	id = tib.63
+	title = tib.63.t
+	desc = tib.63.d
+	picture = GFX_TibetRebellion
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+		end_puppet = TIB
+		declare_war_on = { target = TIB type = annex_everything  }
+		news_event = { id = tib.64 }
+	}
+}
+
+news_event = {
+	id = tib.64
+	title = tib.64.t
+	desc = tib.64.d
+	picture = GFX_liberation_Tibet
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = tib.65
+	title = tib.65.t
+	desc = tib.65.d
+	picture = GFX_TibetRevoltSurrender
+	major = yes
+	is_triggered_only = yes
+	option = {
+		set_global_flag = tib65
+		name = prc.19.a
+	}
+}
+news_event = {
+	id = tib.66
+	title = tib.66.t
+	desc = tib.66.d
+	picture = GFX_TibetRefugee
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = PRC
+		has_global_flag = tib65
+		NOT = { has_global_flag = tib66 }
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = tib66
+	}
+}
+news_event = {
+	id = tib.67
+	title = tib.67.t
+	desc = tib.67.d
+	picture = GFX_DhalaiEscape
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = PRC
+		has_global_flag = tib66
+		NOT = { has_global_flag = tib67 }
+	}
+	option = {
+		name = prc.19.a
+		set_global_flag = tib67
+	}
+}
+news_event = {
+	id = tib.68
+	title = tib.68.t
+	desc = tib.68.d
+	picture = GFX_TibetInternationalProtest
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		has_idea = UNmember
+		has_global_flag = tib67
+		NOT = { has_country_flag = tib68 }
+	}
+	option = {
+		name = prc.19.a
+		set_country_flag = tib68
+		if = {
+			limit = {
+				OR = {
+				tag = USA
+				tag = ENG
+				tag = IND
+				tag = NEP
+				tag = IRE
+				tag = BHU
+				}
+			}
+			news_event = { id = tib.69 days = 3 }
+		}
+	}
+}

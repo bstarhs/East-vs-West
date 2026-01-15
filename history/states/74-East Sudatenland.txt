@@ -1,0 +1,44 @@
+state=
+{
+	id=74
+	name="STATE_74"
+	manpower = 820000
+	
+	state_category = rural
+	
+	
+	local_supplies=0.0
+	history=
+	{
+		
+		set_state_flag = ethnics_Moldovian
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 42 }
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		owner = SOV
+		buildings = {
+			farm_building = 1
+			hospital = 1
+			dockyard = 1
+			6727 = {
+				naval_base = 3
+			}
+			infrastructure = 3
+		}
+		victory_points = {
+			3701 3
+		}
+		add_core_of = SOV
+		add_core_of = UKR
+		add_core_of = ROM
+		add_core_of = MOL
+		1990.1.1 = {
+			owner = UKR
+			remove_core_of = SOV
+		}
+
+	}
+	provinces= {
+		6727 3701 
+ 	}
+}

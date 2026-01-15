@@ -1,0 +1,102 @@
+
+HOL_indonesia_garrison = {
+	abort_when_not_enabled = yes
+	allowed = {
+		tag = HOL
+	}
+	enable = {
+		IND = { is_subject_of = HOL }
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.4
+		states = { 
+			667
+			673
+			939
+			672
+		}
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.3
+		states = { 
+			335
+		}
+	}
+}
+HOL_indonesia_invade = {
+	abort_when_not_enabled = yes
+	allowed = {
+		tag = HOL
+	}
+	enable = {
+		has_war_with = INS
+	}
+	ai_strategy = {
+		type = invade
+		id = "INS"
+		value = 999
+	}
+	ai_strategy = {
+		type = conquer
+		id = "INS"
+		value = 999
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = INS
+		value = 500
+	}
+}
+BAN_call_IND = {
+	abort_when_not_enabled = yes
+	allowed = {
+		original_tag = BAN
+	}
+	enable = {
+		has_war_with = PAK
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = IND
+		value = 100
+		target = call_allies
+	}
+}
+Malaya_enmergancy = {
+	enable = {
+		OR = {
+		tag = ENG
+		tag = RHO
+		tag = AST
+		}
+		NOT = { MAL = { has_government = communism } }
+		MAL = { has_idea = southeast_revolution }
+	}
+	abort = {
+		OR = {
+			date > 1973.1.1
+			NOT = { MAL = { has_idea = southeast_revolution } }
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = MAL			
+		value = 500
+	}
+	ai_strategy = {
+		type = support
+		id = "MAL"
+		value = 200
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.1
+		states = { 
+			849
+			336
+		}
+	}
+}

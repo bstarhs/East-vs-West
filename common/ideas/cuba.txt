@@ -1,0 +1,103 @@
+ideas = {
+	country = {
+		CUB_mafia_ideas = {
+			picture = CUB_mafia_ideas
+			allowed = { always = yes }
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				stability_factor = -0.12
+				political_power_cost = -0.15
+				drift_defence_factor = -0.25
+			}
+		}
+		CUB_casino = {
+			picture = casino
+			allowed = { always = yes }
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				custom_modifier_tooltip = CUB_casino_tool
+			}
+		}
+		CUB_revolucion = {
+			picture = LatinGuerrilla
+			allowed = { always = yes }
+			cancel = {
+				NOT = { has_government = neutrality }
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -50
+			modifier = {
+				communism_drift = 0.01
+				authoritarianism_drift = 0.01
+				neutrality_drift = -0.01
+				stability_factor = -0.12
+				political_power_gain = -0.12
+				resistance_target = 0.35
+				surrender_limit = 3
+			}
+		}
+	}
+	
+	industrial_concern = {
+		designer = yes
+		CohibaCigar = {
+			picture = CohibaCigar
+			allowed = {
+				original_tag = CUB
+			}
+			modifier = {
+				political_power_gain = 0.05
+			}
+			visible = {
+				has_country_flag = CUB_revolucion_nationalized_cigar_decis
+			}
+			traits = { cigaratte_concern }
+		}
+		Montecristo = {
+			picture = Montecristo
+			allowed = {
+				original_tag = CUB
+			}
+			modifier = {
+				political_power_gain = 0.02
+			}
+			traits = { cigaratte_concern }
+		}
+		Azcuba = {
+			picture = Azcuba
+			allowed = {
+				original_tag = CUB
+			}
+			visible = {
+				has_country_flag = CUB_revolucion_nationalized_sugar_decis
+			}
+			modifier = {
+				political_power_gain = 0.12
+			}
+		}
+	}
+
+	army_chief = {
+	}
+
+	air_chief = {
+	}
+
+	navy_chief = {
+	}
+
+	high_command = {
+	}	
+
+	theorist = {
+
+	}
+}

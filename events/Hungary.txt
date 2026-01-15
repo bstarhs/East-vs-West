@@ -1,0 +1,1054 @@
+﻿add_namespace = hun
+
+#匈牙利大选
+news_event = {
+	id = hun.2
+	title = hun.2.t
+	desc = hun.2.d
+	picture = GFX_HunElection
+	fire_only_once = yes	
+	is_triggered_only = yes
+	option = {	#纳吉
+		name = hun.12.a
+		promote_character = {
+			character = HUN_Imre_Nagy
+			ideology = marxism
+		} 
+	}
+	option = {	#纳吉
+		name = hun.12.a
+		promote_character = {
+			character = HUN_Erno_Gero
+			ideology = marxism
+		} 
+	}
+}
+#铁托事件
+country_event = {
+	id = hun.3
+	title = poltext.30.t
+	desc = hun.3.d
+	fire_only_once = yes
+	mean_time_to_happen = { days = 30 }
+	picture = GFX_PolElection
+	trigger = {
+		tag = HUN
+		YUG = { has_idea = SovietChinaConflit }
+		date < 1950.1.1
+	}
+	option = {
+		name = hun.3.a
+			ai_chance = {
+				factor = 60
+			}
+		set_country_flag = HunTitoNo
+		news_event = { id = hun.4 }
+	}
+	option = {
+		name = hun.3.b
+			ai_chance = {
+				factor = 10
+			}
+		set_country_flag = HunTitoYes
+		set_country_flag = TitoYes
+		news_event = { id = hun.5 }
+	}
+}
+news_event = {
+	id = hun.4
+	title = hun.4.t
+	desc = hun.4.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		if = {
+			limit = { tag = HUN }
+			retire_character = HUN_Laszlo_Rajk
+			add_political_power = 300
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = -0.08
+		}
+		
+	}
+}
+news_event = {
+	id = hun.5
+	title = hun.5.t
+	desc = hun.5.d
+	picture = GFX_PolishParty
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pol.21.b1
+		if = {
+			limit = { tag = HUN }
+			add_political_power = 100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.-08
+			}
+			add_stability = 0.08
+		}
+		if = {
+			limit = {
+				is_neighbor_of = HUN
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.-01
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.6
+	title = hun.6.t
+	desc = hun.6.d
+	picture = GFX_PolishParty
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		tag = HUN
+		has_country_flag = HunTitoNo
+		NOT = { has_global_flag = hun6 }
+		HUN = { has_government = communism }
+		date < 1950.1.21
+	}
+	major = yes
+	option = {
+		name = pol.21.b1
+		set_global_flag = hun6
+		
+	}
+}
+
+
+
+
+
+#十月示威
+news_event = {
+	id = hun.10
+	title = hun.10.t
+	desc = hun.10.d
+	fire_only_once = yes
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		tag = HUN
+		has_country_flag = hun34
+		HUN = { has_government = communism }
+		date > 1956.10.1
+		date < 1956.12.21
+		has_idea = hungarian_revolution_ideas
+	}
+	option = { #镇压
+		name = hun.10.b1
+		ai_chance = { factor = 0 }
+		add_stability = -0.1 
+		add_popularity = { ideology = communism popularity = -0.05 }
+		add_political_power = -100 
+		news_event = { id = hun.18 hours = 2 }
+		add_to_variable = { influences = -100 }
+	}
+	option = { #会面
+		name = hun.10.b2
+		ai_chance = { factor = 20 }
+		add_stability = 0.1 
+		add_political_power = 100 
+		news_event = { id = hun.11 hours = 2 }
+	}
+}
+#纳吉会面
+news_event = {
+	id = hun.11
+	title = hun.11.t
+	desc = hun.11.d
+	fire_only_once = yes
+	picture = GFX_1956Revolution
+	is_triggered_only = yes
+	option = { #拒绝
+		name = hun.11.b1
+		ai_chance = { factor = 0 }
+		add_stability = -0.1 
+		add_political_power = -100 
+		news_event = { id = hun.18 hours = 30 }
+		add_popularity = { ideology = communism popularity = -0.08 } 
+	}
+	option = { #大选
+		name = hun.10.b2
+		add_stability = 0.1 
+		add_political_power = 100 
+		news_event = { id = hun.12 }
+	}
+}
+#匈牙利大选
+news_event = {
+	id = hun.12
+	title = hun.12.t
+	desc = hun.12.d
+	picture = GFX_1956Revolution
+	fire_only_once = yes	
+	is_triggered_only = yes
+	option = {	#纳吉
+		name = hun.12.a
+		HUN = {
+		promote_character = {
+			character = HUN_Imre_Nagy
+			ideology = marxism
+		} 
+		add_to_variable = { influences = 80 }
+		news_event = { id = hun.13 }
+		hidden_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+					}
+			}
+		}
+		SOV = { news_event = { id = hun.14 days = 1 } }
+	}
+	option = {	#Ernő Gerő
+		name = hun.12.b
+		ai_chance = { factor = 0 }
+		HUN = {
+			retire_country_leader = yes
+		promote_character = {
+			character = HUN_Erno_Gero
+			ideology = marxism
+		} 
+		}
+	}
+}	
+#匈牙利改革
+news_event = {
+	id = hun.13
+	title = hun.13.t
+	desc = hun.13.d
+	picture = GFX_1956Revolution
+	major = yes	
+	is_triggered_only = yes
+	option = {
+		name = hun.13.a
+	}
+}																																					
+#匈牙利试图改革（苏联
+news_event = {
+	id = hun.14
+	title = hun.14.t
+	desc = hun.14.d
+	is_triggered_only = yes
+	picture = GFX_KhrushchevKadar
+	option = {	#自己处理
+		name = hun.14.b1
+		ai_chance = { factor = 0 }
+	}
+	option = {	#要求镇压
+		name = hun.14.b2
+		ai_chance = { factor = 1 }
+		HUN = { news_event = { id = hun.15 days = 1 } }
+	}
+}
+#苏联要求匈牙利强硬
+news_event = {
+	id = hun.15
+	title = hun.15.t
+	desc = hun.15.d
+	is_triggered_only = yes
+	picture = GFX_KhrushchevKadar
+	option = {
+		name = hun.15.b1
+		ai_chance = { factor = 1 }
+		SOV = { news_event = { id = hun.16 days = 1 } }
+	}
+	option = {
+		name = hun.15.b1
+		ai_chance = { factor = 0 }
+		retire_country_leader = yes
+		promote_character = {
+			character = HUN_Erno_Gero
+			ideology = marxism
+		} 
+		news_event = { id = hun.17 }
+		if = {
+			limit = { NOT = { is_in_faction_with = SOV } }
+			SOV = { add_to_faction = HUN }
+		}
+	}
+}
+#匈牙利拒绝
+news_event = {
+	id = hun.16
+	title = hun.16.t
+	desc = hun.16.d
+	is_triggered_only = yes
+	picture = GFX_KhrushchevKadar
+	option = {
+		name = hun.16.b1
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 50
+				HUN = { communism < 0.5 }
+			}
+			modifier = {
+				add = 50
+				HUN = { has_stability < 0.3 }
+			}
+			modifier = {
+				add = 999
+				HUN = { NOT = { is_in_faction_with = SOV } }
+			}
+		}
+			news_event = { id = hun.54 }
+			remove_from_faction = HUN
+			declare_war_on = { target = HUN type = puppet_wargoal_focus }
+			add_named_threat = {
+				threat = 10
+				name = Soviet_Invade_Hungary
+			}
+			add_to_variable = { influences = -160 }
+	}
+	option = {
+		name = hun.15.b1
+		ai_chance = {
+			base = 60
+			modifier = {
+				add = 10
+				HUN = { communism > 0.6 }
+			}
+			modifier = {
+				add = 10
+				HUN = { has_stability > 0.6 }
+			}
+		}
+		news_event = { id = hun.53 }
+	}
+}
+#格罗恢复职位
+news_event = {
+	id = hun.17
+	title = hun.17.t
+	desc = hun.17.d
+	picture = GFX_GeroErno
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			add_stability = -0.5
+			add_political_power = -500
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
+	}
+}
+#匈牙利起义
+news_event = {
+	id = hun.18
+	title = hun.18.t
+	desc = hun.18.d
+	major = yes
+	mean_time_to_happen = { days = 4 }
+	picture = GFX_Hun1956
+	trigger = {
+		tag = HUN
+		has_war = no
+		is_in_faction_with = SOV
+		communism < 0.1
+		has_stability < 0.1
+		has_idea = hungarian_revolution_ideas
+	}
+	option = {
+		name = hun.16.b1
+		if = {
+			limit = { tag = HUN }
+			start_civil_war = {
+				ideology = democratic
+				capital = 43
+				states = { 43 }
+			}
+			retire_country_leader = yes
+			promote_character = {
+				character = HUN_Erno_Gero
+				ideology = marxism
+			} 
+			add_named_threat = {
+				threat = 10
+				name = Hungary_civil_War
+			}
+		}
+	}
+}
+
+#亚诺什上台
+news_event = {
+	id = hun.19
+	title = hun.19.t
+	desc = hun.19.d
+	fire_only_once = yes
+	picture = GFX_Janos
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = HUN
+		is_puppet = yes
+		date > 1956.10.1
+		date < 1957.5.21
+		has_idea = hungarian_revolution_ideas
+	}
+	option = {
+		name = hun.16.b1
+		news_event = { id = hun.21 }
+		HUN = {
+			remove_ideas = hungarian_revolution_ideas
+			add_to_variable = { influences = -100 }
+			retire_country_leader = yes
+			set_cosmetic_tag = HUN_1956
+			promote_character = {
+				character = HUN_Kadar_Janos
+				ideology = marxism
+			} 
+		}
+		add_named_threat = {
+			threat = -5
+			name = Hungary_revolution_end
+		}
+	}
+}
+#占领匈牙利
+news_event = {
+	id = hun.20
+	title = hun.20.t
+	desc = hun.20.d
+	picture = GFX_SovietInvadeHun
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		set_global_flag = sov_occupied_HUN
+		
+	}
+}
+#卡达尔上台新闻
+news_event = {
+	id = hun.21
+	title = hun.21.t
+	desc = hun.21.d
+	picture = GFX_Janos
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { has_subject = HUN }
+			end_puppet = HUN
+		}
+		if = {
+			limit = { tag = SOV }
+			add_to_faction = HUN
+		}
+	}
+}
+###匈牙利革命
+news_event = {
+	id = hun.30
+	title = hun.30.t
+	desc = hun.30.d
+	picture = GFX_1956Revolution
+	major = yes
+	mean_time_to_happen = { days = 6 }
+	trigger = {
+		tag = HUN
+		HUN = { is_in_faction_with = SOV }
+		has_government = communism
+		date > 1956.10.1
+		date < 1957.1.21
+		POL = { has_country_flag = Gomulka }
+		NOT = { has_country_flag = hun30 }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			set_country_flag = hun30
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.31
+	title = hun.31.t
+	desc = hun.31.d
+	picture = GFX_1956Revolution
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = HUN
+		HUN = { is_in_faction_with = SOV }
+		NOT = {
+			has_idea = hungarian_revolution_ideas
+			has_country_flag = hun31
+		}
+		has_government = communism
+		date > 1956.10.1
+		date < 1957.12.1
+		OR = {
+			POL = { has_country_flag = Gomulka }
+			PRC = { has_completed_focus = prc28 }
+		}
+	}
+	immediate = {
+		play_song = HUN_1
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			set_country_flag = hun31
+			add_stability = -0.3
+			add_ideas = hungarian_revolution_ideas
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.33
+	title = hun.33.t
+	desc = hun.33.d
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 2 }
+	major = yes
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1956.9.20
+		has_idea = hungarian_revolution_ideas
+		NOT = { has_country_flag = PetofiClub }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			set_country_flag = PetofiClub
+			add_stability = -0.08
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.34
+	title = hun.34.t
+	desc = hun.34.d
+	picture = GFX_BudaPestStalin
+	mean_time_to_happen = { days = 4 }
+	major = yes
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1956.10.1
+		has_idea = hungarian_revolution_ideas
+		NOT = { has_country_flag = BudapestStalinDown }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			set_country_flag = BudapestStalinDown
+			set_country_flag = hun34
+			add_stability = -0.06
+			add_political_power = -80
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.35
+	title = hun.35.t
+	desc = hun.35.d
+	picture = GFX_BudaPestStalin
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1956.10.1
+		has_idea = hungarian_revolution_ideas
+		NOT = { has_country_flag = BudapestStalinDown }
+		NOT = { has_country_flag = hun35 }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			set_country_flag = hun35
+			add_stability = -0.12
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = hun.36
+	title = hun.36.t
+	desc = hun.36.d
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1956.10.1
+		has_idea = hungarian_revolution_ideas
+		has_country_flag = hun35
+		NOT = { has_country_flag = hun36 }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			set_country_flag = hun36
+			add_stability = -0.05
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = hun.37
+	title = hun.37.t
+	desc = hun.37.d
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 4 }
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1956.10.1
+		has_idea = hungarian_revolution_ideas
+		has_country_flag = hun35
+		NOT = { has_country_flag = hun37 }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+			set_country_flag = hun37
+			add_stability = -0.12
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = hun.38
+	title = hun.38.t
+	desc = hun.38.d
+	picture = GFX_1956Revolution
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+	}
+}
+news_event = {
+	id = hun.39
+	title = hun.39.t
+	desc = hun.39.d
+	picture = GFX_GeroErno
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+	}
+}
+news_event = {
+	id = hun.40
+	title = hun.40.t
+	desc = hun.40.d
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1956.10.1
+		has_idea = hungarian_revolution_ideas
+		has_country_flag = hun35
+		NOT = { has_country_flag = hun40 }
+	}
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = HUN }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.03
+			}
+			set_country_flag = hun40
+			add_stability = -0.08
+		}
+	}
+}
+news_event = {
+	id = hun.41
+	title = hun.41.t
+	desc = hun.41.d
+	picture = GFX_GeroErno
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+	}
+}
+news_event = {
+	id = hun.42
+	title = hun.42.t
+	desc = hun.42.d
+	picture = GFX_Nagyreform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+	}
+}
+news_event = {
+	id = hun.43
+	title = hun.43.t
+	desc = hun.43.d
+	picture = GFX_Nagyreform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+	}
+}
+
+
+
+
+
+news_event = {
+	id = hun.51
+	title = hun.51.t
+	desc = hun.51.d
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = HUN
+		HUN = { is_in_faction_with = SOV }
+		has_country_flag = PetofiClub
+		has_government = communism
+		date > 1956.10.1
+		has_idea = hungarian_revolution_ideas
+		NOT = { has_country_flag = hun51 }
+	}
+	option = {
+		name = hun.20.b1
+		add_stability = 0.25
+		set_country_flag = hun51
+		leave_faction = yes
+		add_political_power = 200
+		add_popularity = {
+			ideology = communism
+			popularity = -0.12
+		}
+		news_event = { id = hun.52 }
+	}
+}
+news_event = {
+	id = hun.52
+	title = hun.52.t
+	desc = hun.52.d
+	picture = GFX_1956Revolution
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = SOV }
+			news_event = { id = hun.14 days = 1 }
+		}
+	}
+}
+news_event = {
+	id = hun.53
+	title = hun.53.t
+	desc = hun.53.d
+	picture = GFX_KhrushchevKadar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+news_event = {
+	id = hun.54
+	title = hun.54.t
+	desc = hun.54.d
+	picture = GFX_Hun1956
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = HUN_9
+		set_variable = { global.television_visible = 1 }
+		set_global_flag = video_hungary_revo
+	}
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+news_event = {
+	id = hun.59
+	title = hun.59.t
+	desc = hun.59.d
+	picture = GFX_1956Revolution
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		HUN = {
+			has_idea = hungarian_revolution_ideas
+			has_war_with = SOV
+		}
+		is_subject = no
+		NOT = {
+			has_country_flag = HunRevoAnswer
+			
+		}
+		OR = { 
+			has_country_flag = main_country
+			has_country_flag = scandinavia_states
+			is_in_faction_with = SOV
+			is_in_faction_with = USA
+		}
+	}
+	option = {
+		name = hun.20.b1
+		set_country_flag = HunRevoAnswer
+		news_event = { id = hun.60 }
+	}
+	option = {
+		name = hun.20.b1
+		set_country_flag = HunRevoAnswer
+		news_event = { id = hun.61 }
+	}
+}
+news_event = {
+	id = hun.60
+	title = hun.60.t
+	desc = hun.60.d
+	picture = GFX_SovietInvadeHun
+	is_triggered_only = yes
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+news_event = {
+	id = hun.61
+	title = hun.61.t
+	desc = hun.61.d
+	picture = GFX_SovietInvadeHun
+	is_triggered_only = yes
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+news_event = {
+	id = hun.62
+	title = hun.62.t
+	desc = hun.62.d
+	picture = GFX_1956Revolution
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+news_event = {
+	id = hun.63
+	title = hun.63.t
+	desc = hun.63.d
+	picture = GFX_KhrushchevKadar
+	is_triggered_only = yes
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+
+news_event = {
+	id = hun.70
+	title = hun.70.t
+	desc = hun.70.d
+	picture = GFX_Horthy
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = HUN
+		date > 1957.1.10
+		date < 1957.3.20
+		NOT = { has_global_flag = hun70 }
+	}
+	option = {
+		name = hun.70.a
+		set_global_flag = hun70
+	}
+}
+news_event = {
+	id = hun.71
+	title = hun.71.t
+	desc = hun.71.d
+	picture = GFX_BelaKovacs
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1947.3.10
+		date < 1947.6.20
+		NOT = { has_global_flag = hun71 }
+	}
+	option = {
+		name = hun.70.a
+		set_global_flag = hun71
+		if = {
+			limit = { tag = HUN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.72
+	title = hun.72.t
+	desc = hun.72.d
+	picture = GFX_BelaKovacs
+	mean_time_to_happen = { days = 20 }
+	major = yes
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1951.1.10
+		date < 1951.6.20
+		NOT = { has_global_flag = hun72 }
+	}
+	option = {
+		name = hun.70.a
+		set_global_flag = hun72
+		if = {
+			limit = { tag = HUN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.73
+	title = hun.73.t
+	desc = hun.73.d
+	picture = GFX_MindszentyJozsef
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = HUN
+		has_government = communism
+		date > 1949.4.10
+		date < 1949.6.20
+		NOT = { has_global_flag = hun73 }
+	}
+	option = {
+		name = hun.70.a
+		set_global_flag = hun73
+		news_event = { id = hun.74 }
+		if = {
+			limit = { tag = HUN }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = hun.74
+	title = hun.74.t
+	desc = hun.74.d
+	picture = GFX_MindszentyJozsef
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		if = {
+			limit = { tag = VAT }
+			news_event = { id = hun.75 }
+		}
+		
+	}
+}
+news_event = {
+	id = hun.75
+	title = hun.75.t
+	desc = hun.75.d
+	picture = GFX_PiusXII
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = hun.20.b1
+		
+	}
+}
+
+#1989大选
+news_event = {
+	id = hun.99
+	title = hun.99.t
+	desc = hun.99.d
+	fire_only_once = yes
+	picture = GFX_Hungary1989
+	trigger = {
+		tag = HUN
+		date > 1990.1.1
+		democratic > 0.6
+	}
+	
+	option = {
+		name = hun.20.b2
+		add_political_power = 80
+		HUN = { set_politics = { ruling_party = democratic } } 
+	}
+}	 

@@ -1,0 +1,278 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = { 
+				limit = {
+					tag = USA
+					is_ai = no
+					date > 1964.1.1
+					date < 1975.1.1
+				}
+				play_song = USA_11
+			}
+			every_country = { 
+				limit = {
+					tag = VIN
+					is_ai = no
+					date > 1960.1.1
+					date < 1975.1.1
+				}
+				play_song = VET_4
+			}
+		} 
+		####太空竞赛
+		effect = {
+			every_country = { 
+				limit = {
+					has_tech = space_research
+				} 
+				news_event = { id = space.100 }
+			}
+		}
+		####粮食修正
+		effect = {
+			every_country = { 
+				news_event =  count.8
+				if = {
+					limit = { check_variable = { nation_food_free > 10 } }
+					news_event =  count.9
+				}
+				if = {
+					limit = { check_variable = { nation_food_free > 10 } }
+					news_event =  count.9
+				}
+			}
+		}
+		####工厂
+		effect = {
+			every_country = {
+				if = {
+					limit = {
+						check_variable = { computer_factory > 0 }
+					} 
+					news_event = { id = count.10 }
+				}
+				if = {
+					limit = {
+						has_tech = basic_machine_tools
+						has_tech = construction2
+						capital_scope = { infrastructure > 1 }
+					} 
+					news_event = { id = count.96 }
+				}
+				if = {
+					limit = {
+						check_variable = { auto_factory > 0 }
+					} 
+					news_event = { id = count.97 }
+				}
+				if = {
+					limit = {
+						check_variable = { electronic_factory > 0 }
+					} 
+					news_event = { id = count.98 }
+				}
+				news_event = { id = count.210 }
+			}
+		}
+		####初始矿物消耗
+		effect = {
+			every_country = { 
+				if = {
+					limit = {
+						has_tech = basic_machine_tools
+						any_state = {
+							OR = {
+								power_plant > 0
+								dam_plant > 0
+							}
+						}
+					}
+					news_event = { id = count.1 }
+				}
+				if = {
+					limit = {
+						OR = {
+							check_variable = { iron_output > 0 }
+							any_owned_state = { steel_making > 0 }
+						}
+					}
+					news_event = count.88
+				}
+				if = {
+					limit = {
+						OR = {
+							check_variable = { powerplant_coal_coast > 0 }
+							check_variable = { coal_output > 0 }
+							any_owned_state = { steel_making > 0 }
+						}
+					}
+					news_event = count.89
+				}
+				if = {
+					limit = {
+						OR = {
+							check_variable = { oil_output > 0 }
+							any_owned_state = { rubber_factory > 0 }
+							any_owned_state = { synthetic_refinery > 0 }
+						}
+					}
+					news_event = count.104
+				}
+			}
+		}
+		####初始进出口
+		effect = {
+			every_country = { 
+				if = {
+					limit = {
+						OR = {
+						check_variable = { coal_output > 0 }
+						check_variable = { coal_input > 0 }
+						}
+					}
+					news_event = count.90
+				}
+				if = {
+					limit = {
+						OR = {
+						check_variable = { iron_output > 0 }
+						check_variable = { iron_input > 0 }
+						}
+					}
+					news_event = count.91
+				}
+				if = {
+					limit = {
+						OR = {
+						check_variable = { copper_output > 0 }
+						check_variable = { copper_input > 0 }
+						}
+					}
+					news_event = count.92
+				}
+				if = {
+					limit = {
+						OR = {
+						check_variable = { aluminium_output > 0 }
+						check_variable = { aluminium_input > 0 }
+						}
+					}
+					news_event = count.93
+				}
+				if = {
+					limit = {
+						OR = {
+						check_variable = { oil_output > 0 }
+						check_variable = { oil_input > 0 }
+						}
+					}
+					news_event = count.94
+				}
+			}
+		}
+		####核威慑计算
+		effect = {
+			every_country = { 
+				limit = {
+					has_tech = nukes
+				} 
+				news_event = { id = nuke.9 }
+				news_event = { id = nuke.10 }
+			}
+		}
+		effect = {
+			every_country = { 
+				limit = {
+					has_tech = dispersed_industry
+					any_state = {
+						farm_building > 0
+					}
+				}
+				news_event = { id = count.2 }
+			}
+		}
+		effect = {
+			every_country = { 
+				limit = {
+					any_state = {
+						school > 0
+					}
+				}
+				news_event = { id = count.4 }
+			}
+		}
+		effect = {
+			every_country = { 
+				limit = {
+					any_state = { has_state_flag = coffee_production }
+				}
+				news_event = { id = count.11 }
+			}
+		}
+		effect = {
+			every_country = { 
+				limit = {
+					any_state = { has_state_flag = cutton_production }
+				}
+				news_event = { id = count.30 }
+			}
+		}
+		effect = {
+			every_country = { 
+				limit = {
+					any_state = { has_state_flag = tobacco_production }
+				}
+				news_event = { id = count.40 }
+			}
+		}
+		effect = {
+			every_country = { 
+				limit = {
+					any_state = { has_state_flag = sugar_production }
+				}
+				news_event = { id = count.20 }
+			}
+		}
+		effect = {
+			every_country = { 
+				news_event = { id = count.71 }
+				if = {
+					limit = {
+						check_variable = { num_of_civilian_factories > 6 }
+						check_variable = { nation_cutton_wool > 10 }
+					}
+					add_to_variable = { textile_factory = 2 }
+					news_event = { id = count.70 }
+				}
+			}
+		}
+		####财政计算
+		effect = {
+			every_country = {
+				if = {
+					limit = {
+					OR = {
+						check_variable = { coffee_output_gain > 0 }
+						check_variable = { salt_output_gain > 0 }
+						check_variable = { cutton_output_gain > 0 }
+						check_variable = { aluminium_output > 0 }
+						check_variable = { copper_output_gain > 0 }
+						check_variable = { iron_output_gain > 0 }
+						check_variable = { coal_output_gain > 0 }
+						check_variable = { oil_output_gain > 0 }
+						check_variable = { auto_output_gain > 0 }
+						check_variable = { tobacco_output_gain > 0 }
+						check_variable = { sugar_output_gain > 0 }
+					}
+					}
+				news_event = { id = count.110 }
+				}	
+			}
+			every_country = { 
+				news_event = { id = count.150 }
+				news_event = { id = count.151 }
+			}
+		}
+	}
+}

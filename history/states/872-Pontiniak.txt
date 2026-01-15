@@ -1,0 +1,37 @@
+state= {
+	id=872
+	name="STATE_872"
+	manpower = 21686
+	resources={
+		rubber=20
+		oil=2
+	}
+	state_category = rural
+	history= {
+		set_state_flag = ethnics_Dayak
+		add_to_array = { this.state_ethnics_list = 3 }
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		victory_points = { 1316 8  }
+		victory_points = { 4279 4  }
+		victory_points = { 10282 4  }
+		owner = PTN
+		add_core_of = INS
+		add_core_of = PTN
+		1950.1.14 = {
+		owner = INS
+		}
+
+		buildings = {
+			hospital = 1
+			industrial_complex = 2
+			infrastructure = 2
+			1316 = {
+				naval_base = 2
+			}
+		}
+	}
+	provinces={
+		2170 7424 12955 7227 4409 10282 1316 1304 4279 12129 1230 2222 4335 
+	}
+}

@@ -1,0 +1,1231 @@
+
+operation_boost_madagascar_resistance = { #马达加斯加
+	icon = GFX_operations_resistance_madagascar
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_madagascar_resistance
+	desc = operation_boost_madagascar_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		OR = {
+			NOT = { country_exists = MAD }
+			MAD = { is_subject = yes }
+		}
+		FROM = {
+			controls_state = 790
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = MAD
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		every_state = {
+			limit = {
+				is_core_of = MAD
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		every_state = {
+			limit = {
+				is_core_of = MAD
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_kenya_resistance = { #肯尼亚
+	icon = GFX_operations_resistance_kenya
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_kenya_resistance
+	desc = operation_boost_kenya_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		OR = {
+			NOT = { country_exists = KEN }
+			KEN = { is_subject = yes }
+		}
+		FROM = {
+			controls_state = 790
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = KEN
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		every_state = {
+			limit = {
+				is_core_of = KEN
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		every_state = {
+			limit = {
+				is_core_of = KEN
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_tangyanika_resistance = { #坦噶尼喀
+	icon = GFX_operations_resistance_tangyanika
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_tangyanika_resistance
+	desc = operation_boost_tangyanika_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		OR = {
+			NOT = { country_exists = TAZ }
+			TAZ = { is_subject = yes }
+		}
+		FROM = {
+			controls_state = 790
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = TAZ
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		every_state = {
+			limit = {
+				is_core_of = TAZ
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		every_state = {
+			limit = {
+				is_core_of = TAZ
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_angola_resistance = { #安哥拉
+	icon = GFX_operations_resistance_MPLA
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_angola_resistance
+	desc = operation_boost_angola_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		NOT = { country_exists = ANG }
+		FROM = {
+			controls_state = 790
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = ANG
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		POR = { add_stability = -0.02 }
+		every_state = {
+			limit = {
+				is_core_of = ANG
+				is_controlled_by = POR
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		POR = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = ANG
+				NOT = { is_controlled_by = ANG }
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_mozambique_resistance = { #莫桑比克
+	icon = GFX_operations_resistance_mozambique
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_mozambique_resistance
+	desc = operation_boost_mozambique_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		NOT = { country_exists = MZB }
+		FROM = {
+			controls_state = 825
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = MZB
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		POR = { add_stability = -0.02 }
+		every_state = {
+			limit = {
+				is_core_of = MZB
+				is_controlled_by = POR
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		POR = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = MZB
+				NOT = { is_controlled_by = MZB }
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_namibia_resistance = { #纳米比亚
+	icon = GFX_operations_resistance_namibia
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_namibia_resistance
+	desc = operation_boost_namibia_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		NOT = { country_exists = NAM }
+		FROM = {
+			controls_state = 1065
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = NAM
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		SAF = { add_stability = -0.02 }
+		every_state = {
+			limit = {
+				is_core_of = NAM
+				is_controlled_by = SAF
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		SAF = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = NAM
+				NOT = { is_controlled_by = NAM }
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_kongo_resistance = { #刚果
+	icon = GFX_operations_resistance_kongo
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_kongo_resistance
+	desc = operation_boost_kongo_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		NOT = { country_exists = COG }
+		FROM = {
+			controls_state = 770
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = COG
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		BEL = { add_stability = -0.02 }
+		every_state = {
+			limit = {
+				is_core_of = COG
+				is_controlled_by = BEL
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		BEL = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = COG
+				NOT = { is_controlled_by = COG }
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_zimbabwe_resistance = { #津巴布韦
+	icon = GFX_operations_resistance_zimbabwe_communism
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_zimbabwe_resistance
+	desc = operation_boost_zimbabwe_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		NOT = { country_exists = ZIM }
+		FROM = {
+			controls_state = 770
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = SOV_Support_Africa_revolt
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = ZIM
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		RHO = { add_stability = -0.02 }
+		every_state = {
+			limit = {
+				is_core_of = ZIM
+				is_controlled_by = RHO
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		RHO = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = ZIM
+				NOT = { is_controlled_by = ZIM }
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_mainland_resistance = { ###大陆反共
+	icon = GFX_operations_resistance_kmt
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_mainland_resistance
+	desc = operation_boost_mainland_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		PRC = { controls_state = 595 }
+		FROM = {
+			tag = PRC
+		}
+		ROOT = {
+			tag = CHI
+			controls_state = 524
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = PRC
+		OR = {
+			has_state_flag = east_china_states
+		}
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		PRC = { add_stability = -0.01 }
+		random_state = {
+			limit = {
+				is_controlled_by = PRC
+				has_state_flag = east_china_states
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_controlled_by = PRC
+				has_state_flag = east_china_states
+			}
+			add_resistance = 6
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		PRC = { add_stability = -0.03 }
+		random_state = {
+			limit = {
+				is_controlled_by = PRC
+				has_state_flag = east_china_states
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_controlled_by = PRC
+				has_state_flag = east_china_states
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_controlled_by = PRC
+				has_state_flag = east_china_states
+			}
+			add_resistance = 6
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.06
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+
+operation_boost_algerian_resistance = { ###阿尔及利亚
+	icon = GFX_operations_coup_government
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_algerian_resistance
+	desc = operation_boost_algerian_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		NOT = { country_exists = ALG }
+		FROM = {
+			controls_state = 461
+			controls_state = 462
+			controls_state = 459
+			controls_state = 513
+			controls_state = 460
+			controls_state = 458
+			controls_state = 665
+		}
+		is_neighbor_of = FROM
+	}
+	available = { 
+		
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		OR = {
+			is_core_of = ALG
+		}
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 50
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		every_state = {
+			limit = {
+				is_core_of = ALG
+				NOT = { is_controlled_by = ALG }
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = { # SCOPE_OPERATION
+		
+		every_state = {
+			limit = {
+				is_core_of = ALG
+				NOT = { is_controlled_by = ALG }
+			}
+			add_resistance = 30
+		}
+	}
+	
+	# This is where all the separate phases are defined
+	# Each phase for an operation may have a single actual phase assigned to it, which is determined here
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		propaganda_secret_published = { base = 33 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+		infiltration_border = { base = 33 }
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_tibetan_resistance = { ### 1/50
+	icon = GFX_operations_resistance_tibet
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_tibetan_resistance
+	desc = operation_boost_tibetan_resistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		NOT = { country_exists = TIB }
+		FROM = {
+			controls_state = 322
+		}
+		ROOT = { has_country_flag = operation_tib_revolt }
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = TIB
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		PRC = { add_stability = -0.02 }
+		every_state = {
+			limit = {
+				is_core_of = TIB
+				is_controlled_by = PRC
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		PRC = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = TIB
+				NOT = { is_controlled_by = TIB }
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+
+
+operation_boost_metsavennad_resistance = { ### 1/50
+	icon = GFX_operations_resistance_latvia
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_metsavennad_resistance
+	desc = operation_boost_metsavennad_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		NOT = { country_exists = BLR }
+		FROM = {
+			controls_state = 193
+		}
+		ROOT = { has_completed_focus = us_support_bandera }
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		OR = {
+			is_core_of = LIT
+			is_core_of = LAT
+			is_core_of = EST
+		}
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 1
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		SOV = { add_stability = -0.02 }
+		random_state = {
+			limit = {
+				OR = {
+					is_core_of = LIT
+					is_core_of = LAT
+					is_core_of = EST
+				}
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				OR = {
+					is_core_of = LIT
+					is_core_of = LAT
+					is_core_of = EST
+				}
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				OR = {
+					is_core_of = LIT
+					is_core_of = LAT
+					is_core_of = EST
+				}
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		SOV = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = LIT
+					is_core_of = LAT
+					is_core_of = EST
+				}
+				is_controlled_by = SOV
+			}
+			add_resistance = 12
+		}
+	}
+	
+	# This is where all the separate phases are defined
+	# Each phase for an operation may have a single actual phase assigned to it, which is determined here
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+
+operation_boost_belarus_vitushka_resistance = { ###白俄叛军
+	icon = GFX_operations_resistance_belarus
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_belarus_vitushka_resistance
+	desc = operation_boost_belarus_vitushka_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		NOT = { country_exists = BLR }
+		FROM = {
+			controls_state = 193
+		}
+		ROOT = { has_completed_focus = us_support_bandera }
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = BLR
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 1
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		SOV = { add_stability = -0.02 }
+		random_state = {
+			limit = {
+				is_core_of = BLR
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_core_of = BLR
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_core_of = BLR
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		SOV = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = BLR
+				is_controlled_by = SOV
+			}
+			add_resistance = 12
+		}
+	}
+	
+	# This is where all the separate phases are defined
+	# Each phase for an operation may have a single actual phase assigned to it, which is determined here
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_ukraine_bandera_resistance = { ### 1/50
+	icon = GFX_operations_resistance_ukraine
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_ukraine_bandera_resistance
+	desc = operation_boost_ukraine_bandera_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		NOT = { country_exists = UKR }
+		FROM = {
+			controls_state = 193
+		}
+		ROOT = { has_completed_focus = us_support_bandera }
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = UKR
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 1
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		SOV = { add_stability = -0.02 }
+		random_state = {
+			limit = {
+				is_core_of = UKR
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_core_of = UKR
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+		random_state = {
+			limit = {
+				is_core_of = UKR
+				is_controlled_by = SOV
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		SOV = { add_stability = -0.03 }
+		every_state = {
+			limit = {
+				is_core_of = UKR
+				is_controlled_by = SOV
+			}
+			add_resistance = 12
+		}
+	}
+	
+	# This is where all the separate phases are defined
+	# Each phase for an operation may have a single actual phase assigned to it, which is determined here
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}

@@ -1,0 +1,48 @@
+
+state={
+	id=779
+	name="STATE_779"
+	manpower = 1152000
+	
+	state_category = town
+	
+	resources={
+		tungsten=8
+	}
+
+
+	history={
+		add_to_array = { this.state_ethnics_list = 18 }
+		set_state_flag = ethnics_Vietnamese
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = FRA
+		add_core_of = VIN
+		1954.8.23 = {
+			owner = VIN
+		}
+		buildings = {
+			farm_building = 2
+			infrastructure = 2
+			industrial_complex = 1
+			1302 = {
+				bunker = 5	
+			}
+		}
+		
+		victory_points = {
+			7280 2
+		}
+		victory_points = {
+			4397 3
+		}
+		victory_points = {
+			1302 5 
+		}
+
+	}
+
+	provinces={
+		10016 9988 4397 12297 7280 1302 
+	}
+}

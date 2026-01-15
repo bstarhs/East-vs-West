@@ -1,0 +1,305 @@
+ideas = {
+
+	country = {
+		CZE_Benes_order = {
+			picture = CZE_Benes_order
+			allowed = {
+				original_tag = CZE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.02
+				stability_factor = 0.05
+			}
+		}
+		CZE_unificate_gov = {
+			picture = CZE_unificate_gov
+			allowed = {
+				original_tag = CZE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.12
+				stability_factor = 0.12
+				drift_defence_factor = -0.04
+				communism_drift = 0.01
+			}
+		}
+		CZE_strike_crisis = {
+			picture = communism_resistance
+			allowed = {
+				original_tag = CZE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				political_power_gain = -0.22
+				stability_factor = -0.25
+				drift_defence_factor = -0.12
+				communism_drift = 0.02
+				political_power_cost = 0.2
+				custom_modifier_tooltip = influence_limit_300
+			}
+		}
+		velvet = {
+			removal_cost = -1
+			allowed = {
+				always = no
+				tag = CZE
+			}
+			removal_cost = -1
+			picture = generic_pp_unity_bonus
+			modifier = {
+				democratic_drift = 0.05
+				drift_defence_factor = -0.01
+				stability_weekly = -0.05
+			}
+		}
+	
+	}
+
+	political_advisor = {
+
+		CZE_vojtech_tuka = {
+
+			picture = generic_political_advisor_europe_1
+
+			allowed = {
+				original_tag = CZE
+			}
+			
+			traits = { prince_of_terror }
+		}
+
+		CZE_ferdinand_catlos = {
+
+			picture = generic_army_europe_2
+				
+			allowed = {
+				original_tag = CZE
+			}
+			
+			traits = { quartermaster_general }
+		}
+
+		CZE_jozef_tiso = {
+
+			picture = generic_political_advisor_europe_3
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			traits = { backroom_backstabber }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		CZE_gustav_husak = {
+
+			picture = generic_political_advisor_europe_2
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			traits = { communist_revolutionary }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	
+	# TECHNOLOGY
+	industrial_concern = {
+		designer = yes
+
+		CZE_ckd = {
+			
+			picture = CKD
+
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { fast_tank_manufacturer }
+			
+			equipment_bonus = {
+				# made light/medium tanks panzerkampfwagen 38
+			}
+		}
+
+		CZE_tatra = {
+			
+			picture = tatra
+
+			
+			allowed = {
+				original_tag = CZE
+			}
+			visible = {
+				has_tech = auto_industry
+			}
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { medium_tank_manufacturer auto_manufacturer }
+			
+			equipment_bonus = {
+			}
+		}
+
+		CZE_skoda_armor = {
+			
+			picture = skoda
+
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				armor = 0.10
+			}
+			
+			traits = { heavy_tank_manufacturer }
+			
+			equipment_bonus = {
+			}
+		}
+		CZE_skoda_shipyards = {
+			picture = skoda
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.10
+			}
+			
+			equipment_bonus = {
+				
+			}
+			
+			traits = { coastal_defence_naval_manufacturer }
+			
+		}
+		CZE_ckd_praga = {
+			picture = CKD
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			
+			traits = { naval_aircraft_manufacturer }
+			
+			# fighter aircraft B-534, versitile and high performing in manuverability and speed
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		CZE_zbrojovka_brno = {
+			
+			picture = zbrojovka_brno
+
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.10
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		CZE_skoda_artillery = {
+			picture = skoda
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			equipment_bonus = {
+
+			}
+		}
+		
+		CZE_praga = {
+			
+			picture = praga
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+		CZE_elektra = {
+			
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				electronics = 0.10
+			}
+			
+			traits = { electronics_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		CZE_skoda_works_2 = {
+			picture = skoda
+			allowed = {
+				original_tag = CZE
+			}
+			
+			research_bonus = {
+				industry = 0.10
+				
+			}
+			
+			traits = { industrial_concern }
+		}	
+	}
+}

@@ -1,0 +1,43 @@
+
+state={
+	id=462
+	name="STATE_462"
+	manpower = 1865552
+	
+	state_category = town
+
+	resources={
+		phosphate=52
+		copper=21
+	}
+	history={
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		set_state_flag = ethnics_Maghreb
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_to_array = { this.state_ethnics_list = 22 }
+		add_dynamic_modifier = { modifier = fish_production }
+		owner = MOR
+		buildings = {
+			1102 = {
+				naval_base = 2
+			}
+			infrastructure = 1
+			hospital = 1
+			oilfield = 1
+		}
+		add_core_of = MOR
+		victory_points = {
+			1207 4
+		}
+		victory_points = {
+			1102 4
+		}
+		victory_points = {
+			10707 2
+		}
+	}
+
+	provinces={
+		1102 1152 1207 1989 4022 4108 4154 4933 5046 7203 7908 7958 8046 10107 
+	}
+}

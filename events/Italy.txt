@@ -1,0 +1,1201 @@
+﻿add_namespace = ita
+#美国空军飞过第里雅斯特
+news_event = {
+	id = ita.1
+	title = ita.1.t
+	desc = ita.1.d
+	major = yes
+	picture = GFX_TriesteAirCrash
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+			tag = YUG
+			NOT = { has_global_flag = TriesteIncident }
+			TRE = { controls_state = 736 }
+			date < 1948.1.1
+	}
+	option = {
+		name = ita.1.a
+		set_global_flag = TriesteIncident
+		if = {
+			limit = { tag = YUG }
+			add_named_threat = { threat = 4 name = TriesteIncident }
+		}
+	}
+}
+#1948大选
+news_event = {
+	id = ita.3
+	title = ita.3.t
+	desc = ita.3.d
+	picture = GFX_ItalianElection1948
+	fire_only_once = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+			tag = ITA
+			has_government = democratic
+			date > 1948.3.23
+			date < 1949.1.23
+	}
+	option = {
+		name = ita.3.a
+		ai_chance = {
+			factor = 70
+		}
+		create_country_leader = {
+			name = "Alcide De Gasperi"
+			picture = "gfx/leaders/ITA/Portrait_Italy_Alcide_De_Gasperi.tga"
+			expire = "1988.1.1"
+			ideology = conservatism
+			traits = {
+			
+			}
+		}
+		add_stability = 0.3
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.08
+		}
+		news_event = { id = ita.6 }
+		set_country_flag = ITA_Gasperi
+	}
+	option = {	#反对
+		name = ita.3.b
+		ai_chance = {
+			factor = 30	
+			modifier = {
+				add = -10
+				YUG = { has_idea = SovietChinaConflit }
+			}
+			modifier = {
+				add = 20
+				YUG = { has_country_flag = YugCancelIndep }
+			}
+			modifier = {
+				add = 30
+				SOV = { has_completed_focus = SOV_InfiltrationInItaly }
+			}
+		}
+		set_politics = { ruling_party = communism }
+		create_country_leader = {
+			name = "Palmiro Togliatti"
+			picture = "gfx/leaders/ITA/Portrait_Italy_Togliatti.tga"
+			expire = "1988.1.1"
+			ideology = marxism
+			traits = {
+			pro_soviet communist_revolutionary
+			}
+		}
+		
+		complete_national_focus = common_26
+		add_popularity = {
+			ideology = communism
+			popularity = 0.12
+		}
+		add_stability = 0.12
+		set_country_flag = ITA_Togliatti
+		news_event = { id = ita.30 }
+	}
+}
+#左派动乱
+country_event = {
+	id = ita.4
+	title = ita.4.t
+	desc = ita.4.d
+	picture = GFX_ItalianElection1948
+	fire_only_once = yes
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Gasperi
+			communism > 0.3
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.12
+		}
+		add_stability = 0.2
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		add_stability = -0.3
+		add_ideas = {
+			Red_Brigade
+		}
+	}
+}
+#右派动乱
+country_event = {
+	id = ita.5
+	title = ita.5.t
+	desc = ita.5.d
+	picture = GFX_ItalianElection1948
+	fire_only_once = yes
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Togliatti
+			communism < 0.5
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.12
+		}
+		add_stability = 0.2
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		add_stability = -0.3
+	}
+}
+news_event = {
+	id = ita.6
+	title = ita.6.t
+	desc = ita.6.d
+	picture = GFX_ItalianElection1948
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+	}
+}
+#准备干涉
+news_event = {
+	id = ita.9
+	title = ita.9.t
+	desc = ita.9.d
+	picture = GFX_togliati
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+			OR = {
+				tag = USA
+				tag = ENG
+				tag = FRA
+				tag = SPR
+				tag = POR
+			}
+			ITA = { has_government = communism }
+			NOT = { has_country_flag = WarningItalyCOmmunist }
+	}
+	option = {
+		name = cze.20.b2
+		news_event = { id = ita.10 }
+		set_country_flag = WarningItalyCOmmunist
+	}
+}
+news_event = {
+	id = ita.10
+	title = ita.10.t
+	desc = ita.10.d
+	picture = GFX_ItalianElection1948
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = ITA }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+	}
+}
+news_event = {
+	id = ita.11
+	title = ita.11.t
+	desc = ita.11.d
+	picture = GFX_ItalianElection1948
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = {
+				tag = FROM
+				NOT = { tag = USA }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+	}
+}
+#左派动乱
+country_event = {
+	id = ita.12
+	title = ita.12.t
+	desc = ita.12.d
+	picture = GFX_rebels1950s
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Gasperi
+			communism > 0.25
+			NOT = { has_government = communism }
+			OR = {
+				has_stability < 0.6
+				SOV = { has_completed_focus = SOV_InfiltrationInItaly }
+			}
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		add_stability = -0.12
+		random_owned_state = { add_resistance = 15 }
+	}
+}
+#右派动乱
+country_event = {
+	id = ita.13
+	title = ita.13.t
+	desc = ita.13.d
+	picture = GFX_rebels1950s
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Togliatti
+			has_government = communism
+			OR = {
+				communism < 0.6
+				has_stability < 0.6
+				USA = { has_completed_focus = operation_gladid }
+				has_global_flag = ItaInvadeVatican
+			}
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+		add_stability = -0.12
+		random_owned_state = { add_resistance = 15 }
+	}
+}
+#解放军成立
+country_event = {
+	id = ita.14
+	title = ita.14.t
+	desc = ita.14.d
+	picture = GFX_ItalyRebels
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Gasperi
+			communism > 0.3
+			NOT = { has_government = communism }
+			OR = {
+				has_stability < 0.5
+				SOV = { has_completed_focus = SOV_InfiltrationInItaly }
+			}
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+			add_stability = -0.2
+		}
+		159 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		160 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		161 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+}
+#救国军成立
+country_event = {
+	id = ita.15
+	title = ita.15.t
+	desc = ita.15.d
+	picture = GFX_ItalyRebels
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Togliatti
+			has_government = communism
+			OR = {
+				has_global_flag = ItaInvadeVatican
+				communism < 0.5
+				has_stability < 0.5
+				USA = { has_completed_focus = operation_gladid }
+			}
+			117 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.-12
+			}
+			add_stability = -0.2
+			create_country_leader = {
+				name = "Pietro Badoglio"
+				picture = "gfx/leaders/ITA/Portrait_Italy_Pietro_Badoglio.tga"
+				expire = "1988.1.1"
+				ideology = despotism
+				traits = {
+				}
+			}
+		}
+		117 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		115 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		156 = { add_dynamic_modifier = { modifier = more_rebel_modifiers } }
+	}
+}
+#意大利内战
+news_event = {
+	id = ita.16
+	title = ita.16.t
+	desc = ita.16.d
+	picture = GFX_ItalyWar
+	major = yes
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+			tag = ITA
+			has_country_flag = ITA_Gasperi
+			communism > 0.4
+			has_war = no
+			NOT = { has_government = communism }
+			OR = {
+				has_stability < 0.3
+				any_owned_state = { resistance > 80 }
+			}
+	}
+	option = {	#昂纳克
+		name = ita.16.a
+		if = {
+			limit = { tag = ITA }
+		set_global_flag = ItalyCivilWar
+			play_song = ITA_9
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			start_civil_war = {
+				ideology = communism
+				capital = 160
+				size = 0.3
+				states = { 159 160 161 39 }
+				keep_unit_leaders = {
+					159 160 161 39
+				}
+				keep_political_leader = yes
+				keep_political_party_members = yes
+			}
+		}
+	}
+}
+#意大利内战
+news_event = {
+	id = ita.17
+	title = ita.17.t
+	desc = ita.17.d
+	picture = GFX_ItalyWar
+	mean_time_to_happen = {
+		days = 40
+	}
+		major = yes
+	trigger = {
+		tag = ITA
+		has_country_flag = ITA_Togliatti
+		communism < 0.6
+		has_war = no
+		has_government = communism
+		OR = {
+			has_stability < 0.4
+			communism < 0.4
+			any_owned_state = { resistance > 80 }
+		}
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		set_global_flag = ItalyCivilWar
+		if = {
+			limit = { tag = ITA }
+			play_song = ITA_6
+			every_owned_state = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			start_civil_war = {
+				ideology = neutrality
+				capital = 117
+				size = 0.3
+				states = { 117 156 115 114 }
+			}
+		}
+	}
+}
+news_event = {   #威尼斯暴动
+	id = ita.18
+	title = ita.18.t
+	desc = ita.18.d
+	picture = GFX_ItalyWar
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		controls_state = 160
+		has_global_flag = ItalyCivilWar
+		NOT = { country_exists = VNT }
+		has_civil_war = yes
+		OR = {
+			has_war_support < 0.6
+			has_stability < 0.5
+		}
+		160 = { NOT = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+	}
+	option = {
+		name = rocc.3.a
+		if = {
+			limit = { controls_state = 160 }
+			add_stability = -0.05
+			add_war_support = -0.2
+			160 = {
+				add_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = 20
+			}
+		}
+	}
+}
+news_event = {   #威尼斯独立
+	id = ita.19
+	title = ita.19.t
+	desc = ita.19.d
+	picture = GFX_ItalyWar
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		controls_state = 160
+		has_global_flag = ItalyCivilWar
+		NOT = { country_exists = VNT }
+		has_civil_war = yes
+		160 = {
+			resistance > 50
+			has_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		OR = {
+			160 = { resistance > 80 }
+			has_war_support < 0.3
+			has_stability < 0.3
+		}
+	}
+	option = {
+		name = rocc.3.a
+		if = {
+			limit = { controls_state = 160 }
+			VNT = { transfer_state = 160 }
+			160 = {
+				remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+				add_resistance = -40
+			}
+		}
+	}
+}
+news_event = {
+	id = ita.30
+	title = ita.30.t
+	desc = ita.30.d
+	picture = GFX_togliati
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		play_song = ITA_1
+	}
+	option = {
+		name = cze.20.b2
+		if = {
+			limit = { tag = SOV }
+			complete_national_focus = SOV_InfiltrationInItaly
+			add_political_power = 180
+		}
+		
+	}
+}
+#南北分治
+news_event = {
+	id = ita.31
+	title = ita.31.t
+	desc = ita.31.d
+	picture = GFX_ItalyWar
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = ita.31.a
+		if = {
+			limit = {
+				has_government = communism
+				owns_state = 159
+			}
+			LOM = {
+				transfer_state = 159
+				transfer_state = 158
+				transfer_state = 161
+				transfer_state = 160
+				transfer_state = 39
+				set_capital = { state = 159 }
+				change_tag_from = ROOT
+			}
+			set_capital = { state = 159 }
+			every_state = {
+				limit = { is_core_of = ITA }
+				add_core_of = LOM
+			}
+			LOM = {
+				set_politics = { ruling_party = communism }
+				create_country_leader = {
+					name = "Palmiro Togliatti"
+					picture = "gfx/leaders/ITA/Portrait_Italy_Togliatti.tga"
+					expire = "1988.1.1"
+					ideology = marxism
+					traits = {
+						pro_soviet communist_revolutionary
+					}
+				}
+			}
+			play_song = ITA_2
+		}
+		if = {
+			limit = { tag = ITA }
+			set_capital = { state = 117 }
+			white_peace = LOM
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+		}
+		if = {
+			limit = { tag = YUG }
+			add_stability = 0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		if = {
+			limit = { tag = FRA }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		if = {
+			limit = { tag = SPR }
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+	}
+}
+news_event = {
+	id = ita.35
+	title = ita.35.t
+	desc = ita.35.d
+	picture = GFX_VittorioEmanueleDeath
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1947.12.1
+		date < 1948.5.1
+		NOT = { has_global_flag = VittorioEmanueleDeath }
+		tag = ITA
+	}
+	option = {
+		name = den.1.a
+		set_global_flag = VittorioEmanueleDeath
+		if = {
+			limit = { tag = ITA }
+			add_popularity = {
+				ideology = monarchism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+
+}
+#对意大利和约
+news_event = {
+	id = ita.36
+	title = ita.36.t
+	desc = ita.36.d
+	picture = GFX_ElyseTreaty
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+			tag = ITA
+			has_idea = ITA_punishment
+			date > 1947.3.1
+			date < 1947.12.1
+	}
+	option = {	#昂纳克
+		name = ita.4.a
+		if = {
+			limit = { tag = ITA }
+			remove_ideas = ITA_punishment
+			add_ideas = ITA_Peace_treaty
+			add_stability = 0.12
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.02
+			}
+			
+		}
+	}
+}
+news_event = {   #夺取的里雅斯特的建议
+	id = ita.75
+	title = ita.75.t
+	desc = ita.75.d
+	picture = GFX_ItalyWar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		controls_state = 160
+		has_global_flag = ItalyCivilWar
+		country_exists = TRE
+		has_civil_war = yes
+		has_war_support > 0.3
+	}
+	option = {
+		name = rocc.3.a
+		declare_war_on = { target = TRE type = annex_everything  }
+	}
+	option = {
+		name = rocc.3.a
+	}
+}
+#意大利解放军攻击的里雅斯特
+news_event = {
+	id = ita.76
+	title = ita.76.t
+	desc = ita.76.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ItalyWar
+	option = {
+		name = tib.9.b
+	}
+}
+news_event = {   #南斯拉夫夺取的里雅斯特的建议
+	id = ita.77
+	title = ita.77.t
+	desc = ita.77.d
+	picture = GFX_ItalyWar
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		tag = YUG
+		TRE = { has_war = yes }
+		any_country = {
+			controls_state = 160
+			NOT = { controls_province = 6626 }
+			has_war_with = TRE
+		}
+	}
+	option = {
+		name = rocc.3.a
+		declare_war_on = { target = TRE type = annex_everything  }
+	}
+	option = {
+		name = rocc.3.a
+	}
+}
+#意大利解放军攻击的里雅斯特
+news_event = {
+	id = ita.78
+	title = ita.78.t
+	desc = ita.78.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_ItalyWar
+	option = {
+		name = tib.9.b
+	}
+}
+news_event = {   #意大利军队攻占的里雅斯特
+	id = ita.79
+	title = ita.79.t
+	desc = ita.79.d
+	picture = GFX_ItalyWar
+	mean_time_to_happen = {
+		days = 2
+	}
+	major = yes
+	trigger = {
+		controls_state = 160
+		controls_province = 6626
+		has_war_with = TRE
+	}
+	option = {
+		name = rocc.3.a
+		if = {
+			limit = { controls_state = 160 }
+			add_stability = 0.3
+			add_war_support = 0.3
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+			annex_country = { target = TRE transfer_troops = yes }
+			every_country = {
+				limit = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+				white_peace = FROM
+			}
+		}
+	}
+}
+
+news_event = {   #解放上海
+	id = ita.80
+	title = ita.80.t
+	desc = ita.80.d
+	picture = GFX_ItalyWar
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		controls_state = 159
+		has_government = communism
+		controls_province = 819
+		has_war = yes
+		NOT = { has_global_flag = liberate_Naples }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = liberate_Naples
+		if = {
+			limit = {
+				has_government = communism
+				controls_state = 159
+				has_war = yes
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+			add_stability = 0.2
+		}
+		if = {
+			limit = {
+				NOT = { has_government = communism }
+				controls_state = 115
+				has_war_with = ITA
+			}
+			set_capital = { state = 115 }
+		}
+	}
+}
+news_event = {   #解放上海
+	id = ita.81
+	title = ita.81.t
+	desc = ita.81.d
+	picture = GFX_ItalyWar
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		controls_state = 159
+		has_government = communism
+		controls_province = 12066
+		has_war = yes
+		NOT = { has_global_flag = liberate_Italy }
+		
+	}
+	option = {
+		name = chinawar.3.a
+		set_global_flag = liberate_Italy
+		if = {
+			limit = {
+				NOT = { has_government = communism }
+				controls_state = 114
+				has_war_with = ITA
+			}
+			add_victory_points = {
+				province = 11773
+				value = 5
+			}
+			set_capital = { state = 114 }
+		}
+		if = {
+			limit = {
+				has_government = communism
+				controls_state = 159
+				has_war = yes
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+			add_stability = 0.2
+		}
+	}
+}
+news_event = {   #撤退撒丁岛
+	id = ita.82
+	title = ita.82.t
+	desc = ita.82.d
+	picture = GFX_ItalyWar
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		controls_state = 159
+		controls_state = 115
+		has_global_flag = ItalyCivilWar
+		NOT = { country_exists = SDN }
+		has_war_with = NAP
+	}
+	option = {
+		name = rocc.3.a
+		if = {
+			limit = {
+				NOT = { has_government = communism }
+				controls_state = 114
+				has_war_with = ITA
+			}
+			SDN = {
+				transfer_state = 114
+				annex_country = { target = NAP transfer_troops = yes }
+				set_capital = { state = 114 }
+				change_tag_from = NAP
+				set_cosmetic_tag = ITA
+			}
+			every_state = {
+				limit = { is_core_of = ITA }
+				add_core_of = SDN
+				remove_core_of = NAP
+				
+			}
+			ITA = {
+				white_peace = SDN
+				add_stability = 0.4
+				transfer_state = 117
+				transfer_state = 156
+				transfer_state = 115
+			}
+			play_song = CHI_21
+		}
+	}
+}
+news_event = {   #意大利军队攻占的里雅斯特
+	id = ita.90
+	title = ita.90.t
+	desc = ita.90.d
+	picture = GFX_ItalyWar
+	mean_time_to_happen = {
+		days = 10
+	}
+	major = yes
+	trigger = {
+		controls_state = 117
+		NOT = { controls_province = 9904 }
+		NOT = { country_exists = NAP }
+		NOT = { has_government = communism }
+		has_war_with = ITA
+	}
+	option = {
+		if = {
+			limit = {
+				NOT = { has_government = communism }
+				owns_state = 117
+				has_war_with = ITA
+			}
+			NAP = {
+				transfer_state = 117
+				annex_country = { target = FROM transfer_troops = yes }
+				set_capital = { state = 117 }
+				change_tag_from = ROOT
+				declare_war_on = { target = ITA type = annex_everything }
+			}
+			every_state = {
+				limit = { is_core_of = ITA }
+				add_core_of = NAP
+			}
+			NAP = {
+				set_politics = { ruling_party = neutrality }
+				set_cosmetic_tag = ITA
+				declare_war_on = { target = ITA type = annex_everything }
+			}
+		}
+	}
+}
+news_event = {
+	id = ita.100
+	title = ita.100.t
+	desc = ita.100.d
+	picture = GFX_PiusXII
+	mean_time_to_happen = { days = 7 }
+	major = yes
+	trigger = {
+		tag = VAT
+		date > 1958.10.1
+		date < 1958.11.1
+		NOT = { has_global_flag = ita100 }
+	}
+	option = {
+		name = usatext.273.a
+		set_global_flag = ita100
+		if = {
+			limit = { tag = VAT }
+			news_event = { id = ita.100 days = 2 }
+		}
+	}
+}
+news_event = {
+	id = ita.101
+	title = ita.101.t
+	desc = ita.101.d
+	picture = GFX_JohnXXIII
+	is_triggered_only = yes
+	major = yes
+	option = {	
+		name = space.11.a
+		if = {
+			limit = { tag = VAT }
+			news_event = { id = ita.100 days = 2 }
+	create_country_leader = {
+		name = "John XXIII"
+		
+		picture = "gfx/leaders/VAT/Portrait_Vatican_John_XXIII.tga"
+		expire = "1988.1.1"
+		ideology = monarchism
+		
+		traits = {
+			 tratidional_trait religion_leader 
+		}
+	}
+		}
+	}
+}
+news_event = {
+	id = ita.105
+	title = ita.105.t
+	desc = ita.105.d
+	picture = GFX_EtnaVolcanoEruption
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = ITA
+		date > 1955.4.1
+		date < 1955.6.1
+		NOT = { has_global_flag = ita101 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita101 
+		if = {
+			limit = { tag = ITA }
+			add_political_power = -80
+		}
+	}
+}
+news_event = {
+	id = ita.110
+	title = ita.110.t
+	desc = ita.110.d
+	picture = GFX_HelsinkiOlympic
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = FIN
+		date > 1952.10.1
+		date < 1952.12.1
+		ITA = { has_government = democratic }
+		NOT = { has_global_flag = ita110 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita110
+	}
+}
+news_event = {
+	id = ita.111
+	title = ita.111.t
+	desc = ita.111.d
+	picture = GFX_1960RomaOlympicPoster
+	mean_time_to_happen = { days = 7 }
+	trigger = {
+		tag = ITA
+		date > 1952.10.1
+		date < 1952.12.1
+		has_government = democratic
+		has_global_flag = ita110
+		NOT = { has_global_flag = ita111 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita111
+	}
+}
+news_event = {
+	id = ita.112
+	title = ita.112.t
+	desc = ita.112.d
+	picture = GFX_1960RomaOlympicOpenning
+	mean_time_to_happen = { days = 3 }
+	trigger = {
+		tag = ITA
+		date > 1960.8.1
+		date < 1960.10.1
+		has_government = democratic
+		NOT = { has_global_flag = ita112 }
+	}
+	immediate = {
+		play_song = ITA_1
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita112
+	}
+}
+news_event = {
+	id = ita.113
+	title = ita.113.t
+	desc = ita.113.d
+	picture = GFX_KnudJensen
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = ITA
+		date > 1960.8.1
+		date < 1960.10.1
+		has_government = democratic
+		has_global_flag = ita112
+		NOT = { has_global_flag = ita113 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita113
+	}
+}
+news_event = {
+	id = ita.114
+	title = ita.114.t
+	desc = ita.114.d
+	picture = GFX_YangChuanKwang
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = CHI
+		date > 1960.8.1
+		date < 1960.10.1
+		has_government = neutrality
+		has_global_flag = ita113
+		NOT = { has_global_flag = ita114 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita114
+	}
+}
+news_event = {
+	id = ita.115
+	title = ita.115.t
+	desc = ita.115.d
+	picture = GFX_KonstantineOlympic
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = GRE
+		date > 1960.8.1
+		date < 1960.10.1
+		has_government = monarchism
+		has_global_flag = ita114
+		NOT = { has_global_flag = ita115 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita115
+	}
+}
+news_event = {
+	id = ita.116
+	title = ita.116.t
+	desc = ita.116.d
+	picture = GFX_1960RomaOlympicOpenning
+	mean_time_to_happen = { days = 2 }
+	trigger = {
+		tag = GRE
+		date > 1960.8.1
+		date < 1960.11.1
+		has_government = monarchism
+		has_global_flag = ita115
+		NOT = { has_global_flag = ita116 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita116
+	}
+}
+news_event = {
+	id = ita.117
+	title = ita.117.t
+	desc = ita.117.d
+	picture = GFX_TriesteSubmarine
+	mean_time_to_happen = { days = 9 }
+	trigger = {
+		tag = ITA
+		date > 1960.1.1
+		date < 1960.2.1
+		has_government = democratic
+		NOT = { has_global_flag = ita117 }
+	}
+	major = yes
+	option = {	
+		name = space.11.a
+		set_global_flag = ita117
+	}
+}

@@ -1,0 +1,39 @@
+political_actions = {
+	
+	SML_Ogaden_War = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = SML
+		}
+
+		cost = 80
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+			add = 100 
+			date > 1977.6.1
+			date < 1978.6.1 
+			}
+		}
+		
+		fire_only_once = yes
+		visible = {
+			has_war = no
+			has_government = neutrality
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = ETH
+				type = take_state_focus
+				generator = { 791 }
+			}
+		}
+
+	
+	}
+	
+}

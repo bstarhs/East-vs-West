@@ -1,0 +1,221 @@
+﻿division_template = {
+	name = "Infantry Division"	
+	division_names_group = TUR_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Armored Division" 	
+	division_names_group = TUR_ARM_01	
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mot_recon = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	#1st Army Ankara
+	division= {	
+		name = "3rd Division"
+		location = 11747
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "4th Division"
+		location = 947
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "5th Division"
+		location = 4112
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	#3rd Army Antalya
+	division= {	
+		name = "11th Division"
+		location = 1005
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "14th Division"
+		location = 4112
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "15th Division"
+		location = 947
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	#4th Army Istanbul
+	division= {	
+		name = "16th Division"
+		location = 9833
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "17th Division"
+		location = 9833
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "18th Division"
+		location = 9833
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "19th Division"
+		location = 9833
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "26th Division"
+		location = 9833
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "9th Division"
+		location = 9932
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "10th Division"
+		location = 9932
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "7th Division"
+		location = 11853
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "8th Division"
+		location = 11853
+		division_template = "Infantry Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "20th Division"
+		location = 11853
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "24th Division"
+		location = 9823
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	division= {	
+		name = "25th Division"
+		location = 9823
+		division_template = "Armored Division"	
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+
+	}
+	##### NAVAL UNITS #####
+	### Türk Donanmasi ###
+	fleet = {
+		name = "Türk Donanmasi"			
+		naval_base = 4112 # Izmir
+		task_force = {				
+			name = "Türk Donanmasi"			
+			location = 4112 # Izmir
+			ship = { name = "TCG Adatepe" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG Kocatepe" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG İstanbul" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG Izmir" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG Izmit" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG Iskenderun" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG Icel" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "TCG Alp-Alslan" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "M-class destroyer" } } }
+			ship = { name = "TCG Mareşal Fevzi Çakmak " definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "M-class destroyer" } } }
+			ship = { name = "TCG Kılıç Ali Paşa" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "M-class destroyer" } } }
+			ship = { name = "TCG Piyale Paşa" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ENG version_name = "M-class destroyer" } } }
+		}						
+	}
+} 
+### Air Wings ###
+air_wings = {
+	##### Türk Hava Kuvvetleri #####
+	341 = { 	# 1. Havacilik Alay -- He 111F bombers
+		fighter_equipment_1 = { owner = "TUR" amount = 30 }			# II/Corlu Havacilik Alay -- Martin 139T (U.S. B-10 Bolo) bombers
+	}
+	346 = { 
+		CAS_equipment_1 = { owner = "TUR"  amount = 32 }			# 2. Havacilik Alay -- Vultee V-11GBT dive bombers
+	}
+	49 = { 
+		fighter_equipment_1 = { owner = "TUR" amount = 60 }			# 4. Havacilik Alay -- Hurricane I, MS.406 fighters
+	}
+	339 = { 
+		fighter_equipment_1 = { owner = "TUR" amount = 30 }			# I/3. Havacilik Alay -- Curtiss F11C Hawk II fighters (technically CAG fighters)
+		CAS_equipment_1 = { owner = "TUR" amount = 32 }				# II/3. Havacilik Alay -- Blenheim I light bombers
+	}
+}

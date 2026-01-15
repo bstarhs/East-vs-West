@@ -1,0 +1,43 @@
+
+state={
+	id=912
+	name="STATE_912" # Antofagasta
+	manpower = 283605
+	
+	state_category = rural
+	resources={
+		iron=6
+		copper = 16
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = wine_production
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		owner = CHL
+		add_to_array = { this.state_ethnics_list = 24 }
+		add_to_array = { this.state_ethnics_list = 31 }
+		set_state_flag = ethnics_Chilenos
+		buildings = {
+			hospital = 1
+			infrastructure = 3
+			industrial_complex = 3
+			air_base = 1
+			5228 = {
+				naval_base = 2
+			}
+		}
+		add_core_of = CHL
+		victory_points = {
+			5228 4
+		}
+
+		victory_points = {
+			11000 4
+		}
+	}
+
+	provinces={
+		12914 5228 5192 11000 
+	}
+}

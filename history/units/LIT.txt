@@ -1,0 +1,94 @@
+﻿division_template = {
+	name = "Pestininku Divizija"			# Infantry Division
+	division_names_group = LIT_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 0 }
+		mechanized = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "KASP"
+	division_names_group = LIT_GAR_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Apsisarvavimas Divizija"
+	division_names_group = LIT_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }			
+		mechanized = { x = 1 y = 0 }	
+		mechanized = { x = 1 y = 1 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+	}
+}
+units = {
+	######## LAND OOB ########
+	##### Lietuva Aukaèiausiosios Vadaviete #####
+	division = { 
+		name = "Geležinis Vilkas Brigada"
+		location = 6296
+		division_template = "Pestininku Divizija"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7
+
+	}
+	division = { 
+		name = "Žemaitija Brigada"
+		location = 6314
+		division_template = "Pestininku Divizija"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7
+
+	}
+	division = { 
+		name = "Aukštaitija Brigada"
+		location = 3320
+		division_template = "Pestininku Divizija"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7
+
+	}
+	division = { 
+		name = "1st KASP"
+		location = 3272
+		division_template = "KASP"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7
+
+	}
+	division = { 
+		name = "2nd KASP"
+		location = 9438
+		division_template = "KASP"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7
+
+	}
+	##### No Naval OOB #####
+}
+air_wings = {
+	11 = { 
+		CAS_equipment_1 = { owner = "SOV" amount = 24 }			
+	}
+}

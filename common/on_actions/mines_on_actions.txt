@@ -1,0 +1,300 @@
+on_actions = {
+	on_weekly = {
+		effect = {
+			every_state = {
+				if = {
+					limit = {
+					has_resources_amount = { resource = coal amount < 1 }
+					check_variable = { state_coal > 0 }
+					}
+					add_resource = { type = coal amount = state_coal }
+				}
+				if = {
+					limit = {
+					has_resources_amount = { resource = iron amount < 1 }
+					check_variable = { state_iron > 0 }
+					}
+					add_resource = { type = iron amount = state_iron }
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = { has_country_flag = coal_input_monthly }
+				clr_country_flag = coal_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = oil_input_monthly }
+				clr_country_flag = oil_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = iron_input_monthly }
+				clr_country_flag = iron_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = fuel_transport_monthly }
+				clr_country_flag = fuel_transport_monthly
+			}
+			if = {
+				limit = { has_country_flag = rubber_input_monthly }
+				clr_country_flag = rubber_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = steel_input_monthly }
+				clr_country_flag = steel_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = aluminium_input_monthly }
+				clr_country_flag = aluminium_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = copper_input_monthly }
+				clr_country_flag = copper_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = food_input_monthly }
+				clr_country_flag = food_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = auto_input_monthly }
+				clr_country_flag = auto_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = textile_input_monthly }
+				clr_country_flag = textile_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = coffee_input_monthly }
+				clr_country_flag = coffee_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = sugar_input_monthly }
+				clr_country_flag = sugar_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = tobacco_input_monthly }
+				clr_country_flag = tobacco_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = cutton_input_monthly }
+				clr_country_flag = cutton_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = salt_input_monthly }
+				clr_country_flag = salt_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = wood_input_monthly }
+				clr_country_flag = wood_input_monthly
+			}
+			if = {
+				limit = { has_country_flag = banana_input_monthly }
+				clr_country_flag = banana_input_monthly
+			}
+		}
+	}
+	##消耗##
+	on_weekly = {
+		effect = {
+			set_variable = { nation_iron_coast = 0 }
+			set_variable = { nation_phosphate_coast = 0 }
+			set_variable = { nation_oil_coast = 0 }
+			set_variable = { nation_coal_coast = 0 }
+			set_variable = { nation_copper_coast = 0 }
+			set_variable = { nation_rubber_coast = 0 }
+			set_variable = { nation_aluminium_coast = 0 }
+			set_variable = { nation_steel_coast = 0 }
+			set_variable = { steelmaking_coal_coast = 0 }
+			set_variable = { synthetic_oil_coast = 0 }
+			set_variable = { rubber_oil_coast = 0 }
+			set_variable = { powerplant_coal_coast = 0 }
+			every_controlled_state = {
+				#民用工厂#
+				#炼油#
+				add_to_variable = { prev.synthetic_oil_coast = this.building_level@synthetic_refinery }
+				#橡胶#
+				add_to_variable = { prev.rubber_oil_coast = this.building_level@rubber_factory }
+				#炼钢#
+				add_to_variable = { prev.steelmaking_coal_coast = this.building_level@steel_making }
+				#发电#
+				add_to_variable = { prev.powerplant_coal_coast = this.building_level@power_plant }
+			}
+			#耗油#
+			add_to_variable = { this.nation_oil_coast = this.oil_output }
+			add_to_variable = { this.nation_oil_coast = this.synthetic_oil_coast }
+			add_to_variable = { this.nation_oil_coast = this.rubber_oil_coast }
+			#橡胶消耗#
+			#炼钢#
+			set_variable = { steel_making_coast = 0 }
+			set_variable = { nation_oil = 0 }
+			##消耗##
+			every_controlled_state = {
+				#钢#
+				add_to_variable = { PREV.steel_making_coast = building_level@steel_making }
+			}
+			#民工消耗#
+			add_to_variable = { this.nation_steel_coast = custom_steel_request }
+			add_to_variable = { this.nation_rubber_coast = custom_rubber_request }
+			add_to_variable = { this.nation_copper_coast = custom_copper_request }
+			add_to_variable = { this.nation_aluminium_coast = custom_aluminium_request }
+			#磷酸盐#
+			if = {
+				limit = {
+					has_tech = dispersed_industry2
+				}
+				every_controlled_state = {
+					#钢#
+					add_to_variable = { PREV.nation_phosphate_coast = building_level@farm_building }
+				}
+				multiply_variable = { nation_phosphate_coast = 0.6 }
+			}
+			#发电耗油#
+				set_variable = { powerplant_oil_coast = 0 }
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = power_general_fuel }
+				}
+				every_controlled_state = {
+					#钢#
+					add_to_variable = { PREV.powerplant_oil_coast = building_level@power_plant }
+				}
+				add_to_variable = { this.total_fuel_cost = this.powerplant_oil_coast }
+			}
+		}
+	}
+	##交通线耗油##
+	on_monthly = {
+		effect = {
+			#耗燃#
+			set_variable = { total_fuel_cost = 0 }
+			set_variable = { industrial_complex_oil_coast = 0 }
+			every_controlled_state = {
+				add_to_variable = { prev.industrial_complex_oil_coast = this.industrial_complex_level }
+			}
+			multiply_variable = { this.transport_fuel_cost = 0.2 }
+			multiply_variable = { this.industrial_complex_oil_coast = 0.4 }
+			add_to_variable = { this.total_fuel_cost = this.industrial_complex_oil_coast }
+			#耗燃#
+			set_variable = { transport_fuel_cost = 0 }
+			every_controlled_state = {
+				add_to_variable = { prev.transport_fuel_cost = this.infrastructure_level }
+			}
+			multiply_variable = { this.transport_fuel_cost = 0.2 }
+			add_to_variable = { this.total_fuel_cost = this.transport_fuel_cost }
+		}
+	}
+	##油田总数##
+	on_weekly = {
+		effect = {
+			set_variable = { total_oilfield = 0 }
+			every_controlled_state = {
+				#民用工厂#
+				add_to_variable = { prev.total_oilfield = this.building_level@oilfield }
+			}
+		}
+	}
+	##炼油厂总数##
+	on_weekly = {
+		effect = {
+			set_variable = { total_synthetic_refinery = 0 }
+			every_controlled_state = {
+				#民用工厂#
+				add_to_variable = { prev.total_synthetic_refinery = this.building_level@synthetic_refinery }
+			}
+		}
+	}
+	##计算总耗油##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { total_fuel_cost > 0 }
+					NOT = { has_dynamic_modifier = { modifier = total_fuel_cost } }
+				}
+				add_dynamic_modifier = { modifier = total_fuel_cost }
+			}
+		}
+	}
+	##原油不足##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { resource@oil > 0 }
+					has_dynamic_modifier = { modifier = oil_crisis }
+				}
+				remove_dynamic_modifier = { modifier = oil_crisis }
+			}
+			if = {
+				limit = {
+					check_variable = { resource@iron > 0 }
+					has_dynamic_modifier = { modifier = iron_lack_modifiers }
+				}
+				remove_dynamic_modifier = { modifier = iron_lack_modifiers }
+			}
+		}
+	}
+	##燃油不足##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { fuel_k < 1 }
+					NOT = { has_dynamic_modifier = { modifier = fuel_crisis } }
+				}
+				add_dynamic_modifier = { modifier = fuel_crisis }
+			}
+			if = {
+				limit = {
+					check_variable = { fuel_k > 1 }
+					has_dynamic_modifier = { modifier = fuel_crisis }
+				}
+				remove_dynamic_modifier = { modifier = fuel_crisis }
+			}
+		}
+	}
+	##科技加成##
+	on_weekly = {
+		effect = {
+			if = {
+				limit = { has_tech = excavation2 }
+				multiply_variable = { nation_coal = 1.2 }
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			every_country = {
+				limit = {
+					has_dynamic_modifier = { modifier = iron_lack_modifiers }#给有动态修正的国家加资源
+					not = {
+						has_country_flag = iron_lack_modifiers
+					}
+				}
+				set_country_flag = iron_lack_modifiers
+				modify_building_resources = {
+					building = steel_making
+					resource = steel
+					amount = -1
+				}
+			}
+			every_country = {
+				limit = {
+					not = { has_dynamic_modifier = { modifier = iron_lack_modifiers } }#没有动态修正的国家减资源
+					has_country_flag = iron_lack_modifiers
+				}
+				clr_country_flag = iron_lack_modifiers
+				modify_building_resources = {
+					building = steel_making
+					resource = steel
+					amount = 1
+				}
+			}
+		
+		}
+	
+	}
+	##硬玉计算##
+}

@@ -1,0 +1,168 @@
+﻿add_namespace = sig
+
+news_event = {
+	id = sig.1
+	title = sig.1.t
+	desc = sig.1.d
+	picture = GFX_SingaporeElection1955
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SIG
+		NOT = { has_global_flag = sig1 }
+		date > 1948.2.1
+		date < 1948.5.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig1
+	}
+}
+news_event = {
+	id = sig.2
+	title = sig.2.t
+	desc = sig.2.d
+	picture = GFX_SingaporeElection1955
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = ENG
+		has_completed_focus = ENG_malaya_emergency
+		NOT = { has_global_flag = sig2 }
+		date > 1953.2.1
+		date < 1954.9.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig2
+		news_event = { id = sig.3 }
+	}
+}
+news_event = {
+	id = sig.3
+	title = sig.3.t
+	desc = sig.3.d
+	picture = GFX_SingaporeElection1955
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = usatext.19.a
+	}
+}
+news_event = {
+	id = sig.4
+	title = sig.4.t
+	desc = sig.4.d
+	picture = GFX_SingaporeElection1955
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SIG
+		has_global_flag = sig2
+		NOT = { has_global_flag = sig4 }
+		date > 1955.2.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig4
+	}
+}
+news_event = {
+	id = sig.5
+	title = sig.5.t
+	desc = sig.5.d
+	picture = GFX_Singapore1954
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SIG
+		has_global_flag = sig4
+		NOT = { has_global_flag = sig5 }
+		date > 1955.2.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig5
+		if = {
+			limit = { tag = SIG }
+			recruit_character = SIG_Lim_YewHock
+			recruit_character = SIG_David_Marshall
+		}
+	}
+}
+news_event = {
+	id = sig.6
+	title = sig.6.t
+	desc = sig.6.d
+	picture = GFX_Singapore1954
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SIG
+		has_global_flag = sig5
+		NOT = { has_global_flag = sig6 }
+		date > 1955.2.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig6
+		if = {
+			limit = { tag = SIG }
+			recruit_character = SIG_Lee_Kwangyeu
+		}
+	}
+}
+news_event = {
+	id = sig.7
+	title = sig.7.t
+	desc = sig.7.d
+	picture = GFX_Singapore1954
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SIG
+		has_global_flag = sig6
+		NOT = { has_global_flag = sig7 }
+		date > 1955.2.1
+		date < 1955.12.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig7
+		if = {
+			limit = { tag = SIG }
+			promote_character = {
+				character = SIG_David_Marshall
+				ideology = liberalism
+			}
+		}
+	}
+}
+news_event = {
+	id = sig.19
+	title = sig.19.t
+	desc = sig.19.d
+	picture = GFX_Singapore1954
+	major = yes
+	mean_time_to_happen = { days = 15 }
+	trigger = {
+		tag = SIG
+		has_global_flag = sig17
+		NOT = { has_global_flag = sig19 }
+		date > 1956.6.1
+		date < 1956.10.2
+	}
+	option = {
+		name = usatext.19.a
+		set_global_flag = sig19
+		if = {
+			limit = { tag = SIG }
+			promote_character = {
+				character = SIG_Lim_YewHock
+				ideology = liberalism
+			}
+		}
+	}
+}

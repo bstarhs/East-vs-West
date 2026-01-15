@@ -1,0 +1,138 @@
+﻿capital = 1006
+
+oob = "KEN"
+set_country_flag = british_colonies
+set_country_flag = african_state
+set_country_flag = east_africa
+# Starting tech
+set_technology = {
+	motorised_infantry = 1
+	machine_gun1 = 1
+		helmet = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	
+	
+	infantry_training = 1
+	basic_militia = 1
+	
+	
+	tech_support = 1		
+	tech_engineers = 1
+	
+	
+	
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_machine_tools = 1
+	construction1 = 1
+	concentrated_industry = 1
+}
+set_country_flag = third_world
+
+set_convoys = 5
+
+1939.1.1 = {
+	activate_decision = create_radio_station
+}
+	set_cosmetic_tag = KEN_ENG
+
+	set_popularities = {
+		democratic = 80
+		authoritarianism = 20
+	}
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+add_ideas = {
+	Shamba
+	biritish_colony
+	partial_economic_mobilisation
+	scraping_the_barrel
+}
+create_country_leader = {
+	name = "British East Africa Governeor"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "gfx/leaders/KEN/Build_Portrait_Kenya_Governor.tga"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		#
+	}
+}
+add_ideas = {
+	african_independent
+}
+1952.1.1 = {
+	set_country_flag = arrest_leader
+}
+1960.1.1 = {
+	clr_country_flag = arrest_leader
+	set_popularities = {
+		democratic = 13
+		communism = 2
+		authoritarianism = 85
+	}
+	set_politics = {
+	ruling_party = authoritarianism
+	}
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+	create_country_leader = {
+		name = "Jomo Kenyatta"
+		picture = "gfx/leaders/KEN/Portrait_Kenya_Jomo_Kenyatta.tga"
+		expire = "1965.1.1"
+		ideology = authoris
+		traits = {
+		african_nationalism
+		}
+	}
+}
+
+1962.1.1 = {
+	remove_ideas = biritish_colony
+	complete_national_focus = common_24
+	complete_national_focus = common_weman_right
+	activate_decision = female_equality
+	add_to_array = { global.UNmember_list = FROM }
+	set_cosmetic_tag = KEN
+	complete_national_focus = Focus_Goverment_reform
+	add_ideas = {
+		UNmember
+	}
+	activate_decision = Establishment_of_National_Museum
+}
+
+1968.1.20 = {
+	complete_national_focus = common_61
+	set_country_flag = gen230
+}
+
+1978.1.20 = {
+	create_country_leader = {
+		name = "Daniel Arap Moi"
+		
+		picture = "gfx/leaders/KEN/Portrait_Kenya_Daniel.tga"
+		expire = "1979.1.1"
+		ideology = authoris
+		
+		traits = {
+		
+		}
+	}
+}
+
+

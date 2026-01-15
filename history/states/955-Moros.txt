@@ -1,0 +1,42 @@
+
+state={
+	id=955
+	name="STATE_955"
+	manpower = 84965
+	
+	state_category = town
+	history={
+		add_dynamic_modifier = { modifier = state_jungle_modifier }
+		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Moros
+		set_state_flag = banana_production
+		add_to_array = { this.state_ethnics_list = 135 }
+		add_to_array = { this.state_ethnics_list = 123 }
+                              
+		owner = PHI
+		buildings = {
+			school = 1
+			hospital = 1
+			infrastructure = 2
+			farm_building = 1
+			10243 = {
+				naval_base = 1
+			}
+		}
+		1955.8.23 = {
+			buildings = {
+				industrial_complex = 1
+			}
+		}
+		victory_points = { 10243 6 }
+		victory_points = { 7417 2 }
+		victory_points = { 7360 2 }
+		add_core_of = PHI
+		add_core_of = MRO
+	}
+
+	provinces={
+		4399 7389 7417 7360 10300 10243 
+	}
+}

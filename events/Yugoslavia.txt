@@ -1,0 +1,1041 @@
+﻿add_namespace = yug
+#铁托上台
+news_event = {
+	id = yug.1
+	title = yug.1.t
+	desc = yug.1.d
+	picture = GFX_Tito
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = YUG
+		date > 1953.1.1
+		date < 1953.12.1
+	}
+	
+	option = {
+		name = yug.6.a
+		YUG = {
+			create_country_leader = {
+				name = "Josip Broz Tito"
+				picture = "gfx/leaders/YUG/Portrait_Yugoslavia_Tito.tga"
+				expire = "1997.1.1"
+				ideology = leninism
+		
+				traits = {
+		
+				}
+			}
+		}
+	set_country_flag = yugoslavia_crisis
+	}
+}
+#独立红色
+news_event = {
+	id = yug.2
+	title = yug.2.t
+	desc = yug.2.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#独立红色
+country_event = {
+	id = yug.3
+	title = yug.3.t
+	desc = yug.3.d
+	picture = GFX_Tito
+	is_triggered_only = yes
+	option = {
+		name = yug.12.a
+		FROM = { country_event = { id = yug.4 } }
+	}
+}
+#来自莫斯科
+country_event = {
+	id = yug.4
+	title = yug.4.t
+	desc = yug.4.d
+	picture = GFX_Tito
+	is_triggered_only = yes
+	option = {
+		name = yug.12.a
+		ai_chance = {
+			factor = 30	
+		}
+		SOV = { country_event = { id = yug.5 } }
+		add_stability = 0.1
+		add_political_power = 200
+	}
+	option = {
+		name = yug.12.a
+		ai_chance = {
+			factor = 10	
+		}
+		set_country_flag = YugCancelIndep
+		news_event = { id = yug.7 }
+		add_stability = -0.1
+		add_political_power = -100
+	}
+}
+#独立红色
+country_event = {
+	id = yug.5
+	title = yug.5.t
+	desc = yug.5.d
+	picture = GFX_Tito
+	is_triggered_only = yes
+	option = {
+		name = yug.12.a
+		FROM = {
+			news_event = { id = yug.6 }
+			add_ideas = SovietChinaConflit
+			add_political_power = -200
+			add_stability = -0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+		}
+	}
+}
+#独立红色
+news_event = {
+	id = yug.6
+	title = yug.6.t
+	desc = yug.6.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#独立取消
+news_event = {
+	id = yug.7
+	title = yug.7.t
+	desc = yug.7.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#铁托去世
+news_event = {
+	id = yug.9
+	title = yug.9.t
+	desc = yug.9.d
+	picture = GFX_TitoDeath
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = YUG
+		date > 1980.1.1
+		date < 1980.12.1
+		NOT = { has_idea = yugoslavia_crisis }
+	}
+	option = {
+		name = yug.9.a
+		if = {
+			limit = { tag = YUG }
+			add_ideas = yugoslavia_crisis
+			kill_country_leader = yes
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			create_country_leader = {
+				name = "Federal Presidium"
+				picture = "gfx/leaders/YUG/Portrait_Yugoslavia_Presidency.tga"
+				expire = "1997.1.1"
+				ideology = leninism
+		
+				traits = {
+		
+				}
+			}
+		}
+	}
+}
+#政治危机
+news_event = {
+	id = yug.10
+	title = yug.10.t
+	desc = yug.10.d
+	picture = GFX_YugoMap
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.10.a
+		if = {
+			limit = { tag = YUG }
+			add_stability = -0.3
+			add_popularity = {
+				ideology = communism
+				popularity = -0.3
+			}
+			release_puppet = CRO
+			release_puppet = SLV
+			CRO = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+			}
+			SLV = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.5
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+			}
+		}
+	}
+}
+#克罗地亚大选
+news_event = {
+	id = yug.11
+	title = yug.11.t
+	desc = yug.11.d
+	picture = GFX_CroatiaIndependent
+	major = yes
+	mean_time_to_happen = { days = 20 }
+	trigger = {
+		tag = YUG
+		date > 1990.1.1
+		CRO = {
+			communism < 0.6
+			is_puppet_of = YUG
+		}
+		OR = {
+			communism < 0.6
+			ROM = { has_government = democratic }
+			BUL = { has_government = democratic }
+		}
+	}
+	
+	option = {
+		name = yug.11.a
+		if = {
+			limit = { tag = CRO }
+			load_oob = "CRO"
+			play_song = CRO_1
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+				name = "Franjo Tuđman"
+				desc = ""
+				picture = "gfx/leaders/CRO/Portrait_Croatia_Tudman.tga"
+				expire = "1965.1.1"
+				ideology = liberalism
+				traits = {
+					#
+				}
+			}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.15
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+		}
+		if = {
+			limit = { tag = YUG }
+			set_global_flag = yugoslavia_civilwar
+			end_puppet = CRO
+		}
+	}
+}
+
+#克罗地亚塞族叛乱
+news_event = {
+	id = yug.12
+	title = yug.12.t
+	desc = yug.12.d
+	picture = GFX_Yugowarnews
+	trigger = {
+		tag = CRO
+		has_global_flag = yugoslavia_civilwar
+		has_stability < 0.6
+		NOT = { country_exists = SEB }
+	}
+	mean_time_to_happen = { days = 40 }
+	option = {
+		name = yug.6.a
+		SEB = {
+			set_politics = { ruling_party = neutrality }
+			create_country_leader = {
+				name = "Goran Hadzic"
+				desc = ""
+				picture = "gfx/leaders/SEB/Portrait_Goran_Hadzic.tga"
+				expire = "1965.1.1"
+				ideology = Despotism
+				traits = {
+					#
+				}
+			}
+			transfer_state = 103
+		}
+		CRO = {
+			declare_war_on = { target = SEB type = annex_everything }
+		}
+		news_event = { id = yug.13 }
+	}
+}
+#塞族叛乱新闻
+news_event = {
+	id = yug.13
+	title = yug.13.t
+	desc = yug.13.d
+	picture = GFX_Yugowarnews
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#南斯拉夫分裂新闻
+news_event = {
+	id = yug.14
+	title = yug.14.t
+	desc = yug.14.d
+	picture = GFX_Yugowarnews
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = sud.1.a
+		if = {
+			limit = { has_government = communism }
+			add_popularity = {
+				ideology = communism
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.08
+			}
+		}
+	}
+}
+
+#塞族战败新闻
+news_event = {
+	id = yug.15
+	title = yug.15.t
+	desc = yug.15.d
+	picture = GFX_Yugowarnews
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.15.a
+	}
+}
+#波黑独立公投
+news_event = {
+	id = yug.20
+	title = yug.20.t
+	desc = yug.20.d
+	picture = GFX_YugoWAR
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		tag = YUG
+		YUG = { has_stability < 0.6 }
+		country_exists = CRO
+		country_exists = SLV
+		has_global_flag = yugoslavia_civilwar
+	}
+	option = {
+		name = yug.6.a
+		if = {
+			limit = { tag = YUG }
+			add_stability = -0.3
+			BOS = {
+				create_country_leader = {
+				name = "Alija Izetbegović"
+				picture = "gfx/leaders/YUG/Portrait_Alija_Izetbegovic.tga"
+				expire = "1997.1.1"
+				ideology = socialism
+				traits = {
+					}
+				}
+				set_politics = { ruling_party = democratic }
+				transfer_state = 806
+				transfer_state = 104
+				transfer_state = 942
+			}
+		}
+	}
+}
+#波黑内战
+news_event = {
+	id = yug.21
+	title = yug.21.t
+	desc = yug.21.d
+	picture = GFX_YugoWAR
+	fire_only_once = yes
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	immediate = {
+		play_song = BOS_1
+	}
+	trigger = {
+		tag = BOS
+		country_exists = BOS
+		NOT = { country_exists = SEB }
+		has_global_flag = yugoslavia_civilwar
+	}
+	option = {
+		name = yug.6.a
+		if = {
+			limit = { tag = BOS }
+			SEB = {
+				set_politics = { ruling_party = neutrality }
+				transfer_state = 806
+				transfer_state = 942
+				load_oob = SrpskaRepublic
+			}
+			declare_war_on = { target = SEB type = annex_everything }
+		}
+	}
+}
+#乌斯塔莎抵抗运动瓦解
+news_event = {
+	id = yug.30
+	title = yug.30.t
+	desc = yug.30.d
+	picture = GFX_BelarusRebels
+	major = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1948.1.1
+		806 = { resistance < 12 }
+		102 = { resistance < 12 }
+		109 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		109 = { resistance < 12 }
+		tag = SOV
+	}
+	option = {
+		name = yug.30.a
+		if = {
+			limit = { tag = YUG }
+			every_controlled_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = more_rebel_modifiers }
+				}
+				add_resistance = -30 remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_stability = 0.12
+		}
+	}
+
+}
+#提出巴尔干联邦方案
+news_event = {
+	id = yug.51
+	title = yug.51.t
+	desc = yug.51.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+		if = {
+			limit = {
+				OR = {
+					is_neighbor_of = YUG
+					tag = SOV
+					tag = FRA
+					tag = ENG
+					tag = USA
+				}
+			}
+			news_event = { id = yug.52 }
+		}
+	}
+	option = {
+		name = yug.12.a
+		if = {
+			limit = {
+				OR = {
+					is_neighbor_of = YUG
+					tag = SOV
+					tag = FRA
+					tag = ENG
+					tag = USA
+				}
+			}
+			news_event = { id = yug.53 }
+		}
+	}
+}
+news_event = {
+	id = yug.52
+	title = yug.52.t
+	desc = yug.52.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.53
+	title = yug.53.t
+	desc = yug.53.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#马其顿问题
+news_event = {
+	id = yug.57
+	title = yug.57.t
+	desc = yug.57.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	option = {
+		name = yug.12.a
+			news_event = { id = yug.58 }
+		1009 = {
+			remove_claim_by = MCD
+			add_core_of = MCD
+		}
+			add_opinion_modifier = {
+				target = YUG
+				modifier = USA_special_relationship
+			}
+		YUG = {
+			add_opinion_modifier = {
+				target = BUL
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	option = {
+		name = yug.12.a
+			news_event = { id = yug.59 }
+	}
+}
+news_event = {
+	id = yug.58
+	title = yug.58.t
+	desc = yug.58.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.59
+	title = yug.59.t
+	desc = yug.59.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#独立红色
+news_event = {
+	id = yug.60
+	title = yug.60.t
+	desc = yug.60.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 20
+				has_country_leader_with_trait = pro_soviet
+			}
+			modifier = {
+				add = 5
+				has_idea = comecon
+			}
+		}
+		name = yug.12.a
+		news_event = { id = yug.62 }
+	}
+	option = {
+		name = yug.12.a
+		ai_chance = {
+			factor = 12
+			modifier = {
+				add = 20
+				has_country_leader_with_trait = independent_red
+			}
+			modifier = {
+				add = 20
+				has_country_leader_with_trait = socialist_reformism
+			}
+			modifier = {
+				add = 20
+				check_variable = { YUG.influences > SOV.influences }
+			}
+		}
+			YUG = {
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_dominion
+					freedom_level = 0.6
+				}
+				set_cosmetic_tag = BALKAN
+			}
+			news_event = { id = yug.61 }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
+		if = {
+			limit = { tag = BUL }
+			set_cosmetic_tag = BALBUL
+		}
+		if = {
+			limit = { tag = ALB }
+			set_cosmetic_tag = BALALB
+		}
+		if = {
+			limit = { tag = GRE }
+			set_cosmetic_tag = BALGRE
+		}
+		if = {
+			limit = { tag = KKE }
+			set_cosmetic_tag = BALGRE
+		}
+	}
+}
+#独立红色
+news_event = {
+	id = yug.61
+	title = yug.61.t
+	desc = yug.61.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#独立红色
+news_event = {
+	id = yug.62
+	title = yug.62.t
+	desc = yug.62.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#南斯拉夫提出解决科索沃问题
+news_event = {
+	id = yug.65
+	title = yug.65.t
+	desc = yug.65.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	option = {
+		#强硬
+		name = yug.12.a
+		YUG = { news_event = { id = yug.66 } }
+	}
+	option = {
+		name = yug.12.a
+		#让步
+		news_event = { id = yug.68 }
+		794 = { remove_claim_by = ALB }
+		
+	}
+}
+news_event = {
+	id = yug.66
+	title = yug.66.t
+	desc = yug.66.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	option = {
+		#南斯拉夫让步
+		name = yug.12.a
+		news_event = { id = yug.67 }
+			794 = {
+				remove_claim_by = KSV
+				add_core_of = KSV
+				remove_claim_by = ALB
+				add_core_of = ALB
+			}
+			add_opinion_modifier = {
+				target = ALB
+				modifier = USA_special_relationship
+			}
+		ALB = {
+			add_opinion_modifier = {
+				target = YUG
+				modifier = USA_special_relationship
+			}
+		}
+	}
+	option = {
+		name = yug.12.a
+			news_event = { id = yug.69 }
+	}
+}
+news_event = {
+	id = yug.67
+	title = yug.67.t
+	desc = yug.67.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.68
+	title = yug.68.t
+	desc = yug.68.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.69
+	title = yug.69.t
+	desc = yug.69.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.80
+	title = yug.80.t
+	desc = yug.80.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+#兰科维奇上台
+
+news_event = {
+	id = yug.100
+	title = yug.100.t
+	desc = yug.100.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.101
+	title = yug.101.t
+	desc = yug.101.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			promote_character = {
+				character = YUG_Aleksandar_Rankovic
+				ideology = marxism
+			}
+		}
+	}
+}
+news_event = {
+	id = yug.102
+	title = yug.102.t
+	desc = yug.102.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.103
+	title = yug.103.t
+	desc = yug.103.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.104
+	title = yug.104.t
+	desc = yug.104。d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			add_ideas = YUG_uz_tita_ideas
+		}
+	}
+}
+news_event = {
+	id = yug.105
+	title = yug.105.t
+	desc = yug.105.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.106
+	title = yug.106.t
+	desc = yug.106.d
+	picture = GFX_Cominform
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = YUG
+		has_idea = YUG_serbian_strong_ideas
+		date > 1987.1.1
+		NOT = { has_character = YUG_Milosovich }
+	}
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			recruit_character = YUG_Milosovich
+		}
+	}
+}
+news_event = {
+	id = yug.107
+	title = yug.107.t
+	desc = yug.107.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.108
+	title = yug.108.t
+	desc = yug.108.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.109
+	title = yug.109.t
+	desc = yug.109.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.112
+	title = yug.112.t
+	desc = yug.112.d
+	picture = GFX_Cominform
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+	}
+}
+news_event = {
+	id = yug.113
+	title = yug.113.t
+	desc = yug.113.d
+	picture = GFX_Cominform
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = YUG
+		has_completed_focus = YUG_total_election
+		has_completed_focus = YUG_yugoslav_social_party
+		has_government = communism
+	}
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			play_song = SER_1
+			set_politics = { ruling_party = authoritarianism }
+			promote_character = {
+				character = YUG_Milosovich
+				ideology = authoritarianism
+			}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.15
+				}
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.25
+				}
+		}
+	}
+}
+news_event = {
+	id = yug.115
+	title = yug.115.t
+	desc = yug.115.d
+	picture = GFX_Cominform
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = YUG
+		has_completed_focus = YUG_total_election
+		has_completed_focus = YUG_local_nationalists
+		has_government = communism
+	}
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			play_song = YUG_1
+			set_politics = { ruling_party = democratic }
+			set_capital = { state = 109 }
+			create_country_leader = {
+				name = "Stipe Mesić"
+				desc = ""
+				picture = "gfx/leaders/YUG/Portrait_Stipe_Mesic.tga"
+				expire = "1965.1.1"
+				ideology = liberalism
+				traits = {
+					#
+				}
+			}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.15
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.25
+				}
+		}
+	}
+}
+news_event = {
+	id = yug.118
+	title = yug.118.t
+	desc = yug.118.d
+	picture = GFX_Cominform
+	mean_time_to_happen = { days = 25 }
+	major = yes
+	trigger = {
+		tag = YUG
+		has_completed_focus = YUG_total_election
+		has_completed_focus = YUG_monarchs
+		has_government = communism
+	}
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			play_song = YUG_1
+			set_politics = { ruling_party = monarchism }
+			create_country_leader = {
+				name = "Alexander II Karadjordjevic"
+				desc = ""
+				picture = "gfx/leaders/YUG/Portrait_Alexander_II.tga"
+				expire = "1965.1.1"
+				ideology = monarchism
+				traits = {
+					#
+				}
+			}
+				add_popularity = {
+					ideology = communism
+					popularity = -0.15
+				}
+				add_popularity = {
+					ideology = monarchism
+					popularity = 0.25
+				}
+		}
+	}
+}
+#1951马其顿处决
+news_event = {
+	id = yug.125
+	title = yug.125.t
+	desc = yug.125.d
+	picture = GFX_Arrest
+	mean_time_to_happen = { days = 12 }
+	major = yes
+	trigger = {
+		tag = YUG
+		has_idea = SovietChinaConflit
+		BUL = { has_country_leader_with_trait = pro_soviet }
+		date > 1951.8.20
+		date < 1951.10.1
+		NOT = { has_global_flag = yug125 }
+	}
+	option = {
+		name = yug.12.a
+		set_global_flag = yug12
+		if = {
+			limit = { tag = YUG }
+			add_political_power = -40
+		}
+	}
+}

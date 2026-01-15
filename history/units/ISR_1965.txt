@@ -1,0 +1,144 @@
+﻿
+division_template = {
+	name = "Mechanized Division"		
+	division_names_group = ISR_MEC_01
+	regiments = {					
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 } 			
+	}
+}
+division_template = {
+	name = "Armored Division" 	
+	division_names_group = ISR_ARM_01	
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 } 		
+		engineer = { x = 0 y = 1 }
+	}
+}
+units = {
+	division = {
+		name = "Golani Division"
+		location = 1065
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Alexandroni Division"
+		location = 11970
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Givati Division"
+		location = 1065
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Carmel Division"
+		location = 1065
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Kiryati Division"
+		location = 1065
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Negev Division"
+		location = 1015
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Etzioni Division"
+		location = 1015
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "7th Armoured"
+		location = 1015
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "8th Armoured"
+		location = 11970
+		division_template = "Armored Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Oded Division"
+		location = 1015
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Harel Division"
+		location = 1015
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Yiftach Division"
+		location = 11970
+		division_template = "Mechanized Division"
+		start_experience_factor = 0.8
+	}	
+}
+air_wings = {
+	454 = { 
+		fighter_equipment_2 = {
+			owner = "ISR" 
+			amount = 40
+		}
+	}
+	454 = { 
+		fighter_equipment_2 = {
+			owner = "ISR" 
+			amount = 40
+		}
+	}
+	454 = { 
+		fighter_equipment_2 = {
+			owner = "ISR" 
+			amount = 40
+		}
+	}
+	454 = { 
+		CAS_equipment_2 = {
+			owner = "ISR" 
+			amount = 30
+		}
+	}
+	454 = { 
+		CAS_equipment_2 = {
+			owner = "ISR" 
+			amount = 30
+		}
+	}
+	454 = { 
+		CAS_equipment_2 = {
+			owner = "ISR" 
+			amount = 30
+		}
+	}
+}

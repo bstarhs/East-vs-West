@@ -1,0 +1,31 @@
+
+NUKE_deterrence = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+			ROOT = {
+				check_variable = { this.nuke_deterrence > prev.nuke_deterrence }
+			}
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		target_country = ROOT
+		value = -200
+	}
+	ai_strategy = {
+		type = antagonize
+		target_country = ROOT
+		value = -200
+	}
+	ai_strategy = {
+		type = consider_weak
+		target_country = ROOT
+		value = -200
+	}
+	ai_strategy = {
+		type = 	declare_war
+		target_country = ROOT
+		value = -200
+	}
+}

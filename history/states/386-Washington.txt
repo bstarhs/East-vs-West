@@ -1,0 +1,56 @@
+
+state={
+	id=386
+	name="STATE_386"
+	manpower = 1563395
+	
+	state_category = city
+
+	history={
+		add_to_array = { this.state_ethnics_list = 174 }
+		add_to_array = { this.state_ethnics_list = 175 }
+		set_state_flag = ethnics_Yankee
+		add_dynamic_modifier = { modifier = fish_production }
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = wine_production
+		owner = USA
+		buildings = {
+			dam_plant = 2
+			hospital = 2
+			school = 2
+			farm_building = 2
+			power_plant = 2
+			infrastructure = 6
+			arms_factory = 1
+			industrial_complex = 1
+			dockyard = 1
+			air_base = 5
+			7315 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = USA
+		add_core_of = ORG
+		victory_points = {
+			1690 3
+		}
+		victory_points = {
+			7315 10 
+		}
+		victory_points = {
+			7386 3
+		}
+		1955.1.1 = {
+			add_to_variable = { state_tourist = 15 }
+			buildings = {
+				dam_plant = 3
+				industrial_complex = 4
+				arms_factory = 4
+			}
+		}
+	}
+
+	provinces={
+		1320 1690 4296 4398 4747 7255 7315 7386 7414 7442 10155 10157 10198 10242 10271 10327 10687 10690 10693 12155 12214 12673 
+	}
+}

@@ -1,0 +1,47 @@
+
+state={
+	id=140
+	name="STATE_140"
+	manpower = 1282827
+	state_category = large_town
+	
+	resources={
+		iron=10
+		copper=4
+	}
+
+
+	history={
+		set_state_flag = ethnics_Sweden
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_to_array = { this.state_ethnics_list = 159 }
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SWE
+		victory_points = {
+			11114 2
+		}
+		victory_points = {
+			383 10 
+		}
+		buildings = {
+			power_plant = 2
+			hospital = 1
+			farm_building = 2
+			infrastructure = 6
+			arms_factory = 2
+			industrial_complex = 3
+			dockyard = 1
+			air_base = 1
+			383 = {
+				naval_base = 5
+				coastal_bunker = 5
+			}
+		}
+		add_core_of = SWE
+	}
+	
+	
+	provinces={
+		69 147 171 295 383 3063 3128 3141 3286 3375 3386 6028 6195 6310 6331 6406 9054 9138 9218 11070 11114 13096 
+	}
+}

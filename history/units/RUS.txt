@@ -1,0 +1,645 @@
+﻿##### Division Templates #####
+division_template = {
+	name = "Motostrelkovaya Diviziya"
+	division_names_group = SOV_MEC_01
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		aa_missile_battalion = { x = 2 y = 0 }
+		at_missile_battalion = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		helicopter_recon = { x = 0 y = 2 }
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "NKVD Pogranichnaya Diviziya"	
+	division_names_group = SOV_MEC_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = 	{
+		military_police = { x = 0 y = 0 }
+		military_police = { x = 0 y = 1 }
+		military_police = { x = 0 y = 2 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Vozdushno-Desantnaya"
+	division_names_group = SOV_PAR_01
+	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 1 y = 0 }
+		paratrooper = { x = 1 y = 1 }
+		paratrooper = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 }
+		mechanized_signal_company = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Tankovaya Korpus" 	
+	division_names_group = SOV_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# BT-7 tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }	
+		medium_armor = { x = 1 y = 0 }		# BT-7 tanks	
+		medium_armor = { x = 1 y = 1 }		
+		medium_armor = { x = 1 y = 2 }			
+		motorized = { x = 2 y = 0 }		
+		motorized = { x = 2 y = 1 }		
+		medium_sp_anti_air_brigade = { x = 3 y = 0 }		
+		medium_sp_anti_air_brigade = { x = 3 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Legko-Tankovaya Brigada" 
+	division_names_group = SOV_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-26 or BT-5/7 tanks
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }	
+		light_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		light_armor = { x = 1 y = 1 }		
+		light_armor = { x = 1 y = 2 }		
+		motorized = { x = 2 y = 0 }		
+		motorized = { x = 2 y = 1 }	
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Tankovaya Brigada" 			
+	division_names_group = SOV_ARM_01
+	regiments = {
+		light_armor = { x = 0 y = 0 }		# T-28 (medium) infantry tanks
+		light_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 0 }		# T-26 or BT-5/7 tanks		
+		medium_armor = { x = 1 y = 1 }		
+		mechanized_aa_missile_battalion = { x = 1 y = 2 }		
+		motorized = { x = 2 y = 0 }	
+		motorized = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Vertoletnyy polk" 	
+	division_names_group = SOV_MEC_01
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }		# T-35 heavy tanks
+		heavy_armor = { x = 0 y = 1 }
+	}
+	support = {
+		helicopter_recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Voiska PVO" 
+	division_names_group = SOV_ARM_01
+	regiments = {	
+		motorized = { x = 0 y = 0 }	
+		motorized = { x = 0 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 0 }
+		medium_sp_anti_air_brigade = { x = 1 y = 1 }
+		medium_sp_anti_air_brigade = { x = 1 y = 2 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 } 
+	}
+}
+division_template = {
+	name = "Morskaya Pekhota"	
+	division_names_group = SOV_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		signal_company = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+##### OOB #####
+units = {
+	division = {
+		name = "61st Naval Infantry Brigade"
+		location = 3134
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "336th Guard Naval Infantry Brigade"
+		location = 6332
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "55th Guard Naval Infantry Brigade"
+		location = 957
+		division_template = "Morskaya Pekhota"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "1st Guards Motor Rifle Division"
+		location = 6332
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "2nd Guards Motor Rifle Division"
+		location = 6380
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "3rd Guards Motor Rifle Division"
+		location = 11202
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "8th Guards Motor Rifle Division"
+		location = 126
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "9th Guards Motor Rifle Division"
+		location = 12612
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "9th Motor Rifle Division"
+		location = 9742
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "11th Guards Motor Rifle Division"
+		location = 7725
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "12th Motor Rifle Division"
+		location = 10678
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "12th Motor Rifle Division "
+		location = 4801
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "13th Motor Rifle Division "
+		location = 7725
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "16th Guards Motor Rifle Division"
+		location = 281
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "18th Guards Motor Rifle Division"
+		location = 9417
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "19th Motor Rifle Division"
+		location = 714
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "22nd Motor Rifle Division"
+		location = 7878
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "26th Guards Motor Rifle Division"
+		location = 3333
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "29th Guards Motor Rifle Division"
+		location = 11234
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "29th Motor Rifle Division"
+		location = 3787
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "32nd Guards Motor Rifle Division"
+		location = 9691
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "33rd Motor Rifle Division"
+		location = 12540
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "34th Motor Rifle Division"
+		location = 1278
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "36th Guards Motor Rifle Division"
+		location = 126
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "38th Guards Motor Rifle Division"
+		location = 12622
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "40th Motor Rifle Division"
+		location = 9926
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "41st Motor Rifle Division"
+		location = 7752
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "43rd Training Motor Rifle Division"
+		location = 11225
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "45th Guards Motor Rifle Division"
+		location = 9206
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "47th Guards Motor Rifle Division"
+		location = 664
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "48th Motor Rifle Division"
+		location = 9417
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "52nd Motor Rifle Division"
+		location = 10562
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "53rd Guards Training Motor Rifle Division"
+		location = 378
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "54th Motor Rifle Division"
+		location = 9123
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "56th Motor Rifle Division"
+		location = 10696
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "60th Motor Rifle Division"
+		location = 9647
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "62nd Motor Rifle Division"
+		location = 12606
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "63rd Guards Motor Rifle Division"
+		location = 3060
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "64th Guards Motor Rifle Division"
+		location = 9105
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "65th Motor Rifle Division"
+		location = 12157
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "67th Training Motor Rifle Division"
+		location = 10696
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "69th Motor Rifle Division"
+		location = 11213
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "73rd Motor Rifle Division"
+		location = 957
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "74th Motor Rifle Division"
+		location = 4818
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "77th Guards Motor Rifle Division"
+		location = 3338
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "79th Motor Rifle Division"
+		location = 1755
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "81st Guards Krasnograd Motor Rifle Division"
+		location = 6684
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "82nd Motor Rifle Division"
+		location = 3529
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "85th Motor Rifle Division"
+		location = 7825
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "91st Motor Rifle Division"
+		location = 12540
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "96th Motor Rifle Division"
+		location = 6338
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "99th Motor Rifle Division"
+		location = 13063
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "2nd Guards Motor Rifle Division"
+		location = 6380
+		division_template = "Motostrelkovaya Diviziya"
+		start_experience_factor = 0.7
+	}
+	#Air born troops
+	division = {
+		name = "7th Guards Airborne Division"
+		location = 11234
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "44th Guards Airborne Division"
+		location = 11234
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "76th Guards Airborne Division"
+		location = 11202
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "103th Guards Airborne Division"
+		location = 306
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "106th Guards Airborne Division"
+		location = 6262
+		division_template = "Vozdushno-Desantnaya"
+		start_experience_factor = 0.7
+	}
+	##### Voiska PVO #####
+	division = {
+		name = "5th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "6th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "10th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	division = {
+		name = "17th Air Defence Corps"
+		location = 6380
+		division_template = "Voiska PVO"
+		start_experience_factor = 0.7
+	}
+	
+}					
+					
+
+### Air Wings
+air_wings = {
+	### Aéronautique Militaire Belge (CO: ) #
+	192 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	12 = {															# Brussels
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 22 }
+		strat_bomber_equipment_3 =  { owner = "SOV" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+	219 = {															# Brussels
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 22 }
+		strat_bomber_equipment_3 =  { owner = "SOV" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+	242 = {															# Brussels
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 23 }		# 2e Régiment d'Aéronautique -- Gladiator Is, Hurricane Is, CR.42s
+		strat_bomber_equipment_3 =  { owner = "SOV" creator = "SOV" amount = 22 }
+		strat_bomber_equipment_3 =  { owner = "SOV" amount = 30 }		# 1e Régiment d'Aéronautique -- Fairey Foxes
+	}
+	12 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	206 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	91 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	231 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	405 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	195 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	563 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	408 = { 														# East Anglia 	
+		CAS_equipment_2 = { owner = "SOV" amount = 192 }				# I/AASF -- Fairey Battles
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_3 = { owner = "SOV" amount = 170 }			# III/No. 11 Fighter Group -- Hurricane I's
+		fighter_equipment_2 = { owner = "SOV" amount = 170 }			# IV/No. 11 Fighter Group -- Spitfire I's
+		CAS_equipment_3 = { owner = "SOV" amount = 112 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	209 = { 														# East Anglia 	
+		transport_plane_equipment_1 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	11 = { 														# East Anglia 	
+		transport_plane_equipment_1 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	192 = { 														# East Anglia 	
+		transport_plane_equipment_1 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	231= { 														# East Anglia 	
+		transport_plane_equipment_1 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	408 = { 														# East Anglia 	
+		transport_plane_equipment_1 = { owner = "SOV" amount = 80 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	197 = { 														# East Anglia 	
+		guided_ICBM_equipment_2 = { owner = "SOV" amount = 280 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	205 = { 														# East Anglia 	
+		guided_ICBM_equipment_2 = { owner = "SOV" amount = 280 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+	561 = { 														# East Anglia 	
+		guided_ICBM_equipment_2 = { owner = "SOV" amount = 280 }				# I/No. 2 Bomber Group -- Blenheim IV's
+	}
+}

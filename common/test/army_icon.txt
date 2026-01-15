@@ -1,0 +1,13 @@
+
+scripted_gui = {
+	army_icon = {
+		window_name = "air_header"
+		context_type = player_context
+		parent_window_name = "countryofficercorpview"
+		triggers = {
+			icon_air_visible = {
+				check_variable = { nation_coal_free > 10 }
+			}
+		}
+	}
+}

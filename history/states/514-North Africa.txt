@@ -1,0 +1,38 @@
+
+state={
+	id=514
+	name="STATE_514" # Algerian Desert
+	manpower = 207733
+	
+	state_category = wasteland
+
+	history={
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+                              
+		owner = FRA
+		set_state_flag = ethnics_Amazigh
+		add_to_array = { this.state_ethnics_list = 22 }
+		add_to_array = { this.state_ethnics_list = 105 }
+		add_core_of = ALG
+		buildings = {
+			infrastructure = 0
+		}
+		victory_points = {
+			5035 3
+		}
+		victory_points = {
+			10731 3
+		}
+		1954.7.3 = {
+			add_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+		1962.7.3 = {
+			owner = ALG
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
+		}
+	}
+
+	provinces={
+		1043 1095 1901 1958 2049 4903 5035 5095 7041 8061 8077 8088 10731 10749 12711 12842 12849 
+	}
+}

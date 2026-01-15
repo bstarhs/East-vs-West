@@ -1,0 +1,57 @@
+
+state={
+	id=117
+	name="STATE_117" # Campania
+	manpower = 5333611
+	state_category = town
+	resources={
+		aluminium=16
+		iron = 14
+		salt=11
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		set_state_flag = ethnics_Naples
+		add_core_of = NAP
+		owner = ITA
+		victory_points = {
+			819 12
+		}
+		victory_points = {
+			6972 3
+		}
+		victory_points = {
+			955 4
+		}
+		victory_points = {
+			6980 5
+		}
+		buildings = {
+			farm_building = 3
+			hospital = 1
+			power_plant = 1
+			infrastructure = 6
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 3
+			819 = {
+				naval_base = 6
+			}
+		}
+		add_core_of = ITA
+		1939.1.1 = {
+			buildings = {
+				arms_factory = 2
+				industrial_complex = 3
+			}
+		}
+	}
+
+	provinces={
+		819 851 883 955 3958 3968 6843 6939 6972 6980 9826 11803 
+	}
+}

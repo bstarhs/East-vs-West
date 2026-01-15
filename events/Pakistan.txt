@@ -1,0 +1,587 @@
+add_namespace = pak
+#巴基斯坦独立
+news_event = {
+	id = pak.1
+	title = pak.1.t
+	desc = pak.1.d
+	picture = GFX_AliJinah
+	major = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {	
+		tag = ENG
+		date > 1947.8.1
+		date < 1947.10.30
+		440 = {
+			is_controlled_by = ENG
+		}
+	}
+	option = {
+		name = pak.1.a
+		if = {
+		limit = {
+			tag = ENG
+		}
+			release_on_controlled = PAK
+		PAK = {
+			load_oob = "PAK_1947"
+			}
+		}
+	}
+}
+news_event = {
+	id = pak.2 
+	title = pak.2.t
+	desc = pak.2.d 
+	picture = GFX_IndiaIndependent
+	fire_only_once = yes  
+	trigger = {
+		tag = PAK 
+		AND = {
+			date > 1947.8.1 
+			date < 1947.8.30
+		}
+	}
+	option = {
+		name = pak.1.a
+		create_country_leader = {
+			name = "Muhammad Ali Jinnah"
+			picture = "gfx/leaders/PAK/Portrait_Pakistan_Ali_Jinnah.tga"
+			expire = "1994.1.1"
+			ideology = conservatism
+				
+			traits = {
+			
+			}
+		}
+	}
+}
+news_event = {
+	id = pak.3 
+	title = pak.3.t
+	desc = pak.3.d 
+	picture = GFX_Ali_Jinnah_funeral
+	major = yes  
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1948.9.1
+		date < 1948.11.1
+		NOT = { has_global_flag = Ali_JinnahDeath }
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = Ali_JinnahDeath
+		if = {
+			limit = { tag = PAK }
+			create_country_leader = {
+				name = "Liaquat Ali Khan"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Liaquat_Ali_Khan.tga"
+				expire = "1994.1.1"
+				ideology = conservatism
+				
+				traits = {
+			
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = pak.4 
+	title = pak.4.t
+	desc = pak.4.d 
+	picture = GFX_LiaquatAliKhan
+	major = yes  
+	is_triggered_only = yes
+	option = {
+		name = pak.1.a
+		if = {
+			limit = { tag = PAK }
+			create_country_leader = {
+				name = "Khawaja Nazimuddin"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Khawaja_Nazimuddin.tga"
+				expire = "1994.1.1"
+				ideology = conservatism
+				
+				traits = {
+			
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = pak.6
+	title = pak.6.t
+	desc = pak.6.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+news_event = {
+	id = pak.7
+	title = pak.7.t
+	desc = pak.7.d 
+	fire_only_once = yes
+	picture = GFX_AyubKhan
+	trigger = {
+		date > 1969.1.18
+		date < 1969.12.18
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		if = {
+			limit = { tag = PAK }
+			news_event = { id = pak.6 }
+			set_politics = { ruling_party = neutrality }
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.2
+			}
+			create_country_leader = {
+				name = "Yahya Khan"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Yahya_Khan.tga"
+				expire = "1994.1.1"
+				ideology = despotism
+				traits = {
+					tyrant pro_america
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = pak.8
+	title = pak.8.t
+	desc = pak.8.d 
+	fire_only_once = yes
+	picture = GFX_AliButo
+	trigger = {
+		date > 1971.1.18
+		date < 1971.12.18
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		if = {
+			limit = { tag = PAK }
+			set_politics = { ruling_party = democratic }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+			create_country_leader = {
+				name = "Zulfikar Ali Bhutto"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Zulfikar_Bhutto.tga"
+				expire = "1994.1.1"
+				ideology = conservatism
+				traits = {
+					smooth_talking_charmer democratic_reformer nuclear_enthusiast
+				}
+			}
+		}
+	}
+}
+##人民党崛起
+news_event = {
+	id = pak.9
+	title = pak.9.t
+	desc = pak.9.d 
+	fire_only_once = yes
+	picture = GFX_AliButo
+	trigger = {
+		date > 1967.1.18
+		date < 1967.12.18
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		if = {
+			limit = { tag = PAK }
+			
+			create_country_leader = {
+				name = "Zulfikar Ali Bhutto"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Zulfikar_Bhutto.tga"
+				expire = "1994.1.1"
+				ideology = conservatism
+				traits = {
+					smooth_talking_charmer democratic_reformer nuclear_enthusiast
+				}
+			}
+		}
+	}
+}
+##俾路支叛乱
+news_event = {
+	id = pak.10
+	title = pak.10.t
+	desc = pak.10.d 
+	picture = GFX_PakistanArmy
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		date > 1973.1.18
+		date < 1980.12.18
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		if = {
+			add_stability = -0.03
+			limit = { tag = PAK }
+		}
+	}
+}
+news_event = {
+	id = pak.11
+	title = pak.11.t
+	desc = pak.11.d 
+	fire_only_once = yes
+	picture = GFX_ZiaHaq
+	trigger = {
+		date > 1977.7.18
+		date < 1977.12.18
+		tag = PAK
+		NOT = { has_government = neutrality }
+	}
+	option = {
+		name = pak.11.a
+		if = {
+			limit = { tag = PAK }
+			news_event = { id = pak.6 }
+			set_politics = { ruling_party = neutrality }
+			set_country_flag = bhutto_arrest
+			create_country_leader = {
+				name = "Muhammad Zia Haq"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Muhammad_Haq.tga"
+				expire = "1994.1.1"
+				ideology = despotism
+				traits = {
+					smooth_talking_charmer pro_america pro_china smooth_talking_charmer nuclear_enthusiast 
+				}
+			}
+		}
+	}
+}
+news_event = {
+	id = pak.12
+	title = pak.12.t
+	desc = pak.12.d 
+	picture = GFX_AyubKhan
+	fire_only_once = yes
+	trigger = {
+		date > 1979.1.18
+		date < 1979.12.18
+		tag = PAK
+		has_country_flag = bhutto_arrest
+	}
+	option = {
+		name = pak.1.a
+		if = {
+			limit = { tag = PAK }
+			add_stability = -0.1
+		}
+	}
+}
+news_event = {
+	id = pak.13
+	title = pak.13.t
+	desc = pak.13.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+news_event = {
+	id = pak.14
+	title = pak.14.t
+	desc = pak.14.d 
+	fire_only_once = yes
+	picture = GFX_BenazirBhutto
+	trigger = {
+		date > 1988.1.18
+		date < 1988.12.18
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		if = {
+			limit = { tag = PAK }
+			set_politics = { ruling_party = democratic }
+			create_country_leader = {
+				name = "Benazir Bhutto"
+				picture = "gfx/leaders/PAK/Portrait_Pakistan_Benazir_Bhutto.tga"
+				expire = "1994.1.1"
+				ideology = conservatism
+				traits = {
+			
+				}
+			}
+		}
+	}
+}
+##普什图叛乱
+news_event = {
+	id = pak.15
+	title = pak.15.t
+	desc = pak.15.d 
+	picture = GFX_PakistanArmy
+	mean_time_to_happen = { days = 80 }
+	trigger = {
+		tag = PAK
+		671 = { resistance > 80 }
+	}
+	option = {
+		name = pak.1.a
+	}
+}
+news_event = {   #北塔山事件
+	id = pak.16
+	title = pak.16.t
+	desc = pak.16.d
+	picture = GFX_PakistanArmy
+	major = yes
+	mean_time_to_happen = {
+		days = 300
+	}
+	trigger = {
+		tag = PAK
+		controls_state = 445
+		controls_state = 441
+		AFG = { controls_state = 415 }
+		date < 1950.1.1
+		
+	}
+	option = {
+		name = pak.16.a
+		if = {
+			limit = { tag = PAK }
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 415
+				num_provinces = 4
+				on_win = pak.18
+				on_lose = pak.17
+			}
+				
+			defender = {
+				state = 445
+				num_provinces = 4
+				on_win = pak.17
+				on_lose = pak.18
+			}
+		}
+	}
+}
+news_event = {   #国军胜利
+	id = pak.17
+	title = pak.17.t
+	desc = pak.17.d
+	picture = GFX_PakistanArmy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {   #外蒙
+	id = pak.18
+	title = pak.18.t
+	desc = pak.18.d
+	picture = GFX_PakistanArmy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = chinawar.3.a
+	}
+}
+news_event = {
+	id = pak.20
+	title = pak.20.t
+	desc = pak.20.d 
+	picture = GFX_Ali_Jinnah_funeral
+	major = yes  
+	mean_time_to_happen = {
+		days = 3
+	}
+	trigger = {
+		date > 1951.2.1
+		date < 1951.5.1
+		NOT = { has_global_flag = ChoudhryRahmatAliDeath }
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = ChoudhryRahmatAliDeath
+	}
+}
+
+
+news_event = {
+	id = pak.30
+	title = pak.30.t
+	desc = pak.30.d 
+	picture = GFX_Ali_Jinnah_funeral
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		date > 1956.9.1
+		date < 1956.10.1
+		NOT = { has_global_flag = pak30 }
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = pak30
+		promote_character = PAK_Huseyn_Suhrawardy
+			news_event = { id = arg.31 }
+	}
+}
+news_event = {
+	id = pak.31
+	title = pak.31.t
+	desc = pak.31.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+
+news_event = {
+	id = pak.32
+	title = pak.32.t
+	desc = pak.32.d 
+	picture = GFX_Ali_Jinnah_funeral
+	major = yes
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		date > 1957.10.1
+		date < 1957.11.1
+		NOT = { has_global_flag = pak32 }
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = pak32
+		if = {
+			promote_character = PAK_Feroz_Khan
+			limit = { tag = PAK }
+		}
+	}
+}
+news_event = {
+	id = pak.33
+	title = pak.33.t
+	desc = pak.33.d 
+	picture = GFX_Ali_Jinnah_funeral
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		date > 1958.10.1
+		date < 1958.11.1
+		NOT = { has_global_flag = pak33 }
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = pak33
+		promote_character = PAK_Iskander_Mirza
+		news_event = { id = pak.34 }
+	}
+}
+news_event = {
+	id = pak.34
+	title = pak.34.t
+	desc = pak.34.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+news_event = {
+	id = pak.35
+	title = pak.35.t
+	desc = pak.35.d 
+	picture = GFX_Ali_Jinnah_funeral
+	mean_time_to_happen = {
+		days = 5
+	}
+	trigger = {
+		date > 1958.10.1
+		date < 1958.12.1
+		has_global_flag = pak33
+		NOT = { has_global_flag = pak35 }
+		tag = PAK
+	}
+	option = {
+		name = pak.1.a
+		set_global_flag = pak35
+		set_politics = { ruling_party = neutrality }
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.4
+				}
+		promote_character = PAK_Ayub_Khan
+		news_event = { id = pak.36 }
+	}
+}
+news_event = {
+	id = pak.36
+	title = pak.36.t
+	desc = pak.36.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+
+news_event = {
+	id = pak.110
+	title = pak.110.t
+	desc = pak.110.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}
+news_event = {
+	id = pak.111
+	title = pak.111.t
+	desc = pak.111.d
+	picture = GFX_AyubKhan
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = pak.6.a
+	}
+
+}

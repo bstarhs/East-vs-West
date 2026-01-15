@@ -1,0 +1,38 @@
+
+state={
+	id=1006
+	name="STATE_1006" #Kenya
+	manpower = 3392000
+	
+	state_category = rural
+	resources={
+	
+	}
+	history={
+		owner = KEN
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_dynamic_modifier = { modifier = state_savannah_modifier }
+		set_state_flag = ethnics_Kamba
+		add_to_array = { this.state_ethnics_list = 157 }
+		add_to_array = { this.state_ethnics_list = 93 }
+		buildings = {
+			power_plant = 1
+			hospital = 1
+			infrastructure = 2
+			farm_building = 2
+		}
+		add_core_of = KEN
+		victory_points = {
+			1939 8
+		}
+		victory_points = {
+			13838 2
+		}
+		victory_points = {
+			5196 4
+		}
+	}
+	provinces={
+		1939 6020 5196 13840 13838 13839 
+	}
+}

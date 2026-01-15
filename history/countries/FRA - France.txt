@@ -1,0 +1,600 @@
+﻿capital = 16
+	oob = "FRA_1947"
+set_convoys = 300
+	set_popularities = {
+		democratic = 72
+		communism = 20
+		neutrality = 8
+	}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1932.5.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+recruit_character = FRA_jean_de_lattre_de_tassigny
+recruit_character = FRA_alphonse_juin
+recruit_character = FRA_alphonse_georges
+recruit_character = FRA_philippe_leclerc
+recruit_character = FRA_henri_giraud
+recruit_character = FRA_victor_denain
+recruit_character = FRA_maurice_thorez
+recruit_character = FRA_Pierre_Mendes
+recruit_character = FRA_Mitterrand
+recruit_character = FRA_Michel_Debre
+recruit_character = FRA_Chirac
+recruit_character = FRA_Michel_Roquejeoffre
+recruit_character = FRA_Maurice_Challe
+recruit_character = FRA_Jean_Sartre
+recruit_character = FRA_Frederic_Joliot_Curie
+recruit_character = FRA_Christian_Pineau
+recruit_character = FRA_Jacques_Massu
+recruit_character = FRA_Fernand_Gambiez
+recruit_character = FRA_Paul_Aussaresses
+recruit_character = FRA_Roger_Trinquie
+recruit_character = FRA_Marcel_Bigeard
+recruit_character = FRA_Raoul_Salan
+recruit_character = FRA_Gaston_Defferre
+recruit_character = FRA_Pierre_Messmer
+recruit_character = FRA_Andre_Morice
+recruit_character = FRA_Jacques_Soustelle
+set_country_flag = female_finished
+	create_country_leader = {
+		name = "Vincent Auriol"
+		
+		picture = "gfx/leaders/FRA/Portrait_France_Vincent_Auriol.tga"
+		expire = "1966.1.1"
+		ideology = labourparty
+		
+		traits = {
+			colonist
+		}
+	}
+	
+set_research_slots = 3
+set_stability = 0.4
+set_war_support = 1.5
+add_political_power = 1198
+
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 200000
+    producer = FRA
+}
+	set_variable = { this.education = 72 }
+	
+
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 18000
+    producer = FRA
+}
+set_country_flag = UNSC
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+
+add_dynamic_modifier = { modifier = childes_labour_modifiers }
+	activate_decision = Establishment_of_National_Museum
+	activate_decision = create_radio_station
+	
+create_intelligence_agency = yes
+
+	give_guarantee = SAR
+	
+############
+	
+#Starting tech
+	set_technology = {
+		tech_military_police = 1
+		oil_processing = 1
+		army_aviation = 1
+		basic_battery = 1
+		medical1 = 1
+		basic_medium_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		damage_control_1 = 1
+		basic_naval_mines = 1
+		basic_torpedo = 1
+		motorize_doctrine = 1
+		radio_detection = 1
+		improved_ship_torpedo_launcher = 1
+		basic_submarine_snorkel = 1
+		sonar = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		fuel_refining = 1
+		vaccum_tube = 1
+		fuel_silos = 1
+		fuel_refining = 1
+		excavation2 = 1
+		dispersed_industry4 = 1
+		concentrated_industry4 = 1
+		concentrated_industry5 = 1
+		steel_making_tech = 1
+	can_foods = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	aluminum_tech = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	early_fighter = 1
+	
+	
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_light = 1
+	basic_destroyer = 1
+	
+	early_ship_hull_cruiser = 1
+	
+	marines = 1
+	marines2 = 1
+	transport = 1
+	
+		machine_gun1 = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	
+	paratroopers = 1
+	spaa1 = 1
+	concentrated_industry = 1
+
+	basic_militia = 1
+	dispersed_industry = 1
+	morale_1 = 1
+	infantry_training = 1
+	military_instructor = 1
+	military_office = 1
+	infantry_training_2 = 1
+	interspersed_battle = 1
+	battle_trench = 1
+	
+	military_college = 1
+	
+	artilelery_doctrine = 1
+	
+	street_fight = 1
+	depth_defense = 1
+	delay = 1
+	
+	motorize_doctrine = 1
+	motorized_transport = 1
+	armor_doctrine = 1
+	vehicle_artillery = 1
+	forward_observers = 1
+	indirect_fire_support = 1
+	mine_bomb = 1
+	basic_fleet = 1
+	coast_guard = 1
+	battle_fleet = 1
+	ships_supply = 1
+	naval_construction = 1
+	naval_base = 1
+	naval_dock = 1
+	naval_recruit = 1
+	decimetric_radar = 1
+	
+	power_generation1 = 1
+	tech_recon2 = 1
+		fighter1 = 1
+		fighter2 = 1
+		heavy_fighter1 = 1
+		
+		strategic_bomber1 = 1
+		
+		interwar_artillery = 1
+		interwar_antitank = 1
+		infantry_weapons2 = 1
+		
+		
+		basic_battleship = 1
+		
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		
+		
+	construction1 = 1
+	construction2 = 1
+	construction3 = 1
+	dispersed_industry = 1
+	dispersed_industry2 = 1
+	dispersed_industry3 = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	frozen_food = 1
+	tech_field_hospital2 = 1
+	tech_logistics_company2 = 1
+	tech_signal_company2 = 1
+}
+add_ideas = {
+	Catholicism
+	mid_welfare
+	assimilation
+	colonist_war
+	morane_saulnier
+	FRA_left_union
+	FRA_republique_legacy
+	all_adults_serve
+	Jean_de_Lattre
+		FRA_IVRepublic
+		famh
+		renault_fra
+		partial_economic_mobilisation
+		UNmember
+	FRA_chaos_ideas
+}
+
+	set_autonomy = {
+		target = MLI
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = TUN
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = MOR
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = CAF
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = CMR
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = MAD
+		autonomous_state = autonomy_colony
+		freedom_level = 0.4
+	}
+declare_war_on = {
+	target = VIN
+	type = annex_everything
+}
+set_country_flag = main_country
+set_country_flag = west_euro_state
+set_country_flag = language_french
+set_country_flag = developmented
+
+
+1949.1.1 = {
+	set_country_flag = israel_diplomacy
+	set_autonomy = {
+		target = SVN
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = CAM
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	set_autonomy = {
+		target = LAO
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.4
+	}
+	add_ideas = nato_spirit
+	remove_ideas = FRA_left_union
+	give_guarantee = LAO
+	give_guarantee = CAM
+	complete_national_focus = FRA_free_france
+	complete_national_focus = FRA_BaoDai
+	set_technology = {
+		basic_medium_tank = 1
+	}
+}
+1952.1.1 = {
+	retire_character = FRA_jean_de_lattre_de_tassigny
+	remove_ideas = FRA_chaos_ideas
+	set_technology = {
+		auto_industry = 1
+		mechanised_infantry = 1
+	}
+	remove_ideas = Jean_de_Lattre
+}
+1955.1.1 = {
+	oob = "FRA_1956"
+	end_puppet = SAR
+	end_puppet = SVN
+	diplomatic_relation = { country = VIN relation = war_relation active = no }
+	diplomatic_relation = { country = CAM relation = war_relation active = no }
+	set_war_support = 0.62
+	diplomatic_relation = {
+		country = CAM
+		relation = guarantee
+		active = no
+	}
+	diplomatic_relation = {
+		country = SVN
+		relation = guarantee
+		active = no
+	}
+	diplomatic_relation = {
+		country = LAO
+		relation = guarantee
+		active = no
+	}
+	end_puppet = CAM
+	end_puppet = LAO
+	complete_national_focus = FRA_GER
+	complete_national_focus = FRA_ECSC
+	complete_national_focus = FRA_new_Constitution
+	declare_war_on = {
+		target = ALG
+		type = annex_everything
+	}
+	set_technology = {
+	vaccum_tube = 1
+		sp_artillery2 = 1
+		supersonic_engine = 1
+		aa_missile_1 = 1
+		machine_gun2 = 1
+		CAS2 = 1
+		atomic_research = 1
+		nukes = 1
+		rocket_engines = 1
+		tech_engineers2 = 1
+		at_missile_1 = 1
+	}
+	create_country_leader = {
+		name = "René Coty"
+		
+		picture = "gfx/leaders/FRA/Portrait_France_Rene_Coty.tga"
+		expire = "1956.1.1"
+		ideology = liberalism
+		
+		traits = {
+		 colonist
+		}
+	}
+}
+1958.1.1 = {
+	end_puppet = MOR
+	recruit_character = FRA_rene_pleven
+			set_country_flag = {
+				flag = FRA_reject_algeria_indep
+				days = 800
+				value = 1
+			}
+	add_ideas = FRA_unrest_armee_ideas
+	recruit_character = FRA_charles_de_gaulle
+		promote_character = {
+			character = FRA_charles_de_gaulle
+			ideology = conservatism
+		}
+	complete_national_focus = FRA_exit_Colonialism
+}
+
+
+1959.1.1 = {
+	oob = "FRA_1960"
+	set_global_flag = fra39
+	add_to_array = { global.nuke_states_list = FROM }
+	set_war_support = 0.43
+	set_popularities = {
+		democratic = 81
+		communism = 11
+		neutrality = 8
+	}
+	add_ideas = {
+		ECSC
+	}
+	give_guarantee = ITA
+	give_guarantee = HOL
+	give_guarantee = BEL
+	give_guarantee = LUX
+	remove_ideas = FRA_IVRepublic
+	set_technology = {
+		CAS3 = 1
+		atomic_research = 1
+		excavation3 = 1
+		tech_recon3 = 1
+		tech_field_hospital3 = 1
+		concentrated_industry2 = 1
+		landing_craft = 1
+		thermonuclear = 1
+		spaa2 = 1
+		fuel_refining2 = 1
+		supersonic_engine = 1
+		spaa2 = 1
+		improved_medium_tank = 1
+		atomic_research = 1
+		nukes = 1
+		nuclear_plant_1 = 1
+	}
+	recruit_character = FRA_Le_Pon
+		promote_character = {
+			character = FRA_Le_Pon
+			ideology = authoritarianism
+		}
+}
+1960.1.1 = {
+	end_puppet = CHD
+	end_puppet = BKF
+	end_puppet = MRT
+	end_puppet = MLI
+	end_puppet = TUN
+	end_puppet = CAF
+	end_puppet = MAD
+	end_puppet = GUI
+	end_puppet = IVO
+	end_puppet = TOG
+	end_puppet = BEN
+	end_puppet = CMR
+	end_puppet = GAB
+	end_puppet = CGO
+	end_puppet = CMR
+	give_guarantee = WDR
+	add_named_threat = { threat = 8 name = NuclearTest }
+}
+1964.1.1 = {
+	oob = "FRA_1964"
+			retire_character = FRA_Mitterrand
+			retire_character = FRA_Pierre_Mendes
+	clr_country_flag = FRA_reject_algeria_indep
+	set_variable = { this.nukes_limit = 80 }
+	set_technology = {
+		medium_computer = 1
+		computer_consol = 1
+		strategic_bomber2 = 1
+		tech_engineers3 = 1
+		fighter3 = 1
+		sp_artillery2 = 1
+		tech_Satellite = 1
+		machine_gun3 = 1
+		concentrated_industry3 = 1
+		mechanised_infantry = 1
+		improved_infantry_weapons = 1
+		marines3 = 1
+		paratroopers2 = 1
+		tech_engineers3 = 1
+		aa_missile_2 = 1
+	}
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	add_nuclear_bombs = 32
+	remove_ideas = colonist_war
+	complete_national_focus = FRA_Gaullisme
+	complete_national_focus = FRA_new_east
+	complete_national_focus = FRA_china
+	complete_national_focus = FRA_nuke
+	complete_national_focus = FRA_soviet_relation
+	complete_national_focus = FRA_Nouveau_Franc
+	complete_national_focus = FRA_Presidential_right
+	complete_national_focus = FRA_soviet_relation
+	complete_national_focus = FRA_Reorganizing_government
+	complete_national_focus = FRA_ecnomic_reform
+	complete_national_focus = FRA_oilfroduc
+	remove_ideas = FRA_unrest_armee_ideas
+	add_ideas = FRA_immgrate_comeback
+}
+1969.1.1 = {
+	diplomatic_relation = { country = ALG relation = war_relation active = no }
+	set_country_flag = Satellite_succes
+	set_technology = {
+		fire_control_methods_2 = 1
+		basic_heavy_battery = 1
+		husbandry_feed = 1
+		thermonuclear = 1
+		tech_Satellite = 1
+		basic_heavy_tank = 1
+	}
+	remove_ideas = nato_spirit
+	create_country_leader = {
+		name = "Georges Pompidou"
+		
+		picture = "gfx/leaders/FRA/Portrait_France_Georges_Pompidou.tga"
+		expire = "1956.1.1"
+		ideology = conservatism
+		traits = {
+			euroism pro_socialism nuclear_enthusiast
+		}
+	}
+}
+1974.1.1 = {
+	recruit_character = FRA_Mitterrand
+	set_variable = { this.nukes_limit = 150 }
+	recruit_character = FRA_Georges_Marchais
+		promote_character = {
+			character = FRA_Georges_Marchais
+			ideology = marxism
+		}
+	set_technology = {
+		improved_light_tank = 1
+		power_cable = 1
+		infantry_at2 = 1
+		spaa2 = 1
+		fuel_refining3 = 1
+		infantry_weapons2 = 1
+		mechanised_infantry2 = 1
+		mechanised_infantry3 = 1
+		improved_infantry_weapons = 1
+		at_missile_2 = 1
+		CAS4 = 1
+	}
+	add_nuclear_bombs = 229
+	complete_national_focus = FRA_exit_Nato
+	complete_national_focus = FRA_EEC
+	add_ideas = FRA_policia_afrique
+	create_country_leader = {
+		name = "Valéry Giscard Estaing"
+		
+		picture = "gfx/leaders/FRA/Portrait_France_Giscard_Estaing.tga"
+		expire = "1956.1.1"
+		ideology = liberalism
+		
+		traits = {
+			euroism social_reformer nuclear_enthusiast
+		}
+	}
+}
+1977.1.1 = {
+	oob = "FRA_1976"
+	set_technology = {
+		integrated_circuit = 1
+		aa_missile_2 = 1
+	}
+}
+1981.1.1 = {
+	set_technology = {
+		spaa3 = 1
+		advanced_infantry_weapons = 1
+		advanced_medium_tank = 1
+		improved_heavy_tank = 1
+		aa_missile_3 = 1
+	}
+	complete_national_focus = FRA_Minitel
+	add_nuclear_bombs = 315
+	create_country_leader = {
+		name = "Francois Mitterrand"
+		
+		picture = "gfx/leaders/FRA/Portrait_France_Francois_Mitterrand.tga"
+		expire = "1956.1.1"
+		ideology = socialism
+		
+		traits = {
+			euroism 
+		}
+	}
+}
+1983.1.1 = {
+	oob = "FRA_1989"
+	
+	add_ideas = {
+		DGSE
+	}
+	set_technology = {
+		internet = 1
+		fighter4 = 1
+	}
+}
+1991.1.1 = {
+	set_technology = {
+		advanced_ship_hull_light = 1
+	}
+}

@@ -1,0 +1,3585 @@
+
+nuclear_decitions = {
+	US_nuclear_cooperate = {
+		icon = GFX_deci_nuclear 
+		cost = 50
+		days_re_enable = 100
+		visible = {
+			NOT = { has_country_flag = InternationalAtomic }
+			OR = {
+				has_idea = Marshall
+				is_guaranteed_by = USA
+			}
+			USA = {
+				has_completed_focus = USA_Atom_Peace
+			}
+		}
+		available = {    
+			has_stability > 0.75
+		}
+		complete_effect = {    
+			USA = { news_event = usa.274 }
+		}
+    
+	}
+}
+research_catogary = {
+	paradrop_test = {
+		icon = GFX_deci_electro
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+				any_owned_state = {
+					has_state_flag = airtrans_ready
+				}
+		}
+		cost = 120
+		days_re_enable = 300
+		complete_effect = {
+			every_controlled_state = {
+				limit = { has_state_flag = airtrans_ready }
+				teleport_armies = {
+					limit = {
+						original_tag = THIS 
+					}
+					to_state = 202
+				}
+			}
+		}
+	}
+	research_electro = {
+		icon = GFX_deci_electro
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 120
+		days_re_enable = 300
+		days_remove = 150
+		visible = {
+			NOT = { has_tech = Semiconductor }
+			has_tech = electronic_mechanical_engineering
+			has_completed_focus = common_65
+		}
+		target_trigger = {
+			FROM = {
+				has_tech = vaccum_tube
+				has_country_flag = main_country
+				has_opinion = {
+					target = ROOT
+					value > 30
+				}
+			}
+		}
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 0.02
+				uses = 1
+				category = electronics
+			}
+		}
+	}
+}
+military_action = {
+	aid_KKE = {
+		icon = decision_generic_tank
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		days_re_enable = 120
+		cost = 80
+		visible = {
+			NOT = { has_global_flag = KKE_break }
+			OR = {
+				tag = YUG
+				tag = ALB
+				tag = BUL
+				tag = SOV
+			}
+			OR = {
+				country_exists = KKE
+				GRE = { has_idea = Red_Brigade }
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { country_exists = KKE } }
+				GRE = {
+					add_popularity = {
+						ideology = communism
+						popularity = 0.02
+					}
+					add_stability = -0.02
+				}
+				185 = { add_resistance = 6 }
+				184 = { add_resistance = 6 }
+			}
+			if = {
+				limit = { country_exists = KKE }
+				FROM = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 500
+						target = KKE
+					}
+					send_equipment = {
+						equipment = machine_gun
+						amount = 100
+						target = KKE
+					}
+					send_equipment = {
+						equipment = motorized_equipment
+						amount = 40
+						target = KKE
+					}
+					add_stability = 0.02
+					add_war_support = 0.05
+				}
+				GRE = {
+					add_popularity = {
+						ideology = communism
+						popularity = 0.02
+					}
+				}
+				news_event = { id = gre.3 }
+			}
+		}
+	}
+	cancel_emergency_decision = {
+		icon = decision_generic_tank
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				OR = {
+					has_dynamic_modifier = { modifier = emergency_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+			remove_dynamic_modifier = { modifier = emergency_modifiers }
+			}
+		}
+	}
+	
+	poisongas_resistance = {
+		icon = decision_generic_ignite_civil_war
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_idea = closed_economy
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				NOT = { has_dynamic_modifier = { modifier = poispn_modifiers } }
+				OR = {
+					resistance > 60
+					has_dynamic_modifier = { modifier = more_rebel_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = poison_use
+			FROM = {
+			add_resistance = -20
+			add_dynamic_modifier = { modifier = poispn_modifiers }
+			}
+		}
+	}
+	emergency_decision = {
+		icon = GFX_decision_generic_protection
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 100
+				date > 1954.1.1
+			}
+			modifier = { 
+				add = 100
+				communism < 0.3
+			}
+		}
+		cost = 80
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				NOT = { has_dynamic_modifier = { modifier = emergency_modifiers } }
+				OR = {
+					resistance > 60
+					has_dynamic_modifier = { modifier = more_rebel_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+			add_resistance = -20
+			add_dynamic_modifier = { modifier = emergency_modifiers }
+			}
+		}
+	}
+	rebels_negotiation = {
+		icon = decision_generic_political_discourse
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 100
+				tag = MAL
+				date > 1960.1.1
+			}
+			modifier = { 
+				add = 100
+				tag = PHI
+				date > 1956.6.1
+			}
+		}
+		cost = 120
+		days_re_enable = 120
+		visible = {
+			NOT = {
+				or = {
+					tag= GRE
+					tag= JAP
+					tag= SVN
+					tag= WDR
+				}
+			}
+			OR = {
+			has_idea = gaulle
+			has_idea = jungle_war
+			has_idea = southeast_revolution
+			has_idea = Red_Brigade
+			}
+		}
+		complete_effect = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 2
+						has_idea = sanctions
+					}
+					modifier = {
+						factor = 20
+						tag = MAL
+						date < 1960.1.1
+					}
+					modifier = {
+						factor = 20
+						tag = PHI
+						date < 1954.1.1
+					}
+					modifier = {
+						factor = 2
+						has_war_support < 0.5
+					}
+					modifier = {
+						factor = 2
+						has_stability < 0.3
+					}
+					country_event = { id = gen.60 }
+				}
+				20 = {
+					modifier = {
+						factor = 2
+						has_stability > 0.7
+					}
+					modifier = {
+						factor = 2
+						check_variable = { num_divisions > owned_states }
+					}
+					country_event = { id = gen.61 }
+				}
+				10 = {
+					modifier = {
+						factor = 0.5
+						has_war_support < 0.4
+					}
+					modifier = {
+						factor = 0.5
+						has_stability < 0.5
+					}
+					modifier = {
+						factor = 20
+						tag = PHI
+						date > 1954.6.1
+					}
+					modifier = {
+						factor = 2
+						communism < 0.3
+					}
+					modifier = {
+						factor = 2
+						has_government = neutrality
+						neutrality > 0.5
+					}
+					modifier = {
+						factor = 2
+						has_government = democratic
+						democratic > 0.5
+					}
+					country_event = { id = gen.62 }
+					if = {
+						limit = { tag = PHI }
+						news_event = { id = phi.53 days = 2 }
+					}
+				}
+			}
+		}
+	}
+	supress_jungle_war = {
+		icon = GFX_decision_category_generic_arms_trade
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 120
+		days_re_enable = 120
+		visible = {
+			num_divisions > 2
+			has_idea = jungle_war
+		}
+		available = {
+			has_army_experience > 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {	
+				is_capital = no
+				is_owned_by = ROOT
+				resistance > 1
+			}
+		}
+		complete_effect = {
+			army_experience = -40
+			random_list = {
+				10 = {
+					owner = {
+						country_event = { id = gen.5 }
+						add_stability = -0.04
+						add_popularity = {
+							ideology = communism
+							popularity = 0.02
+						}
+					}
+					FROM = { add_resistance = 8 }
+				}
+				num_divisions = {
+					owner = {
+						country_event = { id = gen.4 }
+						add_stability = 0.05
+						add_popularity = {
+							ideology = communism
+							popularity = -0.03
+						}
+					}
+					FROM = { add_resistance = -10 }
+				}
+			}
+		}
+	}
+	supress_rebels_common = {
+		icon = GFX_decision_category_generic_arms_trade
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 200
+				tag < FRA
+			}
+		}
+		
+		cost = 10
+		days_re_enable = 100
+		visible = {
+			OR = {
+			any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+			any_subject_country = { any_owned_state = { has_dynamic_modifier = { modifier = more_rebel_modifiers } } }
+			}
+		}
+		available = {
+			num_divisions > 2
+			has_army_experience > 50
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {	
+				is_owned_by = ROOT
+				OR = {
+				resistance > 12
+				has_dynamic_modifier = { modifier = more_rebel_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			army_experience = -40
+			if = {
+				limit = {
+					tag = FRA
+					FROM = { is_core_of = ALG }
+					460 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+					NOT = { has_global_flag = alg15 }
+				}
+				random_list = {
+					20 = {
+					}
+					80 = {
+						modifier = {
+							add = 200
+							date > 1957.2.1
+							date < 1957.8.1
+						}
+						news_event = { id = alg.15 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = FRA
+					FROM = { is_core_of = ALG }
+					460 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+					date > 1960.1.1
+					NOT = { has_global_flag = BenbellaArrest }
+				}
+				random_list = {
+					50 = {
+					}
+					50 = {
+						set_global_flag = BenbellaArrest
+						news_event = { id = alg.16 }
+					}
+				}
+			}
+			random_list = {
+				10 = {
+					owner = { country_event = { id = gen.5 } }
+					FROM = { add_resistance = 8 }
+					modifier = {
+						add = -2
+						has_stability > 0.7
+					}
+				}
+				10 = {
+					owner = {
+						country_event = { id = gen.4 }
+						add_popularity = {
+							ideology = ROOT
+							popularity = 0.03
+						}
+					}
+					FROM = { add_resistance = -20 }
+					modifier = {
+						add = 5
+						has_stability > 0.5
+					}
+					modifier = {
+						add = 3
+						has_army_experience > 100
+					}
+					modifier = {
+						add = 3
+						num_divisions > 8
+					}
+					modifier = {
+						add = 3
+						num_divisions > 12
+					}
+				}
+			}
+		}
+	}
+}
+education_efforts = {
+	build_Particle_accelerator = {
+		fire_only_once = yes
+		visible = {
+			has_tech = integrated_circuit
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		days_remove = 300
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = space
+			}
+		}
+	}
+	build_architech_school = {
+		fire_only_once = yes
+		visible = {
+			has_completed_focus = common_74
+			NOT = { has_country_flag = developmented }
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		complete_effect = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = construction_tech
+			}
+		}
+	}
+	build_police_school = {#
+		visible = {
+			has_completed_focus = common_74
+			NOT = { has_country_flag = developmented }
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		available = {
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			add_stability = 0.12
+		}
+		days_remove = -1
+		modifier = {
+			compliance_growth = 0.06
+			intelligence_agency_defense = 1.2
+		}
+		fire_only_once = no
+	}
+	build_fire_department = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+		}
+		available = {
+			
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		complete_effect = {
+
+		}
+		days_remove = -1
+		modifier = {
+			compliance_growth = 0.03
+			industry_air_damage_factor = -0.18
+		}
+		fire_only_once = no
+	}
+	Publishing_nationalist_works = {#
+		visible = {
+			has_completed_focus = common_74
+			has_war_support > 0.7
+		}
+		icon = GFX_decision_eng_propaganda_campaigns
+        cost = 150
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.08
+			}
+			add_stability = 0.08
+			add_war_support = 0.15
+		}
+		#days_remove = -1
+		modifier = {
+
+		}
+		fire_only_once = no
+	}
+	build_College_of_Geology = {#
+		visible = {
+			has_completed_focus = common_74
+			has_tech = construction1
+			NOT = { has_country_flag = developmented }
+		}
+		available = {
+			
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		complete_effect = {
+
+		}
+		days_remove = -1
+		modifier = {
+			production_speed_oilfield_factor = 0.12
+			production_speed_dam_plant_factor = 0.12
+
+		}
+		fire_only_once = no
+	}
+	build_Technical_College = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+			has_completed_focus = common_74
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		complete_effect = {
+
+		}
+		days_remove = -1
+		modifier = {
+			production_speed_industrial_complex_factor = 0.12
+
+		}
+		fire_only_once = no
+	}
+	build_chemical_engineering_institute = {#
+		visible = {
+			has_completed_focus = common_74
+			NOT = { has_country_flag = developmented }
+			has_tech = synth_oil_experiments
+		}
+        cost = 150
+		icon = GFX_decision_SOV_academy_of_sciences
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		complete_effect = {
+
+		}
+		days_remove = -1
+		modifier = {
+			production_speed_synthetic_refinery_factor = 0.08
+			production_speed_rubber_factory_factor = 0.08
+		}
+		fire_only_once = no
+	}
+	build_College_of_foreign_languages = {
+		visible = {
+			has_completed_focus = common_74
+			NOT = { has_country_flag = developmented }
+			
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		days_remove = -1
+		modifier = {
+			opinion_gain_monthly_factor = 0.08
+		}
+		fire_only_once = no
+	}
+	build_Army_Logistics_Division = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+			has_tech = motorized_transport
+		}
+        cost = 150
+		icon = GFX_decision_generic_military
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+
+		}
+		days_remove = -1
+		modifier = {
+			army_org_factor = 0.12
+			supply_factor = 0.12
+		}
+		fire_only_once = no
+	}
+	build_General_staff = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+		}
+		icon = GFX_decision_generic_military
+        cost = 150
+		available = {
+			has_tech = naval_college
+			has_tech = military_office
+			has_tech = airforce_college
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			army_experience = -300
+			navy_experience = -120
+			air_experience = -120
+		}
+		days_remove = -1
+		modifier = {
+			command_power_gain_mult = 0.2
+		}
+		fire_only_once = no
+	}
+	build_Naval_Logistics_Division = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+			has_tech = naval_construction
+		}
+        cost = 150
+		icon = GFX_decision_generic_military
+		available = {
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		days_remove = -1
+		modifier = {
+			repair_speed_factor = 0.12
+			#没找到海军补给的修正
+		}
+		fire_only_once = no
+	}
+	build_naval_school = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+		}
+        cost = 150
+		icon = GFX_decision_generic_naval
+		available = {
+			has_tech = basic_fleet
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		days_remove = -1
+		modifier = {
+			experience_gain_navy_factor = 0.12
+		}
+		fire_only_once = no
+	}
+	build_Urban_Construction_University = {#
+		visible = {
+			NOT = { has_country_flag = developmented }
+			has_tech = construction2
+		}
+        cost = 150
+		icon = GFX_decision_SOV_academy_of_sciences
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+		}
+		days_remove = -1
+		modifier = {
+			production_speed_buildings_factor = 0.08
+		}
+		fire_only_once = no
+	}
+	medical_college = { #repeating train seize
+
+		visible = { 
+			NOT = { has_country_flag = developmented }
+			has_tech = medical1
+		}
+		icon = GFX_decision_SOV_academy_of_sciences
+        cost = 150
+		days_remove = 180
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+				factor = -20
+				has_country_leader_with_trait = corrupt_leader
+			}
+			modifier = {
+				add = 1
+				has_stability > 0.74
+			}
+		}
+		modifier = {
+			production_speed_hospital_factor = 0.25
+		}
+		complete_effect = {
+			add_stability = 0.12
+			set_country_flag = medical_college
+		}
+	}
+}
+Gorbachev_reform = {
+	SOV_Abolish_lifelong = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			OR = {
+				has_idea = Glasnost
+				has_country_leader_with_trait = socialist_reformism
+				has_completed_focus = common_32
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.12
+			}
+			add_political_power = 100
+			add_stability = -0.05
+		}
+	
+	}
+	SOV_art_free = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			OR = {
+				has_idea = Glasnost
+				has_country_leader_with_trait = socialist_reformism
+				has_completed_focus = common_32
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1990.2.1
+					}
+				}
+			}
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.15
+			}
+			add_political_power = 100
+			add_stability = 0.2
+		}
+	
+	}
+	SOV_Separation_of_Party = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			OR = {
+				has_idea = Glasnost
+				has_country_leader_with_trait = socialist_reformism
+				has_completed_focus = common_32
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1988.2.1
+					}
+				}
+			}
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.25
+			}
+			add_political_power = 200
+			add_stability = -0.1
+		}
+	
+	}
+	
+	SOV_law_reform = {
+
+		icon = generic_industry
+		fire_only_once = yes
+
+		visible = {
+			OR = {
+				has_idea = Glasnost
+				has_country_leader_with_trait = socialist_reformism
+				has_completed_focus = common_32
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 200 
+				OR = {
+					AND = {
+						date > 1986.2.1
+					}
+				}
+			}
+		}
+
+		cost = 150
+
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.12
+			}
+			add_political_power = 100
+			add_stability = 0.2
+		}
+	
+	}
+}
+
+political_actions = {
+	deci_worship_statue_capital = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_book = {
+		icon = GFX_decision_SWI_dismiss_council
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_biography = {
+		icon = GFX_decision_SWI_dismiss_council
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_titled = {
+		icon = GFX_decision_ITA_reorganize_ascari
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_capital = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_home = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_loyalty = {
+		icon = GFX_decision_SWI_guisan_speech
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_ban_protest = {
+		icon = GFX_decision_generic_political_rally
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_party_desc = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_spuress = {
+		icon = GFX_decision_generic_arrest
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_strike_nologies = {
+		icon = GFX_decision_oppression
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_killed = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_luxury = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_rub_companies = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_rub_plants = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_rub_foreign = {
+		icon = GFX_decision_gre_investment_decisions
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_rub_land = {
+		icon = GFX_decision_hol_inundate_water_lines
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_families = {
+		icon = GFX_decision_SWI_expand_covert_operations
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	deci_worship_rub_cash = {
+		icon = GFX_decision_generic_welfare
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_country_leader_with_trait = personal_worship
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+		}
+	}
+	medal_war = {
+		icon = GFX_deci_medal
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 1
+		}
+		visible = {
+			has_government = communism
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_dynamic_modifier = { modifier = medal_war_modifier }
+		}
+	}
+	explore_government = {
+		icon = GFX_decision_eng_trade_unions_support
+		allowed = {
+			always = yes
+		}
+		cost = 120
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 50
+				check_variable = { RE_num > 80 }
+			}
+			modifier = { 
+				add = -50
+				check_variable = { RE_num < 80 }
+			}
+		}
+		days_re_enable = 10
+		visible = {
+			check_variable = { total_to_ppower < 21 }
+			check_variable = { total_revenue > total_expenditure }
+			OR = {
+				NOT = { tag = PRC }
+				has_completed_focus = prc_RMB
+			}
+			NOT = { has_country_flag = clear_financial_to_power }
+		}
+		complete_effect = {
+                add_to_variable = { financial_to_power = 0.5 }
+                add_to_variable = { total_to_ppower = 10 }
+				add_dynamic_modifier = { modifier = financial_to_power_modifier }
+		}
+	}
+	reduce_government = {
+		icon = generic_industry
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { 
+				add = 50
+				check_variable = { RE_num < 80 }
+			}
+			modifier = { 
+				add = -50
+				check_variable = { RE_num > 80 }
+			}
+		}
+		days_re_enable = 10
+		visible = {
+			check_variable = { total_to_ppower > 1 }
+		}
+		complete_effect = {
+                add_to_variable = { financial_to_power = -0.5 }
+                add_to_variable = { total_to_ppower = -10 }
+				add_dynamic_modifier = { modifier = financial_to_power_modifier }
+		}
+	}
+	civil_aviation_action = {
+		icon = GFX_decision_generic_merge_plant_aircraft
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 0
+		}
+		fire_only_once = yes
+		visible = {
+			NOT = { has_country_flag = civil_aviation }
+		}
+		complete_effect = {
+			add_to_variable = { this.tourist_faction = 1.2 }
+			set_country_flag = civil_aviation
+		}
+	}
+	apply_us_aid = {
+		icon = GFX_us_aid_deci
+		allowed = {
+			always = yes
+		}
+		cost = 200
+		ai_will_do = {
+			factor = 100
+		}
+		fire_only_once = yes
+		visible = {
+			 has_stability > 0.5
+			has_completed_focus = common_13
+			NOT = { has_idea = Marshall }
+		}
+		complete_effect = {
+			USA = {
+			}
+		}
+	}
+	Round_table	= {
+		icon = generic_industry
+		visible = {
+			NOT = {
+				tag = PRC
+				tag = SOV
+				tag = DDR
+				tag = VIN
+			}
+			has_war = no
+			has_government = communism
+			democratic > 0.3
+			date > 1988.1.1
+			OR = {
+				SOV = { has_idea = Glasnost }
+				SOV = { has_completed_focus = SOV_SinatraDoctrine }
+				has_idea = Glasnost
+				has_country_leader_with_trait = socialist_reformism
+			}
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				democratic > 0.5
+				date > 1989.6.1
+			}
+			modifier = {
+				add = 100 
+				tag = POL
+				has_idea = Solidarnosc
+				date > 1989.6.1
+			}
+			modifier = {
+				add = 100 
+				tag = BUL
+				democratic > 0.5
+				date > 1990.4.1
+			}
+			modifier = {
+				add = 100 
+				tag = HUN
+				democratic > 0.4
+				date > 1989.10.1
+			}
+			modifier = {
+				add = 100 
+				tag = ALB
+				democratic > 0.4
+				date > 1991.1.1
+			}
+			modifier = {
+				add = 100 
+				tag = MON
+				democratic > 0.3
+				date > 1990.11.1
+			}
+			modifier = {
+				add = 100 
+				tag = MZB
+				date > 1991.1.1
+			}
+		}
+		complete_effect = {
+			set_country_flag = round_meeting
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			add_stability = 0.2
+			news_event = { id = gen.22 }
+			if = {
+				limit = { tag = POL }
+				news_event = { id = pol.21 }
+			}
+		}
+	}
+	MUSLIM_Revolution = {
+		allowed = {
+			always = yes
+		}
+		days_re_enable = 180
+		visible = {
+			has_government = fascism
+			has_completed_focus = common_55
+		}
+		target_trigger = {
+			FROM = {
+				fascism > 0.1
+				NOT = { has_government = fascism }
+				OR = {
+					capital_scope = {
+						is_on_continent = middle_east
+					}
+					tag = LBA
+					tag = SUD
+					tag = SML
+					tag = ALG
+					tag = TUN
+					tag = AFG
+					tag = MOR
+					tag = MRT
+					tag = NGR
+					tag = PRC
+					tag = IND
+					tag = INS
+					tag = MAL
+					tag = TUR
+					tag = KAZ
+					tag = PAK
+					tag = ETH
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+		complete_effect = {
+			FROM = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.06
+				}
+				add_stability = -0.15
+			}
+		}
+	
+	}
+
+	improved_worker_conditions = {
+
+		icon = generic_industry
+
+		available = {
+			
+		}
+
+		visible = {
+			always = yes
+		}
+
+		fire_only_once = no
+
+		modifier = {
+			stability_weekly = 0.03
+			industrial_capacity_factory = -0.1
+		}
+
+		days_remove = 180
+		days_re_enable = 540
+
+		cost = 100
+
+		complete_effect = {
+
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_stability < 0.6
+			}
+		}
+	}
+
+	promises_of_peace = {
+
+		icon = generic_political_discourse
+
+		available = {
+			has_war = no
+			has_war_support > 0.2
+		}
+
+		visible = {
+			always = yes
+		}
+
+		remove_trigger = {
+			has_war = yes
+			has_war_support < 0.05
+		}
+
+		fire_only_once = no
+
+		modifier = {
+			stability_weekly = 0.005
+			war_support_weekly = -0.01
+		}
+
+		days_remove = 90
+		days_re_enable = 360
+
+		cost = 50
+
+		complete_effect = {
+
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_stability < 0.4
+			}
+		}
+	}
+}
+
+Diplomatic_actions = {
+	decision_ask_east_euro_experts = {
+		icon = generic_research
+		allowed = {
+			always = yes
+		}
+		cost = 80
+		days_re_enable = 100
+		visible = {
+			OR = {
+				has_idea = comecon
+				has_completed_focus = prc48
+			}
+			NOT = { FROM = { tag = ROOT } }
+			if = {
+				limit = { FROM = { tag = CZE } }
+				NOT = { has_country_flag = CZE_experts_allow }
+			}
+			if = {
+				limit = { FROM = { tag = POL } }
+				NOT = { has_country_flag = POL_experts_allow }
+			}
+			if = {
+				limit = { FROM = { tag = DDR } }
+				NOT = { has_country_flag = DDR_experts_allow }
+			}
+			if = {
+				limit = { FROM = { tag = ROM } }
+				NOT = { has_country_flag = ROM_experts_allow }
+			}
+			if = {
+				limit = { FROM = { tag = HUN } }
+				NOT = { has_country_flag = HUN_experts_allow }
+			}
+		}
+		target_trigger = {
+			FROM = {
+				has_government = communism
+				OR = {
+					tag = CZE
+					tag = DDR
+					tag = POL
+					tag = ROM
+					tag = HUN
+				}
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			FROM = { country_event = { id = gen.280 } }
+		}
+	}
+	SALT_negosiation = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 60
+				threat > 0.7
+			}
+		}
+		cost = 40
+		days_re_enable = 360
+		visible = {
+			OR = {
+				tag = SOV
+				tag = USA
+			}
+		}
+
+		complete_effect = {
+			if = {	
+				limit = { tag = USA }
+				SOV = { country_event = { id = gen.57 } }
+			}
+			if = {	
+				limit = { tag = SOV }
+				USA = { country_event = { id = gen.57 } }
+			}
+		}
+
+	
+	}
+	Summit = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+		}
+
+		cost = 100
+		days_re_enable = 360
+		visible = {
+			OR = {
+				tag = SOV
+				tag = USA
+			}
+		}
+
+		complete_effect = {
+			country_event = { id = gen.1 }
+		}
+
+	
+	}
+	PRC_diplomacy = {
+		icon = generic_political_discourse
+		allowed = {
+			always = yes
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				PRC = { has_idea = UNmember }
+			}
+			modifier = {
+				add = 1
+				has_completed_focus = common_21
+			}
+			modifier = {
+				add = -5
+				is_in_faction_with = USA
+			}
+			modifier = {
+				add = -20
+				has_country_leader_with_trait = anti_communist
+			}
+			modifier = {
+				add = -20
+				has_government = monarchism
+			}
+			modifier = {
+				add = -20
+				has_country_flag = latin_america
+				has_government = neutrality
+			}
+			modifier = {
+				add = 50
+				tag = EGY
+				date > 1956.5.1
+			}
+			modifier = {
+				add = 50
+				tag = DEN
+				date > 1950.10.1
+			}
+			modifier = {
+				add = -50
+				date < 1954.10.1
+				NOT = { has_government = communism }
+			}
+			modifier = {
+				add = -50
+				has_country_flag = centural_america
+			}
+			modifier = {
+				add = 30
+				has_country_leader_with_trait = pro_third_world
+			}
+			modifier = {
+				add = 30
+				has_country_leader_with_trait = pro_socialism
+			}
+			modifier = {
+				add = -100
+				NOT = { PRC = { has_idea = UNmember } }
+				has_country_leader_with_trait = anti_communist
+			}
+		}
+		cost = 50
+		days_re_enable = 80
+		visible = {
+			date > 1949.1.1
+			NOT = {
+			OR = {
+				tag = USA
+				tag = JAP
+				tag = SOV
+				tag = FRA
+				tag = SAF
+				tag = CHI
+				tag = PRC
+				tag = SVN
+				tag = ISR
+				tag = KOR
+				tag = ENG
+				is_subject = yes
+				has_country_flag = china_diplomacy
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+
+	
+	}
+	ISR_diplomacy = {
+		icon = generic_political_discourse
+		allowed = {
+			always = yes
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				has_country_flag = UNSC
+			}
+			modifier = {
+				add = 10
+				is_guaranteed_by = USA
+			}
+			modifier = {
+				add = 20
+				is_in_faction_with = USA
+			}
+			modifier = {
+				add = 10
+				is_guaranteed_by = SOV
+			}
+			modifier = {
+				add = -100
+				has_country_flag = islam_state
+			}
+			modifier = {
+				add = -400
+				has_global_flag = ISR_diploped
+			}
+			modifier = {
+				add = 20
+				has_country_flag = latin_america
+			}
+		}
+		cost = 50
+		days_re_enable = 80
+		visible = {
+			has_completed_focus = common_diplomacy
+			country_exists = ISR
+			NOT = {
+				has_country_flag = israel_diplomacy
+			OR = {
+				tag = SAF
+				tag = PRC
+				tag = ISR
+				tag = PAL
+				is_subject = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = israel_diplomacy
+			set_global_flag = ISR_diploped
+			if = {
+				limit = { NOT = { tag = USA } }
+				news_event = { id = isr.23 }
+			}
+		}
+
+	
+	}
+}
+
+supress_actions = {
+	arrest_communist = {
+		icon = GFX_decision_arrest_commie
+		allowed = {
+			always = yes
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				has_government = fascism
+			}
+		}
+		days_re_enable = 180
+		visible = {
+			OR = {
+				has_war = yes
+				has_idea = limited_exports
+				has_idea = white_terror
+				has_idea = closed_economy
+			}
+			NOT = {
+			has_government = communism
+			}
+			communism > 0.1
+		}
+		complete_effect = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.01
+			}
+		}
+	}
+	arrest_democracy = {
+		icon = GFX_decision_arrest_demo
+		allowed = {
+			always = yes
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				has_government = fascism
+			}
+			modifier = {
+				add = 100 
+				has_government = communism
+			}
+		}
+		days_re_enable = 180
+		visible = {
+			OR = {
+				has_war = yes
+				has_idea = limited_exports
+				has_idea = white_terror
+				has_idea = closed_economy
+			}
+			NOT = {
+				has_government = democratic
+			}
+			democratic > 0.1
+		}
+		complete_effect = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.02
+			}
+		}
+	}
+	arrest_muslim = {
+		icon = GFX_decision_arrest_islam
+		allowed = {
+			always = yes
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				has_government = neutrality
+			}
+			modifier = {
+				add = 100 
+				has_government = communism
+			}
+		}
+		days_re_enable = 180
+		visible = {
+			OR = {
+				has_war = yes
+				has_idea = limited_exports
+				has_idea = white_terror
+				has_idea = closed_economy
+			}
+			NOT = {
+			has_government = fascism
+			}
+			fascism > 0.1
+		}
+		complete_effect = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.02
+			}
+		}
+	}
+	arrest_nationalism = {
+		icon = GFX_decision_arrest_RESICETANCE
+		allowed = {
+			always = yes
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100 
+				has_government = democratic
+			}
+			modifier = {
+				add = 100 
+				has_government = fascism
+			}
+			modifier = {
+				add = 100 
+				has_government = communism
+			}
+		}
+		days_re_enable = 180
+		visible = {
+			OR = {
+				has_war = yes
+				has_idea = limited_exports
+				has_idea = closed_economy
+			}
+			NOT = {
+			has_government = neutrality
+			}
+			neutrality > 0.1
+		}
+		complete_effect = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.02
+			}
+		}
+	}
+	Suppres_communist = {
+		icon = generic_political_discourse
+		allowed = {
+			#Everyone
+		}
+		cost = 150
+		days_re_enable = 80
+		visible = {
+			OR = {
+				has_idea = southeast_revolution
+				has_idea = gaulle
+			}
+		}
+
+		complete_effect = {
+		random_list = {
+				40 = {
+					country_event = { id = latin.16 }
+				}
+				60 = {
+					country_event = { id = latin.17 }
+				}
+			}
+		}
+
+	
+	}
+}
+
+economy_decisions = {	
+	cancel_food_collect_decision = {
+		icon = GFX_decision_POL_organize_strike_two
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+		visible = {
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = food_collect_modifiers }
+			}
+			
+		}
+		complete_effect = {
+			add_stability = 0.2
+			every_controlled_state = {
+				remove_dynamic_modifier = { modifier = food_collect_modifiers }
+			}
+		}
+	}
+	food_collect_decision = {
+		icon = GFX_decision_POL_organize_strike_two
+		allowed = {
+			always = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		cost = 200
+		visible = {
+			OR = {
+				has_idea = war_economy
+				has_idea = tot_economic_mobilisation
+				has_idea = governed_economic
+				has_war = yes
+			}
+			NOT = {
+				any_owned_state = {
+					has_dynamic_modifier = { modifier = food_collect_modifiers }
+				}
+			}
+		}
+		complete_effect = {
+			add_stability = -0.22
+			every_controlled_state = {
+				add_dynamic_modifier = { modifier = food_collect_modifiers }
+			}
+		}
+	}
+}
+
+propaganda_efforts = {
+
+	war_propaganda = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			NOT = { has_country_flag = war_propaganda_campaign_running }
+			threat > 0.5
+			has_war_support < 0.5
+			has_offensive_war = no
+		}
+
+		visible = {
+			
+		}
+
+		fire_only_once = no
+
+		days_remove = 90
+		days_re_enable = 180
+
+		cost = 150
+
+		modifier = {
+			war_support_weekly = 0.01
+		}
+
+		complete_effect = {
+			set_country_flag = war_propaganda_campaign_running
+		}
+		remove_effect = {
+			clr_country_flag = war_propaganda_campaign_running
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_war_support < 0.4
+				has_war = yes
+			}
+		}
+	}
+
+	#Propaganda campaign against a country in offensive that has caused a lot of tension and started a war
+	war_propaganda_against_warmonger = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			NOT = { has_country_flag = war_propaganda_campaign_running }
+			FROM = {
+				OR = {
+					has_offensive_war = yes
+					is_justifying_wargoal_against = ROOT
+				}
+			}
+		}
+
+		visible = {
+			FROM = { NOT = { has_government = ROOT } }
+			FROM = {
+				NOT = { is_neighbor_of = ROOT }
+				OR = {
+					AND = {
+						NOT = { has_government = ROOT }
+						has_offensive_war = yes
+						has_added_tension_amount > 30
+					}
+					is_justifying_wargoal_against = ROOT
+					has_offensive_war_with = ROOT
+				}
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = { is_neighbor_of = ROOT }
+				OR = {
+					AND = {
+						NOT = { has_government = ROOT }
+						has_offensive_war = yes
+						has_added_tension_amount > 30
+					}
+					is_justifying_wargoal_against = ROOT
+					has_offensive_war_with = ROOT
+				}
+			}
+		}
+
+		days_remove = 90
+
+		fire_only_once = yes
+
+		cost = 75
+
+		modifier = {
+			war_support_weekly = 0.01
+		}
+
+		complete_effect = {
+			set_country_flag = war_propaganda_campaign_running
+		}
+		remove_effect = {
+			clr_country_flag = war_propaganda_campaign_running
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	#Propaganda campaign against a neighbor
+	war_propaganda_against_warmonger_neighbor = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			NOT = { has_country_flag = war_propaganda_campaign_running }
+			FROM = {
+				OR = {
+					has_offensive_war = yes 
+					is_justifying_wargoal_against = ROOT
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		visible = {
+			FROM = { NOT = { has_government = ROOT } }
+			FROM = {
+				is_neighbor_of = ROOT
+				OR = {
+					AND = {
+						NOT = { has_government = ROOT }
+						has_offensive_war = yes
+					}
+					is_justifying_wargoal_against = ROOT
+					has_war_with = ROOT
+				}
+				has_added_tension_amount > 5
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				is_neighbor_of = ROOT
+				OR = {
+					AND = {
+						NOT = { has_government = ROOT }
+						has_offensive_war = yes
+					}
+					is_justifying_wargoal_against = ROOT
+					has_war_with = ROOT
+				}
+				has_added_tension_amount > 5
+			}
+		}
+
+		days_remove = 90
+		days_re_enable = 180
+
+		cost = 50
+
+		modifier = {
+			war_support_weekly = 0.01
+		}
+
+		complete_effect = {
+			set_country_flag = war_propaganda_campaign_running
+		}
+		remove_effect = {
+			clr_country_flag = war_propaganda_campaign_running
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war_support > 0.9
+			}
+		}
+	}
+}
+
+operations = {
+	
+	blow_suez_canal = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		available = {
+			OR = {
+				has_full_control_of_state = 446
+				has_full_control_of_state = 453
+			}
+			OR = {
+				NOT = {
+					owns_state = 446
+					owns_state = 453
+				}
+				any_country = {
+					has_war_with = ROOT
+					OR = {
+						controls_state = 452
+						controls_state = 447
+						controls_state = 446
+						controls_state = 456
+						controls_state = 457
+						controls_state = 453
+						controls_state = 454
+						controls_state = 455
+					}
+				}
+			}
+		}
+	
+		visible = {
+			has_war = yes
+			NOT = { has_global_flag = SUEZ_CANAL_BLOCKED }
+			any_state = {
+				is_controlled_by = ROOT
+				OR = {
+					region = 28
+					region = 128
+				}
+			}
+		}
+	
+		fire_only_once = no
+	
+		days_remove = 30
+	
+		cost = 75
+	
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 446
+							owns_state = 453
+						}
+					}
+					random_country = {
+						limit = {
+							owns_state = 446
+							owns_state = 453
+						}
+						country_event = { id = generic.12 days = 1 }
+					}
+				}
+			}
+		}
+	
+		remove_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_full_control_of_state = 446
+						has_full_control_of_state = 453
+					}
+				}
+				set_country_flag = blew_up_suez
+				set_global_flag = SUEZ_CANAL_BLOCKED
+				country_event = { id = wtt_news.40 hours = 6}
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						ENG = {
+							owns_state = 446
+							owns_state = 453
+						}
+					}
+					add_war_support = -0.05
+					add_stability = -0.05
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				any_country = {
+					is_in_faction_with = ROOT
+					NOT = {
+						OR = {
+							has_full_control_of_state = 457
+							has_full_control_of_state = 456
+						}
+						has_full_control_of_state = 551
+					}
+					OR = {
+						divisions_in_state = { state = 550 size > 0 }
+						divisions_in_state = { state = 268 size > 0 }
+						divisions_in_state = { state = 269 size > 0 }
+						divisions_in_state = { state = 559 size > 0 }
+					}
+				}
+			}
+			modifier = {
+				factor = 200
+				OR = {
+					has_full_control_of_state = 118
+					any_other_country = {
+						is_in_faction_with = ROOT
+						has_full_control_of_state = 118
+					}
+				}
+				has_war = yes
+				NOT = { tag = ENG }
+			}
+		}
+	}
+
+	blow_panama_canal = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		available = {
+			OR = {
+				has_full_control_of_state = 685
+				AND = {
+					has_full_control_of_state = 304
+					any_country = {
+						has_war_with = ROOT
+						owns_state = 685
+					}
+				}
+			}
+		}
+	
+		visible = {
+			has_war = yes
+			NOT = { has_global_flag = PANAMA_CANAL_BLOCKED }
+			any_state = {
+				is_controlled_by = ROOT
+				OR = {
+					region = 34
+					region = 124
+				}
+			}
+		}
+	
+		fire_only_once = no
+	
+		days_remove = 30
+	
+		cost = 75
+	
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 685
+						}
+					}
+					random_country = {
+						limit = {
+							owns_state = 685
+						}
+						country_event = { id = generic.13 days = 1 }
+					}
+				}
+			}
+		}
+	
+		remove_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_full_control_of_state = 685
+						has_full_control_of_state = 304
+					}
+				}
+				set_country_flag = blew_up_panama
+				set_global_flag = PANAMA_CANAL_BLOCKED
+				country_event = { id = wtt_news.41 hours = 6}
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						USA = { owns_state = 685 }
+					}
+					add_war_support = -0.05
+					add_stability = -0.05
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+special_projects = {
+
+	rebuild_suez_canal = {
+
+		icon = GFX_decision_generic_special_project
+
+		available = {
+			has_full_control_of_state = 446
+			has_full_control_of_state = 453
+			num_of_civilian_factories > 50
+		}
+	
+		visible = {
+			has_global_flag = SUEZ_CANAL_BLOCKED
+		}
+	
+		fire_only_once = no
+	
+		days_remove = 365
+	
+		cost = 250
+	
+		modifier = {
+			civilian_factory_use = 50
+		}
+	
+		remove_effect = {
+			if = {
+				limit = {
+					has_full_control_of_state = 446
+					has_full_control_of_state = 453
+				}
+				set_country_flag = rebuilt_suez
+				clr_global_flag = SUEZ_CANAL_BLOCKED
+				country_event = { id = wtt_news.42 hours = 6}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_navy_size = { size < 100 }
+			}
+			modifier = {
+				factor = 200
+				NOT = {
+					OR = {
+						has_full_control_of_state = 118
+						any_other_country = {
+							is_in_faction_with = ROOT
+							has_full_control_of_state = 118
+						}
+					}
+				}
+				OR = {
+					ITA = { surrender_progress < 0.1 }
+					NOT = { tag = ENG }
+				}
+				has_full_control_of_state = 447
+				has_full_control_of_state = 454
+				has_full_control_of_state = 452
+				has_full_control_of_state = 456
+				has_full_control_of_state = 457
+				NOT = { has_country_flag = blew_up_suez }
+			}
+		}
+	}
+
+	rebuild_panama_canal = {
+
+		icon = GFX_decision_generic_special_project
+
+		available = {
+			has_full_control_of_state = 685
+			NOT = {
+				any_country = {
+					has_war_with = ROOT
+					controls_state = 304
+				}
+			}
+			num_of_civilian_factories > 80
+		}
+	
+		visible = {
+			has_global_flag = PANAMA_CANAL_BLOCKED
+		}
+	
+		fire_only_once = no
+	
+		days_remove = 550
+	
+		cost = 400
+	
+		modifier = {
+			civilian_factory_use = 80
+		}
+	
+		remove_effect = {
+			if = {
+				limit = {
+					has_full_control_of_state = 685
+					NOT = {
+						any_country = {
+							has_war_with = ROOT
+							controls_state = 304
+						}
+					}
+				}
+				set_country_flag = rebuilt_panama
+				clr_global_flag = PANAMA_CANAL_BLOCKED
+				country_event = { id = wtt_news.43 hours = 6}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_navy_size = { size < 100 }
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = blew_up_panama
+			}
+		}
+	}
+}
+
+war_measures = {
+	
+	emergency_factory_conversion_defensive = {
+
+		icon = generic_industry
+
+		available = {
+			num_of_civilian_factories > 5 #Change this if amount of factories change
+		}
+
+		visible = {
+			has_defensive_war = yes
+			has_offensive_war = no			
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 90
+
+		cost = 100
+
+		complete_effect = {
+			replace_civ_with_arms_factories = yes
+			add_war_support = -0.05
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	emergency_factory_conversion_offensive = {
+
+		icon = generic_industry
+
+		available = {
+			num_of_civilian_factories > 5 #Change this if amount of factories change
+		}
+
+		visible = {
+			has_offensive_war = yes
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 90
+
+		cost = 100
+
+		complete_effect = {
+			replace_civ_with_arms_factories = yes
+			add_war_support = -0.05
+			add_stability = -0.03
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	desperate_defense = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			surrender_progress > 0.5
+		}
+
+		visible = {
+			surrender_progress > 0
+		}
+
+		fire_only_once = no
+
+		days_remove = 45
+		days_re_enable = 360
+
+		cost = 50
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				surrender_progress > 0.6
+				factor = 10
+			}
+		}
+
+		modifier = {
+			defence = 0.2
+			dig_in_speed_factor = 0.5
+		}
+
+		complete_effect = {
+
+		}
+	}
+
+	women_in_the_workforce = {
+
+		icon = generic_industry
+
+        allowed = {
+            always = yes
+        }
+
+        available = {
+            has_war = yes
+            has_idea = tot_economic_mobilisation
+            OR = {
+                AND = {
+                    has_government = democratic
+                    has_war_support > 0.79
+                }
+                AND = {
+                    has_government = communism
+                    has_war_support > 0.79
+                }
+                AND = {
+                    has_government = fascism
+                    OR = {
+                        has_war_support > 0.89
+                        surrender_progress > 0
+                    }
+                }
+                AND = {
+                    has_government = neutrality
+                    has_war_support > 0.84
+                    has_stability > 0.7
+                }
+            }
+        }
+        visible = {
+            has_war = yes
+        }
+        cost = 100
+        days_remove = -1
+        remove_trigger = {
+            has_war = no
+        }
+        modifier = {
+            conscription = 0.03
+            stability_factor = -0.05
+        }
+        ai_will_do = {
+			factor = 1
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					tag = CAN
+				}
+				country_event = { id = canada_vanilla.1 hours = 6 } # Ronnie the Bren Gun Girl
+			}
+        }
+   }
+
+    war_bonds = {
+
+    	icon = generic_industry
+
+    	allowed = {
+            always = yes
+        }
+
+        available = {
+            has_war = yes
+            OR = {
+                AND = {
+                    has_government = democratic
+                    has_war_support > 0.79
+                }
+                AND = {
+                    has_government = communism
+                    has_war_support > 0.79
+                }
+                AND = {
+                    has_government = fascism
+                    OR = {
+                        has_war_support > 0.89
+                        surrender_progress > 0
+                    }
+                }
+                AND = {
+                    has_government = neutrality
+                    has_war_support > 0.84
+                    has_stability > 0.7
+                }
+            }
+        }
+        visible = {
+            has_war = yes
+        }
+
+        fire_only_once = no
+
+		days_remove = 180
+
+		cost = GER_war_bonds_var?50
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_political_power < 150
+				factor = 0 #use as pp dump
+			}
+		}
+
+		remove_effect = {
+
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = GER_war_bonds_var
+							value = 100
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = GER_war_bonds_var
+					value = 50
+				}
+			}
+			add_to_variable = {
+				var = GER_war_bonds_var
+				value = 25
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = GER_war_bonds_var
+						value = 100
+						compare = greater_than_or_equals
+					}
+					NOT = {
+						check_variable = {
+							var = GER_war_bonds_war_support_var
+							value = 5
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = GER_war_bonds_war_support_var
+					value = -5
+				}
+				add_war_support = GER_war_bonds_war_support_var
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = GER_war_bonds_var
+						value = 100
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = GER_war_bonds_war_support_var
+						value = 5
+						compare = greater_than_or_equals
+					}
+				}
+				add_to_variable = {
+					var = GER_war_bonds_war_support_var
+					value = -2.5
+				}
+				add_war_support = GER_war_bonds_war_support_var
+			}
+		}
+    }
+}
+
+foreign_politics = {
+	object_to_attaches = {
+
+		allowed = {
+            always = yes
+        }
+
+        cost = 50
+        fire_only_once = no
+
+        days_re_enable = 30
+
+        available = {
+        }
+
+        visible = {
+        	FROM = {
+        		NOT = { has_country_flag = rejected_withdrawing_attache }
+        		NOT = { has_country_flag = rejected_withdrawing_attache@ROOT }
+        		NOT = { has_country_flag = object_attache_going_on }
+        	}
+        	has_war = yes
+        	has_capitulated = no
+        	NOT = { has_war_with = FROM }
+        	any_enemy_country = {
+				has_attache_from = FROM
+			}
+		}
+
+		target_trigger = {
+			NOT = { has_war_with = FROM }
+			#FROM = { has_sent_attache = yes } # Make such trigger to optimize if it becomes a performance problem again.
+			any_enemy_country = {
+				has_attache_from = FROM
+			}			
+		}
+
+        complete_effect = {
+			FROM = { country_event = { id = generic.14 hours = 6 } }
+			hidden_effect = {
+				FROM = { set_country_flag = object_attache_going_on }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+economy_decisions = {
+	factories_private_5 = {
+
+		allowed = {
+            always = yes
+        }
+
+        cost = 50
+        days_re_enable = 30
+        visible = {
+			OR = {
+				has_country_flag = private_economic
+				has_idea = civilian_economy
+			}
+			any_owned_state = {
+				industrial_complex > 5
+			}
+		}
+        complete_effect = {
+			random_owned_state = {
+				limit = { industrial_complex > 5 }
+				remove_building = {
+					type = industrial_complex
+					level = 5
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			
+		}
+	}
+	factories_private_10 = {
+
+		allowed = {
+            always = yes
+        }
+
+        cost = 50
+        days_re_enable = 30
+        visible = {
+			OR = {
+				has_country_flag = private_economic
+				has_idea = civilian_economy
+			}
+			any_owned_state = {
+				industrial_complex > 10
+			}
+		}
+        complete_effect = {
+			random_owned_state = {
+				limit = { industrial_complex > 10 }
+				remove_building = {
+					type = arms_factory
+					level = 10
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			
+		}
+	}
+	coal_power_generate = {
+
+		allowed = {
+            always = yes
+        }
+
+        cost = 50
+        days_re_enable = 30
+        visible = {
+        	has_tech = power_generation2
+			has_dynamic_modifier = { modifier = power_general_fuel }
+		}
+        complete_effect = {
+			modify_building_resources = {
+				building = power_plant
+				resource = coal
+				amount = -1
+			}
+			remove_dynamic_modifier = { modifier = power_general_fuel }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	fuel_power_generate = {
+
+		allowed = {
+            always = yes
+        }
+
+        cost = 50
+        days_re_enable = 30
+        visible = {
+        	has_tech = power_generation2
+			NOT = { has_dynamic_modifier = { modifier = power_general_fuel } }
+			any_owned_state = {
+				has_resources_amount = {
+					resource = oil
+					amount > 1
+				}
+			}
+		}
+        complete_effect = {
+			add_dynamic_modifier = { modifier = power_general_fuel }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_fuel > 1000
+			}
+			modifier = {
+				factor = 10
+				check_variable = { resource@coal < 5 }
+			}
+			modifier = {
+				factor = -100
+				has_fuel < 400
+			}
+		}
+	}
+	infrastructure_building_slot = {
+
+		icon = generic_construction
+
+        allowed = {
+            always = yes
+        }
+
+        cost = 100
+        fire_only_once = no
+
+        days_re_enable = 30
+
+        available = {
+            any_state = {
+            	NOT = { has_state_flag = infrastructure_building_slot_flag }
+            	is_fully_controlled_by = ROOT
+            	is_owned_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
+            }
+        }
+
+        visible = {
+			any_state = {
+            	NOT = { has_state_flag = infrastructure_building_slot_flag }
+            	is_fully_controlled_by = ROOT
+            	is_owned_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
+            }
+		}
+
+        complete_effect = {
+			random_owned_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_owned_by = ROOT
+            		free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+					NOT = { has_state_flag = infrastructure_building_slot_flag }
+				}
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = infrastructure_building_slot_flag
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				any_owned_state = { free_building_slots = { building = industrial_complex size < 1 include_locked = no } }
+			}
+		}
+    }
+
+    war_building_slot = {
+
+    	icon = generic_construction
+
+        allowed = {
+            always = yes
+        }
+
+        cost = 50
+        fire_only_once = no
+
+        available = {
+            any_state = {
+            	NOT = { has_state_flag = war_building_slot_flag }
+            	is_fully_controlled_by = ROOT
+            	is_owned_by = ROOT
+            }
+            has_war = yes
+        }
+
+        visible = {
+        	any_state = {
+            	NOT = { has_state_flag = war_building_slot_flag }
+            	is_fully_controlled_by = ROOT
+            	is_owned_by = ROOT
+            }
+            has_war = yes
+		}
+
+        complete_effect = {
+        	add_war_support = -0.025
+			add_stability = -0.025
+			random_owned_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_owned_by = ROOT
+            		free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					NOT = { has_state_flag = war_building_slot_flag }
+				}
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = war_building_slot_flag
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				any_owned_state = { free_building_slots = { building = industrial_complex size < 1 include_locked = no } }
+			}
+		}
+    }
+}
+
+foreign_support = {
+
+###  #  # ###  #   #  ##      ###   ##   ##  ###  
+#  # #  # #  # ## ## #  #     #  # #  # #  # #  # 
+###  #  # ###  # # # ####     ###  #  # #### #  # 
+#  # #  # #  # #   # #  #     #  # #  # #  # #  # 
+###   ##  #  # #   # #  #     #  #  ##  #  # ###  
+
+	 ##  #    ##   ## ### 
+	#  # #   #  # #   #   
+	#    #   #  #  #  ##  
+	#  # #   #  #   # #   
+	 ##  ###  ##  ##  ### 
+
+	###  ###  ##  ###  ### #  # 
+	#  # #   #  # #  # #   ## # 
+	###  ##  #  # ###  ##  # ## 
+	#  # #   #  # #    #   #  # 
+	#  # ###  ##  #    ### #  # 
+	CHI_reopen_burma_road = {
+
+		allowed = {
+			#Everyone
+		}
+
+		available = {
+			any_state = {
+				has_state_flag = CHI_burma_road_closed_state
+				OR = {
+					is_controlled_by = ROOT
+					CONTROLLER = { is_subject_of = ROOT }
+				}
+			}
+		}
+
+		visible = {
+			is_subject = no
+			any_country = {
+				check_variable = { CHI_burma_road_closed_level > 0 }
+				NOT = { has_war_with = ROOT }
+			}
+			any_state = {
+				has_state_flag = CHI_burma_road_closed_state
+				OR = {
+					is_controlled_by = ROOT
+					CONTROLLER = {
+						OR = {
+							is_subject_of = ROOT
+							check_variable = { CHI_burma_road_closed_level > 0 }
+						}
+					}
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				any_country = {
+					check_variable = { CHI_burma_road_closed_level > 0 }
+					OR = {
+						is_subject = no
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0
+				any_country = {
+					check_variable = { CHI_burma_road_closed_level > 0 }
+					OR = {
+						has_war_with = ROOT
+						AND = {
+							is_subject = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { is_in_faction_with = ROOT }
+						}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = CHI_burma_road_closed_state
+					OR = {
+						is_controlled_by = ROOT
+						CONTROLLER = {
+							OR = {
+								is_subject_of = ROOT
+								check_variable = { CHI_burma_road_closed_level > 0 }
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = CHI_burma_road_reopen_state
+				clr_state_flag = CHI_burma_road_closed_state
+			}
+
+			random_country = {
+				limit = { check_variable = { CHI_burma_road_closed_level > 0 } }
+				if = {
+					limit = {
+						any_state = {
+							has_state_flag = CHI_burma_road_closed_state							
+							NOT = { is_controlled_by = ROOT }
+							CONTROLLER = {
+								NOT = { is_subject_of = ROOT }
+								NOT = { check_variable = { CHI_burma_road_closed_level > 0 } }
+							}
+						}
+					}
+					country_event = { id = wtt_burma_road.3 } #We opened our part of the road
+				}
+				else = {
+					#Road is fully reopened
+					if = {
+						limit = { NOT = { tag = ROOT } }
+						country_event = { id = wtt_burma_road.4 }
+					}
+					hidden_effect = {					
+						add_offsite_building = { type = arms_factory level = CHI_burma_road_closed_level }
+						set_variable = { CHI_burma_road_current_level = CHI_burma_road_closed_level }
+						clear_variable = CHI_burma_road_closed_level 
+					}
+					custom_effect_tooltip = reopen_burma_road_explanation # Prints the contents of the CHI_burma_road_closed_level variable
+				}
+			}
+		}
+	}
+
+#   ### ###   ##      ###   ##   ##  ###  
+#   #   #  # #  #     #  # #  # #  # #  # 
+#   ##  #  # #  #     ###  #  # #### #  # 
+#   #   #  # #  #     #  # #  # #  # #  # 
+### ### ###   ##      #  #  ##  #  # ###  
+	
+
+	 ##  #    ##   ## ### 
+	#  # #   #  # #   #   
+	#    #   #  #  #  ##  
+	#  # #   #  #   # #   
+	 ##  ###  ##  ##  ### 
+
+	###  ###  ##  ###  ### #  # 
+	#  # #   #  # #  # #   ## # 
+	###  ##  #  # ###  ##  # ## 
+	#  # #   #  # #    #   #  # 
+	#  # ###  ##  #    ### #  # 
+	CHI_reopen_ledo_road = {
+
+		allowed = {
+			#Everyone
+		}
+
+		available = {
+			any_state = {
+				has_state_flag = CHI_ledo_road_closed_state
+				OR = {
+					is_controlled_by = ROOT
+					CONTROLLER = { is_subject_of = ROOT }
+				}
+			}
+		}
+
+		visible = {
+			is_subject = no
+			any_country = {
+				check_variable = { CHI_ledo_road_closed_level > 0 }
+				NOT = { has_war_with = ROOT }
+			}
+			any_state = {
+				has_state_flag = CHI_ledo_road_closed_state
+				OR = {
+					is_controlled_by = ROOT
+					CONTROLLER = {
+						OR = {
+							is_subject_of = ROOT
+							check_variable = { CHI_ledo_road_closed_level > 0 }
+						}
+					}
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 200
+				any_country = {
+					check_variable = { CHI_ledo_road_closed_level > 0 }
+					OR = {
+						is_subject = no
+						is_subject_of = ROOT
+						is_in_faction_with = ROOT
+					}
+					NOT = { has_war_with = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0
+				any_country = {
+					check_variable = { CHI_ledo_road_closed_level > 0 }
+					OR = {
+						has_war_with = ROOT
+						AND = {
+							is_subject = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { is_in_faction_with = ROOT }
+						}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = CHI_ledo_road_closed_state
+					OR = {
+						is_controlled_by = ROOT
+						CONTROLLER = {
+							OR = {
+								is_subject_of = ROOT
+								check_variable = { CHI_ledo_road_closed_level > 0 }
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = CHI_ledo_road_reopen_state
+				clr_state_flag = CHI_ledo_road_closed_state
+			}
+
+			random_country = {
+				limit = { check_variable = { CHI_ledo_road_closed_level > 0 } }
+				if = {
+					limit = {
+						any_state = {
+							has_state_flag = CHI_ledo_road_closed_state							
+							NOT = { is_controlled_by = ROOT }
+							CONTROLLER = {
+								NOT = { is_subject_of = ROOT }
+								NOT = { check_variable = { CHI_ledo_road_closed_level > 0 } }
+							}
+						}
+					}
+					country_event = { id = wtt_ledo_road.3 } #We opened our part of the road
+				}
+				else = {
+					#Road is fully reopened
+					if = {
+						limit = { NOT = { tag = ROOT } }
+						country_event = { id = wtt_ledo_road.4 }
+					}
+					hidden_effect = {					
+						add_offsite_building = { type = arms_factory level = CHI_ledo_road_closed_level }
+						set_variable = { CHI_ledo_road_current_level = CHI_ledo_road_closed_level }
+						clear_variable = CHI_ledo_road_closed_level
+					}
+					custom_effect_tooltip = reopen_ledo_road_explanation # Prints the contents of the CHI_ledo_road_closed_level variable
+				}
+			}
+		}
+	}
+
+### #  # ###     #  # #  # #   # ###  
+ #  #  # #       #  # #  # ## ## #  # 
+ #  #### ##      #### #  # # # # ###  
+ #  #  # #       #  # #  # #   # #    
+ #  #  # ###     #  #  ##  #   # #
+
+	 ##  #    ##   ## ### 
+	#  # #   #  # #   #   
+	#    #   #  #  #  ##  
+	#  # #   #  #   # #   
+	 ##  ###  ##  ##  ### 

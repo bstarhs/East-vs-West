@@ -1,0 +1,495 @@
+characters={
+	JAP_Itokawa_Hideo={
+		name=JAP_Itokawa_Hideo
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Itokawa_Hideo.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = theorist
+			idea_token = Itokawa_Hideo
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date > 1960.1.1
+			}
+			research_bonus = {
+				space = 0.1
+			}
+		}
+	}
+	JAP_Kishi_Nobusuke={
+		name=JAP_Kishi_Nobusuke
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Kishi_Nobusuke.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Kishi_Nobusuke.tga"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { smooth_talking_charmer pro_america anti_communist conservative_nationalist }
+			expire = "1953.3.1.1"
+		}
+		country_leader = {
+			ideology = authoritarianism
+			traits = { smooth_talking_charmer pro_america anti_communist conservative_nationalist }
+			expire = "1953.3.1.1"
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = Kishi_Nobusuke
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1970.1.1
+			}
+		}
+	}
+	JAP_suzuki_mosaburo={
+		name=JAP_suzuki_mosaburo
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_suzuki_mosaburo.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = suzuki_mosaburo
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1970.1.1
+			}
+			modifier = {
+				democratic_drift = 0.03
+			}
+		}
+	}
+	JAP_Yoshida_Shigeru={
+		name=JAP_Yoshida_Shigeru
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Yoshida_Shigeru.tga"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { pro_america }
+		}
+	}
+	JAP_Ogata_Taketora={
+		name=JAP_Ogata_Taketora
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Ogata_Taketora.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Ogata_Taketora.tga"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { }
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Ogata_Taketora
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1961.1.1
+			}
+			
+			traits = { }
+		}
+	}
+	JAP_Hatoyama_Ichiro={
+		name=JAP_Hatoyama_Ichiro
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Hatoyama_Ichiro.dds"
+				large="gfx/leaders/JAP/Portrait_Japang_Ichiro_Hatoyama.tga"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { }
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Hatoyama_Ichiro
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1961.1.1
+			}
+			
+			traits = { }
+		}
+	}
+	JAP_Nishio_Suehiro={
+		name=JAP_Nishio_Suehiro
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Nishio_Suehiro.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Nishio_Suehiro.tga"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { }
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Nishio_Suehiro
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1961.1.1
+			}
+			
+			traits = { }
+		}
+	}
+	JAP_Katayama_Tetsu={
+		name=JAP_Katayama_Tetsu
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Katayama_Tetsu.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Katayama_Tetsu.tga"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { }
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Katayama_Tetsu
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1961.1.1
+			}
+			
+			traits = { }
+		}
+	}
+	JAP_Miyamoto_kenji={
+		name=JAP_Miyamoto_kenji
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_miyamoto_kenji.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Miyamoto_Kenji.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { smooth_talking_charmer }
+			expire = "1953.3.1.1"
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = Miyamoto_kenji
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1993.1.1
+			}
+			
+			traits = { communist_revolutionary }
+		}
+	}
+	JAP_sanzo_nosaka={
+		name=JAP_sanzo_nosaka
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_sanzo_nosaka.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = sanzo_nosaka
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1993.1.1
+			}
+			
+			traits = { communist_revolutionary }
+		}
+	}
+	JAP_inejiro_asunama={
+		name=JAP_inejiro_asunama
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_inejiro_asunama.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Asanuma_Inejiro.tga"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { }
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = inejiro_asunama
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1960.1.1
+			}
+			modifier = {
+				communism_drift = 0.03
+			}
+		}
+	}
+	JAP_ikeda_taisaku={
+		name=JAP_ikeda_taisaku
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_ikeda_taisaku.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = ikeda_taisaku
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date > 1960.1.1
+			}
+			traits  = {
+				religion_leader
+			}
+			modifier = {
+				
+				opinion_gain_monthly_factor = 0.12
+			}
+		}
+	}
+	JAP_ikeda_hayato={
+		name=JAP_ikeda_hayato
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_ikeda_hayato.dds"
+				large="gfx/leaders/JAP/Portrait_Japan_Hayato_Ikeda.tga"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = ikeda_hayato
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1962.1.1
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.12
+			}
+		}
+	}
+	JAP_hirose_ichiro={
+		name=JAP_hirose_ichiro
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_hirose_ichiro.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = hirose_ichiro
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1970.1.1
+			}
+			modifier = {
+				communism_drift = -0.01
+			}
+		}
+	}
+	JAP_ohira_masayoshi={
+		name=JAP_ohira_masayoshi
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_ohira_masayoshi.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			available = {
+				has_country_leader_with_trait = tanaka_faction
+			}
+			idea_token = ohira_masayoshi
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date > 1958.1.1
+				date < 1980.1.1
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	JAP_ito_seigi={
+		name=JAP_ito_seigi
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_ito_seigi.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			ledger = civilian
+			idea_token = ito_seigi
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date > 1958.1.1
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.12
+			}
+		}
+	}
+	JAP_Abe_Shintaro={
+		name=JAP_Abe_Shintaro
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Abe_Shintaro.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = political_advisor
+			idea_token = Abe_Shintaro
+			ledger = civilian
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date > 1958.1.1
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.3
+			}
+		}
+	}
+	JAP_Shigemitsu_Mamoru={
+		name=JAP_Shigemitsu_Mamoru
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Shigemitsu_Mamoru.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = theorist
+			ledger = civilian
+			idea_token = Shigemitsu_Mamoru
+			allowed = {
+				original_tag = JAP
+			}
+		}
+	}
+	JAP_Miyamoto_Shigeru={
+		name=JAP_Miyamoto_Shigeru
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Miyamoto_Shigeru.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = theorist
+			ledger = civilian
+			idea_token = Miyamoto_Shigeru
+			allowed = {
+				original_tag = JAP
+			}
+		}
+	}
+	JAP_Morita_Akio={
+		name=JAP_Morita_Akio
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Morita_Akio.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = theorist
+			ledger = civilian
+			idea_token = Morita_Akio
+			allowed = {
+				original_tag = JAP
+			}
+		}
+	}
+	JAP_matsushita_kounosuke={
+		name=JAP_matsushita_kounosuke
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_matsushita_kounosuke.dds"
+			}
+		}
+		advisor = {
+			cost = 150
+			slot = theorist
+			ledger = civilian
+			idea_token = matsushita_kounosuke
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				date < 1989.1.1
+			}
+		}
+	}
+}

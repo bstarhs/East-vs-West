@@ -1,0 +1,51 @@
+
+SupportKKE = {
+	enable = {
+		OR = {
+			tag = YUG
+			tag = ALB
+			tag = BUL
+		}
+		country_exists = KKE
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = KKE
+		value = 200
+	}
+}
+SerbianSupport = {
+	enable = {
+		original_tag = YUG
+		has_global_flag = yugoslavia_civilwar
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SEB			
+		value = 10000
+	}
+	ai_strategy = {
+		type = support
+		id = SEB
+		value = 200
+	}
+}
+UstasheSupport = {
+	enable = {
+		original_tag = CRP
+		has_global_flag = yugoslavia_civilwar
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = BOS			
+		value = 10000
+	}
+	ai_strategy = {
+		type = support
+		id = BOS
+		value = 200
+	}
+}

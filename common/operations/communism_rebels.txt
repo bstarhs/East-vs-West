@@ -1,0 +1,1518 @@
+
+operation_boost_nicaragua_communism_resistance = { ###尼加拉瓜
+	icon = GFX_operations_nicaragua_communism_resistance
+	map_icon = GFX_operations_nicaragua_communism_resistance
+	name = operation_boost_nicaragua_communism_resistance
+	desc = operation_boost_nicaragua_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		NIC = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_SupportCubanRevolution }
+		FROM = {
+			tag = NIC
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = NIC
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		NIC = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		NIC = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = NIC }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_venezuela_communism_resistance = { ###委内瑞拉共产党
+	icon = GFX_operations_latin_communism_resistance
+	map_icon = GFX_operations_venezuela_communism_resistance
+	name = operation_boost_venezuela_communism_resistance
+	desc = operation_boost_venezuela_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		VEN = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_SupportCubanRevolution }
+		FROM = {
+			tag = VEN
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = VEN
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		VEN = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		VEN = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = VEN }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_dominica_communism_resistance = { ###多米尼加共产党
+	icon = GFX_operations_dominica_communism_resistance
+	map_icon = GFX_operations_dominica_communism_resistance
+	name = operation_boost_dominica_communism_resistance
+	desc = operation_boost_dominica_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		DOM = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_SupportCubanRevolution }
+		FROM = {
+			tag = DOM
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = DOM
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		DOM = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		DOM = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = DOM }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_cuba_communism_resistance = { ###古巴共产党
+	icon = GFX_operations_cuba_communism_resistance
+	map_icon = GFX_operations_cuba_communism_resistance
+	name = operation_boost_cuba_communism_resistance
+	desc = operation_boost_cuba_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		CUB = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_SupportCubanRevolution }
+		FROM = {
+			tag = CUB
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = CUB
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		CUB = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		CUB = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = CUB }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_ethiopia_communism_resistance = { ###埃塞共产党
+	icon = GFX_operations_ethiopia_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_ethiopia_communism_resistance
+	desc = operation_boost_ethiopia_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		ETH = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_Support_Africa_communism }
+		FROM = {
+			tag = ETH
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = ETH
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		ETH = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		ETH = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ETH }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_kongo_simba_resistance = { ###刚果辛巴
+	icon = GFX_operations_resistance_kongo
+	map_icon = GFX_operations_resistance_kongo
+	name = operation_boost_kongo_simba_resistance
+	desc = operation_boost_kongo_simba_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		COG = { has_government = neutrality }
+		SOV = { has_completed_focus = SOV_Support_Africa_communism }
+		PRC = { has_completed_focus = prc_revolution_Africa }
+		FROM = {
+			tag = COG
+		}
+		ROOT = {
+			OR = {
+				tag = SOV
+				tag = PRC
+			}
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = COG
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		COG = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		ETH = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = COG }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_turkey_communism_resistance = { ###土耳其共产党
+	icon = GFX_operations_turkey_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_turkey_communism_resistance
+	desc = operation_boost_turkey_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		TUR = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_support_turkish_communism }
+		FROM = {
+			tag = TUR
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = TUR
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		TUR = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		TUR = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = TUR }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_italy_communism_resistance = { ###意大利共产党
+	icon = GFX_operations_italy_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_italy_communism_resistance
+	desc = operation_boost_italy_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		ITA = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_InfiltrationInItaly }
+		FROM = {
+			tag = ITA
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = ITA
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		ITA = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		ITA = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = ITA }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_german_communism_resistance = { ###德国红军旅
+	icon = GFX_operations_german_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_german_communism_resistance
+	desc = operation_boost_german_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		WDR = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_InfiltrationOfWestGermany }
+		FROM = {
+			tag = WDR
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = WDR
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		WDR = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		WDR = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = WDR }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_sweden_communism_resistance = { ###瑞典红军旅
+	icon = GFX_operations_sweden_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_sweden_communism_resistance
+	desc = operation_boost_sweden_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		SWE = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_InfiltrationInSweden }
+		FROM = {
+			tag = SWE
+		}
+		ROOT = {
+			tag = SOV
+			
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = SWE
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 1
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		SWE = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		SWE = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = SWE }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_french_communism_resistance = { ###法共
+	icon = GFX_operations_french_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_french_communism_resistance
+	desc = operation_boost_french_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		FRA = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_InfiltrationFrance }
+		FROM = {
+			tag = FRA
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = FRA
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		FRA = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		FRA = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = FRA }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_japan_communism_resistance = { ###日共
+	icon = GFX_operations_japan_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_japan_communism_resistance
+	desc = operation_boost_japan_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		JAP = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_SubversionOfJapan }
+		FROM = {
+			tag = JAP
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = JAP
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		JAP = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		PER = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = JAP }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_iran_communism_resistance = { ###伊朗
+	icon = GFX_operations_iran_communism_resistance
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_iran_communism_resistance
+	desc = operation_boost_iran_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		PER = { NOT = { has_government = communism } }
+		SOV = { has_completed_focus = SOV_PER_com }
+		FROM = {
+			tag = PER
+		}
+		ROOT = {
+			tag = SOV
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = PER
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		PER = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		PER = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = PER }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}

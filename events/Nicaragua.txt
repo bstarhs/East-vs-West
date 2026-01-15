@@ -1,0 +1,60 @@
+﻿add_namespace = nic
+
+#1990大选
+
+#阿基诺遇刺
+news_event = {
+	id = nic.20
+	title = nic.20.t
+	desc = nic.20.d
+	major = yes
+	picture = GFX_SomozaAssassin
+	mean_time_to_happen = { days = 8 }
+	trigger = {
+		tag = NIC
+		NOT = { has_global_flag = nic20 }
+		date > 1956.4.1
+		date < 1956.10.1
+	}
+	option = {
+		name = nic.20.a
+		if = {
+			limit = { tag = NIC }
+			set_global_flag = nic20
+			random_list = {
+				1 = { news_event = { id = nic.22 days = 2 } } 
+				999 = { news_event = { id = nic.21 days = 2 } }
+			}
+		}
+	}
+}
+news_event = {
+	id = nic.21
+	title = nic.21.t
+	desc = nic.21.d
+	major = yes
+	picture = GFX_LouisSomoza
+	is_triggered_only = yes
+	option = {
+		name = nic.21.a
+		if = {
+			limit = { tag = NIC }
+			promote_character = NIC_Louis_Somoza
+		}
+	}
+}
+news_event = {
+	id = nic.22
+	title = nic.22.t
+	desc = nic.22.d
+	major = yes
+	picture = GFX_LouisSomoza
+	is_triggered_only = yes
+	option = {
+		name = nic.22.a
+		if = {
+			limit = { tag = NIC }
+			promote_character = NIC_Louis_Somoza
+		}
+	}
+}

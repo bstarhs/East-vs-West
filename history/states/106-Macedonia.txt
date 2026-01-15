@@ -1,0 +1,40 @@
+
+state={
+	id=106
+	name="STATE_106"
+	manpower = 1374200
+	
+	state_category = town
+	
+	resources={
+		tungsten=23
+		coal=16
+		copper=11
+	}
+
+	history={
+		set_state_flag = ethnics_Macedonia
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = state_hill_modifier }
+		add_to_array = { this.state_ethnics_list = 104 }
+		owner = YUG
+		buildings = {
+			hospital = 1
+			infrastructure = 4
+			industrial_complex = 1
+			air_base = 2
+		}
+		victory_points = {
+			3882 8
+		}
+		victory_points = {
+			11856 2
+		}
+		add_core_of = YUG
+		add_core_of = MCD
+	}
+
+	provinces={
+		907 974 3833 3865 3882 6886 11856 833 867
+	}
+}

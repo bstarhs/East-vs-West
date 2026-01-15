@@ -1,0 +1,216 @@
+﻿division_template = {
+	name = "Infatry Division"
+	division_names_group = SIA_MOT_01	
+	regiments = {
+		mechanized = { x = 0 y = 0 }	
+		mechanized = { x = 0 y = 1 }	
+		mechanized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }	
+		motorized = { x = 1 y = 1 }	
+		motorized = { x = 1 y = 2 }
+		mot_artillery_brigade = { x = 2 y = 0 }
+		mot_artillery_brigade = { x = 2 y = 1 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 }
+		mechanized_logistics = { x = 0 y = 1 }
+		motorized_signal_company = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Armoured Division"
+	division_names_group = SIA_ARM_01	
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 } 
+		maintenance_company = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+	}
+}
+division_template = {
+	name = "Marine Corps"	
+	division_names_group = SIA_MAR_01	
+	regiments = {
+		marine = { x = 0 y = 0 }
+		marine = { x = 0 y = 1 }
+		marine = { x = 1 y = 0 }
+		marine = { x = 1 y = 1 }
+		marine = { x = 2 y = 0 }
+		marine = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }  
+		signal_company = { x = 0 y = 1 } 
+		recon = { x = 0 y = 2 } 
+	}
+}
+division_template = {
+	name = "Royal Tahi Army Special Forces"	
+	division_names_group = SIA_PAR_01	
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+		paratrooper = { x = 0 y = 3 }
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		helicopter_recon = { x = 0 y = 1 }
+		mechanized_signal_company = { x = 0 y = 2 }
+	}
+}
+units = {
+	######## LAND OOB ########
+	#marine
+	division = {
+		name = "Royal Thai Marine Corps"
+		location = 4433
+		division_template = "Marine Corps"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1st Kings Guard Division"
+		location = 7408
+		division_template = "Infatry Division"
+		start_experience_factor = 0.9
+	}
+	division = {
+		name = "2nd Division"
+		location = 12224
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "9th Division"
+		location = 4319
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "11th Division"
+		location = 12224
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "9th Division"
+		location = 4319
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "2nd Cavalry Division"
+		location = 7408
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	#2nd Army Area
+	division = {
+		name = "3rd Division"
+		location = 10438
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "6th Division"
+		location = 12402
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "3nd Cavalry Division"
+		location = 12360
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	#3rd Army Area
+	division = {
+		name = "4th Division"
+		location = 12345
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "7th Division"
+		location = 1488
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "1st Cavalry Division"
+		location = 10398
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	#4th Army Area
+	division = {
+		name = "5th Division"
+		location = 1337
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "15th Division"
+		location = 12131
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	division = {
+		name = "1st Cavalry Division"
+		location = 10398
+		division_template = "Infatry Division"
+		start_experience_factor = 0.6
+	}
+	#Special forces
+	division = {
+		name = "Royal Tahi Army Special Forces"
+		location = 10221
+		division_template = "Royal Tahi Army Special Forces"
+		start_experience_factor = 0.8
+	}
+	### Navy ###
+	fleet = {
+		name = "Türk Donanmasi"			
+		naval_base = 7408 
+		task_force = {				
+			name = "Türk Donanmasi"			
+			location = 7408
+			ship = { name = "HTMS Ratanakosin" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "HTMS Sukhothai" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = USA version_name = "Buckley-class" } } }
+			ship = { name = "HTMS Tapi" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SIA version_name = "Tapi-class" } } }
+			ship = { name = "HTMS Khirirat" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = SIA version_name = "Tapi-class" } } }
+		}						
+	}
+
+}
+
+air_wings = {
+	### Royal Siamese Air Force ###
+	289 = {
+		fighter_equipment_2 =  { owner = "SIA" amount = 36 }	# 1st Air Wing -- mostly H75 Curtis Hawks
+		CAS_equipment_1 =  { owner = "SIA" amount = 94 }		# 2nd Air Wing -- Mitsubishi Ki-30
+				# 3rd Air Wing -- Vought V-93S Corsair
+		CAS_equipment_1 =  { owner = "SIA" amount = 15 }	# 4th Air Wing -- Martin B-10, Mitsubishi Ki-21
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "SIA"
+		}
+		requested_factories = 1
+		progress = 0.69
+		efficiency = 100
+	}
+}

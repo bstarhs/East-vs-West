@@ -1,0 +1,41 @@
+
+state={
+	id=181
+	name="STATE_181"
+	manpower = 1904600
+	
+	state_category = town
+	
+	resources={
+		tungsten=6
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		set_state_flag = ethnics_Portuguese
+		add_to_array = { this.state_ethnics_list = 138 }
+		owner = POR
+		set_state_flag = wine_production
+		victory_points = {
+			938 3
+		}
+		victory_points = {
+			9787 2
+		}
+		victory_points = {
+			3969 2
+		}
+		buildings = {
+			school = 1
+			farm_building = 2
+			hospital = 1
+			infrastructure = 5
+			industrial_complex = 1
+		}
+		add_core_of = POR
+	}
+
+	provinces={
+		845 889 938 3969 6818 6996 9787 11885 
+	}
+}

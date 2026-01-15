@@ -1,0 +1,61 @@
+add_namespace = drop
+# 核灾难 (HIDDEN)
+country_event = {
+	id = drop.1
+	hidden = yes
+	is_triggered_only = yes 
+	immediate = {
+		FRA = { add_stability = -0.2 }
+		launch_nuke = { state = 16 use_nuke = yes }
+		launch_nuke = { state = 24 use_nuke = yes }
+		launch_nuke = { state = 27 use_nuke = yes }
+		launch_nuke = { state = 32 use_nuke = yes }
+		launch_nuke = { state = 20 use_nuke = yes }
+		launch_nuke = { state = 21 use_nuke = yes }
+		launch_nuke = { state = 22 use_nuke = yes }
+		launch_nuke = { state = 19 use_nuke = yes }
+		launch_nuke = { state = 15 use_nuke = yes }
+	}
+}
+country_event = {
+	id = drop.2
+	hidden = yes
+	is_triggered_only = yes 
+	immediate = {
+					USA = { add_stability = -0.2 }
+					launch_nuke = { state = 815 use_nuke = yes }
+					launch_nuke = { state = 361 use_nuke = yes }
+					launch_nuke = { state = 357 use_nuke = yes }
+					launch_nuke = { state = 359 use_nuke = yes }
+					launch_nuke = { state = 360 use_nuke = yes }
+					launch_nuke = { state = 352 use_nuke = yes }
+	}
+}
+country_event = {
+	id = drop.3
+	hidden = yes
+	is_triggered_only = yes 
+	immediate = {
+					SOV = { add_stability = -0.2 }
+					launch_nuke = { state = 219 use_nuke = yes }
+					launch_nuke = { state = 195 use_nuke = yes }
+					launch_nuke = { state = 223 use_nuke = yes }
+					launch_nuke = { state = 242 use_nuke = yes }
+					launch_nuke = { state = 206 use_nuke = yes }
+					launch_nuke = { state = 222 use_nuke = yes }
+					launch_nuke = { state = 247 use_nuke = yes }
+	}
+}
+country_event = {
+	id = drop.4
+	hidden = yes
+	is_triggered_only = yes 
+	immediate = {
+					ENG = { add_stability = -0.2 }
+					launch_nuke = { state = 126 use_nuke = yes }
+					launch_nuke = { state = 128 use_nuke = yes }
+					launch_nuke = { state = 130 use_nuke = yes }
+					launch_nuke = { state = 121 use_nuke = yes }
+					launch_nuke = { state = 338 use_nuke = yes }
+	}
+}

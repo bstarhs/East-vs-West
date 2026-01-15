@@ -1,0 +1,200 @@
+colonal_efforts = {
+	
+	HOL_East_Java_independent = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HOL
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -100
+				date < 1948.1.20
+			}
+			modifier = {
+				factor = 50
+				has_war_with = INS
+			}
+		}
+		fire_only_once = yes
+		cost = 20
+		visible = {
+			controls_state = 673
+		}
+		complete_effect = {
+			add_war_support = 0.5
+			add_political_power = 300 
+			SLA = {
+				set_cosmetic_tag = EIND
+				transfer_state = 673
+				transfer_state = 940
+				transfer_state = 667
+				news_event = { id = ind.31 }
+				every_controlled_state = {
+					add_resistance = -20
+				}
+			}
+				set_autonomy = {
+					target = SLA
+					autonomous_state = autonomy_dominion
+					freedom_level = 0.4
+				}
+			add_to_variable = { influences = 50 }
+		}
+	}
+	HOL_Papua_independent = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = HOL
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = -200
+				date < 1962.7.20
+			}
+		}
+		fire_only_once = yes
+		cost = 20
+		visible = {
+			date > 1956.7.20
+			controls_state = 669
+		}
+		complete_effect = {
+			add_war_support = 0.5
+			news_event = { id = ind.17 } 
+			add_political_power = 300
+			add_to_variable = { influences = 100 } 
+			PUA = {
+				transfer_state = 669
+			}
+			INS = {
+				if = {
+				limit = { controls_state = 668 }
+				country_event = { id = ind.18 }
+				}
+			}
+		}
+
+	
+	}
+}
+political_actions = {
+	
+	HOL_annex_Indonesia = {
+
+		icon = generic_research
+
+		allowed = {
+			always = yes
+			tag = HOL
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 200 
+				date > 1947.8.1
+			}
+			modifier = {
+				factor = -200
+				date < 1947.7.20
+			}
+		}
+		fire_only_once = yes
+		cost = 20
+		visible = {
+			NOT = { has_country_flag = INS_HOL_peace }
+			date < 1950.1.1
+		}
+		complete_effect = {
+			add_war_support = 0.5
+			news_event = { id = ind.1 } 
+			end_puppet = INS
+				declare_war_on = {
+					target = INS
+					type = annex_everything
+				}
+		}
+
+	
+	}
+	HOL_peace_Indonesia = {
+		icon = generic_research
+		allowed = {
+			always = yes
+			tag = HOL
+		}
+		cost = 20
+		fire_only_once = yes
+		visible = {
+			OR = {
+				has_war_with = INS
+				controls_state = 873
+				controls_state = 335
+			}
+			date < 1955.1.1
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				has_war_support < 0.2
+			}
+			modifier = {
+				add = -200 
+				date < 1949.1.1
+			}
+			modifier = {
+				add = 50
+				date > 1949.8.1
+			}
+			modifier = {
+				add = 10
+				date > 1949.1.1
+				has_war_support < 0.5
+			}
+		}
+		complete_effect = {
+			HOL = {
+				white_peace = INS
+				end_puppet = INS
+				end_puppet = SLA
+				set_country_flag = INS_HOL_peace
+				add_stability = 0.6
+			}
+			INS = {
+				add_stability = 0.6
+				if = {
+					limit = { country_exists = SLA } 
+					set_autonomy = {
+						target = SLA
+						autonomous_state = autonomy_dominion
+						freedom_level = 0.4
+					}
+				}
+				if = {
+					limit = { HOL = { controls_state = 673 } } 
+					transfer_state = 673
+					transfer_state = 667
+				}
+				transfer_state = 668
+				transfer_state = 672
+				transfer_state = 335
+				transfer_state = 334
+				transfer_state = 884
+				transfer_state = 873
+				transfer_state = 939
+				transfer_state = 883
+				transfer_state = 857
+			}
+			set_province_name = { id = 7381 name = VICTORY_POINTS_Jakarta_7381 }
+			news_event = { id = ind.2 }
+		}
+
+	
+	}
+}

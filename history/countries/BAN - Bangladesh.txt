@@ -1,0 +1,126 @@
+﻿capital = 430
+oob = "BAN_1936"
+set_research_slots = 3
+
+set_country_flag = islam_state
+set_country_flag = third_world
+set_country_flag = indian_state
+set_country_flag = british_colonies
+# Starting tech
+# clone of France
+	activate_decision = create_radio_station
+	set_technology = {
+	machine_gun1 = 1
+	tech_signal_company = 1
+		concentrated_industry4 = 1
+		steel_making_tech = 1
+	basic_train = 1
+		telegraph = 1
+		helmet = 1
+	motorised_infantry = 1
+	tech_support = 1	
+	infantry_weapons = 1
+	
+	tech_logistics_company = 1
+	interwar_artillery = 1
+	infantry_training = 1
+	basic_militia = 1
+	gwtank = 1
+	early_fighter = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	gwtank = 1
+	early_fighter = 1
+	basic_machine_tools = 1
+	dispersed_industry = 1
+	concentrated_industry = 1
+	construction1 = 1
+	tech_recon = 1
+	tech_support = 1	
+	tech_military_police = 1
+	basic_fleet = 1
+	
+	power_generation1 = 1
+		electronic_mechanical_engineering = 1
+		radio = 1
+		basic_machine_tools = 1
+		construction1 = 1
+		concentrated_industry = 1
+	
+	
+}
+
+
+	set_popularities = {
+		democratic = 14
+		communism = 10
+		neutrality = 76
+	}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = yes
+}
+
+add_ideas = {
+	Sunni
+}
+create_country_leader = {
+	name = "Sheh Mujibur" 
+	
+	picture = "gfx/leaders/BAN/Portrait_Bangladesh_Mujibur.tga"
+	expire = "1953.3.1"
+	ideology = despotism
+	traits = {
+		
+	}
+}
+
+1973.1.20 = {
+	activate_decision = female_equality
+	add_ideas = {
+		NonAligned
+	}
+}
+1974.1.1 = {
+	add_to_array = { global.UNmember_list = FROM }
+	add_ideas = {
+		UNmember
+	}
+}
+	
+1975.1.20 = {
+	complete_national_focus = common_24
+	complete_national_focus = Focus_Goverment_reform
+	create_country_leader = {
+		name = "Ziaur Rahman"
+		
+		picture = "gfx/leaders/BAN/Portrait_Bangladesh_Rohman.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+	add_ideas = {
+		IslamOrg
+	}
+}
+1983.1.20 = {
+	activate_decision =Establishment_of_National_Museum
+	complete_national_focus = common_63
+	create_country_leader = {
+		name = "Hussain Muhammad Ershad"
+		
+		picture = "gfx/leaders/BAN/Portrait_Bangladesh_Hussain_Ershad.tga"
+		expire = "1988.1.1"
+		ideology = despotism
+		
+		traits = {
+		
+		}
+	}
+}

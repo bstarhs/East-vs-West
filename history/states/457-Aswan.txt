@@ -1,0 +1,35 @@
+state=
+{
+	id=457
+	name="STATE_457" # Arabian Desert
+	manpower = 2194
+	
+	state_category = rural
+	
+	history = {
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		owner = EGY
+		set_state_flag = ethnics_Arabs
+		add_to_array = { this.state_ethnics_list = 24 }
+		buildings = {
+			infrastructure = 1
+			hospital = 1
+		}
+		victory_points = {
+			12002 5
+		}
+		1958.8.23 = {
+			buildings = {
+				infrastructure = 4
+				industrial_complex = 3
+				12002 = {
+					naval_base = 3
+				}
+			}
+		}
+		add_core_of = EGY
+	}
+	provinces={
+		1080 4068 4910 5069 7156 9957 10126 12002 12889 
+	}
+}

@@ -1,0 +1,38 @@
+state={
+	id=404
+	name="STATE_404" # Kzyl Orda
+	manpower = 667036
+	resources={
+		coal=12
+	}
+	state_category = town
+	history={
+		add_dynamic_modifier = { modifier = more_food_production }
+		add_to_array = { this.state_ethnics_list = 11 }
+		set_state_flag = ethnics_Khazakhs
+		add_dynamic_modifier = { modifier = husbandry_production }
+		victory_points = {
+			7597 8
+		}
+		owner = SOV
+		buildings = {
+			farm_building = 1
+			power_plant = 2
+			school = 1
+			hospital = 1
+			infrastructure = 1
+		}
+		add_core_of = SOV
+		add_core_of = KAZ
+		1960.1.1 = {
+			set_state_category = large_town
+		}
+		1990.1.1 = {
+			owner = KAZ
+			remove_core_of = SOV
+		}
+	}
+	provinces={
+		7600 7657 12329 7597 4636 10353 4578 4638 7486 4581 
+	}
+}

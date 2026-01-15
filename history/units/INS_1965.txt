@@ -1,0 +1,140 @@
+﻿
+
+division_template = {
+	name = "Infanteri bermotor"		
+	division_names_group = INS_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 } 	# Heavy Arty Regiment had 2x 155mm battalions
+	}
+}
+
+division_template = {
+	name = "Armor Kostrad" 	
+	division_names_group = INS_ARM_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }		# BT-7 tanks
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }			
+		motorized = { x = 1 y = 0 }		
+		motorized = { x = 1 y = 1 }		
+	}
+	support = {
+		mechanized_engineer = { x = 0 y = 0 } 
+		mechanized_logistics = { x = 0 y = 2 } 
+		mechanized_signal_company = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Nepolisian Negara Indonesia "	
+	division_names_group = INS_MOT_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+	}
+	support = 	{
+		military_police = { x = 0 y = 0 }
+		military_police = { x = 0 y = 1 }
+	}
+	priority = 0
+}
+
+
+units = {
+	##### Indonesian High Command #####
+	division = {
+		name = "1st Kostrad"
+		location = 7381
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "2nd Kostrad"
+		location = 4652
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "6th Kostrad"
+		location = 4608
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "3rd Kostrad"
+		location = 10237
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "9th Kostrad"
+		location = 10237
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "4th Kostrad"
+		location = 10263
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "10th Kostrad"
+		location = 10263
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Manokwari HQ"
+		location = 12371
+		division_template = "Infanteri bermotor"		
+		start_experience_factor = 0.0
+		start_equipment_factor = 0.3
+	}
+	##### NAVAL UNITS #####
+	
+	fleet = {
+		name = "Korps Pelaut"
+		naval_base = 4608
+		task_force = {				
+			name = "Korps Pelaut"
+			location = 4608
+			ship = { name = "RI Irian" definition = heavy_cruiser equipment = { heavy_cruiser_2 = { amount = 1 owner = SOV version_name = "Sverdlov class" } } }
+		}	
+	}
+
+}
+
+
+
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "INS"
+		}
+		requested_factories = 2
+		progress = 0.1
+		efficiency = 50
+	}
+
+}
+
+#################################

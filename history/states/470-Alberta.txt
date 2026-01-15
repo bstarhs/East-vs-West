@@ -1,0 +1,50 @@
+
+state={
+	id=470
+	name="STATE_470"
+	manpower = 690800
+
+	state_category = rural
+
+	resources={
+		iron = 11
+		coal = 18
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = oil_modifiers }
+		set_state_flag = ethnics_Canadian
+		add_to_array = { this.state_ethnics_list = 46 }
+		add_to_array = { this.state_ethnics_list = 56 }
+		
+		owner = CAN
+		buildings = {
+			hospital = 1
+			farm_building = 1
+			oilfield = 1
+			synthetic_refinery = 1
+			infrastructure = 5
+			industrial_complex = 1
+		}
+		victory_points = {
+			3010 4 
+		}
+		victory_points = {
+			1262 3
+		}
+		victory_points = {
+			3706 6
+		}
+		add_core_of = CAN
+		1961.12.24 = {
+			buildings = {
+				oilfield = 3
+				synthetic_refinery = 3
+			}
+		}
+	}
+
+	provinces={
+		515 1262 1347 1763 1804 3010 3706 4765 6726 6754 7718 7766 7787 10684 12166 
+	}
+}

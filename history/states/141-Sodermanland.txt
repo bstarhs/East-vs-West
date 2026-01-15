@@ -1,0 +1,66 @@
+
+state={
+	id=141
+	name="STATE_141" # Svealand
+	manpower = 1488181
+	state_category = large_city
+	
+	resources={
+		iron=12
+		aluminium=4
+	}
+	history={
+		add_dynamic_modifier = { modifier = state_forest_modifier }
+		add_dynamic_modifier = { modifier = fish_production }
+		add_to_array = { this.state_ethnics_list = 159 }
+		set_state_flag = ethnics_Sweden
+		add_dynamic_modifier = { modifier = more_food_production }
+		owner = SWE
+		victory_points = {
+			6050 12
+		}
+		victory_points = {
+			11163 4
+		}
+		victory_points = {
+			11082 3
+		}
+		victory_points = {
+			9149 5
+		}
+		victory_points = {
+			161 3
+		}
+		victory_points = {
+			9185 4
+		}
+		buildings = {
+			farm_building = 2
+			hospital = 1
+			infrastructure = 7
+			school = 2
+			rubber_factory = 1
+			power_plant = 2
+			arms_factory = 5
+			industrial_complex = 8
+			steel_making = 2
+			dockyard = 3
+			air_base = 6
+			6050 = {
+				naval_base = 5
+				coastal_bunker = 3
+			}
+
+		}
+		1964.8.23 = {
+			buildings = {
+				nuclear_reactor = 1
+			}
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		35 161 3106 3182 6050 6084 6127 6164 6188 6209 9109 9149 9185 9209 11044 11082 11163 11188 11278 13097 13098 
+	}
+}

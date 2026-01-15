@@ -1,0 +1,44 @@
+state= {
+	id=890
+	name="STATE_890"
+	manpower = 7919
+	
+	state_category = wasteland
+
+	resources={
+		chromium=12
+	}
+
+	history={
+		add_dynamic_modifier = { modifier = state_desert_modifier }
+		set_state_flag = ethnics_Amazigh
+		add_to_array = { this.state_ethnics_list = 22 }
+		add_to_array = { this.state_ethnics_list = 105 }
+		owner = CAF
+		add_core_of = CHD
+		add_core_of = LBA
+		victory_points = {
+			13338 5
+		}
+		1960.8.23 = {
+			owner = CHD
+		}
+		1964.8.23 = {
+			owner = CNF
+		}
+		1972.8.23 = {
+			owner = LBA
+		}
+		1987.8.23 = {
+			owner = CHD
+		}
+		buildings = {
+			infrastructure = 1
+		}
+
+	}
+
+	provinces={
+		13337 13338
+	}
+}
