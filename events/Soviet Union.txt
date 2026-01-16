@@ -1,4 +1,5 @@
 ﻿add_namespace = sov
+add_namespace = sov_hutao
 
 #共产党和工人情报局的建立
 news_event = {
@@ -6788,6 +6789,29 @@ news_event = {
 			limit = { tag = SOV }
 			set_global_flag = sov640
 			add_political_power = 200
+		}
+	}
+}
+
+country_event = {
+	id = sov_hutao.1
+	title = sov_hutao.1.title
+	desc = sov_hutao.1.desc
+	is_triggered_only = yes
+
+	option = {
+		name = sov_hutao.1.a
+		DDR = {
+			transfer_state = 60
+			transfer_state = 61
+			transfer_state = 62
+			transfer_state = 64
+			transfer_state = 65
+			transfer_state = 746
+		}
+		news_event = { 
+			id = ddr.1
+			days = 1
 		}
 	}
 }
