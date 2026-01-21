@@ -130,7 +130,6 @@ news_event = {
 	mean_time_to_happen = { days = 20 }
 	major = yes
 	trigger = {
-		BOT = { has_global_flag = cos7 }
 		tag = COS
 		has_global_flag = CostaRicaRiot
 		has_government = authoritarianism
@@ -146,10 +145,8 @@ news_event = {
 		name = roc.20.a
 		if = {
 			limit = { tag = COS }
-			set_global_flag = cos7
 				start_civil_war = {
 					ideology = democratic
-					size = 1
 						states = { 966 }
 				}
 		}

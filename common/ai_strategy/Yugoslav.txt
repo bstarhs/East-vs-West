@@ -1,4 +1,20 @@
 
+SupportKKE = {
+	enable = {
+		OR = {
+			tag = YUG
+			tag = ALB
+			tag = BUL
+		}
+		country_exists = KKE
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = KKE
+		value = 200
+	}
+}
 SerbianSupport = {
 	enable = {
 		original_tag = YUG

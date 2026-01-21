@@ -4,17 +4,16 @@ news_event = {
 	id = prc.1
 	title = prc.1.t
 	desc = prc.1.d
-	picture = GFX_BeijingLiberate
-	major = yes
+	picture = GFX_liberation_Nanjing
+	fire_only_once = yes
 	mean_time_to_happen = { days = 5 }
 	trigger = {
 		tag = PRC
 		country_exists = SHX
-		date > 1948.10.1
+		date > 1948.5.1
 		OR = {
 			date > 1949.2.1
-			controls_province = 12055
-			SHX = { has_war_support < 0.1 }
+			controls_province = 11771
 		}
 		OR = {
 			controls_province = 11822
@@ -25,39 +24,16 @@ news_event = {
 			PRC = { has_war_with = CHI }
 			PRC = { has_war_with = SHX }
 		}
-		SHX = { has_war_support < 0.4 }
-		not = { has_global_flag = prc1 }
+		SHX = { has_war_support < 0.2 }
 	}
 	option = {
 		name = prc.3.a
 		if = {
 			limit = { tag = PRC }
-			set_global_flag = prc1
-			transfer_state = 608
-			transfer_state = 614
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 25000
-				producer = CHI
-			}
 			annex_country = {
-				target = SHX
-				transfer_troops = yes
+			target = SHX
+			transfer_troops = yes
 			}
-		}
-		if = {
-			limit = {
-				tag = CHI
-				controls_province = 1519
-			}
-			transfer_state = 615
-		}
-		if = {
-			limit = {
-				tag = CHI
-				controls_province = 10424
-			}
-			transfer_state = 621
 		}
 	}
 }
@@ -84,20 +60,6 @@ news_event = {
 			limit = { tag = PRC }
 			set_country_flag = NJ_liberate
 			add_war_support = 0.3
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 30000
-				producer = CHI
-			}
-		}
-		if = {
-			limit = { tag = XSM }
-			add_war_support = -0.9
-			every_country_division = { set_unit_organization = 0.00 }
-			random_country_division = { destroy_unit = yes }
-			random_country_division = { destroy_unit = yes }
-			random_country_division = { destroy_unit = yes }
-			random_country_division = { destroy_unit = yes }
 		}
 	}
 
@@ -175,16 +137,10 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = prc.6.a
-		set_country_flag = GZ_liberate
-		if = {
-			limit = { tag = PRC }
-			add_war_support = 0.12
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 40000
-				producer = CHI
-			}
+		CHI = {
+			set_capital = { state = 756 }
 		}
+		set_country_flag = GZ_liberate
 	}
 
 }
@@ -2064,35 +2020,6 @@ news_event = {
 			limit = { tag = PRC }
 			set_country_flag = Shenyang_liberate
 			add_war_support = 0.2
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 12000
-				producer = DOB
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 800
-				producer = USA
-			}
-			add_equipment_to_stockpile = {
-				type = gw_tank_equipment
-				amount = 400
-				producer = USA
-			}
-			annex_country = {
-				target = DOB
-				transfer_troops = yes
-			}
-		}
-		if = {
-			limit = { tag = DOB }
-			set_country_flag = Shenyang_liberate
-			add_war_support = 0.2
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -80000
-				producer = DOB
-			}
 		}
 	}
 
@@ -2114,21 +2041,16 @@ news_event = {
 			limit = { tag = PRC }
 			set_country_flag = Kaifeng_liberate
 			add_war_support = 0.2
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 30000
-				producer = CHI
-			}
 		}
 	}
 
 }
-#解放徐州
+#解放沈阳
 news_event = {
 	id = prc.94
 	title = prc.94.t
 	desc = prc.94.d
-	picture = GFX_HuaiHai
+	picture = GFX_liberation_Nanjing
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -2141,11 +2063,6 @@ news_event = {
 			limit = { tag = PRC }
 			set_country_flag = Xuzhou_liberate
 			add_war_support = 0.2
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 40000
-				producer = CHI
-			}
 		}
 	}
 
@@ -2167,11 +2084,6 @@ news_event = {
 			limit = { tag = PRC }
 			set_country_flag = Chongching_liberate
 			add_war_support = 0.2
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 40000
-				producer = CHI
-			}
 		}
 	}
 
@@ -2193,11 +2105,6 @@ news_event = {
 			limit = { tag = PRC }
 			set_country_flag = Shanghai_Liberate
 			add_war_support = 0.2
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 50000
-				producer = CHI
-			}
 		}
 	}
 
@@ -5348,7 +5255,6 @@ news_event = {
 		}
 	}
 }
-
 news_event = {
 	id = prc.335
 	title = prc.335.t
@@ -5373,36 +5279,5 @@ news_event = {
 			add_stability = -0.15
 			
 		}
-	}
-}
-#防和谐
-country_event = {
-	id = prc.350
-	title = prc.350.t
-	desc = prc.350.d
-	picture = GFX_ChinaMapSmall
-	is_triggered_only = yes
-	option = {
-		name = prc.350.a
-		PRC = {
-			transfer_state = 434
-			transfer_state = 842
-			transfer_state = 729
-			annex_country = {
-				target = CHI
-				transfer_troops = yes
-			}
-			annex_country = {
-				target = TIB
-				transfer_troops = yes
-			}
-			annex_country = {
-				target = HKN
-				transfer_troops = yes
-			}
-		}
-	}
-	option = {
-		name = prc.350.b
 	}
 }

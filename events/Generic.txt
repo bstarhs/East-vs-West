@@ -810,7 +810,7 @@ news_event = {
 	id = gen.41
 	title = gen.41.t
 	desc = gen.41.d
-	picture = GFX_GromykoVisit
+	picture = GFX_SovietFriendship
 	is_triggered_only = yes
 	major = yes
 	option = {	
@@ -2350,16 +2350,8 @@ news_event = {
 	}
 	option = {
 		name = gen.251.a
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 20
-				has_government = communism
-			}
-		}
-		add_to_variable = { land_reform_score = 1 }
 		add_stability = -0.01
-		add_political_power = -60
+		add_political_power = -50
 	}
 	option = {
 		name = gen.251.b
@@ -2379,7 +2371,7 @@ news_event = {
 	id = gen.221
 	title = gen.221.t
 	desc = gen.221.d
-	picture = GFX_LandreformEuro
+	picture = GFX_Muslim_protest
 	mean_time_to_happen = { days = 50 }
 	trigger = {
 		has_country_flag = gen222
@@ -2406,37 +2398,23 @@ news_event = {
 	desc = gen.222.d
 	picture = GFX_agriculture_event
 	mean_time_to_happen = {
-		days = 70
+		days = 30
 	}
 	trigger = {
 		has_country_flag = land_reform
 		check_variable = { land_reform_score < 9 }
 		has_stability > 0.4
 	}
-	option = {
-		name = gen.222.a
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 20
-				has_government = communism
-			}
-		}
-		add_to_variable = { land_reform_score = 1 }
-		add_stability = -0.02
-		add_political_power = -60
+	option = { 
+		name = 268.a
+		if = {
+			limit = { tag = FROM }
+			set_country_flag = gen222
 			add_popularity = {
 				ideology = ROOT
 				popularity = -0.01
 			}
-	}
-	option = {
-		name = gen.222.b
-		ai_chance = {
-			factor = 1
 		}
-		add_to_variable = { land_reform_score = -1 }
-		add_political_power = -10
 	}
 }
 
@@ -2478,7 +2456,7 @@ news_event = {
 	id = gen.226
 	title = gen.226.t
 	desc = gen.226.d
-	picture = GFX_LandreformEuro
+	picture = GFX_agriculture_event
 	mean_time_to_happen = { days = 100 }
 	trigger = {
 		has_country_flag = land_reform
@@ -2505,7 +2483,7 @@ news_event = {
 	id = gen.228
 	title = gen.228.t
 	desc = gen.228.d
-	picture = GFX_LandreformEuro
+	picture = GFX_agriculture_event
 	mean_time_to_happen = { days = 80 }
 	trigger = {
 		has_country_flag = land_reform
@@ -2539,7 +2517,7 @@ news_event = {
 	id = gen.230
 	title = gen.230.t
 	desc = gen.230.d
-	picture = GFX_LandreformSucces
+	picture = GFX_agriculture_event
 	major = yes
 	mean_time_to_happen = {
 		days = 30
@@ -2566,38 +2544,6 @@ news_event = {
 				idea = common_land_reform_modifier
 				days = 180
 			}
-		}
-	}
-
-}
-news_event = {
-	id = gen.231
-	title = gen.231.t
-	desc = gen.231.d
-	picture = GFX_LandreformEuro
-	major = yes
-	mean_time_to_happen = {
-		days = 30
-	}
-	trigger = {
-		NOT = {
-			has_idea = common_land_reform_modifier
-			has_country_flag = gen231
-		}
-		has_country_flag = land_reform
-		check_variable = { land_reform_score < -3 }
-	}
-	option = { 
-		name = 268.a
-		if = {
-			limit = { tag = FROM }
-			set_country_flag = gen231
-			add_popularity = {
-				ideology = ROOT
-				popularity = -0.1
-			}
-			add_stability = -0.12
-			add_political_power = -200
 		}
 	}
 
@@ -2733,13 +2679,6 @@ news_event = {
 		}
 	}
 	option = {
-		ai_chance = {
-			base = 2
-			modifier = {
-				add = 10
-				has_government = communism
-			}
-		}
 		name = gen.251.a
 		add_stability = -0.02
 		add_political_power = -40
@@ -2750,9 +2689,6 @@ news_event = {
 	}
 	option = {
 		name = gen.251.b
-		ai_chance = {
-			base = 1
-		}
 		add_to_variable = { female_failed = 1 }
 		add_political_power = -20
 		add_popularity = {
@@ -2780,13 +2716,6 @@ news_event = {
 	}
 	option = {
 		name = gen.252.a
-		ai_chance = {
-			base = 2
-			modifier = {
-				add = 10
-				has_government = communism
-			}
-		}
 		add_stability = -0.02
 		add_political_power = -40
 		add_popularity = {
@@ -2796,9 +2725,6 @@ news_event = {
 	}
 	option = {
 		name = gen.252.b
-		ai_chance = {
-			base = 1
-		}
 		add_to_variable = { female_failed = 1 }
 		add_political_power = -20
 		add_popularity = {
@@ -2826,13 +2752,6 @@ news_event = {
 	}
 	option = {
 		name = gen.254.a
-		ai_chance = {
-			base = 2
-			modifier = {
-				add = 10
-				has_government = communism
-			}
-		}
 		add_political_power = -80
 		add_popularity = {
 			ideology = ROOT
@@ -2841,13 +2760,10 @@ news_event = {
 	}
 	option = {
 		name = gen.254.b
-		ai_chance = {
-			base = 1
-		}
 		add_to_variable = { female_failed = 1 }
 	}
 }
-#失败
+#新式女校需要资助
 news_event = {
 	id = gen.255
 	title = gen.255.t
@@ -2856,7 +2772,7 @@ news_event = {
 	major = yes
 	mean_time_to_happen = { days = 10 }
 	trigger = {
-		check_variable = { female_failed > 5 }
+		check_variable = { female_failed > 4 }
 		has_country_flag = gen93
 		has_country_flag = female_refrom
 		has_country_flag = females_right_event
@@ -2881,7 +2797,6 @@ news_event = {
 		}
 	}
 }
-#教育改革失败
 news_event = {
 	id = gen.260
 	title = gen.260.t
@@ -2891,10 +2806,11 @@ news_event = {
 	mean_time_to_happen = { days = 10 }
 	trigger = {
 		NOT = {
+			has_idea = common_female_right_modifier
 			has_country_flag = gen260
 		}
 		has_country_flag = secular_education_decis
-		check_variable = { education_reform_score < -3 }
+		check_variable = { education_reform_score < 1 }
 	}
 	option = {
 		name = gen.254.b

@@ -247,20 +247,6 @@ scripted_diplomatic_actions = {
 					tag = ISR
 				}
 			}
-			modifier = { #援助希腊和土耳其
-				add = 500
-				ROOT = {
-					tag = USA
-					has_completed_focus = Trumanism
-				}
-				THIS = {
-					OR = {
-						tag = GRE
-						tag = TUR
-					}
-					NOT = { has_government = communism }
-				}
-			}
 			modifier = {
 				add = 20
 				THIS = {
@@ -632,20 +618,6 @@ scripted_diplomatic_actions = {
 					NOT = { has_completed_focus = Middle_East_policy }
 				}
 				THIS = { tag = ISR }
-			}
-			modifier = { #援助希腊和土耳其
-				add = 500
-				ROOT = {
-					tag = USA
-					has_completed_focus = Trumanism
-				}
-				THIS = {
-					OR = {
-						tag = GRE
-						tag = TUR
-					}
-					NOT = { has_government = communism }
-				}
 			}
 			modifier = {
 				add = 50

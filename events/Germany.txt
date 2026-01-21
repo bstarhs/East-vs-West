@@ -285,7 +285,7 @@ news_event = {
 	id = ger.11
 	title = ger.11.t
 	desc = ger.11.d
-	picture = GFX_UN
+	picture = GFX_MarshallAid
 	mean_time_to_happen = { days = 5 }
 	major = yes
 	trigger = {
@@ -304,12 +304,13 @@ news_event = {
 	id = ger.12
 	title = ger.12.t
 	desc = ger.12.d
-	picture = GFX_Tempelhof
-	mean_time_to_happen = { days = 10 }
+	picture = GFX_MarshallAid
+	mean_time_to_happen = { days = 30 }
+	major = yes
 	trigger = {
 		tag = SOV
 		has_global_flag = ger5
-		date > 1949.2.20
+		date > 1949.4.20
 		date < 1949.11.20
 	}
 	option = {

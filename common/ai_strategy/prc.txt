@@ -1,5 +1,5 @@
 
-Dewey_KMT = { #使杜威对国民党进行援助
+Dewey_KMT = {
 	abort_when_not_enabled = yes
 	enable = {
 		original_tag = USA
@@ -18,7 +18,36 @@ Dewey_KMT = { #使杜威对国民党进行援助
 		value = 200
 	}
 }
-ENG_guard_hongkong = { #使英军驻守香港
+ROC_retreat = {
+	enable = {
+		tag = CHI
+		PRC = { controls_province = 11913 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		states = { 
+			756
+			524
+			830
+			691
+		}
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = PRC
+
+		ratio = 0.1
+
+		priority = 500
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+ENG_guard_hongkong = {
 	enable = {
 		OR = {
 			tag = ENG
@@ -35,7 +64,7 @@ ENG_guard_hongkong = { #使英军驻守香港
 		}
 	}
 }
-GXC_guard = { #使桂系驻守广西而不参与内战
+GXC_guard = {
 	enable = {
 		tag = GXC
 		CHI = { controls_province = 7191 }
@@ -52,13 +81,11 @@ GXC_guard = { #使桂系驻守广西而不参与内战
 		}
 	}
 }
-PRC_liberate = { #使解放军在49年后向国军全面进攻
+PRC_liberate = {
 	enable = {
 		date > 1949.1.1
 		tag = PRC
 		NOT = { controls_province = 4619 }
-		NOT = { controls_province = 10616 }
-		NOT = { controls_province = 7137 }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -69,16 +96,11 @@ PRC_liberate = { #使解放军在49年后向国军全面进攻
 	ai_strategy = {
 		type = conquer
 		id = "SHX"
-		value = 200
-	}
-	ai_strategy = {
-		type = antagonize
-		id = "SHX"
 		value = 800
 	}
 	ai_strategy = {
 		type = antagonize
-		id = "CHI"
+		id = "SHX"
 		value = 800
 	}
 	ai_strategy = {
@@ -96,21 +118,17 @@ PRC_liberate = { #使解放军在49年后向国军全面进攻
 		state = 597
 		state = 607
 		state = 606
-		state = 605
-		state = 601
-		state = 602
 		state = 620
 		state = 598
 		state = 400
-		state = 605
-		ratio = 0.9
+		ratio = 0.8
 	}
 	ai_strategy = {
 		type = front_control
 
 		tag = CHI
 
-		ratio = 0.9
+		ratio = 0.7
 
 		priority = 500
 		ordertype = front
@@ -118,7 +136,7 @@ PRC_liberate = { #使解放军在49年后向国军全面进攻
 		execute_order = yes
 	}
 }
-USA_chiang = { #使美国向国军提供军火
+USA_chiang = {
 	enable = {
 		tag = USA
 		CHI = {
@@ -147,7 +165,7 @@ USA_chiang = { #使美国向国军提供军火
 		value = 200
 	}
 }
-USA_PRC_volunteers = { #使美国在中苏开战后向中国提供援助
+USA_PRC_volunteers = {
 	enable = {
 		date > 1976.1.1
 		OR = {
@@ -168,28 +186,66 @@ USA_PRC_volunteers = { #使美国在中苏开战后向中国提供援助
 		value = 900
 	}
 }
+ROC_yanan = {
+	allowed = {
+		tag = CHI
+	}
+	enable = {
+		NOT = { controls_province = 1590 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+
+		tag = PRC
+
+		ratio = 0.8
+
+		priority = 800
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		ratio = 0.8
+		state = 615
+		state = 622
+		state = 597
+		state = 607
+		state = 598
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "PRC"
+		value = 900
+	}
+	ai_strategy = {
+		type = conquer
+		id = "PRC"
+		value = 900
+	}
+}
 PLA_dongbei = {
-	allowed = { #使解放军在解放战争中期优先攻击东北
+	allowed = {
 		tag = PRC
 	}
 	enable = {
-		date > 1947.12.1
-		date < 1949.2.1
+		date > 1948.5.1
 		NOT = { controls_province = 3783 }
 		NOT = { controls_province = 11771 }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = front_unit_request
-		state = 610
-		state = 328
-		ratio = 0.4
+		state = 716
+		ratio = 0.6
 	}
 	ai_strategy = {
 		type = front_unit_request
 		state = 715
 		state = 716
-		ratio = 0.2
+		ratio = 0.3
 	}
 	ai_strategy = {
 		type = consider_weak
@@ -206,23 +262,34 @@ PLA_dongbei = {
 		id = "DOB"
 		value = 900
 	}
-	ai_strategy = { 
-		type = force_concentration_target_weight
-		state = 328
-		state = 610
-		value = 50
-	}
 	ai_strategy = {
 		type = front_control
+
 		tag = DOB
+
 		ratio = 0.7
+
 		priority = 800
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
 	}
 }
-PRC_SOV_defence = { #使解放军在中苏关系破裂后驻军东北
+support_PRC = {
+	enable = {
+		tag = SOV
+	}
+	abort_when_not_enabled = yes
+	abort = {
+		PRC = { has_war_with = CHI }
+	}
+	ai_strategy = {
+		type = support
+		id = PRC
+		value = 500
+	}
+}
+PRC_SOV_defence = {
 	enable = {
 		tag = PRC
 		date > 1969.1.1
@@ -246,7 +313,7 @@ PRC_SOV_defence = { #使解放军在中苏关系破裂后驻军东北
 		}
 	}
 }
-SHX_defence = { #使晋军优先驻守山西河北北平
+SHX_defence = {
 	abort_when_not_enabled = yes
 	enable = {
 		tag = SHX
@@ -261,14 +328,8 @@ SHX_defence = { #使晋军优先驻守山西河北北平
 			615
 		}
 	}
-
-	ai_strategy = { 
-		type = force_concentration_target_weight
-		state = 621
-		value = -50
-	}
 }
-DOB_defence = { #使东北剿总优先驻守东北
+DOB_defence = {
 	abort_when_not_enabled = yes
 	enable = {
 		tag = DOB
@@ -289,115 +350,92 @@ DOB_defence = { #使东北剿总优先驻守东北
 		value = 10
 	}
 }
-
-#进攻华北
-PRC_attack_north_china= {
-	allowed = {
-		original_tag = PRC
-	}
-
+CHI_defence = {
+	abort_when_not_enabled = yes
 	enable = {
-		has_war_with = CHI
-		date > 1948.2.1
-		NOT = { 
-			614 = { is_controlled_by = ROOT }
-		    615 = { is_controlled_by = ROOT }
+		tag = CHI
+		has_war_with = PRC
+		controls_province = 12055
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.5
+		states = { 
+			598
+			613
+			606
+			607
 		}
 	}
-
-	abort_when_not_enabled = yes
-
-    ai_strategy = {
-		type = front_control
-		tag = SHX
-		ratio = 0.5
-		priority = 500
-		ordertype = front
-		execution_type = rush
-		execute_order = yes
-	}
 }
-#拿下华北就先停下来
-PRC_dont_rush_into_attack = {
-	allowed = {
-		original_tag = PRC
-	}
-
+PLA_defence = {
+	abort_when_not_enabled = yes
 	enable = {
-		614 = { is_controlled_by = ROOT }
-		615 = { is_controlled_by = ROOT }
+		tag = PRC
+		has_war_with = CHI
+		date < 1948.6.1
 	}
-
 	abort = {
-		date > 1948.2.1
+		date > 1948.6.1
 	}
-
-    ai_strategy = {
-		type = front_control
-		tag = CHI
-		ratio = 0.5
-		priority = 500
-		ordertype = front
-		execution_type = careful
-		execute_order = no
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 1
+		states = { 
+			597
+			614
+			621
+			611
+			715
+		}
 	}
-
-	ai_strategy = { 
-		type = force_concentration_target_weight
-		state = 716 #辽宁
-		state = 608 #北平
-
-		value = -50
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
 	}
-}
-#不主动进攻华北行政公署
-PRC_dont_attack_shx = {
-	allowed = {
-		original_tag = PRC
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.0
+		states = { 
+			622
+			716
+			608
+		}
 	}
-
-	enable = {
-		has_war_with = SHX
-		date < 1948.2.1
+	ai_strategy = {
+		type = front_unit_request
+		state = 622
+		state = 716
+		state = 608
+		ratio = 0.0
 	}
-
-	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = front_control
+
 		tag = SHX
-		ratio = 0.25
-		priority = 500
+
+		ratio = 0.1
+
+		priority = 800
 		ordertype = front
 		execution_type = careful
 		execute_order = no
 	}
-}
-#东北剿总也一样
-PRC_dont_attack_dob = {
-	allowed = {
-		original_tag = PRC
-	}
-
-	enable = {
-		has_war_with = DOB
-		date < 1947.12.1
-	}
-
-	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = front_control
+
 		tag = DOB
-		ratio = 0.25
-		priority = 500
+
+		ratio = 0.9
+
+		priority = 800
 		ordertype = front
 		execution_type = careful
 		execute_order = no
 	}
 }
-
-PRC_defence = { #使解放军在55年后重点驻守东部
+PRC_defence = {
 	abort_when_not_enabled = yes
 	enable = {
 		tag = PRC
@@ -422,7 +460,7 @@ PRC_defence = { #使解放军在55年后重点驻守东部
 		}
 	}
 }
-tiananmen = { #天安门事件后西方国家对华抵制
+tiananmen = {
 	abort_when_not_enabled = yes
 	enable = {
 		date > 1989.6.4
@@ -435,7 +473,7 @@ tiananmen = { #天安门事件后西方国家对华抵制
 		value = 200
 	}
 }
-PRC_SOV_conflict = { #中苏对抗
+PRC_SOV_conflict = {
 	enable = {
 		tag = PRC
 		PRC = { has_idea = SovietChinaConflit }
@@ -456,12 +494,11 @@ PRC_SOV_conflict = { #中苏对抗
 		value = 200
 	}
 }
-PRC_ALB = { #援助阿尔巴尼亚
+PRC_ALB = {
 	abort_when_not_enabled = yes
 	enable = {
 		tag = PRC
 		PRC = { has_idea = SovietChinaConflit }
-		ALB = { has_idea = SovietChinaConflit }
 	}
 	ai_strategy = {
 		type = support
