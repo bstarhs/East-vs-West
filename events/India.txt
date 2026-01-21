@@ -26,6 +26,7 @@ news_event = {
 		if = {
 			limit = { tag = ENG }
 			release_on_controlled = IND
+			end_puppet = HYD
 			IND = {
 			transfer_state = 434
 			load_oob = "RAJ_1950"
@@ -35,48 +36,6 @@ news_event = {
 			transfer_state = 755
 			transfer_state = 903
 			}
-		}
-	}
-}
-#海得拉巴问题
-news_event = {
-	id = raj.2
-	title = raj.2.t
-	desc = raj.2.d
-	picture = GFX_IndiaIndependent
-	fire_only_once = yes
-	trigger = {
-	country_exists = IND
-	country_exists = HYD
-	}
-	option = {
-		name = raj.2.a
-		HYD = { 
-			country_event = { id = raj.3 }
-		}
-		ENG = { 
-			end_puppet = HYD
-		}
-	}
-}
-#是否归顺
-news_event = {
-	id = raj.3
-	title = raj.3.t
-	desc = raj.3.d
-	picture = GFX_SikhArmy
-	fire_only_once = yes
-	is_triggered_only = yes
-	option = {
-		name = raj.3.a
-		IND = {
-			transfer_state = 427
-		}
-	}
-	option = {
-		name = raj.3.a
-		IND = {
-			declare_war_on = { target = HYD type = annex_everything }
 		}
 	}
 }
@@ -556,7 +515,13 @@ news_event = {
 		if = {
 			limit = {
 				tag = PAK
-				PAK = { controls_province = 13723 }
+				PAK = {
+					OR = {
+					controls_province = 13723
+					controls_province = 1910
+					controls_province = 2041
+					}
+				}
 			}
 			430 = { set_demilitarized_zone = no }
 			433 = { set_demilitarized_zone = no }
@@ -567,7 +532,7 @@ news_event = {
 				transfer_state = 755
 				transfer_state = 903
 			}
-			news_event = { id = raj.26 }
+			news_event = { id = raj.26 days = 2 }
 		}
 		if = {
 			limit = {
@@ -576,7 +541,7 @@ news_event = {
 				controls_province = 10905 
 				controls_province = 8005 
 			}
-			news_event = { id = raj.24 }
+			news_event = { id = raj.24 days = 2 }
 			white_peace = IND
 			transfer_state = 441
 				transfer_state = 755

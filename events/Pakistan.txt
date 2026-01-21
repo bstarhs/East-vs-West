@@ -7,25 +7,31 @@ news_event = {
 	picture = GFX_AliJinah
 	major = yes
 	mean_time_to_happen = {
-		days = 2
+		days = 10
+	}
+	immediate = {
+		play_song = PAK_1
 	}
 	trigger = {	
 		tag = ENG
 		date > 1947.8.1
 		date < 1947.10.30
-		440 = {
-			is_controlled_by = ENG
-		}
+		440 = { is_controlled_by = ENG }
+		439 = { is_controlled_by = IND }
 	}
 	option = {
 		name = pak.1.a
 		if = {
-		limit = {
-			tag = ENG
-		}
+			limit = { tag = ENG }
 			release_on_controlled = PAK
-		PAK = {
-			load_oob = "PAK_1947"
+			BAN = { transfer_state = 430 }
+			PAK = {
+				load_oob = "PAK_1947"
+				set_autonomy = {
+					target = BAN
+					autonomous_state = autonomy_colony
+					freedom_level = 0.4
+				}
 			}
 		}
 	}
@@ -360,6 +366,7 @@ news_event = {   #北塔山事件
 		controls_state = 445
 		controls_state = 441
 		AFG = { controls_state = 415 }
+		date > 1949.1.1
 		date < 1950.1.1
 		
 	}
@@ -367,22 +374,20 @@ news_event = {   #北塔山事件
 		name = pak.16.a
 		if = {
 			limit = { tag = PAK }
-		}
-		start_border_war = {
+			start_border_war = {
 			change_state_after_war = no
 			attacker = {
-				state = 415
+				state = 267
 				num_provinces = 4
 				on_win = pak.18
-				on_lose = pak.17
 			}
 				
 			defender = {
-				state = 445
+				state = 442
 				num_provinces = 4
 				on_win = pak.17
-				on_lose = pak.18
 			}
+		}
 		}
 	}
 }

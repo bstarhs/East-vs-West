@@ -120,7 +120,8 @@ news_event = {   #卢汉起义
 		set_global_flag = liberate_jinzhjou
 		if = {
 			limit = { tag = DOB }
-			every_country_division = { set_unit_organization = 0.02 }
+			add_stability = -0.8
+			every_country_division = { set_unit_organization = 0.01 }
 		}
 	}
 }
@@ -147,12 +148,12 @@ news_event = {   #攻占延安
 			limit = { tag = CHI }
 			add_stability = 0.3
 			add_war_support = 0.3
-			add_popularity = { ideology = ROOT popularity = 0.15 }
+			add_popularity = { ideology = ROOT popularity = 0.12 }
 			every_country_division = { set_unit_organization = 0.6 }
 		}
 	}
 }
-news_event = {   #攻占延安
+news_event = {   #新疆起义
 	id = chinawar.5
 	title = chinawar.5.t
 	desc = chinawar.5.d
@@ -175,6 +176,9 @@ news_event = {   #攻占延安
 		if = {
 			limit = { tag = PRC }
 			transfer_state = 617
+			transfer_state = 619
+			transfer_state = 287
+			transfer_state = 754
 			transfer_state = 948
 			transfer_state = 950
 		}
@@ -569,6 +573,7 @@ news_event = {   #攻占海南
 		set_global_flag = hainan_liberate
 		if = {
 			limit = { tag = PRC }
+			591 = { remove_dynamic_modifier = { modifier = more_rebel_modifiers } }
 			transfer_state = 591
 		}
 	}
@@ -612,7 +617,7 @@ news_event = {
 	id = chinawar.52
 	title = chinawar.52.t
 	desc = chinawar.52.d
-	picture = GFX_KAL007
+	picture = GFX_Yunnan715Protest
 	mean_time_to_happen = {
 		days = 30
 	}
@@ -650,7 +655,7 @@ news_event = {   #拒绝金圆券
 	id = chinawar.53
 	title = chinawar.53.t
 	desc = chinawar.53.d
-	picture = GFX_Amethyst
+	picture = GFX_Yunnan715Protest
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -661,7 +666,7 @@ news_event = {   #拒绝金圆券
 	id = chinawar.54
 	title = chinawar.54.t
 	desc = chinawar.54.d
-	picture = GFX_Amethyst
+	picture = GFX_Yunnan715Protest
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -679,7 +684,7 @@ news_event = {   #南京不满
 	id = chinawar.55
 	title = chinawar.55.t
 	desc = chinawar.55.d
-	picture = GFX_Amethyst
+	picture = GFX_Yunnan715Protest
 	is_triggered_only = yes
 	option = {
 		name = chinawar.28.a
@@ -760,7 +765,7 @@ news_event = {   #拒绝金圆券
 	id = chinawar.58
 	title = chinawar.58.t
 	desc = chinawar.58.d
-	picture = GFX_Amethyst
+	picture = GFX_GuangxiArmy
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -918,12 +923,17 @@ news_event = {   #拒绝金圆券
 	option = {
 		name = chinawar.28.a
 		if = {
-			limit = { tag = CHI }
+			limit = {
+				OR = {
+				tag = CHI
+				is_subject_of = CHI
+				}
+			}
 			remove_ideas = golden_notes_ideas
 			add_ideas = CHI_financial_broken
 			add_war_support = -0.4
 			add_political_power = -600
-			add_popularity = { ideology = ROOT popularity = -0.08 }
+			add_popularity = { ideology = ROOT popularity = -0.15 }
 			add_stability = -0.3
 		}
 	}
@@ -937,7 +947,7 @@ news_event = {   #陈布雷自沙
 	mean_time_to_happen = { days = 2 }
 	trigger = {
 		tag = CHI
-		PRC = { controls_province = 1236 }
+		PRC = { controls_province = 10068 }
 		has_character = CHI_Chen_BuLei
 	}
 	option = {
@@ -958,7 +968,7 @@ news_event = {   #张灵甫阵亡
 	mean_time_to_happen = { days = 2 }
 	trigger = {
 		tag = CHI
-		PRC = { controls_province = 1236 }
+		PRC = { controls_province = 12015 }
 		has_character = CHI_Chang_LingFu
 	}
 	option = {
@@ -979,7 +989,7 @@ news_event = {   #杨百韬阵亡
 	mean_time_to_happen = { days = 2 }
 	trigger = {
 		tag = CHI
-		PRC = { controls_province = 1236 }
+		PRC = { controls_province = 9956 }
 		has_character = CHI_HwangBaiTao
 	}
 	option = {
@@ -997,10 +1007,10 @@ news_event = {   #杜聿明被俘
 	desc = chinawar.83.d
 	picture = GFX_TuYumingPOV
 	major = yes
-	mean_time_to_happen = { days = 2 }
+	mean_time_to_happen = { days = 3 }
 	trigger = {
 		tag = CHI
-		PRC = { controls_province = 1236 }
+		PRC = { controls_province = 12055 }
 		has_character = CHI_tu_yuming
 	}
 	option = {
@@ -1214,5 +1224,164 @@ news_event = {
 	option = {
 		name = chinawar.90.a
 		set_country_flag = chinawar96
+	}
+}
+news_event = {
+	id = chinawar.100
+	title = chinawar.100.t
+	desc = chinawar.100.d
+	picture = GFX_520Movement
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		NOT = { has_country_flag = chinawar100 }
+		has_war_with = PRC
+		date > 1947.5.15
+		date < 1947.9.15
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar100
+			add_war_support = -0.01
+	}
+}
+news_event = {
+	id = chinawar.101
+	title = chinawar.101.t
+	desc = chinawar.101.d
+	picture = GFX_520Movement
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		has_country_flag = chinawar100
+		NOT = { has_country_flag = chinawar101 }
+		has_war_with = PRC
+		date > 1947.5.15
+		date < 1947.9.15
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar101
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.03
+		}
+	}
+}
+news_event = {
+	id = chinawar.102
+	title = chinawar.102.t
+	desc = chinawar.102.d
+	picture = GFX_520Supress
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		has_country_flag = chinawar101
+		NOT = { has_country_flag = chinawar102 }
+		has_war_with = PRC
+		date > 1947.5.15
+		date < 1947.9.15
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar102
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.03
+			add_stability = -0.05
+			add_political_power = -100
+		}
+	}
+}
+news_event = {
+	id = chinawar.103
+	title = chinawar.103.t
+	desc = chinawar.103.d
+	picture = GFX_WuhanUniversityMassacre
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		has_country_flag = chinawar102
+		NOT = { has_country_flag = chinawar103 }
+		has_war_with = PRC
+		date > 1947.5.15
+		date < 1947.9.15
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar103
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.03
+			add_stability = -0.05
+			add_political_power = -100
+		}
+	}
+}
+news_event = {
+	id = chinawar.104
+	title = chinawar.104.t
+	desc = chinawar.104.d
+	picture = GFX_520Movement
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		NOT = { has_country_flag = chinawar104 }
+		controls_province = 9843
+		has_war_with = PRC
+		date > 1948.7.2
+		date < 1948.9.15
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar104
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.03
+			add_stability = -0.05
+			add_political_power = -100
+		}
+	}
+}
+news_event = {
+	id = chinawar.105
+	title = chinawar.105.t
+	desc = chinawar.105.d
+	picture = GFX_520Movement
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		tag = CHI
+		NOT = { has_country_flag = chinawar105 }
+		controls_province = 4375
+		has_war_with = PRC
+		date > 1948.4.1
+		date < 1948.9.15
+	}
+	option = {
+		name = chinawar.90.a
+		set_country_flag = chinawar105
+		if = {
+			limit = { tag = CHI }
+			add_war_support = -0.03
+			add_stability = -0.05
+			add_political_power = -100
+		}
+	}
+}
+
+news_event = {   #拒绝金圆券
+	id = chinawar.140
+	title = chinawar.140.t
+	desc = chinawar.140.d
+	picture = GFX_LiuZhi
+	is_triggered_only = yes
+	option = {
+		name = chinawar.140.a
 	}
 }

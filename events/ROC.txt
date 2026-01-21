@@ -229,13 +229,17 @@ news_event = {
 		591 = { is_controlled_by = PRC }
 		619 = { is_controlled_by = PRC }
 		325 = { is_controlled_by = PRC }
+		605 = { is_controlled_by = PRC }
+		601 = { is_controlled_by = PRC }
+		603 = { is_controlled_by = PRC }
 		PRC = { NOT = { has_country_flag = China_liberate } }
 	}
 	option = {
 		name = roc.12.a
 		if = {
 			limit = { tag = PRC }
-			remove_ideas = libiration
+			remove_ideas = PRC_liberation_war_defence
+			remove_ideas = PRC_liberation_war_attack
 			every_core_state = {
 				transfer_state_to = PRC
 			}
@@ -426,7 +430,7 @@ news_event = {
 	id = roc.22
 	title = roc.22.t
 	desc = roc.22.d
-	picture = GFX_ROCArmyInThailand
+	picture = GFX_TaiwanSupression
 	major = yes
 	mean_time_to_happen = { days = 20 }
 	trigger = {
@@ -454,7 +458,7 @@ news_event = {
 	id = roc.24
 	title = roc.24.t
 	desc = roc.24.d
-	picture = GFX_ROCArmyInThailand
+	picture = GFX_TaiwanSupression
 	major = yes
 	mean_time_to_happen = { days = 20 }
 	trigger = {
@@ -550,105 +554,25 @@ news_event = {
 }
 #美丽岛示威
 news_event = {
+	id = roc.31
+	title = roc.31.t
+	desc = roc.31.d
+	picture = GFX_ROCArmy
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = roc.6.a
+	}
+}
+news_event = {
 	id = roc.32
 	title = roc.32.t
-	desc = roc.70.d
-	picture = GFX_TaiwanRoit
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = CHI
-		date > 1979.12.1
-		date < 1980.2.1
-	}
-	
-	option = {	#暴力镇压
-		name = roc.70.a
-		add_stability = -0.2
-		add_popularity = {
-			ideology = neutrality
-			popularity = -0.2
-		}
-		create_country_leader = {
-			name = "Lin Yi-Hsiung"
-			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
-			picture = "gfx/leaders/CHI/Portrait_CHI_Lin_YiHsiung.tga"
-			expire = "1988.1.1"
-			ideology = liberalism
-			traits = {
-			}
-		}
-		news_event = { id = roc.33 }
-	}
-}
-#美丽岛大审
-news_event = {
-	id = roc.33
-	title = roc.33.t
-	desc = roc.70.d
-	picture = GFX_Meilidao
-	fire_only_once = yes
+	desc = roc.32.d
+	picture = GFX_ROCArmy
 	is_triggered_only = yes
-	
-	option = {	#大审
-		name = roc.70.a
-		add_stability = -0.2
-	}
-	option = {	#释放
-		name = roc.70.a
-		add_stability = 0.2
-		add_popularity = {
-			ideology = democratic
-			popularity = 0.15
-		}
-	}
-}
-#蒋经国去世
-news_event = {
-	id = roc.38
-	title = roc.38.t
-	desc = roc.70.d
-	picture = GFX_ChiangChinKuoDead
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = CHI
-		date > 1988.1.5
-		date < 1988.3.5
-	}
-	
-	option = {	#李登辉
-		name = roc.70.a
-		ai_chance = {
-			factor = 60	
-		}
-		create_country_leader = {
-			name = "Lee Teng-Hui"
-			desc = "POLITICIAN_KOR_CHOI_KYUHA_DESC"
-			picture = "gfx/leaders/CHI/Portrait_China_Lee_Tenghui.tga"
-			expire = "1988.1.1"
-			ideology = despotism
-			traits = {
-			}
-		}
-	}
-	
-	option = {	#蒋纬国
-		name = roc.70.b
-		ai_chance = {
-			factor = 40	
-		}
-		create_country_leader = {
-			name = "Song Chu-Yul"
-			desc = "POLITICIAN_KOR_CHUN_DOOHWAN_DESC"
-			picture = "gfx/leaders/CHI/Portrait_Soong_ChuYul.tga"
-			expire = "1988.1.1"
-			ideology = despotism
-			traits = {
-			}
-		}
+	major = yes
+	option = {
+		name = roc.6.a
 	}
 }
 #美国介入

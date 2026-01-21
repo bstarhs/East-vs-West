@@ -32,6 +32,7 @@ news_event = {
 			transfer_state = 334
 			transfer_state = 667
 			transfer_state = 668
+			transfer_state = 1028
 			news_event = {  id = ind.3 }
 		}
 		if = {
@@ -53,22 +54,13 @@ news_event = {
 		ai_chance = {
 			factor = 75	
 		}
-		create_country_leader = {
-			name = "Sukarto"
-			picture = "gfx/leaders/INS/Portrait_Indonesia_Sukarto.tga"
-			expire = "1988.1.1"
-			ideology = authoritarianism
-			traits = {
-			pro_soviet
-			}
-		}
 		add_stability = 0.1
 		add_popularity = {
 			ideology = communism
-			popularity = 0.1
+			popularity = 0.05
 		}
 		add_popularity = {
-			ideology = neutrality
+			ideology = authoritarianism
 			popularity = 0.4
 		}
 	}
@@ -91,12 +83,12 @@ news_event = {
 			popularity = -0.1
 		}
 		add_popularity = {
-			ideology = neutrality
+			ideology = authoritarianism
 			popularity = 0.4
 		}
 		add_popularity = {
 			ideology = fascism
-			popularity = 0.4
+			popularity = 0.12
 		}
 	}
 }
