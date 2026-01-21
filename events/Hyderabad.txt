@@ -1,0 +1,237 @@
+add_namespace = hyd
+news_event = {
+    id = hyd.1
+    picture = GFX_OsmanAliKhan
+    title = hyd.1.t ###
+    desc = hyd.1.d ###
+    mean_time_to_happen = { days = 5 }
+    trigger = {
+        tag = HYD
+        country_exists = IND
+    }
+    fire_only_once = yes
+    hidden = no
+    option = {
+        name = hyd.1.a
+        ai_chance = {
+			base = 0
+		}
+        news_event = {
+            id = hyd.2 #成为自治领事件
+            days = 1
+        }
+    }
+    option = {
+        name = hyd.1.b
+        ai_chance = {
+			base = 20
+		}
+        news_event = {
+            id = hyd.5 #宣布独立事件
+            days = 1
+        }
+    }
+}
+
+news_event = {
+    id = hyd.2
+    picture = GFX_OsmanAliKhan
+    title = hyd.2.t
+    desc = hyd.2.d
+    is_triggered_only = yes
+    major = yes
+    option = {
+        name = hyd.2.a #海得拉巴触发的选项
+        trigger = {
+            tag = IND
+        }
+        diplomatic_relation = {
+            country = HYD
+            relation = puppet
+            active = yes
+        }
+    }
+    option = {
+        name = hyd.2.b #海得拉巴之外的国家触发该选项
+        trigger = {
+            NOT = {
+                tag = IND
+            }
+        }
+    }
+}
+
+news_event = {
+    id = hyd.5
+    picture = GFX_OsmanAliKhan
+    title = hyd.5.t
+    desc = hyd.5.d
+    is_triggered_only = yes
+    major = yes 
+    set_global_flag = hyd5
+    option = {
+        name = hyd.5.a #海得拉巴触发的选项
+        trigger = {
+            tag = HYD
+        }
+        add_war_support = 0.05 #加5战支5稳定
+        add_stability = 0.05
+    }
+    option = {
+        name = hyd.5.b #海得拉巴与印度之外的国家触发该选项
+        trigger = {
+            NOT = {
+                OR = {
+                    tag = IND
+                    tag = HYD
+                }
+            }
+        }
+    }
+    option = {
+        name = hyd.5.c #印度触发的选项
+        trigger = {
+            tag = IND
+        }
+        news_event = {
+            id = hyd.6
+            days = 4
+        }
+    }
+}
+
+news_event = {
+    id = hyd.6
+    picture = GFX_VallabhbhaiPatel
+    title = hyd.6.t
+    desc = hyd.6.d
+    is_triggered_only = yes 
+    option = {
+        name = hyd.6.a
+        ai_chance = {
+			base = 2
+		}
+        declare_war_on = { 
+            target = HYD
+            type = annex_everything 
+        }
+        news_event = { id = hyd.7 }
+    }
+    option = {
+        name = hyd.6.b
+        ai_chance = { base = 100 }
+    }
+}
+
+news_event = {
+    id = hyd.7
+    picture = GFX_InvadeHyderabad
+    title = hyd.7.t
+    desc = hyd.7.d
+    is_triggered_only = yes
+    major = yes
+    option = {
+        name = hyd.7.a
+        set_global_flag = hyd7
+    }
+}
+
+news_event = {
+    id = hyd.8
+    picture = GFX_IndiaCommunismRevolt
+    title = hyd.8.t
+    desc = hyd.8.d
+    trigger = {
+        tag = HYD
+		is_subject = no
+        has_global_flag = hyd7
+		date > 1948.2.1
+    }
+    mean_time_to_happen = { days = 30 }
+    option = {
+        name = hyd.8.a
+        add_stability = -0.02
+        news_event = { id = hyd.9 }
+        set_global_flag = hyd8
+    }
+}
+
+news_event = {
+    id = hyd.9
+    picture = GFX_HyderabadSupress
+    title = hyd.9.t
+    desc = hyd.9.d
+    is_triggered_only = yes
+    major = yes
+    option = {
+        name = hyd.9.a
+        set_global_flag = hyd9
+    }
+}
+
+news_event = {
+    id = hyd.10
+    picture = GFX_HyderabadArmy
+    title = hyd.10.t
+    desc = hyd.10.d
+	fire_only_once = yes
+    mean_time_to_happen = { days = 10 }
+    trigger = {
+        tag = HYD
+        has_global_flag = hyd7
+        country_exists = PAK
+    }
+    option = {
+        name = hyd.10.a
+        add_stability = 0.1 #10稳定
+        army_experience = 150
+        set_global_flag = hyd10
+    }
+}
+
+news_event = {
+    id = hyd.12
+    picture = GFX_VallabhbhaiPatel
+    title = hyd.12.t
+    desc = hyd.12.d
+    mean_time_to_happen = { days = 20 }
+    trigger = {
+        tag = IND
+        NOT = { has_war_with = HYD }
+        has_global_flag = hyd9
+        has_global_flag = hyd10
+    }
+    option = {
+        name = hyd.12.a
+        news_event = { id = hyd.7 }
+        declare_war_on = { 
+            target = HYD
+            type = annex_everything 
+        }
+    }
+}
+
+news_event = {
+    id = hyd.13
+    picture = GFX_InvadeHyderabad
+    title = hyd.13.t
+    desc = hyd.13.d
+	major = yes 
+    mean_time_to_happen = { days = 2 }
+    trigger = {
+        tag = IND
+        controls_province = 8087
+		has_war_with = HYD
+		NOT = { country_exists = HYD }
+    }
+    option = {
+        name = hyd.13.a
+		if = {
+		limit = { tag = IND }
+        annex_country = { 
+            target = HYD 
+            transfer_troops = no 
+        }
+		}
+    }
+}
