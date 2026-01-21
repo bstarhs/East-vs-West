@@ -1,11 +1,10 @@
 ﻿capital = 746
 add_ideas = {
-
-		harmonious
+	harmonious
 	all_adults_serve
 	Anti_religious
 	war_economy
-		low_welfare
+	low_welfare
 }
 add_equipment_to_stockpile = {
     type = infantry_equipment_1
@@ -16,34 +15,35 @@ set_country_flag = main_country
 set_country_flag = language_German
 add_dynamic_modifier = { modifier = childes_labour_modifiers }
 
+set_variable = { this.education = 72 }
+
 # Starting tech
-	set_variable = { this.education = 72 }
 set_technology = {
-		excavation1 = 1
-		excavation2 = 1
-		machine_gun1 = 1
-		medical1 = 1
-		oil_processing = 1
-		army_aviation = 1
-		concentrated_industry4 = 1
-		concentrated_industry5 = 1
-		steel_making_tech = 1
-		basic_battery = 1
-		basic_medium_battery = 1
-		basic_light_battery = 1
-		basic_light_shell = 1
-		damage_control_1 = 1
-		basic_naval_mines = 1
-		basic_torpedo = 1
-		improved_ship_torpedo_launcher = 1
-		improved_ship_torpedo_launcher = 1
-		basic_submarine_snorkel = 1
+	excavation1 = 1
+	excavation2 = 1
+	machine_gun1 = 1
+	medical1 = 1
+	oil_processing = 1
+	army_aviation = 1
+	concentrated_industry4 = 1
+	concentrated_industry5 = 1
+	steel_making_tech = 1
+	basic_battery = 1
+	basic_medium_battery = 1
+	basic_light_battery = 1
+	basic_light_shell = 1
+	damage_control_1 = 1
+	basic_naval_mines = 1
+	basic_torpedo = 1
+	improved_ship_torpedo_launcher = 1
+	improved_ship_torpedo_launcher = 1
+	basic_submarine_snorkel = 1
 	aluminum_tech = 1
-		sonar = 1
-		basic_depth_charges = 1
-		improved_depth_charges = 1
+	sonar = 1
+	basic_depth_charges = 1
+	improved_depth_charges = 1
 	basic_train = 1
-		helmet = 1
+	helmet = 1
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
@@ -78,10 +78,10 @@ set_technology = {
 	transport = 1
 	
 	power_generation1 = 1
-		tech_maintenance_company = 1
-		tech_field_hospital = 1
-		tech_logistics_company = 1
-		tech_signal_company = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
 
 	basic_fleet = 1
 	coast_guard = 1
@@ -106,85 +106,20 @@ set_technology = {
 	artilelery_doctrine = 1
 }
 
-
-
-
-
 set_research_slots = 2
 set_convoys = 50
 
-1939.1.1 = {
-
-	add_political_power = 1197
-	
-
-	#BUILDINGS
-	
-
-	set_technology = {
-		improved_light_tank = 1 
-		basic_medium_tank = 1 
-		CAS2 = 1
-		heavy_fighter1 = 1
-		interwar_artillery = 1
-		interwar_antitank = 1
-		improved_infantry_weapons = 1
-		
-		
-		paratroopers = 1
-		basic_heavy_cruiser = 1
-		improved_heavy_cruiser = 1
-		basic_battleship = 1
-		improved_battleship = 1
-
-		#doctrines
-		basic_militia = 1
-		depth_defense = 1
-		
-		
-		
-		
-		unrestricted_submarine_warfare = 1
-		
-		#air
-		formation_flying = 1		
-		dive_bombing = 1
-		direct_ground_support = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		
-		decimetric_radar = 1
-		
-		
-		
-		
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		
-		tech_logistics_company2 = 1
-		dispersed_industry = 1
-
-	}
+set_popularities = {
+	democratic = 30
+	neutrality = 10
+	authoritarianism = 20
+	communism = 40
 }
-	set_popularities = {
-		democratic = 30
-		neutrality = 10
-		authoritarianism = 20
-		communism = 40
-	}
 set_politics = {
-	
 	ruling_party = communism
-	last_election = "1936.1.1"
+	last_election = "1947.1.1"
 	election_frequency = 48
 	elections_allowed = yes
-
 }
 
 
@@ -194,8 +129,7 @@ recruit_character = DDR_Rudolf_Herrnstadt
 recruit_character = DDR_Otto_Grotewohl
 recruit_character = DDR_Walter_Ulbricht
 recruit_character = DDR_Wilhelm_Pieck
-add_ideas = {
-}
+
 promote_character = DDR_Wilhelm_Pieck
 1949.1.1 = {
 	retire_character = DDR_Karl_Schirdewan

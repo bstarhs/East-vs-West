@@ -5,28 +5,28 @@ set_country_flag = language_russian
 set_country_flag = developmented
 set_country_flag = orthodox_state
 set_country_flag = soviet_state
-		add_dynamic_modifier = { modifier = volunteer_fix_modifier }
+add_dynamic_modifier = { modifier = volunteer_fix_modifier }
 add_equipment_to_stockpile = {
     type = infantry_equipment
     amount = 200000
     producer = SOV
 }
-	diplomatic_relation = {
-		relation = military_access
-		country = AUS
-		active = yes
-	}
-	set_variable = { this.education = 62 }
+diplomatic_relation = {
+	relation = military_access
+	country = AUS
+	active = yes
+}
+set_variable = { this.education = 62 }
 add_equipment_to_stockpile = {
     type = machine_gun
     amount = 18000
     producer = SOV
 }
-			add_tech_bonus = {
-				bonus = 1.6
-				uses = 1
-				category = nuclear
-			}
+add_tech_bonus = {
+	bonus = 1.6
+	uses = 1
+	category = nuclear
+}
 add_intel = {
     target = ENG
     civilian_intel = 30
@@ -151,11 +151,6 @@ diplomatic_relation = {
 diplomatic_relation = {
 	relation = military_access
 	country = POL
-	active = yes
-}
-diplomatic_relation = {
-	relation = military_access
-	country = DDR
 	active = yes
 }
 	
