@@ -5,7 +5,7 @@ news_event = {
 	id = sov.1
 	title = sov.1.t
 	desc = sov.1.d
-	picture = GFX_Comecon
+	picture = GFX_Cominform
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -16,7 +16,7 @@ country_event = {
 	id = sov.2
 	title = sov.2.t
 	desc = sov.2.d
-	picture = GFX_Comecon
+	picture = GFX_MolotovMeeting
 	is_triggered_only = yes
 	option = {
 		name = sov.1.a
@@ -66,7 +66,7 @@ news_event = {
 	id = sov.4
 	title = sov.4.t
 	desc = sov.4.d
-	picture = GFX_Comecon
+	picture = GFX_MolotovMeeting
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -77,7 +77,7 @@ news_event = {
 	id = sov.5
 	title = sov.5.t
 	desc = sov.5.d
-	picture = GFX_Comecon
+	picture = GFX_MolotovMeeting
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -88,7 +88,7 @@ news_event = {
 	id = sov.6
 	title = sov.6.t
 	desc = sov.6.d
-	picture = GFX_Comecon
+	picture = GFX_SteamTrain
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -100,7 +100,6 @@ news_event = {
 	title = sov.7.t
 	desc = sov.7.d
 	picture = GFX_Comecon
-	major = yes
 	is_triggered_only = yes
 	option = {
 		name = sov.1.a
@@ -187,6 +186,8 @@ news_event = {
 		name = sov.6.a
 	}
 }
+
+#加入华约
 country_event = {
 	id = sov.12
 	title = sov.12.t
@@ -204,6 +205,23 @@ country_event = {
 			}
 		}
 		news_event = { id = sov.250 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+			producer = SOV
+		}
+		add_equipment_to_stockpile = {
+			type = machine_gun
+			amount = 6000
+			producer = SOV
+		}
+		add_political_power = 400
+		add_stability = 0.12
+		army_experience = 200
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
 		SOV = { 
 			add_to_faction = ROOT
 			add_to_variable = { influences = 20 }

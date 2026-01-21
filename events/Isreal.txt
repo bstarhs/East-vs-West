@@ -25,20 +25,35 @@ news_event = {
 		if = {
 			limit = { tag = ENG }
 			ISR = {
-				add_equipment_to_stockpile = {
-    				type = infantry_equipment
-					amount = 200000
-    				producer = ENG
-				}
-				add_equipment_to_stockpile = {
- 				   type = machine_gun
-					amount = 18000
-    				producer = ENG
-				}
 				transfer_state = 454
 				transfer_state = 788
 				add_war_support = 0.9
 				load_oob = "ISR_1947"
+				add_equipment_to_stockpile = {
+    				type = infantry_equipment
+					amount = 20000
+    				producer = ENG
+				}
+				add_equipment_to_stockpile = {
+    				type = infantry_equipment
+					amount = 6000
+    				producer = GER
+				}
+				add_equipment_to_stockpile = {
+    				type = infantry_equipment
+					amount = 80000
+    				producer = USA
+				}
+				add_equipment_to_stockpile = {
+ 				   type = machine_gun
+					amount = 2000
+    				producer = ENG
+				}
+				add_equipment_to_stockpile = {
+ 				   type = machine_gun
+					amount = 1000
+    				producer = SOV
+				}
 				
 			}
 			PAL = {
@@ -554,10 +569,16 @@ news_event = {
 			white_peace = ISR
 		}
 		if = {
+			limit = { tag = SYR }
+			white_peace = ISR
+		}
+		if = {
 			limit = { tag = EGY }
 			white_peace = ISR
-			transfer_state = 761
-			transfer_state = 788
+			PAL = {
+				transfer_state = 761
+				transfer_state = 788
+			}
 		}
 	}
 }
