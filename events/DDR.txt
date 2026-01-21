@@ -3,29 +3,40 @@
 news_event = {
 	id = ddr.1
 	title = ddr.1.t
-	desc = ddr.1.d
-	picture = GFX_DDR_found
-	major = yes
-	is_triggered_only = yes
-	immediate = {
-		play_song = DDR_1
-	}
-	option = {
-		name = ddr.1.a
-			if = {
-			limit = { tag = SOV }
-			DDR = {
-			transfer_state = 746
-			transfer_state = 65
-			transfer_state = 64
-			transfer_state = 61
-			transfer_state = 60
-			transfer_state = 62
-			transfer_state = 65
+	desc = {
+		text = ddr.1.d
+		trigger = {
+			not = {
+				tag = SOV
 			}
 		}
 	}
-
+	desc = {
+		text = ddr.1.d.2
+		trigger = {
+			tag = SOV
+		}
+	}
+	picture = GFX_DDR_found
+	major = yes
+	is_triggered_only = yes
+	#immediate = {
+	#	play_song = DDR_1
+	#}
+	option = {
+		name = ddr.1.a
+		trigger = {
+			not = {
+				tag = SOV
+			}
+		}
+	}
+	option = {
+		name = ddr.1.b
+		trigger = {
+			tag = SOV
+		}
+	}
 }
 #斯塔西成立
 country_event = {
