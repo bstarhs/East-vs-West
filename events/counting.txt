@@ -446,12 +446,15 @@ news_event = {
 				limit = { has_idea = war_economy }
 				every_owned_state = { multiply_variable = { state_fish_num = 0.8 } }
 			}
+			##来自加工食品
+			if = {
+				limit = { has_idea = PeoplesCommuni }
+				every_owned_state = { multiply_variable = { state_fish_num = 0.8 } }
+			}
 			#粮食转运计算
-			every_owned_state = {
-				if = {
-					limit = { check_variable = { state_food_added > 0 } }
-					add_to_variable = { state_food_production = state_food_added }
-				}
+			if = {
+				limit = { check_variable = { foods_factory_modifier > 0 } }
+				add_to_variable = { fish_num = this.foods_factory_modifier }
 			}
 			##饥荒条件
 			every_owned_state = {
@@ -916,14 +919,12 @@ news_event = {
 						NOT = { has_state_category = wasteland }
 						NOT = { has_state_category = pastoral }
 					}
-					set_variable = { this.power_needs_70 > state_food_need }
-					multiply_variable = { this.power_needs_70 > 0.7 }
-					set_variable = { this.power_needs_40 > state_food_need }
-					multiply_variable = { this.power_needs_40 > 0.4 }
+					set_variable = { this.foods_needs_70 > state_food_need }
+					multiply_variable = { this.foods_needs_70 > 0.7 }
 					if = {
 						limit = {
 							check_variable = { state_food_production < state_food_need }
-							check_variable = { state_food_production > power_needs_70 }
+							check_variable = { state_food_production > foods_needs_70 }
 							NOT = { has_dynamic_modifier = { modifier = lack_foods_modifiers } }
 						}
 						add_dynamic_modifier = { modifier = lack_foods_modifiers }
@@ -934,8 +935,8 @@ news_event = {
 					}
 					if = {
 						limit = {
-							check_variable = { state_food_production < power_needs_70 }
-							check_variable = { state_food_production > power_needs_40 }
+							check_variable = { state_food_production < foods_needs_70 }
+							check_variable = { state_food_production > state_food_low_limit }
 							NOT = { has_dynamic_modifier = { modifier = low_foods_modifiers } }
 						}
 						if = {
@@ -950,7 +951,8 @@ news_event = {
 					}
 					if = {
 						limit = {
-							check_variable = { state_food_production < power_needs_40 }
+							check_variable = { state_food_production < state_food_low_limit }
+							NOT = { check_variable = { state_food_production > state_food_low_limit } }
 							NOT = { has_dynamic_modifier = { modifier = no_foods_modifiers } }
 						}
 						if = {
@@ -1283,6 +1285,7 @@ news_event = {
 		multiply_variable = { sugar_request_70 = 0.7 }
 		set_variable = { sugar_request_50 = nation_sugar_cost }
 		multiply_variable = { sugar_request_50 = 0.5 }
+		add_to_variable = { nation_sugar_cost = factory_sugar_cost }
 		set_variable = { nation_sugar_free = sugar_num }
 		subtract_from_variable = { nation_sugar_free = nation_sugar_cost }
 		subtract_from_variable = { nation_sugar_free = sugar_output_setting }
@@ -1657,6 +1660,7 @@ news_event = {
 		multiply_variable = { salt_request_70 = 0.7 }
 		set_variable = { salt_request_50 = nation_salt_cost }
 		multiply_variable = { salt_request_50 = 0.5 }
+		add_to_variable = { nation_salt_cost = factory_salt_cost }
 		set_variable = { nation_salt_free = resource@salt }
 		subtract_from_variable = { nation_salt_free = nation_salt_cost }
 		subtract_from_variable = { nation_salt_free = salt_output_setting }

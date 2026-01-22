@@ -2,6 +2,17 @@
 set_country_flag = indian_state
 set_country_flag = has_monarchs
 set_country_flag = british_colonies
+oob = "HYD"
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 25000
+		producer = ENG
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 3000
+		producer = ENG
+	}
 # Starting tech
 set_technology = {
 	machine_gun1 = 1
@@ -51,7 +62,6 @@ set_politics = {
 
 create_country_leader = {
 	name = "Osman Ali Khan"
-	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
 	picture = "gfx/leaders/HYD/Portrait_HYD_AliKhan.tga"
 	expire = "1965.1.1"
 	ideology = monarchism

@@ -10,13 +10,28 @@ set_country_flag = chinese_states
 
 add_equipment_to_stockpile = {
     type = infantry_equipment
-    amount = 14000
+    amount = 2000
+    producer = CHI
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+    producer = MAN
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 1200
     producer = CHI
 }
 add_equipment_to_stockpile = {
     type = machine_gun
-    amount = 2200
-    producer = CHI
+    amount = 1200
+    producer = MAN
+}
+add_equipment_to_stockpile = {
+    type = machine_gun
+    amount = 200
+    producer = DEN
 }
 	set_technology = {
 		medical1 = 1
@@ -43,6 +58,7 @@ add_equipment_to_stockpile = {
 	gw_artillery = 1
 	gwtank = 1
 	early_fighter = 1
+	gwtank = 1
 	basic_machine_tools = 1
 	dispersed_industry = 1
 	concentrated_industry = 1
@@ -80,7 +96,9 @@ add_ideas = {
 	service_by_requirement
 	corrupt
 	CHI_civil_war_deserters
+	CHI_civil_war_deserters
 	CHI_warlords_spirits
+	CHI_war_against_communism
 }
 create_country_leader = {
 	name = "Wei Li-Huang"

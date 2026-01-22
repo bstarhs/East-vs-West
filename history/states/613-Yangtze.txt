@@ -12,6 +12,8 @@ state={
 		set_state_flag = east_china_states
 		add_to_array = { this.state_ethnics_list = 1 }
 		add_dynamic_modifier = { modifier = rice_food_production }
+		add_dynamic_modifier = { modifier = yangtze_river_modifiers }
+
 		owner = CHI
 		add_core_of = CHI
 		add_core_of = PRC
@@ -30,7 +32,10 @@ state={
 				bunker = 4
 			}
 			11913 = {
-				bunker = 5
+				bunker = 6
+			}
+			11982 = {
+				bunker = 3
 			}
 		}
 		victory_points = { 11913 18 }
@@ -55,6 +60,7 @@ state={
 			}
 		}
 		1960.10.14 = {
+			remove_dynamic_modifier = { modifier = yangtze_river_modifiers }
 			buildings = {
 				fuel_silo = 3
 				hospital = 3

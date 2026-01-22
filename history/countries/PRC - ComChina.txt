@@ -48,6 +48,9 @@ recruit_character = PRC_nie_rongzhen
 			recruit_character = PRC_Ren_BiShi
 			recruit_character = PRC_Huang_KeCheng
 			recruit_character = PRC_Li_Tao
+			recruit_character = PRC_Liang_XingChu
+			recruit_character = PRC_Lv_ZhengCao
+			recruit_character = PRC_Xiao_JingGuang
 recruit_character = PRC_Peng_Zhen
 recruit_character = PRC_Wang_DongXing
 recruit_character = PRC_Guo_MoRuo
@@ -110,7 +113,7 @@ add_ideas = {
 	harmonious
 	low_welfare
 	service_by_requirement
-	libiration
+	PRC_liberation_war_defence
 	war_economy
 	Secularism
 	PRC_lin_biao
@@ -133,17 +136,22 @@ set_politics = {
 
 	add_equipment_to_stockpile = {
 		type = infantry_equipment
-		amount = 1000
+		amount = 10000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 20000
 		producer = SOV
 	}
 	add_equipment_to_stockpile = {
 		type = infantry_equipment
-		amount = 40000
+		amount = 20000
 		producer = PRC
 	}
 	add_equipment_to_stockpile = {
 		type = infantry_equipment
-		amount = 12000
+		amount = 30000
 		producer = MAN
 	}
 	add_equipment_to_stockpile = {
@@ -153,13 +161,38 @@ set_politics = {
 	}
 	add_equipment_to_stockpile = {
 		type = infantry_equipment
-		amount = 1000
+		amount = 2000
 		producer = CZE
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 2000
+		producer = MAN
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 2000
+		producer = CHI
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 1000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 6000
+		producer = PRC
 	}
 add_equipment_to_stockpile = {
     type = machine_gun
     amount = 4000
     producer = CHI
+}
+add_equipment_to_stockpile = {
+    type = gw_tank_equipment
+    amount = 2
+    producer = MAN
 }
 add_named_threat = { threat = 3 name = China-Civil-War }
 add_opinion_modifier = {
@@ -179,15 +212,39 @@ create_country_leader = {
 		
 	}
 }
+
+
 create_operative_leader = {
-	name = "E Mei Feng"
+	name = "Xiong Xiang-Hui"
+	GFX = "gfx/leaders/PRC/Portrait_China_Xiong_XiangHui.tga"
+	traits = { operative_infiltrator }
+	bypass_recruitment = yes
+	nationalities = { CHI }
+}
+create_operative_leader = {
+	name = "Yu Ze-Cheng"
 	GFX = "gfx/leaders/PRC/Portrait_China_Yu_ZeCheng.tga"
 	traits = { operative_infiltrator operative_natural_orator }
 	bypass_recruitment = yes
 	nationalities = { CHI }
 }
+create_operative_leader = {
+	name = "Zhao Wei"
+	GFX = "gfx/leaders/PRC/Portrait_China_Zhao_Wei.tga"
+	traits = { operative_infiltrator operative_natural_orator }
+	bypass_recruitment = yes
+	nationalities = { CHI }
+}
+
+
 oob = "PRC_1947"
 1949.1.1 = {
+	add_ideas = PRC_liberation_war_attack
+	remove_ideas = PRC_liberation_war_defence
+	add_timed_idea = {
+		idea = PRC_political_consultative_ideas
+		days = 100
+	}
 	set_country_flag = NJ_liberate
 	set_country_flag = GZ_liberate
 	set_country_flag = Changchun_liberate
@@ -196,10 +253,9 @@ oob = "PRC_1947"
 	set_country_flag = Xuzhou_liberate
 	set_country_flag = Chongching_liberate
 	set_country_flag = Shanghai_Liberate
-	set_country_flag = CZE_experts_allow
 		set_global_flag = YangtzeIncident
 		set_global_flag = AmethystIncident
-oob = "PRC_1950"
+	oob = "PRC_1950"
 	add_opinion_modifier = {
 		target = KOR
 		modifier = disappinion
@@ -277,6 +333,7 @@ oob = "PRC_1950"
 	complete_national_focus = prc26
 	complete_national_focus = prc6
 	complete_national_focus = prc_food_note_focus
+	set_country_flag = CZE_experts_allow
 	give_guarantee = PRK
 	add_ideas = {
 		soviet_industry_advisitor_idea
@@ -287,7 +344,10 @@ oob = "PRC_1950"
 		CHI_coast_blocked
 		Guo_MoRuo
 	}
-	remove_ideas = landreform
+	remove_ideas = {
+		landreform
+		PRC_political_consultative_ideas
+	}
 }
 1955.1.1 = {
 		add_political_power = 4000
@@ -316,7 +376,7 @@ oob = "PRC_1950"
 	oob = "PRC_1956"
 	recruit_character = PRC_Qian_xuesen
 	add_ideas = ChinaFvieYearsPlant
-	remove_ideas = libiration
+	remove_ideas = PRC_liberation_war_attack
 	set_technology = {
 		excavation2 = 1
 		oil_processing = 1

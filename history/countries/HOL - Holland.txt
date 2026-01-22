@@ -1,5 +1,34 @@
 ﻿capital = 7
-
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 12000
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 1000
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 6000
+		producer = ENG
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 25000
+		producer = ENG
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 1000
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 1000
+		producer = GER
+	}
 set_country_flag = west_euro_state
 set_research_slots = 2
 set_war_support = 0.9
@@ -7,6 +36,7 @@ set_country_flag = developmented
 	set_country_flag = female_finished
 set_country_flag = has_monarchs
 	complete_national_focus = common_61
+	complete_national_focus = commons_5
 	complete_national_focus = common_weman_right
 	set_country_flag = gen230
 add_ideas = {
@@ -65,7 +95,6 @@ set_technology = {
 	fuel_silos = 1
 	basic_battery = 1
 	basic_medium_battery = 1
-		basic_medium_tank = 1
 	basic_light_battery = 1
 	basic_light_shell = 1
 	damage_control_1 = 1
@@ -85,7 +114,6 @@ set_technology = {
 	gwtank = 1
 	basic_light_tank = 1
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	early_ship_hull_light = 1
 	
 	early_ship_hull_submarine = 1
@@ -122,7 +150,6 @@ set_technology = {
 	naval_base = 1
 	naval_dock = 1
 	naval_recruit = 1
-	fighter1 = 1
 	early_bomber = 1
 	CAS1 = 1
 	naval_bomber1 = 1
@@ -288,12 +315,17 @@ create_equipment_variant = {
 	add_ideas = {
 		ECSC
 	}
+	set_technology = {
+		basic_medium_tank = 1
+		infantry_weapons1 = 1
+	}
 }
 1956.1.20 = {
 	remove_ideas =Marshall
 	set_technology = {
 		marines2 = 1
 		basic_medium_tank = 1
+		fighter1 = 1
 	}
 	complete_national_focus = common_3
 }

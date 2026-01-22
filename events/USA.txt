@@ -1056,16 +1056,29 @@ country_event = {
 		ai_chance = {
 			factor = 10
 		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+			producer = USA
+		}
+		add_equipment_to_stockpile = {
+			type = machine_gun
+			amount = 6000
+			producer = USA
+		}
+		add_political_power = 400
+		add_stability = 0.12
+		army_experience = 200
+		add_popularity = {
+			ideology = communism
+			popularity = -0.02
+		}
 		news_event = { id = gen.50 }
 		USA = { 
 			add_to_faction = ROOT
 			add_to_variable = { influences = 20 }
 			country_event = { id = usa.5 } 
 		}
-			add_popularity = {
-				ideology = communism
-				popularity = -0.08
-			}
 	}
 	option = { 
 		ai_chance = {
@@ -3154,7 +3167,7 @@ news_event = {
 	title = usatext.226.t
 	desc = usatext.226.d
 	picture = GFX_GFX_BuildingBrazilia
-	mean_time_to_happen = { days = 20 }
+	mean_time_to_happen = { days = 5 }
 	major = yes
 	trigger = {
 		tag = USA
@@ -3172,7 +3185,7 @@ news_event = {
 	title = usatext.227.t
 	desc = usatext.227.d
 	picture = GFX_Fluoridation
-	mean_time_to_happen = { days = 20 }
+	mean_time_to_happen = { days = 5 }
 	major = yes
 	trigger = {
 		tag = USA
@@ -3201,7 +3214,7 @@ news_event = {
 		tag = USA
 		has_idea = McCarthyism_idea
 		NOT = { has_global_flag = usa228 }
-		date > 1956.2.1
+		date > 1956.2.20
 		date < 1962.5.2
 	}
 	option = {

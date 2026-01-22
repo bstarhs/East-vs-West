@@ -435,18 +435,20 @@ news_event = {
 			communism > 0.15
 			date > 1948.6.1
 		}
+		NOT = { has_global_flag = phi50 }
 	}
 	option = {
 		name = phi.1.a
 		if = {
 			limit = { tag = PHI }
+			set_global_flag = phi50
 			624 = { add_resistance = 12 }
 			327 = { add_resistance = 12 }
 			598 = { add_resistance = 12 }
 			add_stability = -0.15
 			add_popularity = {
 				ideology = communism
-				popularity = 0.1
+				popularity = 0.05
 			}
 		}
 	}

@@ -7,6 +7,26 @@ set_country_flag = developmented
 set_country_flag = orthodox_state
 set_country_flag = has_monarchs
 set_country_flag = east_europe
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 8000
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 1000
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 12000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 2000
+		producer = SOV
+	}
 add_ideas = {
 	hight_welfare
 	limited_conscription
@@ -44,7 +64,6 @@ set_technology = {
 	basic_submarine_snorkel = 1
 	sonar = 1
 	basic_depth_charges = 1
-		basic_medium_tank = 1
 	improved_depth_charges = 1
 	helmet = 1
 	tech_support = 1	
@@ -52,9 +71,7 @@ set_technology = {
 	tech_mountaineers = 1
 	early_fighter = 1
 	gwtank = 1
-	basic_light_tank = 1
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	early_ship_hull_light = 1
 	
 	early_ship_hull_submarine = 1
@@ -154,6 +171,7 @@ set_technology = {
 	complete_national_focus = common_support_comparty
 	complete_national_focus = common_comparty_strike
 	complete_national_focus = common_people_army
+	complete_national_focus = common_72
 
 	recruit_character = BUL_Traycho_Kostov
 	recruit_character = BUL_Chelvenkov
@@ -202,6 +220,10 @@ create_country_leader = {
 		idea = grand_purge
 		days = 365
 	}
+	add_timed_idea = {
+		idea = common_land_reform_modifier
+		days = 180
+	}
 	remove_ideas = Traycho_Kostov
 	create_intelligence_agency = yes
 	complete_national_focus = common_73
@@ -214,14 +236,20 @@ create_country_leader = {
 }
 1954.1.1 = {
 	set_country_flag = female_finished
-	remove_ideas = grand_purge
+	remove_ideas = {
+		grand_purge
+		common_land_reform_modifier
+	}
 	complete_national_focus = steel_produc
 	complete_national_focus = common_39
 	set_technology = {
+		infantry_weapons1 = 1
 		motorize_doctrine = 1
 		dispersed_industry4 = 1
 		basic_medium_tank = 1
 		mechanised_infantry = 1
+		basic_medium_tank = 1
+		telegraph = 1
 	}
 }
 1955.1.1 = {
@@ -242,7 +270,7 @@ create_country_leader = {
 	}
 	activate_decision = create_radio_station
 	set_technology = {
-		telegraph = 1
+		basic_light_tank = 1
 	}
 }
 1961.1.20 = {

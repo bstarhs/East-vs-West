@@ -3,6 +3,26 @@
 set_country_flag = main_country
 set_country_flag = orthodox_state
 set_research_slots = 2
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 12000
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 2000
+		producer = GER
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 20000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 6000
+		producer = SOV
+	}
 
 add_dynamic_modifier = { modifier = childes_labour_modifiers }
 recruit_character = YUG_Aleksandar_Rankovic
@@ -54,7 +74,6 @@ set_technology = {
 	gwtank = 1
 	basic_light_tank = 1
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	early_ship_hull_light = 1
 	
 	early_ship_hull_submarine = 1
@@ -171,15 +190,23 @@ create_corps_commander = {
 	add_ideas = {
 		SovietChinaConflit
 	}
+			add_timed_idea = {
+				idea = common_land_reform_modifier
+				days = 180
+			}
 	complete_national_focus = YUG_autonomic
 	complete_national_focus = YUG_anti_grand_serbian
 	complete_national_focus = YUG_army
 	complete_national_focus = YUG_land_reform
 	set_country_flag = israel_diplomacy
+	clr_country_flag = land_reform
 }	
 1953.1.20 = {
 	complete_national_focus = YUG_social_management
-	remove_ideas = SovietChinaConflit
+	remove_ideas = {
+		SovietChinaConflit
+		common_land_reform_modifier
+	}
 	complete_national_focus = YUG_1947_plant
 	add_ideas = YUG_balkan_treaty_ideas
 }
@@ -205,6 +232,9 @@ create_corps_commander = {
 	complete_national_focus = YUG_non_alieged
 	complete_national_focus = YUG_medic
 	complete_national_focus = YUG_1957_plant
+	set_technology = {
+		infantry_weapons1 = 1
+	}
 }
 1961.1.20 = {
 	remove_ideas = YUG_balkan_treaty_ideas

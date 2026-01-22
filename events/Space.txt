@@ -24,6 +24,10 @@ news_event = {
 				add_to_variable = { this.space_power = 20 }
 			}
 			if = {
+				limit = { has_idea_with_trait = space_scientist }
+				add_to_variable = { this.space_power = 30 }
+			}
+			if = {
 				limit= {
 					has_tech = space_research
 					NOT = { has_country_flag = space_research_tech_effect }
@@ -232,9 +236,14 @@ country_event = {
 			space_power = {
 				news_event = { id = space.5 }
 				if = {
-					limit = { all_country = { NOT = { has_country_flag = Satellite_succes } } }
-					news_event = { id = space.6 }
+					limit = {
+						tag = SOV
+						all_country = { NOT = { has_country_flag = Satellite_succes } }
+					}
+					add_ideas = SOV_sputnik_buff
+					news_event = { id = space.51 }
 					add_to_variable = { influences = 90 } 
+					USA = { add_ideas = SOV_sputnik_punishment } 
 				}
 				set_country_flag = Satellite_succes
 			} 
@@ -688,6 +697,7 @@ news_event = {
 	is_triggered_only = yes
 	major = yes
 	immediate = {
+		play_song = marchtothefront
 		set_variable = { global.television_visible = 1 }
 		set_global_flag = sputnik_video
 	}

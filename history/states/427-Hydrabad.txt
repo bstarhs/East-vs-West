@@ -3,7 +3,7 @@ state={
 	name="STATE_427"
 	manpower = 14013400
 	
-	state_category = town
+	state_category = large_town
 	
 	resources={
 		tungsten=8
@@ -11,7 +11,7 @@ state={
 	}
 
 	history={
-		set_state_flag = ethnics_Maratha
+		set_state_flag = ethnics_Telugu
 		add_dynamic_modifier = { modifier = state_hill_modifier }
 		owner = HYD
 		add_to_array = { this.state_ethnics_list = 80 }
@@ -19,21 +19,24 @@ state={
 		add_core_of = HYD
 		add_core_of = ADH
 		1948.10.25 = {
-		owner = IND
+			owner = IND
 		}
-		victory_points = {
-			8087 10
-		}
+		victory_points = { 8087 10 }
+		victory_points = { 1359 4 }
+		victory_points = { 5063 4 }
 		buildings = {
 			farm_building = 4
 			infrastructure = 3
-			industrial_complex = 1
+			industrial_complex = 4
+			school = 1
+			hospital = 2
+			dam_plant = 2
 			air_base = 3
 		}
 
 	}
 
 	provinces={
-		1275 1317 4280 4472 5104 8087 10324 10511 11950 12114 
+		1275 1317 4280 4472 5104 8087 10324 10511 11950 12114 10311 13746 5019 13745 5063 12226 1359 10259 10799 
 	}
 }
