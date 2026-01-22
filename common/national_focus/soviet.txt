@@ -65,54 +65,35 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = SOV_EasternEuropeanGroup_tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						has_government = communism
+						capital_scope = {
+							is_on_continent = europe
+						}
+					}
+					set_country_flag = sov_arms_sell
+				}
+			}
+			add_political_power = 100
 			every_country = {
 				limit = {
-					has_government = communism
 					capital_scope = {
 						is_on_continent = europe
 					}
+					gives_military_access_to = SOV
+					not = {
+						tag = AUS
+					}
 				}
-				set_country_flag = sov_arms_sell
-			}
-			add_political_power = 100
-			CZE = {
-				add_popularity = {
-					ideology = communism
-					popularity = 0.05
-				}
-			}
-			HUN = {
-				add_popularity = {
-					ideology = communism
-					popularity = 0.05
-				}
-			}
-			ROM = {
-				add_popularity = {
-					ideology = communism
-					popularity = 0.05
-				}
-			}
-			BUL = {
-				add_popularity = {
-					ideology = communism
-					popularity = 0.05
-				}
-			}
-			POL = {
-				add_popularity = {
-					ideology = communism
-					popularity = 0.05
-				}
-			}
-			DDR = {
 				add_popularity = {
 					ideology = communism
 					popularity = 0.05
 				}
 			}
 		}
-
 	}
 	focus = {
 		id = SOV_Asianpolicy	#ÑÇÖÞÕþ²ß
@@ -2797,7 +2778,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			news_event = { id = ddr.1 }
+			country_event = sov_hutao.1
 		}
 	}
 	focus = {
@@ -2819,17 +2800,16 @@ focus_tree = {
 		completion_reward = {
 			add_to_variable = { influences = 50 }
 			add_ideas = Cominform
-			news_event = { id = sov.1}
-			YUG = { news_event = { id = sov.7} }
-			POL = { news_event = { id = sov.7} }
-			ROM = { news_event = { id = sov.7} }
-			BUL = { news_event = { id = sov.7} }
-			HUN = { news_event = { id = sov.7} }
-			CZE = { news_event = { id = sov.7} }
-			FRA = { news_event = { id = sov.7} }
-			ITA = { news_event = { id = sov.7} }
+			news_event = { id = sov.1 }
+			YUG = { news_event = { id = sov.7 } }
+			POL = { news_event = { id = sov.7 } }
+			ROM = { news_event = { id = sov.7 } }
+			BUL = { news_event = { id = sov.7 } }
+			HUN = { news_event = { id = sov.7 } }
+			CZE = { news_event = { id = sov.7 } }
+			FRA = { news_event = { id = sov.7 } }
+			ITA = { news_event = { id = sov.7 } }
 		}
-
 	}
 	focus = {
 		id = SOV_support_turkish_communism  #ÉøÍ¸Ï£À°
@@ -3088,13 +3068,13 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = comecon
 			add_to_variable = { influences = 80 }
-			DDR = { news_event = { id = sov.8} }
-			POL = { news_event = { id = sov.8} }
-			ROM = { news_event = { id = sov.8} }
-			CZE = { news_event = { id = sov.8} }
-			HUN = { news_event = { id = sov.8} }
-			BUL = { news_event = { id = sov.8} }
-			ALB = { news_event = { id = sov.8} }
+			DDR = { country_event = { id = sov.8 } }
+			POL = { country_event = { id = sov.8 } }
+			ROM = { country_event = { id = sov.8 } }
+			CZE = { country_event = { id = sov.8 } }
+			HUN = { country_event = { id = sov.8 } }
+			BUL = { country_event = { id = sov.8 } }
+			ALB = { country_event = { id = sov.8 } }
 		}
 		
 
@@ -3615,7 +3595,7 @@ focus_tree = {
 		x = 14
 		y = 1
 		completion_reward = {
-			YUG = { news_event = { id = sov.12} }
+			YUG = { country_event = { id = sov.12 } }
 		}
 
 	}
