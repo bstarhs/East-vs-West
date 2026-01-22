@@ -13,6 +13,7 @@ ideas = {
 				political_power_cost = 0.05
 				communism_drift = -0.02
 				resistance_target = 0.12
+				foreign_subversive_activites = 0.15
 			}
 			ai_will_do = {
 				factor = 2
@@ -28,6 +29,7 @@ ideas = {
 				production_speed_steel_making_factor = 0.25
 				local_resources_factor = 0.08
 				political_power_gain = -0.12
+				foreign_subversive_activites = 0.1
 			}
 		}
 		Products_sattlite = {
@@ -39,6 +41,7 @@ ideas = {
 			modifier = {
 				production_speed_farm_building_factor = 0.25
 				political_power_gain = -0.05
+				foreign_subversive_activites = 0.12
 			}
 		}
 		Dazhai_idea = {
@@ -64,6 +67,7 @@ ideas = {
 				drift_defence_factor = 0.25
 				communism_drift = 0.02
 				political_power_gain = -0.15
+				foreign_subversive_activites = -0.15
 			}
 		}
 		four_clears = {
@@ -130,6 +134,7 @@ ideas = {
 			modifier = {
 				communism_drift = -0.02
 				stability_factor = -0.2
+				foreign_subversive_activites = 0.25
 			}
 		}
 		tiananmen = {
@@ -144,6 +149,7 @@ ideas = {
 				political_power_cost = 0.2
 				stability_factor = -0.12
 				communism_drift = -0.02
+				foreign_subversive_activites = 0.15
 				custom_modifier_tooltip = influence_limit_300
 			}
 		}
@@ -175,6 +181,7 @@ ideas = {
 				political_power_cost = -0.2
 				stability_factor = -0.05
 				communism_drift = 0.01
+				foreign_subversive_activites = -0.12
 			}
 		}
 		redguard = {
@@ -204,27 +211,82 @@ ideas = {
 				political_power_factor = 0.3
 			}
 		}
-		libiration = {
-
-			picture = ChinaCivilWar
-		
+		PRC_political_consultative_ideas = {
+			picture = PRC_political_consultative_ideas
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				drift_defence_factor = -0.12
+				democratic_drift = 0.01
+				political_power_cost = -0.25
+				war_support_factor = 0.15
+				stability_factor = 0.12
+				compliance_growth = 0.05
+			}
+		}
+		PRC_people_supporting_ideas = {
+			picture = generic_war_preparation
 			allowed = {
 				always = no
 			}
 			visible = {
 				has_war_with = CHI
 			}
-
 			removal_cost = -1
-			
 			modifier = {
-				drift_defence_factor = -1
-				land_reinforce_rate = 0.3
+				land_reinforce_rate = 0.05
+				war_support_factor = 0.12
 				supply_consumption_factor = -0.5
+				army_core_attack_factor = 0.15
+				army_org_factor = 0.05
+				army_speed_factor = 0.12
+				breakthrough_factor = 0.25
+			}
+		}
+		PRC_liberation_war_attack = {
+			picture = ChinaCivilWar
+			allowed = {
+				always = no
+			}
+			visible = {
+				has_war_with = CHI
+			}
+			removal_cost = -1
+			modifier = {
+				ai_focus_aggressive_factor = 0.1
+				drift_defence_factor = -1
 				war_support_factor = 0.5
 				equipment_capture_factor = 0.5 
 				command_power_gain = 0.3
+				army_core_defence_factor = 0.12
+				army_speed_factor = 0.12
+				army_morale_factor = 0.25
+				breakthrough_factor = 0.15
+			}
+		}
+		PRC_liberation_war_defence = {
+			picture = ChinaCivilWar
+			allowed = {
+				always = no
+			}
+			visible = {
+				has_war_with = CHI
+			}
+			removal_cost = -1
+			modifier = {
+				attrition = -0.02
+				ai_focus_aggressive_factor = -0.5
+				ai_focus_defense_factor = 0.5
+				drift_defence_factor = 2
+				land_reinforce_rate = 0.02
+				supply_consumption_factor = -0.1
+				war_support_factor = 0.5
+				command_power_gain = 0.12
+				army_morale_factor = 0.15
 				army_core_defence_factor = 0.45
+				army_core_attack_factor = -0.12
 			}
 		}
 		landreform = {
@@ -243,7 +305,7 @@ ideas = {
 			}
 	
 			modifier = {
-				army_org_factor = 0.25
+				army_org_factor = 0.15
 				army_morale_factor = 0.4
 				ai_focus_aggressive_factor = 0.8
 				supply_consumption_factor = 0.5
@@ -252,6 +314,7 @@ ideas = {
 				stability_weekly = 0.05
 				war_support_factor = 0.4
 				army_core_defence_factor = 0.15
+				conscription_factor = 0.12
 			}
 	
 		}
@@ -315,6 +378,7 @@ ideas = {
 				local_resources_factor = 0.25
 				stability_factor = 0.22
 				political_power_factor = 0.12
+				foreign_subversive_activites = -0.12
 			}
 		}
 		ChinaFvieYearsPlant = {
@@ -365,6 +429,7 @@ ideas = {
 				communism_drift = 0.12
 				stability_factor = -0.3
 				political_power_cost = 0.12
+				foreign_subversive_activites = -0.3
 			}
 		}
 		usa_advisors = {
@@ -521,6 +586,66 @@ ideas = {
 			
 			ai_will_do = {
 				factor = 1
+			}
+		}
+		HarbinAircraft = {
+			allowed = {
+				tag = PRC
+			}
+			equipment_bonus = {
+				heavy_tank_chassis = {
+					instant = yes
+					build_cost_ic = -0.04
+				}
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			visible = {
+				has_completed_focus = PRC_develop_air_equip
+			}
+			traits = { heavy_tank_manufacturer }
+			modifier = {
+			}
+		}
+		ChengduAircraft = {
+			allowed = {
+				tag = PRC
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					instant = yes
+					build_cost_ic = -0.03
+				}
+			}
+			research_bonus = {
+				air_equipment = 0.5
+			}
+			visible = {
+				has_completed_focus = PRC_develop_air_equip
+			}
+			traits = { light_aircraft_manufacturer }
+			modifier = {
+			}
+		}
+		ShenyangAircraft = {
+			allowed = {
+				tag = PRC
+			}
+			equipment_bonus = {
+				small_plane_cas_airframe = {
+					instant = yes
+					build_cost_ic = -0.03
+				}
+			}
+			research_bonus = {
+				air_equipment = 0.10
+			}
+			visible = {
+				has_completed_focus = PRC_develop_air_equip
+			}
+			traits = { CAS_manufacturer }
+			modifier = {
 			}
 		}
 		SAIC = {

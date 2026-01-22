@@ -2,7 +2,7 @@
 YUG_SupportKKE = {
 	enable = {
 		tag = YUG
-		country_exists = KKE
+		KKE = { has_war_with = GRE }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -23,6 +23,30 @@ BUL_SupportKKE = {
 		value = 200
 	}
 }
+ALB_SupportKKE = {
+	enable = {
+		tag = BUL
+		country_exists = KKE
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = "KKE"
+		value = 200
+	}
+}
+SOV_SupportKKE = {
+	enable = {
+		tag = BUL
+		KKE = { has_war_with = GRE }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = "KKE"
+		value = 200
+	}
+}
 USA_Support_GRE = {
 	enable = {
 		tag = USA
@@ -32,7 +56,7 @@ USA_Support_GRE = {
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = support
-		id = "GRE
+		id = "GRE"
 		value = 200
 	}
 }
@@ -45,7 +69,7 @@ ENG_Support_GRE = {
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = support
-		id = "GRE
+		id = "GRE"
 		value = 200
 	}
 }

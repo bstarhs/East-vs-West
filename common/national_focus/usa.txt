@@ -30,14 +30,14 @@ focus_tree = {
 		x = 40
 		y = 0
 		ai_will_do = {
-			factor = 50
+			factor = 999
 		}
 		completion_reward = {
 			add_political_power = 80
 			GRE = {
 				add_popularity = {
 					ideology = communism
-					popularity = -0.1
+					popularity = -0.08
 				}
 				set_country_flag = usa_arms_sell
 			}
@@ -2694,7 +2694,7 @@ focus_tree = {
 			focus = Social_reform
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 0
 		}
 		completion_reward = {
 			add_popularity = {
@@ -6313,7 +6313,25 @@ focus_tree = {
 		completion_reward = {
 			news_event = { id = ger.60 }
 			set_global_flag = Bundeswehr_flag
-			WDR = { army_experience = 200 }
+			WDR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 15000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = machine_gun
+					amount = 6000
+					producer = USA
+				}
+				add_political_power = 400
+				add_stability = 0.12
+				army_experience = 200
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
+				}
+			}
 		}
 	}
 	focus = {

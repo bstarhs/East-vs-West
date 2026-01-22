@@ -11,6 +11,7 @@
 ### search_filters = {FOCUS_FILTER_NAVY_XP}
 ### search_filters = {FOCUS_FILTER_AIR_XP}
 # Reminder that focus filters prio has to be handled in the generic focus file :)
+
 focus_tree = {
 	id = roc_focus
 	country = {
@@ -33,7 +34,8 @@ focus_tree = {
 		x = 12
 		y = 0
 		completion_reward = {
-			add_political_power = 300
+			add_political_power = 100
+			add_war_support = 0.3
 		}
 
 	}
@@ -50,7 +52,8 @@ focus_tree = {
 		x = 12
 		y = 1
 		completion_reward = {
-			add_political_power = 80
+			add_political_power = 300
+			add_stability = 0.15
 		}
 
 	}
@@ -86,9 +89,24 @@ focus_tree = {
 		prerequisite = {
 			focus = CHI_politic
 		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1947.6.1
+			}
+		}
 		cost = 5
 		x = 10
 		y = 2
+		completion_reward = {
+			add_political_power = 200
+			add_war_support = 0.12
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.08
+				}
+		}
 
 	}
 	focus = {
@@ -258,6 +276,7 @@ focus_tree = {
 		x = 12
 		y = 3
 		completion_reward = {
+			set_country_flag = CHI_national_parliament
 			add_political_power = 100
 			add_stability = 0.14
 			add_war_support = 0.14
@@ -284,7 +303,25 @@ focus_tree = {
 		cost = 5
 		x = 12
 		y = 4
-
+		available = {
+			controls_state = 599
+			has_stability > 0.65
+		}
+		completion_reward = {
+			add_political_power = 300
+			add_stability = 0.12
+			recruit_character = CHI_weng_wenhao
+			recruit_character = CHI_Yu_YouRen
+			recruit_character = CHI_Sun_Ke
+			add_popularity = {
+				ideology = authoritarianism
+				popularity = 0.3
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.12
+			}
+		}
 	}
 	focus = {
 		id = CHI_strengh_admirate
@@ -377,6 +414,9 @@ focus_tree = {
 		cost = 5
 		x = 6
 		y = 4
+		ai_will_do = {
+			factor = 20
+		}
 		completion_reward = {
 			news_event = { id = rocc.31 }
 			add_political_power = 150
@@ -425,6 +465,10 @@ focus_tree = {
 			modifier = {
 				add = 20
 				date > 1948.9.1
+			}
+			modifier = {
+				add = 100
+				PRC = { controls_province = 12055 }
 			}
 		}
 		completion_reward = {
@@ -737,6 +781,7 @@ focus_tree = {
 			factor = 30
 		}
 		completion_reward = {
+			news_event = { id = roc.31 }
 			every_subject_country = {
 				add_political_power = 200
 				add_war_support = 0.3
@@ -965,6 +1010,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		completion_reward = {
+			add_war_support = 0.15
 			every_country_division = { set_unit_organization = 0.6 }
 			army_experience = 500
 			add_command_power = 200
@@ -995,7 +1041,20 @@ focus_tree = {
 		cost = 5
 		x = -2
 		y = 2
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				PRC = { controls_province = 9843 }
+			}
+			modifier = {
+				add = 500
+				PRC = { controls_province = 11771 }
+			}
+		}
 		completion_reward = {
+			news_event = chinawar.140
+			PRC = { news_event = chinawar.140 }
 			598 = {
 				set_building_level = {
 					type = bunker
@@ -1202,11 +1261,16 @@ focus_tree = {
 		prerequisite = {
 			focus = CHI_Defence_ministry
 		}
+		available = {
+			has_war_support > 0.5
+		}
 		cost = 5
 		x = 1
 		y = 5
 		completion_reward = {
+			add_war_support = 0.12
 			add_ideas = CHI_armor_center
+			remove_ideas = CHI_civil_war_deserters
 		}
 
 	}
@@ -1219,6 +1283,10 @@ focus_tree = {
 		cost = 5
 		x = -1
 		y = 6
+		completion_reward = {
+			add_war_support = 0.12
+			news_event = { id = roc.32 }
+		}
 
 	}
 	focus = {

@@ -11,6 +11,7 @@ state={
 	history={
 		add_to_array = { this.state_ethnics_list = 1 }
 		add_to_array = { this.state_ethnics_list = 5 }
+		add_dynamic_modifier = { modifier = more_rebel_modifiers }
 		owner = CHI
 		set_state_flag = banana_production
 		set_state_flag = ethnics_Minnan
@@ -19,10 +20,11 @@ state={
 		add_dynamic_modifier = { modifier = fish_production }
 		add_claim_by = CTN
 		1949.10.25 = {
-		owner = CTN
+			owner = CTN
 		}
 		1950.10.25 = {
-		owner = PRC
+			owner = PRC
+			remove_dynamic_modifier = { modifier = more_rebel_modifiers }
 		}
 		victory_points = {
 			1070 3 
@@ -35,7 +37,12 @@ state={
 			infrastructure = 2
 			farm_building = 2
 			air_base = 1
-
+			1070 = {
+				naval_base = 2
+			}
+			994 = {
+				naval_base = 1
+			}
 		}
 
 	}

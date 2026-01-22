@@ -12,7 +12,6 @@ search_filter_prios = {
 	FOCUS_FILTER_ARMY_XP = 103
 	FOCUS_FILTER_NAVY_XP = 102
 	FOCUS_FILTER_AIR_XP = 101
-
 }
 focus_tree = {
 	id = generic_focus
@@ -1231,6 +1230,7 @@ focus_tree = {
 		cost = 3
 		available = {
 			NOT = { has_government = communism }
+			has_country_flag = UsaAdvisorAllow
 		}
 		prerequisite = {
 			focus = common_13
@@ -1260,7 +1260,24 @@ focus_tree = {
 		x = 32
 		y = 4
 		completion_reward = {
-			add_political_power = 50
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = machine_gun
+				amount = 500
+				producer = USA
+			}
+			add_political_power = 100
+			add_stability = 0.04
+			army_experience = 200
+			add_popularity = {
+				ideology = communism
+				popularity = -0.01
+			}
+			USA = { country_event = { id = usa.46 } }
 			set_country_flag = USA_militar_advisor_focus
 			custom_effect_tooltip = USA_militar_advisor_focus
 		}
@@ -1894,10 +1911,35 @@ focus_tree = {
 		prerequisite = {
 			focus = common_69
 		}
+		available = {
+			has_tech = early_computer
+			has_tech = gwtank
+			has_tech = early_fighter
+			has_tech = motorised_infantry
+		}
 		x = -24
 		y = 7
 		completion_reward = {
 			army_experience = 120
+			add_research_slot = 1
+			add_tech_bonus = {
+				name = JAP_foreign_tank_modernization_cooperation
+				bonus = 0.3
+				uses = 2
+				category = armor
+			}
+			add_tech_bonus = {
+				name = JAP_foreign_tank_modernization_cooperation
+				bonus = 0.3
+				uses = 2
+				category = infantry_tech
+			}
+			add_tech_bonus = {
+				name = JAP_foreign_tank_modernization_cooperation
+				bonus = 0.3
+				uses = 2
+				category = motorized_equipment
+			}
 		}
 	}
 	focus = {
@@ -1916,6 +1958,24 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			navy_experience = 180	
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+				}
 		}
 	}
 	focus = {
@@ -1957,8 +2017,16 @@ focus_tree = {
 						is_coastal = yes
 					}
 					add_building_construction = {
-						type = dockyard
-						level = 2
+						type = naval_base
+						level = 1
+						instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
 						instant_build = yes
 					}
 				}
@@ -1967,11 +2035,19 @@ focus_tree = {
 						is_coastal = yes
 					}
 					add_building_construction = {
-						type = dockyard
+						type = naval_base
 						level = 2
 						instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
 					}
-				}
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+			}
 		}
 	}
 	focus = {
@@ -2022,8 +2098,16 @@ focus_tree = {
 						is_coastal = yes
 					}
 					add_building_construction = {
-						type = dockyard
+						type = naval_base
 						level = 2
+						instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
 						instant_build = yes
 					}
 				}
@@ -2032,8 +2116,34 @@ focus_tree = {
 						is_coastal = yes
 					}
 					add_building_construction = {
-						type = dockyard
+						type = naval_base
 						level = 2
+						instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
 						instant_build = yes
 					}
 				}
@@ -2054,6 +2164,16 @@ focus_tree = {
 		x = -28
 		y = 5
 		completion_reward = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
 			add_tech_bonus = {
 				name = dd_tech
 				ahead_reduction = 2
@@ -2095,6 +2215,16 @@ focus_tree = {
 		x = -30
 		y = 6
 		completion_reward = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
 			add_tech_bonus = {
 				name = ss_tech
 				ahead_reduction = 2
@@ -2114,10 +2244,31 @@ focus_tree = {
 			any_owned_state = {
 				is_coastal = yes
 			}
+			has_tech = early_ship_hull_light
 		}
 		x = -28
 		y = 6
 		completion_reward = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
 			add_tech_bonus = {
 				name = cl_tech
 				ahead_reduction = 2
@@ -2137,10 +2288,31 @@ focus_tree = {
 			any_owned_state = {
 				is_coastal = yes
 			}
+			has_tech = early_ship_hull_cruiser
 		}
 		x = -28
 		y = 7
 		completion_reward = {
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_coastal = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
 			add_tech_bonus = {
 				name = cv_tech
 				ahead_reduction = 2
@@ -2181,6 +2353,26 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			air_experience = 100
+			custom_effect_tooltip = common_buy_plane_tool
+			effect_tooltip = {
+				random_country = {
+					limit = {
+						has_tech = early_fighter
+						has_country_flag = main_country
+						OR = {
+							has_opinion = {
+								target = FROM
+								value > 9
+							}
+						}
+					}
+					send_equipment = {
+						equipment = fighter_equipment_0
+						amount = 120
+						target = FROM
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -2284,6 +2476,32 @@ focus_tree = {
 				ahead_reduction = 2
 				category = cat_anti_air
 			}
+			capital_scope = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -2314,6 +2532,18 @@ focus_tree = {
 		x = -34
 		y = 5
 		completion_reward = {
+			air_experience = 25
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.12
+			}
+			add_tech_bonus = {
+				name = JAP_create_a_manchurian_imperial_air_force
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
 			add_tech_bonus = {
 				name = ss_tech
 				ahead_reduction = 2
@@ -2331,6 +2561,13 @@ focus_tree = {
 		x = -32
 		y = 6
 		completion_reward = {
+			air_experience = 80
+			add_tech_bonus = {
+				name = JAP_create_a_manchurian_imperial_air_force
+				bonus = 1.0
+				uses = 1
+				category = transport_plane_equipment
+			}
 			add_tech_bonus = {
 				name = ss_tech
 				ahead_reduction = 2
@@ -2348,6 +2585,16 @@ focus_tree = {
 		x = -36
 		y = 6
 		completion_reward = {
+			air_experience = 80
+			add_tech_bonus = {
+				name = JAP_create_a_manchurian_imperial_air_force
+				bonus = 1.0
+				uses = 1
+				category = tactical_bomber
+				category = cat_strategic_bomber
+				category = naval_bomber
+				category = cas_bomber
+			}
 			add_tech_bonus = {
 				name = ss_tech
 				ahead_reduction = 2
@@ -2365,6 +2612,18 @@ focus_tree = {
 		x = -34
 		y = 6
 		completion_reward = {
+			air_experience = 80
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.12
+			}
+			add_tech_bonus = {
+				name = JAP_create_a_manchurian_imperial_air_force
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
 			add_tech_bonus = {
 				name = ss_tech
 				ahead_reduction = 2
@@ -2525,8 +2784,12 @@ focus_tree = {
 				tag = POL
 				tag = HUN
 				tag = ALB
-				tag = CZE
 				}
+			}
+			modifier = {
+				add = 300
+				tag = CZE
+				date > 1948.3.1
 			}
 			modifier = {
 				add = 300
@@ -3413,13 +3676,30 @@ focus_tree = {
 		available = {
 			has_opinion = {
 				target = SOV
-				value > 39
+				value > 29
 			}
-			has_government = communism
+			has_country_flag = SovietAdvisorAllow
 		}
 		x = 56
 		y = 4
 		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = machine_gun
+				amount = 500
+				producer = SOV
+			}
+			add_political_power = 100
+			add_stability = 0.04
+			army_experience = 200
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
 			SOV = { country_event = sov.263 }
 			set_country_flag = SOV_militar_advisor_focus
 			add_political_power = 30
@@ -4069,6 +4349,9 @@ focus_tree = {
 			has_government = authoritarianism
 			}
 		}
+		ai_will_do = {
+			factor = 0
+		}
 		prerequisite = {
 			focus = common_56
 		}
@@ -4093,6 +4376,9 @@ focus_tree = {
 			has_government = authoritarianism
 			}
 		}
+		ai_will_do = {
+			factor = 0
+		}
 		prerequisite = {
 			focus = common_56
 		}
@@ -4109,6 +4395,9 @@ focus_tree = {
 		id = common_united_ethnics
 		icon = GFX_goal_parade
 		cost = 3
+		ai_will_do = {
+			factor = 0
+		}
 		available = {
 			OR = {
 			has_government = neutrality
@@ -4135,6 +4424,9 @@ focus_tree = {
 			has_government = authoritarianism
 			}
 		}
+		ai_will_do = {
+			factor = 0
+		}
 		prerequisite = {
 			focus = common_majority
 		}
@@ -4155,6 +4447,9 @@ focus_tree = {
 			has_government = neutrality
 			has_government = authoritarianism
 			}
+		}
+		ai_will_do = {
+			factor = 0
 		}
 		prerequisite = {
 			focus = common_56
@@ -4189,6 +4484,9 @@ focus_tree = {
 		id = common_58
 		icon = GFX_goal_nationalism_speak
 		cost = 3
+		ai_will_do = {
+			factor = 0
+		}
 		available = {
 			has_government = neutrality
 		}
@@ -4210,6 +4508,9 @@ focus_tree = {
 		id = common_expanded_soldiers
 		icon = GFX_focus_generic_little_entente
 		cost = 3
+		ai_will_do = {
+			factor = 0
+		}
 		available = {
 			has_government = neutrality
 		}
@@ -4229,6 +4530,9 @@ focus_tree = {
 		id = common_all_soldiers
 		icon = GFX_focus_generic_fascist_troops
 		cost = 3
+		ai_will_do = {
+			factor = 0
+		}
 		available = {
 			has_government = neutrality
 		}
@@ -4249,6 +4553,9 @@ focus_tree = {
 		cost = 3
 		available = {
 			has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 0
 		}
 		prerequisite = {
 			focus = common_58
@@ -4370,22 +4677,13 @@ focus_tree = {
 		x = 4
 		y = 2
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						any_owned_state = {
-							dockyard > 0
-							free_building_slots = {
-								building = dockyard
-								size > 2
-								include_locked = yes
-							}
-						}
-					}
-					any_owned_state = {
-						is_coastal = yes
-					}
+			add_political_power = 200
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 150
+					producer = FROM
 				}
+			if = {
 				random_owned_state = {
 					limit = {
 						is_coastal = yes
@@ -4395,37 +4693,50 @@ focus_tree = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 3
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = dockyard
 						level = 3
 						instant_build = yes
 					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 2
+						instant_build = yes
+					}
 				}
 				set_country_flag = naval_effort_built
 			}
-			if = {
-				random_owned_state = {
-					limit = {
-						is_coastal = yes
-					}
-					add_building_construction = {
-						type = naval_base
-						level = 2
-						instant_build = yes
-					}
+			random_owned_state = {
+				limit = { is_coastal = yes }
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+				}
+				add_building_construction = {
+					type = fuel_silo
+					level = 2
+					instant_build = yes
 				}
 			}	
-			if = {
-				random_owned_state = {
-					limit = {
-						is_coastal = yes
-					}
-					add_building_construction = {
-						type = naval_base
-						level = 2
-						instant_build = yes
-					}
+			random_owned_state = {
+				limit = { is_coastal = yes }
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+						province = {
+							limit_to_naval_base = yes
+						}
+				}
+				add_building_construction = {
+					type = fuel_silo
+					level = 2
+					instant_build = yes
 				}
 			}	
 		}
@@ -4550,13 +4861,15 @@ focus_tree = {
 			focus = common_75
 		}
 		available = {
-			any_owned_state = {
-				hospital < 1
-			}
+			has_stability > 0.5
+			NOT = { has_idea = no_welfare }
 		}
 		x = 0
 		y = 3
 		completion_reward = {
+			add_dynamic_modifier = { modifier = hospital_construct_modifiers }
+			add_political_power = 100
+			add_stability = 0.02
 			every_owned_state = {
 				limit = {
 					hospital < 1
@@ -4574,6 +4887,38 @@ focus_tree = {
 					instant_build = yes
 				}
 				
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_building_construction = {
+					type = hospital
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -4758,6 +5103,7 @@ focus_tree = {
 				ideology = monarchism
 				popularity = 0.12
 			}
+			add_ideas = limited_exports
 		}
 	}
 	focus = {
@@ -4805,6 +5151,7 @@ focus_tree = {
 				ideology = monarchism
 				popularity = 0.12
 			}
+			add_ideas = closed_economy
 		}
 	}
 	focus = {
@@ -4835,13 +5182,42 @@ focus_tree = {
 
 	}
 	focus = {
+		id = common_hydro_dam_focus
+		icon = GFX_focus_generic_hydroelectric_energy
+		cost = 3
+		prerequisite = {
+			focus = common_61
+		}
+		available = {
+			has_tech = construction3
+		}
+		x = -4
+		y = 2
+		completion_reward = {
+			random_owned_state = {
+				limi = {
+					has_dynamic_modifier = { modifier = state_hill_modifier }
+					dam_plant < 1
+				}
+				add_building_construction = {
+					type = dam_plant
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_to_variable = { influences = 40 }
+			custom_effect_tooltip = focus_tooltip_influence_40
+			add_political_power = 100
+		}
+	}
+	focus = {
 		id = common_agriculture
 		icon = GFX_goal_agriculture
 		cost = 3
 		prerequisite = {
 			focus = common_61
 		}
-		x = -4
+		x = -6
 		y = 2
 		completion_reward = {
 			set_technology = {
@@ -5013,6 +5389,22 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			random_owned_state = {
+				limit = {
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = city
+					}
+				}
+				add_building_construction = { 
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+			}
 			add_dynamic_modifier = {
 			modifier = power_construct_modifiers
 				days = 1800
@@ -5160,6 +5552,7 @@ focus_tree = {
 			has_tech = concentrated_industry4
 			iron > 4
 			coal > 9
+			num_of_civilian_factories > 9
 		}
 		completion_reward = {
 				add_dynamic_modifier = {
@@ -5278,7 +5671,9 @@ focus_tree = {
 		}
 		available = {
 			has_tech = oil_processing
-			oil > 8
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = oil_modifiers }
+			}
 			NOT = {
 				has_dynamic_modifier = {  modifier = civic_construct_modifiers }
 				has_dynamic_modifier = {  modifier = heavy_construct_modifiers }
@@ -5361,6 +5756,9 @@ focus_tree = {
 		prerequisite = {
 			focus = plastic_produc
 		}
+		prerequisite = {
+			focus = common_66
+		}
 		x = 0
 		y = 6
 		available = {
@@ -5368,6 +5766,7 @@ focus_tree = {
 			has_tech = excavation2
 			has_tech = polymer
 			chromium > 5
+			num_of_civilian_factories > 11
 		}
 		completion_reward = {
 			add_tech_bonus = {
@@ -5406,10 +5805,18 @@ focus_tree = {
 			focus = oil_produc
 		}
 		available = {
+			oil > 7
 			has_tech = basic_machine_tools
 			has_tech = rubber_processing
+			num_of_civilian_factories > 7
 		}
 		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_foreign_tank_modernization_cooperation
+				bonus = 0.15
+				uses = 2
+				category = synth_resources
+			}
 			IF = {
 				limit = {
 				any_owned_state = {
@@ -5629,11 +6036,50 @@ focus_tree = {
 				}
 				
 			}
+			random_owned_state = {
+				limit = {
+					infrastructure > 2
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					infrastructure > 2
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					infrastructure > 2
+					NOT = {
+						OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 	focus = {
 		id = common_tourism
-		icon = GFX_goal_Hight_way
+		icon = GFX_focus_SWE_privately_managed_vacation
 		cost = 3
 		prerequisite = {
 			focus = common_infra
@@ -5682,7 +6128,7 @@ focus_tree = {
 	}
 	focus = {
 		id = common_railway_2
-		icon = GFX_goal_Hight_way
+		icon = GFX_focus_generic_railroad
 		cost = 3
 		prerequisite = {
 			focus = common_railway_1
@@ -5738,6 +6184,27 @@ focus_tree = {
 		x = -22
 		y = 3
 		completion_reward = {
+			army_experience = 120
+			custom_effect_tooltip = common_buy_weapons_tool
+			effect_tooltip = {
+				random_country = {
+					limit = {
+						has_tech = infantry_weapons2
+						has_country_flag = main_country
+						OR = {
+							has_opinion = {
+								target = FROM
+								value > 9
+							}
+						}
+					}
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 8000
+						target = FROM
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -5749,7 +6216,29 @@ focus_tree = {
 		}
 		x = -24
 		y = 5
+		available = {
+			has_tech = armor_doctrine
+		}
 		completion_reward = {
+			effect_tooltip = {
+				random_country = {
+					limit = {
+						has_tech = gwtank
+						has_country_flag = main_country
+						OR = {
+							has_opinion = {
+								target = FROM
+								value > 9
+							}
+						}
+					}
+					send_equipment = {
+						equipment = gw_tank_equipment
+						amount = 300
+						target = FROM
+					}
+				}
+			}
 			add_tech_bonus = {
 				name = cat_medium_armor
 				ahead_reduction = 2
@@ -5784,7 +6273,21 @@ focus_tree = {
 		}
 		x = -24
 		y = 3
+		available = {
+			num_divisions > 7
+		}
 		completion_reward = {
+			army_experience = 100
+			add_tech_bonus = {
+				bonus = 0.35
+				uses = 1
+				category = infantry_tech
+			}
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = artillery
+			}
 			custom_effect_tooltip = common_20_tool
 		}
 	}
@@ -5797,7 +6300,29 @@ focus_tree = {
 		}
 		x = -20
 		y = 4
+		available = {
+			has_tech = motorize_doctrine
+		}
 		completion_reward = {
+			effect_tooltip = {
+				random_country = {
+					limit = {
+						has_tech = motorized_equipment_1
+						has_country_flag = main_country
+						OR = {
+							has_opinion = {
+								target = FROM
+								value > 9
+							}
+						}
+					}
+					send_equipment = {
+						equipment = motorized_equipment
+						amount = 2000
+						target = FROM
+					}
+				}
+			}
 			add_tech_bonus = {
 				name = motorized_bonus
 				ahead_reduction = 2
@@ -5825,10 +6350,19 @@ focus_tree = {
 		prerequisite = {
 			focus = common_20
 		}
+		available = {
+			num_divisions > 7
+		}
 		x = -20
 		y = 3
 		completion_reward = {
 			army_experience = 400
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 1
+				category = land_doctrine
+			}
 		}
 	}
 	focus = {

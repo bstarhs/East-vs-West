@@ -25,10 +25,16 @@ ideas = {
 				always = no
 			}
 			modifier = {
+				land_reinforce_rate = -0.35
 				political_power_gain = -0.25
 				stability_factor = -0.2
 				political_power_cost = 0.15
 				neutrality_drift = -0.02
+				supply_consumption_factor = 0.5
+				army_morale_factor = -0.25
+				army_org_factor = -0.25
+				attrition = 0.5
+				recruitable_population_factor = -0.5
 			}
 		}
 		CHI_wave_228 = {
@@ -125,6 +131,27 @@ ideas = {
 				army_core_defence_factor = 0.12
 			}
 		}
+        CHI_war_against_communism = {
+		    picture = YUN_resistance_army
+			allowed = {
+				always = no
+			}
+            cancel = {
+				has_war = no
+			}
+            allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			removal_cost = 1
+			modifier = {
+				surrender_limit = 2.5
+				army_morale_factor = 0.02
+				army_org_regain = 0.02
+				army_core_defence_factor = 0.05
+			}
+		}
         CHI_civilwar_law = {
 		    picture = chi_warlord_integration5
 			allowed = {
@@ -137,6 +164,7 @@ ideas = {
 			}
 			removal_cost = 1
 			modifier = {
+				surrender_limit = 2.8
 				experience_loss_factor = -0.12
 				army_morale_factor = 0.12
 				conscription = 0.45
@@ -217,10 +245,10 @@ ideas = {
 			modifier = {
 				training_time_factor = 0.3
 				minimum_training_level = 0.3 
-				surrender_limit = 2.8
 				local_manpower = -0.3
 				experience_loss_factor = 0.3
 				army_morale_factor = -0.1
+				ai_focus_defense_factor = 0.15
 			}
 		}
 		taiwan_separatism = {
