@@ -437,6 +437,8 @@ news_event = {
 		name = yug.30.a
 		if = {
 			limit = { tag = YUG }
+			remove_ideas = YUG_ustase_crusader
+			add_political_power = 300
 			every_controlled_state = {
 				limit = {
 					has_dynamic_modifier = { modifier = more_rebel_modifiers }
@@ -1037,5 +1039,179 @@ news_event = {
 			limit = { tag = YUG }
 			add_political_power = -40
 		}
+	}
+}
+#乌斯塔沙十字军
+country_event = {
+	id = yug.152
+	title = yug.152.t
+	desc = yug.152.d
+	picture = GFX_UstaseSmall
+	mean_time_to_happen = { days = 5 }
+	fire_only_once = yes
+	trigger = {
+		tag = YUG
+		has_idea = YUG_ustase_crusader
+		date < 1949.12.1
+	}
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			add_political_power = -120
+			add_stability = -0.12
+		}
+	}
+}
+#乌斯塔沙致信中情局
+country_event = {
+	id = yug.153
+	title = yug.153.t
+	desc = yug.153.d
+	picture = GFX_UstaseSmall
+	mean_time_to_happen = { days = 150 }
+	trigger = {
+		tag = USA
+		YUG = { has_idea = YUG_ustase_crusader }
+		date < 1949.12.1
+		has_completed_focus = us_europe_rightwing
+	}
+	option = {
+		name = yug.12.a
+		add_political_power = -60
+		YUG = {
+			limit = { tag = YUG }
+			add_political_power = -50
+			add_stability = -0.01
+			set_global_flag = yug153
+		}
+	}
+	option = {
+		name = yug.12.a
+	}
+}
+#诱捕计划
+country_event = {
+	id = yug.154
+	title = yug.154.t
+	desc = yug.154.d
+	picture = GFX_UstaseSmall
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = YUG
+		has_idea = YUG_ustase_crusader
+		has_completed_focus = YUG_supression_ustase
+		date < 1949.12.1
+	}
+	option = {
+		name = yug.12.a
+		add_political_power = -60
+		random_list = {
+			80 = { news_event = { id = yug.156 days = 20 } }
+			10 = {
+				modifier = {
+					add = 10
+					102 = { resistance > 50 }
+				}
+				modifier = {
+					add = 10
+					103 = { resistance > 50 }
+				}
+				modifier = {
+					add = 10
+					109 = { resistance > 50 }
+				}
+				modifier = {
+					add = 15
+					has_stability < 0.5
+				}
+				modifier = {
+					add = 10
+					has_global_flag = yug153
+				}
+				news_event = { id = yug.155 days = 20 }
+			}
+		}
+	}
+}
+news_event = {
+	id = yug.155
+	title = yug.155.t
+	desc = yug.155.d
+	picture = GFX_LjuboMilos
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			add_stability = -0.05
+			102 = { add_resistance = 30 }
+		}
+	}
+}
+news_event = {
+	id = yug.156
+	title = yug.156.t
+	desc = yug.156.d
+	picture = GFX_LjuboMilos
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			add_stability = 0.12
+			102 = { add_resistance = -12 }
+			103 = { add_resistance = -12 }
+			109 = { add_resistance = -12 }
+		}
+	}
+}
+news_event = {
+	id = yug.157
+	title = yug.157.t
+	desc = yug.157.d
+	picture = GFX_LjuboMilos
+	mean_time_to_happen = { days = 10 }
+	trigger = {
+		tag = YUG
+		has_idea = YUG_ustase_crusader
+		date < 1954.1.1
+		has_stability < 0.6
+		OR = {
+			102 = { resistance > 90 }
+			103 = { resistance > 90 }
+			109 = { resistance > 90 }
+		}
+	}
+	major = yes
+	option = {
+		name = yug.12.a
+		if = {
+			limit = { tag = YUG }
+			102 = { add_resistance = -50 }
+			103 = { add_resistance = -50 }
+			109 = { add_resistance = -50 }
+			CRO = {
+				set_politics = { ruling_party = authoritarianism }
+				transfer_state = 102
+				transfer_state = 109
+				
+			}
+			declare_war_on = { target = CRO type = annex_everything }
+		}
+	}
+}
+news_event = {
+	id = yug.160
+	title = yug.160.t
+	desc = yug.160.d
+	picture = GFX_EarlyMacedonians
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = yug.12.a
 	}
 }

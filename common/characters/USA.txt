@@ -191,7 +191,7 @@ characters={
 		}
 		advisor = {
 			slot = political_advisor
-			idea_token = John_Hannah
+			idea_token = James_Forrestal
 			allowed = {
 				original_tag = USA
 			}
@@ -512,6 +512,32 @@ characters={
 			traits = { compassionate_gentleman smooth_talking_charmer }
 		}
 	}
+	USA_Walter_Bedell_Smith = {
+		name = USA_Walter_Bedell_Smith
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_Walter_Bedell_Smith.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = Walter_Bedell_Smith
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				date < 1959.1.1
+			}
+			modifier = {
+				intel_network_gain_factor = 0.12
+				intel_from_operatives_factor = 0.05
+				boost_ideology_mission_factor = 0.15
+				decryption_power_factor = 0.05
+				operation_make_resistance_contacts_risk = -0.50
+				operative_slot = 1
+			}
+		}
+	}
 	USA_JohnDulles = {
 		name = JohnDulles
 		portraits = {
@@ -528,7 +554,17 @@ characters={
 			visible = {
 				date < 1959.1.1
 			}
-			traits = { compassionate_gentleman }
+			modifier = {
+				intel_network_gain_factor = 0.3
+				intel_from_operatives_factor = 0.12
+				boost_ideology_mission_factor = 0.35
+				decryption_power_factor = 0.15
+				operation_make_resistance_contacts_risk = -0.12
+				operation_coup_government_outcome = 0.5
+				operation_outcome = 0.25
+				operation_cost = -0.15
+				operative_slot = 2
+			}
 		}
 	}
 	USA_EdgarHoover = {
@@ -2199,9 +2235,34 @@ characters={
 			}
 		}
 	}
-
+	USA_Gene_Grabeel={
+		name=USA_Gene_Grabeel
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Gene_Grabeel.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1977.1.1
+			}
+			cost = 80
+			slot = theorist
+			idea_token = Gene_Grabeel 
+			allowed = {
+				original_tag = USA
+			}
+			modifier = {
+				encryption_factor = 0.35
+				foreign_subversive_activites = -0.12
+				crypto_strength = 1
+				defense_impact_on_blueprint_stealing = -0.3
+				intelligence_agency_defense = 0.25
+			}
+		}
+	}
 	USA_robert_goddard={
-		name=von_braun 
+		name=USA_robert_goddard 
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_Von_Braun.dds"

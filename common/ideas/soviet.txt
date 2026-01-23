@@ -476,6 +476,28 @@ ideas = {
 				factor = 0
 			}
 		}
+		NKVD_ideas = {
+			allowed = {
+				always = yes
+			}
+			picture = NKVD_ideas
+			cancel = {
+				NOT = { has_government = communism }
+				
+			}
+			modifier = {
+				subversive_activites_upkeep = -0.15
+				resistance_damage_to_garrison = -0.05
+				resistance_target = -0.05
+				compliance_gain = 0.1
+				drift_defence_factor = 0.12
+				operative_slot = 3
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
 		KGB = {
 			
 			allowed = {
@@ -490,11 +512,10 @@ ideas = {
 			modifier = {
 				subversive_activites_upkeep = -0.5
 				root_out_resistance_effectiveness_factor = 0.1
-				resistance_damage_to_garrison = -0.05
+				resistance_damage_to_garrison = -0.12
 				resistance_target = -0.15
-				compliance_gain = 0.1
+				compliance_gain = 0.15
 				drift_defence_factor = 0.5
-				communism_drift = 0.4
 				operative_slot = 10
 			}
 	

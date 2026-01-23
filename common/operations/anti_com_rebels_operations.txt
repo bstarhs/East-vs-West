@@ -1,0 +1,233 @@
+
+operation_boost_free_bulgaria_resistance = { ###保济利亚
+	icon = GFX_operations_resistance_bulgaria
+	map_icon = GFX_operations_resistance_bulgaria
+	name = operation_boost_free_bulgaria_resistance
+	desc = operation_boost_free_bulgaria_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		BUL = { has_government = communism }
+		USA = { has_completed_focus = us_europe_rightwing }
+		FROM = {
+			tag = BUL
+		}
+		ROOT = {
+			tag = USA
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = BUL
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		BUL = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		BUL = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = BUL }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}
+operation_boost_free_poland_resistance = { ###波兰
+	icon = GFX_operations_resistance_polski
+	map_icon = GFX_operations_resistance_polski
+	name = operation_boost_free_poland_resistance
+	desc = operation_boost_free_poland_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		POL = { has_government = communism }
+		USA = { has_completed_focus = us_europe_rightwing }
+		FROM = {
+			tag = POL
+		}
+		ROOT = {
+			tag = USA
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = POL
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		POL = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		POL = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = POL }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}

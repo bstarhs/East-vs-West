@@ -159,14 +159,14 @@ create_operative_leader = {
 	name = "Harold King Philby"
 	GFX = "gfx/leaders/ENG/Portrait_British_King_Philby.tga"
 	traits = { operative_infiltrator operative_natural_orator }
-	bypass_recruitment = yes
+	bypass_recruitment = no
 	nationalities = { ENG }
 }
 create_operative_leader = {
 	name = "Donald Maclean"
 	GFX = "gfx/leaders/ENG/Portrait_British_Donald_Maclean.tga"
 	traits = { operative_infiltrator operative_natural_orator }
-	bypass_recruitment = yes
+	bypass_recruitment = no
 	nationalities = { ENG }
 }
 create_operative_leader = {
@@ -479,6 +479,7 @@ add_ideas = {
 		vyacheslav_molotov
 		Zhdanov_doctrine
 		lazar_kaganovich
+		NKVD_ideas
 }
 
 
@@ -580,8 +581,10 @@ set_politics = {
 		strategic_bomber1 = 1
 		air_guide = 1
 	}
-	add_ideas = Malenkov
-	add_ideas = SOV_Korolyov
+	add_ideas = {
+	Malenkov
+	SOV_Korolyov
+	}
 	set_variable = { this.nuke_speed = 20 }
 }
 1953.9.9 = {
@@ -611,6 +614,9 @@ set_politics = {
 	complete_national_focus = SOV_Ukrain_Zones
 	add_ideas = {
 		KGB
+	}
+	remove_ideas = {
+		NKVD_ideas
 	}
 	set_technology = {
 	machine_gun2 = 1
