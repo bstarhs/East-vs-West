@@ -276,6 +276,12 @@ news_event = {
 			}
 		}
 		if = {
+			limit = { tag = USA }
+			add_political_power = -100
+			custom_effect_tooltip = red_fear_gain
+			add_to_variable = { USA.red_fears = -3 }
+		}
+		if = {
 			limit = {
 				OR = {
 					tag = MAL

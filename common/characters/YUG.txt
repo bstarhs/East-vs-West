@@ -1,9 +1,166 @@
 characters={
+	YUG_Svetozar_Vukmanovic_Tempo={
+		name=YUG_Svetozar_Vukmanovic_Tempo
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Svetozar_Vukmanovic_Tempo.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Svetozar_Vukmanovic_Tempo.tga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Mosa_Pijade
+			allowed = {
+				tag = YUG
+				has_government = communism 
+			}
+			modifier = {
+				local_building_slots = 1
+				production_speed_buildings_factor = 0.02
+			}
+		}
+	}
+	YUG_Ivan_Gosnjak={
+		name=YUG_Ivan_Gosnjak
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_Ivan_Gosnjak.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Ivan_Gosnjak.tga"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = high_command
+			idea_token = Ivan_Gosnjak
+			modifier = {
+				experience_gain_army_factor = 0.15
+			}
+			allowed = {
+				original_tag = YUG
+			}
+		}
+		corps_commander={
+			traits={ trait_reckless trickster }
+			skill=5
+			attack_skill=7
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	YUG_Mosa_Pijade={
+		name=YUG_Mosa_Pijade
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Mosa_Pijade.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Mosa_Pijade.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { independent_red pro_third_world smooth_talking_charmer irredentist_academic }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Mosa_Pijade
+			allowed = {
+				tag = YUG
+				has_government = communism 
+			}
+			modifier = {
+				compliance_gain = 0.12
+			}
+		}
+	}
+	YUG_Vladimir_Bakaric={
+		name=YUG_Vladimir_Bakaric
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Vladimir_Bakaric.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Vladimir_Bakaric.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { independent_red pro_third_world smooth_talking_charmer irredentist_academic }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Vladimir_Bakaric
+			allowed = {
+				tag = YUG
+				has_government = communism 
+			}
+			modifier = {
+				political_power_factor = 0.05
+				resistance_activity = -0.12
+				compliance_gain = 0.02
+			}
+		}
+	}
+	YUG_Milovan_Dilas={
+		name=YUG_Milovan_Dilas
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Milovan_Dilas.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Milovan_Dilas.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { independent_red pro_third_world smooth_talking_charmer irredentist_academic }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Milovan_Dilas
+			allowed = {
+				tag = YUG
+				has_government = communism 
+			}
+			modifier = {
+				political_power_factor = 0.12
+				drift_defence_factor = 0.12
+				compliance_gain = 0.05
+			}
+		}
+	}
+	YUG_Edvard_Kardelj={
+		name=YUG_Edvard_Kardelj
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_Edvard_Kardelj.dds"
+				large="gfx/leaders/YUG/Portrait_Yugoslavia_Edvard_Kardelj.tga"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { independent_red pro_third_world smooth_talking_charmer irredentist_academic }
+			expire = "1971.3.1.1"
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Edvard_Kardelj
+			allowed = {
+				tag = YUG
+				has_government = communism 
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.12
+				political_power_factor = 0.05
+				opinion_gain_monthly_factor = 0.12
+				democratic_acceptance = 20
+			}
+		}
+	}
 	YUG_Aleksandar_Rankovic={
 		name=YUG_Aleksandar_Rankovic
 		portraits={
 			civilian={
-				small="gfx/interface/ideas/idea_Rudolf_Slansky.dds"
+				small="gfx/interface/ideas/idea_Aleksandar_Rankovic.dds"
 				large="gfx/leaders/YUG/Portrait_Yugoslavia_Aleksandar_Rankovic.tga"
 			}
 		}
@@ -20,7 +177,11 @@ characters={
 				has_government = communism 
 			}
 			modifier = {
-				production_speed_buildings_factor = 0.1
+				stability_factor = 0.05
+				root_out_resistance_effectiveness_factor = 0.12
+				enemy_operative_capture_chance_factor = 0.05
+				resistance_target = -0.02
+				foreign_subversive_activites = -0.3
 			}
 		}
 	}

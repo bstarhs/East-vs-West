@@ -1,8 +1,79 @@
 
+#希共不主动进攻
+KKE_dont_attack = {
+	allowed = {
+		original_tag = KKE
+	}
+
+	enable = {
+		has_war_with = GRE
+		date < 1949.2.1
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = GRE
+		ratio = 0.25
+		priority = 500
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+#希腊早期不主动进攻
+GRE_dont_attack_shx = {
+	allowed = {
+		original_tag = GRE
+	}
+
+	enable = {
+		has_war_with = KKE
+		NOT = { has_country_flag = usa_army_advisor }
+		date < 1949.2.1
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = KKE
+		ratio = 0.25
+		priority = 500
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+#希腊开始主动进攻
+GRE_dont_attack_shx = {
+	allowed = {
+		original_tag = GRE
+	}
+
+	enable = {
+		has_war_with = KKE
+		date < 1949.2.1
+		has_country_flag = usa_army_advisor
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = KKE
+		ratio = 0.8
+		priority = 500
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+}
 YUG_SupportKKE = {
 	enable = {
 		tag = YUG
-		country_exists = KKE
+		KKE = { has_war_with = GRE }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -23,6 +94,30 @@ BUL_SupportKKE = {
 		value = 200
 	}
 }
+ALB_Support_KKE = {
+	enable = {
+		tag = ALB
+		country_exists = KKE
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = "KKE"
+		value = 200
+	}
+}
+SOV_Support_KKE = {
+	enable = {
+		tag = SOV
+		country_exists = KKE
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = support
+		id = "KKE"
+		value = 200
+	}
+}
 USA_Support_GRE = {
 	enable = {
 		tag = USA
@@ -32,7 +127,7 @@ USA_Support_GRE = {
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = support
-		id = "GRE
+		id = "GRE"
 		value = 200
 	}
 }
@@ -45,7 +140,7 @@ ENG_Support_GRE = {
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = support
-		id = "GRE
+		id = "GRE"
 		value = 200
 	}
 }

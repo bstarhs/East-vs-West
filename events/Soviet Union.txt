@@ -1714,12 +1714,17 @@ news_event = {
 		days = 3
 	}
 	trigger = {
-		date > 1950.1.1
-		11 = { resistance < 12 }
-		12 = { resistance < 12 }
+		date > 1954.1.1
+		11 = { resistance < 5 }
+		11 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		12 = { resistance < 5 }
+		12 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
+		189 = { resistance < 5 }
+		190 = { resistance < 5 }
+		191 = { resistance < 5 }
 		191 = { has_dynamic_modifier = { modifier = more_rebel_modifiers } }
-		191 = { resistance < 12 }
 		tag = SOV
+		has_idea = metsavennad
 	}
 	option = {
 		name = den.1.a
@@ -1740,7 +1745,9 @@ news_event = {
 				ideology = communism
 				popularity = 0.05
 			}
-			add_stability = 0.12
+			add_stability = 0.15
+			add_political_power = 500
+			remove_ideas = etsavennad
 		}
 	}
 

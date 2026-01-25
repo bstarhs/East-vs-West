@@ -300,7 +300,7 @@ news_event = {
 	picture = GFX_CzechCommunismCelebrate
 	major = yes
 	mean_time_to_happen = {
-		days = 5
+		days = 12
 	}
 	trigger = {
 		tag = CZE
@@ -331,6 +331,12 @@ news_event = {
 				ideology = communism
 				popularity = 0.01
 			}
+		}
+		if = {
+			limit = { tag = USA }
+			add_political_power = -60
+			custom_effect_tooltip = red_fear_gain
+			add_to_variable = { USA.red_fears = -3 }
 		}
 	}
 }	

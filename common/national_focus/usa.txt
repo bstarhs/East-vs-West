@@ -30,14 +30,14 @@ focus_tree = {
 		x = 40
 		y = 0
 		ai_will_do = {
-			factor = 50
+			factor = 999
 		}
 		completion_reward = {
 			add_political_power = 80
 			GRE = {
 				add_popularity = {
 					ideology = communism
-					popularity = -0.1
+					popularity = -0.08
 				}
 				set_country_flag = usa_arms_sell
 			}
@@ -2418,25 +2418,14 @@ focus_tree = {
 		y = 8
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				add = 80
-				date > 1948.1.1
-			}
-			modifier = {
-				add = -50
-				date < 1948.1.1
-			}
-			modifier = {
-				add = -50
-				date > 1959.1.1
-			}
 		}
 		completion_reward = {
-			news_event = { id = usa.103 }
-			add_stability = -0.1
+			recruit_character = USA_douglas_macarthur
+			add_ideas = McCarthyism_idea
+			news_event = { id = usa.103 days = 2 }
 			add_popularity = {
 				ideology = communism
-				popularity = -0.1
+				popularity = -0.05
 			}
 		}
 	}
@@ -2536,9 +2525,26 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = us_venona_project
+		icon = GFX_focus_generic_radio_communication
+		cost = 2
+		x = 11
+		y = 7
+		ai_will_do = {
+			factor = 20
+		}
+		completion_reward = {
+			recruit_character = USA_Gene_Grabeel
+		}
+
+	}
+	focus = {
 		id = CIA
 		icon = GFX_goal_CIA
 		cost = 10
+		prerequisite = {
+			focus = us_venona_project
+		}
 		prerequisite = {
 			focus = Social_reform
 		}
@@ -2553,9 +2559,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			recruit_character = USA_JohnDulles
+			retire_character = USA_Walter_Bedell_Smith
 			add_ideas = CIA
 			create_intelligence_agency = yes
-			add_stability = 0.2
+			add_stability = 0.12
 		}
 
 	}
@@ -2694,7 +2702,7 @@ focus_tree = {
 			focus = Social_reform
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 0
 		}
 		completion_reward = {
 			add_popularity = {
@@ -5855,17 +5863,14 @@ focus_tree = {
 		icon = GFX_focus_attack_france
 		cost = 10
 		prerequisite = {
-			focus = USA_NATO_focus
-		}
-		prerequisite = {
-			focus = US_fucus_Bundeswehr
+			focus = operation_gladid
 		}
 		available = {
 			NOT = { is_in_faction_with = FRA }
 			is_in_faction_with = ENG
 		}
 		x = 42
-		y = 4
+		y = 5
 		ai_will_do = {
 			factor = 0
 		}
@@ -6313,7 +6318,25 @@ focus_tree = {
 		completion_reward = {
 			news_event = { id = ger.60 }
 			set_global_flag = Bundeswehr_flag
-			WDR = { army_experience = 200 }
+			WDR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 15000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = machine_gun
+					amount = 6000
+					producer = USA
+				}
+				add_political_power = 400
+				add_stability = 0.12
+				army_experience = 200
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
+				}
+			}
 		}
 	}
 	focus = {
@@ -6538,13 +6561,16 @@ focus_tree = {
 		icon = GFX_goal_operation_gladid
 		cost = 5
 		prerequisite = {
-			focus = Trumanism
+			focus = USA_NATO_focus
+		}
+		prerequisite = {
+			focus = US_fucus_Bundeswehr
 		}
 		available = { 
 			is_in_faction_with = ITA
 		}
 		x = 42
-		y = 1
+		y = 4
 		ai_will_do = {
 			factor = 0
 			modifier = {
@@ -6582,25 +6608,94 @@ focus_tree = {
 		prerequisite = {
 			focus = Trumanism
 		}
-		x = 44
+		x = 45
 		y = 1
 		ai_will_do = {
 			factor = 0
 		}
 		completion_reward = {
-			every_other_country = {
+			random_country = {
 				limit = {
 					capital_scope = { is_on_continent = europe }
+					NOT = { is_in_faction_with = USA }
 					OR = {
-						NOT = { is_in_faction_with = USA }
 						has_government = communism
 						communism > 0.35
 					}
 				}
-				add_stability = -0.12
+				add_stability = -0.02
 				add_popularity = {
 					ideology = communism
-					popularity = -0.05
+					popularity = -0.02
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.03
+				}
+			}
+			random_country = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+					NOT = { is_in_faction_with = USA }
+					OR = {
+						has_government = communism
+						communism > 0.35
+					}
+				}
+				add_stability = -0.02
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.03
+				}
+			}
+			random_country = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+					NOT = { is_in_faction_with = USA }
+					OR = {
+						has_government = communism
+						communism > 0.35
+					}
+				}
+				add_stability = -0.02
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.04
+				}
+				add_popularity = {
+					ideology = authoritarianism
+					popularity = 0.03
+				}
+			}
+			random_country = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+					NOT = { is_in_faction_with = USA }
+					OR = {
+						has_government = communism
+						communism > 0.35
+					}
+				}
+				add_stability = -0.02
+				add_popularity = {
+					ideology = communism
+					popularity = -0.02
 				}
 				add_popularity = {
 					ideology = neutrality
@@ -6620,7 +6715,7 @@ focus_tree = {
 		prerequisite = {
 			focus = us_europe_rightwing
 		}
-		x = 44
+		x = 46
 		y = 2
 		available = {
 			any_state = {
@@ -6704,10 +6799,10 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = Trumanism
+			focus = USA_NATO_focus
 		}
 		x = 46
-		y = 1
+		y = 4
 		ai_will_do = {
 			factor = 0
 			modifier = {
@@ -6730,9 +6825,9 @@ focus_tree = {
 		icon = GFX_goal_diplo_yugo
 		cost = 10
 		prerequisite = {
-			focus = Pro_Greece
+			focus = Marshall_Plan
 		}
-		x = 46
+		x = 44
 		y = 2
 		ai_will_do = {
 			factor = 0

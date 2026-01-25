@@ -144,7 +144,6 @@ news_event = {
     trigger = {
         tag = HYD
 		is_subject = no
-        has_global_flag = hyd7
 		date > 1948.2.1
     }
     mean_time_to_happen = { days = 30 }
@@ -178,7 +177,7 @@ news_event = {
     mean_time_to_happen = { days = 10 }
     trigger = {
         tag = HYD
-        has_global_flag = hyd7
+        has_global_flag = hyd8
         country_exists = PAK
     }
     option = {
@@ -194,12 +193,13 @@ news_event = {
     picture = GFX_VallabhbhaiPatel
     title = hyd.12.t
     desc = hyd.12.d
-    mean_time_to_happen = { days = 20 }
+    mean_time_to_happen = { days = 5 }
     trigger = {
         tag = IND
         NOT = { has_war_with = HYD }
         has_global_flag = hyd9
         has_global_flag = hyd10
+        country_exists = HYD
     }
     option = {
         name = hyd.12.a
@@ -222,7 +222,6 @@ news_event = {
         tag = IND
         controls_province = 8087
 		has_war_with = HYD
-		NOT = { country_exists = HYD }
     }
     option = {
         name = hyd.13.a

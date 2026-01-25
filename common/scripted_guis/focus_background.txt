@@ -4,6 +4,24 @@ scripted_gui = {
 		parent_window_name = "focus_background_view"
         window_name = "focus_background_container"
 		triggers = {
+			CAM_viet_focus_background_image_visible = {
+				tag = CAM
+				has_government = communism
+				is_puppet = yes
+			}
+			CAM_com_focus_background_image_visible = {
+				tag = CAM
+				has_government = communism
+				is_puppet = no
+			}
+			CAM_neut_focus_background_image_visible = {
+				tag = CAM
+				has_government = neutrality
+			}
+			CAM_mona_focus_background_image_visible = {
+				tag = CAM
+				has_government = monarchism
+			}
 			ENG_GeorgeVI_focus_background_visible = {
 				tag = ENG
 				has_idea = ENG_george_vi
@@ -58,6 +76,10 @@ scripted_gui = {
 			}
 			MEX_focus_background_image_visible = {
 				tag = MEX
+			}
+			CUB_badista_focus_background_image_visible = {
+				tag = CUB
+				has_government = neutrality
 			}
 			CUB_focus_background_image_visible = {
 				tag = CUB

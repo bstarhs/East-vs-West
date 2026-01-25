@@ -396,6 +396,8 @@ scripted_gui = {
 			}
 			consumer_foods_add_click_enabled = {
 				check_variable = { civil_factory_use < num_of_civilian_factories }
+				check_variable = { factory_salt_cost < resource@salt }
+				check_variable = { factory_sugar_cost < sugar_num }
 			}
 			consumer_foods_reduce_click_enabled = {
 				check_variable = { foods_factory > 0 }
@@ -505,7 +507,10 @@ scripted_gui = {
 				add_to_variable = { civil_factory_use = 1 }
 				add_to_variable = { food_factory_coast = 2 }
 				add_to_variable = { foods_factory = 1 }
+				add_to_variable = { factory_salt_cost = 0.5 }
 				add_to_variable = { factory_sugar_cost = 0.5 }
+				add_to_variable = { nation_salt_cost = 0.5 }
+				add_to_variable = { nation_sugar_cost = 0.5 }
 				
 				if = {
 					limit = { has_idea = partial_economic_mobilisation }
@@ -518,6 +523,9 @@ scripted_gui = {
 				add_to_variable = { food_factory_coast = -2 }
 				add_to_variable = { foods_factory = -1 }
 				add_to_variable = { factory_sugar_cost = -0.5 }
+				add_to_variable = { factory_salt_cost = -0.5 }
+				add_to_variable = { nation_salt_cost = -0.5 }
+				add_to_variable = { nation_sugar_cost = -0.5 }
 				if = {
 					limit = { has_idea = partial_economic_mobilisation }
 					add_to_variable = { foods_factory_modifier = -2 }

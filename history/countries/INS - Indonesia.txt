@@ -3,7 +3,36 @@
 
 set_research_slots = 2
 oob = "INS_1945"
-
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 12000
+		producer = HOL
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 1000
+		producer = HOL
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 800
+		producer = ENG
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 5000
+		producer = MAN
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 1000
+		producer = MAN
+	}
 set_country_flag = main_country
 set_country_flag = has_monarchs
 set_country_flag = malay_state
@@ -22,10 +51,7 @@ set_country_flag = third_world
 set_technology = {
 	transport = 1
 	machine_gun1 = 1
-	infantry_at = 1
 	excavation1 = 1
-	excavation2 = 1
-	oil_processing = 1
 	army_aviation = 1
 	radio_detection = 1
 	concentrated_industry4 = 1
@@ -52,11 +78,7 @@ set_technology = {
 	tech_support = 1	
 	tech_engineers = 1
 	tech_mountaineers = 1
-	early_fighter = 1
-	gwtank = 1
-	basic_light_tank = 1
 	infantry_weapons = 1
-	infantry_weapons1 = 1
 	early_ship_hull_light = 1
 	
 	early_ship_hull_submarine = 1
@@ -96,7 +118,6 @@ set_technology = {
 	fighter1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	naval_bomber1 = 1
 	gw_artillery = 1
 	interwar_artillery = 1
 	interwar_antitank = 1
@@ -223,9 +244,18 @@ set_popularities = {
 		motorize_doctrine = 1
 		motorised_infantry = 1
 		radio_detection = 1
+		infantry_at = 1
+		excavation2 = 1
+		oil_processing = 1
+	early_fighter = 1
+	gwtank = 1
+	basic_light_tank = 1
 	}
 }
 1957.1.20 = {
+	set_technology = {
+		infantry_weapons1 = 1
+	}
 }
 1961.1.20 = {
 	complete_national_focus = steel_produc

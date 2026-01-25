@@ -237,8 +237,10 @@ characters={
 			allowed  = {
 				original_tag  = PRC
 			}
-			traits  = {
-				silent_workhorse 
+			modifier = {
+				supply_consumption_factor = -0.12
+				production_speed_buildings_factor = 0.12
+				unit_upkeep_attrition_factor = -0.15
 			}
 		}
 		country_leader={
@@ -532,11 +534,11 @@ characters={
 			visible={
 				date < 1980.1.1
 			}
-			traits={ defensive_doctrine urban_assault_specialist army_regrouping_2 army_chief_organizational_2 }
+			traits={ urban_assault_specialist army_regrouping_2 army_chief_organizational_2 army_chief_offensive_2 }
 			skill=4
-			attack_skill=2
+			attack_skill=6
 			defense_skill=4
-			planning_skill=3
+			planning_skill=5
 			logistics_skill=4
 			legacy_id=-1
 		}
@@ -717,6 +719,31 @@ characters={
 			legacy_id=-1
 		}
 	}
+	PRC_Li_KeNong={
+		name=PRC_Li_KeNong
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Li_KeNong.tga"
+				small="gfx/interface/ideas/idea_Li_KeNong.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1984.1.1
+			}
+			cost = 100
+			slot = political_advisor
+			idea_token = Li_KeNong
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			modifier = {
+				operative_slot = 5
+				intel_network_gain_factor = 0.5
+			}
+		}
+	}
 	PRC_Li_Tao={
 		name=PRC_Li_Tao
 		portraits={
@@ -739,6 +766,46 @@ characters={
 			modifier = {
 				command_power_gain = 0.12
 			}
+		}
+	}
+	PRC_Xiao_JingGuang={
+		name=PRC_Xiao_JingGuang
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Xiao_JingGuang.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+			}
+			traits={ army_chief_offensive_1 army_regrouping_1 }
+			skill=4
+			attack_skill=6
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+	PRC_Liang_XingChu={
+		name=PRC_Liang_XingChu
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Liang_XingChu.tga"
+			}
+		}
+		corps_commander={
+			visible = {
+				original_tag = PRC
+			}
+			traits={ army_chief_offensive_2 }
+			skill=4
+			attack_skill=6
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
 		}
 	}
 	PRC_Liu_YaLou={
@@ -817,6 +884,45 @@ characters={
 			planning_skill=3
 			logistics_skill=4
 			legacy_id=-1
+		}
+	}
+	PRC_Lv_ZhengCao={
+		name=PRC_Lv_ZhengCao
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Lv_ZhengCao.tga"
+				small="gfx/interface/ideas/idea_Lv_ZhengCao.dds"
+			}
+		}
+		corps_commander={
+			visible = {
+				date < 1961.1.1
+			}
+			traits={ army_logistics_2 }
+			skill=4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={	
+			visible={
+				date < 1961.1.1
+			}
+			slot = high_command
+			idea_token = Lv_ZhengCao
+			ledger = army
+			allowed = {
+				original_tag = PRC
+			}
+			traits = {
+				logistics_wizard
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 	PRC_Song_ShiLun={
@@ -1813,7 +1919,7 @@ characters={
 			}
 			modifier = {
 				army_attack_speed_factor = 0.06
-				breakthrough_factor = 0.05
+				breakthrough_factor = 0.12
 			}
 			ai_will_do = {
 				factor = 10.000

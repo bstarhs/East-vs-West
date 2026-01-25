@@ -44,7 +44,7 @@ recruit_character = USA_dwight_d_eisenhower
 recruit_character = USA_geoffrey_keyes
 recruit_character = USA_lucian_truscott
 recruit_character = USA_mark_clark
-recruit_character = USA_douglas_macarthur
+recruit_character = USA_Walter_Bedell_Smith
 recruit_character = USA_walter_krueger
 recruit_character = USA_jonathan_wainwright
 recruit_character = USA_russell_hartle
@@ -76,16 +76,12 @@ recruit_character = USA_george_marshall
 recruit_character = USA_carl_spaatz
 recruit_character = USA_jimmy_doolittle
 recruit_character = USA_claire_lee_chennault
-recruit_character = USA_henry_morgenthau
 recruit_character = USA_william_donovan
-recruit_character = USA_whittaker_chambers
-recruit_character = USA_donald_nelson
-recruit_character = USA_joseph_mccarthy
 recruit_character = USA_harold_ickes
 recruit_character = USA_victor_perlo
 recruit_character = USA_William_Fulbright
 recruit_character = USA_EdgarHoover
-recruit_character = USA_JohnDulles
+
 recruit_character = USA_HenryKissinger
 recruit_character = USA_Brzezinski
 recruit_character = USA_JeaneKirkpatrick
@@ -394,6 +390,8 @@ add_ideas = {
 	extensive_conscription
 	ford
 	free_trade
+	Dean_Acheson
+	James_Forrestal
 }
 
 	create_equipment_variant = {
@@ -548,6 +546,7 @@ set_variable = { global.US_SG = 1 }
 		von_braun
 		USA_AEC_idea
 		earl_warren
+		Alben_Barkley
 	}
 	create_equipment_variant = {
 		name = "Essex Class"
@@ -676,7 +675,10 @@ set_variable = { global.US_SG = 1 }
 	give_guarantee = KOR
 	give_guarantee = CHI
 	add_ideas = CIA
-	
+	remove_ideas = {
+		Dean_Acheson
+		Alben_Barkley
+	}
 		promote_character = USA_dwight_d_eisenhower
 }
 1955.1.1 = {
