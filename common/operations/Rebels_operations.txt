@@ -1329,3 +1329,80 @@ operation_boost_ustase_resistance = { ###乌斯塔刹叛军
 		resistance_support_distribute_weapons = { base = 25 }
 	}
 }
+operation_boost_macedoniaresistance = { #马其顿
+	icon = GFX_operations_resistance_tangyanika
+	map_icon = GFX_operations_coup_government_map
+	name = operation_boost_macedoniaresistance
+	desc = operation_boost_macedoniaresistance_desc
+	days = 20
+	operatives = 1
+	visible = {
+		OR = {
+			NOT = { country_exists = MCD }
+			MCD = { is_subject = yes }
+		}
+		FROM = {
+			controls_state = 790
+		}
+		ROOT = {
+			OR = {
+				has_completed_focus = us_europe_rightwing
+				has_completed_focus = prc_revolution_Africa
+			}
+		}
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	selection_target_state = {
+		is_core_of = MCD
+	}
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+	network_strength = 5
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		every_state = {
+			limit = {
+				is_core_of = MCD
+			}
+			add_resistance = 6
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		every_state = {
+			limit = {
+				is_core_of = MCD
+			}
+			add_resistance = 12
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}

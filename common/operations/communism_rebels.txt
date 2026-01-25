@@ -1516,3 +1516,125 @@ operation_boost_iran_communism_resistance = { ###伊朗
 		resistance_support_distribute_weapons = { base = 25 }
 	}
 }
+operation_boost_greece_communism_resistance = { ###希腊
+	icon = GFX_operations_greece_communism_resistance
+	map_icon = GFX_operations_greece_communism_resistance
+	name = operation_boost_greece_communism_resistance
+	desc = operation_boost_greece_communism_resistance_desc
+	days = 20
+
+	operatives = 1
+	
+	visible = {
+		date < 1955.1.1
+		GRE = { NOT = { has_government = communism } }
+		FROM = {
+			tag = GRE
+		}
+		ROOT = {
+			has_government = communism
+			
+			OR = {
+			tag = ALB
+			tag = BUL
+			has_completed_focus = YUG_KKE_focus
+			}
+		}
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+
+	selection_target_state = {
+		is_core_of = GRE
+	}
+	
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	risk_modifiers = { operation_risk }
+
+
+	# Integer [0-100] - Every operation has a hard requirement of network strength in the target country
+	network_strength = 12
+	
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	on_start = {  # SCOPE_OPERATION
+		
+	}
+	outcome_potential = {
+		GRE = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+	}
+	risk_chance = 0.1
+	outcome_execute = {
+		GRE = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+		random_state = {
+			limit = { is_controlled_by = GRE }
+			add_resistance = 10
+		}
+	}
+	phases = { #infiltration 
+		infiltration_submarine = { base = 33 }
+		infiltration_border = { base = 133 }
+		infiltration_diplomatic = { base = 133 }
+		propaganda_secret_published = { base = 100 }
+		propaganda_roadio_broachast = { base = 133 }
+		infiltration_paradrop = { 
+			base = 33 
+			modifier = {
+				ROOT = { has_equipment = { transport_plane_equipment < 1 } }
+				factor = 0.1
+			}
+		} 
+	}
+	phases = { 
+		lar_fra_coup_pre_position_units = { base = 25 }
+	}
+	phases = { 
+		resistance_support_distribute_weapons = { base = 25 }
+	}
+}

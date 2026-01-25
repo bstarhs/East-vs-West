@@ -1116,7 +1116,7 @@ news_event = {
 			}
 	}
 }
-#罗森堡事件
+#罗森堡夫妇事件
 news_event = {
 	id = usa.99
 	title = usatext.99.t
@@ -1131,13 +1131,7 @@ news_event = {
 	}
 	option = {
 		name = usatext.8.a
-		add_political_power = -100
-		add_stability = -0.02
-		add_popularity = {
-			ideology = communism
-			popularity = -0.05
-		}
-		news_event = { id = usa.100 }
+		news_event = { id = usa.100 days = 10 }
 	}
 }
 #罗森堡事件
@@ -1150,6 +1144,21 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = usatext.8.a
+		if = {
+			limit = { tag = USA }
+			add_political_power = -50
+			add_stability = -0.01
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+			SOV = {
+				add_decryption = {
+				target = USA
+				ratio = -0.5
+				}
+			}
+		}
 	}
 }
 #罗森堡事件
@@ -1164,6 +1173,8 @@ news_event = {
 		name = usatext.8.a
 	}
 }
+
+
 #麦卡锡
 news_event = {
 	id = usa.103
@@ -1472,7 +1483,12 @@ news_event = {   #阿尔杰·希斯
 	option = {
 		name = jap.96.a
 		set_global_flag = AlgerHiss
-		add_stability = -0.02
+		if = {
+			limit = { tag = USA }
+			add_stability = -0.02
+			custom_effect_tooltip = red_fear_gain
+			add_to_variable = { USA.red_fears = -1 }
+		}
 	}
 }
 #接受美国保护
@@ -3362,6 +3378,12 @@ news_event = {
 	option = {
 		name = usatext.19.a
 		set_global_flag = usa235
+		if = {
+			limit = { tag = USA }
+			add_political_power = -100
+			custom_effect_tooltip = red_fear_gain
+			add_to_variable = { USA.red_fears = -2 }
+		}
 	}
 }
 news_event = {
@@ -5415,7 +5437,6 @@ news_event = {
 }
 
 ################################################
-
 country_event = {
 	id = usa.998
 	title = usatext.998.t
