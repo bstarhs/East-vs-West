@@ -53,11 +53,11 @@ news_event = {
 }
 
 #保罗即位（1947年4月）
-country_event = {
+news_event = {
 	id = gre.2
 	title = gre.2.t
 	desc = gre.2.d
-	picture = GFX_Greece_Paul
+	picture = GFX_KingPaulI
 	major = yes
 	mean_time_to_happen = {
 		days = 3
@@ -674,5 +674,89 @@ news_event = {
 	}
 	option = {
 		name = gre.6.a
+	}
+}
+####马其顿
+country_event = {
+	id = gre.100
+	title = gre.100.t
+	desc = gre.100.d
+	mean_time_to_happen = { days = 50 }
+	picture = GFX_KKESmall
+	trigger = {
+		tag = KKE
+		has_war_with = GRE
+		controls_province = 11774
+	}
+	option = {
+		name = cze.20.a2
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 300
+			producer = BUL
+		}
+		add_manpower = 300
+	}
+}
+##马其顿暴动
+country_event = {
+	id = gre.101
+	title = gre.101.t
+	desc = gre.101.d
+	mean_time_to_happen = { days = 50 }
+	picture = GFX_KKESmall
+	trigger = {
+		tag = GRE
+		controls_state = 184
+		has_idea = Red_Brigade
+		date < 1953.1.1
+	}
+	option = {
+		name = cze.20.a2
+		184 = { add_resistance = 5 }
+	}
+}
+##临时政府成立
+news_event = {
+	id = gre.102
+	title = gre.102.t
+	desc = gre.102.d
+	picture = GFX_GreekLiberate
+	major = yes
+	mean_time_to_happen = { days = 5 }
+	trigger = {
+		date > 1947.3.10
+		date < 1947.5.1
+		NOT = { has_global_flag = gre102 }
+		tag = GRE
+	}
+	option = {
+		name = egy.3.a
+		if = {
+			limit = { tag = KKE }
+			has_global_flag = gre102
+			add_war_support = 0.5
+		}
+	}
+}
+country_event = {
+	id = gre.110
+	title = gre.110.t
+	desc = gre.110.d
+	mean_time_to_happen = { days = 50 }
+	picture = GFX_KKESmall
+	trigger = {
+		tag = KKE
+		has_war_with = GRE
+		controls_province = 936
+	}
+	option = {
+		name = cze.20.a2
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 200
+			producer = YUG
+		}
+		add_manpower = 200
 	}
 }

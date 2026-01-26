@@ -169,13 +169,110 @@ characters={
 			id=-1
 		}
 	}
-	#GRE
+	#GRE##
+	GRE_Prince_Friederike_Luise={
+		name=GRE_Prince_Friederike_Luise
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Prince_Friederike_Luise.tga"
+				small="gfx/interface/ideas/idea_Prince_Friederike_Luise.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Prince_Friederike_Luise
+			allowed  = {
+				tag  = GRE
+			}
+			modifier = {
+				stability_factor = -0.05
+				drift_defence_factor = -0.12
+				opinion_gain_monthly_same_ideology_factor = 0.12
+				democratic_acceptance = 50
+			}
+		}
+	}
+	GRE_Dimitrios_Giatzis={
+		name=GRE_Dimitrios_Giatzis
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Dimitrios_Giatzis.tga"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+			}
+			traits={ logistics_wizard }
+			skill=5
+			attack_skill=3
+			defense_skill=5
+			planning_skill=2
+			logistics_skill=6
+		}
+	}
+	GRE_Thrasyvoulos_Tsakalotos={
+		name=GRE_Thrasyvoulos_Tsakalotos
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Thrasyvoulos_Tsakalotos.tga"
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+			}
+			traits={ }
+			skill=5
+			attack_skill=5
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=6
+		}
+	}
+	GRE_Konstantinos_Ventiris={
+		name=GRE_Konstantinos_Ventiris
+		portraits={
+			civilian={
+				large="gfx/leaders/GRE/Portrait_Greece_Konstantinos_Ventiris.tga"
+				small="gfx/interface/ideas/idea_Konstantinos_Ventiris.dds"
+			}
+		}
+		advisor={
+			visible = {
+				date < 1948.1.1
+			}
+			slot = army_chief
+			idea_token = Konstantinos_Ventiris
+			allowed = {
+				original_tag = GRE
+			}
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander={
+			visible={
+				date < 1978.1.1
+			}
+			traits={ logistics_wizard trait_engineer }
+			skill=5
+			attack_skill=4
+			defense_skill=5
+			planning_skill=2
+			logistics_skill=6
+		}
+	}
 	GRE_Alexander_Papagos={
 		name=GRE_Alexander_Papagos
 		portraits={
 			civilian={
 				large="gfx/leaders/GRE/Portrait_Greece_Papagos.tga"
-				small="gfx/interface/ideas/idea_Konstantinos.dds"
+				small="gfx/interface/ideas/idea_Papagos.dds"
 			}
 		}
 		advisor={
@@ -187,6 +284,17 @@ characters={
 			modifier = {
 				political_power_cost = -0.12
 			}
+		}
+		corps_commander={
+			visible = {
+				date < 1952.1.1
+			}
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
 		}
 		country_leader={
 			ideology=authoritarianism
