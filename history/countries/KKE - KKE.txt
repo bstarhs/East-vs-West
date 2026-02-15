@@ -4,7 +4,7 @@ OOB = "GRE_com"
 
 	add_equipment_to_stockpile = {
 		type = infantry_equipment
-		amount = 12000
+		amount = 18000
 		producer = ENG
 	}
 	add_equipment_to_stockpile = {
@@ -13,16 +13,37 @@ OOB = "GRE_com"
 		producer = SOV
 	}
 	add_equipment_to_stockpile = {
-		type = machine_gun
+		type = infantry_equipment
 		amount = 2000
+		producer = BLR
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 8000
+		producer = ITA
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2000
+		producer = BUL
+	}
+	add_equipment_to_stockpile = {
+		type = machine_gun
+		amount = 5000
 		producer = ENG
 	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_0
+		amount = 4000
+		producer = GER
+	}
 set_country_flag = orthodox_state
+set_country_flag = language_greeks
 set_technology = {
 	infantry_weapons = 1
 	tech_support = 1
 	tech_recon = 1
-		motorised_infantry = 1
+	motorised_infantry = 1
 }
 	add_ideas = {
 		isolated
@@ -48,12 +69,10 @@ set_politics = {
 
 set_convoys = 5
 
-create_country_leader = {
-	name = "Markos Vafiades"
-	picture = "gfx/leaders/KKE/Portrait_Markos_Vafiadis.tga"
-	expire = "1965.1.1"
-	ideology = leninism
-	traits = {
-		independent_red
-	}
-}
+recruit_character = GRE_Markos_Vafiadis
+recruit_character = GRE_Nikos_Zakharias
+recruit_character = GRE_Petros_Pousos
+recruit_character = GRE_Nikos_Ploumpidis
+recruit_character = GRE_Petros_Beloyiannis
+
+promote_character = GRE_Nikos_Zakharias
