@@ -1,0 +1,545 @@
+﻿add_namespace = Netherland
+
+state_event = {
+	id = Netherland.1
+	title = Netherland.1.t
+	desc = Netherland.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.1.a
+		add_political_power = 50
+		event_target:Routine_suppression_event_target_1 = {
+			add_compliance = 10
+			add_resistance = -10
+			add_resistance_target = -5
+		}
+	}
+}
+state_event = {
+	id = Netherland.2
+	title = Netherland.2.t
+	desc = Netherland.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.2.a
+		event_target:Routine_suppression_event_target_1 = {
+			add_compliance = 5
+			add_resistance = -5
+		}
+	}
+}
+state_event = {
+	id = Netherland.3
+	title = Netherland.3.t
+	desc = Netherland.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.3.a
+		event_target:Routine_suppression_event_target_3 = {
+			add_resistance = -5
+			add_resistance_target = 5
+		}
+	}
+}
+state_event = {
+	id = Netherland.4
+	title = Netherland.4.t
+	desc = Netherland.4.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.4.a
+		add_political_power = -1
+		add_stability = -0.01
+	}
+}
+state_event = {
+	id = Netherland.5
+	title = Netherland.5.t
+	desc = Netherland.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.5.a
+		add_stability = -0.05
+		add_political_power = -75
+	}
+}
+state_event = {
+	id = Netherland.6
+	title = Netherland.6.t
+	desc = Netherland.6.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.6.a
+		custom_effect_tooltip = Netherland_event_6_happened_tt
+		set_country_flag = {
+			flag = Netherland_event_6_happened
+			days = 180
+		}
+	}
+}
+state_event = {
+	id = Netherland.7
+	title = Netherland.7.t
+	desc = Netherland.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.7.a
+		add_opinion_modifier = {
+			target = ENG
+			modifier = Shot_down_a_Malayan_Red_Cross_transport_plane
+		}
+		add_opinion_modifier = {
+			target = USA
+			modifier = Shot_down_a_Malayan_Red_Cross_transport_plane
+		}
+		add_opinion_modifier = {
+			target = IND
+			modifier = Shot_down_a_Malayan_Red_Cross_transport_plane
+		}
+		add_opinion_modifier = {
+			target = AST
+			modifier = Shot_down_a_Malayan_Red_Cross_transport_plane
+		}
+		add_opinion_modifier = {
+			target = MAL
+			modifier = Shot_down_a_Malayan_Red_Cross_transport_plane
+		}
+	}
+}
+country_event = {
+	id = Netherland.8
+	title = Netherland.8.t
+	desc = Netherland.8.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.8.a
+		effect_tooltip = {
+			FROM = {
+				send_equipment = {
+					equipment = infantry_equipment
+					amount = 750
+					target = ROOT
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.9
+	title = Netherland.9.t
+	desc = Netherland.9.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.9.a #同意
+		country_event = Netherland.10
+		ai_chance = {
+			factor = 100
+		}
+		INS = {
+			country_event = {
+				id = Netherland.12
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = Netherland.9.b
+		add_stability = -0.05
+		add_political_power = -75
+		USA = {
+			country_event = {
+				id = Netherland.13
+				days = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.10
+	title = Netherland.10.t
+	desc = Netherland.10.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.10.a
+		white_peace = INS
+		add_threat = -3
+		set_global_flag = first_hol_ins_war_has_been_end
+		set_truce = {
+			target = INS
+			days = 120
+		}
+		INS = {
+			every_owned_state = {
+				limit = {
+					is_fully_controlled_by = INS
+					not = {
+						state = 873
+					}
+				}
+				transfer_state_to = HOL
+			}
+		}
+		hidden_effect = {
+			news_event = {
+				id = Netherland.11
+				days = 1
+			}
+		}
+	}
+}
+news_event = {
+	id = Netherland.11
+	title = Netherland.11.t
+	desc = Netherland.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.11.a
+		
+	}
+}
+country_event = {
+	id = Netherland.12
+	title = Netherland.12.t
+	desc = Netherland.12.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.12.a
+		effect_tooltip = {
+			white_peace = FROM
+			set_truce = {
+				target = HOL
+				days = 120
+			}
+			INS = {
+				every_owned_state = {
+					limit = {
+						is_fully_controlled_by = INS
+						not = {
+							state = 873
+						}
+					}
+					transfer_state_to = HOL
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.13
+	title = Netherland.13.t
+	desc = Netherland.13.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.13.a
+		HOL = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = Refuse_to_cease_fire
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.14
+	title = Netherland.14.t
+	desc = Netherland.14.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.14.a
+		HOL = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = Another_invasion_of_Indonesia_opinion_modifiers
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.15
+	title = Netherland.15.t
+	desc = Netherland.15.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.15.a
+		INS = {
+			create_country_leader = {
+				name = INS_Sjafruddin_Prawiranegara
+				picture = x
+				ideology = authoritarianism
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.16
+	title = Netherland.16.t
+	desc = Netherland.16.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.16.a
+		country_event = Netherland.17
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		name = Netherland.16.b
+		add_stability = -0.2
+		add_political_power = 200
+		USA = {
+			country_event = {
+				id = Netherland.18
+				days = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.17
+	title = Netherland.17.t
+	desc = Netherland.17.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.17.a
+		873 = {
+			transfer_state_to = INS
+		}
+		set_global_flag = Netherland_17_event_happened
+	}
+}
+country_event = {
+	id = Netherland.18
+	title = Netherland.18.t
+	desc = Netherland.18.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.18.a
+		hidden_effect = {
+			USA = {
+				add_ai_strategy = {
+					type = antagonize
+					id = "HOL"
+					value = 100
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.19
+	title = Netherland.19.t
+	desc = Netherland.19.d
+	trigger = {
+		tag = INS
+		date > 1949.7.31
+		has_global_flag = Netherland_17_event_happened
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = Netherland.19.a
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = ins_hol_war_1_agree
+		hidden_effect = {
+			country_event = {
+				id = Netherland.20
+				days = 1
+				random_days = 7
+			}
+		}
+	}
+	option = {
+		name = Netherland.19.b
+		ai_chance = {
+			factor = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = Netherland.20
+				days = 1
+				random_days = 7
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.20
+	title = Netherland.20.t
+	desc = Netherland.20.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.20.a
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = ins_hol_war_2_agree
+		hidden_effect = {
+			country_event = {
+				id = Netherland.21
+				days = 1
+				random_days = 7
+			}
+		}
+	}
+	option = {
+		name = Netherland.20.b
+		ai_chance = {
+			factor = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = Netherland.21
+				days = 1
+				random_days = 7
+			}
+		}
+	}
+}
+country_event = {
+	id = Netherland.21
+	title = Netherland.21.t
+	desc = Netherland.21.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.21.a
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = ins_hol_war_3_agree
+		if = {
+			limit = {
+				INS = {
+					has_country_flag = ins_hol_war_3_agree
+					has_country_flag = ins_hol_war_2_agree
+					has_country_flag = ins_hol_war_1_agree
+				}
+			}
+			country_event = {
+				id = Netherland.22
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = Netherland.21.b
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+country_event = {
+	id = Netherland.22
+	title = Netherland.22.t
+	desc = Netherland.22.d
+	is_triggered_only = yes
+
+	option = {
+		name = Netherland.22.a
+		HOL = {
+			every_owned_state = {
+				limit = {
+					is_fully_controlled_by = HOL
+					is_core_of = INS
+				}
+				transfer_state_to = INS
+			}
+			add_stability = 0.1
+			add_political_power = 100
+			add_popularity = {
+				ideology = HOL
+				popularity = 0.1
+			}
+		}
+		INS = {
+			add_stability = 0.1
+			add_political_power = 100
+			add_popularity = {
+				ideology = INS
+				popularity = 0.1
+			}
+		}
+		hidden_effect = {
+			PTN = {
+				set_variable = {
+					ptn_rn_ideology = PTN.ruling_party
+				}
+			}
+			SLA = {
+				set_variable = {
+					sla_rn_ideology = SLA.ruling_party
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = PTN
+			}
+			INS = {
+				set_autonomy = {
+					target = PTN
+					autonomy_state = autonomy_puppet
+				}
+			}
+			hidden_effect = {
+				meta_effect = {
+					text = {
+						PTN = {
+							set_politics = {
+								ruling_party = [TYPE]
+							}
+						}
+					}
+					TYPE = "[?PTN.ptn_rn_ideology]"
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = SLA
+			}
+			INS = {
+				set_autonomy = {
+					target = SLA
+					autonomy_state = autonomy_puppet
+				}
+			}
+			hidden_effect = {
+				meta_effect = {
+					text = {
+						SLA = {
+							set_politics = {
+								ruling_party = [TYPE]
+							}
+						}
+					}
+					TYPE = "[?SLA.sla_rn_ideology]"
+				}
+			}
+		}
+	}
+}
