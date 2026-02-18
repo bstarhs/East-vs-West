@@ -1,0 +1,26 @@
+on_actions = {
+	on_capitulation = {
+		# ROOT is capitulated country, FROM is winner. Several processes such as the deletion of units and transfer of equipment have already been executed by this point.
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						tag = INS
+					}
+					FROM = {
+						tag = HOL
+					}
+					has_global_flag = Operation_Kraai_started
+				}
+				HOL = {
+					white_peace = INS
+					annex_country = {
+						target = INS
+					}
+					country_event = Netherland.15
+				}
+				set_global_flag = Operation_Kraai_end
+			}
+		}
+	}
+}

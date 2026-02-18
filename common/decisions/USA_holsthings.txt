@@ -1,0 +1,48 @@
+USA_Mediates_the_Netherlands_Indonesia_War_first = {
+	USA_mediate_the_war = {
+		allowed = {
+			original_tag = USA
+		}
+		visible = {
+			date > 1947.12.31
+			HOL = {
+				has_war_with = INS
+			}
+		}
+		cost = 0
+		complete_effect = {
+			HOL = {
+				country_event = {
+					id = Netherland.9
+					days = 1
+				}
+			}
+		}
+	}
+	USA_mediate_the_war_second = {
+		allowed = {
+			or = {
+				original_tag = SOV
+				original_tag = USA
+			}
+		}
+		visible = {
+			date > 1948.12.31
+			or = {
+				HOL = {
+					has_war_with = INS
+				}
+				has_global_flag = Operation_Kraai_end
+			}
+		}
+		cost = 0
+		complete_effect = {
+			HOL = {
+				country_event = {
+					id = Netherland.16
+					days = 1
+				}
+			}
+		}
+	}
+}

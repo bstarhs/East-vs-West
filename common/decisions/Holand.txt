@@ -198,3 +198,367 @@ political_actions = {
 	
 	}
 }
+
+hol_ins_war_decis_category = {
+	Routine_suppression = {
+		cost = 50
+		ai_hint_pp_cost = 50
+		custom_cost_trigger = {
+			command_power > 10
+		}
+		custom_cost_text = Routine_suppression_custom_cost_text
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_core_of = INS
+				or = {
+					is_controlled_by = HOL
+					controller = {
+						is_puppet_of = HOL
+					}
+				}
+				HOL = {
+					divisions_in_state = { 
+						state = PREV 
+						size > 0
+					}
+				}
+			}
+		}
+		days_re_enable = 40
+		on_map_mode = map_and_decisions_view
+		days_remove = 7
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						FROM = {
+							state = 335
+						}
+					}
+					random = {
+						chance = 10
+						if = {
+							limit = {
+								not = {
+									has_global_flag = Netherland4_hasbeenhappened
+								}
+							}
+							FROM = {
+								state_event = Netherland.4
+							}
+							set_global_flag = Netherland4_hasbeenhappened
+						}
+					}
+					random = {
+						chance = 5
+						if = {
+							limit = {
+								not = {
+									has_global_flag = Netherland6_hasbeenhappened
+								}
+							}
+							set_global_flag = Netherland6_hasbeenhappened
+							FROM = {
+								state_event = Netherland.6
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							state = 682
+						}
+					}
+					random = {
+						chance = 5
+						if = {
+							limit = {
+								not = {
+									has_global_flag = Netherland5_hasbeenhappened
+								}
+							}
+							FROM = {
+								state_event = Netherland.5
+							}
+							set_global_flag = Netherland5_hasbeenhappened
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						FROM = {
+							state = 873
+						}
+					}
+					random = {
+						chance = 5
+						if = {
+							limit = {
+								not = {
+									has_global_flag = Netherland7_hasbeenhappened
+								}
+							}
+							FROM = {
+								state_event = Netherland.7
+							}
+							set_global_flag = Netherland7_hasbeenhappened
+						}
+					}
+				}
+			}
+			random_list = {
+				1 = { 
+					modifier = {
+						factor = 1.5
+						HOL = {
+							divisions_in_state = { 
+								state = FROM
+								size > 4
+							}
+						}
+					}
+					modifier = {
+						factor = 1.5
+						FROM = {
+							compliance > 50
+						}
+					}
+					modifier = {
+						factor = 1.2
+						FROM = {
+							controller = {
+								has_stability > 0.5
+							}
+						}
+					}
+					FROM = {
+						state_event = {
+							id = Netherland.1
+							trigger_for = HOL
+						}
+						hidden_effect = {
+							save_event_target_as = Routine_suppression_event_target_1
+						}
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						HOL = {
+							divisions_in_state = { 
+								state = FROM
+								size > 2
+							}
+						}
+					}
+					FROM = {
+						state_event = {
+							id = Netherland.2
+							trigger_for = HOL
+						}
+						hidden_effect = {
+							save_event_target_as = Routine_suppression_event_target_2
+						}
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						FROM = {
+							compliance < 5
+						}
+					}
+					modifier = {
+						factor = 1.2
+						FROM = {
+							controller = {
+								has_stability < 0.25
+							}
+						}
+					}
+					FROM = {
+						state_event = {
+							id = Netherland.3
+							trigger_for = HOL
+						}
+						hidden_effect = {
+							save_event_target_as = Routine_suppression_event_target_3
+						}
+					}
+				}
+			}
+		}
+	}
+	Local_resolution = {
+		cost = 50
+		on_map_mode = map_and_decisions_view
+		days_remove = 30
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_core_of = INS
+				or = {
+					is_controlled_by = HOL
+					controller = {
+						is_puppet_of = HOL
+					}
+				}
+				resistance < 30
+				not = {
+					has_state_flag = Local_resolution_has_been_set
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_compliance = 10
+				set_state_flag = Local_resolution_has_been_set
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						not = {
+							has_variable = var_Local_resolution
+						}
+					}
+					set_variable = {
+						var_Local_resolution = 0
+					}
+				}
+				add_to_variable = {
+					var_Local_resolution = 1
+				}
+			}
+		}
+	}
+	Recruit_local_militias = {
+		cost = 25
+		days_remove = 14
+		visible = {
+			check_variable = {
+				var = var_Local_resolution
+				value = 4
+				compare = greater_than_or_equals
+			}
+		}
+		remove_effect = {
+			add_manpower = 1000
+		}
+	}
+	Recruit_Christian_militias = {
+		cost = 25
+		days_remove = 14
+		visible = {
+			check_variable = {
+				var = var_Local_resolution
+				value = 4
+				compare = greater_than_or_equals
+			}
+		}
+		remove_effect = {
+			add_manpower = 1000
+		}
+	}
+	Recruiting_Chinese_Security_Team = {
+		cost = 25
+		days_remove = 14
+		visible = {
+			check_variable = {
+				var = var_Local_resolution
+				value = 4
+				compare = greater_than_or_equals
+			}
+			not = {
+				has_country_flag = Netherland_event_6_happened
+			}
+		}
+		remove_effect = {
+			add_manpower = 1000
+		}
+	}
+	Provide_military_aid_to_the_Sultanate_of_Kundian = {
+		cost = 50
+		days_remove = 60
+		visible = {
+			check_variable = {
+				var = var_Local_resolution
+				value = 4
+				compare = greater_than_or_equals
+			}
+		}
+		remove_effect = {
+			PTN = {
+				country_event = Netherland.8
+			}
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 750
+				target = PTN
+			}
+		}
+	}
+	Provide_military_aid_to_East_Indonesian_provinces = {
+		cost = 50
+		days_remove = 60
+		visible = {
+			check_variable = {
+				var = var_Local_resolution
+				value = 4
+				compare = greater_than_or_equals
+			}
+		}
+		remove_effect = {
+			SLA = {
+				country_event = Netherland.8
+			}
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 750
+				target = SLA
+			}
+		}
+	}
+}
+
+USA_Mediates_the_Netherlands_Indonesia_War_first = {
+	Another_invasion_of_Indonesia = {
+		visible = {
+			has_global_flag = first_hol_ins_war_has_been_end
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1948.11.30
+			}
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = INS
+				type = annex_everything
+			}
+			set_global_flag = Operation_Kraai_started
+			hidden_effect = {
+				USA = {
+					country_event = {
+						id = Netherland.14
+						days = 1
+					}
+				}
+				ENG = {
+					country_event = {
+						id = Netherland.14
+						days = 1
+					}
+				}
+			}
+		}
+	}
+}
